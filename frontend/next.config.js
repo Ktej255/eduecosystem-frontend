@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   // Standard Next.js SSR mode for Vercel
   // Production optimizations
   productionBrowserSourceMaps: false,
