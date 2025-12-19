@@ -1,0 +1,61 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+psycopg2-binary
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+pydantic
+pydantic-settings
+pyotp
+qrcode
+motor
+redis
+slowapi
+sentry-sdk
+pytest
+httpx
+fastapi-mail
+
+# Payment gateways
+stripe
+razorpay
+requests
+
+# AI/ML
+easyocr
+Pillow
+openai
+anthropic
+google-generativeai
+
+# Testing
+pytest-cov
+pytest-asyncio
+
+# WebSocket
+python-socketio
+
+# Background Tasks
+celery==5.3.4
+
+# File upload security and storage (optional dependencies)
+# Install these for production features:
+# - boto3: AWS S3 storage (if STORAGE_BACKEND=s3)
+# - pyclamd: ClamAV virus scanning (if ENABLE_VIRUS_SCAN=true)
+boto3>=1.28.0
+# pyclamd>=0.4.0
+google-cloud-vision
+google-cloud-speech
+
+# PDF Generation
+reportlab
+matplotlib
+pandas==2.1.4
+
+# Enterprise SSO
+python3-saml==1.16.0
+xmlsec==1.3.13
+lxml==5.0.0
+authlib==1.3.0

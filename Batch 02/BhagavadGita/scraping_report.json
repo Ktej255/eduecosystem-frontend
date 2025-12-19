@@ -1,0 +1,82 @@
+[
+  {
+    "originalUrl": "/Default.html",
+    "pageTitle": "BhagavadGita Home",
+    "newFolder": ".",
+    "newFilePath": "index.html",
+    "mainCategory": "Home",
+    "status": "Pending - Script needs fetch logic"
+  },
+  {
+    "originalUrl": "/AUM_OM.htm",
+    "pageTitle": "About AUM / AUM-OM",
+    "newFolder": "about",
+    "newFilePath": "about/about-aum.html",
+    "mainCategory": "About",
+    "status": "Pending - Script needs fetch logic"
+  },
+  {
+    "originalUrl": "/bg01.htm",
+    "pageTitle": "Bhagavad Gita Chapter 1",
+    "newFolder": "bhagavadgita/chapters",
+    "newFilePath": "bhagavadgita/chapters/bg01.html",
+    "mainCategory": "BhagavadGita",
+    "status": "Pending - Script needs fetch logic"
+  },
+  {
+    "originalUrl": "/bg02.htm",
+    "pageTitle": "Bhagavad Gita Chapter 2",
+    "newFolder": "bhagavadgita/chapters",
+    "newFilePath": "bhagavadgita/chapters/bg02.html",
+    "mainCategory": "BhagavadGita",
+    "status": "Pending - Script needs fetch logic"
+  },
+  {
+    "originalUrl": "/bg03.htm",
+    "pageTitle": "Bhagavad Gita Chapter 3",
+    "newFolder": "bhagavadgita/chapters",
+    "newFilePath": "bhagavadgita/chapters/bg03.html",
+    "mainCategory": "BhagavadGita",
+    "status": "Pending - Script needs fetch logic"
+  },
+  {
+    "originalUrl": "/kundalini_power.htm",
+    "pageTitle": "Kundalini Power",
+    "newFolder": "yoga",
+    "newFilePath": "yoga/kundalini.html",
+    "mainCategory": "Yoga",
+    "status": "Pending - Script needs fetch logic"
+  },
+  {
+    "originalUrl": "/kundalini-serpent power.htm",
+    "pageTitle": "Kundalini Serpent Power",
+    "newFolder": "yoga",
+    "newFilePath": "yoga/kundalini-serpent.html",
+    "mainCategory": "Yoga",
+    "status": "Pending - Script needs fetch logic"
+  },
+  {
+    "originalUrl": "/SivaSutras.htm",
+    "pageTitle": "Siva Sutras",
+    "newFolder": "yoga",
+    "newFilePath": "yoga/siva-sutras.html",
+    "mainCategory": "Yoga",
+    "status": "Pending - Script needs fetch logic"
+  },
+  {
+    "originalUrl": "/BINDU.htm",
+    "pageTitle": "BINDU",
+    "newFolder": "yoga",
+    "newFilePath": "yoga/bindu.html",
+    "mainCategory": "Yoga",
+    "status": "Pending - Script needs fetch logic"
+  },
+  {
+    "originalUrl": "/TANTRA.htm",
+    "pageTitle": "TANTRA",
+    "newFolder": "tantra",
+    "newFilePath": "tantra/tantra-intro.html",
+    "mainCategory": "Tantra",
+    "status": "Pending - Script needs fetch logic"
+  }
+]

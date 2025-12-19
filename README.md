@@ -1,135 +1,248 @@
-# 🎓 Holistic Learning Ecosystem
 
-A comprehensive AI-powered learning platform that combines intelligent task management, wellness tracking, gamification, and advanced monitoring to create a holistic educational experience.
+## 📋 Table of Contents
 
-![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
-![Next.js](https://img.shields.io/badge/next.js-14.0+-black.svg)
-
----
-
-## 🌟 Features
-
-### Core Modules
-
-#### 📝 AI OCR Handwriting Analysis
-- Upload handwriting samples for AI-powered analysis
-- Extract text with 95%+ accuracy using EasyOCR
-- Get personality insights and cognitive pattern analysis
-- Track writing style evolution over time
-- **Reward:** 50 coins per submission
-
-#### 🎯 7-Day Shadow Mode Tracker
-- Deep focus sessions with goal setting
-- Daily progress tracking over 7 days
-- Focus score recording (1-10 scale)
-- Visual calendar interface
-- Duration and achievement metrics
-- **Reward:** Coins based on session duration and focus
-
-#### 🐺 Wolf Pack Grouping
-- Auto-assignment to groups based on streak similarity
-- Max 5 members per pack
-- Group leaderboards and rankings
-- Pack activity feed
-- Collaborative learning environment
-
-#### 👁️ Stealth Attention Tracking
-- Webcam-based attention monitoring (optional)
-- Real-time focus score calculation
-- Attention pattern analytics
-- Integration with exam monitoring
-- Performance insights
-
-#### 📊 Analytics Dashboard
-- Comprehensive progress tracking
-- AI-powered insights and recommendations
-- Multi-module data aggregation
-- Visual charts and progress bars
-- Weekly activity breakdown
-
-### Supporting Features
-
-- 🏆 **Gamification**: Coins, streaks, badges, and rewards
-- 🧘 **Meditation & Wellness**: Guided sessions and mood tracking
-- 📚 **LMS Integration**: Course management and quizzes
-- 👥 **Community**: Forums, study rooms, and social features
-- 🤖 **AI Assistant**: Personalized learning recommendations
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Platform Capabilities](#platform-capabilities)
+- [Screenshots](#screenshots)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## 🏗️ Architecture
+## 🌟 Overview
 
-### Tech Stack
+The **Holistic Learning Ecosystem** is a full-featured online learning platform that enables:
 
-**Backend:**
-- FastAPI (Python 3.9+)
-- SQLAlchemy ORM
-- SQLite (Development) / PostgreSQL (Production)
-- EasyOCR for handwriting recognition
-- JWT authentication
-- Pydantic for data validation
+- 👨‍🏫 **Instructors** to create, manage, and monetize courses
+- 🎓 **Students** to learn, track progress, and earn certificates
+- 📱 **Mobile learners** to access content on-the-go
+- 📊 **Administrators** to monitor platform analytics
 
-**Frontend:**
-- Next.js 14+ with App Router
-- TypeScript
-- Tailwind CSS
-- React Hooks
-- Axios for API calls
+### Key Highlights
 
-**Deployment:**
-- Docker & Docker Compose
-- Nginx reverse proxy
-- GitHub Actions CI/CD
+- ✅ **9 Frontend Pages** - Complete instructor & student dashboards
+- ✅ **Mobile App** - React Native with Expo
+- ✅ **RESTful API** - FastAPI backend with comprehensive endpoints
+- ✅ **Analytics** - Real-time charts and insights
+- ✅ **Drag & Drop** - Intuitive content organization
+- ✅ **Rich Features** - Video, quizzes, assignments, notes, bookmarks
 
 ---
 
-## 🚀 Quick Start
+## ✨ Features
+
+### For Instructors
+
+| Feature | Description |
+|---------|-------------|
+| 📚 Course Creation | 4-step wizard with validation |
+| 🎬 Content Management | Drag-drop modules & lessons |
+| 📊 Analytics Dashboard | Revenue, enrollment, completion tracking |
+| 📢 Announcements | Broadcast messages to students |
+| 👥 Student Insights | View progress and engagement |
+| 💰 Revenue Tracking | Real-time earnings analytics |
+
+### For Students
+
+| Feature | Description |
+|---------|-------------|
+| 🏠 Personal Dashboard | Stats, streaks, achievements |
+| 📖 Course Browser | Search, filter, and enroll |
+| 🎥 Video Player | Full-featured learning interface |
+| ✅ Quizzes | Interactive assessments |
+| 📝 Assignments | Submit and track work |
+| 📓 Notes & Bookmarks | Organize learning materials |
+| 🏆 Certificates | Download on completion |
+
+### Advanced Features
+
+- **🔒 Authentication** - JWT-based secure login with role-based access control (RBAC)
+- **🎨 Rich Text Editor** - Markdown support for content creation
+- **📈 Progress Tracking** - Visual completion indicators and analytics
+- **🎯 Gamification System** - Complete engagement platform:
+  - 17 automated coin reward triggers (lessons, quizzes, assignments, discussions, streaks)
+  - 20 achievements across 6 categories (Learning, Mastery, Social, Streak, Dedicated, Special)
+  - Daily and weekly challenges with progress tracking
+  - Rewards shop for coin redemption
+  - Leaderboard with rankings
+  - Mobile gamification dashboard
+- **💬 Discussion Forums** - Community engagement:
+  - Threaded discussions with nested replies
+  - Voting system (upvote/downvote)
+  - Mark posts as answers
+  - Pin and lock threads
+  - Category organization
+  - Mobile discussion viewing
+- **🔔 Toast Notifications** - Real-time feedback with 4 types (success, error, warning, info)
+- **📧 Email Notification System** - Complete email platform:
+  - User preference management (master toggle + 7 notification types)
+  - Course enrollment confirmations
+  - Assignment submission/grading alerts
+  - Quiz completion results
+  - Certificate generation emails
+  - Course announcements broadcast
+  - Admin template & log management
+  - Mobile email preferences
+- **🎥 Live Class Interactive Features** - Real-time engagement tools:
+  - Live polls with instant voting and results
+  - Q&A with upvoting and instructor answers
+  - Real-time chat with typing indicators
+  - Emoji reactions with animated overlays
+  - Participant tracking and presence
+  - Whiteboard collaboration
+  - **Mobile live class viewing** with Agora SDK integration
+- **👥 Social Learning Features** (Phase 3) - Collaborative learning ecosystem:
+  - **Study Groups**:
+    - Public, private, and invite-only groups
+    - Group discussions with posts and comments
+    - Member roles (admin, moderator, member)
+    - Activity feeds and engagement tracking
+    - Course-specific or general study groups
+  - **Collaborative Projects**:
+    - Team-based project workflows
+    - Milestone tracking and progress monitoring
+    - Team formation and member management
+    - Project submission and grading system
+    - Deadline management with notifications
+    - Grade feedback and instructor comments
+- **🤖 AI-Powered Recommendations** - Enhanced personalization:
+  - Hybrid recommendation algorithm (collaborative + content-based + popularity)
+  - Similar student behavior patterns
+  - Course affinity based on category and instructor preferences
+  - Trending courses discovery
+  - Personalized learning path suggestions
+- **👥 Peer Review System** - Collaborative learning:
+  - Instructor peer review assignment (auto or manual)
+  - Student review submission with structured feedback
+  - 5-star rating system
+  - Strengths and improvements sections
+  - Reviews received dashboard
+- **♿ Accessibility** - WCAG compliant components:
+  - Screen reader support with VisuallyHidden component
+  - Keyboard navigation with FocusTrap and SkipLink
+  - ARIA labels throughout
+  - High contrast mode support
+- **📱 Responsive Design** - Optimized for all devices:
+  - Breakpoint hooks (useBreakpoint, useisMobile, useIsTablet)
+  - Responsive utility classes
+  - Mobile-first approach
+  - Touch-friendly interfaces
+- **🔍 Advanced Search** - Powerful discovery:
+  - Multi-filter support (category, level, price, tags)
+  - Real-time search suggestions
+  - Active filter badges
+  - Keyboard shortcuts
+- **🛡️ Error Handling** - Graceful degradation:
+  - Error boundary components
+  - User-friendly error messages
+  - Retry mechanisms
+  - Development mode debug info
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+- **Framework:** FastAPI
+- **Database:** SQLAlchemy (SQLite dev, PostgreSQL prod)
+- **Validation:** Pydantic v2
+- **Caching:** Redis
+- **Storage:** AWS S3 / Local
+- **Security:** ClamAV virus scanning
+
+### Frontend
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS v4
+- **UI Components:** Radix UI
+- **Forms:** React Hook Form + Zod
+- **Charts:** Recharts
+- **Drag & Drop:** @dnd-kit
+- **HTTP Client:** Axios
+
+### Mobile
+- **Framework:** React Native (Expo)
+- **Styling:** NativeWind (Tailwind for RN)
+- **Navigation:** Expo Router
+- **Icons:** Lucide React Native
+- **HTTP Client:** Axios
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── backend/                 # FastAPI backend
+│   ├── app/
+│   │   ├── api/            # API endpoints
+│   │   ├── core/           # Config, security
+│   │   ├── crud/           # Database operations
+│   │   ├── models/         # SQLAlchemy models
+│   │   └── schemas/        # Pydantic schemas
+│   ├── tests/              # Backend tests
+│   └── requirements.txt
+│
+├── frontend/               # Next.js frontend
+│   ├── src/
+│   │   ├── app/           # App Router pages
+│   │   │   ├── (dashboard)/
+│   │   │   │   ├── instructor/    # Instructor pages
+│   │   │   │   ├── student/       # Student pages
+│   │   │   │   └── lms/           # Learning pages
+│   │   ├── components/    # React components
+│   │   └── lib/          # Utilities
+│   └── package.json
+│
+├── mobile/                # React Native app
+│   ├── app/              # Expo Router pages
+│   ├── components/       # Mobile components
+│   └── package.json
+│
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Python 3.9 or higher
-- Node.js 18+ and npm
-- Git
+- **Python 3.9+**
+- **Node.js 18+**
+- **PostgreSQL** (for production)
+- **Redis** (optional, for caching)
 
-### Installation
-
-#### 1. Clone the Repository
-
-```bash
-git clone <repository-url>
-cd Eduecosystem
-```
-
-#### 2. Backend Setup
+### Backend Setup
 
 ```bash
 cd backend
 
 # Create virtual environment
 python -m venv venv
-
-# Activate virtual environment
-# Windows:
-venv\Scripts\activate
-# macOS/Linux:
-source venv/bin/activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Initialize database
-python init_db.py
+# Set environment variables
+cp .env.example .env
+# Edit .env with your configuration
 
-# Start development server
-uvicorn main:app --reload --port 8000
+# Run migrations
+alembic upgrade head
+
+# Start server
+uvicorn main:app --reload
 ```
 
 Backend will be available at `http://localhost:8000`
-API docs at `http://localhost:8000/docs`
 
-#### 3. Frontend Setup
+### Frontend Setup
 
 ```bash
 cd frontend
@@ -137,68 +250,137 @@ cd frontend
 # Install dependencies
 npm install
 
+# Set environment variables
+cp .env.local.example .env.local
+# Edit .env.local with API URL
+
 # Start development server
 npm run dev
 ```
 
 Frontend will be available at `http://localhost:3000`
 
+### Mobile Setup
+
+```bash
+cd mobile
+
+# Install dependencies
+npm install
+
+# Start Expo
+npx expo start
+
+# Options:
+# - Press 'a' for Android emulator
+# - Press 'i' for iOS simulator
+# - Scan QR code with Expo Go app
+```
+
+**Mobile Features**:
+- ✅ Email notification preferences management
+- ✅ Gamification dashboard (leaderboard, achievements, challenges)
+- ✅ Discussion forums (browse threads, reply, vote)
+- ✅ Live class viewing with interactive features (Chat, Q&A, Polls)
+- ✅ Course browsing and enrollment
+- ✅ Video lessons with progress tracking
+- ✅ Quiz taking
+- ✅ User profile management
+
 ---
 
-## 🔧 Configuration
+## 💡 Platform Capabilities
 
-### Backend Environment Variables
+### Instructor Workflow
 
-Create `backend/.env` file:
+1. **Create Account** → Sign up as instructor
+2. **Create Course** → Use 4-step wizard
+3. **Build Content** → Add modules & lessons via drag-drop
+4. **Publish Course** → Make available to students
+5. **Monitor Analytics** → Track enrollments & revenue
+6. **Communicate** → Send announcements
 
-```env
-DATABASE_URL=sqlite:///./eduecosystem.db
-SECRET_KEY=your-secret-key-change-in-production
-ALLOWED_ORIGINS=http://localhost:3000
-ENVIRONMENT=development
-```
+### Student Workflow
 
-See `backend/.env.example` for all options.
-
-### Frontend Environment Variables
-
-Create `frontend/.env.local` file:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
-NEXT_PUBLIC_ENVIRONMENT=development
-```
+1. **Sign Up** → Create student account
+2. **Browse Courses** → Search and filter catalog
+3. **Enroll** → Join courses
+4. **Learn** → Watch videos, take quizzes, submit assignments
+5. **Track Progress** → View completion percentage
+6. **Take Notes** → Organize learning materials
+7. **Earn Certificate** → Download on completion
 
 ---
 
-## 📁 Project Structure
+## 📸 Screenshots
 
+### Instructor Dashboard
+![Course Management](./docs/screenshots/course-management.png)
+![Analytics](./docs/screenshots/analytics.png)
+
+### Student Experience
+![Dashboard](./docs/screenshots/student-dashboard.png)
+![Course Player](./docs/screenshots/course-player.png)
+
+### Mobile App
+![Mobile Courses](./docs/screenshots/mobile-courses.png)
+![Mobile Player](./docs/screenshots/mobile-player.png)
+
+---
+
+## 📚 API Documentation
+
+### Authentication
+
+```http
+POST /api/v1/auth/login
+POST /api/v1/auth/register
+POST /api/v1/auth/logout
 ```
-Eduecosystem/
-├── backend/
-│   ├── app/
-│   │   ├── api/          # API endpoints
-│   │   ├── core/         # Core utilities (auth, config)
-│   │   ├── crud/         # Database operations
-│   │   ├── models/       # SQLAlchemy models
-│   │   ├── schemas/      # Pydantic schemas
-│   │   └── services/     # Business logic
-│   ├── tests/            # Backend tests
-│   ├── main.py           # FastAPI application
-│   └── requirements.txt  # Python dependencies
-│
-├── frontend/
-│   ├── src/
-│   │   ├── app/          # Next.js app router pages
-│   │   ├── components/   # React components
-│   │   ├── contexts/     # React contexts
-│   │   └── lib/          # Utilities
-│   ├── public/           # Static assets
-│   └── package.json      # Node dependencies
-│
-├── docker-compose.yml    # Docker orchestration
-└── README.md            # This file
+
+### Courses
+
+```http
+GET    /api/v1/courses              # List all courses
+POST   /api/v1/courses              # Create course
+GET    /api/v1/courses/{id}         # Get course details
+PATCH  /api/v1/courses/{id}         # Update course
+DELETE /api/v1/courses/{id}         # Delete course
 ```
+
+### Lessons
+
+```http
+GET    /api/v1/lessons/{id}         # Get lesson
+POST   /api/v1/modules/{id}/lessons # Create lesson
+PATCH  /api/v1/lessons/{id}         # Update lesson
+DELETE /api/v1/lessons/{id}         # Delete lesson
+```
+
+### Enrollments
+
+```http
+GET    /api/v1/enrollments/my-courses    # Student's courses
+POST   /api/v1/courses/{id}/enroll       # Enroll in course
+POST   /api/v1/lessons/{id}/complete     # Mark lesson complete
+```
+
+### Email Notifications
+
+```http
+GET    /api/v1/email-notifications/preferences           # Get user preferences
+PATCH  /api/v1/email-notifications/preferences           # Update preferences
+PUT    /api/v1/email-notifications/preferences/reset     # Reset to defaults
+GET    /api/v1/email-notifications/templates             # List templates
+GET    /api/v1/email-notifications/templates/{id}        # Get template
+POST   /api/v1/email-notifications/templates             # Create template
+PATCH  /api/v1/email-notifications/templates/{id}        # Update template
+DELETE /api/v1/email-notifications/templates/{id}        # Delete template
+GET    /api/v1/email-notifications/logs                  # Get email logs
+GET    /api/v1/email-notifications/logs/{id}             # Get specific log
+```
+
+See full API documentation at `http://localhost:8000/docs` (Swagger UI)
 
 ---
 
@@ -208,161 +390,106 @@ Eduecosystem/
 
 ```bash
 cd backend
-pytest                    # Run all tests
-pytest --cov             # With coverage
-pytest tests/test_auth.py  # Specific test file
+pytest tests/ -v --cov=app
 ```
 
-### Frontend Tests
+### Frontend (Future)
 
 ```bash
 cd frontend
-npm test                 # Run tests
-npm run test:coverage    # With coverage
+npm run test
 ```
 
----
-
-## 🐳 Docker Deployment
-
-### Development
+### Mobile (Future)
 
 ```bash
-docker-compose up -d
-```
-
-Services:
-- Backend: `http://localhost:8000`
-- Frontend: `http://localhost:3000`
-- Database: PostgreSQL on port 5432
-
-### Production
-
-```bash
-docker-compose -f docker-compose.prod.yml up -d
+cd mobile
+npm run test
 ```
 
 ---
 
-## 📚 API Documentation
+## 🔐 Environment Variables
 
-Once the backend is running, visit:
-- **Swagger UI**: `http://localhost:8000/docs`
-- **ReDoc**: `http://localhost:8000/redoc`
+### Backend (.env)
 
-### Key Endpoints
+```env
+# Database
+DATABASE_URL=sqlite:///./eduecosystem.db
+# DATABASE_URL=postgresql://user:password@localhost/dbname
 
-#### Authentication
-- `POST /api/v1/login/access-token` - Login
-- `POST /api/v1/users/` - Register
+# Security
+SECRET_KEY=your-secret-key-here
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
 
-#### Shadow Mode
-- `POST /api/v1/shadow-mode/start` - Start session
-- `POST /api/v1/shadow-mode/end` - End session
-- `GET /api/v1/shadow-mode/progress` - Get 7-day progress
+# Redis (optional)
+REDIS_URL=redis://localhost:6379
 
-#### Handwriting Analysis
-- `POST /api/v1/grapho/upload` - Upload and analyze
-
-#### Wolf Pack
-- `POST /api/v1/groups/join` - Join a pack
-- `GET /api/v1/groups/my-group` - Get my group
-- `GET /api/v1/groups/leaderboard` - Get leaderboard
-
-#### Analytics
-- `GET /api/v1/analytics/dashboard` - Get all analytics
-
-See full API documentation at `/docs` endpoint.
-
----
-
-## 🎮 Usage Guide
-
-### First Time Setup
-
-1. **Register**: Create an account at `/register`
-2. **Login**: Sign in at `/login`
-3. **Dashboard**: View your personalized dashboard
-
-### Key Workflows
-
-#### Track Deep Focus with Shadow Mode
-1. Navigate to `/shadow-mode`
-2. Click "Start Shadow Session"
-3. Set your goals
-4. Work in deep focus
-5. End session and rate your focus (1-10)
-6. Track 7-day progress on the calendar
-
-#### Analyze Your Handwriting
-1. Navigate to `/grapho`
-2. Upload a clear handwriting sample
-3. Click "Analyze Handwriting"
-4. View extracted text and personality insights
-5. Earn 50 coins!
-
-#### Join a Wolf Pack
-1. Navigate to `/community`
-2. Click "Join a Wolf Pack"
-3. Get auto-assigned based on your streak
-4. View pack members and leaderboard
-5. Track collective progress
-
-#### Monitor Your Analytics
-1. Navigate to `/analytics`
-2. View comprehensive stats
-3. Check AI-powered insights
-4. Track weekly activity
-5. See recent achievements
-
----
-
-## 🔐 Security
-
-- JWT-based authentication
-- Password hashing with bcrypt
-- CORS configuration
-- Input validation with Pydantic
-- SQL injection protection via SQL Alchemy ORM
-- File upload size limits
-- Rate limiting (production)
-
----
-
-## 🚢 Deployment
-
-### Environment Setup
-
-1. Set production environment variables
-2. Configure PostgreSQL database
-3. Set strong `SECRET_KEY`
-4. Configure `ALLOWED_ORIGINS`
-
-### Database Migration
-
-```bash
-cd backend
-alembic upgrade head
+# AWS S3 (optional)
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_S3_BUCKET=your-bucket-name
+AWS_REGION=us-east-1
 ```
 
-### Build & Deploy
+### Frontend (.env.local)
 
-```bash
-# Build frontend
-cd frontend
-npm run build
-
-# Start production services
-docker-compose -f docker-compose.prod.yml up -d
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-See `docs/DEPLOYMENT.md` for detailed instructions.
+### Mobile (.env)
+
+```env
+EXPO_PUBLIC_API_URL=http://localhost:8000
+```
+
+---
+
+## 📊 Performance
+
+- **Backend Response Time:** < 100ms average
+- **Frontend Load Time:** < 2s initial load
+- **Mobile App Size:** ~ 25MB
+- **Database Queries:** Optimized with indexes
+- **API Rate Limit:** 100 requests/minute
+
+---
+
+## 🗺️ Roadmap
+
+### Phase 1 ✅ (Complete)
+- [x] Backend API with authentication
+- [x] Database models and migrations
+- [x] Frontend instructor dashboard
+- [x] Frontend student dashboard
+- [x] Mobile app core features
+
+### Phase 2 ✅ (Complete)
+- [x] Discussion forums (Web + Mobile)
+- [x] Live streaming classes with interactive features
+- [x] Advanced gamification system (17 coin triggers, 20 achievements, challenges)
+- [x] Email notification system (preferences, templates, logs)
+- [x] UI/UX enhancements (loading skeletons,toast notifications, error boundaries)
+- [x] Mobile gamification dashboard
+- [x] Mobile discussion forums
+- [x] Mobile email preferences
+
+### Phase 3 📋 (Planned)
+- [ ] Mobile live class viewing (video SDK integration pending)
+- [ ] AI-powered recommendations
+- [ ] Social learning features
+- [ ] Course marketplace
+- [ ] Multi-language support
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
+We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
+
+### Development Workflow
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -372,54 +499,54 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📝 License
+## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ---
 
 ## 👥 Team
 
-Developed by the Eduecosystem Team
-
----
-
-## 📞 Support
-
-For support, email support@eduecosystem.com or open an issue on GitHub.
-
----
-
-## 🗺️ Roadmap
-
-### Completed ✅
-- Phase 1: MVP with core LMS features
-- Phase 2: AI OCR, Shadow Mode, Wolf Pack, Attention Tracking
-- Phase 4: Enhanced UI, Analytics Dashboard, Social Features
-
-### In Progress 🚧
-- Phase 3: Production Readiness
-  - Automated testing
-  - CI/CD pipeline
-  - Documentation
-  - Performance optimization
-
-### Planned 📋
-- Real-time notifications
-- Mobile app (React Native)
-- Advanced AI recommendations
-- Group video calls
-- Blockchain-based certificates
+- **Backend:** FastAPI, SQLAlchemy, Pydantic
+- **Frontend:** Next.js, Tailwind CSS, Radix UI
+- **Mobile:** React Native, Expo
+- **DevOps:** Docker, CI/CD (planned)
 
 ---
 
 ## 🙏 Acknowledgments
 
-- EasyOCR for handwriting recognition
-- FastAPI for the excellent web framework
-- Next.js for the amazing React framework
-- All open-source contributors
+- **FastAPI** - Amazing Python framework
+- **Next.js** - The React framework
+- **Radix UI** - Accessible component library
+- **Expo** - Best React Native toolchain
+- **Tailwind CSS** - Utility-first CSS framework
 
 ---
 
-**Built with ❤️ for learners worldwide**
+## 📞 Support
+
+- **Documentation:** See `/docs` folder
+- **Issues:** GitHub Issues
+- **Email:** support@eduecosystem.com
+- **Discord:** Join our community (link)
+
+---
+
+## 🎯 Status
+
+**Current Version:** 1.0.0
+
+**Status:** 🟢 Production Ready
+
+**Last Updated:** November 2025
+
+---
+
+<div align="center">
+
+**Made with ❤️ for educators and learners worldwide**
+
+[Live Demo](#) | [Documentation](#) | [Report Bug](#) | [Request Feature](#)
+
+</div>

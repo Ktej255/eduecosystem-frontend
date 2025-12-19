@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore the complete hierarchy of Indian philosophical texts - from Brahman to Vedas, Upanishads, Puranas, and more.">
+    <title>Batch 02 - Sanatana Dharma Knowledge Portal</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Sacred Colors */
+            --brahman-gold: #C4A35A;
+            --vedas-orange: #E07B39;
+            --upanishad-coral: #E8B98D;
+            --sruti-cream: #FFF8E7;
+            --smriti-beige: #F5E6D3;
+            --sahayak-lavender: #E8E0F0;
+            --prasthana-peach: #FFE4D6;
+
+            /* Category Colors */
+            --purana-purple: #9B6B9E;
+            --itihas-red: #C94C4C;
+            --darshana-green: #5A8F7B;
+            --vedanga-blue: #4A90A4;
+            --sutra-brown: #8B7355;
+            --agama-pink: #D4A5A5;
+
+            /* UI Colors */
+            --bg-dark: #1A1512;
+            --bg-gradient: linear-gradient(135deg, #2D2620 0%, #1A1512 50%, #0D0A08 100%);
+            --text-light: #F5F0E8;
+            --text-muted: #A0998F;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glow-gold: 0 0 30px rgba(196, 163, 90, 0.4);
+
+            /* Fonts */
+            --font-display: 'Cinzel', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(26, 21, 18, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--brahman-gold), var(--vedas-orange));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--glow-gold);
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--brahman-gold), var(--text-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--brahman-gold);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brahman-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Zoom Controls */
+        .zoom-controls {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 0.5rem;
+        }
+
+        .zoom-btn {
+            width: 44px;
+            height: 44px;
+            border: none;
+            background: transparent;
+            color: var(--text-light);
+            font-size: 1.25rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-btn:hover {
+            background: var(--brahman-gold);
+            color: var(--bg-dark);
+        }
+
+        .zoom-level {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            padding: 0.25rem 0;
+        }
+
+        /* Main Container */
+        .main-container {
+            padding-top: 100px;
+            min-height: 100vh;
+            overflow: auto;
+        }
+
+        .knowledge-tree-wrapper {
+            width: 100%;
+            height: calc(100vh - 100px);
+            overflow: auto;
+            position: relative;
+        }
+
+        .knowledge-tree {
+            min-width: 1800px;
+            min-height: 2400px;
+            padding: 3rem;
+            transform-origin: top left;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        /* Section Backgrounds */
+        .section-bg {
+            position: absolute;
+            border-radius: 20px;
+            opacity: 0.15;
+        }
+
+        .sruti-bg {
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 800px;
+            background: linear-gradient(180deg, var(--sruti-cream) 0%, transparent 100%);
+        }
+
+        .prasthana-bg {
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 600px;
+            background: linear-gradient(180deg, var(--prasthana-peach) 0%, transparent 100%);
+        }
+
+        .smriti-bg {
+            top: 600px;
+            left: 0;
+            width: 400px;
+            height: 900px;
+            background: linear-gradient(180deg, var(--smriti-beige) 0%, transparent 100%);
+        }
+
+        .sahayak-bg {
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 500px;
+            background: linear-gradient(0deg, var(--sahayak-lavender) 0%, transparent 100%);
+        }
+
+        /* Section Labels */
+        .section-label {
+            position: absolute;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .section-label.sruti {
+            left: 20px;
+            top: 200px;
+        }
+
+        .section-label.smriti {
+            left: 20px;
+            top: 900px;
+        }
+
+        .section-label.prasthana {
+            right: 20px;
+            top: 150px;
+        }
+
+        .section-label.sahayak {
+            right: 20px;
+            bottom: 200px;
+        }
+
+        .section-sublabel {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-top: 0.5rem;
+            opacity: 0.5;
+        }
+
+        /* Node Styles */
+        .node {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .node:hover {
+            transform: scale(1.08);
+            z-index: 10;
+        }
+
+        .node-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .node-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .node:hover .node-circle {
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .node-circle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .node:hover .node-circle::before {
+            opacity: 1;
+        }
+
+        @keyframes shimmer {
+            from {
+                transform: translateX(-100%) rotate(45deg);
+            }
+
+            to {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        .node-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 120px;
+            line-height: 1.3;
+        }
+
+        .node-sublabel {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 140px;
+            font-style: italic;
+        }
+
+        /* Node Sizes */
+        .node-xl .node-circle {
+            width: 120px;
+            height: 120px;
+            font-size: 1rem;
+        }
+
+        .node-lg .node-circle {
+            width: 90px;
+            height: 90px;
+            font-size: 0.85rem;
+        }
+
+        .node-sm .node-circle {
+            width: 60px;
+            height: 60px;
+            font-size: 0.7rem;
+        }
+
+        .node-xs .node-circle {
+            width: 45px;
+            height: 45px;
+            font-size: 0.6rem;
+        }
+
+        /* Node Colors */
+        .node-brahman .node-circle {
+            background: linear-gradient(135deg, #C4A35A, #8B7355);
+            color: #FFF8E7;
+        }
+
+        .node-vedas .node-circle {
+            background: linear-gradient(135deg, #E07B39, #C4552A);
+            color: #FFF8E7;
+        }
+
+        .node-upanishad .node-circle {
+            background: linear-gradient(135deg, #E8B98D, #D4A574);
+            color: #3D3428;
+        }
+
+        .node-samhita .node-circle {
+            background: linear-gradient(135deg, #D4C4A8, #BFB094);
+            color: #3D3428;
+        }
+
+        .node-purana .node-circle {
+            background: linear-gradient(135deg, #9B6B9E, #7A5580);
+            color: #FFF8E7;
+        }
+
+        .node-itihas .node-circle {
+            background: linear-gradient(135deg, #C94C4C, #A83939);
+            color: #FFF8E7;
+        }
+
+        .node-darshana .node-circle {
+            background: linear-gradient(135deg, #5A8F7B, #4A7566);
+            color: #FFF8E7;
+        }
+
+        .node-vedanga .node-circle {
+            background: linear-gradient(135deg, #4A90A4, #3A758A);
+            color: #FFF8E7;
+        }
+
+        .node-sutra .node-circle {
+            background: linear-gradient(135deg, #8B7355, #6B5A45);
+            color: #FFF8E7;
+        }
+
+        .node-agama .node-circle {
+            background: linear-gradient(135deg, #D4A5A5, #C08E8E);
+            color: #3D3428;
+        }
+
+        .node-dharma .node-circle {
+            background: linear-gradient(135deg, #B8860B, #9A7209);
+            color: #FFF8E7;
+        }
+
+        .node-prakarana .node-circle {
+            background: linear-gradient(135deg, #708090, #5A6B7C);
+            color: #FFF8E7;
+        }
+
+        .node-upavedas .node-circle {
+            background: linear-gradient(135deg, #6B8E23, #567322);
+            color: #FFF8E7;
+        }
+
+        .node-bhashyam .node-circle {
+            background: linear-gradient(135deg, #9370DB, #7B5FC0);
+            color: #FFF8E7;
+        }
+
+        /* Connection Lines */
+        .connections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .connection-line {
+            stroke: rgba(196, 163, 90, 0.4);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* List Boxes */
+        .list-box {
+            position: absolute;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            max-width: 200px;
+        }
+
+        .list-title {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--brahman-gold);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .list-items {
+            list-style: none;
+        }
+
+        .list-items li {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            padding: 0.3rem 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .list-items li:hover {
+            color: var(--brahman-gold);
+            padding-left: 0.5rem;
+        }
+
+        .list-items li a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Hero Section at top */
+        .hero-title {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 5;
+        }
+
+        .hero-title h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--brahman-gold), var(--text-light), var(--brahman-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+
+            .knowledge-tree-wrapper {
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .zoom-controls {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .hero-title h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Touch hint for mobile */
+        .touch-hint {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            opacity: 0;
+            animation: fadeIn 1s ease 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .touch-hint span {
+            margin-right: 0.5rem;
+        }
+
+        /* Click ripple effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(196, 163, 90, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">ॐ</div>
+                <span class="logo-text">Sanatana Dharma</span>
+            </div>
+            <nav class="header-nav">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/upanishads/" class="nav-link">Upanishads</a>
+                <a href="/bhagavadgita/chapters/" class="nav-link">Bhagavad Gita</a>
+                <a href="/yoga/kundalini.html" class="nav-link">Yoga</a>
+                <a href="/about/about-mission.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Zoom Controls -->
+    <div class="zoom-controls">
+        <button class="zoom-btn" id="zoomIn" title="Zoom In">+</button>
+        <div class="zoom-level" id="zoomLevel">100%</div>
+        <button class="zoom-btn" id="zoomOut" title="Zoom Out">−</button>
+        <button class="zoom-btn" id="zoomReset" title="Reset">⟲</button>
+    </div>
+
+    <!-- Touch Hint -->
+    <div class="touch-hint">
+        <span>👆</span> Pinch to zoom • Drag to pan • Click nodes to explore
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="knowledge-tree-wrapper" id="treeWrapper">
+            <div class="knowledge-tree" id="knowledgeTree">
+                <!-- Section Backgrounds -->
+                <div class="section-bg sruti-bg"></div>
+                <div class="section-bg prasthana-bg"></div>
+                <div class="section-bg smriti-bg"></div>
+                <div class="section-bg sahayak-bg"></div>
+
+                <!-- Section Labels -->
+                <div class="section-label sruti">ŚRUTI<span class="section-sublabel">(That which is Heard)</span></div>
+                <div class="section-label smriti">SMṚTI<span class="section-sublabel">(That which is Remembered)</span>
+                </div>
+                <div class="section-label prasthana">PRASTHĀNA TRAYA<span class="section-sublabel">(The Three
+                        Sources)</span></div>
+                <div class="section-label sahayak">SAHĀYAK PĀṬHYA<span class="section-sublabel">(Auxiliary Texts)</span>
+                </div>
+
+                <!-- Hero Title -->
+                <div class="hero-title">
+                    <h1>The Tree of Eternal Wisdom</h1>
+                    <p>Complete Hierarchy of Indian Philosophical Texts</p>
+                </div>
+
+                <!-- SVG Connections -->
+                <svg class="connections" viewBox="0 0 1800 2400">
+                    <!-- Brahman to Vedas -->
+                    <path class="connection-line" d="M900,200 L900,280" />
+
+                    <!-- Vedas to Four Vedas -->
+                    <path class="connection-line" d="M900,340 Q900,380 600,400" />
+                    <path class="connection-line" d="M900,340 Q900,380 750,400" />
+                    <path class="connection-line" d="M900,340 Q900,380 1050,400" />
+                    <path class="connection-line" d="M900,340 Q900,380 1200,400" />
+
+                    <!-- Vedas to Karma/Jnana Kand -->
+                    <path class="connection-line" d="M900,340 L700,520" />
+                    <path class="connection-line" d="M900,340 L1100,520" />
+
+                    <!-- Jnana Kand to Upanishads -->
+                    <path class="connection-line" d="M1100,580 L1100,680" />
+
+                    <!-- Karma Kand branches -->
+                    <path class="connection-line" d="M700,580 L500,700" />
+                    <path class="connection-line" d="M700,580 L600,700" />
+
+                    <!-- Smriti connections -->
+                    <path class="connection-line" d="M400,900 L500,980" />
+                    <path class="connection-line" d="M400,900 L600,980" />
+                    <path class="connection-line" d="M400,900 L400,980" />
+
+                    <!-- Dharma Shastras to Sutra -->
+                    <path class="connection-line" d="M600,1040 L800,1120" />
+
+                    <!-- Sutra branches -->
+                    <path class="connection-line" d="M800,1180 L900,1280" />
+                    <path class="connection-line" d="M800,1180 L700,1280" />
+
+                    <!-- Itihas branches -->
+                    <path class="connection-line" d="M700,1040 L800,1120" />
+                    <path class="connection-line" d="M700,1040 L600,1120" />
+
+                    <!-- Darshanas branches -->
+                    <path class="connection-line" d="M900,1400 L800,1500" />
+                    <path class="connection-line" d="M900,1400 L900,1500" />
+                    <path class="connection-line" d="M900,1400 L1000,1500" />
+
+                    <!-- Vedangas branches -->
+                    <path class="connection-line" d="M1300,1200 L1200,1300" />
+                    <path class="connection-line" d="M1300,1200 L1300,1300" />
+                    <path class="connection-line" d="M1300,1200 L1400,1300" />
+
+                    <!-- Upavedas connections -->
+                    <path class="connection-line" d="M300,1400 L300,1500" />
+                    <path class="connection-line" d="M300,1500 L200,1600" />
+                    <path class="connection-line" d="M300,1500 L400,1600" />
+                </svg>
+
+                <!-- BRAHMAN - Top -->
+                <a href="/brahman/" target="_blank" class="node node-xl node-brahman" style="left: 840px; top: 140px;">
+                    <div class="node-content">
+                        <div class="node-circle">BRAHMAN</div>
+                        <span class="node-sublabel">Divine Source (Eternal)</span>
+                    </div>
+                </a>
+
+                <!-- VEDAS -->
+                <a href="/vedas/" target="_blank" class="node node-lg node-vedas" style="left: 855px; top: 280px;">
+                    <div class="node-content">
+                        <div class="node-circle">VEDAS</div>
+                        <span class="node-sublabel">c. 1500 BCE</span>
+                    </div>
+                </a>
+
+                <!-- Four Vedas -->
+                <a href="/vedas/rig-veda/" target="_blank" class="node node-sm node-vedas"
+                    style="left: 550px; top: 380px;">
+                    <div class="node-content">
+                        <div class="node-circle">Rig Veda</div>
+                        <span class="node-sublabel">Divine Hymns</span>
+                    </div>
+                </a>
+                <a href="/vedas/sama-veda/" target="_blank" class="node node-sm node-vedas"
+                    style="left: 700px; top: 380px;">
+                    <div class="node-content">
+                        <div class="node-circle">Sama Veda</div>
+                        <span class="node-sublabel">Melodic Chants</span>
+                    </div>
+                </a>
+                <a href="/vedas/yajur-veda/" target="_blank" class="node node-sm node-vedas"
+                    style="left: 1000px; top: 380px;">
+                    <div class="node-content">
+                        <div class="node-circle">Yajur Veda</div>
+                        <span class="node-sublabel">Ritualistic Text</span>
+                    </div>
+                </a>
+                <a href="/vedas/atharva-veda/" target="_blank" class="node node-sm node-vedas"
+                    style="left: 1150px; top: 380px;">
+                    <div class="node-content">
+                        <div class="node-circle">Atharva Veda</div>
+                        <span class="node-sublabel">Mystical Wisdom</span>
+                    </div>
+                </a>
+
+                <!-- Karma Kand & Jnana Kand -->
+                <a href="/vedas/karma-kand/" target="_blank" class="node node-sm node-samhita"
+                    style="left: 630px; top: 500px;">
+                    <div class="node-content">
+                        <div class="node-circle">Karma Kand</div>
+                        <span class="node-sublabel">Ritualistic Section</span>
+                    </div>
+                </a>
+                <a href="/vedas/jnana-kand/" target="_blank" class="node node-sm node-upanishad"
+                    style="left: 1030px; top: 500px;">
+                    <div class="node-content">
+                        <div class="node-circle">Jnana Kand</div>
+                        <span class="node-sublabel">Knowledge Section</span>
+                    </div>
+                </a>
+
+                <!-- Samhitas & Brahmanas -->
+                <a href="/vedas/samhitas/" target="_blank" class="node node-xs node-samhita"
+                    style="left: 470px; top: 620px;">
+                    <div class="node-content">
+                        <div class="node-circle">Samhitas</div>
+                        <span class="node-sublabel">Hymns (Mantras)</span>
+                    </div>
+                </a>
+                <a href="/vedas/brahmanas/" target="_blank" class="node node-xs node-samhita"
+                    style="left: 580px; top: 620px;">
+                    <div class="node-content">
+                        <div class="node-circle">Brahmanas</div>
+                        <span class="node-sublabel">Ritual Commentaries</span>
+                    </div>
+                </a>
+
+                <!-- Aranyakas -->
+                <a href="/vedas/aranyakas/" target="_blank" class="node node-xs node-upanishad"
+                    style="left: 900px; top: 620px;">
+                    <div class="node-content">
+                        <div class="node-circle">Aranyakas</div>
+                        <span class="node-sublabel">Forest Texts</span>
+                    </div>
+                </a>
+
+                <!-- UPANISHADS - Main Node -->
+                <a href="/upanishads/" target="_blank" class="node node-lg node-upanishad"
+                    style="left: 1030px; top: 680px;">
+                    <div class="node-content">
+                        <div class="node-circle">UPANISHADS</div>
+                        <span class="node-sublabel">Philosophical/Mystical Texts</span>
+                    </div>
+                </a>
+
+                <!-- 10 Principal Upanishads List -->
+                <div class="list-box" style="left: 1200px; top: 680px;">
+                    <div class="list-title">10 Principal Upanishads</div>
+                    <ul class="list-items">
+                        <li><a href="/upanishads/individual/isa.html" target="_blank">Aitareya</a> - Rig Veda</li>
+                        <li><a href="/upanishads/individual/katha.html" target="_blank">Katha</a> - Yajur Veda</li>
+                        <li><a href="/upanishads/individual/taittiriya.html" target="_blank">Taittiriya</a> - Yajur Veda
+                        </li>
+                        <li><a href="/upanishads/individual/isa.html" target="_blank">Isavasysa</a> - Yajur Veda</li>
+                        <li><a href="/upanishads/individual/brihadaranyaka.html" target="_blank">Brihadaranyaka</a> -
+                            Yajur Veda</li>
+                        <li><a href="/upanishads/individual/kena.html" target="_blank">Kena</a> - Sama Veda</li>
+                        <li><a href="/upanishads/individual/chandogya.html" target="_blank">Chandogya</a> - Sama Veda
+                        </li>
+                        <li><a href="/upanishads/individual/prashna.html" target="_blank">Prashna</a> - Atharva Veda
+                        </li>
+                        <li><a href="/upanishads/individual/mundaka.html" target="_blank">Mundaka</a> - Atharva Veda
+                        </li>
+                        <li><a href="/upanishads/individual/mandukya.html" target="_blank">Mandukya</a> - Atharva Veda
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- SMRITI Section (Left Side) -->
+
+                <!-- Manusmriti -->
+                <a href="/smriti/manusmriti/" target="_blank" class="node node-sm node-dharma"
+                    style="left: 180px; top: 780px;">
+                    <div class="node-content">
+                        <div class="node-circle">Manusmriti</div>
+                        <span class="node-sublabel">Laws of Manu</span>
+                    </div>
+                </a>
+
+                <!-- Yajnavalkya -->
+                <a href="/smriti/yajnavalkya/" target="_blank" class="node node-xs node-dharma"
+                    style="left: 150px; top: 880px;">
+                    <div class="node-content">
+                        <div class="node-circle">Yajnavalkya</div>
+                    </div>
+                </a>
+
+                <!-- Parashara -->
+                <a href="/smriti/parashara/" target="_blank" class="node node-xs node-dharma"
+                    style="left: 250px; top: 880px;">
+                    <div class="node-content">
+                        <div class="node-circle">Parashara</div>
+                    </div>
+                </a>
+
+                <!-- Narada -->
+                <a href="/smriti/narada/" target="_blank" class="node node-xs node-itihas"
+                    style="left: 200px; top: 960px;">
+                    <div class="node-content">
+                        <div class="node-circle">Narada</div>
+                        <span class="node-sublabel">Judicial Procedure</span>
+                    </div>
+                </a>
+
+                <!-- DHARMA SHASTRAS -->
+                <a href="/dharma-shastras/" target="_blank" class="node node-sm node-dharma"
+                    style="left: 400px; top: 850px;">
+                    <div class="node-content">
+                        <div class="node-circle">Dharma Shastras</div>
+                        <span class="node-sublabel">Law and Conduct</span>
+                    </div>
+                </a>
+
+                <!-- PURANAS -->
+                <a href="/puranas/" target="_blank" class="node node-lg node-purana" style="left: 280px; top: 1050px;">
+                    <div class="node-content">
+                        <div class="node-circle">PURANAS</div>
+                        <span class="node-sublabel">Mythology</span>
+                    </div>
+                </a>
+
+                <!-- 18 Maha Puranas List -->
+                <div class="list-box" style="left: 80px; top: 1080px;">
+                    <div class="list-title">18 Maha Puranas</div>
+                    <ul class="list-items">
+                        <li><a href="/puranas/bhagavat.html" target="_blank">1. Bhagavat Purana</a></li>
+                        <li><a href="/puranas/linga.html" target="_blank">2. Linga Purana</a></li>
+                        <li><a href="/puranas/narada.html" target="_blank">3. Narada Purana</a></li>
+                        <li><a href="/puranas/skanda.html" target="_blank">4. Skanda Purana</a></li>
+                        <li><a href="/puranas/garuda.html" target="_blank">5. Garuda Purana</a></li>
+                        <li><a href="/puranas/matsya.html" target="_blank">6. Matsya Purana</a></li>
+                        <li><a href="/puranas/vayu.html" target="_blank">7. Vayu Purana</a></li>
+                        <li><a href="/puranas/bhavishya.html" target="_blank">8. Bhavishya Purana</a></li>
+                        <li><a href="/puranas/brahmanda.html" target="_blank">9. Brahmanda Purana</a></li>
+                    </ul>
+                </div>
+
+                <!-- ITIHAS -->
+                <a href="/itihas/" target="_blank" class="node node-lg node-itihas" style="left: 550px; top: 850px;">
+                    <div class="node-content">
+                        <div class="node-circle">ITIHAS</div>
+                        <span class="node-sublabel">History</span>
+                    </div>
+                </a>
+
+                <!-- Ramayana -->
+                <a href="/itihas/ramayana/" target="_blank" class="node node-sm node-itihas"
+                    style="left: 500px; top: 960px;">
+                    <div class="node-content">
+                        <div class="node-circle">Ramayana</div>
+                    </div>
+                </a>
+
+                <!-- Mahabharata -->
+                <a href="/itihas/mahabharata/" target="_blank" class="node node-sm node-itihas"
+                    style="left: 620px; top: 960px;">
+                    <div class="node-content">
+                        <div class="node-circle">Mahabharata</div>
+                    </div>
+                </a>
+
+                <!-- Bhagavad Gita -->
+                <a href="/bhagavadgita/chapters/" target="_blank" class="node node-sm node-brahman"
+                    style="left: 730px; top: 960px;">
+                    <div class="node-content">
+                        <div class="node-circle">Bhagavad Gita</div>
+                        <span class="node-sublabel">Part of Prasthana Traya</span>
+                    </div>
+                </a>
+
+                <!-- SUTRA -->
+                <a href="/sutra/" target="_blank" class="node node-lg node-sutra" style="left: 750px; top: 1100px;">
+                    <div class="node-content">
+                        <div class="node-circle">SUTRA</div>
+                        <span class="node-sublabel">Aphorisms</span>
+                    </div>
+                </a>
+
+                <!-- Brahma Sutra -->
+                <a href="/sutra/brahma-sutra/" target="_blank" class="node node-sm node-sutra"
+                    style="left: 650px; top: 1220px;">
+                    <div class="node-content">
+                        <div class="node-circle">Brahma Sutra</div>
+                        <span class="node-sublabel">Social Conduct</span>
+                    </div>
+                </a>
+
+                <!-- Kalpa Sutra -->
+                <a href="/sutra/kalpa-sutra/" target="_blank" class="node node-xs node-sutra"
+                    style="left: 800px; top: 1220px;">
+                    <div class="node-content">
+                        <div class="node-circle">Kalpa Sutra</div>
+                    </div>
+                </a>
+
+                <!-- Sulba Sutra -->
+                <a href="/sutra/sulba-sutra/" target="_blank" class="node node-xs node-vedanga"
+                    style="left: 870px; top: 1220px;">
+                    <div class="node-content">
+                        <div class="node-circle">Sulba Sutra</div>
+                        <span class="node-sublabel">Geometry</span>
+                    </div>
+                </a>
+
+                <!-- DARSHANAS -->
+                <a href="/darshanas/" target="_blank" class="node node-lg node-darshana"
+                    style="left: 750px; top: 1350px;">
+                    <div class="node-content">
+                        <div class="node-circle">DARSHANAS</div>
+                        <span class="node-sublabel">Philosophy</span>
+                    </div>
+                </a>
+
+                <!-- Six Darshanas -->
+                <a href="/darshanas/samkhya/" target="_blank" class="node node-xs node-darshana"
+                    style="left: 600px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Samkhya</div>
+                        <span class="node-sublabel">Kapila</span>
+                    </div>
+                </a>
+                <a href="/darshanas/yoga/" target="_blank" class="node node-xs node-darshana"
+                    style="left: 680px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Yoga</div>
+                        <span class="node-sublabel">Patanjali</span>
+                    </div>
+                </a>
+                <a href="/darshanas/nyaya/" target="_blank" class="node node-xs node-darshana"
+                    style="left: 760px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Nyaya</div>
+                        <span class="node-sublabel">Gautama</span>
+                    </div>
+                </a>
+                <a href="/darshanas/vaisheshika/" target="_blank" class="node node-xs node-darshana"
+                    style="left: 840px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Vaisheshika</div>
+                        <span class="node-sublabel">Kanada</span>
+                    </div>
+                </a>
+                <a href="/darshanas/purva-mimamsa/" target="_blank" class="node node-xs node-darshana"
+                    style="left: 920px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Purva Mimamsa</div>
+                        <span class="node-sublabel">Jaimini</span>
+                    </div>
+                </a>
+                <a href="/darshanas/uttara-mimamsa/" target="_blank" class="node node-xs node-darshana"
+                    style="left: 1020px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Uttara Mimamsa</div>
+                        <span class="node-sublabel">Vedanta</span>
+                    </div>
+                </a>
+
+                <!-- Vedanta Schools -->
+                <a href="/vedanta/" target="_blank" class="node node-sm node-darshana"
+                    style="left: 1100px; top: 960px;">
+                    <div class="node-content">
+                        <div class="node-circle">Vedanta</div>
+                    </div>
+                </a>
+
+                <!-- VEDANGAS -->
+                <a href="/vedangas/" target="_blank" class="node node-lg node-vedanga"
+                    style="left: 1250px; top: 1100px;">
+                    <div class="node-content">
+                        <div class="node-circle">VEDANGAS</div>
+                        <span class="node-sublabel">Veda's Limbs</span>
+                    </div>
+                </a>
+
+                <!-- Six Vedangas -->
+                <a href="/vedangas/shiksha/" target="_blank" class="node node-xs node-vedanga"
+                    style="left: 1150px; top: 1230px;">
+                    <div class="node-content">
+                        <div class="node-circle">Shiksha</div>
+                        <span class="node-sublabel">Phonetics</span>
+                    </div>
+                </a>
+                <a href="/vedangas/vyakarana/" target="_blank" class="node node-xs node-vedanga"
+                    style="left: 1230px; top: 1230px;">
+                    <div class="node-content">
+                        <div class="node-circle">Vyakarana</div>
+                        <span class="node-sublabel">Grammar</span>
+                    </div>
+                </a>
+                <a href="/vedangas/chandas/" target="_blank" class="node node-xs node-vedanga"
+                    style="left: 1310px; top: 1230px;">
+                    <div class="node-content">
+                        <div class="node-circle">Chandas</div>
+                        <span class="node-sublabel">Prosody</span>
+                    </div>
+                </a>
+                <a href="/vedangas/nirukta/" target="_blank" class="node node-xs node-vedanga"
+                    style="left: 1390px; top: 1230px;">
+                    <div class="node-content">
+                        <div class="node-circle">Nirukta</div>
+                        <span class="node-sublabel">Etymology</span>
+                    </div>
+                </a>
+                <a href="/vedangas/jyotisha/" target="_blank" class="node node-xs node-vedanga"
+                    style="left: 1230px; top: 1320px;">
+                    <div class="node-content">
+                        <div class="node-circle">Jyotisha</div>
+                        <span class="node-sublabel">Astronomy</span>
+                    </div>
+                </a>
+                <a href="/vedangas/kalpa/" target="_blank" class="node node-xs node-vedanga"
+                    style="left: 1330px; top: 1320px;">
+                    <div class="node-content">
+                        <div class="node-circle">Kalpa</div>
+                        <span class="node-sublabel">Rituals</span>
+                    </div>
+                </a>
+
+                <!-- UPAVEDAS -->
+                <a href="/upavedas/" target="_blank" class="node node-lg node-upavedas"
+                    style="left: 250px; top: 1350px;">
+                    <div class="node-content">
+                        <div class="node-circle">UPAVEDAS</div>
+                        <span class="node-sublabel">Applied Knowledge</span>
+                    </div>
+                </a>
+
+                <!-- Upavedas branches -->
+                <a href="/upavedas/ayurveda/" target="_blank" class="node node-sm node-upavedas"
+                    style="left: 150px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Ayurveda</div>
+                        <span class="node-sublabel">Medicine</span>
+                    </div>
+                </a>
+                <a href="/upavedas/dhanurveda/" target="_blank" class="node node-xs node-upavedas"
+                    style="left: 250px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Dhanurveda</div>
+                        <span class="node-sublabel">Archery/Warfare</span>
+                    </div>
+                </a>
+                <a href="/upavedas/gandharvaveda/" target="_blank" class="node node-xs node-upavedas"
+                    style="left: 350px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Gandharva Veda</div>
+                        <span class="node-sublabel">Music/Dance</span>
+                    </div>
+                </a>
+                <a href="/upavedas/sthapatyaveda/" target="_blank" class="node node-xs node-upavedas"
+                    style="left: 450px; top: 1480px;">
+                    <div class="node-content">
+                        <div class="node-circle">Sthapatya Veda</div>
+                        <span class="node-sublabel">Architecture</span>
+                    </div>
+                </a>
+
+                <!-- AGAMAS -->
+                <a href="/agamas/" target="_blank" class="node node-lg node-agama" style="left: 450px; top: 1580px;">
+                    <div class="node-content">
+                        <div class="node-circle">AGAMAS</div>
+                        <span class="node-sublabel">Tantric Texts</span>
+                    </div>
+                </a>
+
+                <!-- Agama branches -->
+                <a href="/agamas/shaiva/" target="_blank" class="node node-xs node-agama"
+                    style="left: 350px; top: 1700px;">
+                    <div class="node-content">
+                        <div class="node-circle">Shaiva</div>
+                        <span class="node-sublabel">Shiva</span>
+                    </div>
+                </a>
+                <a href="/agamas/vaishnava/" target="_blank" class="node node-xs node-agama"
+                    style="left: 430px; top: 1700px;">
+                    <div class="node-content">
+                        <div class="node-circle">Vaishnava</div>
+                        <span class="node-sublabel">Vishnu</span>
+                    </div>
+                </a>
+                <a href="/agamas/shakta/" target="_blank" class="node node-xs node-agama"
+                    style="left: 510px; top: 1700px;">
+                    <div class="node-content">
+                        <div class="node-circle">Shakta</div>
+                        <span class="node-sublabel">Shakti</span>
+                    </div>
+                </a>
+
+                <!-- BHASHYAM -->
+                <a href="/bhashyam/" target="_blank" class="node node-lg node-bhashyam"
+                    style="left: 650px; top: 1700px;">
+                    <div class="node-content">
+                        <div class="node-circle">BHASHYAM</div>
+                        <span class="node-sublabel">Treatises & Commentaries</span>
+                    </div>
+                </a>
+
+                <!-- PRAKARANA -->
+                <a href="/prakarana/" target="_blank" class="node node-sm node-prakarana"
+                    style="left: 850px; top: 1700px;">
+                    <div class="node-content">
+                        <div class="node-circle">PRAKARANA</div>
+                        <span class="node-sublabel">Commentaries</span>
+                    </div>
+                </a>
+
+                <!-- Adi Shankaracharya Works Box -->
+                <div class="list-box" style="left: 150px; top: 1850px;">
+                    <div class="list-title">Works by Adi Shankaracharya</div>
+                    <ul class="list-items">
+                        <li><a href="/works/aparokshanubhuti.html" target="_blank">1. Aparokshanubhuti</a></li>
+                        <li><a href="/works/atma-bodha.html" target="_blank">2. Atma Bodha</a></li>
+                        <li><a href="/works/drik-drishya-viveka.html" target="_blank">3. Drik Drishya Viveka</a></li>
+                        <li><a href="/works/panchikaranam.html" target="_blank">4. Panchikaranam</a></li>
+                        <li><a href="/works/sadhana-panchikam.html" target="_blank">5. Sadhana Panchikam</a></li>
+                        <li><a href="/works/manisha-panchikam.html" target="_blank">6. Manisha Panchikam</a></li>
+                        <li><a href="/works/upadesha-sahasri.html" target="_blank">7. Upadesha Sahasri</a></li>
+                        <li><a href="/works/vakya-vritti.html" target="_blank">8. Vakya Vritti</a></li>
+                        <li><a href="/works/vivekachudamani.html" target="_blank">9. Vivekachudamani</a></li>
+                        <li><a href="/works/sarva-vedanta-siddhanta.html" target="_blank">10. Sarva Vedanta Siddhanta
+                                Sara Sangraha</a></li>
+                        <li><a href="/works/dakshinamurti-stotram.html" target="_blank">11. Dakshinamurti Stotram</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prakarana Works Box -->
+                <div class="list-box" style="left: 420px; top: 1850px;">
+                    <div class="list-title">Important Prakaranas</div>
+                    <ul class="list-items">
+                        <li><a href="/prakarana/tattva-bodha.html" target="_blank">1. Tattva Bodha</a></li>
+                        <li><a href="/prakarana/panchadashi.html" target="_blank">2. Panchadashi</a></li>
+                        <li><a href="/prakarana/naishkarmya-siddhi.html" target="_blank">3. Naishkarmya Siddhi</a></li>
+                        <li><a href="/prakarana/vedantasara.html" target="_blank">4. Vedantasara</a></li>
+                        <li><a href="/prakarana/advaita-makaranda.html" target="_blank">5. Advaita Makaranda</a></li>
+                        <li><a href="/prakarana/mandukya-karika.html" target="_blank">6. Mandukya Karika</a></li>
+                    </ul>
+                </div>
+
+                <!-- Bhashya List Box -->
+                <div class="list-box" style="left: 680px; top: 1850px;">
+                    <div class="list-title">Upanishad Bhashyas</div>
+                    <ul class="list-items">
+                        <li><a href="/bhashya/isa.html" target="_blank">1. Isa Upanishad Bhashya</a></li>
+                        <li><a href="/bhashya/kena.html" target="_blank">2. Kena Upanishad Bhashya</a></li>
+                        <li><a href="/bhashya/katha.html" target="_blank">3. Katha Upanishad Bhashya</a></li>
+                        <li><a href="/bhashya/prashna.html" target="_blank">4. Prashna Upanishad Bhashya</a></li>
+                        <li><a href="/bhashya/mundaka.html" target="_blank">5. Mundaka Upanishad Bhashya</a></li>
+                        <li><a href="/bhashya/mandukya.html" target="_blank">6. Mandukya Upanishad Bhashya</a></li>
+                        <li><a href="/bhashya/taittiriya.html" target="_blank">7. Taittiriya Upanishad Bhashya</a></li>
+                        <li><a href="/bhashya/aitareya.html" target="_blank">8. Aitareya Upanishad Bhashya</a></li>
+                        <li><a href="/bhashya/chandogya.html" target="_blank">9. Chandogya Upanishad Bhashya</a></li>
+                        <li><a href="/bhashya/brihadaranyaka.html" target="_blank">10. Brihadaranyaka Upanishad
+                                Bhashya</a></li>
+                        <li><a href="/bhashya/brahma-sutra.html" target="_blank">11. Brahma Sutra Bhashya</a></li>
+                        <li><a href="/bhashya/bhagavad-gita.html" target="_blank">12. Bhagavad Gita Bhashya</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Zoom functionality
+        let zoomLevel = 1;
+        const minZoom = 0.3;
+        const maxZoom = 2;
+        const zoomStep = 0.15;
+
+        const knowledgeTree = document.getElementById('knowledgeTree');
+        const zoomLevelDisplay = document.getElementById('zoomLevel');
+        const treeWrapper = document.getElementById('treeWrapper');
+
+        function updateZoom() {
+            knowledgeTree.style.transform = `scale(${zoomLevel})`;
+            zoomLevelDisplay.textContent = Math.round(zoomLevel * 100) + '%';
+        }
+
+        document.getElementById('zoomIn').addEventListener('click', () => {
+            if (zoomLevel < maxZoom) {
+                zoomLevel = Math.min(maxZoom, zoomLevel + zoomStep);
+                updateZoom();
+            }
+        });
+
+        document.getElementById('zoomOut').addEventListener('click', () => {
+            if (zoomLevel > minZoom) {
+                zoomLevel = Math.max(minZoom, zoomLevel - zoomStep);
+                updateZoom();
+            }
+        });
+
+        document.getElementById('zoomReset').addEventListener('click', () => {
+            zoomLevel = 1;
+            updateZoom();
+            treeWrapper.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        });
+
+        // Mouse wheel zoom
+        treeWrapper.addEventListener('wheel', (e) => {
+            if (e.ctrlKey) {
+                e.preventDefault();
+                const delta = e.deltaY > 0 ? -zoomStep : zoomStep;
+                zoomLevel = Math.max(minZoom, Math.min(maxZoom, zoomLevel + delta));
+                updateZoom();
+            }
+        }, { passive: false });
+
+        // Pinch to zoom for touch devices
+        let initialDistance = 0;
+        let lastZoom = 1;
+
+        treeWrapper.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 2) {
+                initialDistance = Math.hypot(
+                    e.touches[0].pageX - e.touches[1].pageX,
+                    e.touches[0].pageY - e.touches[1].pageY
+                );
+                lastZoom = zoomLevel;
+            }
+        });
+
+        treeWrapper.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                const currentDistance = Math.hypot(
+                    e.touches[0].pageX - e.touches[1].pageX,
+                    e.touches[0].pageY - e.touches[1].pageY
+                );
+                const scale = currentDistance / initialDistance;
+                zoomLevel = Math.max(minZoom, Math.min(maxZoom, lastZoom * scale));
+                updateZoom();
+            }
+        }, { passive: false });
+
+        // Click ripple effect
+        document.querySelectorAll('.node').forEach(node => {
+            node.addEventListener('click', (e) => {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                const rect = node.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                node.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Hide touch hint after interaction
+        let hintHidden = false;
+        treeWrapper.addEventListener('pointerdown', () => {
+            if (!hintHidden) {
+                document.querySelector('.touch-hint').style.display = 'none';
+                hintHidden = true;
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '+' || e.key === '=') {
+                zoomLevel = Math.min(maxZoom, zoomLevel + zoomStep);
+                updateZoom();
+            } else if (e.key === '-') {
+                zoomLevel = Math.max(minZoom, zoomLevel - zoomStep);
+                updateZoom();
+            } else if (e.key === '0') {
+                zoomLevel = 1;
+                updateZoom();
+            }
+        });
+    </script>
+</body>
+
+</html>

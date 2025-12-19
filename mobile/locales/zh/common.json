@@ -1,0 +1,11 @@
+{
+    "common": {
+        "welcome": "欢迎使用 Eduecosystem 移动版",
+        "courses": "课程",
+        "profile": "个人资料",
+        "settings": "设置",
+        "login": "登录",
+        "register": "注册",
+        "logout": "登出"
+    }
+}

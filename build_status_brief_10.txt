@@ -1,0 +1,11 @@
+﻿[Container] 2025/12/18 17:55:46.778756 Expanding base directory path:  .
+	[Container] 2025/12/18 17:55:46.782055 Assembling file list
+	[Container] 2025/12/18 17:55:46.782071 Expanding .
+	[Container] 2025/12/18 17:55:46.784967 Expanding file paths for base directory .
+	[Container] 2025/12/18 17:55:46.784982 Assembling file list
+	[Container] 2025/12/18 17:55:46.784986 Expanding **/*
+	[Container] 2025/12/18 17:55:46.792206 No matching auto-discover report paths found
+	[Container] 2025/12/18 17:55:46.792342 Report auto-discover file discovery took 0.013631 seconds
+	[Container] 2025/12/18 17:55:46.792412 Phase complete: UPLOAD_ARTIFACTS State: SUCCEEDED
+	[Container] 2025/12/18 17:55:46.792423 Phase context status code:  Message: 
+

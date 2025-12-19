@@ -1,0 +1,51 @@
+﻿[Container] 2025/12/18 18:28:48.817669 Running on CodeBuild On-demand
+	[Container] 2025/12/18 18:28:48.817680 Waiting for agent ping
+	[Container] 2025/12/18 18:28:49.019352 Waiting for DOWNLOAD_SOURCE
+	[Container] 2025/12/18 18:28:51.568376 Phase is DOWNLOAD_SOURCE
+	[Container] 2025/12/18 18:28:51.572665 CODEBUILD_SRC_DIR=/codebuild/output/src535369185/src
+	[Container] 2025/12/18 18:28:51.574029 YAML location is /codebuild/output/src535369185/src/buildspec.yml
+	[Container] 2025/12/18 18:28:51.576440 Setting HTTP client timeout to higher timeout for S3 source
+	[Container] 2025/12/18 18:28:51.576585 Processing environment variables
+	[Container] 2025/12/18 18:28:51.799209 No runtime version selected in buildspec.
+	[Container] 2025/12/18 18:28:51.820479 Moving to directory /codebuild/output/src535369185/src
+	[Container] 2025/12/18 18:28:51.820602 Cache is not defined in the buildspec
+	[Container] 2025/12/18 18:28:51.860787 Skip cache due to: no paths specified to be cached
+	[Container] 2025/12/18 18:28:51.861102 Registering with agent
+	[Container] 2025/12/18 18:28:51.897224 Phases found in YAML: 3
+	[Container] 2025/12/18 18:28:51.897242  BUILD: 5 commands
+	[Container] 2025/12/18 18:28:51.897247  POST_BUILD: 7 commands
+	[Container] 2025/12/18 18:28:51.897263  PRE_BUILD: 8 commands
+	[Container] 2025/12/18 18:28:51.897688 Phase complete: DOWNLOAD_SOURCE State: SUCCEEDED
+	[Container] 2025/12/18 18:28:51.897699 Phase context status code:  Message: 
+	[Container] 2025/12/18 18:28:52.006106 Entering phase INSTALL
+	[Container] 2025/12/18 18:28:52.045626 Phase complete: INSTALL State: SUCCEEDED
+	[Container] 2025/12/18 18:28:52.045650 Phase context status code:  Message: 
+	[Container] 2025/12/18 18:28:52.083795 Entering phase PRE_BUILD
+	[Container] 2025/12/18 18:28:52.121003 Running command echo Debugging environment...
+	Debugging environment...
+	
+	[Container] 2025/12/18 18:28:52.128839 Running command pwd
+	/codebuild/output/src535369185/src
+	
+	[Container] 2025/12/18 18:28:52.136247 Running command ls -la
+	total 12
+	drwxr-xr-x  6 root root  139 Dec 18 18:28 .
+	drwxr-xr-x  3 root root   17 Dec 18 18:28 ..
+	drwxr-xr-x  4 root root   91 Dec 18 18:28 alembic
+	drwxr-xr-x 16 root root  230 Dec 18 18:28 app
+	-rw-rw-rw-  1 root root 1227 Dec 18  2025 buildspec.yml
+	-rw-rw-rw-  1 root root 1096 Dec 18  2025 Dockerfile.production
+	drwxr-xr-x  2 root root   41 Dec 18 18:28 migrations
+	-rw-rw-rw-  1 root root  903 Dec  1 10:08 requirements.txt
+	drwxr-xr-x  2 root root   94 Dec 18 18:28 scripts
+	
+	[Container] 2025/12/18 18:28:52.178475 Running command echo Logging in to Amazon ECR...
+	Logging in to Amazon ECR...
+	
+	[Container] 2025/12/18 18:28:52.185903 Running command aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+	Error response from daemon: Get "https://.dkr.ecr.us-east-1.amazonaws.com/v2/": dial tcp: lookup .dkr.ecr.us-east-1.amazonaws.com: no such host
+	
+	[Container] 2025/12/18 18:29:04.324114 Command did not exit successfully aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com exit status 1
+	[Container] 2025/12/18 18:29:04.330374 Phase complete: PRE_BUILD State: FAILED
+	[Container] 2025/12/18 18:29:04.330395 Phase context status code: COMMAND_EXECUTION_ERROR Message: Error while executing command: aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com. Reason: exit status 1
+

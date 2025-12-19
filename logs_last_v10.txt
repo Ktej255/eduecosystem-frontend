@@ -1,0 +1,103 @@
+﻿
+	Login Succeeded
+	
+	[Container] 2025/12/18 17:55:37.637725 Running command echo Logging in to Public ECR...
+	Logging in to Public ECR...
+	
+	[Container] 2025/12/18 17:55:37.645128 Running command aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+	WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+	Configure a credential helper to remove this warning. See
+	https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+	
+	Login Succeeded
+	
+	[Container] 2025/12/18 17:55:38.312999 Running command REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/eduecosystem-backend
+	
+	[Container] 2025/12/18 17:55:38.320122 Phase complete: PRE_BUILD State: SUCCEEDED
+	[Container] 2025/12/18 17:55:38.320137 Phase context status code:  Message: 
+	[Container] 2025/12/18 17:55:38.361336 Entering phase BUILD
+	[Container] 2025/12/18 17:55:38.362569 Running command echo Build started on `date`
+	Build started on Thu Dec 18 17:55:38 UTC 2025
+	
+	[Container] 2025/12/18 17:55:38.370695 Running command echo Building the Docker image...
+	Building the Docker image...
+	
+	[Container] 2025/12/18 17:55:38.377583 Running command docker build --progress=plain -t $REPOSITORY_URI:latest -f Dockerfile.production .
+	Sending build context to Docker daemon  68.43MB
+
+
+	Step 1/12 : FROM public.ecr.aws/docker/library/python:3.9-slim as production
+	3.9-slim: Pulling from docker/library/python
+	38513bd72563: Pulling fs layer
+	b3ec39b36ae8: Pulling fs layer
+	fc7443084902: Pulling fs layer
+	ea56f685404a: Pulling fs layer
+	ea56f685404a: Waiting
+	b3ec39b36ae8: Verifying Checksum
+	b3ec39b36ae8: Download complete
+	ea56f685404a: Verifying Checksum
+	ea56f685404a: Download complete
+	fc7443084902: Verifying Checksum
+	fc7443084902: Download complete
+	38513bd72563: Verifying Checksum
+	38513bd72563: Download complete
+	38513bd72563: Pull complete
+	b3ec39b36ae8: Pull complete
+	fc7443084902: Pull complete
+	ea56f685404a: Pull complete
+	Digest: sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b
+	Status: Downloaded newer image for public.ecr.aws/docker/library/python:3.9-slim
+	 ---> 085da638e1b8
+	Step 2/12 : WORKDIR /app
+	 ---> Running in 52feef46297d
+	Removing intermediate container 52feef46297d
+	 ---> f8f53899cb5a
+	Step 3/12 : RUN apt-get update && apt-get install -y     build-essential     libpq-dev     libxml2-dev     libxmlsec1-dev     libxmlsec1-openssl     libxslt1-dev     pkg-config     libffi-dev     gcc     python3-dev     libgl1-mesa-glx     libglib2.0-0     libjpeg-dev     zlib1g-dev     libfreetype6-dev     liblcms2-dev     libwebp-dev     libpng-dev     && rm -rf /var/lib/apt/lists/*
+	 ---> Running in 46310e8756f1
+	Get:1 http://deb.debian.org/debian trixie InRelease [140 kB]
+	Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+	Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+	Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9670 kB]
+	Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+	Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [85.2 kB]
+	Fetched 9992 kB in 1s (11.3 MB/s)
+	Reading package lists...
+	Reading package lists...
+	Building dependency tree...
+	Reading state information...
+	Package libgl1-mesa-glx is not available, but is referred to by another package.
+	This may mean that the package is missing, has been obsoleted, or
+	is only available from another source
+	
+	[91mE: Package 'libgl1-mesa-glx' has no installation candidate
+	[0mThe command '/bin/sh -c apt-get update && apt-get install -y     build-essential     libpq-dev     libxml2-dev     libxmlsec1-dev     libxmlsec1-openssl     libxslt1-dev     pkg-config     libffi-dev     gcc     python3-dev     libgl1-mesa-glx     libglib2.0-0     libjpeg-dev     zlib1g-dev     libfreetype6-dev     liblcms2-dev     libwebp-dev     libpng-dev     && rm -rf /var/lib/apt/lists/*' returned a non-zero code: 100
+	
+	[Container] 2025/12/18 17:55:46.590032 Command did not exit successfully docker build --progress=plain -t $REPOSITORY_URI:latest -f Dockerfile.production . exit status 100
+	[Container] 2025/12/18 17:55:46.596332 Phase complete: BUILD State: FAILED
+	[Container] 2025/12/18 17:55:46.596349 Phase context status code: COMMAND_EXECUTION_ERROR Message: Error while executing command: docker build --progress=plain -t $REPOSITORY_URI:latest -f Dockerfile.production .. Reason: exit status 100
+	[Container] 2025/12/18 17:55:46.634983 Entering phase POST_BUILD
+	[Container] 2025/12/18 17:55:46.636490 Running command echo Build completed on `date`
+	Build completed on Thu Dec 18 17:55:46 UTC 2025
+	
+	[Container] 2025/12/18 17:55:46.644934 Running command echo Pushing the Docker images...
+	Pushing the Docker images...
+	
+	[Container] 2025/12/18 17:55:46.652175 Running command docker push $REPOSITORY_URI:latest
+	The push refers to repository [816902390376.dkr.ecr.us-east-1.amazonaws.com/eduecosystem-backend]
+	An image does not exist locally with the tag: 816902390376.dkr.ecr.us-east-1.amazonaws.com/eduecosystem-backend
+	
+	[Container] 2025/12/18 17:55:46.675786 Command did not exit successfully docker push $REPOSITORY_URI:latest exit status 1
+	[Container] 2025/12/18 17:55:46.681411 Phase complete: POST_BUILD State: FAILED
+	[Container] 2025/12/18 17:55:46.681426 Phase context status code: COMMAND_EXECUTION_ERROR Message: Error while executing command: docker push $REPOSITORY_URI:latest. Reason: exit status 1
+	[Container] 2025/12/18 17:55:46.778711 Set report auto-discover timeout to 5 seconds
+	[Container] 2025/12/18 17:55:46.778756 Expanding base directory path:  .
+	[Container] 2025/12/18 17:55:46.782055 Assembling file list
+	[Container] 2025/12/18 17:55:46.782071 Expanding .
+	[Container] 2025/12/18 17:55:46.784967 Expanding file paths for base directory .
+	[Container] 2025/12/18 17:55:46.784982 Assembling file list
+	[Container] 2025/12/18 17:55:46.784986 Expanding **/*
+	[Container] 2025/12/18 17:55:46.792206 No matching auto-discover report paths found
+	[Container] 2025/12/18 17:55:46.792342 Report auto-discover file discovery took 0.013631 seconds
+	[Container] 2025/12/18 17:55:46.792412 Phase complete: UPLOAD_ARTIFACTS State: SUCCEEDED
+	[Container] 2025/12/18 17:55:46.792423 Phase context status code:  Message: 
+

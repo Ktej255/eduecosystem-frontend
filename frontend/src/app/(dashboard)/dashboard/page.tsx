@@ -1,223 +1,280 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ArrowRight, Brain, Activity, Calendar, Users, Smile, Zap, LogOut } from "lucide-react"
-import { Card } from "@/components/ui/card"
-import Link from "next/link"
-import AIAssistant from "@/components/ai-assistant"
-import { useAuth } from "@/contexts/auth-context"
-import { useGameStats, useWolfPack, useTasks } from "@/hooks/use-api"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  ArrowRight,
+  BookOpen,
+  Clock,
+  Trophy,
+  TrendingUp,
+  MoreHorizontal,
+  Calendar as CalendarIcon,
+} from "lucide-react";
+import Link from "next/link";
+import AIAssistant from "@/components/ai-assistant";
+import { useAuth } from "@/contexts/auth-context";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  PieChart,
+  Pie,
+  Cell,
+} from "recharts";
+
+const studyActivityData = [
+  { name: "Mon", hours: 4 },
+  { name: "Tue", hours: 6 },
+  { name: "Wed", hours: 3 },
+  { name: "Thu", hours: 8 },
+  { name: "Fri", hours: 5 },
+  { name: "Sat", hours: 2 },
+  { name: "Sun", hours: 4 },
+];
+
+const progressData = [
+  { name: "Week 1", score: 65 },
+  { name: "Week 2", score: 72 },
+  { name: "Week 3", score: 78 },
+  { name: "Week 4", score: 85 },
+];
+
+const skillData = [
+  { name: "Technical", value: 400, color: "#0ea5e9" },
+  { name: "Creative", value: 300, color: "#8b5cf6" },
+  { name: "Soft Skills", value: 300, color: "#f59e0b" },
+];
+import { useGameStats, useWolfPack, useTasks, useMyCourses } from "@/hooks/use-api";
 
 export default function DashboardPage() {
-    const [goal, setGoal] = useState("")
-    const [isFocused, setIsFocused] = useState(false)
-    const { user, logout } = useAuth()
-    const { stats } = useGameStats()
-    const { pack, joinPack } = useWolfPack()
-    const { tasks } = useTasks()
+  const { user } = useAuth();
+  const { stats } = useGameStats();
+  const { pack } = useWolfPack();
+  const { tasks } = useTasks();
+  const { courses, loading: coursesLoading } = useMyCourses();
 
-    const handleJoinPack = async () => {
-        try {
-            await joinPack()
-        } catch (error) {
-            console.error("Failed to join pack:", error)
-        }
-    }
+  // Calculate stats
+  const coursesInProgress = courses?.length || 0;
+  // Mock study hours for now, or derive from stats if available
+  const studyHours = stats?.total_study_hours || 12.5;
+  const avgQuizScore = stats?.avg_quiz_score || 85;
 
-    return (
-        <div className="h-full flex flex-col items-center justify-center p-8 space-y-8">
-            {!isFocused ? (
-                <div className="text-center space-y-8 max-w-2xl animate-in fade-in zoom-in duration-500">
-                    <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
-                        What is your Goal?
-                    </h1>
-                    <p className="text-gray-400 text-xl">
-                        Define your target. The AI will build the path.
-                    </p>
-                    <div className="flex items-center space-x-4">
-                        <Input
-                            className="bg-gray-800/50 border-gray-700 text-xl h-14 px-6 rounded-full focus:ring-cyan-500"
-                            placeholder="e.g. Crack UPSC 2026"
-                            value={goal}
-                            onChange={(e) => setGoal(e.target.value)}
-                        />
-                        <Button
-                            size="lg"
-                            className="h-14 px-8 rounded-full bg-cyan-600 hover:bg-cyan-500"
-                            onClick={() => setIsFocused(true)}
-                        >
-                            <ArrowRight className="h-6 w-6" />
-                        </Button>
-                    </div>
-                </div>
-            ) : (
-                <div className="w-full max-w-4xl p-8 space-y-8 relative min-h-screen">
-                    <div className="flex justify-between items-center">
-                        <div>
-                            <h1 className="text-3xl font-bold text-white">Welcome back, {user?.full_name || 'User'}</h1>
-                            <p className="text-gray-400 mt-1">Here's your holistic learning overview for today.</p>
-                        </div>
-                        <div className="flex items-center space-x-4">
-                            <div className="bg-gray-900 px-4 py-2 rounded-full border border-gray-800 flex items-center">
-                                <Zap className="h-4 w-4 text-yellow-500 mr-2" />
-                                <span className="text-white font-bold">{stats?.streak_days || 0} Day Streak</span>
-                            </div>
-                            <div className="bg-gray-900 px-4 py-2 rounded-full border border-gray-800 flex items-center">
-                                <span className="text-yellow-500 mr-2">🪙</span>
-                                <span className="text-white font-bold">{stats?.coins || 0} Coins</span>
-                            </div>
-                            <Button
-                                variant="outline"
-                                size="sm"
-                                onClick={logout}
-                                className="border-gray-700 text-gray-300 hover:text-white"
-                            >
-                                <LogOut className="h-4 w-4" />
-                            </Button>
-                        </div>
-                    </div>
-
-                    {/* Widgets Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                        {/* Graphology Widget */}
-                        <Link href="/grapho">
-                            <Card className="bg-gray-900 border-gray-800 p-6 hover:border-cyan-500/50 transition cursor-pointer group">
-                                <div className="flex justify-between items-start mb-4">
-                                    <div className="p-3 bg-purple-900/30 rounded-xl">
-                                        <Brain className="h-6 w-6 text-purple-400" />
-                                    </div>
-                                    <ArrowRight className="h-5 w-5 text-gray-600 group-hover:text-cyan-500 transition" />
-                                </div>
-                                <h3 className="text-lg font-bold text-white mb-1">Graphology Insights</h3>
-                                <p className="text-gray-400 text-sm mb-4">Upload handwriting for analysis</p>
-                                <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
-                                    <div className="bg-purple-500 h-full w-[75%]" />
-                                </div>
-                                <p className="text-xs text-gray-500 mt-2">75% Match with Ideal Profile</p>
-                            </Card>
-                        </Link>
-
-                        {/* Attention Widget */}
-                        <Link href="/monitoring">
-                            <Card className="bg-gray-900 border-gray-800 p-6 hover:border-cyan-500/50 transition cursor-pointer group">
-                                <div className="flex justify-between items-start mb-4">
-                                    <div className="p-3 bg-blue-900/30 rounded-xl">
-                                        <Activity className="h-6 w-6 text-blue-400" />
-                                    </div>
-                                    <ArrowRight className="h-5 w-5 text-gray-600 group-hover:text-cyan-500 transition" />
-                                </div>
-                                <h3 className="text-lg font-bold text-white mb-1">Focus Score</h3>
-                                <p className="text-gray-400 text-sm mb-4">Today's Average</p>
-                                <div className="flex items-end space-x-2">
-                                    <span className="text-4xl font-bold text-white">82</span>
-                                    <span className="text-sm text-green-500 mb-1">↑ 4%</span>
-                                </div>
-                            </Card>
-                        </Link>
-
-                        {/* Tasks Widget */}
-                        <Link href="/planner">
-                            <Card className="bg-gray-900 border-gray-800 p-6 hover:border-cyan-500/50 transition cursor-pointer group">
-                                <div className="flex justify-between items-start mb-4">
-                                    <div className="p-3 bg-green-900/30 rounded-xl">
-                                        <Calendar className="h-6 w-6 text-green-400" />
-                                    </div>
-                                    <ArrowRight className="h-5 w-5 text-gray-600 group-hover:text-cyan-500 transition" />
-                                </div>
-                                <h3 className="text-lg font-bold text-white mb-1">Up Next</h3>
-                                <div className="space-y-3 mt-4">
-                                    {tasks && tasks.length > 0 ? (
-                                        tasks.slice(0, 2).map((task: any, i: number) => (
-                                            <div key={i} className="flex items-center text-sm text-gray-300">
-                                                <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3" />
-                                                {task.title}
-                                            </div>
-                                        ))
-                                    ) : (
-                                        <p className="text-sm text-gray-400">No tasks yet</p>
-                                    )}
-                                </div>
-                            </Card>
-                        </Link>
-
-                        {/* Community Widget - Wolf Pack */}
-                        <Card className="bg-gray-900 border-gray-800 p-6 hover:border-cyan-500/50 transition cursor-pointer group">
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="p-3 bg-orange-900/30 rounded-xl">
-                                    <Users className="h-6 w-6 text-orange-400" />
-                                </div>
-                                <ArrowRight className="h-5 w-5 text-gray-600 group-hover:text-cyan-500 transition" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-1">Wolf Pack</h3>
-                            {pack ? (
-                                <>
-                                    <p className="text-gray-400 text-sm mb-4">{pack.name} - {pack.members?.length || 0} members</p>
-                                    <div className="flex -space-x-2">
-                                        {pack.members?.slice(0, 3).map((member: any, i: number) => (
-                                            <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 border-2 border-gray-900 flex items-center justify-center text-xs text-white font-bold">
-                                                {member.full_name?.[0] || 'U'}
-                                            </div>
-                                        ))}
-                                        {pack.members && pack.members.length > 3 && (
-                                            <div className="w-8 h-8 rounded-full bg-gray-800 border-2 border-gray-900 flex items-center justify-center text-xs text-white font-bold">
-                                                +{pack.members.length - 3}
-                                            </div>
-                                        )}
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    <p className="text-gray-400 text-sm mb-4">Join a learning pack</p>
-                                    <Button
-                                        onClick={handleJoinPack}
-                                        className="w-full bg-orange-600 hover:bg-orange-500"
-                                        size="sm"
-                                    >
-                                        Join Pack
-                                    </Button>
-                                </>
-                            )}
-                        </Card>
-
-                        {/* Wellness Widget */}
-                        <Link href="/meditation">
-                            <Card className="bg-gray-900 border-gray-800 p-6 hover:border-cyan-500/50 transition cursor-pointer group">
-                                <div className="flex justify-between items-start mb-4">
-                                    <div className="p-3 bg-pink-900/30 rounded-xl">
-                                        <Smile className="h-6 w-6 text-pink-400" />
-                                    </div>
-                                    <ArrowRight className="h-5 w-5 text-gray-600 group-hover:text-cyan-500 transition" />
-                                </div>
-                                <h3 className="text-lg font-bold text-white mb-1">Wellness Check</h3>
-                                <p className="text-gray-400 text-sm mb-4">Current Mood: Productive</p>
-                                <div className="flex justify-between mt-2">
-                                    <span className="text-2xl grayscale hover:grayscale-0 transition cursor-pointer">😐</span>
-                                    <span className="text-2xl grayscale hover:grayscale-0 transition cursor-pointer">🙂</span>
-                                    <span className="text-2xl grayscale-0 scale-110 cursor-pointer">😎</span>
-                                    <span className="text-2xl grayscale hover:grayscale-0 transition cursor-pointer">🤩</span>
-                                </div>
-                            </Card>
-                        </Link>
-
-                        {/* Quick Actions */}
-                        <Card className="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 border-cyan-500/30 p-6 flex flex-col justify-center items-center text-center">
-                            <h3 className="text-xl font-bold text-white mb-2">Ready to Focus?</h3>
-                            <p className="text-gray-400 text-sm mb-6">Enter Shadow Mode for deep work.</p>
-                            <Link href="/shadow-mode">
-                                <Button className="bg-cyan-600 hover:bg-cyan-500 w-full">
-                                    Start Session
-                                </Button>
-                            </Link>
-                        </Card>
-                    </div>
-
-                    {/* Global AI Assistant */}
-                    <AIAssistant />
-                </div>
-            )}
+  return (
+    <div className="space-y-6">
+      {/* Welcome Banner */}
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 p-8 text-white shadow-lg">
+        <div className="relative z-10">
+          <h1 className="text-3xl font-bold mb-2">
+            Good evening, {user?.full_name || "Student"}
+          </h1>
+          <p className="text-blue-100 max-w-xl mb-6">
+            Welcome back to your learning dashboard. You have {coursesInProgress} active courses and {tasks?.length || 0} pending tasks.
+          </p>
+          <Button variant="secondary" className="bg-white text-blue-600 hover:bg-blue-50">
+            View My Plan
+          </Button>
         </div>
-    )
+        <div className="absolute right-0 top-0 h-full w-1/3 opacity-20 bg-[url('https://illustrations.popsy.co/white/student-going-to-school.svg')] bg-no-repeat bg-contain bg-right-bottom" />
+      </div>
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card>
+          <CardContent className="p-6 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-muted-foreground mb-1">Courses in Progress</p>
+              <h3 className="text-2xl font-bold">{coursesInProgress}</h3>
+            </div>
+            <div className="h-12 w-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+              <BookOpen className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-6 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-muted-foreground mb-1">Study Hours</p>
+              <h3 className="text-2xl font-bold">{studyHours}</h3>
+            </div>
+            <div className="h-12 w-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
+              <Clock className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-6 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-muted-foreground mb-1">Avg. Quiz Score</p>
+              <h3 className="text-2xl font-bold">{avgQuizScore}%</h3>
+            </div>
+            <div className="h-12 w-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+              <Trophy className="h-6 w-6 text-green-600 dark:text-green-400" />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Charts Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Study Activity Bar Chart */}
+        <Card className="lg:col-span-2">
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className="text-lg font-medium">Study Activity</CardTitle>
+            <Button variant="ghost" size="icon">
+              <MoreHorizontal className="h-4 w-4" />
+            </Button>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={studyActivityData}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#374151" opacity={0.2} />
+                  <XAxis
+                    dataKey="name"
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: '#6b7280', fontSize: 12 }}
+                    dy={10}
+                  />
+                  <YAxis
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: '#6b7280', fontSize: 12 }}
+                  />
+                  <Tooltip
+                    contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
+                    cursor={{ fill: 'rgba(255, 255, 255, 0.05)' }}
+                  />
+                  <Bar dataKey="hours" fill="#3b82f6" radius={[4, 4, 0, 0]} barSize={30} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Progress Line Chart */}
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className="text-lg font-medium">Performance</CardTitle>
+            <div className="flex items-center text-sm text-green-500">
+              <TrendingUp className="h-4 w-4 mr-1" />
+              +5.2%
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[200px] w-full mb-4">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={progressData}>
+                  <Tooltip
+                    contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="score"
+                    stroke="#8b5cf6"
+                    strokeWidth={3}
+                    dot={{ r: 4, fill: '#8b5cf6', strokeWidth: 2, stroke: '#fff' }}
+                    activeDot={{ r: 6 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <div className="h-2 w-2 rounded-full bg-blue-500 mr-2" />
+                  <span className="text-sm text-muted-foreground">Quiz Completion</span>
+                </div>
+                <span className="text-sm font-bold">92%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="h-2 w-2 rounded-full bg-purple-500 mr-2" />
+                <span className="text-sm text-muted-foreground">Assignments</span>
+              </div>
+              <span className="text-sm font-bold">85%</span>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Bottom Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Recent Courses */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg font-medium">Continue Learning</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {coursesLoading ? (
+                <p className="text-sm text-muted-foreground">Loading courses...</p>
+              ) : courses && courses.length > 0 ? (
+                courses.slice(0, 3).map((enrollment: any) => (
+                  <div key={enrollment.id} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg hover:bg-muted transition cursor-pointer">
+                    <div className="flex items-center space-x-4">
+                      <div className="h-10 w-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                        <BookOpen className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-medium">{enrollment.course?.title || "Course Title"}</h4>
+                        <p className="text-xs text-muted-foreground">
+                          {enrollment.progress_percentage || 0}% Complete
+                        </p>
+                      </div>
+                    </div>
+                    <Link href={`/lms/courses/${enrollment.course_id}`}>
+                      <Button size="sm" variant="ghost">
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-muted-foreground">No active courses. <Link href="/lms/courses" className="text-blue-500 hover:underline">Browse courses</Link></p>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Upcoming Tasks */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg font-medium">Upcoming Tasks</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {tasks && tasks.length > 0 ? (
+                tasks.slice(0, 3).map((task: any, i: number) => (
+                  <div key={i} className="flex items-start space-x-4 p-3 border-b last:border-0 border-border">
+                    <div className="mt-1">
+                      <div className={`h-2 w-2 rounded-full ${task.priority === 'high' ? 'bg-red-500' : 'bg-yellow-500'}`} />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium">{task.title}</h4>
+                      <div className="flex items-center mt-1 text-xs text-muted-foreground">
+                        <CalendarIcon className="h-3 w-3 mr-1" />
+                        <span>{task.due_date ? new Date(task.due_date).toLocaleDateString() : "No due date"}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-muted-foreground">No upcoming tasks.</p>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <AIAssistant />
+    </div>
+  );
 }

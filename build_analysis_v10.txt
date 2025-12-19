@@ -1,0 +1,8 @@
+
+--- Context near line 1 ---
+CLI Error:
+
+'charmap' codec can't encode characters in position 16-53: character maps to <undefined>
+
+
+--- End Context ---

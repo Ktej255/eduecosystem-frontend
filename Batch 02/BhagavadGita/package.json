@@ -1,0 +1,14 @@
+{
+  "name": "bhagavad-gita-builder",
+  "version": "1.0.0",
+  "description": "Static site generator and scraper for Bhagavad Gita website migration",
+  "main": "builder/index.js",
+  "scripts": {
+    "build": "node builder/index.js",
+    "scrape": "node builder/scraper.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "fs-extra": "^11.1.1"
+  }
+}

@@ -1,30 +1,65 @@
-"use client"
+"use client";
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { useAuth } from '@/contexts/auth-context'
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/auth-context";
 
-export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
-    const { isAuthenticated, loading } = useAuth()
-    const router = useRouter()
+export default function ProtectedRoute({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const { isAuthenticated, loading } = useAuth();
+  const router = useRouter();
+  const [timedOut, setTimedOut] = useState(false);
 
-    useEffect(() => {
-        if (!loading && !isAuthenticated) {
-            router.push('/login')
-        }
-    }, [isAuthenticated, loading, router])
+  // Add timeout to prevent infinite loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (loading) {
+        console.warn("Auth check timed out after 5 seconds");
+        setTimedOut(true);
+      }
+    }, 5000); // 5 second timeout
 
-    if (loading) {
-        return (
-            <div className="flex min-h-screen items-center justify-center bg-black">
-                <div className="text-white text-xl">Loading...</div>
-            </div>
-        )
+    return () => clearTimeout(timer);
+  }, [loading]);
+
+  useEffect(() => {
+    if (!loading && !isAuthenticated) {
+      router.push("/login");
     }
-
-    if (!isAuthenticated) {
-        return null
+    if (timedOut && !isAuthenticated) {
+      router.push("/login");
     }
+  }, [isAuthenticated, loading, router, timedOut]);
 
-    return <>{children}</>
+  if (loading && !timedOut) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black">
+        <div className="text-center">
+          <div className="text-white text-xl mb-2">Loading...</div>
+          <div className="text-gray-400 text-sm">Please wait while we verify your session</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (timedOut) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black">
+        <div className="text-center">
+          <div className="text-white text-xl mb-2">Session Check Failed</div>
+          <div className="text-gray-400 text-sm mb-4">Redirecting to login...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
+
+  return <>{children}</>;
 }
+

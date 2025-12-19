@@ -1,0 +1,11 @@
+{
+    "common": {
+        "welcome": "Bienvenido a Eduecosystem Móvil",
+        "courses": "Cursos",
+        "profile": "Perfil",
+        "settings": "Configuración",
+        "login": "Iniciar sesión",
+        "register": "Registrarse",
+        "logout": "Cerrar sesión"
+    }
+}

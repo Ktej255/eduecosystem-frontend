@@ -1,0 +1,11 @@
+{
+    "common": {
+        "welcome": "Eduecosystem मोबाइल में आपका स्वागत है",
+        "courses": "कोर्स",
+        "profile": "प्रोफ़ाइल",
+        "settings": "सेटिंग्स",
+        "login": "लॉग इन",
+        "register": "रजिस्टर करें",
+        "logout": "लॉग आउट"
+    }
+}
