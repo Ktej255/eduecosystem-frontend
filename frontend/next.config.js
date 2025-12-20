@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
-  // Standalone mode for AWS Amplify SSR
+  // Standalone mode for server-side rendering
   // Production optimizations
   productionBrowserSourceMaps: false,
   compress: true,
