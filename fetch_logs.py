@@ -15,10 +15,18 @@ def get_logs():
     
     try:
         # Set environment variables for AWS CLI
+        # NOTE: AWS credentials should be set via environment variables or AWS CLI config
+        # Do NOT hardcode credentials in source code
         env = os.environ.copy()
-        env["AWS_ACCESS_KEY_ID"] = "REMOVED_AWS_KEY"
-        env["AWS_SECRET_ACCESS_KEY"] = "REMOVED_AWS_SECRET"
-        env["AWS_DEFAULT_REGION"] = "us-east-1"
+        # Use existing AWS credentials from environment
+        # Set these environment variables before running:
+        # - AWS_ACCESS_KEY_ID
+        # - AWS_SECRET_ACCESS_KEY
+        # - AWS_DEFAULT_REGION (defaults to us-east-1)
+        if not env.get("AWS_ACCESS_KEY_ID") or not env.get("AWS_SECRET_ACCESS_KEY"):
+            print("ERROR: AWS credentials not found. Please set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.")
+            return
+        env.setdefault("AWS_DEFAULT_REGION", "us-east-1")
         env["AWS_PAGER"] = ""
         env["PYTHONIOENCODING"] = "utf-8"
         
