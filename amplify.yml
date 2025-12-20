@@ -4,10 +4,12 @@ frontend:
     preBuild:
       commands:
         - nvm use 22 || nvm install 22
-        - cd frontend && npm ci
+        - (cd frontend && npm ci)
     build:
       commands:
-        - cd frontend && echo "NEXT_PUBLIC_API_URL=https://a7z4kjysmp.us-east-1.awsapprunner.com" >> .env.production && echo "NEXT_PUBLIC_ENVIRONMENT=production" >> .env.production && npm run build
+        - echo "NEXT_PUBLIC_API_URL=https://a7z4kjysmp.us-east-1.awsapprunner.com" >> frontend/.env.production
+        - echo "NEXT_PUBLIC_ENVIRONMENT=production" >> frontend/.env.production
+        - (cd frontend && npm run build)
   artifacts:
     baseDirectory: frontend/.next/standalone
     files:
