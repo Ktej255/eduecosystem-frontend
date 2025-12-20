@@ -18,10 +18,11 @@ class AIService:
         
         self.openai_key = os.getenv("OPENAI_API_KEY")
         self.claude_key = os.getenv("ANTHROPIC_API_KEY")
-        self.grok_key = settings.GROK_API_KEY
+        self.openrouter_key = settings.OPENROUTER_API_KEY or settings.GROK_API_KEY
+        self.grok_key = settings.GROK_API_KEY  # Legacy, for backward compatibility
         
-        # Default to Grok if key is present, otherwise fallback
-        self.default_provider = os.getenv("AI_PROVIDER", "grok" if self.grok_key else "openai")
+        # Default to OpenRouter/Gemini if key is present, otherwise fallback
+        self.default_provider = os.getenv("AI_PROVIDER", "grok" if self.openrouter_key else "openai")
 
         if self.openai_key:
             openai.api_key = self.openai_key
@@ -86,15 +87,15 @@ class AIService:
             messages.append({"role": "system", "content": system_message})
         messages.append({"role": "user", "content": prompt})
 
-        # Create a specialized client for Grok/OpenRouter
+        # Create a specialized client for OpenRouter (Gemini 2.0 Flash)
         # We use the openai library but point it to OpenRouter
         client = openai.AsyncOpenAI(
-            api_key=self.grok_key,
+            api_key=self.openrouter_key,
             base_url=settings.OPENROUTER_BASE_URL,
         )
 
         response = await client.chat.completions.create(
-            model="google/gemma-3-27b-it",  # Google Gemma 3 27B
+            model=settings.DEFAULT_AI_MODEL,  # google/gemini-2.0-flash-exp:free
             messages=messages,
             max_tokens=max_tokens,
             temperature=temperature,

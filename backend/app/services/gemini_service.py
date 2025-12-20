@@ -1,48 +1,49 @@
 """
-Google Gemini AI Service
-Centralized service for all Gemini API interactions
+AI Service using OpenRouter
+Replaces Google Gemini with OpenRouter models (Gemini 2.0 Flash, Gemma, Llama, Mistral)
 """
 
 import os
 from typing import Optional, List, Dict
-import google.generativeai as genai
-
-# Initialize Gemini
-try:
-    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-    if GEMINI_API_KEY:
-        genai.configure(api_key=GEMINI_API_KEY)
-    else:
-        print("WARNING: GEMINI_API_KEY not found in environment variables")
-except Exception as e:
-    print(f"WARNING: Failed to initialize Gemini: {e}")
+import httpx
 
 
 class GeminiService:
-    """Service for Google Gemini AI operations"""
+    """
+    Service for AI operations using OpenRouter API.
+    Named GeminiService for backward compatibility, but uses OpenRouter models.
+    """
 
-    def __init__(self, model_name: str = "gemini-1.5-flash"):
+    def __init__(self, model_name: str = None):
         """
-        Initialize Gemini service
+        Initialize OpenRouter AI service
 
         Args:
-            model_name: Name of the Gemini model to use
+            model_name: OpenRouter model name (default: google/gemini-2.0-flash-exp:free)
         """
-        self.model_name = os.getenv("GEMINI_MODEL", model_name)
-        self.model = None
-        self.vision_model = None
-
-        try:
-            self.model = genai.GenerativeModel(self.model_name)
-            self.vision_model = genai.GenerativeModel("gemini-1.5-flash")
-        except Exception as e:
-            print(f"WARNING: Failed to create Gemini model: {e}")
+        from app.core.config import settings
+        
+        self.api_key = settings.OPENROUTER_API_KEY or settings.GROK_API_KEY
+        self.base_url = settings.OPENROUTER_BASE_URL
+        self.model_name = model_name or settings.DEFAULT_AI_MODEL or "google/gemini-2.0-flash-exp:free"
+        
+        # Fallback API keys
+        self.fallback_keys = [
+            settings.GROK_API_KEY,  # Gemma 3 27B
+            settings.LLAMA_API_KEY,  # Llama 3
+            settings.MISTRAL_API_KEY,  # Mistral
+        ]
+        
+        if self.api_key:
+            print(f"✅ OpenRouter AI configured with model: {self.model_name}")
+        else:
+            print("WARNING: No OpenRouter API key found in environment variables")
 
     def generate_text(
         self, prompt: str, temperature: float = 0.7, max_tokens: int = 1000
     ) -> str:
         """
-        Generate text using Gemini
+        Generate text using OpenRouter API
 
         Args:
             prompt: Input prompt
@@ -52,29 +53,78 @@ class GeminiService:
         Returns:
             Generated text response
         """
-        if not self.model:
-            return "Gemini is not configured. Please set GEMINI_API_KEY."
+        if not self.api_key:
+            return "AI is not configured. Please set OPENROUTER_API_KEY."
 
         try:
-            generation_config = {
-                "temperature": temperature,
-                "max_output_tokens": max_tokens,
-            }
-
-            response = self.model.generate_content(
-                prompt, generation_config=generation_config
-            )
-
-            return response.text
+            with httpx.Client(timeout=60.0) as client:
+                response = client.post(
+                    f"{self.base_url}/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {self.api_key}",
+                        "Content-Type": "application/json",
+                        "HTTP-Referer": "https://eduecosystem.com",
+                        "X-Title": "Sarit Classes - Holistic Learning",
+                    },
+                    json={
+                        "model": self.model_name,
+                        "messages": [{"role": "user", "content": prompt}],
+                        "max_tokens": max_tokens,
+                        "temperature": temperature,
+                    },
+                )
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    return data["choices"][0]["message"]["content"]
+                else:
+                    # Try fallback
+                    return self._try_fallback(prompt, temperature, max_tokens, response.text)
+                    
         except Exception as e:
             print(f"Error generating text: {e}")
             return f"Error: {str(e)}"
+
+    def _try_fallback(
+        self, prompt: str, temperature: float, max_tokens: int, original_error: str
+    ) -> str:
+        """Try fallback API keys if primary fails"""
+        for fallback_key in self.fallback_keys:
+            if not fallback_key or fallback_key == self.api_key:
+                continue
+            
+            try:
+                with httpx.Client(timeout=60.0) as client:
+                    response = client.post(
+                        f"{self.base_url}/chat/completions",
+                        headers={
+                            "Authorization": f"Bearer {fallback_key}",
+                            "Content-Type": "application/json",
+                            "HTTP-Referer": "https://eduecosystem.com",
+                            "X-Title": "Sarit Classes",
+                        },
+                        json={
+                            "model": "google/gemma-3-27b-it",  # Use Gemma as fallback model
+                            "messages": [{"role": "user", "content": prompt}],
+                            "max_tokens": max_tokens,
+                            "temperature": temperature,
+                        },
+                    )
+                    
+                    if response.status_code == 200:
+                        data = response.json()
+                        return data["choices"][0]["message"]["content"]
+            except:
+                continue
+        
+        return f"Error with all AI models. Primary error: {original_error}"
 
     def analyze_image(
         self, image_path: str, prompt: str, temperature: float = 0.4
     ) -> str:
         """
-        Analyze image using Gemini Vision
+        Analyze image using OpenRouter Vision model
+        Note: Image analysis requires base64 encoding
 
         Args:
             image_path: Path to image file
@@ -84,24 +134,55 @@ class GeminiService:
         Returns:
             Analysis result
         """
-        if not self.vision_model:
-            return "Gemini Vision is not configured. Please set GEMINI_API_KEY."
+        if not self.api_key:
+            return "AI Vision is not configured. Please set OPENROUTER_API_KEY."
 
         try:
-            import PIL.Image
-
-            # Open and prepare image
-            img = PIL.Image.open(image_path)
-
-            generation_config = {
-                "temperature": temperature,
-            }
-
-            response = self.vision_model.generate_content(
-                [prompt, img], generation_config=generation_config
-            )
-
-            return response.text
+            import base64
+            
+            # Read and encode image
+            with open(image_path, "rb") as f:
+                image_data = base64.b64encode(f.read()).decode("utf-8")
+            
+            # Determine image type
+            ext = image_path.lower().split(".")[-1]
+            mime_type = f"image/{ext}" if ext in ["png", "jpg", "jpeg", "gif", "webp"] else "image/jpeg"
+            
+            with httpx.Client(timeout=60.0) as client:
+                response = client.post(
+                    f"{self.base_url}/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {self.api_key}",
+                        "Content-Type": "application/json",
+                        "HTTP-Referer": "https://eduecosystem.com",
+                        "X-Title": "Sarit Classes",
+                    },
+                    json={
+                        "model": "google/gemini-2.0-flash-exp:free",  # Use Gemini for vision
+                        "messages": [
+                            {
+                                "role": "user",
+                                "content": [
+                                    {"type": "text", "text": prompt},
+                                    {
+                                        "type": "image_url",
+                                        "image_url": {
+                                            "url": f"data:{mime_type};base64,{image_data}"
+                                        },
+                                    },
+                                ],
+                            }
+                        ],
+                        "temperature": temperature,
+                    },
+                )
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    return data["choices"][0]["message"]["content"]
+                else:
+                    return f"Error analyzing image: {response.text}"
+                    
         except Exception as e:
             print(f"Error analyzing image: {e}")
             return f"Error: {str(e)}"
@@ -123,31 +204,42 @@ class GeminiService:
         Returns:
             AI response
         """
-        if not self.model:
-            return "Gemini is not configured. Please set GEMINI_API_KEY."
+        if not self.api_key:
+            return "AI is not configured. Please set OPENROUTER_API_KEY."
 
         try:
-            # Build conversation history
-            chat = self.model.start_chat(history=[])
-
-            # Add system prompt if provided
-            full_prompt = ""
+            # Build messages list
+            api_messages = []
             if system_prompt:
-                full_prompt = f"{system_prompt}\n\n"
-
-            # Add user messages
+                api_messages.append({"role": "system", "content": system_prompt})
+            
+            # Convert message format
             for msg in messages:
-                full_prompt += f"{msg['role']}: {msg['content']}\n"
-
-            generation_config = {
-                "temperature": temperature,
-            }
-
-            response = chat.send_message(
-                full_prompt, generation_config=generation_config
-            )
-
-            return response.text
+                role = "assistant" if msg.get("role", "").lower() in ["assistant", "ai", "bot"] else "user"
+                api_messages.append({"role": role, "content": msg["content"]})
+            
+            with httpx.Client(timeout=60.0) as client:
+                response = client.post(
+                    f"{self.base_url}/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {self.api_key}",
+                        "Content-Type": "application/json",
+                        "HTTP-Referer": "https://eduecosystem.com",
+                        "X-Title": "Sarit Classes",
+                    },
+                    json={
+                        "model": self.model_name,
+                        "messages": api_messages,
+                        "temperature": temperature,
+                    },
+                )
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    return data["choices"][0]["message"]["content"]
+                else:
+                    return f"Error in chat: {response.text}"
+                    
         except Exception as e:
             print(f"Error in chat: {e}")
             return f"Error: {str(e)}"
