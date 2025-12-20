@@ -71,3 +71,22 @@ logs/
 
 # OS
 Thumbs.db
+
+# Large build artifacts (too big for GitHub)
+*.zip
+backend.zip
+backend-*.zip
+frontend-deploy.zip
+amplify-deploy.zip
+amplify-ssr-final.zip
+ssr-root-deploy.zip
+static-hosting-deploy.zip
+test-deploy.zip
+
+# Build deployment folders
+amplify-deploy/
+amplify-deploy-v2/
+amplify-ssr-root/
+amplify-static-deploy/
+test-deploy/
+build_temp*/

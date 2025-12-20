@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
-  // Standard Next.js SSR mode for Vercel
+  // Standalone mode for AWS Amplify SSR
   // Production optimizations
   productionBrowserSourceMaps: false,
   compress: true,

@@ -9,9 +9,11 @@ frontend:
     build:
       commands:
         - cd frontend
+        - echo "NEXT_PUBLIC_API_URL=https://a7z4kjysmp.us-east-1.awsapprunner.com" >> .env.production
+        - echo "NEXT_PUBLIC_ENVIRONMENT=production" >> .env.production
         - npm run build
   artifacts:
-    baseDirectory: frontend/.next
+    baseDirectory: frontend/.next/standalone
     files:
       - '**/*'
   cache:
