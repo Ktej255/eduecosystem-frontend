@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     DEBUG: bool = os.getenv("DEBUG", "false").lower() == "true"
 
     PROJECT_NAME: str = "Holistic Learning Ecosystem"
-    BASE_URL: str = os.getenv("BASE_URL", "http://localhost:8000")
+    BASE_URL: str = os.getenv("BASE_URL", "https://a7z4kjysmp.us-east-1.awsapprunner.com")
     API_V1_STR: str = "/api/v1"
     POSTGRES_SERVER: str = os.getenv("POSTGRES_SERVER", "localhost")
     POSTGRES_USER: str = os.getenv("POSTGRES_USER", "postgres")
@@ -63,7 +63,7 @@ class Settings(BaseSettings):
     def BACKEND_CORS_ORIGINS(self) -> list[str]:
         """Parse CORS origins from environment variable (comma-separated)"""
         origins_str = os.getenv(
-            "BACKEND_CORS_ORIGINS", "http://localhost:3000,http://localhost:3001,http://localhost:8000"
+            "BACKEND_CORS_ORIGINS", "https://d2azz9jngd0rmq.amplifyapp.com,https://a7z4kjysmp.us-east-1.awsapprunner.com,http://localhost:3000,http://localhost:3001,http://localhost:8000"
         )
         return [origin.strip() for origin in origins_str.split(",") if origin.strip()]
 

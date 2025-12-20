@@ -1,0 +1,70 @@
+# Production Environment Variables for AWS Deployment
+# This file should be used as a template for AWS Amplify/App Runner environment variables
+# DO NOT commit this file with actual secrets to git
+
+# =====================================
+# FRONTEND (AWS Amplify) Environment Variables
+# =====================================
+# Set these in AWS Amplify Console > Environment Variables:
+
+NEXT_PUBLIC_API_URL=https://a7z4kjysmp.us-east-1.awsapprunner.com
+
+# =====================================
+# BACKEND (AWS App Runner) Environment Variables
+# =====================================
+# Set these in AWS App Runner > Service Configuration > Environment Variables:
+
+# Application
+ENVIRONMENT=production
+VERSION=2.0.0
+LOG_LEVEL=INFO
+
+# Base URL (Backend itself)
+BASE_URL=https://a7z4kjysmp.us-east-1.awsapprunner.com
+
+# CORS Origins (Frontend URL)
+BACKEND_CORS_ORIGINS=https://d2azz9jngd0rmq.amplifyapp.com,https://a7z4kjysmp.us-east-1.awsapprunner.com
+
+# Security - REQUIRED: Generate with: python -c "import secrets; print(secrets.token_urlsafe(32))"
+SECRET_KEY=your-super-secret-key-min-32-chars-change-this-in-production
+
+# Database - Use AWS RDS PostgreSQL
+DATABASE_URL=postgresql://user:password@your-rds-endpoint:5432/eduecosystem
+
+# AI Integration (Gemini)
+# Get your API key from: https://aistudio.google.com/app/apikey
+GEMINI_API_KEY=your-gemini-api-key-here
+
+# Email (SMTP) - Optional but recommended for password recovery
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-specific-password
+MAIL_FROM=noreply@saritclasses.com
+MAIL_PORT=587
+MAIL_SERVER=smtp.gmail.com
+MAIL_FROM_NAME=Sarit Classes
+MAIL_SUPPRESS_SEND=0
+
+# Stripe (Payment) - Optional for e-commerce
+STRIPE_SECRET_KEY=sk_live_your_stripe_secret_key
+STRIPE_PUBLISHABLE_KEY=pk_live_your_stripe_publishable_key
+STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
+PREMIUM_PRICE_ID=price_your_premium_price_id
+
+# Redis (Caching) - Optional
+REDIS_HOST=your-elasticache-endpoint
+REDIS_PORT=6379
+REDIS_DB=0
+REDIS_PASSWORD=your-redis-password
+
+# AWS S3 (File Storage) - Optional
+STORAGE_BACKEND=s3
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_S3_BUCKET=your-bucket-name
+AWS_REGION=us-east-1
+
+# =====================================
+# CURRENT AWS DEPLOYMENT URLS
+# =====================================
+# Frontend (AWS Amplify): https://d2azz9jngd0rmq.amplifyapp.com
+# Backend (AWS App Runner): https://a7z4kjysmp.us-east-1.awsapprunner.com
