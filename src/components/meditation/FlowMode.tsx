@@ -99,18 +99,40 @@ export default function FlowMode({
         }, 3000); // 3 second pause between processes
     }, [currentProcess, isLastProcess, onProcessComplete, onSessionComplete]);
 
-    // Play announcement when moving to new process
+    // Play announcement when moving to new process - with fallback timeout
     useEffect(() => {
         if (sessionState === 'announcement' && currentProcess) {
             // Update audio source for new process
             const playNewAnnouncement = async () => {
-                // Small delay to ensure audio is ready
+                // Small delay to ensure audio manager is ready
                 await new Promise(resolve => setTimeout(resolve, 500));
-                audioRef.current?.playAnnouncement();
+
+                try {
+                    await audioRef.current?.playAnnouncement();
+                } catch (error) {
+                    console.log("Announcement playback failed, transitioning anyway");
+                    // If announcement fails, transition to timer after showing process name
+                    setTimeout(() => {
+                        if (sessionState === 'announcement') {
+                            handleAnnouncementEnd();
+                        }
+                    }, 2000);
+                }
             };
+
             playNewAnnouncement();
+
+            // Fallback timeout - if no audio or announcement doesn't end, auto-advance after 4 seconds
+            const fallbackTimer = setTimeout(() => {
+                if (sessionState === 'announcement') {
+                    console.log("Announcement fallback timeout triggered");
+                    handleAnnouncementEnd();
+                }
+            }, 4000);
+
+            return () => clearTimeout(fallbackTimer);
         }
-    }, [sessionState, currentProcess]);
+    }, [sessionState, currentProcess, handleAnnouncementEnd]);
 
     // Toggle pause
     const togglePause = useCallback(() => {
@@ -141,7 +163,34 @@ export default function FlowMode({
         setTimeout(() => setShowControls(false), 5000);
     }, []);
 
-    if (!currentProcess) return null;
+    // Handle empty processes array
+    if (!processes || processes.length === 0) {
+        return (
+            <div
+                className="min-h-screen flex flex-col items-center justify-center"
+                style={{ backgroundColor: '#0a0a0a' }}
+            >
+                <p className="text-red-400 text-xl mb-4">No processes available for this day</p>
+                <button
+                    onClick={onExit}
+                    className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500"
+                >
+                    Go Back
+                </button>
+            </div>
+        );
+    }
+
+    if (!currentProcess) {
+        return (
+            <div
+                className="min-h-screen flex items-center justify-center"
+                style={{ backgroundColor: '#0a0a0a' }}
+            >
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500"></div>
+            </div>
+        );
+    }
 
     return (
         <div
