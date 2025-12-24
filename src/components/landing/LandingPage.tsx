@@ -68,7 +68,7 @@ export default function LandingPage() {
     };
 
     return (
-        <div className="min-h-screen bg-neutral-dark text-white selection:bg-primary-blue/30 overflow-x-hidden">
+        <div className="min-h-screen text-white selection:bg-primary-blue/30 overflow-x-hidden" style={{ backgroundColor: '#0a0a0a' }}>
             {/* Background Orbs */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-blue/20 rounded-full blur-[120px]" />
