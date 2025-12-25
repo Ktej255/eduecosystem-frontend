@@ -1,7 +1,13 @@
 "use client";
 
 import React from "react";
-import { StreakWidget, RealityCheckOverlay, ConnectTheDots } from "@/components/engagement";
+import {
+    StreakWidget,
+    RealityCheckOverlay,
+    ConnectTheDots,
+    HabitTracker,
+    MasteryWidget
+} from "@/components/engagement";
 
 export default function EngagementDemoPage() {
     return (
@@ -13,14 +19,31 @@ export default function EngagementDemoPage() {
             />
 
             <div className="max-w-4xl mx-auto space-y-8">
-                <h1 className="text-3xl font-bold mb-8">Engagement Features Demo</h1>
+                <h1 className="text-3xl font-bold mb-8">🎮 Engagement System Demo</h1>
 
-                {/* Streak Widget */}
+                {/* Top Row: Streak + Mastery */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <section>
+                        <h2 className="text-xl font-semibold mb-4 text-gray-400">
+                            🔥 Streak Tracker
+                        </h2>
+                        <StreakWidget />
+                    </section>
+
+                    <section>
+                        <h2 className="text-xl font-semibold mb-4 text-gray-400">
+                            🏆 Mastery Level
+                        </h2>
+                        <MasteryWidget />
+                    </section>
+                </div>
+
+                {/* Habit Tracker */}
                 <section>
                     <h2 className="text-xl font-semibold mb-4 text-gray-400">
-                        🔥 Streak Tracker
+                        ✅ Daily Habits
                     </h2>
-                    <StreakWidget />
+                    <HabitTracker />
                 </section>
 
                 {/* Connect The Dots */}
@@ -35,10 +58,10 @@ export default function EngagementDemoPage() {
                     />
                 </section>
 
-                {/* Compact Streak */}
+                {/* Compact Widgets */}
                 <section>
                     <h2 className="text-xl font-semibold mb-4 text-gray-400">
-                        Compact Streak (for header)
+                        Compact Widgets (for header)
                     </h2>
                     <div className="flex gap-4">
                         <StreakWidget compact />
