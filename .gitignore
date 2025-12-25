@@ -34,13 +34,27 @@ yarn-error.log*
 out/
 .cache/
 
-# Environment
+# Environment - BLOCK ALL ENV FILES
 .env
+.env.*
+!.env.example
+!.env.production.example
 .env.local
+.env.development
 .env.development.local
 .env.test.local
 .env.production
 .env.production.local
+*.env
+
+# Secrets - NEVER commit these
+**/secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
 
 # IDE
 .vscode/
