@@ -5,8 +5,9 @@ const nextConfig = {
         ignoreDuringBuilds: true,
     },
     images: {
-        unoptimized: true, // For static export compatibility if needed, but useful for avoiding optimization issues in some container envs
-    }
+        unoptimized: true,
+    },
+    transpilePackages: ['@xyflow/react'],
 };
 
 export default nextConfig;

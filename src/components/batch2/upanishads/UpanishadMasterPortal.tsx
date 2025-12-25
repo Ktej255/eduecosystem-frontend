@@ -233,12 +233,20 @@ export default function UpanishadMasterPortal() {
     const [nodes, setNodes, onNodesChange] = useNodesState<any>(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState<any>(initialEdges);
 
+    const [isMounted, setIsMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     const onNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
         // Only navigate for actual Upanishad nodes
         if (!node.id.startsWith("header-") && !node.id.startsWith("container-") && node.id !== "root") {
             router.push(`/student/batch2/upanishads/${node.id}`);
         }
     }, [router]);
+
+    if (!isMounted) return <div className="w-full h-[800px] flex items-center justify-center bg-slate-50"><div className="animate-spin text-amber-600 text-4xl">ॐ</div></div>;
 
     return (
         <div className="w-full">
