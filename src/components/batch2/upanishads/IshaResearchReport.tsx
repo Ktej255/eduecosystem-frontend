@@ -12,23 +12,23 @@ interface ResearchSectionProps {
 
 const ResearchSection = ({ title, children, icon: Icon }: ResearchSectionProps) => (
     <div className="mb-12 relative">
-        <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-amber-500/50 to-transparent rounded-full" />
+        <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#D4AF37]/50 to-transparent rounded-full" />
         <div className="flex items-center gap-3 mb-6">
-            {Icon && <Icon className="w-6 h-6 text-amber-500" />}
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-amber-100">{title}</h3>
+            {Icon && <Icon className="w-6 h-6 text-[#D4AF37]" />}
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#FCF6BA] drop-shadow-md">{title}</h3>
         </div>
-        <div className="space-y-6 text-lg leading-relaxed text-amber-50/80">
+        <div className="space-y-6 text-lg leading-relaxed text-[#E8D4B3]/90 font-light tracking-wide">
             {children}
         </div>
     </div>
 );
 
 const HighlightBox = ({ title, children }: { title: string, children: React.ReactNode }) => (
-    <div className="bg-amber-950/30 border border-amber-600/20 rounded-2xl p-6 md:p-8 my-8 relative overflow-hidden group hover:bg-amber-900/20 transition-all">
-        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-            <Zap className="w-24 h-24 text-amber-400" />
+    <div className="bg-[#121212]/80 border border-[#D4AF37]/20 rounded-2xl p-6 md:p-8 my-8 relative overflow-hidden group hover:bg-[#1a1a1a] transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+        <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <Zap className="w-24 h-24 text-[#D4AF37]" />
         </div>
-        <h4 className="text-amber-400 font-bold uppercase tracking-widest text-sm mb-4 border-b border-amber-500/20 pb-2 inline-block">
+        <h4 className="text-[#D4AF37] font-bold uppercase tracking-widest text-sm mb-4 border-b border-[#D4AF37]/20 pb-2 inline-block">
             {title}
         </h4>
         <div className="relative z-10 space-y-4">
@@ -38,12 +38,12 @@ const HighlightBox = ({ title, children }: { title: string, children: React.Reac
 );
 
 const ComparisonTable = ({ headers, rows }: { headers: string[], rows: string[][] }) => (
-    <div className="overflow-x-auto my-8 rounded-xl border border-amber-600/20 shadow-xl bg-black/20">
+    <div className="overflow-x-auto my-8 rounded-xl border border-[#D4AF37]/20 shadow-2xl bg-[#050505]">
         <table className="w-full text-left border-collapse">
             <thead>
-                <tr className="bg-amber-900/40">
+                <tr className="bg-[#141414]">
                     {headers.map((h, i) => (
-                        <th key={i} className="p-4 text-amber-200 font-serif font-bold border-b border-amber-600/20 min-w-[150px]">
+                        <th key={i} className="p-4 text-[#FCF6BA] font-serif font-bold border-b border-[#D4AF37]/20 min-w-[150px] tracking-wide">
                             {h}
                         </th>
                     ))}
@@ -51,9 +51,9 @@ const ComparisonTable = ({ headers, rows }: { headers: string[], rows: string[][
             </thead>
             <tbody>
                 {rows.map((row, i) => (
-                    <tr key={i} className="border-b border-amber-600/10 hover:bg-amber-500/5 transition-colors">
+                    <tr key={i} className="border-b border-[#D4AF37]/5 hover:bg-[#D4AF37]/5 transition-colors">
                         {row.map((cell, j) => (
-                            <td key={j} className="p-4 text-amber-50/70 border-r border-amber-600/10 last:border-r-0">
+                            <td key={j} className="p-4 text-[#E8D4B3] border-r border-[#D4AF37]/5 last:border-r-0">
                                 {cell}
                             </td>
                         ))}
@@ -73,14 +73,14 @@ export default function IshaResearchReport({ lang }: { lang: "en" | "hi" }) {
             className="max-w-5xl mx-auto space-y-16 pb-20"
         >
             {/* Header */}
-            <div className="text-center space-y-6 border-b border-amber-500/20 pb-12">
-                <span className="inline-block px-4 py-1.5 bg-amber-500/10 text-amber-400 rounded-full text-[10px] font-black tracking-[0.3em] uppercase border border-amber-500/20">
+            <div className="text-center space-y-6 border-b border-[#D4AF37]/10 pb-12">
+                <span className="inline-block px-4 py-1.5 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full text-[10px] font-black tracking-[0.3em] uppercase border border-[#D4AF37]/20 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
                     Comprehensive Research Report
                 </span>
-                <h2 className="text-4xl md:text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-100 to-amber-500">
+                <h2 className="text-4xl md:text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FCF6BA] via-[#D4AF37] to-[#BF953F] drop-shadow-sm">
                     {lang === "en" ? "The Isha Upanishad" : "ईशोपनिषद्"}
                 </h2>
-                <h3 className="text-xl md:text-2xl text-amber-200/60 font-serif italic max-w-3xl mx-auto">
+                <h3 className="text-xl md:text-2xl text-[#E8D4B3]/60 font-serif italic max-w-3xl mx-auto">
                     {lang === "en"
                         ? "Historical Genesis, Socio-Economic Catalysts, and Philosophical Logic"
                         : "ऐतिहासिक उत्पत्ति, सामाजिक-आर्थिक उत्प्रेरक और दार्शनिक तर्क"}
@@ -95,7 +95,7 @@ export default function IshaResearchReport({ lang }: { lang: "en" | "hi" }) {
                         : "ईशोपनिषद्, जिसे अक्सर ईशावास्योपनिषद् या वाजसनेयी संहिता उपनिषद् कहा जाता है, मानव विचार के इतिहास में सबसे महत्वपूर्ण और गहन दार्शनिक मील के पत्थरों में से एक है। शुक्ल यजुर्वेद के चालीसवें और अंतिम अध्याय के रूप में सन्निहित, यह वैदिक भावना के अंतिम आसवन के रूप में कार्य करता है, जो प्राचीन भारत की धार्मिक चेतना को अनुष्ठानिक यज्ञ की बाहरी जटिलता से आध्यात्मिक प्राप्ति की आंतरिक स्पष्टता की ओर स्थानांतरित करता है।"}
                 </p>
                 <HighlightBox title={lang === "en" ? "Key Significance" : "मुख्य महत्व"}>
-                    <p className="italic text-amber-100">
+                    <p className="italic text-[#FCF6BA]">
                         {lang === "en"
                             ? "Comprising only eighteen verses in its most commonly studied recension, the brevity of the text belies its immense complexity, as it attempts to reconcile the seemingly irreconcilable polarities of life: action and renunciation, multiplicity and unity, and the immanent and the transcendent."
                             : "अपने सबसे सामान्य रूप से अध्ययन किए गए संस्करण में केवल अठारह श्लोक हैं, पर पाठ की संक्षिप्तता इसकी अत्यधिक जटिलता को छुपाती है, क्योंकि यह जीवन की प्रतीत होने वाली असंगत ध्रुवीयताओं को समेटने का प्रयास करता है: क्रिया और त्याग, बहुलता और एकता, और व्याप्त और अतीत।"}
@@ -112,23 +112,23 @@ export default function IshaResearchReport({ lang }: { lang: "en" | "hi" }) {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-                    <div className="bg-black/40 p-6 rounded-xl border border-amber-500/10">
-                        <div className="flex items-center gap-3 mb-3 text-amber-400 text-sm font-bold uppercase tracking-widest">
+                    <div className="bg-[#121212] p-6 rounded-xl border border-[#D4AF37]/20 shadow-lg">
+                        <div className="flex items-center gap-3 mb-3 text-[#D4AF37] text-sm font-bold uppercase tracking-widest">
                             <Sun className="w-4 h-4" />
                             {lang === "en" ? "Revelation" : "रहस्योद्घाटन"}
                         </div>
-                        <p className="text-sm text-amber-100/70">
+                        <p className="text-sm text-[#E8D4B3]/70">
                             {lang === "en"
                                 ? "Revealed to sage Yajnavalkya by Aditya (Solar Deity) after breaking from Vaishampayana. Known as 'Shukla' (White) for its clear arrangement."
                                 : "वैशम्पायन से अलग होने के बाद आदित्य (सौर देवता) द्वारा ऋषि याज्ञवल्क्य को प्रकट किया गया। अपनी स्पष्ट व्यवस्था के लिए 'शुक्ल' (श्वेत) के रूप में जाना जाता है।"}
                         </p>
                     </div>
-                    <div className="bg-black/40 p-6 rounded-xl border border-amber-500/10">
-                        <div className="flex items-center gap-3 mb-3 text-amber-400 text-sm font-bold uppercase tracking-widest">
+                    <div className="bg-[#121212] p-6 rounded-xl border border-[#D4AF37]/20 shadow-lg">
+                        <div className="flex items-center gap-3 mb-3 text-[#D4AF37] text-sm font-bold uppercase tracking-widest">
                             <History className="w-4 h-4" />
                             {lang === "en" ? "Chronology" : "कालक्रम"}
                         </div>
-                        <p className="text-sm text-amber-100/70">
+                        <p className="text-sm text-[#E8D4B3]/70">
                             {lang === "en"
                                 ? "Likely composed between 1200 BCE and 800 BCE, coinciding with the Iron Age transition. Pre-Buddhist per metrical structure analysis."
                                 : "संभवतः 1200 ईसा पूर्व और 800 ईसा पूर्व के बीच रचित, लौह युग के संक्रमण के साथ मेल खाता है। मीटर संरचना विश्लेषण के अनुसार बौद्ध पूर्व।"}
@@ -136,7 +136,7 @@ export default function IshaResearchReport({ lang }: { lang: "en" | "hi" }) {
                     </div>
                 </div>
 
-                <h4 className="text-xl font-serif text-amber-200 mt-8 mb-4">
+                <h4 className="text-xl font-serif text-[#FCF6BA] mt-8 mb-4">
                     {lang === "en" ? "The Two Recensions" : "दो संस्करण"}
                 </h4>
                 <ComparisonTable
@@ -170,22 +170,22 @@ export default function IshaResearchReport({ lang }: { lang: "en" | "hi" }) {
                 </p>
 
                 <div className="my-8 space-y-4">
-                    <div className="flex gap-4 p-4 border-l-2 border-amber-500 bg-amber-900/10">
+                    <div className="flex gap-4 p-4 border-l-2 border-[#D4AF37] bg-[#D4AF37]/5 rounded-r-lg">
                         <div className="min-w-[40px] text-2xl">🔥</div>
                         <div>
-                            <h4 className="font-bold text-amber-200">{lang === "en" ? "Crisis of Ritualism" : "कर्मकांड का संकट"}</h4>
-                            <p className="text-sm text-amber-100/60 mt-1">
+                            <h4 className="font-bold text-[#FCF6BA]">{lang === "en" ? "Crisis of Ritualism" : "कर्मकांड का संकट"}</h4>
+                            <p className="text-sm text-[#E8D4B3]/70 mt-1">
                                 {lang === "en"
                                     ? "Rituals (Yajna) became mechanical, expensive, and exclusive. The intelligentsia sought meaning beyond mere transactional sacrifices for material gain."
                                     : "यज्ञ यांत्रिक, महंगे और विशिष्ट हो गए। बुद्धिजीवियों ने भौतिक लाभ के लिए केवल लेनदेन संबंधी बलिदानों से परे अर्थ खोजा।"}
                             </p>
                         </div>
                     </div>
-                    <div className="flex gap-4 p-4 border-l-2 border-amber-500 bg-amber-900/10">
+                    <div className="flex gap-4 p-4 border-l-2 border-[#D4AF37] bg-[#D4AF37]/5 rounded-r-lg">
                         <div className="min-w-[40px] text-2xl">🏙️</div>
                         <div>
-                            <h4 className="font-bold text-amber-200">{lang === "en" ? "Urbanization & Property" : "शहरीकरण और संपत्ति"}</h4>
-                            <p className="text-sm text-amber-100/60 mt-1">
+                            <h4 className="font-bold text-[#FCF6BA]">{lang === "en" ? "Urbanization & Property" : "शहरीकरण और संपत्ति"}</h4>
+                            <p className="text-sm text-[#E8D4B3]/70 mt-1">
                                 {lang === "en"
                                     ? "With the Second Urbanization and surplus economy, a new tension arose: How to be spiritual amidst wealth? The Isha provided the logic of Stewardship."
                                     : "द्वितीय शहरीकरण और अधिशेष अर्थव्यवस्था के साथ, एक नया तनाव उत्पन्न हुआ: धन के बीच आध्यात्मिक कैसे बनें? ईशा ने 'ट्रस्टीशिप' (देखभाल) का तर्क प्रदान किया।"}
@@ -203,7 +203,7 @@ export default function IshaResearchReport({ lang }: { lang: "en" | "hi" }) {
                         : "ईशोपनिषद् का तर्क 'समझौतारहित मेल-मिलाप' के सिद्धांत पर केंद्रित है। यह दुनिया और ईश्वर के बीच चयन करने के हिंसक द्वंद्व को खारिज करता है।"}
                 </p>
 
-                <h4 className="text-xl font-serif text-amber-200 mt-8 mb-4">
+                <h4 className="text-xl font-serif text-[#FCF6BA] mt-8 mb-4">
                     {lang === "en" ? "Logic Flow of the Seer" : "ऋषि का तर्क प्रवाह"}
                 </h4>
                 <div className="space-y-2">
@@ -216,31 +216,32 @@ export default function IshaResearchReport({ lang }: { lang: "en" | "hi" }) {
                         { step: 6, title: "Solar Breakthrough", desc: "Removing the Golden Lid → Seeing Truth." },
                         { step: 7, title: "Final Absorption", desc: "So'ham (I am He) → Merging with Agni." }
                     ].map((s, i) => (
-                        <div key={i} className="flex items-center gap-4 bg-amber-950/20 p-3 rounded-lg border border-amber-500/5">
-                            <span className="w-8 h-8 flex items-center justify-center rounded-full bg-amber-900 text-amber-500 text-xs font-bold border border-amber-500/30">
+                        <div key={i} className="flex items-center gap-4 bg-[#121212] p-3 rounded-lg border border-[#D4AF37]/10 hover:border-[#D4AF37]/30 transition-all">
+                            <span className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1A1A1A] text-[#D4AF37] text-xs font-bold border border-[#D4AF37]/30">
                                 {s.step}
                             </span>
                             <div>
-                                <h5 className="text-amber-200 font-bold text-sm">{s.title}</h5>
-                                <p className="text-amber-50/50 text-xs">{s.desc}</p>
+                                <h5 className="text-[#E8D4B3] font-bold text-sm">{s.title}</h5>
+                                <p className="text-[#E8D4B3]/50 text-xs">{s.desc}</p>
                             </div>
-                            {i !== 6 && <ArrowRight className="w-4 h-4 text-amber-500/20 ml-auto" />}
+                            {i !== 6 && <ArrowRight className="w-4 h-4 text-[#D4AF37]/20 ml-auto" />}
                         </div>
                     ))}
                 </div>
 
                 <div className="mt-12">
-                    <h4 className="text-xl font-serif text-amber-200 mb-4">
+                    <h4 className="text-xl font-serif text-[#FCF6BA] mb-4">
                         {lang === "en" ? "The Mathematical Logic of Shanti Mantra" : "शांति मंत्र का गणितीय तर्क"}
                     </h4>
-                    <div className="bg-black/40 p-8 rounded-2xl border border-amber-500/30 text-center">
-                        <p className="text-2xl md:text-4xl font-serif text-amber-400 mb-4">
+                    <div className="bg-[#050505] p-8 rounded-2xl border border-[#D4AF37]/30 text-center shadow-2xl relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 to-transparent pointer-events-none" />
+                        <p className="text-2xl md:text-4xl font-serif text-[#D4AF37] mb-4 relative z-10">
                             ∞ - ∞ = ∞
                         </p>
-                        <p className="text-amber-100/80 italic">
+                        <p className="text-[#E8D4B3]/80 italic relative z-10">
                             The Whole (Absolute) - The Whole (Creation) = The Whole (Absolute)
                         </p>
-                        <p className="text-sm text-amber-500/60 mt-4 max-w-lg mx-auto leading-relaxed">
+                        <p className="text-sm text-[#E8D4B3]/60 mt-4 max-w-lg mx-auto leading-relaxed relative z-10">
                             {lang === "en"
                                 ? "Creation is not a subtraction from the Divine. It is a spiritual expression that leaves the Source undiminished, like love or light."
                                 : "सृष्टि ईश्वर से घटाव नहीं है। यह एक आध्यात्मिक अभिव्यक्ति है जो स्रोत को कम नहीं करती, जैसे प्रेम या प्रकाश।"}
@@ -256,8 +257,8 @@ export default function IshaResearchReport({ lang }: { lang: "en" | "hi" }) {
                         ? "The Isha Upanishad remains a foundational text because it satisfies the human requirement for a philosophy that does not require the abandonment of life to find the Divine. Its historical introduction at the end of the Shukla Yajurveda Samhita was a logical necessity to resolve the crisis of ritualism."
                         : "ईशोपनिषद् एक आधारभूत पाठ बना हुआ है क्योंकि यह एक ऐसे दर्शन की मानवीय आवश्यकता को पूरा करता है जिसमें ईश्वर को पाने के लिए जीवन का त्याग करने की आवश्यकता नहीं होती है। शुक्ल यजुर्वेद संहिता के अंत में इसका ऐतिहासिक परिचय कर्मकांड के संकट को हल करने के लिए एक तार्किक आवश्यकता थी।"}
                 </p>
-                <div className="mt-8 p-6 bg-gradient-to-r from-amber-900/40 to-transparent border-l-4 border-amber-500 rounded-r-xl">
-                    <p className="text-lg italic text-amber-100">
+                <div className="mt-8 p-6 bg-gradient-to-r from-[#D4AF37]/10 to-transparent border-l-4 border-[#D4AF37] rounded-r-xl">
+                    <p className="text-lg italic text-[#FCF6BA]">
                         "{lang === "en"
                             ? "From the blind darkness of materialism to the face of Truth behind the golden veil, the Isha maps the ultimate journey of integration."
                             : "भौतिकवाद के अंधेरे से लेकर सुनहरे पर्दे के पीछे सत्य के चेहरे तक, ईशा एकीकरण की अंतिम यात्रा का नक्शा तैयार करती है।"}"
@@ -266,7 +267,7 @@ export default function IshaResearchReport({ lang }: { lang: "en" | "hi" }) {
             </ResearchSection>
 
             {/* Citation Footer */}
-            <div className="border-t border-amber-500/10 pt-8 text-xs text-amber-500/30 text-center font-mono">
+            <div className="border-t border-[#D4AF37]/10 pt-8 text-xs text-[#D4AF37]/30 text-center font-mono">
                 Historical Genesis, Socio-Economic Catalysts, and Philosophical Logic Research Report • Based on standard academic & traditional sources.
             </div>
         </motion.div>
