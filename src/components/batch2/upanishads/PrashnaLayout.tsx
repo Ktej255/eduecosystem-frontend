@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import {
     ArrowLeft,
+    BookOpen,
     HelpCircle,
     Volume2,
     VolumeX,
@@ -19,15 +20,17 @@ import {
     Zap,
     Info,
     User,
-    Sprout
+    Sprout,
+    ArrowRight
 } from "lucide-react";
 import { prashnaData, getPrashnaVerses } from "@/components/batch2/upanishads/data/prashna-shlokas";
 import { getPrashnaShlokaImage } from "@/components/batch2/upanishads/data/prashna-images";
+import PrashnaResearchReport from "@/components/batch2/upanishads/PrashnaResearchReport";
 
 // ==========================================
 // PRASHNA OVERVIEW COMPONENT
 // ==========================================
-function PrashnaOverview({ lang }: { lang: "en" | "hi" }) {
+function PrashnaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab: (tab: any) => void }) {
     const questions = [
         {
             title: lang === "en" ? "Source of Life" : "जीवन का स्रोत",
@@ -87,6 +90,20 @@ function PrashnaOverview({ lang }: { lang: "en" | "hi" }) {
                 </p>
             </div>
 
+            {/* Research CTA */}
+            <div className="flex justify-center">
+                <button
+                    onClick={() => setActiveTab('research')}
+                    className="flex items-center gap-3 px-8 py-4 bg-slate-900 border border-emerald-500/30 rounded-full text-emerald-400 hover:bg-emerald-500 hover:text-slate-950 transition-all group shadow-xl hover:shadow-emerald-500/20"
+                >
+                    <BookOpen className="w-5 h-5" />
+                    <span className="font-bold uppercase tracking-widest text-sm">
+                        {lang === "en" ? "Read Full Research Report" : "पूर्ण शोध रिपोर्ट पढ़ें"}
+                    </span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+            </div>
+
             {/* The Six Questions Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {questions.map((q, i) => (
@@ -95,7 +112,7 @@ function PrashnaOverview({ lang }: { lang: "en" | "hi" }) {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className="bg-emerald-950/40 border border-emerald-500/20 rounded-3xl p-8 hover:bg-emerald-900/40 transition-all group relative overflow-hidden"
+                        className="bg-slate-900 border border-emerald-500/20 rounded-3xl p-8 hover:bg-slate-800 transition-all group relative overflow-hidden"
                     >
                         <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${q.color} opacity-5 blur-2xl group-hover:opacity-10 transition-opacity`} />
                         <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${q.color} flex items-center justify-center mb-6 shadow-lg`}>
@@ -133,7 +150,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-emerald-950/40 rounded-3xl border border-emerald-500/30 overflow-hidden shadow-2xl backdrop-blur-md"
+                className="bg-slate-900 rounded-3xl border border-emerald-500/30 overflow-hidden shadow-2xl backdrop-blur-md"
             >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Text Section */}
@@ -151,7 +168,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                         </div>
 
                         {/* Sanskrit Block */}
-                        <div className="bg-emerald-950/60 rounded-2xl p-6 border border-emerald-500/20 shadow-inner">
+                        <div className="bg-slate-950/60 rounded-2xl p-6 border border-emerald-500/20 shadow-inner">
                             <p className="text-2xl md:text-3xl text-emerald-50 text-center leading-relaxed font-serif" style={{ fontFamily: "'Noto Sans Devanagari', serif" }}>
                                 {shloka.sanskrit}
                             </p>
@@ -175,7 +192,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                     <Flame className="w-12 h-12 text-emerald-400" />
                                 </div>
                                 <h4 className="text-emerald-200 font-black mb-4 flex items-center gap-3">
-                                    <span className="bg-emerald-500 text-emerald-950 w-8 h-8 rounded-lg flex items-center justify-center text-lg">💡</span>
+                                    <span className="bg-emerald-500 text-slate-950 w-8 h-8 rounded-lg flex items-center justify-center text-lg">💡</span>
                                     {lang === "en" ? "THE ESSENCE" : "सार"}
                                 </h4>
                                 <p className="text-emerald-50 text-xl leading-relaxed italic font-medium relative z-10">
@@ -226,7 +243,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                     <button
                         onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
                         disabled={currentIndex === 0}
-                        className="w-14 h-14 flex items-center justify-center bg-emerald-900/60 text-emerald-400 rounded-full border border-emerald-500/30 hover:bg-emerald-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
+                        className="w-14 h-14 flex items-center justify-center bg-slate-900 text-emerald-400 rounded-full border border-emerald-500/30 hover:bg-emerald-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
                     >
                         <ChevronLeft className="w-7 h-7 group-hover:-translate-x-1 transition-transform" />
                     </button>
@@ -238,7 +255,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                 onClick={() => setCurrentIndex(i)}
                                 className={`w-10 h-10 rounded-xl text-sm font-black transition-all border ${i === currentIndex
                                     ? "bg-emerald-500 border-emerald-300 text-white scale-110 shadow-lg shadow-emerald-500/40"
-                                    : "bg-emerald-950/40 border-emerald-500/20 text-emerald-700 hover:border-emerald-500"
+                                    : "bg-slate-900 border-emerald-500/20 text-emerald-700 hover:border-emerald-500"
                                     }`}
                             >
                                 {s.verse}
@@ -249,13 +266,13 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                     <button
                         onClick={() => setCurrentIndex(prev => Math.min(data.length - 1, prev + 1))}
                         disabled={currentIndex === data.length - 1}
-                        className="w-14 h-14 flex items-center justify-center bg-emerald-900/60 text-emerald-400 rounded-full border border-emerald-500/30 hover:bg-emerald-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
+                        className="w-14 h-14 flex items-center justify-center bg-slate-900 text-emerald-400 rounded-full border border-emerald-500/30 hover:bg-emerald-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
                     >
                         <ChevronRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
                     </button>
                 </div>
                 <div className="flex items-center gap-3">
-                    <div className="h-1 w-48 bg-emerald-950 rounded-full overflow-hidden">
+                    <div className="h-1 w-48 bg-slate-900 rounded-full overflow-hidden">
                         <motion.div
                             className="h-full bg-emerald-500"
                             initial={{ width: 0 }}
@@ -277,7 +294,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
 export default function PrashnaLayout() {
     const router = useRouter();
     const [lang, setLang] = useState<"en" | "hi">("en");
-    const [activeTab, setActiveTab] = useState<"overview" | "q1" | "q2" | "q3" | "q4" | "q5" | "q6">("overview");
+    const [activeTab, setActiveTab] = useState<"overview" | "research" | "q1" | "q2" | "q3" | "q4" | "q5" | "q6">("overview");
     const [isPlaying, setIsPlaying] = useState(false);
 
     // Get data for each question
@@ -289,16 +306,16 @@ export default function PrashnaLayout() {
     const q6Data = getPrashnaVerses(6);
 
     return (
-        <div className="min-h-screen bg-emerald-950 text-emerald-50 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
+        <div className="min-h-screen bg-slate-950 text-emerald-50 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
             {/* Hero Section */}
             <header className="relative h-[55vh] flex items-center justify-center overflow-hidden">
                 <div
                     className="absolute inset-0 opacity-30 scale-110"
                     style={{
-                        background: "linear-gradient(135deg, #022c22 0%, #064e3b 50%, #022c22 100%)",
+                        background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
                     }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/80 via-emerald-950/50 to-emerald-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/50 to-slate-950" />
 
                 {/* Float elements */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -335,13 +352,13 @@ export default function PrashnaLayout() {
             </header>
 
             {/* Navigation Bar */}
-            <nav className="sticky top-0 z-50 bg-emerald-950/90 backdrop-blur-xl border-b border-white/5 px-4 py-4">
+            <nav className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/5 px-4 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <button
                         onClick={() => router.push("/student/batch2/upanishads")}
                         className="flex items-center gap-3 text-emerald-500 hover:text-emerald-400 transition-all group"
                     >
-                        <div className="w-10 h-10 rounded-xl bg-emerald-900/50 flex items-center justify-center border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                        <div className="w-10 h-10 rounded-xl bg-slate-900/50 flex items-center justify-center border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-all">
                             <ArrowLeft className="w-5 h-5" />
                         </div>
                         <span className="font-black text-xs uppercase tracking-widest hidden sm:block">Portal</span>
@@ -350,6 +367,7 @@ export default function PrashnaLayout() {
                     <div className="flex bg-black/60 rounded-2xl p-1.5 border border-white/5 shadow-2xl overflow-x-auto no-scrollbar max-w-[70%] md:max-w-none">
                         {[
                             { id: "overview", label: "Overview", labelHi: "सारांश", icon: Info },
+                            { id: "research", label: "Research", labelHi: "शोध", icon: BookOpen },
                             { id: "q1", label: "Q1: Life", labelHi: "१: जीवन", icon: Sprout },
                             { id: "q2", label: "Q2: Power", labelHi: "२: शक्ति", icon: Wind },
                             { id: "q3", label: "Q3: Origin", labelHi: "३: उत्पत्ति", icon: Sparkles },
@@ -361,7 +379,7 @@ export default function PrashnaLayout() {
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id as any)}
                                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black transition-all whitespace-nowrap ${activeTab === tab.id
-                                    ? "bg-emerald-500 text-emerald-950 shadow-lg"
+                                    ? "bg-emerald-500 text-slate-950 shadow-lg"
                                     : "text-emerald-500 hover:text-emerald-400"
                                     }`}
                             >
@@ -373,12 +391,12 @@ export default function PrashnaLayout() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <div className="flex bg-emerald-900/50 rounded-xl p-1 border border-white/5">
+                        <div className="flex bg-slate-900/50 rounded-xl p-1 border border-white/5">
                             {(["en", "hi"] as const).map((l) => (
                                 <button
                                     key={l}
                                     onClick={() => setLang(l)}
-                                    className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === l ? "bg-emerald-500 text-emerald-950 shadow-md" : "text-emerald-600 hover:text-emerald-400"
+                                    className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === l ? "bg-emerald-500 text-slate-950 shadow-md" : "text-emerald-600 hover:text-emerald-400"
                                         }`}
                                 >
                                     {l.toUpperCase()}
@@ -387,7 +405,7 @@ export default function PrashnaLayout() {
                         </div>
                         <button
                             onClick={() => setIsPlaying(!isPlaying)}
-                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isPlaying ? "bg-emerald-500 text-emerald-950 shadow-lg shadow-emerald-500/20" : "bg-emerald-900/50 text-emerald-600 hover:text-emerald-400"
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isPlaying ? "bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20" : "bg-slate-900/50 text-emerald-600 hover:text-emerald-400"
                                 }`}
                         >
                             {isPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -397,7 +415,7 @@ export default function PrashnaLayout() {
             </nav>
 
             {/* Scroll Progress */}
-            <div className="h-1 bg-emerald-950">
+            <div className="h-1 bg-slate-950">
                 <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
@@ -418,7 +436,10 @@ export default function PrashnaLayout() {
                         transition={{ duration: 0.4 }}
                     >
                         {activeTab === "overview" && (
-                            <PrashnaOverview lang={lang} />
+                            <PrashnaOverview lang={lang} setActiveTab={setActiveTab} />
+                        )}
+                        {activeTab === "research" && (
+                            <PrashnaResearchReport lang={lang} />
                         )}
                         {activeTab === "q1" && (
                             <WisdomStream
@@ -473,7 +494,7 @@ export default function PrashnaLayout() {
             </main>
 
             {/* Footer */}
-            <footer className="bg-emerald-950 py-32 relative overflow-hidden text-center border-t border-emerald-900/10">
+            <footer className="bg-slate-950 py-32 relative overflow-hidden text-center border-t border-emerald-900/10">
                 <div className="max-w-4xl mx-auto px-6 space-y-12 relative z-10">
                     <motion.div
                         initial={{ opacity: 0 }}

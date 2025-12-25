@@ -18,10 +18,12 @@ import {
     Lightbulb,
     Brain,
     Zap,
-    Info
+    Info,
+    ArrowRight
 } from "lucide-react";
 import { KENA_METADATA, kenaData } from "@/components/batch2/upanishads/data/kena-shlokas";
 import { getKenaShlokaImage } from "@/components/batch2/upanishads/data/kena-images";
+import KenaResearchReport from "@/components/batch2/upanishads/KenaResearchReport";
 
 // Split data by sections
 const philosophyData = kenaData.filter(d => d.section === "Philosophy");
@@ -30,7 +32,7 @@ const storyData = kenaData.filter(d => d.section === "Story");
 // ==========================================
 // KENA OVERVIEW COMPONENT (NEW)
 // ==========================================
-function KenaOverview({ lang }: { lang: "en" | "hi" }) {
+function KenaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab: (tab: any) => void }) {
     const pillars = [
         {
             title: lang === "en" ? "The Inquiry" : "जिज्ञासा",
@@ -92,7 +94,7 @@ function KenaOverview({ lang }: { lang: "en" | "hi" }) {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className="bg-cyan-950/40 border border-teal-500/20 rounded-3xl p-8 hover:bg-cyan-900/40 transition-all group relative overflow-hidden"
+                        className="bg-slate-900 border border-teal-500/20 rounded-3xl p-8 hover:bg-slate-800 transition-all group relative overflow-hidden"
                     >
                         <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${p.color} opacity-5 blur-2xl group-hover:opacity-10 transition-opacity`} />
                         <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center mb-6 shadow-lg`}>
@@ -100,13 +102,27 @@ function KenaOverview({ lang }: { lang: "en" | "hi" }) {
                         </div>
                         <h3 className="text-xl font-bold text-white mb-2">{p.title}</h3>
                         <p className="text-xs text-teal-400 font-bold uppercase tracking-widest mb-3">Mantras {p.mantras}</p>
-                        <p className="text-cyan-100/60 text-sm leading-relaxed">{p.desc}</p>
+                        <p className="text-teal-100/60 text-sm leading-relaxed">{p.desc}</p>
                     </motion.div>
                 ))}
             </div>
 
+            {/* Research CTA */}
+            <div className="flex justify-center">
+                <button
+                    onClick={() => setActiveTab('research')}
+                    className="flex items-center gap-3 px-8 py-4 bg-slate-900 border border-teal-500/30 rounded-full text-teal-400 hover:bg-teal-500 hover:text-slate-950 transition-all group shadow-xl hover:shadow-teal-500/20"
+                >
+                    <BookOpen className="w-5 h-5" />
+                    <span className="font-bold uppercase tracking-widest text-sm">
+                        {lang === "en" ? "Read Full Research Report" : "पूर्ण शोध रिपोर्ट पढ़ें"}
+                    </span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+            </div>
+
             {/* The Central Teaching */}
-            <div className="bg-gradient-to-br from-teal-600/10 to-transparent border border-teal-500/20 rounded-3xl p-10">
+            <div className="bg-gradient-to-br from-teal-600/10 to-transparent border border-teal-500/20 rounded-3xl p-10 bg-slate-950">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
                         <h3 className="text-3xl font-serif font-bold text-teal-100">
@@ -119,10 +135,10 @@ function KenaOverview({ lang }: { lang: "en" | "hi" }) {
                                 lang === "en" ? "All power and victory belong to Brahman—the ego takes false credit." : "सारी शक्ति और विजय ब्रह्म की है—अहंकार झूठा श्रेय लेता है।"
                             ].map((item, i) => (
                                 <div key={i} className="flex gap-4">
-                                    <div className="w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center shrink-0">
+                                    <div className="w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center shrink-0 border border-teal-500/30">
                                         <span className="text-teal-400 font-bold">{i + 1}</span>
                                     </div>
-                                    <p className="text-cyan-100/80">{item}</p>
+                                    <p className="text-teal-100/80">{item}</p>
                                 </div>
                             ))}
                         </div>
@@ -172,7 +188,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-cyan-950/40 rounded-3xl border border-teal-500/30 overflow-hidden shadow-2xl backdrop-blur-md"
+                className="bg-slate-900 rounded-3xl border border-teal-500/30 overflow-hidden shadow-2xl backdrop-blur-md"
             >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Text Section */}
@@ -190,7 +206,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                         </div>
 
                         {/* Sanskrit Block */}
-                        <div className="bg-cyan-950/60 rounded-2xl p-6 border border-teal-500/20 shadow-inner">
+                        <div className="bg-slate-950/60 rounded-2xl p-6 border border-teal-500/20 shadow-inner">
                             <p className="text-2xl md:text-3xl text-teal-50 text-center leading-relaxed font-serif" style={{ fontFamily: "'Noto Sans Devanagari', serif" }}>
                                 {shloka.sanskrit}
                             </p>
@@ -206,7 +222,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                     <Languages className="w-4 h-4" />
                                     {lang === "en" ? "Translation" : "अनुवाद"}
                                 </h4>
-                                <p className="text-cyan-50 text-lg leading-relaxed">
+                                <p className="text-teal-50 text-lg leading-relaxed">
                                     {lang === "en" ? shloka.english : shloka.hindi}
                                 </p>
                             </div>
@@ -217,10 +233,10 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                     <Lightbulb className="w-12 h-12 text-teal-400" />
                                 </div>
                                 <h4 className="text-teal-200 font-black mb-4 flex items-center gap-3">
-                                    <span className="bg-teal-500 text-cyan-950 w-8 h-8 rounded-lg flex items-center justify-center text-lg">💡</span>
+                                    <span className="bg-teal-500 text-slate-950 w-8 h-8 rounded-lg flex items-center justify-center text-lg">💡</span>
                                     {lang === "en" ? "THE ESSENCE" : "सार"}
                                 </h4>
-                                <p className="text-cyan-50 text-xl leading-relaxed italic font-medium relative z-10">
+                                <p className="text-teal-50 text-xl leading-relaxed italic font-medium relative z-10">
                                     {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
                                 </p>
                             </div>
@@ -228,7 +244,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                     </div>
 
                     {/* Visual Section */}
-                    <div className="relative bg-black/40 min-h-[500px] flex items-center justify-center overflow-hidden border-l border-teal-500/10">
+                    <div className="relative bg-slate-950 min-h-[500px] flex items-center justify-center overflow-hidden border-l border-teal-500/10">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-teal-500/10 to-transparent pointer-events-none" />
 
                         {image ? (
@@ -268,7 +284,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                     <button
                         onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
                         disabled={currentIndex === 0}
-                        className="w-14 h-14 flex items-center justify-center bg-cyan-900/60 text-teal-400 rounded-full border border-teal-500/30 hover:bg-teal-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
+                        className="w-14 h-14 flex items-center justify-center bg-slate-900 text-teal-400 rounded-full border border-teal-500/30 hover:bg-teal-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
                     >
                         <ChevronLeft className="w-7 h-7 group-hover:-translate-x-1 transition-transform" />
                     </button>
@@ -280,7 +296,7 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                 onClick={() => setCurrentIndex(i)}
                                 className={`w-10 h-10 rounded-xl text-sm font-black transition-all border ${i === currentIndex
                                     ? "bg-teal-500 border-teal-300 text-white scale-110 shadow-lg shadow-teal-500/40"
-                                    : "bg-cyan-950/40 border-teal-500/20 text-teal-700 hover:border-teal-500"
+                                    : "bg-slate-900 border-teal-500/20 text-teal-700 hover:border-teal-500"
                                     }`}
                             >
                                 {s.id}
@@ -291,13 +307,13 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                     <button
                         onClick={() => setCurrentIndex(prev => Math.min(data.length - 1, prev + 1))}
                         disabled={currentIndex === data.length - 1}
-                        className="w-14 h-14 flex items-center justify-center bg-cyan-900/60 text-teal-400 rounded-full border border-teal-500/30 hover:bg-teal-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
+                        className="w-14 h-14 flex items-center justify-center bg-slate-900 text-teal-400 rounded-full border border-teal-500/30 hover:bg-teal-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group"
                     >
                         <ChevronRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
                     </button>
                 </div>
                 <div className="flex items-center gap-3">
-                    <div className="h-1 w-48 bg-cyan-950 rounded-full overflow-hidden">
+                    <div className="h-1 w-48 bg-slate-900 rounded-full overflow-hidden">
                         <motion.div
                             className="h-full bg-teal-500"
                             initial={{ width: 0 }}
@@ -372,7 +388,7 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                             <div
                                 className={`w-12 h-12 rounded-2xl flex items-center justify-center text-sm font-black transition-all duration-300 border-2 ${i === currentIndex
                                     ? "bg-teal-500 border-white text-white scale-125 shadow-xl shadow-teal-500/30"
-                                    : "bg-cyan-900 border-teal-500/30 text-teal-700 hover:border-teal-500"
+                                    : "bg-slate-900 border-teal-500/30 text-teal-700 hover:border-teal-500"
                                     }`}
                             >
                                 {s.id}
@@ -381,8 +397,8 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                     ))}
                 </div>
                 {/* Fade overlays for scroll */}
-                <div className="absolute left-0 top-0 bottom-6 w-20 bg-gradient-to-r from-cyan-950 to-transparent pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-6 w-20 bg-gradient-to-l from-cyan-950 to-transparent pointer-events-none" />
+                <div className="absolute left-0 top-0 bottom-6 w-20 bg-gradient-to-r from-slate-900 to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-6 w-20 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none" />
             </div>
 
             {/* Content Display */}
@@ -392,7 +408,7 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="bg-cyan-950/40 rounded-3xl border border-teal-500/30 overflow-hidden shadow-2xl backdrop-blur-md"
+                    className="bg-slate-900 rounded-3xl border border-teal-500/30 overflow-hidden shadow-2xl backdrop-blur-md"
                 >
                     <div className="grid grid-cols-1 lg:grid-cols-2">
                         {/* Story Content */}
@@ -412,8 +428,8 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                             </div>
 
                             {/* Main Story Text */}
-                            <div className="bg-cyan-950/40 rounded-2xl p-6 border border-teal-500/20">
-                                <p className="text-xl text-cyan-50 leading-relaxed font-medium">
+                            <div className="bg-slate-950/40 rounded-2xl p-6 border border-teal-500/20">
+                                <p className="text-xl text-teal-50 leading-relaxed font-medium">
                                     {lang === "en" ? step.english : step.hindi}
                                 </p>
                             </div>
@@ -456,7 +472,7 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                                         {getStoryIcon(step.id)}
                                     </motion.div>
                                     <p className="text-teal-400 text-sm font-bold tracking-widest uppercase mb-2">Scene Description</p>
-                                    <p className="text-cyan-100/60 max-w-xs mx-auto italic leading-relaxed">
+                                    <p className="text-teal-100/60 max-w-xs mx-auto italic leading-relaxed">
                                         {step.nanoBananaPrompt}
                                     </p>
                                 </div>
@@ -467,11 +483,11 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
             </AnimatePresence>
 
             {/* Quick Controls */}
-            <div className="flex justify-between items-center bg-cyan-950/40 p-4 rounded-2xl border border-teal-500/20">
+            <div className="flex justify-between items-center bg-slate-900 p-4 rounded-2xl border border-teal-500/20">
                 <button
                     onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
                     disabled={currentIndex === 0}
-                    className="flex items-center gap-3 px-6 py-3 bg-cyan-900 text-teal-400 rounded-xl hover:bg-teal-500 hover:text-white transition-all disabled:opacity-10 border border-teal-500/20"
+                    className="flex items-center gap-3 px-6 py-3 bg-slate-950 text-teal-400 rounded-xl hover:bg-teal-500 hover:text-white transition-all disabled:opacity-10 border border-teal-500/20"
                 >
                     <ChevronLeft className="w-5 h-5" />
                     <span className="font-bold">Previous</span>
@@ -479,7 +495,7 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
 
                 <div className="hidden md:flex items-center gap-3">
                     <span className="text-teal-500/50 font-bold text-xs uppercase tracking-tighter">Progress</span>
-                    <div className="h-1.5 w-64 bg-cyan-950 rounded-full overflow-hidden">
+                    <div className="h-1.5 w-64 bg-slate-950 rounded-full overflow-hidden">
                         <motion.div
                             className="h-full bg-teal-500"
                             initial={{ width: 0 }}
@@ -508,7 +524,7 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
 export default function KenaLayout() {
     const router = useRouter();
     const [lang, setLang] = useState<"en" | "hi">("en");
-    const [activeTab, setActiveTab] = useState<"overview" | "inquiry" | "paradox" | "story">("overview");
+    const [activeTab, setActiveTab] = useState<"overview" | "research" | "inquiry" | "paradox" | "story">("overview");
     const [isPlaying, setIsPlaying] = useState(false);
 
     // Get data for inquiry (1-8) and paradox (9-13)
@@ -516,7 +532,7 @@ export default function KenaLayout() {
     const paradoxData = philosophyData.filter(d => d.id >= 9);
 
     return (
-        <div className="min-h-screen bg-cyan-950 text-cyan-50 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        <div className="min-h-screen bg-slate-950 text-teal-50 font-sans selection:bg-teal-500/30 selection:text-teal-200">
             {/* Hero Section - ENHANCED */}
             <header className="relative h-[55vh] flex items-center justify-center overflow-hidden">
                 <div
@@ -528,7 +544,7 @@ export default function KenaLayout() {
                         filter: "blur(4px)"
                     }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/80 via-cyan-950/50 to-cyan-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/50 to-slate-950" />
 
                 {/* Float elements */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -564,14 +580,14 @@ export default function KenaLayout() {
                 </div>
             </header>
 
-            {/* Navigation Bar - 4 TABS */}
-            <nav className="sticky top-0 z-50 bg-cyan-950/90 backdrop-blur-xl border-b border-white/5 px-4 py-4">
+            {/* Navigation Bar - 5 TABS */}
+            <nav className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/5 px-4 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <button
                         onClick={() => router.push("/student/batch2/upanishads")}
                         className="flex items-center gap-3 text-teal-500 hover:text-teal-400 transition-all group"
                     >
-                        <div className="w-10 h-10 rounded-xl bg-cyan-900/50 flex items-center justify-center border border-teal-500/20 group-hover:bg-teal-500 group-hover:text-white transition-all">
+                        <div className="w-10 h-10 rounded-xl bg-slate-900/50 flex items-center justify-center border border-teal-500/20 group-hover:bg-teal-500 group-hover:text-white transition-all">
                             <ArrowLeft className="w-5 h-5" />
                         </div>
                         <span className="font-black text-xs uppercase tracking-widest hidden sm:block">Portal</span>
@@ -580,6 +596,7 @@ export default function KenaLayout() {
                     <div className="flex bg-black/60 rounded-2xl p-1.5 border border-white/5 shadow-2xl overflow-x-auto no-scrollbar max-w-[70%] md:max-w-none">
                         {[
                             { id: "overview", label: "Overview", labelHi: "सारांश", icon: Info },
+                            { id: "research", label: "Research", labelHi: "शोध", icon: BookOpen },
                             { id: "inquiry", label: "The Inquiry", labelHi: "जिज्ञासा", icon: HelpCircle },
                             { id: "paradox", label: "The Paradox", labelHi: "विरोधाभास", icon: Brain },
                             { id: "story", label: "Yaksha Story", labelHi: "यक्ष कथा", icon: Drama }
@@ -599,7 +616,7 @@ export default function KenaLayout() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <div className="flex bg-cyan-900/50 rounded-xl p-1 border border-white/5">
+                        <div className="flex bg-slate-900/50 rounded-xl p-1 border border-white/5">
                             {(["en", "hi"] as const).map((l) => (
                                 <button
                                     key={l}
@@ -613,7 +630,7 @@ export default function KenaLayout() {
                         </div>
                         <button
                             onClick={() => setIsPlaying(!isPlaying)}
-                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isPlaying ? "bg-teal-500 text-white shadow-lg shadow-teal-500/20" : "bg-cyan-900/50 text-teal-600 hover:text-teal-400"
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isPlaying ? "bg-teal-500 text-white shadow-lg shadow-teal-500/20" : "bg-slate-900/50 text-teal-600 hover:text-teal-400"
                                 }`}
                         >
                             {isPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -623,7 +640,7 @@ export default function KenaLayout() {
             </nav>
 
             {/* Scroll Progress */}
-            <div className="h-1 bg-cyan-950">
+            <div className="h-1 bg-slate-950">
                 <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
@@ -644,7 +661,10 @@ export default function KenaLayout() {
                         transition={{ duration: 0.4 }}
                     >
                         {activeTab === "overview" && (
-                            <KenaOverview lang={lang} />
+                            <KenaOverview lang={lang} setActiveTab={setActiveTab} />
+                        )}
+                        {activeTab === "research" && (
+                            <KenaResearchReport lang={lang} />
                         )}
                         {activeTab === "inquiry" && (
                             <WisdomStream
@@ -670,7 +690,7 @@ export default function KenaLayout() {
             </main>
 
             {/* Footer */}
-            <footer className="bg-cyan-950 py-32 relative overflow-hidden text-center border-t border-teal-900/10">
+            <footer className="bg-slate-950 py-32 relative overflow-hidden text-center border-t border-teal-900/10">
                 <div className="max-w-4xl mx-auto px-6 space-y-12 relative z-10">
                     <motion.div
                         initial={{ opacity: 0 }}
