@@ -455,6 +455,385 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanationHindi: "अंतिम स्थिति: 'मुझे मृत्यु और परलोक का रहस्य बताइए। मैं और कुछ नहीं चुनता।' वल्ली 1 विजय के साथ समाप्त।",
         theme: "The Final Demand",
         nanoBananaPrompt: "Nachiketa standing victorious, Yama bowing in respect, the greatest student meets the greatest test."
+    },
+
+    // ==========================================
+    // ADHYAYA 1, VALLI 2: THE PATH OF WISDOM
+    // ==========================================
+
+    // Verse 1 (Valli 2): The Two Paths
+    {
+        id: 30,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "अन्यच्छ्रेयोऽन्यदुतैव प्रेयस्ते उभे नानार्थे पुरुषं सिनीतः । तयोः श्रेय आददानस्य साधु भवति हीयतेऽर्थाद्य उ प्रेयो वृणीते ॥ १ ॥",
+        hindi: "(यम): 'श्रेय' (कल्याण/मोक्ष) अलग है और 'प्रेय' (प्रिय/भोग) अलग है। ये दोनों अलग-अलग उद्देश्यों वाले हैं और पुरुष को बांधते हैं। इनमें से जो 'श्रेय' को चुनता है, उसका कल्याण होता है।",
+        english: "The Good (Shreyas) is one thing, and the Pleasant (Preyas) is another. Both of these, serving different ends, bind the man. It is well with him who chooses the Good; but he who chooses the Pleasant misses the true end.",
+        simpleExplanation: "THE FUNDAMENTAL CHOICE: Every decision has two options—what feels good NOW vs what IS good for eternity. Choose wisely.",
+        simpleExplanationHindi: "मौलिक चुनाव: हर निर्णय में दो विकल्प हैं—जो अभी अच्छा लगता है बनाम जो अनंत काल के लिए अच्छा है। बुद्धिमानी से चुनें।",
+        theme: "Shreyas vs Preyas",
+        nanoBananaPrompt: "A fork in the road: one path golden and easy leading to flames, another rocky but leading to light. Ultimate choice visualization."
+    },
+
+    // Verse 2 (Valli 2): The Choice of the Wise
+    {
+        id: 31,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "श्रेयश्च प्रेयश्च मनुष्यमेतस्तौ सम्परीत्य विविनक्ति धीरः । श्रेयो हि धीरोऽभिप्रेयसो वृणीते प्रेयो मन्दो योगक्षेमाद्वृणीते ॥ २ ॥",
+        hindi: "श्रेय और प्रेय दोनों मनुष्य के पास आते हैं। धीर (बुद्धिमान) व्यक्ति उन दोनों की भली-भांति जांच करता है। धीर पुरुष प्रेय के मुकाबले श्रेय को चुनता है, जबकि मंदबुद्धि व्यक्ति शरीर के पोषण के लिए प्रेय को चुनता है।",
+        english: "Both the Good and the Pleasant approach man. The wise man examines them thoroughly and distinguishes between them. The wise man prefers the Good over the Pleasant, while the simple-minded man chooses the Pleasant for material well-being.",
+        simpleExplanation: "The wise EXAMINE before choosing. The fool grabs what glitters. Wisdom = the pause between stimulus and response.",
+        simpleExplanationHindi: "बुद्धिमान चुनने से पहले जांच करते हैं। मूर्ख चमकती चीज़ पकड़ लेता है। बुद्धि = उत्तेजना और प्रतिक्रिया के बीच का विराम।",
+        theme: "Wisdom's Choice",
+        nanoBananaPrompt: "A wise sage examining two gems—one glittering fake, one dull but real diamond. Discernment visualization."
+    },
+
+    // Verse 3 (Valli 2): Nachiketa's Renunciation
+    {
+        id: 32,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "स त्वं प्रियान्प्रियरूपांश्च कामानभिध्यायन्नचिकेतोऽत्यस्राक्षीः । नैतां सृङ्कां वित्तमयीमवाप्तो यस्यां मज्जन्ति बहवो मनुष्याः ॥ ३ ॥",
+        hindi: "हे नचिकेता! तुमने प्रिय लगने वाले और सुंदर रूप वाले भोगों का विचार करके उनका त्याग कर दिया है। तुम उस 'वित्तमयी श्रृंखला' (धन के फंदे) में नहीं फंसे जिसमें बहुत से लोग डूब जाते हैं।",
+        english: "O Nachiketa, you have pondered over the pleasurable objects and rejected them. You have not accepted this chain of wealth in which many men sink.",
+        simpleExplanation: "Yama praises Nachiketa: 'You saw the trap and avoided it.' Most people drown in the golden chain of wealth.",
+        simpleExplanationHindi: "यम नचिकेता की प्रशंसा करते हैं: 'तुमने जाल देखा और बच गए।' अधिकांश लोग धन की सुनहरी जंजीर में डूब जाते हैं।",
+        theme: "The Golden Chain",
+        nanoBananaPrompt: "People drowning in golden chains while one boy walks on water above them, free from attachment."
+    },
+
+    // Verse 4 (Valli 2): Ignorance vs Knowledge
+    {
+        id: 33,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "दूरमेते विपरीते विषूची अविद्या या च विद्येति ज्ञाता । विद्याभीप्सिनं नचिकेतसं मन्ये न त्वा कामा बहवोऽलोलुपन्त ॥ ४ ॥",
+        hindi: "अविद्या (भोग का मार्ग) और विद्या (ज्ञान का मार्ग)—ये दोनों बहुत दूर हैं, विपरीत हैं। मैं नचिकेता को 'विद्या' का अभिलाषी मानता हूँ, क्योंकि बहुत से भोग भी तुम्हें ललचा नहीं सके।",
+        english: "Wide apart and leading to different ends are these two: Ignorance (Avidya) and what is known as Knowledge (Vidya). I regard Nachiketa to be aspiring for Knowledge, for many desires could not shake thee.",
+        simpleExplanation: "Avidya and Vidya are OPPOSITE directions. Nachiketa chose Vidya because NO temptation could shake him.",
+        simpleExplanationHindi: "अविद्या और विद्या विपरीत दिशाएं हैं। नचिकेता ने विद्या चुनी क्योंकि कोई प्रलोभन उसे हिला नहीं सका।",
+        theme: "Vidya vs Avidya",
+        nanoBananaPrompt: "Two roads diverging infinitely—one into darkness (Avidya), one into light (Vidya). Cosmic compass."
+    },
+
+    // Verse 5 (Valli 2): The Blind Leading the Blind
+    {
+        id: 34,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "अविद्यायामन्तरे वर्तमानाः स्वयं धीराः पण्डितं मन्यमानाः । दन्द्रम्यमाणा परियन्ति मूढा अन्धेनैव नीयमाना यथान्धाः ॥ ५ ॥",
+        hindi: "अविद्या (अज्ञान) के भीतर रहने वाले, स्वयं को धीर और पंडित मानने वाले वे मूढ़ लोग बार-बार भटकते रहते हैं, जैसे अंधे के द्वारा ले जाए जाने वाले अंधे।",
+        english: "Fools dwelling in darkness, wise in their own conceit, and puffed up with vain knowledge, go round and round staggering to and fro, like blind men led by the blind.",
+        simpleExplanation: "The BLIND LEADING THE BLIND. People who think they're wise but aren't—leading others into the same pit.",
+        simpleExplanationHindi: "अंधे अंधों को ले जा रहे हैं। जो लोग सोचते हैं कि वे बुद्धिमान हैं लेकिन नहीं हैं—दूसरों को उसी गड्ढे में ले जा रहे हैं।",
+        theme: "Blind Leading Blind",
+        nanoBananaPrompt: "A line of blindfolded people following each other in circles, falling into a pit one by one."
+    },
+
+    // Verse 6 (Valli 2): The Delusion of Wealth
+    {
+        id: 35,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "न साम्परायः प्रतिभाति बालं प्रमाद्यन्तं वित्तमोहेन मूढम् । अयं लोको नास्ति पर इति मानी पुनः पुनर्वशमापद्यते मे ॥ ६ ॥",
+        hindi: "धन के मोह में पागल उस असावधान 'बालक' को परलोक नहीं सूझता। 'यह लोक ही है, परलोक कुछ नहीं'—ऐसा मानने वाला बार-बार मेरे (मृत्यु के) वश में आता है।",
+        english: "The Hereafter never reveals itself to a person who is devoid of discrimination and heedless, being deluded by the glamour of wealth. 'This world alone exists, there is no other'—thinking thus, he falls again and again under my sway.",
+        simpleExplanation: "Materialists who say 'YOLO—there's no afterlife' keep falling into Death's trap again and again.",
+        simpleExplanationHindi: "भौतिकवादी जो कहते हैं 'बस यही जीवन है—कोई परलोक नहीं' बार-बार मृत्यु के जाल में गिरते रहते हैं।",
+        theme: "Materialism's Trap",
+        nanoBananaPrompt: "A person grabbing gold coins while falling into Death's mouth repeatedly, cycle of rebirth."
+    },
+
+    // Verse 7 (Valli 2): The Rarity of the Teacher
+    {
+        id: 36,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "श्रवणायापि बहुभिर्यो न लभ्यः शृण्वन्तोऽपि बहवो यं न विद्युः । आश्चर्यो वक्ता कुशलोऽस्य लब्धा आश्चर्यो ज्ञाता कुशलानुशिष्टः ॥ ७ ॥",
+        hindi: "वह (आत्मतत्व) बहुत से लोगों को सुनने को भी नहीं मिलता; और बहुत से लोग सुनकर भी उसे नहीं जान पाते। इसका वर्णन करने वाला आश्चर्यजनक है, इसे प्राप्त करने वाला कुशल है।",
+        english: "Many do not even get to hear of this Self; many, even while hearing, do not understand It. Wonderful is the expounder of the Self and efficient the receiver; wonderful is he who knows the Self when instructed by a capable teacher.",
+        simpleExplanation: "RARE: A true teacher. RARER: A true student. RAREST: When both meet and transmission happens.",
+        simpleExplanationHindi: "दुर्लभ: एक सच्चा शिक्षक। और दुर्लभ: एक सच्चा शिष्य। सबसे दुर्लभ: जब दोनों मिलते हैं और संप्रेषण होता है।",
+        theme: "Rare Teacher & Student",
+        nanoBananaPrompt: "A single flame passing from one candle to another in a vast darkness—rare transmission of knowledge."
+    },
+
+    // Verse 8 (Valli 2): Logic vs Awakening
+    {
+        id: 37,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "न नरेणावरेण प्रोक्त एष सुविज्ञेयो बहुधा चिन्त्यमानः । अनन्यप्रोक्ते गतिरत्र नास्त्यणीयान् ह्यतर्क्यमणुप्रमाणात् ॥ ८ ॥",
+        hindi: "साधारण मनुष्य द्वारा बताए जाने पर यह (आत्मा) सुविज्ञेय नहीं है। जब तक 'अनन्य' (ब्रह्मनिष्ठ) गुरु द्वारा इसका उपदेश नहीं दिया जाता, तब तक इसमें गति नहीं होती। यह अणु से भी अणु है और तर्क का विषय नहीं है।",
+        english: "This Self, when taught by an inferior man, is not easily understood, even though thought of in various ways. Unless taught by one who has become one with It, there is no way to understand It; for It is subtler than the subtle and beyond argument.",
+        simpleExplanation: "You can't ARGUE your way to enlightenment. It's SUBTLER than logic. Only a realized teacher can transmit it.",
+        simpleExplanationHindi: "आप तर्क से ज्ञान प्राप्त नहीं कर सकते। यह तर्क से भी सूक्ष्म है। केवल एक आत्मसाक्षात्कारी गुरु ही इसे संप्रेषित कर सकते हैं।",
+        theme: "Beyond Logic",
+        nanoBananaPrompt: "A philosopher's books burning while a silent master transmits light through his eyes to a student."
+    },
+
+    // Verse 9 (Valli 2): Faith over Argument
+    {
+        id: 38,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "नैषा तर्केण मतिरापनेया प्रोक्तान्येनैव सुज्ञानाय प्रेष्ठ । यां त्वमापः सत्यधृतिर्बतासि त्वादृङ्नो भूयान्नचिकेतः प्रष्टा ॥ ९ ॥",
+        hindi: "हे प्रिय! यह बुद्धि तर्क से प्राप्त नहीं की जा सकती। किसी ज्ञानी द्वारा उपदेश किए जाने पर ही यह सुज्ञान होती है। तुम जिस धैर्य को प्राप्त हुए हो, वह अद्भुत है। हे नचिकेता! तुम्हारे जैसा शिष्य हमें सदा मिले।",
+        english: "This wisdom cannot be obtained by reasoning. Only when taught by another (a wise teacher), O dearest one, does it lead to real knowledge. Thou hast obtained it. Thou art fixed in truth. May we find a questioner like thee, O Nachiketa!",
+        simpleExplanation: "Yama's blessing: 'May I always find students like you!' The highest compliment from Death himself.",
+        simpleExplanationHindi: "यम का आशीर्वाद: 'काश मुझे हमेशा तुम्हारे जैसे शिष्य मिलें!' मृत्यु की ओर से सर्वोच्च प्रशंसा।",
+        theme: "Yama's Blessing",
+        nanoBananaPrompt: "Yama blessing Nachiketa with folded hands, role reversal—Death honoring a mortal student."
+    },
+
+    // Verse 10 (Valli 2): Yama's Confession
+    {
+        id: 39,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "जानाम्यहं शेवधिरित्यनित्यं न ह्यध्रुवैः प्राप्यते हि ध्रुवं तत् । ततो मया नाचिकेताश्चितोऽग्निरनित्यैर्द्रव्यैः प्राप्तवानस्मि नित्यम् ॥ १० ॥",
+        hindi: "(यम कहते हैं): मैं जानता हूँ कि यह 'निधि' (कर्मफल/स्वर्ग) अनित्य है, क्योंकि अनित्य वस्तुओं से वह 'नित्य' प्राप्त नहीं किया जा सकता। इसलिए मैंने 'नाचिकेता अग्नि' का चयन किया।",
+        english: "I know that the treasure (of Karma) is impermanent; for that Permanent One is not obtained by impermanent things. Therefore, I piled the Nachiketa Fire with impermanent materials and have attained this (relatively) permanent position (as Death).",
+        simpleExplanation: "Even DEATH confesses: 'I used temporary rituals to get my temporary position. The Eternal requires a different approach.'",
+        simpleExplanationHindi: "मृत्यु भी स्वीकार करता है: 'मैंने अपनी अस्थायी स्थिति पाने के लिए अस्थायी अनुष्ठानों का उपयोग किया। शाश्वत के लिए अलग दृष्टिकोण चाहिए।'",
+        theme: "Death's Confession",
+        nanoBananaPrompt: "Yama looking at his own throne, realizing even his position is temporary compared to the Eternal."
+    },
+
+    // Verse 11 (Valli 2): Nachiketa's Superiority
+    {
+        id: 40,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "कामस्याप्तिं जगतः प्रतिष्ठां क्रतोरनन्त्यमभयस्य पारम् । स्तोममहदुरुगायं प्रतिष्ठां दृष्ट्वा धृत्या धीरो नचिकेतोऽत्यस्राक्षीः ॥ ११ ॥",
+        hindi: "तुमने कामनाओं की पूर्ति, जगत का आधार, यज्ञ का अनंत फल, अभय का तट देखकर भी, हे नचिकेता! अपनी बुद्धि से उन सबको तिनके के समान त्याग दिया।",
+        english: "Having seen the fulfillment of all desires, the support of the world, the endless fruit of rites, the other shore of fearlessness—O wise Nachiketa, thou hast firmly rejected them all.",
+        simpleExplanation: "Nachiketa SAW everything—heaven, power, immortality—and STILL said 'Not enough. Give me the TRUTH.'",
+        simpleExplanationHindi: "नचिकेता ने सब कुछ देखा—स्वर्ग, शक्ति, अमरता—और फिर भी कहा 'पर्याप्त नहीं। मुझे सत्य दो।'",
+        theme: "Ultimate Discernment",
+        nanoBananaPrompt: "Nachiketa standing on a mountain of treasures, looking beyond at a simple eternal light."
+    },
+
+    // Verse 12 (Valli 2): The Difficult Path (Yoga)
+    {
+        id: 41,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "तं दुर्दर्शं गूढमनुप्रविष्टं गुहाहितं गह्वरेष्ठं पुराणम् । अध्यात्मयोगाधिगमेन देवं मत्वा धीरो हर्षशोकौ जहाति ॥ १२ ॥",
+        hindi: "उस दुर्दर्श (कठिनाई से दिखने वाले), गूढ़, हृदय की गुफा में छिपे हुए देव (आत्मा) को 'अध्यात्म योग' द्वारा जानकर, धीर पुरुष हर्ष और शोक दोनों को त्याग देता है।",
+        english: "Realizing through 'Adhyatma Yoga' (meditation on the Self) that ancient, effulgent One, who is hard to see, hidden in the cave of the heart—the wise man leaves behind both joy and sorrow.",
+        simpleExplanation: "The path is ADHYATMA YOGA—going inward. Find the Self in the cave of the heart. Then joy and sorrow both dissolve.",
+        simpleExplanationHindi: "मार्ग अध्यात्म योग है—अंतर्मुख होना। हृदय की गुफा में आत्मा को खोजें। तब हर्ष और शोक दोनों विलीन हो जाते हैं।",
+        theme: "Adhyatma Yoga",
+        nanoBananaPrompt: "A yogi diving into a glowing cave within his own heart, discovering the eternal light inside."
+    },
+
+    // Verse 13 (Valli 2): The Essence of Dharma
+    {
+        id: 42,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "एतच्छ्रुत्वा सम्परिगृह्य मर्त्यः प्रवृह्य धर्म्यमणुमेतमाप्य । स मोदते मोदनीयं हि लब्ध्वा विवृतं सद्म नचिकेतसं मन्ये ॥ १३ ॥",
+        hindi: "मनुष्य इसे सुनकर, अच्छी तरह ग्रहण करके, उस सूक्ष्म तत्व को पाकर आनंदित होता है। मैं मानता हूँ कि नचिकेता के लिए ब्रह्म का घर खुला है।",
+        english: "Hearing this and grasping it well, separating that righteous Self from the body, and attaining that subtle One, the mortal rejoices, for he has obtained the source of joy. I think the abode of Brahman is open to Nachiketa.",
+        simpleExplanation: "Yama declares: 'The door to Brahman is OPEN for you, Nachiketa!' The ultimate invitation.",
+        simpleExplanationHindi: "यम घोषणा करते हैं: 'ब्रह्म का द्वार तुम्हारे लिए खुला है, नचिकेता!' परम निमंत्रण।",
+        theme: "Door to Brahman",
+        nanoBananaPrompt: "A massive golden door opening to infinite light, Nachiketa standing at the threshold."
+    },
+
+    // Verse 14 (Valli 2): The Main Question
+    {
+        id: 43,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "अन्यत्र धर्मादन्यत्राधर्मादन्यत्रास्मात्कृताकृतात् । अन्यत्र भूताच्च भव्याच्च यत्तत्पश्यसि तद्वद ॥ १४ ॥",
+        hindi: "(नचिकेता): जो धर्म से अलग है और अधर्म से भी अलग है; जो किए हुए और न किए हुए से अलग है; जो भूत और भविष्य से भी परे है—जिसे आप ऐसा देखते हैं, उसे मुझे बताइए।",
+        english: "Tell me that which thou seest as different from Dharma and Adharma, different from cause and effect, different from the past and the future.",
+        simpleExplanation: "Nachiketa asks for the ULTIMATE: 'What is beyond good/evil, past/future, cause/effect?' The Absolute.",
+        simpleExplanationHindi: "नचिकेता परम की मांग करता है: 'अच्छे/बुरे, अतीत/भविष्य, कारण/कार्य से परे क्या है?' परम तत्व।",
+        theme: "The Absolute",
+        nanoBananaPrompt: "A point of light beyond all dualities—beyond time, beyond karma, beyond everything."
+    },
+
+    // Verse 15 (Valli 2): The Answer is OM
+    {
+        id: 44,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "सर्वे वेदा यत्पदमामनन्ति तपांसि सर्वाणि च यद्वदन्ति । यदिच्छन्तो ब्रह्मचर्यं चरन्ति तत्ते पदं सङ्ग्रहेण ब्रवीम्योमित्येतत् ॥ १५ ॥",
+        hindi: "(यम): सारे वेद जिस पद का वर्णन करते हैं, सारी तपस्याएं जिसकी बात करती हैं, और जिसकी इच्छा करते हुए लोग ब्रह्मचर्य का पालन करते हैं—वह पद मैं तुम्हें संक्षेप में बताता हूँ: वह **'ॐ'** है।",
+        english: "That Word which all the Vedas declare, which all austerities proclaim, desiring which people practice Brahmacharya—that Word I tell thee briefly: it is **OM**.",
+        simpleExplanation: "THE ANSWER: OM. All Vedas point to it. All disciplines aim for it. OM is the name of the Absolute.",
+        simpleExplanationHindi: "उत्तर: ॐ। सभी वेद इसकी ओर इशारा करते हैं। सभी साधनाएं इसके लिए हैं। ॐ परम तत्व का नाम है।",
+        theme: "OM - The Answer",
+        nanoBananaPrompt: "The symbol OM radiating infinite light, all scriptures and disciplines flowing towards it."
+    },
+
+    // Verse 16 (Valli 2): The Power of OM
+    {
+        id: 45,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "एतद्ध्येवाक्षरं ब्रह्म एतद्ध्येवाक्षरं परम् । एतद्ध्येवाक्षरं ज्ञात्वा यो यदिच्छति तस्य तत् ॥ १६ ॥",
+        hindi: "यह अक्षर ही ब्रह्म है, यह अक्षर ही परम है। इस अक्षर को जानकर जो जिसकी इच्छा करता है, उसे वह मिल जाता है।",
+        english: "This Syllable is, verily, Brahman. This Syllable is, verily, the Supreme. Knowing this Syllable, whatever one desires, one gets.",
+        simpleExplanation: "OM = Brahman = The Supreme. Know OM truly, and all desires are fulfilled—because you realize you ARE everything.",
+        simpleExplanationHindi: "ॐ = ब्रह्म = परम। ॐ को सच में जानो, और सभी इच्छाएं पूरी हो जाती हैं—क्योंकि आप अनुभव करते हैं कि आप ही सब कुछ हैं।",
+        theme: "OM is Brahman",
+        nanoBananaPrompt: "OM symbol dissolving into infinite Brahman, becoming everything and nothing simultaneously."
+    },
+
+    // Verse 17 (Valli 2): The Best Support
+    {
+        id: 46,
+        valli: 2,
+        adhyaya: 1,
+        section: "Third Boon - Part 2",
+        sanskrit: "एतदालम्बनं श्रेष्ठमेतदालम्बनं परम् । एतदालम्बनं ज्ञात्वा ब्रह्मलोके महीयते ॥ १७ ॥",
+        hindi: "यह आलंबन (सहारा) श्रेष्ठ है, यह आलंबन परम है। इस आलंबन को जानकर मनुष्य ब्रह्मलोक में महिमा को प्राप्त होता है।",
+        english: "This is the best support; this is the highest support. Knowing this support, one is worshipped in the world of Brahman.",
+        simpleExplanation: "OM is the ultimate SUPPORT. When everything else fails, OM remains. The cosmic safety net.",
+        simpleExplanationHindi: "ॐ परम सहारा है। जब बाकी सब विफल हो जाए, ॐ बना रहता है। ब्रह्मांडीय सुरक्षा जाल।",
+        theme: "Ultimate Support",
+        nanoBananaPrompt: "A person falling through space, caught by the vibration of OM—the ultimate safety net."
+    },
+
+    // Verse 18 (Valli 2): The Eternal Self - MOST FAMOUS VERSE
+    {
+        id: 47,
+        valli: 2,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "न जायते म्रियते वा विपश्चिन्नायं कुतश्चिन्न बभूव कश्चित् । अजो नित्यः शाश्वतोऽयं पुराणो न हन्यते हन्यमाने शरीरे ॥ १८ ॥",
+        hindi: "यह विपश्चित् (ज्ञानी आत्मा) न जन्म लेता है और न मरता है। न यह किसी से उत्पन्न हुआ है। यह अजन्मा, नित्य, शाश्वत और पुराण है। शरीर के मारे जाने पर भी यह नहीं मारा जाता।",
+        english: "The knowing Self is not born; It does not die. It has not sprung from anything; nothing has sprung from It. Birthless, eternal, everlasting, and ancient, It is not killed when the body is killed.",
+        simpleExplanation: "THE MOST FAMOUS VERSE (also in Bhagavad Gita 2.20): The Self is NEVER born, NEVER dies. Bodies fall, the Self remains.",
+        simpleExplanationHindi: "सबसे प्रसिद्ध श्लोक (गीता 2.20 में भी): आत्मा कभी जन्म नहीं लेती, कभी मरती नहीं। शरीर गिरते हैं, आत्मा बनी रहती है।",
+        theme: "Eternal Self",
+        nanoBananaPrompt: "An indestructible brilliant light inside a body that is dissolving—the Self surviving death."
+    },
+
+    // Verse 19 (Valli 2): The Slayer and the Slain
+    {
+        id: 48,
+        valli: 2,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "हन्ता चेन्मन्यते हन्तुं हतश्चेन्मन्यते हतम् । उभौ तौ न विजानीतो नायं हन्ति न हन्यते ॥ १९ ॥",
+        hindi: "यदि मारने वाला सोचता है कि वह मारता है, और यदि मरने वाला सोचता है कि वह मारा गया है—तो वे दोनों ही नहीं जानते। न यह आत्मा मारता है और न यह मारा जाता है।",
+        english: "If the killer thinks he kills, and if the killed thinks he is killed, neither of these two knows. The Self kills not, nor is It killed.",
+        simpleExplanation: "Both killer and killed are WRONG. The Self neither kills nor can be killed. Only bodies interact; the Self is untouched.",
+        simpleExplanationHindi: "मारने वाला और मरने वाला दोनों गलत हैं। आत्मा न मारती है न मारी जा सकती है। केवल शरीर संपर्क करते हैं; आत्मा अछूती है।",
+        theme: "Beyond Death",
+        nanoBananaPrompt: "A sword passing through a being of light without touching it—the Self untouched by violence."
+    },
+
+    // Verse 20 (Valli 2): Smaller than Small, Greater than Great
+    {
+        id: 49,
+        valli: 2,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "अणोरणीयान्महतो महीयानात्मास्य जन्तोर्निहितो गुहायाम् । तमक्रतुः पश्यति वीतशोको धातुप्रसादान्महिमानमात्मनः ॥ २० ॥",
+        hindi: "अणु से भी अणु और महान से भी महान, यह आत्मा हृदय रूपी गुफा में स्थित है। कामना रहित मनुष्य, इंद्रियों और मन की शांति से, उस आत्मा की महिमा को देखता है।",
+        english: "Subtler than the subtle, greater than the great, the Self is seated in the heart of the creature. The desireless man sees the glory of the Self through the tranquillity of the senses and mind and becomes free from sorrow.",
+        simpleExplanation: "SMALLER than an atom, BIGGER than the universe—the Self is both. Only the desireless can perceive it.",
+        simpleExplanationHindi: "परमाणु से छोटा, ब्रह्मांड से बड़ा—आत्मा दोनों है। केवल इच्छा रहित ही इसे देख सकता है।",
+        theme: "Infinite & Infinitesimal",
+        nanoBananaPrompt: "An atom containing a universe, and a universe contained in an atom—the Self as both extremes."
+    },
+
+    // Verse 21 (Valli 2): The Paradox of Motion
+    {
+        id: 50,
+        valli: 2,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "आसीनो दूरं व्रजति शयानो याति सर्वतः । कस्तं मदामदं देवं मदन्यो ज्ञातुमर्हति ॥ २१ ॥",
+        hindi: "वह बैठे हुए भी दूर चला जाता है, और सोते हुए भी सब जगह जाता है। उस देव को मेरे सिवा और कौन जान सकता है?",
+        english: "Sitting, He travels far; lying down, He goes everywhere. Who else but I am able to know that God who rejoices and rejoices not?",
+        simpleExplanation: "The Self doesn't move, yet reaches everywhere. It doesn't act, yet does everything. The ultimate paradox.",
+        simpleExplanationHindi: "आत्मा हिलती नहीं, फिर भी हर जगह पहुंचती है। कार्य नहीं करती, फिर भी सब कुछ करती है। परम विरोधाभास।",
+        theme: "Motionless Mover",
+        nanoBananaPrompt: "A still point at the center of a spinning galaxy—motionless yet the cause of all motion."
+    },
+
+    // Verse 22 (Valli 2): Bodiless in Bodies
+    {
+        id: 51,
+        valli: 2,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "अशरीरं शरीरेषु अनवस्थेष्ववस्थितम् । महान्तं विभुमात्मानं मत्वा धीरो न शोचति ॥ २२ ॥",
+        hindi: "शरीरों में अशरीर, और अस्थिर वस्तुओं में स्थिर—उस महान और व्यापक आत्मा को जानकर धीर पुरुष शोक नहीं करता।",
+        english: "The wise man, knowing the Self as bodiless in the midst of bodies, and permanent in the midst of the impermanent, and as the Great and All-pervading One, does not grieve.",
+        simpleExplanation: "The Self is BODILESS in bodies, PERMANENT in impermanent things. Know this = no more grief.",
+        simpleExplanationHindi: "आत्मा शरीरों में अशरीर है, अस्थिर में स्थिर है। यह जानो = अब कोई शोक नहीं।",
+        theme: "Bodiless Self",
+        nanoBananaPrompt: "A ghost-like pure consciousness inhabiting a body, unaffected by the body's changes."
+    },
+
+    // Verse 23 (Valli 2): Not by Logic, but by Choice - KEY VERSE
+    {
+        id: 52,
+        valli: 2,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "नायमात्मा प्रवचनेन लभ्यो न मेधया न बहुना श्रुतेन । यमेवैष वृणुते तेन लभ्यस्तस्यैष आत्मा विवृणुते तनूं स्वाम् ॥ २३ ॥",
+        hindi: "यह आत्मा न प्रवचन से, न बुद्धि से, और न बहुत सुनने से प्राप्त किया जा सकता है। यह जिसे चुन लेता है, उसी के द्वारा यह प्राप्त किया जाता है। उसके प्रति यह आत्मा अपना स्वरूप प्रकट कर देता है।",
+        english: "This Self cannot be attained by instruction, nor by intellect, nor by much hearing. He whom the Self chooses (or he who chooses the Self), by him alone is It attained. To him the Self reveals Its own nature.",
+        simpleExplanation: "KEY VERSE: Not by study, not by intellect, not by listening. The Self CHOOSES whom to reveal itself to. Grace + Surrender.",
+        simpleExplanationHindi: "मुख्य श्लोक: अध्ययन से नहीं, बुद्धि से नहीं, सुनने से नहीं। आत्मा चुनती है किसे अपने को प्रकट करना है। कृपा + समर्पण।",
+        theme: "Grace of Self-Revelation",
+        nanoBananaPrompt: "The Self as light choosing to illuminate a humble, surrendered seeker among many scholars."
+    },
+
+    // Verse 24 (Valli 2): Requirements for Knowledge
+    {
+        id: 53,
+        valli: 2,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "नाविरतो दुश्चरितान्नाशान्तो नासमाहितः । नाशान्तमानसो वापि प्रज्ञानेनैनमाप्नुयात् ॥ २४ ॥",
+        hindi: "जो दुराचार से विरत नहीं हुआ है, जो शांत नहीं है, जिसका मन एकाग्र नहीं है, और जिसका मन अशांत है—वह केवल 'ज्ञान' से इस आत्मा को प्राप्त नहीं कर सकता।",
+        english: "He who has not turned away from wickedness, who is not tranquil, whose mind is not concentrated, and whose mind is not at peace, cannot attain this Self even by knowledge.",
+        simpleExplanation: "PREREQUISITES: Stop wrongdoing. Be calm. Concentrate. Find inner peace. WITHOUT these, even knowledge won't reveal the Self.",
+        simpleExplanationHindi: "पूर्व शर्तें: गलत काम बंद करो। शांत रहो। एकाग्र हो जाओ। आंतरिक शांति पाओ। इनके बिना, ज्ञान भी आत्मा को प्रकट नहीं करेगा।",
+        theme: "Prerequisites for Knowledge",
+        nanoBananaPrompt: "Four steps carved in stone: Stop Evil, Be Calm, Concentrate, Find Peace—leading to light."
+    },
+
+    // Verse 25 (Valli 2): The Consumer of All
+    {
+        id: 54,
+        valli: 2,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "यस्य ब्रह्म च क्षत्रं च उभे भवत ओदनः । मृत्युर्यस्योपसेचनं क इत्था वेद यत्र सः ॥ २५ ॥",
+        hindi: "जिसके लिए ब्राह्मण और क्षत्रिय दोनों भोजन बन जाते हैं, और मृत्यु जिसका 'उपसेचन' (चटनी) है—वह कहां और कैसा है, यह कौन जान सकता है?",
+        english: "Of whom the Brahmana and the Kshatriya classes are (as it were) food, and Death itself is the condiment (pickle/sauce)—who thus knows where He is?",
+        simpleExplanation: "The Absolute EATS everything—even Death is just a side dish! Who can measure such infinite power?",
+        simpleExplanationHindi: "परम तत्व सब कुछ खा जाता है—मृत्यु भी केवल एक साइड डिश है! ऐसी अनंत शक्ति को कौन माप सकता है?",
+        theme: "Consumer of All",
+        nanoBananaPrompt: "A cosmic being consuming the entire universe including Death—the Absolute that devours all."
     }
 ];
 
