@@ -12,7 +12,7 @@ export const upanishads: Upanishad[] = [
     { number: 1, id: "isa", name: "Isha", veda: "Yajurveda", category: "Mukhya", description: "Learn about the divinity inherent in all things." },
     { number: 2, id: "kena", name: "Kena", veda: "Samaveda", category: "Mukhya", description: "Explore the nature of Brahman and knowledge." },
     { number: 3, id: "katha", name: "Katha", veda: "Yajurveda", category: "Mukhya", description: "The story of Nachiketa and the secrets of death." },
-    { number: 4, id: "prasna", name: "Prashna", veda: "Atharvaveda", category: "Mukhya", description: "Six questions about the source of life." },
+    { number: 4, id: "prashna", name: "Prashna", veda: "Atharvaveda", category: "Mukhya", description: "Six questions about the source of life." },
     { number: 5, id: "mundaka", name: "Mundaka", veda: "Atharvaveda", category: "Mukhya", description: "Distinction between higher and lower knowledge." },
     { number: 6, id: "mandukya", name: "Mandukya", veda: "Atharvaveda", category: "Mukhya", description: "Analysis of Om and the four states of consciousness." },
     { number: 7, id: "taittiriya", name: "Taittiriya", veda: "Yajurveda", category: "Mukhya", description: "Levels of reality (Koshas) and self-realization." },

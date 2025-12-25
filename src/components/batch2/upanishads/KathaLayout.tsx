@@ -358,11 +358,16 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
 export default function KathaLayout() {
     const router = useRouter();
     const [lang, setLang] = useState<"en" | "hi">("en");
-    const [activeTab, setActiveTab] = useState<"overview" | "valli1" | "valli2" | "valli3">("overview");
+    const [activeTab, setActiveTab] = useState<"overview" | "valli1" | "valli2" | "valli3" | "valli4" | "valli5" | "valli6">("overview");
     const [isPlaying, setIsPlaying] = useState(false);
 
     // Get data for each valli
     const valli1Data = getKathaByValli(1);
+    const valli2Data = getKathaByValli(2);
+    const valli3Data = getKathaByValli(3);
+    const valli4Data = getKathaByValli(4);
+    const valli5Data = getKathaByValli(5);
+    const valli6Data = getKathaByValli(6);
 
     return (
         <div className="min-h-screen bg-indigo-950 text-amber-50 font-sans selection:bg-amber-500/30 selection:text-amber-200">
@@ -434,20 +439,24 @@ export default function KathaLayout() {
                     <div className="flex bg-black/60 rounded-2xl p-1.5 border border-white/5 shadow-2xl overflow-x-auto no-scrollbar max-w-[70%] md:max-w-none">
                         {[
                             { id: "overview", label: "Overview", labelHi: "सारांश", icon: Info },
-                            { id: "valli1", label: "The Story", labelHi: "कथा", icon: User },
-                            { id: "valli2", label: "Three Boons", labelHi: "तीन वर", icon: Gift },
-                            { id: "valli3", label: "Chariot", labelHi: "रथ", icon: Crown }
+                            { id: "valli1", label: "I: The Curse", labelHi: "१: शाप", icon: User },
+                            { id: "valli2", label: "II: Two Paths", labelHi: "२: दो मार्ग", icon: Gift },
+                            { id: "valli3", label: "III: Chariot", labelHi: "३: रथ", icon: Crown },
+                            { id: "valli4", label: "IV: The Soul", labelHi: "४: आत्मा", icon: Sparkles },
+                            { id: "valli5", label: "V: Inner Ruler", labelHi: "५: अंतर्यामी", icon: Flame },
+                            { id: "valli6", label: "VI: Liberation", labelHi: "६: मुक्ति", icon: Zap }
                         ].map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id as any)}
-                                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-black transition-all whitespace-nowrap ${activeTab === tab.id
+                                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black transition-all whitespace-nowrap ${activeTab === tab.id
                                     ? "bg-amber-500 text-indigo-950 shadow-lg"
                                     : "text-amber-500 hover:text-amber-400"
                                     }`}
                             >
                                 <tab.icon className="w-4 h-4" />
-                                <span className="uppercase tracking-widest">{lang === "en" ? tab.label : tab.labelHi}</span>
+                                <span className="hidden md:inline uppercase tracking-widest">{lang === "en" ? tab.label : tab.labelHi}</span>
+                                <span className="md:hidden uppercase tracking-widest">{tab.id === 'overview' ? (lang === "en" ? "Info" : "info") : tab.id.replace('valli', 'V')}</span>
                             </button>
                         ))}
                     </div>
@@ -509,18 +518,44 @@ export default function KathaLayout() {
                             />
                         )}
                         {activeTab === "valli2" && (
-                            <div className="text-center py-20">
-                                <div className="text-6xl mb-6 opacity-50">🎁</div>
-                                <h2 className="text-3xl font-serif text-amber-100 mb-4">Coming Soon</h2>
-                                <p className="text-amber-400/60">Valli 2-3: The Three Boons content is being prepared...</p>
-                            </div>
+                            <WisdomStream
+                                data={valli2Data}
+                                lang={lang}
+                                title={lang === "en" ? "The Two Paths" : "दो मार्ग"}
+                                subtitle="Adhyaya 1, Valli 2: Shreyas (Good) vs Preyas (Pleasant)"
+                            />
                         )}
                         {activeTab === "valli3" && (
-                            <div className="text-center py-20">
-                                <div className="text-6xl mb-6 opacity-50">🏎️</div>
-                                <h2 className="text-3xl font-serif text-amber-100 mb-4">Coming Soon</h2>
-                                <p className="text-amber-400/60">The famous Chariot Metaphor content is being prepared...</p>
-                            </div>
+                            <WisdomStream
+                                data={valli3Data}
+                                lang={lang}
+                                title={lang === "en" ? "The Chariot Analogy" : "रथ रूपक"}
+                                subtitle="Adhyaya 1, Valli 3: The Atman as the Lord of the Chariot"
+                            />
+                        )}
+                        {activeTab === "valli4" && (
+                            <WisdomStream
+                                data={valli4Data}
+                                lang={lang}
+                                title={lang === "en" ? "The Inner Self" : "अंतरात्मा"}
+                                subtitle="Adhyaya 2, Valli 1: Turning the Vision Inward"
+                            />
+                        )}
+                        {activeTab === "valli5" && (
+                            <WisdomStream
+                                data={valli5Data}
+                                lang={lang}
+                                title={lang === "en" ? "The Inner Ruler" : "अंतर्यामी"}
+                                subtitle="Adhyaya 2, Valli 2: The Thumb-sized Purusha"
+                            />
+                        )}
+                        {activeTab === "valli6" && (
+                            <WisdomStream
+                                data={valli6Data}
+                                lang={lang}
+                                title={lang === "en" ? "The Yoga of Immortality" : "अमरता का योग"}
+                                subtitle="Adhyaya 2, Valli 3: The Final Teaching & Liberation"
+                            />
                         )}
                     </motion.div>
                 </AnimatePresence>
