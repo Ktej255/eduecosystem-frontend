@@ -7,7 +7,7 @@ export interface KathaDataEntry {
     id: number;
     valli: 1 | 2 | 3 | 4 | 5 | 6;
     adhyaya: 1 | 2;
-    section: "The Story" | "First Boon" | "Second Boon" | "Third Boon - Part 1" | "Third Boon - Part 2" | "The Chariot" | "Final Teaching";
+    section: "The Story" | "First Boon" | "Second Boon" | "Third Boon - Part 1" | "Third Boon - Part 2" | "The Chariot" | "The Inner Ruler" | "Final Teaching";
     sanskrit: string;
     transliteration?: string;
     hindi: string;
@@ -1325,12 +1325,241 @@ export const kathaData: KathaDataEntry[] = [
     },
 
     // ==========================================
+    // ADHYAYA 2, VALLI 2 (VALLI 5): THE INNER RULER
+    // ==========================================
+
+    // Verse 1 (Valli 5): City of Eleven Gates
+    {
+        id: 87,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "पुरमेकादशद्वारमजस्यावक्रचेतसः । अनुष्ठाय न शोचति विमुक्तश्च विमुच्यते । एतद्वै तत् ॥ १ ॥",
+        hindi: "यह शरीर 'ग्यारह द्वारों' वाला नगर है। इसका स्वामी अजन्मा और शुद्ध बुद्धि वाला (आत्मा) है। जो उसका ध्यान करता है, वह शोक नहीं करता और मुक्त हो जाता है।",
+        english: "There is a city with eleven gates (the body), belonging to the unborn, uncrooked intelligence (the Self). He who meditates on Him grieves no more and is liberated.",
+        simpleExplanation: "Your body is a city with 11 gates (eyes, ears, etc.). The King (Self) lives inside. Serve the King, not the gates.",
+        simpleExplanationHindi: "आपका शरीर 11 द्वारों (आँखें, कान, आदि) वाला एक नगर है। राजा (आत्मा) भीतर रहता है। राजा की सेवा करो, द्वारों की नहीं।",
+        theme: "City of 11 Gates",
+        nanoBananaPrompt: "A glowing golden citadel with eleven gates, populated by senses, with a serene King sitting in the center."
+    },
+
+    // Verse 2 (Valli 5): The Omnipresent Spirit
+    {
+        id: 88,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "हंसः शुचिषद्वसुरान्तरिक्षसद्धोता वेदिषदतिथिर्दुरोणसत् । नृषद्वरसदृतसद्व्योमसदब्जा गोजा ऋतजा अद्रिजा ऋतं बृहत् ॥ २ ॥",
+        hindi: "वह आकाश में सूर्य है, अंतरिक्ष में वायु है, वेदी पर अग्नि है, घर में अतिथि है। वह मनुष्यों, देवताओं, सत्य और आकाश में स्थित है। वह जल, पृथ्वी, यज्ञ और पर्वतों से प्रकट होता है। वह सत्य और महान है।",
+        english: "He is the Sun, the Air, the Fire, the Guest. He dwells in men, gods, truth, and ether. He is born of water, earth, sacrifice, and mountains. He is the True and Great.",
+        simpleExplanation: "God is EVERYWHERE. In the sun, wind, fire, guests, humans, and truth itself. The entire cosmos is His home.",
+        simpleExplanationHindi: "ईश्वर सर्वत्र है। सूर्य, वायु, अग्नि, अतिथियों, मनुष्यों और सत्य में। सम्पूर्ण ब्रह्मांड उसका घर है।",
+        theme: "The Omnipresent One",
+        nanoBananaPrompt: "A montage of Sun, Fire, Wind, and Mountains, all glowing with the same inner golden light."
+    },
+
+    // Verse 3 (Valli 5): The Dwarf in the Middle
+    {
+        id: 89,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "ऊर्ध्वं प्राणमुन्नयत्यपानं प्रत्यगस्यति । मध्ये वामनमासीनं विश्वे देवा उपासते ॥ ३ ॥",
+        hindi: "वह प्राण को ऊपर उठाता है और अपान को नीचे फेंकता है। उस मध्य (हृदय) में बैठे हुए 'वामन' (अंगूठे जितने छोटे) आत्मा की सभी देवता उपासना करते हैं।",
+        english: "He raises the Prana upward and casts the Apana downward. All the gods worship that Adorable One (Vamana) seated in the middle.",
+        simpleExplanation: "The 'Dwarf' (Self) sits in the center of your energy system, controlling breath. All your senses worship Him.",
+        simpleExplanationHindi: "'वामन' (आत्मा) आपकी ऊर्जा प्रणाली के केंद्र में बैठता है, श्वास को नियंत्रित करता है। आपकी सभी इंद्रियां उसकी पूजा करती हैं।",
+        theme: "The Thumb-sized Dweller",
+        nanoBananaPrompt: "A tiny luminous being sitting in the center of a lotus in the heart, with energies swirling up and down around him."
+    },
+
+    // Verse 4 (Valli 5): What Remains?
+    {
+        id: 90,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "अस्य विस्रंसमानस्य शरीरस्थस्य देहिनः । देहाद्विमुच्यमानस्य किमत्र परिशिष्यते । एतद्वै तत् ॥ ४ ॥",
+        hindi: "जब यह शरीर में रहने वाला (देही) शरीर से अलग हो जाता है, तो यहाँ क्या शेष रहता है? (कुछ नहीं)। यही वह है।",
+        english: "When this indwelling Soul is detached from the body and freed from it, what remains here? (Nothing). This is verily That.",
+        simpleExplanation: "What's left of a house when the owner leaves? Just walls. When the Soul leaves, the body is nothing. The Soul is the value.",
+        simpleExplanationHindi: "जब मालिक चला जाता है तो घर का क्या बचता है? बस दीवारें। जब आत्मा निकल जाती है, तो शरीर कुछ नहीं होता। आत्मा ही मूल्य है।",
+        theme: "What Remains?",
+        nanoBananaPrompt: "A silhouette of a body turning into dust as a glowing spirit rises out of it."
+    },
+
+    // Verse 5 (Valli 5): The Real Source of Life
+    {
+        id: 91,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "न प्राणेन नापानेन मर्त्यो जीवति कश्चन । इतरेण तु जीवन्ति यस्मिन्नेतावुपाश्रितौ ॥ ५ ॥",
+        hindi: "कोई भी मनुष्य प्राण या अपान से जीवित नहीं रहता। वे किसी 'अन्य' शक्ति से जीवित रहते हैं, जिस पर ये दोनों टिके हैं।",
+        english: "No mortal lives by the Prana or the Apana. But they live by something else, on which these two depend.",
+        simpleExplanation: "You don't live because you breathe. You breathe because YOU (the Soul) are there. The battery powers the machine.",
+        simpleExplanationHindi: "आप इसलिए जीवित नहीं हैं क्योंकि आप सांस लेते हैं। आप सांस लेते हैं क्योंकि आप (आत्मा) वहां हैं। बैटरी मशीन को शक्ति देती है।",
+        theme: "The Real Life Force",
+        nanoBananaPrompt: "A glowing battery core (Soul) energizing a complex machinery of lungs and heart."
+    },
+
+    // Verse 6 (Valli 5): The Secret of Rebirth
+    {
+        id: 92,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "हन्त त इदं प्रवक्ष्यामि गुह्यं ब्रह्म सनातनम् । यथा च मरणं प्राप्य आत्मा भवति गौतम ॥ ६ ॥",
+        hindi: "हे गौतम! अब मैं तुम्हें उस गोपनीय सनातन ब्रह्म के बारे में फिर से बताऊंगा, और मृत्यु के बाद आत्मा का क्या होता है, यह भी।",
+        english: "O Gautama, I will explain to thee this mysterious, eternal Brahman, and also what happens to the Self after meeting death.",
+        simpleExplanation: "Yama reveals the secret: What happens after death? It depends on your Knowledge and Karma.",
+        simpleExplanationHindi: "यम रहस्य प्रकट करते हैं: मृत्यु के बाद क्या होता है? यह आपके ज्ञान और कर्म पर निर्भर करता है।",
+        theme: "Secret of Death",
+        nanoBananaPrompt: "Yama whispering a secret into Nachiketa's ear, with a background of stars and the wheel of time."
+    },
+
+    // Verse 7 (Valli 5): Karma and Rebirth
+    {
+        id: 93,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "योनिमन्ये प्रपद्यन्ते शरीरत्वाय देहिनः । स्थाणुमन्येऽनुसंयन्ति यथाकर्म यथाश्रुतम् ॥ ७ ॥",
+        hindi: "कुछ आत्माएं शरीर धारण करने के लिए गर्भ में जाती हैं; कुछ (कर्मों के अनुसार) पेड़-पौधे या पत्थर बन जाती हैं। यह उनके कर्म और ज्ञान पर निर्भर करता है।",
+        english: "Some souls enter the womb to have a body; others go to the plants (stationary forms), according to their deeds and knowledge.",
+        simpleExplanation: "REBIRTH MECHANISM: Good deeds + Knowledge = Human birth. Bad deeds + Ignorance = Animal/Plant birth.",
+        simpleExplanationHindi: "पुनर्जन्म तंत्र: अच्छे कर्म + ज्ञान = मानव जन्म। बुरे कर्म + अज्ञान = पशु/पौधे का जन्म।",
+        theme: "Paths of Rebirth",
+        nanoBananaPrompt: "Souls splitting into two paths: one going into a mother's womb, another merging into a tree."
+    },
+
+    // Verse 8 (Valli 5): The Dream Creator
+    {
+        id: 94,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "य एष सुप्तेषु जागर्ति कामं कामं पुरुषो निर्मिमाणः । तदेव शुक्रं तद्ब्रह्म तदेवामृतमुच्यते... ॥ ८ ॥",
+        hindi: "जो सोए हुओं में जागता रहता है और सपनों का निर्माण करता है—वही शुद्ध ब्रह्म है। सभी लोक उसी पर आश्रित हैं।",
+        english: "That Person who is awake in those that sleep, shaping desire after desire—That indeed is the Pure, That is Brahman.",
+        simpleExplanation: "Who creates your dreams? The same Creative Power that creates the Universe. You are a creator!",
+        simpleExplanationHindi: "आपके सपने कौन बनाता है? वही रचनात्मक शक्ति जो ब्रह्मांड का निर्माण करती है। आप एक निर्माता हैं!",
+        theme: "The Dreamer",
+        nanoBananaPrompt: "A sleeping face with a vivid, colorful universe expanding out of the forehead."
+    },
+
+    // Verse 9 (Valli 5): The Fire Analogy
+    {
+        id: 95,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "अग्निर्यथैको भुवनं प्रविष्टो रूपं रूपं प्रतिरूपो बभूव । एकस्तथा सर्वभूतान्तरात्मा रूपं रूपं प्रतिरूपो बहिश्च ॥ ९ ॥",
+        hindi: "जैसे एक ही अग्नि हर वस्तु में प्रवेश करके उसी के आकार की हो जाती है, वैसे ही एक ही आत्मा हर प्राणी में उसके अनुरूप हो जाती है, और बाहर भी है।",
+        english: "As the one Fire, entering the world, takes various forms; so does the one Self within all beings take various forms, and exists outside them also.",
+        simpleExplanation: "Fire has no shape, but it takes the shape of the log it burns. Soul has no shape, but takes the shape of the body it inhabits.",
+        simpleExplanationHindi: "आग का कोई आकार नहीं होता, लेकिन वह उस लकड़ी का आकार ले लेती है जिसे वह जलाती है। आत्मा का कोई आकार नहीं होता, लेकिन वह उस शरीर का आकार ले लेती है जिसमें वह रहती है।",
+        theme: "Fire Analogy",
+        nanoBananaPrompt: "One central fire splitting into many flames of different shapes and sizes."
+    },
+
+    // Verse 10 (Valli 5): The Air Analogy
+    {
+        id: 96,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "वायुर्यथैको भुवनं प्रविष्टो रूपं रूपं प्रतिरूपो बभूव । एकस्तथा सर्वभूतान्तरात्मा रूपं रूपं प्रतिरूपो बहिश्च ॥ १० ॥",
+        hindi: "जैसे एक ही वायु हर वस्तु में प्रवेश करके उसी के आकार की हो जाती है, वैसे ही एक ही आत्मा हर प्राणी में उसके अनुरूप हो जाती है, और बाहर भी है।",
+        english: "As the one Air, entering the world, takes various forms; so does the one Self within all beings take various forms, and exists outside them also.",
+        simpleExplanation: "Air fills a balloon, a room, a bubble. Being the same air, it looks different. The Self fills every being differently.",
+        simpleExplanationHindi: "हवा एक गुब्बारे, एक कमरे, एक बुलबुले को भरती है। एक ही हवा होने के बावजूद, यह अलग दिखती है। आत्मा हर प्राणी को अलग तरह से भरती है।",
+        theme: "Air Analogy",
+        nanoBananaPrompt: "Transparent wind or air taking the shape of various containers (balloon, bottle, bubble)."
+    },
+
+    // Verse 11 (Valli 5): The Sun Analogy
+    {
+        id: 97,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "सूर्यो यथा सर्वलोकस्य चक्षुर्न लिप्यते चाक्षुषैर्बाह्यदोषैः । एकस्तथा सर्वभूतान्तरात्मा न लिप्यते लोकदुःखेन बाह्यः ॥ ११ ॥",
+        hindi: "जैसे सूर्य गंदी चीजों को प्रकाशित करते हुए भी उनकी गंदगी से दूषित नहीं होता, वैसे ही आत्मा संसार के दुखों से लिप्त नहीं होती।",
+        english: "As the Sun is not defiled by external impurities seen by the eyes; so the one Self within all beings is not defiled by the misery of the world.",
+        simpleExplanation: "The Sun shines on trash but doesn't get dirty. The Soul witnesses sadness but doesn't get sad. It remains pure.",
+        simpleExplanationHindi: "सूरज कचरे पर चमकता है लेकिन गंदा नहीं होता। आत्मा उदासी को देखती है लेकिन उदास नहीं होती। यह शुद्ध रहती है।",
+        theme: "Sun Analogy",
+        nanoBananaPrompt: "A bright sun shining on a muddy swamp, remaining totally clean and distant in the sky."
+    },
+
+    // Verse 12 (Valli 5): Eternal Happiness
+    {
+        id: 98,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "एको वशी सर्वभूतान्तरात्मा एकं रूपं बहुधा यः करोति । तमात्मस्थं येऽनुपश्यन्ति धीरास्तेषां सुखं शाश्वतं नेतरेषाम् ॥ १२ ॥",
+        hindi: "जो एक ही 'वशी' (शासक) अपने एक रूप को अनेक बनाता है—जो धीर पुरुष उसे अपने भीतर देखते हैं, उन्हीं को शाश्वत सुख मिलता है।",
+        english: "The One Ruler, who makes the one form manifold... The wise who perceive Him seated within their own self, to them belongs eternal happiness.",
+        simpleExplanation: "Happiness is NOT outside. It belongs only to those who see the One Master inside themselves.",
+        simpleExplanationHindi: "खुशी बाहर नहीं है। यह केवल उन लोगों की है जो अपने भीतर एक स्वामी को देखते हैं।",
+        theme: "Eternal Happiness",
+        nanoBananaPrompt: "A meditating person smiling with deep inner joy, while outside people chase fleeing pleasures."
+    },
+
+    // Verse 13 (Valli 5): Eternal Peace
+    {
+        id: 99,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "नित्योऽनित्यानां चेतनश्चेतनानामेको बहूनां यो विदधाति कामान् । तमात्मस्थं येऽनुपश्यन्ति धीरास्तेषां शान्तिः शाश्वती नेतरेषाम् ॥ १३ ॥",
+        hindi: "जो अनित्यों में नित्य है, चेतनों में चेतन है, जो अकेला ही सबकी कामनाएं पूरी करता है। उसे अपने भीतर देखने वालों को ही शाश्वत शांति मिलती है।",
+        english: "The Eternal among the non-eternal, the Consciousness among the conscious... To them belongs eternal peace, not to others.",
+        simpleExplanation: "Everything changes; He is Unchanging. Everyone thinks; He is the Thinker. Know Him -> Peace.",
+        simpleExplanationHindi: "सब कुछ बदलता है; वह अपरिवर्तनीय है। हर कोई सोचता है; वह विचारक है। उसे जानो -> शांति।",
+        theme: "Eternal Peace",
+        nanoBananaPrompt: "A rock standing firm in a rushing river—the Eternal witnessing the changing flow of time."
+    },
+
+    // Verse 14 (Valli 5): The Indescribable Joy
+    {
+        id: 100,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "तदेतदिति मन्यन्ते निर्देश्यं परमं सुखम् । कथं नु तद्विजानीयां किमु भाति विभाति वा ॥ १४ ॥",
+        hindi: "ज्ञानी उस परम सुख को 'यह वही है' ऐसा मानते हैं। मैं उसे कैसे जानूँ? क्या वह स्वयं चमकता है या प्रकाशित होता है?",
+        english: "They realize that indescribable Supreme Joy as 'This is That.' How shall I know That? Does It shine by Itself?",
+        simpleExplanation: "The joy of Brahman is so great, you can only say 'THIS IS IT!' It's self-luminous.",
+        simpleExplanationHindi: "ब्रह्म का आनंद इतना महान है, आप केवल यही कह सकते हैं 'यह वही है!' यह स्वयं-प्रकाशमान है।",
+        theme: "Indescribable Joy",
+        nanoBananaPrompt: "A person holding a glowing orb of light, looking at it with absolute wonder and recognition."
+    },
+
+    // Verse 15 (Valli 5): The Light of Lights (Aarti)
+    {
+        id: 101,
+        valli: 5,
+        adhyaya: 2,
+        section: "The Inner Ruler",
+        sanskrit: "न तत्र सूर्यो भाति न चन्द्रतारकं नेमा विद्युतो भान्ति कुतोऽयमग्निः । तमेव भान्तमनुभाति सर्वं तस्य भासा सर्वमिदं विभाति ॥ १५ ॥",
+        hindi: "वहाँ न सूर्य चमकता है, न चन्द्रमा, न तारे, न ये बिजलियाँ। तो यह आग क्या चमकेगी? उसी के चमकने से सब चमकता है।",
+        english: "There the sun does not shine, nor the moon and stars, nor these lightnings... Him alone shining, all things shine after Him.",
+        simpleExplanation: "FAMOUS VERSE (Aarti): God is the Source of all Light. Sun, Moon, Fire only reflect His borrowed light.",
+        simpleExplanationHindi: "प्रसिद्ध श्लोक (आरती): ईश्वर समस्त प्रकाश का स्रोत है। सूर्य, चंद्रमा, अग्नि केवल उसके उधार प्रकाश को प्रतिबिंबित करते हैं।",
+        theme: "Light of Lights",
+        nanoBananaPrompt: "The silhouette of a Divine presence, and from it, the sun, moon, and stars lighting up like lamps."
+    },
+
+    // ==========================================
     // ADHYAYA 2, VALLI 3 (VALLI 6): THE YOGA OF IMMORTALITY
     // ==========================================
 
     // Verse 1 (Valli 6): The Inverted Tree - FAMOUS
     {
-        id: 87,
+        id: 102,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1345,7 +1574,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 2 (Valli 6): The Cosmic Terror
     {
-        id: 88,
+        id: 103,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1360,7 +1589,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 3 (Valli 6): Fear of the Absolute
     {
-        id: 89,
+        id: 104,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1375,7 +1604,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 4 (Valli 6): The Urgent Warning
     {
-        id: 90,
+        id: 105,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1390,7 +1619,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 5 (Valli 6): Clarity of Vision
     {
-        id: 91,
+        id: 106,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1405,7 +1634,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 6 (Valli 6): Detachment from Senses
     {
-        id: 92,
+        id: 107,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1420,7 +1649,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 7 (Valli 6): Hierarchy Refined
     {
-        id: 93,
+        id: 108,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1435,7 +1664,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 8 (Valli 6): The Highest Goal - KEY VERSE
     {
-        id: 94,
+        id: 109,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1450,7 +1679,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 9 (Valli 6): Seen by the Heart
     {
-        id: 95,
+        id: 110,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1465,7 +1694,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 10 (Valli 6): The State of Yoga - KEY VERSE
     {
-        id: 96,
+        id: 111,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1480,7 +1709,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 11 (Valli 6): Definition of Yoga - FAMOUS
     {
-        id: 97,
+        id: 112,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1495,7 +1724,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 12 (Valli 6): Not by Speech nor Mind
     {
-        id: 98,
+        id: 113,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1510,7 +1739,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 13 (Valli 6): Existence First
     {
-        id: 99,
+        id: 114,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1525,7 +1754,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 14 (Valli 6): Killing Desire - KEY VERSE
     {
-        id: 100,
+        id: 115,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1540,7 +1769,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 15 (Valli 6): Cutting the Knots - KEY VERSE
     {
-        id: 101,
+        id: 116,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1555,7 +1784,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 16 (Valli 6): The Sushumna - YOGIC PHYSIOLOGY
     {
-        id: 102,
+        id: 117,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1570,7 +1799,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 17 (Valli 6): Drawing out the Soul
     {
-        id: 103,
+        id: 118,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
@@ -1585,7 +1814,7 @@ export const kathaData: KathaDataEntry[] = [
 
     // Verse 18 (Valli 6): THE CONCLUSION - NACHIKETA'S LIBERATION
     {
-        id: 104,
+        id: 119,
         valli: 6,
         adhyaya: 2,
         section: "Final Teaching",
