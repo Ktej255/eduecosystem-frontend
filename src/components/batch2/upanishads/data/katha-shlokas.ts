@@ -834,6 +834,265 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanationHindi: "परम तत्व सब कुछ खा जाता है—मृत्यु भी केवल एक साइड डिश है! ऐसी अनंत शक्ति को कौन माप सकता है?",
         theme: "Consumer of All",
         nanoBananaPrompt: "A cosmic being consuming the entire universe including Death—the Absolute that devours all."
+    },
+
+    // ==========================================
+    // ADHYAYA 1, VALLI 3: THE CHARIOT OF THE SOUL
+    // ==========================================
+
+    // Verse 1 (Valli 3): The Two Birds
+    {
+        id: 55,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "ऋतं पिबन्तौ सुकृतस्य लोके गुहां प्रविष्टौ परमे परार्धे । छायातपौ ब्रह्मविदो वदन्ति पञ्चाग्नयो ये च त्रिणाचिकेताः ॥ १ ॥",
+        hindi: "अपने कर्मों के फल का पान करते हुए, ये दोनों (जीवात्मा और परमात्मा) बुद्धि रूपी गुफा में प्रविष्ट हैं। ब्रह्मवेत्ता उन्हें 'छाया' और 'आतप' (धूप) की तरह बताते हैं।",
+        english: "Having entered the cavity of the heart, the two (Self and Ego) enjoy the reward of their good works. The knowers of Brahman call them 'Shadow' and 'Light.'",
+        simpleExplanation: "Two birds on one tree: the Ego (experiencing) and the Self (witnessing). One eats the fruit, one watches.",
+        simpleExplanationHindi: "एक पेड़ पर दो पक्षी: अहंकार (अनुभव करने वाला) और आत्मा (साक्षी)। एक फल खाता है, एक देखता है।",
+        theme: "Two Birds",
+        nanoBananaPrompt: "Two birds on a tree—one eating fruit (ego), one watching serenely (Self). Shadow and Light metaphor."
+    },
+
+    // Verse 2 (Valli 3): The Bridge to Fearlessness
+    {
+        id: 56,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "यः सेतुरीजानानामक्षरं ब्रह्म यत्परम् । अभयं तितीर्षतां पारं नाचिकेतं शकेमहि ॥ २ ॥",
+        hindi: "हम उस 'नाचिकेता अग्नि' को जानने में समर्थ हों, जो यज्ञ करने वालों के लिए सेतु है; और उस 'अक्षर ब्रह्म' को भी जानें, जो भय से मुक्त होकर संसार को पार करने वालों के लिए अभय तट है।",
+        english: "May we be able to master that Nachiketa Fire which is a bridge for sacrificers; and also that Supreme Brahman, which is the shore of fearlessness for those who wish to cross Samsara.",
+        simpleExplanation: "The Nachiketa Fire is a BRIDGE to heaven; Brahman knowledge is the SHORE of fearlessness.",
+        simpleExplanationHindi: "नाचिकेता अग्नि स्वर्ग का पुल है; ब्रह्म ज्ञान अभय का तट है।",
+        theme: "Bridge to Freedom",
+        nanoBananaPrompt: "A bridge of fire crossing an ocean of confusion, leading to a shore of pure light—fearlessness."
+    },
+
+    // Verse 3 (Valli 3): THE CHARIOT ANALOGY - MOST FAMOUS VERSE
+    {
+        id: 57,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "आत्मानँ रथिनं विद्धि शरीरँ रथमेव तु । बुद्धिं तु सारथिं विद्धि मनः प्रग्रहमेव च ॥ ३ ॥",
+        hindi: "आत्मा को रथी (रथ का स्वामी) जानो, और शरीर को रथ जानो। बुद्धि को सारथि (ड्राइवर) जानो, और मन को लगाम जानो।",
+        english: "Know the Atman (Self) as the Lord of the Chariot, and the Body as the Chariot. Know the Intellect (Buddhi) as the Charioteer, and the Mind (Manas) as the Reins.",
+        simpleExplanation: "THE CHARIOT METAPHOR: Self = Owner, Body = Chariot, Intellect = Driver, Mind = Reins. The most famous psychological model!",
+        simpleExplanationHindi: "रथ रूपक: आत्मा = मालिक, शरीर = रथ, बुद्धि = चालक, मन = लगाम। सबसे प्रसिद्ध मनोवैज्ञानिक मॉडल!",
+        theme: "The Chariot Metaphor",
+        nanoBananaPrompt: "A golden chariot with labeled parts: Self as passenger, Intellect as driver, Mind as reins, Body as chariot."
+    },
+
+    // Verse 4 (Valli 3): The Horses and the Road
+    {
+        id: 58,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "इन्द्रियाणि हयानाहुर्विषयांस्तेषु गोचरान् । आत्मेन्द्रियमनोयुक्तं भोक्तेत्याहुर्मनीषिणः ॥ ४ ॥",
+        hindi: "इन्द्रियों को घोड़े कहा गया है, और विषयों (रूप, रस, गंध आदि) को उन घोड़ों के मार्ग कहा गया है। ज्ञानी कहते हैं कि शरीर, इन्द्रियां और मन से युक्त आत्मा ही 'भोक्ता' है।",
+        english: "The senses, they say, are the horses; and their objects are the roads on which they run. The wise call the Self the 'Enjoyer' (Bhokta) when united with the body, senses, and mind.",
+        simpleExplanation: "CONTINUING THE METAPHOR: Senses = Horses, Sense-Objects = Roads. The Self RIDES this vehicle of experience.",
+        simpleExplanationHindi: "रूपक जारी: इन्द्रियां = घोड़े, विषय = रास्ते। आत्मा इस अनुभव के वाहन की सवारी करती है।",
+        theme: "Horses and Roads",
+        nanoBananaPrompt: "Five horses (senses) running on five roads (sight, sound, smell, taste, touch) pulling the chariot."
+    },
+
+    // Verse 5 (Valli 3): The Uncontrolled Mind
+    {
+        id: 59,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "यस्त्वविज्ञानवान्भवत्ययुक्तेन मनसा सदा । तस्येन्द्रियाण्यवश्यानि दुष्टाश्वा इव सारथेः ॥ ५ ॥",
+        hindi: "जो (बुद्धि) विवेकहीन होती है और जिसका मन सदा अनियंत्रित रहता है, उसकी इन्द्रियां (घोड़े) वैसे ही बेकाबू हो जाती हैं जैसे सारथि के लिए दुष्ट घोड़े।",
+        english: "He who has no discrimination and whose mind is always uncontrolled, his senses go out of control, like vicious horses for a charioteer.",
+        simpleExplanation: "BAD DRIVER: No intellect + loose reins = wild horses! Your senses will drag you anywhere.",
+        simpleExplanationHindi: "बुरा चालक: कोई बुद्धि नहीं + ढीली लगाम = जंगली घोड़े! आपकी इन्द्रियां आपको कहीं भी खींच ले जाएंगी।",
+        theme: "Uncontrolled Senses",
+        nanoBananaPrompt: "Wild horses pulling a crashing chariot with a helpless driver who lost the reins—chaos visualization."
+    },
+
+    // Verse 6 (Valli 3): The Controlled Mind
+    {
+        id: 60,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "यस्तु विज्ञानवान्भवति युक्तेन मनसा सदा । तस्येन्द्रियाणि वश्यानि सदश्वा इव सारथेः ॥ ६ ॥",
+        hindi: "लेकिन जो (बुद्धि) विवेकवान होती है और जिसका मन सदा नियंत्रित रहता है, उसकी इन्द्रियां वैसे ही वश में रहती हैं जैसे सारथि के लिए अच्छे घोड़े।",
+        english: "But he who has discrimination and whose mind is always controlled, his senses are under control, like good horses for a charioteer.",
+        simpleExplanation: "GOOD DRIVER: Sharp intellect + firm reins = trained horses! Your senses obey YOUR direction.",
+        simpleExplanationHindi: "अच्छा चालक: तीक्ष्ण बुद्धि + मजबूत लगाम = प्रशिक्षित घोड़े! आपकी इन्द्रियां आपकी दिशा का पालन करती हैं।",
+        theme: "Controlled Senses",
+        nanoBananaPrompt: "A skilled charioteer with well-trained horses moving gracefully in perfect harmony."
+    },
+
+    // Verse 7 (Valli 3): The Cycle of Rebirth
+    {
+        id: 61,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "यस्त्वविज्ञानवान्भवत्यमनस्कः सदाऽशुचिः । न स तत्पदमाप्नोति संसारं चाधिगच्छति ॥ ७ ॥",
+        hindi: "जो (सारथि/बुद्धि) अविवेकी, लापरवाह और सदा अपवित्र रहता है, वह उस परम पद को प्राप्त नहीं करता, बल्कि संसार (जन्म-मृत्यु के चक्र) में पड़ता है।",
+        english: "He who has no discrimination, who is mindless and always impure, does not attain that Goal, but enters into the cycle of births and deaths.",
+        simpleExplanation: "RESULT OF BAD DRIVING: Miss the destination, crash into rebirth cycle again and again.",
+        simpleExplanationHindi: "बुरी ड्राइविंग का परिणाम: गंतव्य चूक गए, बार-बार पुनर्जन्म चक्र में दुर्घटनाग्रस्त।",
+        theme: "Rebirth Cycle",
+        nanoBananaPrompt: "A chariot going in circles forever, never reaching the destination—the cycle of Samsara."
+    },
+
+    // Verse 8 (Valli 3): The Destination
+    {
+        id: 62,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "यस्तु विज्ञानवान्भवति समनस्कः सदा शुचिः । स तु तत्पदमाप्नोति यस्माद्भूयो न जायते ॥ ८ ॥",
+        hindi: "किन्तु जो विवेकवान है, मन को वश में रखने वाला है और सदा पवित्र रहता है, वह उस पद को प्राप्त कर लेता है जहाँ से फिर जन्म नहीं लेना पड़ता।",
+        english: "But he who has discrimination, who has a controlled mind and is always pure, attains that Goal from which he is not born again.",
+        simpleExplanation: "RESULT OF GOOD DRIVING: Reach the destination—no more rebirth! Liberation achieved.",
+        simpleExplanationHindi: "अच्छी ड्राइविंग का परिणाम: गंतव्य पर पहुंचे—अब पुनर्जन्म नहीं! मुक्ति प्राप्त।",
+        theme: "Liberation",
+        nanoBananaPrompt: "A chariot arriving at a brilliant destination of light, journey complete, no return needed."
+    },
+
+    // Verse 9 (Valli 3): The Supreme Abode - Vishnu Padam
+    {
+        id: 63,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "विज्ञानसारथिर्यस्तु मनःप्रग्रहवान्नरः । सोऽध्वनः पारमाप्नोति तद्विष्णोः परमं पदम् ॥ ९ ॥",
+        hindi: "जिस मनुष्य की बुद्धि सारथि है और मन रूपी लगाम जिसके हाथ में है, वह संसार मार्ग के पार—उस 'विष्णु के परम पद' (मोक्ष) को प्राप्त कर लेता है।",
+        english: "The man who has Intellect for his charioteer and holds the reins of the Mind, he reaches the end of the journey—that supreme abode of Vishnu (the All-Pervading).",
+        simpleExplanation: "THE DESTINATION: Vishnu's Supreme Abode—the final resting place. Journey's end for the well-driven chariot.",
+        simpleExplanationHindi: "गंतव्य: विष्णु का परम धाम—अंतिम विश्राम स्थल। अच्छी तरह चलाए गए रथ की यात्रा का अंत।",
+        theme: "Vishnu's Abode",
+        nanoBananaPrompt: "A chariot reaching a cosmic palace of infinite light—Vishnu's Supreme Abode, journey complete."
+    },
+
+    // Verse 10 (Valli 3): The Hierarchy of Existence
+    {
+        id: 64,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "इन्द्रियेभ्यः परा ह्यर्था अर्थेभ्यश्च परं मनः । मनसस्तु परा बुद्धिर्बुद्धेरात्मा महान्परः ॥ १० ॥",
+        hindi: "इन्द्रियों से श्रेष्ठ उनके 'विषय' हैं; विषयों से श्रेष्ठ 'मन' है; मन से श्रेष्ठ 'बुद्धि' है; और बुद्धि से श्रेष्ठ 'महान आत्मा' (महत्तत्व) है।",
+        english: "Beyond the senses are the objects; beyond the objects is the mind; beyond the mind is the intellect; beyond the intellect is the Great Self (Mahat).",
+        simpleExplanation: "THE HIERARCHY: Senses < Objects < Mind < Intellect < Mahat (Cosmic Mind). Each level subtler than the last.",
+        simpleExplanationHindi: "पदानुक्रम: इन्द्रियां < विषय < मन < बुद्धि < महत्। प्रत्येक स्तर पिछले से सूक्ष्म।",
+        theme: "Hierarchy of Reality",
+        nanoBananaPrompt: "A layered pyramid of consciousness—senses at bottom, rising to Mahat, ultimate reality at top."
+    },
+
+    // Verse 11 (Valli 3): The Ultimate Reality
+    {
+        id: 65,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "महतः परमव्यक्तमव्यक्तात्पुरुषः परः । पुरुषान्न परं किञ्चित्सा काष्ठा सा परा गतिः ॥ ११ ॥",
+        hindi: "महत्तत्व से श्रेष्ठ 'अव्यक्त' (प्रकृति) है; और अव्यक्त से श्रेष्ठ 'पुरुष' (परम ब्रह्म) है। पुरुष से श्रेष्ठ कुछ भी नहीं है। वही पराकाष्ठा है, वही परम गति है।",
+        english: "Beyond the Great Self is the Unmanifest (Avyakta); beyond the Unmanifest is the Purusha (Cosmic Spirit). Beyond the Purusha there is nothing; that is the End, that is the Supreme Goal.",
+        simpleExplanation: "THE APEX: Mahat < Prakriti < PURUSHA. Beyond Purusha—NOTHING. That's the END, the ULTIMATE GOAL.",
+        simpleExplanationHindi: "शिखर: महत् < प्रकृति < पुरुष। पुरुष से परे—कुछ नहीं। वही अंत है, परम लक्ष्य।",
+        theme: "The Purusha",
+        nanoBananaPrompt: "The ultimate point beyond all layers—Purusha as the final reality, nothing beyond."
+    },
+
+    // Verse 12 (Valli 3): The Hidden Self
+    {
+        id: 66,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "एष सर्वेषु भूतेषु गूढोऽत्मा न प्रकाशते । दृश्यते त्वग्र्यया बुद्ध्या सूक्ष्मया सूक्ष्मदर्शिभिः ॥ १२ ॥",
+        hindi: "यह आत्मा सभी प्राणियों में छिपा हुआ है, इसलिए यह दिखाई नहीं देता। परन्तु सूक्ष्मदर्शी ज्ञानियों द्वारा अपनी एकाग्र और सूक्ष्म बुद्धि से इसे देखा जा सकता है।",
+        english: "This Self, hidden in all beings, does not shine forth (visibly). But It is seen by subtle seers through their sharp and subtle intellect.",
+        simpleExplanation: "The Self is HIDDEN in plain sight. Only those with SUBTLE vision can perceive it.",
+        simpleExplanationHindi: "आत्मा सामने होते हुए भी छिपी है। केवल सूक्ष्म दृष्टि वाले ही इसे देख सकते हैं।",
+        theme: "Hidden Self",
+        nanoBananaPrompt: "A hidden light within all beings, visible only to those with special spiritual vision."
+    },
+
+    // Verse 13 (Valli 3): The Process of Yoga
+    {
+        id: 67,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "यच्छेद्वाङ्मनसी प्राज्ञस्तद्यच्छेज्ज्ञान आत्मनि । ज्ञानमात्मनि महति नियच्छेत्तद्यच्छेच्छान्त आत्मनि ॥ १३ ॥",
+        hindi: "बुद्धिमान साधक को चाहिए कि वाणी (इन्द्रियों) का मन में निरोध करे; मन का बुद्धि में निरोध करे; बुद्धि का महत्तत्व में निरोध करे; और महत्तत्व को शांत-आत्मा में विलीन कर दे।",
+        english: "The wise man should merge his speech (senses) into the mind; merge the mind into the Intellect; merge the Intellect into the Great Self; and merge the Great Self into the Peace-Self (Supreme Brahman).",
+        simpleExplanation: "THE YOGA PROCESS: Senses → Mind → Intellect → Mahat → Supreme Peace. Systematic withdrawal to the Source.",
+        simpleExplanationHindi: "योग प्रक्रिया: इन्द्रियां → मन → बुद्धि → महत् → परम शांति। स्रोत की ओर व्यवस्थित वापसी।",
+        theme: "Yogic Withdrawal",
+        nanoBananaPrompt: "Layers of consciousness folding inward like a flower closing, returning to the seed—the Source."
+    },
+
+    // Verse 14 (Valli 3): ARISE! AWAKE! - MOST FAMOUS VERSE
+    {
+        id: 68,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत । क्षुरस्य धारा निशिता दुरत्यया दुर्गं पथस्तत्कवयो वदन्ति ॥ १४ ॥",
+        hindi: "उठो! जागो! और श्रेष्ठ गुरुओं के पास जाकर ज्ञान प्राप्त करो। ज्ञानी जन कहते हैं कि यह मार्ग उसी प्रकार कठिन है जैसे उस्तरे की तीखी धार पर चलना।",
+        english: "Arise! Awake! Approach the great (teachers) and learn. Like the sharp edge of a razor is that path, so the wise say—hard to cross and difficult to tread.",
+        simpleExplanation: "SWAMI VIVEKANANDA'S FAVORITE: Arise! Awake! Seek teachers! The path is sharp as a razor—but POSSIBLE.",
+        simpleExplanationHindi: "स्वामी विवेकानंद का प्रिय: उठो! जागो! गुरुओं की खोज करो! मार्ग उस्तरे जैसा तीखा है—पर संभव है।",
+        theme: "Arise! Awake!",
+        nanoBananaPrompt: "A person awakening and walking on a razor's edge path towards light—difficult but possible."
+    },
+
+    // Verse 15 (Valli 3): Description of the Absolute
+    {
+        id: 69,
+        valli: 3,
+        adhyaya: 1,
+        section: "The Chariot",
+        sanskrit: "अशब्दमस्पर्शमरूपमव्ययं तथाऽरसं नित्यमगन्धवच्च यत् । अनाद्यनन्तं महतः परं ध्रुवं निचाय्य तन्मृत्युमुखात्प्रमुच्यते ॥ १५ ॥",
+        hindi: "जो शब्द-रहित, स्पर्श-रहित, रूप-रहित, अविनाशी, तथा रस-रहित, गंध-रहित, नित्य, आदि-अंत से रहित, और महत्तत्व से भी श्रेष्ठ है—उसे जानकर मनुष्य मृत्यु से सदा के लिए मुक्त होता है।",
+        english: "By realizing That which is soundless, touchless, formless, undecaying, tasteless, eternal, scentless; beginningless, endless, beyond the Great, and unchanging—one is freed from the jaws of death.",
+        simpleExplanation: "THE ABSOLUTE: No sound, no touch, no form, no taste, no smell. Beyond time, beyond everything. Know THIS = Freedom from Death.",
+        simpleExplanationHindi: "परम तत्व: न ध्वनि, न स्पर्श, न रूप, न स्वाद, न गंध। समय से परे, सब से परे। इसे जानो = मृत्यु से मुक्ति।",
+        theme: "The Absolute",
+        nanoBananaPrompt: "Pure existence beyond all senses—no form, no sound, just infinite unchanging presence."
+    },
+
+    // Verse 16 (Valli 3): The Fruit of Hearing
+    {
+        id: 70,
+        valli: 3,
+        adhyaya: 1,
+        section: "Final Teaching",
+        sanskrit: "नाचिकेतमुपाख्यानं मृत्युप्रोक्तं सनातनम् । उक्त्वा श्रुत्वा च मेधावी ब्रह्मलोके महीयते ॥ १६ ॥",
+        hindi: "जो मेधावी मनुष्य मृत्यु द्वारा कहे गए इस सनातन 'नाचिकेता उपाख्यान' को कहता है या सुनता है, वह ब्रह्मलोक में महिमान्वित होता है।",
+        english: "The wise man who recites or hears this ancient story of Nachiketa, told by Death, is glorified in the world of Brahman.",
+        simpleExplanation: "FRUIT OF THIS TEACHING: Whoever shares or hears this Nachiketa story is glorified in Brahman's realm.",
+        simpleExplanationHindi: "इस शिक्षा का फल: जो भी इस नचिकेता कथा को सुनाता या सुनता है, वह ब्रह्म लोक में महिमावान होता है।",
+        theme: "Fruit of Learning",
+        nanoBananaPrompt: "A person sharing the Nachiketa story, radiating light, honored in the realm of Brahman."
+    },
+
+    // Verse 17 (Valli 3): The Fruit of Recitation
+    {
+        id: 71,
+        valli: 3,
+        adhyaya: 1,
+        section: "Final Teaching",
+        sanskrit: "य इमं परमं गुह्यं श्रावयेद्ब्रह्मसंसदि । प्रयतः श्राद्धकाले वा तदानन्त्याय कल्पते तदानन्त्याय कल्पत इति ॥ १७ ॥",
+        hindi: "जो कोई भी पवित्र होकर इस परम गोपनीय रहस्य को ब्राह्मणों की सभा में, या श्राद्ध के समय सुनाता है, वह अनंत फल देने वाला होता है। वह अनंत फल देने वाला होता है।",
+        english: "Whoever, becoming pure, recites this supreme secret in an assembly of Brahmanas, or at the time of Shraddha, that ceremony secures for him infinite results. It secures infinite results.",
+        simpleExplanation: "INFINITE MERIT: Reciting this at sacred gatherings yields INFINITE results. The verse repeats for emphasis!",
+        simpleExplanationHindi: "अनंत पुण्य: पवित्र सभाओं में इसे पढ़ने से अनंत फल मिलता है। जोर देने के लिए पंक्ति दोहराई गई!",
+        theme: "Infinite Results",
+        nanoBananaPrompt: "Infinite ripples spreading from one recitation—endless merit multiplying forever."
     }
 ];
 
