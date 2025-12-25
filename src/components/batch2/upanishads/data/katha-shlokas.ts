@@ -1322,6 +1322,280 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanationHindi: "सुंदर रूपक: शुद्ध जल शुद्ध जल में मिलकर एक हो जाता है। जानने वाला ज्ञानी परम में विलीन हो जाता है।",
         theme: "Water Merges",
         nanoBananaPrompt: "Pure water being poured into pure water—becoming indistinguishable, perfect merger with the Absolute."
+    },
+
+    // ==========================================
+    // ADHYAYA 2, VALLI 3 (VALLI 6): THE YOGA OF IMMORTALITY
+    // ==========================================
+
+    // Verse 1 (Valli 6): The Inverted Tree - FAMOUS
+    {
+        id: 87,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "ऊर्ध्वमूलोऽवाक्शाख एषोऽश्वत्थः सनातनः । तदेव शुक्रं तद्ब्रह्म तदेवामृतमुच्यते । तस्मिंल्लोकाः श्रिताः सर्वे तदु नात्येति कश्चन । एतद्वै तत् ॥ १ ॥",
+        hindi: "यह ऊपर की ओर जड़ों वाला और नीचे की ओर शाखाओं वाला सनातन 'अश्वत्थ' (संसार वृक्ष) है। उसकी जड़ ही शुद्ध है, वही ब्रह्म है, और वही अमर कहलाता है। सभी लोक उसी के आश्रय में हैं। यही वह है।",
+        english: "There is this ancient Ashvattha tree whose roots are upward and branches are downward. That Root is the Pure, is Brahman, is the Immortal. In That all worlds are contained. This is verily That.",
+        simpleExplanation: "THE INVERTED TREE: Roots in heaven (Brahman), branches below (world). Also in Gita 15! The universe grows DOWNWARD from spirit.",
+        simpleExplanationHindi: "उल्टा वृक्ष: जड़ें स्वर्ग में (ब्रह्म), शाखाएं नीचे (संसार)। गीता 15 में भी! ब्रह्मांड आत्मा से नीचे की ओर बढ़ता है।",
+        theme: "Inverted Tree",
+        nanoBananaPrompt: "A cosmic tree with roots in the sky (Brahman) and branches growing downward into the world—the Ashvattha."
+    },
+
+    // Verse 2 (Valli 6): The Cosmic Terror
+    {
+        id: 88,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यदिदं किञ्च जगत्सर्वं प्राण एजति निःसृतम् । महद्भयं वज्रमुद्यतं य एतद्विदुरमृतास्ते भवन्ति ॥ २ ॥",
+        hindi: "यह संपूर्ण जगत उस 'प्राण' (ब्रह्म) से निकलकर उसी में कम्पित करता है। वह 'उद्यत वज्र' के समान महान भय का कारण है। जो उसे जानते हैं, वे अमर हो जाते हैं।",
+        english: "The whole universe springs from and vibrates in the Prana. It is a great terror, like an uplifted thunderbolt. Those who know this become immortal.",
+        simpleExplanation: "Brahman is like a RAISED THUNDERBOLT—cosmic terror! Everything vibrates in fear of it. Know this = immortality.",
+        simpleExplanationHindi: "ब्रह्म उठे हुए वज्र की तरह है—ब्रह्मांडीय भय! सब कुछ इसके भय में कांपता है। इसे जानो = अमरता।",
+        theme: "Cosmic Terror",
+        nanoBananaPrompt: "A massive thunderbolt held in the sky, the entire universe trembling before its power."
+    },
+
+    // Verse 3 (Valli 6): Fear of the Absolute
+    {
+        id: 89,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "भयादस्याग्निस्तपति भयात्तपति सूर्यः । भयादिन्द्रश्च वायुश्च मृत्युर्धावति पञ्चमः ॥ ३ ॥",
+        hindi: "उसी के भय से अग्नि तपती है; उसी के भय से सूर्य तपता है; उसी के भय से इन्द्र और वायु, और पांचवीं मृत्यु अपने काम में दौड़ते हैं।",
+        english: "From fear of Him, Fire burns; from fear of Him, the Sun shines; from fear of Him, Indra and Vayu, and Death, the fifth, hasten to perform their duties.",
+        simpleExplanation: "Even the GODS work out of fear of Brahman! Fire, Sun, Wind, Indra, Death—all obey cosmic law through fear.",
+        simpleExplanationHindi: "देवता भी ब्रह्म के भय से काम करते हैं! अग्नि, सूर्य, वायु, इंद्र, मृत्यु—सभी भय से ब्रह्मांडीय नियम का पालन करते हैं।",
+        theme: "Cosmic Order",
+        nanoBananaPrompt: "Sun, Fire, Wind, Indra, and Death all hastening to do their duties, with Brahman watching from above."
+    },
+
+    // Verse 4 (Valli 6): The Urgent Warning
+    {
+        id: 90,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "इह चेदशकद्बोद्धुं प्राक्शरीरस्य विस्रसः । ततः सर्गेषु लोकेषु शरीरत्वाय कल्पते ॥ ४ ॥",
+        hindi: "यदि मनुष्य इस शरीर के छूटने से पहले उसे जानने में समर्थ हो गया तो मुक्त हो जाता है। यदि नहीं जान सका, तो उसे विभिन्न लोकों में फिर से शरीर धारण करना पड़ता है।",
+        english: "If one succeeds in realizing Him here before the falling of the body, one becomes liberated. If not, one is born again in the worlds of created beings.",
+        simpleExplanation: "URGENT: Realize Brahman BEFORE death or be reborn! The body is a ticking clock. Don't waste this life.",
+        simpleExplanationHindi: "अत्यावश्यक: मृत्यु से पहले ब्रह्म को जानो या पुनर्जन्म लो! शरीर एक टिकती घड़ी है। इस जीवन को बर्बाद मत करो।",
+        theme: "Urgent Realization",
+        nanoBananaPrompt: "An hourglass with life running out, a person racing to realize Brahman before death."
+    },
+
+    // Verse 5 (Valli 6): Clarity of Vision
+    {
+        id: 91,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यथादर्शे तथात्मनि यथा स्वप्ने तथा पितृलोके । यथाप्सु परीव ददृशे तथा गन्धर्वलोके छायातपयोरिव ब्रह्मलोके ॥ ५ ॥",
+        hindi: "जैसा दर्पण में दिखता है, वैसा शुद्ध बुद्धि में आत्मा का दर्शन होता है; जैसा स्वप्न में धुंधला दिखता है, वैसा पितृलोक में; जैसा जल में हिलता हुआ दिखता है, वैसा गंधर्वलोक में; और जैसे छाया और धूप का स्पष्ट भेद होता है, वैसा ब्रह्मलोक में।",
+        english: "As seen in a mirror, so in the Self; as in a dream, so in the World of Fathers; as seen in water, so in the World of Gandharvas; as shade and light, so in the World of Brahma.",
+        simpleExplanation: "Clarity varies by realm: Mirror-clear in pure mind, dream-like in ancestor realm, watery in Gandharva realm, shadow-light in Brahma realm.",
+        simpleExplanationHindi: "स्पष्टता लोक अनुसार बदलती है: शुद्ध मन में दर्पण जैसी, पितृलोक में स्वप्न जैसी, गंधर्वलोक में जल जैसी, ब्रह्मलोक में छाया-प्रकाश।",
+        theme: "Degrees of Vision",
+        nanoBananaPrompt: "Four levels of seeing Brahman: mirror (clearest), dream (hazy), water (rippling), shadow-light (distinct)."
+    },
+
+    // Verse 6 (Valli 6): Detachment from Senses
+    {
+        id: 92,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "इन्द्रियाणां पृथग्भावमुदयास्तमयौ च यत् । पृथगुत्पद्यमानानां मत्वा धीरो न शोचति ॥ ६ ॥",
+        hindi: "इन्द्रियां आत्मा से अलग हैं, उनकी उत्पत्ति अलग-अलग होती है, और उनका उदय और अस्त होता रहता है—ऐसा जानकर धीर पुरुष शोक नहीं करता।",
+        english: "Knowing that the senses are distinct from the Atman, and knowing their rising and setting which belong to them individually, the wise man grieves no more.",
+        simpleExplanation: "Senses rise and set like the sun—they're NOT you. Know their separateness = no more grief.",
+        simpleExplanationHindi: "इन्द्रियां सूर्य की तरह उगती और डूबती हैं—वे आप नहीं हैं। उनकी अलगता जानो = अब कोई शोक नहीं।",
+        theme: "Sense Detachment",
+        nanoBananaPrompt: "Senses rising and setting like little suns, while the Self remains constant in the center."
+    },
+
+    // Verse 7 (Valli 6): Hierarchy Refined
+    {
+        id: 93,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "इन्द्रियेभ्यः परं मनो मनसः सत्त्वमुत्तमम् । सत्त्वादधि महानात्मा महतोऽव्यक्तमुत्तमम् ॥ ७ ॥",
+        hindi: "इन्द्रियों से श्रेष्ठ 'मन' है; मन से श्रेष्ठ 'सत्त्व' (बुद्धि) है; बुद्धि से श्रेष्ठ 'महान आत्मा' है; और महान से श्रेष्ठ 'अव्यक्त' है।",
+        english: "Beyond the senses is the mind; higher than the mind is the intellect; higher than the intellect is the Great Self; higher than the Great Self is the Unmanifest.",
+        simpleExplanation: "THE LADDER AGAIN: Senses → Mind → Intellect → Mahat → Avyakta. Climb higher and higher to reach the source.",
+        simpleExplanationHindi: "सीढ़ी फिर से: इन्द्रियां → मन → बुद्धि → महत् → अव्यक्त। स्रोत तक पहुंचने के लिए ऊपर चढ़ते जाओ।",
+        theme: "Hierarchy",
+        nanoBananaPrompt: "A ladder ascending through layers: Senses, Mind, Intellect, Mahat, Avyakta—climbing to the source."
+    },
+
+    // Verse 8 (Valli 6): The Highest Goal - KEY VERSE
+    {
+        id: 94,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "अव्यक्तात्तु परः पुरुषो व्यापकोऽलिङ्ग एव च । यं ज्ञात्वा मुच्यते जन्तुरमृतत्वं च गच्छति ॥ ८ ॥",
+        hindi: "अव्यक्त से भी श्रेष्ठ वह व्यापक और 'अलिंग' (चिन्ह रहित) पुरुष है। जिसे जानकर प्राणी मुक्त हो जाता है और अमरत्व को प्राप्त करता है।",
+        english: "Beyond the Unmanifest is the Purusha, all-pervading and devoid of any mark. Knowing Him, the soul is liberated and attains Immortality.",
+        simpleExplanation: "THE APEX: Beyond even Avyakta is PURUSHA—formless, all-pervading. Know this = liberation + immortality.",
+        simpleExplanationHindi: "शिखर: अव्यक्त से भी परे पुरुष है—निराकार, सर्वव्यापी। इसे जानो = मुक्ति + अमरता।",
+        theme: "The Supreme Purusha",
+        nanoBananaPrompt: "Beyond all layers, the formless all-pervading Purusha—the ultimate goal of liberation."
+    },
+
+    // Verse 9 (Valli 6): Seen by the Heart
+    {
+        id: 95,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "न सन्दृशे तिष्ठति रूपमस्य न चक्षुषा पश्यति कश्चनैनम् । हृदा मनीषा मनसाभिकॢप्तो य एतद्विदुरमृतास्ते भवन्ति ॥ ९ ॥",
+        hindi: "इसका रूप दृष्टि के क्षेत्र में नहीं ठहरता; कोई भी इसे आँखों से नहीं देख सकता। यह हृदय में स्थित मनीषा द्वारा ही ध्यान में अनुभव होता है। जो इसे जानते हैं, वे अमर हो जाते हैं।",
+        english: "His form is not within the field of vision; no one sees Him with the eye. By the heart, by the thought, and by the mind is He apprehended. Those who know Him become immortal.",
+        simpleExplanation: "Can't see God with EYES. Only the HEART can perceive. Meditation, not observation, is the path.",
+        simpleExplanationHindi: "ईश्वर को आँखों से नहीं देख सकते। केवल हृदय ही देख सकता है। ध्यान मार्ग है, अवलोकन नहीं।",
+        theme: "Heart Vision",
+        nanoBananaPrompt: "Eyes closed but heart glowing with inner vision—seeing the unseeable through meditation."
+    },
+
+    // Verse 10 (Valli 6): The State of Yoga - KEY VERSE
+    {
+        id: 96,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यदा पञ्चावतिष्ठन्ते ज्ञानानि मनसा सह । बुद्धिश्च न विचेष्टति तामाहुः परमां गतिम् ॥ १० ॥",
+        hindi: "जब पाँचों ज्ञानेन्द्रियाँ मन के साथ स्थिर हो जाती हैं, और बुद्धि भी कोई चेष्टा नहीं करती—उसे 'परम गति' कहते हैं।",
+        english: "When the five senses of knowledge come to rest together with the mind, and the intellect too does not function—that state they call the Highest Goal.",
+        simpleExplanation: "YOGA STATE: All 5 senses + mind + intellect = STILL. Complete cessation of mental activity. THAT is the goal.",
+        simpleExplanationHindi: "योग अवस्था: सभी 5 इन्द्रियां + मन + बुद्धि = स्थिर। मानसिक गतिविधि का पूर्ण समाप्ति। वही लक्ष्य है।",
+        theme: "Yoga State",
+        nanoBananaPrompt: "Five senses and mind coming to complete stillness—total silence, the highest state of Yoga."
+    },
+
+    // Verse 11 (Valli 6): Definition of Yoga - FAMOUS
+    {
+        id: 97,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "तां योगमिति मन्यन्ते स्थिरामिन्द्रियधारणाम् । अप्रमत्तस्तदा भवति योगो हि प्रभवाप्ययौ ॥ ११ ॥",
+        hindi: "उस 'स्थिर इन्द्रिय-धारणा' को ही ऋषि लोग 'योग' मानते हैं। उस समय साधक 'अप्रमत्त' (सावधान) हो जाता है, क्योंकि योग उदय और अस्त होने वाला है।",
+        english: "That steady control of the senses they consider to be Yoga. Then one becomes undistracted, for Yoga comes and goes if one is careless.",
+        simpleExplanation: "YOGA DEFINITION: Steady sense-control. But WARNING: Yoga comes and goes! Stay vigilant or lose it.",
+        simpleExplanationHindi: "योग परिभाषा: स्थिर इन्द्रिय-नियंत्रण। लेकिन चेतावनी: योग आता और जाता है! सतर्क रहो या खो दोगे।",
+        theme: "Yoga Definition",
+        nanoBananaPrompt: "A yogi holding the reins of five horses (senses) perfectly still—but ready to slip if careless."
+    },
+
+    // Verse 12 (Valli 6): Not by Speech nor Mind
+    {
+        id: 98,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "नैव वाचा न मनसा प्राप्तुं शक्यो न चक्षुषा । अस्तीति ब्रुवतोऽन्यत्र कथं तदुपलभ्यते ॥ १२ ॥",
+        hindi: "न वाणी से, न मन से, और न आँखों से उसे प्राप्त किया जा सकता है। जो लोग 'वह है'—ऐसा कहते हैं, उनके अलावा दूसरों को वह कैसे उपलब्ध हो सकता है?",
+        english: "Not by speech, not by mind, not by the eye can He be attained. How can He be realized except by him who says 'He is'?",
+        simpleExplanation: "Can't reach God by talking, thinking, or seeing. First step: FAITH that 'HE EXISTS.' Atheists can't find Him.",
+        simpleExplanationHindi: "बोलने, सोचने या देखने से ईश्वर नहीं मिलते। पहला कदम: विश्वास कि 'वह है।' नास्तिक उसे नहीं पा सकते।",
+        theme: "Faith First",
+        nanoBananaPrompt: "A person affirming 'He IS' while speech, mind, and eyes fail to reach the Divine."
+    },
+
+    // Verse 13 (Valli 6): Existence First
+    {
+        id: 99,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "अस्तीत्येवोपलब्धव्यस्तत्त्वभावेन चोभयोः । अस्तीत्येवोपलब्धस्य तत्त्वभावः प्रसीदति ॥ १३ ॥",
+        hindi: "पहले उसे 'वह है' (अस्तित्व रूप में) जानना चाहिए; फिर उसे 'तत्व भाव' (असली स्वरूप) में जानना चाहिए। जो उसे 'वह है'—ऐसा निश्चय कर लेता है, उसके लिए ही उसका असली स्वरूप प्रकट होता है।",
+        english: "He should be apprehended first as 'He is' (Existence), and then as He really is. To him who apprehends Him as Existence, His real nature becomes clear.",
+        simpleExplanation: "TWO STAGES: First believe 'He EXISTS.' Then His TRUE NATURE reveals itself. Faith → Knowledge.",
+        simpleExplanationHindi: "दो चरण: पहले विश्वास करो 'वह है।' फिर उसका वास्तविक स्वरूप स्वयं प्रकट होता है। विश्वास → ज्ञान।",
+        theme: "Two-Stage Realization",
+        nanoBananaPrompt: "Stage 1: 'He IS' (faith). Stage 2: His true form reveals itself. Progressive realization."
+    },
+
+    // Verse 14 (Valli 6): Killing Desire - KEY VERSE
+    {
+        id: 100,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यदा सर्वे प्रमुच्यन्ते कामा येऽस्य हृदि श्रिताः । अथ मर्त्योऽमृतो भवत्यत्र ब्रह्म समश्नुते ॥ १४ ॥",
+        hindi: "जब हृदय में आश्रित सारी कामनाएं छूट जाती हैं, तब यह मरणशील मनुष्य अमर हो जाता है और यहीं इसी शरीर में ब्रह्म का अनुभव कर लेता है।",
+        english: "When all desires that dwell in the heart are cast away, then the mortal becomes immortal and here attains Brahman.",
+        simpleExplanation: "LIBERATION FORMULA: Remove ALL desires from the heart = INSTANT immortality + Brahman realization HERE AND NOW.",
+        simpleExplanationHindi: "मुक्ति सूत्र: हृदय से सभी इच्छाओं को हटाओ = तुरंत अमरता + यहीं अभी ब्रह्म अनुभव।",
+        theme: "Desirelessness = Liberation",
+        nanoBananaPrompt: "Heart releasing all desires like birds flying away, becoming instantly luminous with Brahman."
+    },
+
+    // Verse 15 (Valli 6): Cutting the Knots - KEY VERSE
+    {
+        id: 101,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यदा सर्वे प्रभिद्यन्ते हृदयस्येह ग्रन्थयः । अथ मर्त्योऽमृतो भवत्येतावद्ध्यनुशासनम् ॥ १५ ॥",
+        hindi: "जब यहाँ इसी जीवन में हृदय की सारी ग्रंथियाँ (अज्ञान के बंधन) खुल जाती हैं, तब मरणशील मनुष्य अमर हो जाता है। बस, इतना ही वेदान्त का उपदेश है।",
+        english: "When all the knots of the heart are severed here on earth, then the mortal becomes immortal. This much alone is the teaching.",
+        simpleExplanation: "THE ENTIRE TEACHING SUMMARIZED: Cut the knots of the heart (ignorance) = immortality. THAT'S IT. That's all of Vedanta.",
+        simpleExplanationHindi: "संपूर्ण शिक्षा का सार: हृदय की गांठें (अज्ञान) काटो = अमरता। बस इतना ही। यही पूरा वेदान्त है।",
+        theme: "Cutting Knots",
+        nanoBananaPrompt: "A sword cutting through knots in the heart—ignorance dissolving, light pouring in."
+    },
+
+    // Verse 16 (Valli 6): The Sushumna - YOGIC PHYSIOLOGY
+    {
+        id: 102,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "शतञ्चैका च हृदयस्य नाड्यस्तासां मूर्धानमभिनिःसृतैका । तयोर्ध्वमायन्नमृतत्वमेति विष्वङ्न्या उत्क्रमणे भवन्ति ॥ १६ ॥",
+        hindi: "हृदय की मुख्य नाड़ियां १०१ हैं। उनमें से एक (सुषुम्ना) मस्तक की ओर (ब्रह्मरन्ध्र तक) निकली हुई है। उसके द्वारा ऊपर जाकर मनुष्य अमरत्व को प्राप्त करता है। अन्य नाड़ियां विभिन्न दिशाओं की ओर ले जाती हैं।",
+        english: "There are one hundred and one nerves of the heart. One of them (Sushumna) penetrates the head. Going upward through it, one attains immortality. The others lead to departure in various directions.",
+        simpleExplanation: "YOGIC ANATOMY: 101 nadis in heart. Only ONE (Sushumna) goes up to the crown. Exit through it = liberation. Other exits = rebirth.",
+        simpleExplanationHindi: "योगिक शरीर रचना: हृदय में 101 नाड़ियां। केवल एक (सुषुम्ना) मस्तक तक जाती है। इससे निकलो = मुक्ति। अन्य से = पुनर्जन्म।",
+        theme: "Sushumna Path",
+        nanoBananaPrompt: "101 channels from the heart, one going straight up through the crown (Sushumna)—the path to immortality."
+    },
+
+    // Verse 17 (Valli 6): Drawing out the Soul
+    {
+        id: 103,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "अङ्गुष्ठमात्रः पुरुषोऽन्तरात्मा सदा जनानां हृदये सन्निविष्टः । तं स्वाच्छरीरात्प्रवृहेन्मुञ्जादिवेषीकां धैर्येण । तं विद्याच्छुक्रममृतं तं विद्याच्छुक्रममृतमिति ॥ १७ ॥",
+        hindi: "वह अंगूठे के माप वाला पुरुष (अंतरात्मा) सदा लोगों के हृदय में स्थित है। उसे अपने शरीर से वैसे ही धैर्यपूर्वक अलग कर लेना चाहिए, जैसे मूंज में से सींक को निकाला जाता है। उसे ही शुद्ध और अमर जानना चाहिए।",
+        english: "The Purusha, of the size of a thumb, the Inner Self, is ever seated in the heart. One should draw Him out from the body with steadiness, as one draws the pith from a reed. Know Him as the Pure, the Immortal.",
+        simpleExplanation: "MEDITATION TECHNIQUE: Draw the thumb-sized Self out of the body like extracting a stalk from grass. Pure and Immortal!",
+        simpleExplanationHindi: "ध्यान तकनीक: अंगूठे के आकार की आत्मा को शरीर से वैसे निकालो जैसे घास से सींक। शुद्ध और अमर!",
+        theme: "Drawing Out the Self",
+        nanoBananaPrompt: "A luminous thumb-sized being gently being drawn out of the body like a reed from grass—the soul extracted."
+    },
+
+    // Verse 18 (Valli 6): THE CONCLUSION - NACHIKETA'S LIBERATION
+    {
+        id: 104,
+        valli: 6,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "मृत्युप्रोक्तां नचिकेतोऽथ लब्ध्वा विद्यामेतां योगविधिं च कृत्स्नम् । ब्रह्मप्राप्तो विरजोऽभूद्विमृत्युरन्योऽप्येवं यो विदध्यात्ममेव ॥ १८ ॥",
+        hindi: "नचिकेता ने मृत्यु द्वारा बताई गई इस विद्या को और संपूर्ण योग-विधि को प्राप्त करके, ब्रह्म को पा लिया और वह रज-रहित और मृत्यु-रहित हो गया। जो कोई अन्य भी इस अध्यात्म-विद्या को जानता है, वह भी ऐसा ही मुक्त हो जाता है।",
+        english: "Then Nachiketa, having obtained this Knowledge declared by Death, and also the whole rule of Yoga, attained Brahman and became free from passion and death. And so may any other who knows this concerning the Self.",
+        simpleExplanation: "THE GRAND FINALE: Nachiketa got the teaching + Yoga practice from Death → attained Brahman → became deathless. YOU CAN TOO!",
+        simpleExplanationHindi: "महान समापन: नचिकेता को मृत्यु से शिक्षा + योग विधि मिली → ब्रह्म प्राप्त किया → मृत्यु-रहित हो गया। आप भी कर सकते हैं!",
+        theme: "Grand Conclusion",
+        nanoBananaPrompt: "Nachiketa radiating light, having conquered Death, merged with Brahman—the triumphant conclusion."
     }
 ];
 
