@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, BookOpen, Sun, Sparkles, Languages, ChevronRight, ChevronLeft, Volume2, VolumeX, Eye, Info, ListChecks, Heart, Zap, ScrollText } from "lucide-react";
+import { ArrowLeft, BookOpen, Sun, Sparkles, Languages, ChevronRight, ChevronLeft, Volume2, VolumeX, Eye, Info, ListChecks, Heart, Zap, ScrollText, ArrowRight } from "lucide-react";
 import { ISHA_METADATA, ISHA_UPANISHAD } from "@/components/batch2/upanishads/data/isha-shlokas";
 import { getShlokaImage } from "@/components/batch2/upanishads/data/isha-images";
 import IshaResearchReport from "@/components/batch2/upanishads/IshaResearchReport";
