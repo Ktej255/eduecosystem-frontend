@@ -520,7 +520,336 @@ export const prashnaData: PrashnaDataEntry[] = [
         simpleExplanation: "SUMMARY: Know Prana's Origin (Self), Arrival (Mind), Abode (Body spread), and Sovereignty = IMMORTALITY.",
         simpleExplanationHindi: "सारांश: प्राण की उत्पत्ति (आत्मा), आगमन (मन), निवास (शरीर का विस्तार), और संप्रभुता को जानो = अमरता।",
         nanoBananaPrompt: "A glowing diagram summarizing the 5 aspects of Prana, acting as a key to a door labeled 'Immortality'."
-    }
+    },
+    // ==========================================
+    // PRASHNA 4: THE MYSTERY OF SLEEP & DREAMS
+    // Questioner: Gargya (Grandson of Surya)
+    // ==========================================
+
+    {
+        id: 42,
+        prashna: 4,
+        verse: 1,
+        theme: "The Fourth Question",
+        sanskrit: "अथ हैनम् सौर्यायणी गार्ग्यः पप्रच्छ । भगवन् एतस्मिन् पुरुषे कानि स्वपन्ति कान्यस्मिन् जाग्रति कतर एष देवः स्वप्नान् पश्यति कस्यैतत् सुखं भवति कस्मिन् नु सर्वे सम्प्रतिष्ठिता भवन्तीति ॥ १ ॥",
+        hindi: "तब सूर्य के पौत्र गार्ग्य ने उनसे पूछा: 'हे भगवन्! इस पुरुष (शरीर) में कौन सोते हैं? कौन इसमें जागते हैं? वह कौन सा देवता है जो सपने देखता है? यह (गहरी नींद का) सुख किसको होता है? और ये सब किसमें स्थित (लीन) होते हैं?'",
+        english: "Then Gargya asked him: 'Venerable Sir, which are they that sleep in this person? Which are they that remain awake? Which is the god who sees dreams? Whose is this happiness (of deep sleep)? In whom are all these established?'",
+        simpleExplanation: "QUESTION 4: A deep inquiry into Consciousness. Who sleeps? Who dreams? Who stays awake? Who enjoys sleep?",
+        simpleExplanationHindi: "प्रश्न 4: चेतना की गहरी जांच। कौन सोता है? कौन सपना देखता है? कौन जागता रहता है? नींद का आनंद कौन लेता है?",
+        nanoBananaPrompt: "A sleeping person with a visible dream bubble above their head, and a question mark glowing in their heart."
+    },
+    {
+        id: 43,
+        prashna: 4,
+        verse: 2,
+        theme: "The Setting Sun",
+        sanskrit: "तस्मै स होवाच । यथा गार्ग्य मरीचयोऽर्कस्यास्तं गच्छतः सर्व एतस्मिंस्तेजोमण्डल एकीभवन्ति । ताः पुनः पुनरुदयतः प्रचरन्त्येवं ह वै तत् सर्वं परे देवे मनस्येकीभवति ॥ २ ॥",
+        hindi: "उन्होंने उत्तर दिया: 'हे गार्ग्य! जैसे डूबते हुए (अस्त होते हुए) सूर्य की किरणें उस तेज के गोले में एक हो जाती हैं, और जब वह फिर उगता है तो वे फिर फैल जाती हैं; वैसे ही यह सब (इन्द्रियां) उस सर्वोच्च देवता 'मन' में एक हो जाती हैं।",
+        english: "He replied: 'O Gargya, just as the rays of the setting sun become one in that orb of light, and go forth again when he rises; so does all this become one in the supreme god, the Mind.'",
+        simpleExplanation: "Sleep is like sunset. Just as sun rays withdraw into the sun disc, your senses withdraw into the Mind.",
+        simpleExplanationHindi: "नींद सूर्यास्त की तरह है। जैसे सूर्य की किरणें सूर्य बिंब में समा जाती हैं, वैसे ही आपकी इंद्रियां मन में समा जाती हैं।",
+        nanoBananaPrompt: "A sunset over the ocean where rays of light are being pulled back into the sun like magnetic strings."
+    },
+    {
+        id: 44,
+        prashna: 4,
+        verse: 3,
+        theme: "The Senses Sleep",
+        sanskrit: "तेन तर्ह्येष पुरुषो न शृणोति न पश्यति न जिघ्रति न रसयते न स्पृशते नाभिवदते नादत्ते नानन्दयते न विसृजते नेयायते स्वपितीत्याचक्षते ॥ ३ ॥",
+        hindi: "इसलिए उस समय (नींद में) यह पुरुष न सुनता है, न देखता है, न सूंघता है... तब लोग कहते हैं—'यह सो रहा है' ।",
+        english: "Therefore, at that time, this person hears not, sees not, smells not... They say, 'He is sleeping.'",
+        simpleExplanation: "When the Mind absorbs the senses, you are 'Offline'. No seeing, no hearing. Just sleep.",
+        simpleExplanationHindi: "जब मन इंद्रियों को सोख लेता है, तो आप 'ऑफलाइन' हो जाते हैं। न देखना, न सुनना। बस नींद।",
+        nanoBananaPrompt: "A person lying in bed with their sensory organs (eyes, ears) dimmed out or turned off like switches."
+    },
+    {
+        id: 45,
+        prashna: 4,
+        verse: 4,
+        theme: "The Inner Fire Sacrifice",
+        sanskrit: "प्राणाग्नय एवैतस्मिन् पुरे जाग्रति । गार्हपत्यो ह वा एषोऽपानो व्यानोऽन्वाहार्यपचनो यद्गार्हपत्यात् प्रणीयते प्रणयनादाहवनीयः प्राणः ॥ ४ ॥",
+        hindi: "(जब सब सो जाते हैं), तब इस नगर (शरीर) में 'प्राण रूपी अग्नियां' ही जागती रहती हैं। 'अपान' गार्हपत्य अग्नि है; 'व्यान' अन्वाहार्यपचन (दक्षिणाग्नि) है; और 'प्राण' आहवनीय अग्नि है।",
+        english: "The Fires of Prana alone remain awake in this city (body). Apana is the Garhapatya Fire... Prana is the Ahavaniya Fire.",
+        simpleExplanation: "While you sleep, the 'Fire Ritual' of digestion and breathing continues. Prana never sleeps.",
+        simpleExplanationHindi: "जब आप सोते हैं, तो पाचन और श्वास का 'अग्नि यज्ञ' जारी रहता है। प्राण कभी नहीं सोता।",
+        nanoBananaPrompt: "A dark city (body) at night where only five sacred fires are burning brightly in the center square."
+    },
+    {
+        id: 46,
+        prashna: 4,
+        verse: 5,
+        theme: "Breathing as Offering",
+        sanskrit: "यदुच्छ्वासनिःश्वासावेतावाहुती समं नयतीति स समानः । मनो ह वाव यजमानः इष्टफलमेवोदानः स एनं यजमानमहरहर्ब्रह्म गमयति ॥ ५ ॥",
+        hindi: "जो श्वास और निःश्वास रूपी दो आहुतियों को समान रूप से ले जाता है, वह 'समान' है। 'मन' ही यजमान है। और 'उदान' उस यज्ञ का फल है, क्योंकि वह इस यजमान (मन) को प्रतिदिन (गहरी नींद में) ब्रह्म तक ले जाता है।",
+        english: "Because it balances the two oblations of inhalation and exhalation, it is Samana. The Mind is the Sacrificer. Udana leads him every day to Brahman.",
+        simpleExplanation: "Every breath is an offering. Every night, Udana takes your mind to the battery charger (Brahman) for deep rest.",
+        simpleExplanationHindi: "हर सांस एक आहुति है। हर रात, उदान आपके मन को गहरी विश्राम के लिए बैटरी चार्जर (ब्रह्म) के पास ले जाता है।",
+        nanoBananaPrompt: "A priest (Mind) pouring offerings (Breath) into a fire, with smoke rising up to a golden realm (Brahman)."
+    },
+    {
+        id: 47,
+        prashna: 4,
+        verse: 6,
+        theme: "The Dream State (Swapna)",
+        sanskrit: "अत्रैष देवः स्वप्ने महिमानमनुभवति । यद्दृष्टं दृष्टमनुपश्यति... दृष्टं चादृष्टं च... सर्वं पश्यति सर्वः पश्यति ॥ ६ ॥",
+        hindi: "यहाँ (स्वप्न अवस्था में) यह देवता (मन) अपनी महिमा का अनुभव करता है। जो देखा है और जो नहीं देखा, सत और असत—वह सब कुछ देखता है; वह 'सब' बनकर देखता है।",
+        english: "Here, in dreams, this god (Mind) experiences his glory. Seen and unseen, real and unreal—he sees it all; being All, he sees.",
+        simpleExplanation: "In dreams, the Mind becomes the Creator. It replays memories and invents new worlds. It is limitless.",
+        simpleExplanationHindi: "सपनों में, मन निर्माता बन जाता है। यह यादों को दोहराता है और नई दुनिया का आविष्कार करता है। यह असीम है।",
+        nanoBananaPrompt: "A person's head opening up to reveal a vivid, surreal landscape of flying elephants and floating castles."
+    },
+    {
+        id: 48,
+        prashna: 4,
+        verse: 7,
+        theme: "Deep Sleep (Sushupti)",
+        sanskrit: "स यदा तेजसाभिभूतो भवति अत्रैष देवः स्वप्नान्न पश्यति अथ तदैतस्मिन् शरीरे एतत्सुखं भवति ॥ ७ ॥",
+        hindi: "परन्तु जब वह (मन) 'तेज' (पित्त/आत्म-ज्योति) से अभिभूत (पूरी तरह भर) जाता है, तब यह देवता सपने नहीं देखता। तब इस शरीर में वह (अखंड) सुख होता है।",
+        english: "But when the mind is overpowered by Light (Tejas), then this god sees no dreams. Then, in this body, that happiness (of deep sleep) arises.",
+        simpleExplanation: "DEEP SLEEP: When the Mind gets tired, it dissolves into pure Light. No dreams. Only Bliss.",
+        simpleExplanationHindi: "गहरी नींद: जब मन थक जाता है, तो वह शुद्ध प्रकाश में विलीन हो जाता है। कोई सपना नहीं। केवल आनंद।",
+        nanoBananaPrompt: "A chaotic dream swirl dissolving into a pure, calm, white light of deep peace."
+    },
+    {
+        id: 49,
+        prashna: 4,
+        verse: 8,
+        theme: "The Bird Analogy",
+        sanskrit: "स यथा सोम्य वयांसि वासोवृक्षं सम्प्रतिष्ठन्ते । एवं ह वै तत् सर्वं पर आत्मनि सम्प्रतिष्ठते ॥ ८ ॥",
+        hindi: "हे सौम्य! जैसे पक्षी (शाम को) अपने बसेरे के वृक्ष की ओर लौटकर विश्राम करते हैं, वैसे ही यह सब कुछ (समस्त तत्व) उस परम आत्मा में प्रतिष्ठित (विश्राम) होता है।",
+        english: "Just as birds, O dear one, fly to their tree for rest, even so, all these things rest in the Supreme Self.",
+        simpleExplanation: "Just as birds return to their tree at night, our soul returns to the Supreme Self in deep sleep.",
+        simpleExplanationHindi: "जैसे पक्षी रात में अपने पेड़ पर लौट आते हैं, वैसे ही हमारी आत्मा गहरी नींद में परमात्मा के पास लौट आती है।",
+        nanoBananaPrompt: "A flock of birds flying back to a massive, glowing Banyan tree at sunset."
+    },
+    {
+        id: 50,
+        prashna: 4,
+        verse: 9,
+        theme: "The List of Elements",
+        sanskrit: "पृथिवी च पृथिवीमात्रा चापश्चापोमात्रा च तेजश्च तेजोमात्रा... प्राणश्च विधारयितव्यं च ॥ ९ ॥",
+        hindi: "पृथ्वी और गंध, जल और रस, अग्नि और रूप, वायु और स्पर्श... आँख और दृश्य... मन और मंतव्य... (यह सब आत्मा में लीन होता है)।",
+        english: "Earth and smell, Water and taste, Fire and form, Air and touch... The Eye and sight... The Mind and thought... All rest in the Self.",
+        simpleExplanation: "Everything gets packed up: The Elements, The Senses, The Mind. All go into the suitcase of the Self.",
+        simpleExplanationHindi: "सब कुछ पैक हो जाता है: तत्व, इंद्रियां, मन। सब आत्मा के सूटकेस में चले जाते हैं।",
+        nanoBananaPrompt: "A surreal image of mountains, rivers, and suns being folded up into a small glowing point of light."
+    },
+    {
+        id: 51,
+        prashna: 4,
+        verse: 10,
+        theme: "The Knower (Vijnana Atman)",
+        sanskrit: "एष हि द्रष्टा स्प्रष्टा श्रोता घ्राता रसयिता मन्ता बोद्धा कर्ता विज्ञानात्मा पुरुषः । स परेऽक्षर आत्मनि सम्प्रतिष्ठते ॥ १० ॥",
+        hindi: "यही तो वह दृष्टा, स्प्रष्टा, श्रोता, सूंघने वाला, मन्ता, बोद्धा, कर्ता और 'विज्ञान-आत्मा' पुरुष है। वह उस परम अक्षर आत्मा में प्रतिष्ठित होता है।",
+        english: "He is indeed the Seer, Toucher, Hearer, Smeller, Thinker, Knower, Doer, the Vijnana Atman. He becomes established in the Supreme Undecaying Self.",
+        simpleExplanation: "The real 'YOU' is the Knower (Vijnana Atman). In deep sleep, you (the drop) merge into the Ocean (Brahman).",
+        simpleExplanationHindi: "असली 'आप' ज्ञाता (विज्ञान-आत्मा) हैं। गहरी नींद में, आप (बूंद) सागर (ब्रह्म) में विलीन हो जाते हैं।",
+        nanoBananaPrompt: "A glowing silhouette of a person merging seamlessly into a vast, infinite ocean of light."
+    },
+    {
+        id: 52,
+        prashna: 4,
+        verse: 11,
+        theme: "The Fruit of This Knowledge",
+        sanskrit: "परमेवाक्षरं प्रतिपद्यते स यो ह वै तदच्छायमशरीरमलोहितं शुभ्रमक्षरं वेद । यस्तु सोम्य स सर्वज्ञः सर्वो भवति तदेष श्लोकः ॥ ११ ॥",
+        hindi: "जो उस छाया-रहित, शरीर-रहित, रंग-रहित, शुभ्र और अक्षर (ब्रह्म) को जानता है, वह उसे प्राप्त कर लेता है। वह सर्वज्ञ और 'सब कुछ' हो जाता है।",
+        english: "He who knows that shadowless, bodiless, colorless, pure Undecaying Self attains the Supreme. He becomes All-knowing and All.",
+        simpleExplanation: "Knowing the Self makes you Everything. You lose your limits and become Infinite.",
+        simpleExplanationHindi: "स्वयं को जानना आपको 'सब कुछ' बना देता है। आप अपनी सीमाएं खो देते हैं और अनंत बन जाते हैं।",
+        nanoBananaPrompt: "A transparent being filled with the cosmos (stars, galaxies) representing becoming 'The All'."
+    },
+
+    // ==========================================
+    // PRASHNA 5: THE POWER OF OM
+    // Questioner: Satyakama of Shibi
+    // ==========================================
+
+    {
+        id: 53,
+        prashna: 5,
+        verse: 1,
+        theme: "The Fifth Question",
+        sanskrit: "अथ हैनम् शैव्यः सत्यकामः पप्रच्छ । स यो ह वै तद् भगवन् मनुष्येषु प्रायणान्तमोङ्कारमभिध्यायीत । कतमं वाव स तेन लोकं जयतीति ॥ १ ॥",
+        hindi: "सत्यकाम ने पूछा: 'हे भगवन्! यदि कोई मृत्यु तक 'ओंकार' (OM) का निरंतर ध्यान करता रहे, तो वह किस लोक को जीतता है?'",
+        english: "Satyakama asked: 'Sir, if one meditates on OM until the end of his life, which world does he win by that?'",
+        simpleExplanation: "QUESTION 5: The Ultimate Technique. What happens if I chant OM my entire life until death?",
+        simpleExplanationHindi: "प्रश्न 5: परम तकनीक। अगर मैं जीवन भर मृत्यु तक ॐ का जप करूँ तो क्या होगा?",
+        nanoBananaPrompt: "An old sage meditating with the symbol 'OM' glowing brightly in front of him."
+    },
+    {
+        id: 54,
+        prashna: 5,
+        verse: 2,
+        theme: "Higher and Lower Brahman",
+        sanskrit: "तस्मै स होवाच । एतद्वै सत्यकाम परं चापरं च ब्रह्म यदोङ्कारः । तस्माद् विद्वानेतेनैवायतनेनैकतरमन्वेति ॥ २ ॥",
+        hindi: "उन्होंने कहा: 'हे सत्यकाम! यह ओंकार ही पर-ब्रह्म (निराकार) और अपर-ब्रह्म (सगुण) दोनों है। विद्वान इसके सहारे किसी एक को पा लेता है।'",
+        english: "He replied: 'O Satyakama, OM is verily both the Higher Brahman (Formless) and the Lower Brahman (Manifest). The wise attain either through this support.'",
+        simpleExplanation: "OM is the Master Key. It represents BOTH the formed God (Rama/Krishna) and the Formless God (Energy).",
+        simpleExplanationHindi: "ॐ मास्टर कुंजी है। यह सगुण ईश्वर (राम/कृष्ण) और निर्गुण ईश्वर (ऊर्जा) दोनों का प्रतिनिधित्व करता है।",
+        nanoBananaPrompt: "The symbol OM acting as a bridge connecting a physical temple (Lower) to a pure white light (Higher)."
+    },
+    {
+        id: 55,
+        prashna: 5,
+        verse: 3,
+        theme: "Meditating on 'A' (1 Matra)",
+        sanskrit: "स यद्येकमात्रमभिध्यायीत स तेनैव संवेदितस्तूर्णमेव जगत्यामभिसम्पद्यते । तमृचो मनुष्यलोकमुपनयन्ते... ॥ ३ ॥",
+        hindi: "यदि वह एक मात्रा ('अ') का ध्यान करता है, तो वह शीघ्र ही पृथ्वी पर (मनुष्य रूप में) लौट आता है। ऋग्वेद की ऋचाएं उसे मनुष्य लोक लाती हैं।",
+        english: "If he meditates on One Measure ('A'), he quickly returns to Earth. The Rig Veda leads him to the Human World.",
+        simpleExplanation: "Level 1: Meditating on just the waking aspect ('A') brings you back as a great, virtuous Human.",
+        simpleExplanationHindi: "स्तर 1: केवल जाग्रत पहलू ('अ') का ध्यान करने से आप एक महान, सदाचारी मनुष्य के रूप में वापस आते हैं।",
+        nanoBananaPrompt: "A person meditating on the letter 'A', followed by an image of a king or great leader on Earth."
+    },
+    {
+        id: 56,
+        prashna: 5,
+        verse: 4,
+        theme: "Meditating on 'U' (2 Matras)",
+        sanskrit: "अथ यदि द्विमात्रेण मनसि सम्पद्यते सोऽन्तरिक्षं यजुर्भिरुन्नीयते सोमलोकम् । स सोमलोके विभूतिमनुभूय पुनरावर्तते ॥ ४ ॥",
+        hindi: "यदि वह दो मात्राओं ('अ' + 'उ') का ध्यान करता है, तो वह अंतरिक्ष के सोमलोक (चन्द्रलोक) जाता है। वहाँ ऐश्वर्य भोगकर लौट आता है।",
+        english: "If he meditates on Two Measures ('A'+'U'), he goes to the Lunar World (Soma Loka). After experiencing power there, he returns.",
+        simpleExplanation: "Level 2: Meditating on the Dream aspect ('U') takes you to Heaven (Moon). You enjoy, but you must RETURN.",
+        simpleExplanationHindi: "स्तर 2: स्वप्न पहलू ('उ') का ध्यान आपको स्वर्ग (चंद्रमा) ले जाता है। आप आनंद लेते हैं, लेकिन आपको वापस आना होगा।",
+        nanoBananaPrompt: "A spirit ascending to a silvery moon, enjoying a feast, and then falling back down to earth as rain."
+    },
+    {
+        id: 57,
+        prashna: 5,
+        verse: 5,
+        theme: "Meditating on 'M' (3 Matras - Full AUM)",
+        sanskrit: "यः पुनरेतं त्रिमात्रेणोमित्येतेनैवाक्षरेण परं पुरुषमभिध्यायीत स तेजसि सूर्ये सम्पन्नः । यथा पादोदरस्त्वचा विनिर्मुच्यत एवं ह वै स पाप्मना विनिर्मुक्तः... ॥ ५ ॥",
+        hindi: "जो त्रि-मात्र ('अ+उ+म') द्वारा परम पुरुष का ध्यान करता है, वह सूर्य (तेज) में पहुँचता है। जैसे सांप केंचुली से छूटता है, वैसे ही वह पापों से मुक्त होकर ब्रह्मलोक जाता है।",
+        english: "But he who meditates on the Full OM (Three Measures) enters the Sun. As a snake sheds its skin, he is freed from sin and goes to Brahma-World.",
+        simpleExplanation: "Level 3: The Full OM takes you to the Sun (Source). Total liberation. Like a snake shedding old skin, you shed your limitations.",
+        simpleExplanationHindi: "स्तर 3: पूर्ण ॐ आपको सूर्य (स्रोत) तक ले जाता है। पूर्ण मुक्ति। जैसे सांप पुरानी त्वचा उतारता है, वैसे ही आप अपनी सीमाओं को उतार फेंकते हैं।",
+        nanoBananaPrompt: "A snake shedding its old skin, transforming into a being of pure golden light ascending to the sun."
+    },
+    {
+        id: 58,
+        prashna: 5,
+        verse: 6,
+        theme: "Harmony of Matras",
+        sanskrit: "तिस्रो मात्रा मृत्युमत्यः प्रयुक्ता अन्योन्यसक्ता... क्रियासु... सम्यक्प्रयुक्तासु न कम्पते ज्ञः ॥ ६ ॥",
+        hindi: "तीनों मात्राएं अलग-अलग नाशवान हैं। पर जब वे परस्पर जुड़ी और ठीक प्रयोग की जाती हैं, तो ज्ञानी विचलित नहीं होता।",
+        english: "The three measures are mortal when separate. But when connected and used well, the knower does not tremble.",
+        simpleExplanation: "Don't fragment your life. Integrate Waking, Dreaming, and Deep Sleep into one Continuous Awareness.",
+        simpleExplanationHindi: "जीवन को खंडित मत करो। जाग्रत, स्वप्न और सुषुप्ति को एक निरंतर जागरूकता में एकीकृत करो।",
+        nanoBananaPrompt: "Three separate threads (Red, Blue, White) being woven into a strong, single golden rope."
+    },
+    {
+        id: 59,
+        prashna: 5,
+        verse: 7,
+        theme: "Summary of Truth",
+        sanskrit: "ऋग्भिरेतं यजुर्भिरन्तरिक्षं सामभिर्यत्तत्कवयो वेदयन्ते । तमोंकारेणैवायतनेनान्वेति विद्वान् यत्तच्छान्तमजरममृतमभयं परं चेति ॥ ७ ॥",
+        hindi: "ऋग्वेद से यह लोक, यजुर्वेद से अंतरिक्ष, सामवेद से ब्रह्मलोक। विद्वान केवल ओंकार के सहारे उस शांत, अजर, अमर और अभय पद को पा लेता है।",
+        english: "Rig leads here, Yajur to the middle, Sama to the Supreme. By OM alone, the wise attain the Peaceful, Unaging, Fearless Supreme.",
+        simpleExplanation: "OM is the rocket ship. It takes you past Earth, past Space, straight to the Fearless center of Infinity.",
+        simpleExplanationHindi: "ॐ रॉकेट जहाज है। यह आपको पृथ्वी से परे, अंतरिक्ष से परे, सीधे अनंत के निर्भय केंद्र तक ले जाता है।",
+        nanoBananaPrompt: "A rocket shaped like the symbol OM blasting off from earth, passing the moon, and entering a dimension of golden silence."
+    },
+
+    // ==========================================
+    // PRASHNA 6: THE SIXTEEN PARTS
+    // Questioner: Sukesha of Bharadwaja
+    // ==========================================
+
+    {
+        id: 60,
+        prashna: 6,
+        verse: 1,
+        theme: "The Sixth Question",
+        sanskrit: "अथ हैनम् सुकेशा भारद्वाजः पप्रच्छ । भगवन् हिरण्यनाभः कौसल्यो राजपुत्रो ... षोडशकलं भारद्वाज पुरुषं वेत्थ ... ॥ १ ॥",
+        hindi: "सुकेशा ने पूछा: 'हे भगवन्! राजकुमार हिरण्यनाभ ने मुझसे पूछा था—क्या तुम 16 कलाओं वाले पुरुष को जानते हो? मैंने कहा नहीं। झूठ बोलने वाला जड़ से सूख जाता है। वह पुरुष कहाँ है?'",
+        english: "Sukesha asked: 'Prince Hiranyanabha asked me about the Person with 16 Parts. I said I didn't know. A liar dries up from the roots. Where is that Person?'",
+        simpleExplanation: "QUESTION 6: Where is God? (And a lesson on integrity: Better to say 'I don't know' than to lie and rot).",
+        simpleExplanationHindi: "प्रश्न 6: भगवान कहाँ हैं? (और अखंडता पर एक पाठ: झूठ बोलने और सड़ने से बेहतर है 'मैं नहीं जानता' कहना)।",
+        nanoBananaPrompt: "A prince asking a student a question. The student shaking his head 'no', visualizing a dying tree (representing a liar)."
+    },
+    {
+        id: 61,
+        prashna: 6,
+        verse: 2,
+        theme: "God is Within",
+        sanskrit: "तस्मै स होवाच । इहैवान्तःशरीरे सोम्य स पुरुषो यस्मिन्नेताः षोडश कला प्रभवन्तीति ॥ २ ॥",
+        hindi: "उन्होंने कहा: 'हे सौम्य! वह पुरुष यहाँ इस शरीर के भीतर ही है, जिससे ये सोलह कलाएं उत्पन्न होती हैं।'",
+        english: "He replied: 'O dear one, that Person is HERE, inside this very body, in whom these sixteen parts arise.'",
+        simpleExplanation: "Stop looking at the sky. The Divine Person is INSIDE your own body, right here, right now.",
+        simpleExplanationHindi: "आसमान की ओर देखना बंद करो। दिव्य पुरुष आपके अपने शरीर के भीतर है, अभी, यहीं।",
+        nanoBananaPrompt: "A silhouette of a person meditating, with a blindingly bright star glowing in the center of their chest."
+    },
+    {
+        id: 62,
+        prashna: 6,
+        verse: 3,
+        theme: "The Creator's Thought",
+        sanskrit: "स ईक्षाञ्चक्रे । कस्मिन्नहमुत्क्रान्त उत्क्रान्तो भविष्यामि कस्मिन्वा प्रतिष्ठिते प्रतिष्ठास्यामीति ॥ ३ ॥",
+        hindi: "उसने (पुरुष ने) सोचा: 'किसके निकलने पर मैं निकल जाऊंगा? और किसके रहने पर मैं रहूँगा?'",
+        english: "He reflected: 'What is it by whose departure I shall depart, and by whose staying I shall stay?'",
+        simpleExplanation: "The Soul needed a vehicle. It asked: 'What instrumentality will allow me to experience existence?'",
+        simpleExplanationHindi: "आत्मा को एक वाहन की आवश्यकता थी। इसने पूछा: 'कौन सी माध्यम मुझे अस्तित्व का अनुभव करने की अनुमति देगा?'",
+        nanoBananaPrompt: "A glowing consciousness pondering over blueprints of the human body."
+    },
+    {
+        id: 63,
+        prashna: 6,
+        verse: 4,
+        theme: "Creation of 16 Parts",
+        sanskrit: "स प्राणमसृजत प्राणाच्छ्रद्धां खं वायुर्ज्योतिरापः पृथिवीन्द्रियं मनः । अन्नमन्नाद्वीर्यं तपो मन्त्राः कर्म लोका लोकेषु च नाम च ॥ ४ ॥",
+        hindi: "उसने प्राण रचा। प्राण से श्रद्धा, आकाश, वायु, तेज, जल, पृथ्वी, इन्द्रियां, मन... अन्न, वीर्य, तप, मंत्र, कर्म, लोक और नाम।",
+        english: "He created Prana; from Prana, Faith, Space, Air, Fire, Water, Earth, Senses, Mind... Food, Strength, Austerity, Mantras, Karma, Worlds, and Name.",
+        simpleExplanation: "The 16 Layers of Existence: Beginning with Life Force (Prana) and ending with Identity (Name).",
+        simpleExplanationHindi: "अस्तित्व की 16 परतें: जीवन शक्ति (प्राण) से शुरू होकर पहचान (नाम) पर समाप्त होती हैं।",
+        nanoBananaPrompt: "A concentric circle diagram expanding outwards from a center point, showing 16 layers of creation."
+    },
+    {
+        id: 64,
+        prashna: 6,
+        verse: 5,
+        theme: "The River Analogy",
+        sanskrit: "स यथेमा नद्यः स्यन्दमानाः समुद्रायणाः समुद्रं प्राप्यास्तं गच्छन्ति... तथा ... कलाः पुरुषायणाः पुरुषं प्राप्यास्तं गच्छन्ति ... ॥ ५ ॥",
+        hindi: "जैसे नदियां समुद्र में गिरकर अपना नाम-रूप खो देती हैं और केवल 'समुद्र' कहलाती हैं, वैसे ही दृष्टा की ये 16 कलाएं पुरुष में लीन होकर अपना नाम-रूप खो देती हैं।",
+        english: "Just as rivers flowing into the ocean lose their name and form and are called 'Ocean', so do the 16 parts disappear into the Purusha.",
+        simpleExplanation: "DISSOLUTION: When you find the Source, your separate identity (Name/Form) vanishes. You become the Ocean.",
+        simpleExplanationHindi: "विलीनता: जब आप स्रोत को पा लेते हैं, तो आपकी अलग पहचान (नाम/रूप) गायब हो जाती है। आप सागर बन जाते हैं।",
+        nanoBananaPrompt: "Many distinct rivers flowing into a vast ocean, where their individual borders dissolve completely."
+    },
+    {
+        id: 65,
+        prashna: 6,
+        verse: 6,
+        theme: "Hub and Spokes (Again)",
+        sanskrit: "अरा इव रथनाभौ कला यस्मिन्प्रतिष्ठिताः । तं वेद्यं पुरुषं वेद यथा मा वो मृत्युः परिव्यथा इति ॥ ६ ॥",
+        hindi: "जैसे रथ के पहिए में आरे, वैसे ही जिसमें कलाएं प्रतिष्ठित हैं—उस 'जानने योग्य' पुरुष को जानो, ताकि मृत्यु तुम्हें कष्ट न दे।",
+        english: "Know Him, in whom the parts are established like spokes in the hub, so that Death may not hurt you.",
+        simpleExplanation: "The 16 parts are just spokes. The Self (Purusha) is the Hub. Hold on to the Hub, and the wheel won't crush you.",
+        simpleExplanationHindi: "16 भाग तो बस आरे हैं। आत्मा (पुरुष) धुरी है। धुरी को पकड़ो, और पहिया तुम्हें कुचलेगा नहीं।",
+        nanoBananaPrompt: "A person holding tightly to the luminous center (hub) of a spinning wheel, safe while the rim spins fast."
+    },
+    {
+        id: 66,
+        prashna: 6,
+        verse: 7,
+        theme: "Pippalada's Farewell",
+        sanskrit: "तान्होवाच एतावदेवाहमेतत् परं ब्रह्म वेद । नातः परमस्तीति ॥ ७ ॥",
+        hindi: "पिप्पलाद ने कहा: 'मैं इस परम ब्रह्म के बारे में इतना ही जानता हूँ। इससे परे और कुछ नहीं है।'",
+        english: "Pippalada said to them: 'Thus far, indeed, I know the Supreme Brahman. There is nothing higher than this.'",
+        simpleExplanation: "The Master concludes: 'That's it. That is the highest Truth. Period.'",
+        simpleExplanationHindi: "गुरु का निष्कर्ष: 'बस इतना ही। यही परम सत्य है। पूर्ण विराम।'",
+        nanoBananaPrompt: "The sage raising his hand in blessing, indicating the completion of wisdom."
+    },
+    {
+        id: 67,
+        prashna: 6,
+        verse: 8,
+        theme: "The Students' Gratitude",
+        sanskrit: "ते तमर्चयन्तस्त्वं हि नः पिता योऽस्माकमविद्यायाः परं पारं तारयसीति । नमः परमऋषिभ्यो नमः परमऋषिभ्यः ॥ ८ ॥",
+        hindi: "शिष्यों ने उनकी पूजा की और कहा: 'आप ही हमारे पिता हैं, जो हमें अविद्या के पार ले गए हैं।' परम ऋषियों को नमस्कार!",
+        english: "They worshipped him: 'You are indeed our Father who has taken us across the ocean of ignorance.' Salutations to the great Seers!",
+        simpleExplanation: "Gratitude: A real Father gives you a body; a Guru gives you Immortality by taking you across the ocean of Ignorance.",
+        simpleExplanationHindi: "कृतज्ञता: एक असली पिता आपको शरीर देता है; एक गुरु आपको अज्ञान के सागर के पार ले जाकर अमरता देता है।",
+        nanoBananaPrompt: "Six students bowing down deeply to the Sage, with a background of a calm ocean and a sunrise."
+    },
 ];
 
 // Metadata for Prashna Upanishad
