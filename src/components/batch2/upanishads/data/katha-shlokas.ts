@@ -1093,6 +1093,235 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanationHindi: "अनंत पुण्य: पवित्र सभाओं में इसे पढ़ने से अनंत फल मिलता है। जोर देने के लिए पंक्ति दोहराई गई!",
         theme: "Infinite Results",
         nanoBananaPrompt: "Infinite ripples spreading from one recitation—endless merit multiplying forever."
+    },
+
+    // ==========================================
+    // ADHYAYA 2, VALLI 1 (VALLI 4): THE INNER VISION
+    // ==========================================
+
+    // Verse 1 (Valli 4): The Outward Senses - KEY VERSE
+    {
+        id: 72,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "पराञ्चि खानि व्यतृणत्स्वयम्भूस्तस्मात्पराङ्पश्यति नान्तरात्मन् । कश्चिद्धीरः प्रत्यगात्मानमैक्षदावृत्तचक्षुरमृतत्वमिच्छन् ॥ १ ॥",
+        hindi: "स्वयंभू (परमात्मा) ने इन्द्रियों के द्वार बाहर की ओर बनाए हैं; इसलिए मनुष्य बाहर देखता है, अंतरात्मा को नहीं। कोई विरला 'धीर' पुरुष ही, जो अमरता चाहता है, अपनी दृष्टि को हटाकर अंतरात्मा को देखता है।",
+        english: "The Self-existent Lord pierced the senses outward; therefore, one looks outward and not within the inner Self. A rare wise man, desiring immortality, turns his eyes away and sees the Self within.",
+        simpleExplanation: "KEY INSIGHT: Our senses are designed to point OUTWARD. Only a rare wise person TURNS INWARD to find immortality.",
+        simpleExplanationHindi: "मुख्य अंतर्दृष्टि: हमारी इन्द्रियां बाहर की ओर इशारा करने के लिए बनी हैं। केवल विरला ज्ञानी अमरता पाने के लिए अंदर मुड़ता है।",
+        theme: "Outward Senses",
+        nanoBananaPrompt: "Eyes pointing outward like beams, while a rare sage turns his vision 180 degrees to see the inner light."
+    },
+
+    // Verse 2 (Valli 4): The Trap of Desires
+    {
+        id: 73,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "पराचः कामाननुयन्ति बालास्ते मृत्योर्यन्ति विततस्य पाशम् । अथ धीरा अमृतत्वं विदित्वा ध्रुवमध्रुवेष्विह न प्रार्थयन्ते ॥ २ ॥",
+        hindi: "जो 'बाल' (अज्ञानी) हैं, वे बाहरी कामनाओं के पीछे दौड़ते हैं; वे मृत्यु के जाल में फंसते हैं। लेकिन धीर पुरुष, अमरत्व को जानकर, इस अनित्य संसार में नित्य वस्तु की इच्छा नहीं करते।",
+        english: "The childish (ignorant) follow external desires; they fall into the snare of widespread death. But the wise, having known Immortality, do not seek the Permanent among the impermanent things here.",
+        simpleExplanation: "Chasing external desires = walking into Death's net. The wise don't seek eternal things in a temporary world.",
+        simpleExplanationHindi: "बाहरी इच्छाओं का पीछा करना = मृत्यु के जाल में चलना। ज्ञानी अस्थायी दुनिया में शाश्वत चीज़ें नहीं खोजते।",
+        theme: "Desire's Trap",
+        nanoBananaPrompt: "People running after shiny objects, falling into a vast invisible net labeled 'Death'."
+    },
+
+    // Verse 3 (Valli 4): The Knower of Senses - ETAD VAI TAT
+    {
+        id: 74,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "येन रूपं रसं गन्धं शब्दान्स्पर्शांश्च मैथुनान् । एतेनैव विजानाति किमत्र परिशिष्यते । एतद्वै तत् ॥ ३ ॥",
+        hindi: "जिसके द्वारा मनुष्य रूप, रस, गंध, शब्द, स्पर्श और मैथुन सुख को जानता है—वह आत्मा के द्वारा ही जानता है। इससे अज्ञात क्या शेष रह जाता है? यही वह है (एतद्वै तत्)।",
+        english: "That by which one knows form, taste, smell, sound, touch, and sexual pleasure—by That alone one perceives. What remains unknown to It? This is verily That.",
+        simpleExplanation: "FIRST 'ETAD VAI TAT': The Self is the KNOWER behind all senses. Nothing escapes its awareness.",
+        simpleExplanationHindi: "पहला 'एतद्वै तत्': आत्मा सभी इन्द्रियों के पीछे जानने वाला है। कुछ भी इसकी जागरूकता से नहीं बचता।",
+        theme: "Etad Vai Tat",
+        nanoBananaPrompt: "A central consciousness perceiving through five senses like spokes of a wheel—the Knower behind all knowing."
+    },
+
+    // Verse 4 (Valli 4): The Witness of States
+    {
+        id: 75,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "स्वप्नान्तं जागरितान्तं चोभौ येनानुपश्यति । महान्तं विभुमात्मानं मत्वा धीरो न शोचति ॥ ४ ॥",
+        hindi: "जिसके द्वारा मनुष्य स्वप्न और जागृत अवस्था दोनों को देखता है—उस महान और सर्वव्यापक आत्मा को जानकर धीर पुरुष शोक नहीं करता।",
+        english: "Having realized that great, all-pervading Self, by whom one perceives both the dream state and the waking state, the wise man does not grieve.",
+        simpleExplanation: "The Self WITNESSES both dreaming and waking. It's PRESENT in both states—the unchanging observer.",
+        simpleExplanationHindi: "आत्मा स्वप्न और जागृति दोनों का साक्षी है। यह दोनों अवस्थाओं में उपस्थित है—अपरिवर्तनशील पर्यवेक्षक।",
+        theme: "Witness of States",
+        nanoBananaPrompt: "A single eye observing both a dreaming person and an awake person—the Witness of all states."
+    },
+
+    // Verse 5 (Valli 4): Lord of Past and Future
+    {
+        id: 76,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "य इमं मध्वदं वेद आत्मानं जीवमन्तिकात् । ईशानं भूतभव्यस्य न ततो विजुगुप्सते । एतद्वै तत् ॥ ५ ॥",
+        hindi: "जो इस 'मध्वद' (कर्मफल खाने वाले) जीवात्मा को समीप से जानता है, जो भूत और भविष्य का शासक है—वह फिर भय नहीं करता। यही वह है।",
+        english: "He who knows this Atman, the enjoyer of honey (fruits of action), closely as the Lord of the past and the future, fears no more. This is verily That.",
+        simpleExplanation: "The Self experiences karma's fruits but is LORD of time itself—past and future. Know this = no more fear.",
+        simpleExplanationHindi: "आत्मा कर्म के फल अनुभव करती है लेकिन समय की स्वामी है—भूत और भविष्य। यह जानो = अब कोई भय नहीं।",
+        theme: "Lord of Time",
+        nanoBananaPrompt: "A being that holds both past and future in its hands—master of time itself."
+    },
+
+    // Verse 6 (Valli 4): Hiranyagarbha
+    {
+        id: 77,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यः पूर्वं तपसो जातमद्भ्यः पूर्वमजायत । गुहां प्रविश्य तिष्ठन्तं यो भूतेभिर्व्यपश्यत । एतद्वै तत् ॥ ६ ॥",
+        hindi: "जो उस 'प्रथम जात' (हिरण्यगर्भ) को देखता है, जो तप से उत्पन्न हुआ और जल से भी पहले था; जो प्राणियों के साथ हृदय गुफा में स्थित है। यही वह है।",
+        english: "He who sees the First-Born (Hiranyagarbha), born of austerity before the waters, who dwells in the cave of the heart along with beings. This is verily That.",
+        simpleExplanation: "HIRANYAGARBHA: The First-Born, the Golden Womb of creation. Born before even water existed. Lives in YOUR heart.",
+        simpleExplanationHindi: "हिरण्यगर्भ: प्रथम जन्मा, सृष्टि का स्वर्ण गर्भ। जल के अस्तित्व से भी पहले जन्मा। आपके हृदय में रहता है।",
+        theme: "Hiranyagarbha",
+        nanoBananaPrompt: "A golden cosmic egg (Hiranyagarbha) residing in the heart, born before the first waters."
+    },
+
+    // Verse 7 (Valli 4): Aditi - The Cosmic Mother
+    {
+        id: 78,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "या प्राणेन सम्भवत्यदितिर्देवतामयी । गुहां प्रविश्य तिष्ठन्तीं या भूतेभिर्व्यजायत । एतद्वै तत् ॥ ७ ॥",
+        hindi: "जो 'प्राण' के रूप में प्रकट होती है, वह 'अदिति' जो सभी देवताओंमयी है; जो प्राणियों के साथ उत्पन्न होकर हृदय गुफा में स्थित है। यही वह है।",
+        english: "She who arises as Prana (Life Force), Aditi (the Boundless), comprising all the gods, who dwells in the cave of the heart. This is verily That.",
+        simpleExplanation: "ADITI: The Boundless Mother, appearing as Prana (Life Force). All gods are within her. She lives in your heart.",
+        simpleExplanationHindi: "अदिति: असीम माता, प्राण (जीवन शक्ति) के रूप में प्रकट। सभी देवता उसमें हैं। वह आपके हृदय में रहती है।",
+        theme: "Aditi - Life Force",
+        nanoBananaPrompt: "The cosmic mother Aditi as breathing life force, containing all gods, residing in the heart."
+    },
+
+    // Verse 8 (Valli 4): The Hidden Fire
+    {
+        id: 79,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "अरण्योर्निहितो जातवेदा गर्भ इव सुभृतो गर्भिणीभिः । दिवे दिवे ईड्यो जागृवद्भिर्हविष्मद्भिर्मनुष्येभिरग्निः । एतद्वै तत् ॥ ८ ॥",
+        hindi: "जैसे गर्भवती द्वारा गर्भ सुरक्षित रखा जाता है, वैसे ही दो अरणियों में छिपा हुआ 'जातवेदा' (अग्नि) स्थित है। जागृत रहने वालों द्वारा वह प्रतिदिन स्तुति योग्य है। यही वह है।",
+        english: "As the fetus is preserved by pregnant women, so is the Fire hidden in the two fire-sticks. It is to be worshipped daily by wakeful men. This is verily That.",
+        simpleExplanation: "Like a baby protected in the womb, the Fire of Knowledge is hidden in the fire-sticks of practice. Worship it daily!",
+        simpleExplanationHindi: "जैसे गर्भ में बच्चा सुरक्षित है, वैसे ज्ञान की अग्नि अभ्यास की अरणियों में छिपी है। इसकी प्रतिदिन पूजा करो!",
+        theme: "Hidden Fire",
+        nanoBananaPrompt: "Fire hidden between two sticks like a baby in the womb—the spark of knowledge waiting to be awakened."
+    },
+
+    // Verse 9 (Valli 4): Source of the Sun
+    {
+        id: 80,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यतश्चोदेति सूर्यो अस्तं यत्र च गच्छति । तं देवाः सर्वे अर्पितास्तदु नात्येति कश्चन । एतद्वै तत् ॥ ९ ॥",
+        hindi: "जहाँ से सूर्य उदय होता है और जहाँ वह अस्त होता है—सभी देवता उसी में आश्रित हैं। कोई भी उसका उल्लंघन नहीं कर सकता। यही वह है।",
+        english: "From whence the sun rises, and whither it goes to set—in That all gods are contained, and no one can pass beyond That. This is verily That.",
+        simpleExplanation: "The SOURCE of even the Sun! All gods depend on it. Nothing goes beyond it. THAT is the ultimate boundary.",
+        simpleExplanationHindi: "सूर्य का भी स्रोत! सभी देवता इस पर निर्भर हैं। कुछ भी इससे परे नहीं जाता। वही परम सीमा है।",
+        theme: "Source of Sun",
+        nanoBananaPrompt: "The sun rising from and setting into a cosmic source that contains all gods—the ultimate origin."
+    },
+
+    // Verse 10 (Valli 4): Unity of Existence - KEY VERSE
+    {
+        id: 81,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यदेवेह तदमुत्र यदमुत्र तदन्विह । मृत्योः स मृत्युमाप्नोति य इह नानेव पश्यति ॥ १० ॥",
+        hindi: "जो यहाँ है, वही वहां है; और जो वहां है, वही यहाँ है। जो मनुष्य यहाँ 'नाना' (भेद) देखता है, वह मृत्यु से मृत्यु को प्राप्त होता है।",
+        english: "What is here (in the manifested world), the same is there (in Brahman); and what is there, the same is here. He goes from death to death who sees any difference here.",
+        simpleExplanation: "KEY TEACHING: HERE = THERE. The world = Brahman. Seeing DIFFERENCE = endless rebirth. Seeing UNITY = Liberation.",
+        simpleExplanationHindi: "मुख्य शिक्षा: यहाँ = वहाँ। संसार = ब्रह्म। भेद देखना = अंतहीन पुनर्जन्म। एकता देखना = मुक्ति।",
+        theme: "Unity of Existence",
+        nanoBananaPrompt: "Two mirrors facing each other showing the same reflection—here and there are one."
+    },
+
+    // Verse 11 (Valli 4): Mind Alone Perceives
+    {
+        id: 82,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "मनसैवेदमाप्तव्यं नेह नानास्ति किञ्चन । मृत्योः स मृत्युं गच्छति य इह नानेव पश्यति ॥ ११ ॥",
+        hindi: "यह ब्रह्म विशुद्ध मन के द्वारा ही प्राप्त किया जा सकता है। यहाँ किंचित मात्र भी भेद नहीं है। जो यहाँ भेद देखता है, वह मृत्यु से मृत्यु को प्राप्त होता है।",
+        english: "By the mind alone is this (Brahman) to be realized; there is no difference here at all. He goes from death to death who sees any difference here.",
+        simpleExplanation: "ONLY the pure mind can realize Brahman. There is NO multiplicity in truth. Seeing difference = death after death.",
+        simpleExplanationHindi: "केवल शुद्ध मन ही ब्रह्म को जान सकता है। सत्य में कोई बहुलता नहीं है। भेद देखना = मृत्यु के बाद मृत्यु।",
+        theme: "Mind Perception",
+        nanoBananaPrompt: "A pure crystal mind reflecting only ONE reality—no multiplicity, only unity."
+    },
+
+    // Verse 12 (Valli 4): Thumb-Sized Purusha - FAMOUS
+    {
+        id: 83,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "अङ्गुष्ठमात्रः पुरुषो मध्य आत्मनि तिष्ठति । ईशानं भूतभव्यस्य न ततो विजुगुप्सते । एतद्वै तत् ॥ १२ ॥",
+        hindi: "हृदय के मध्य में 'अंगूठे के माप वाला' पुरुष आत्मा में स्थित है। वह भूत और भविष्य का शासक है। उसे जानकर, मनुष्य भय नहीं करता। यही वह है।",
+        english: "The Purusha, of the size of a thumb, dwells in the center of the body. He is the Lord of the past and the future. Knowing Him, one fears no more. This is verily That.",
+        simpleExplanation: "THE THUMB-SIZED PURUSHA: The Self is described as 'thumb-sized'—residing in the heart, Lord of all time.",
+        simpleExplanationHindi: "अंगूठे के आकार का पुरुष: आत्मा को 'अंगूठे के आकार' का बताया गया है—हृदय में रहती है, सभी समय की स्वामी।",
+        theme: "Thumb-Sized Self",
+        nanoBananaPrompt: "A luminous thumb-sized being sitting in the heart—the Purusha, master of time."
+    },
+
+    // Verse 13 (Valli 4): Smokeless Flame
+    {
+        id: 84,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "अङ्गुष्ठमात्रः पुरुषो ज्योतिरिवाधूमकः । ईशानो भूतभव्यस्य स एवाद्य स उ श्वः । एतद्वै तत् ॥ १३ ॥",
+        hindi: "वह अंगूठे के माप वाला पुरुष 'धूम्ररहित ज्योति' के समान है। वह भूत और भविष्य का शासक है। वह ही आज है और वह ही कल। यही वह है।",
+        english: "The Purusha, of the size of a thumb, is like a flame without smoke. He is the Lord of the past and future. He is today and He is tomorrow. This is verily That.",
+        simpleExplanation: "The Self is like a SMOKELESS FLAME—pure light with no combustion residue. Same yesterday, today, tomorrow.",
+        simpleExplanationHindi: "आत्मा धूम्ररहित ज्योति की तरह है—कोई दहन अवशेष नहीं। कल, आज, कल भी वही।",
+        theme: "Smokeless Flame",
+        nanoBananaPrompt: "A small pure flame without smoke—eternal, unchanging, present in all time."
+    },
+
+    // Verse 14 (Valli 4): Scattered Rain
+    {
+        id: 85,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यथोदकं दुर्गे वृष्टं पर्वतेषु विधावति । एवं धर्मान् पृथक् पश्यंस्तानेवानुविधावति ॥ १४ ॥",
+        hindi: "जैसे ऊंचे पहाड़ पर बरसा हुआ पानी चारों तरफ बह जाता है, वैसे ही जो धर्मों को अलग-अलग देखता है, वह उन्हीं के पीछे दौड़ता रहता है।",
+        english: "As water rained upon a height runs down the sides of the mountains, so he who sees attributes as different runs after them only.",
+        simpleExplanation: "Like rain scattering down a mountain, one who sees multiplicity scatters their energy chasing fragments.",
+        simpleExplanationHindi: "जैसे बारिश पहाड़ से नीचे बिखर जाती है, जो बहुलता देखता है वह टुकड़ों का पीछा करते हुए ऊर्जा बिखेर देता है।",
+        theme: "Scattered Vision",
+        nanoBananaPrompt: "Rain water scattering in all directions down a mountain—energy lost chasing multiplicity."
+    },
+
+    // Verse 15 (Valli 4): Pure Water Merges - BEAUTIFUL
+    {
+        id: 86,
+        valli: 4,
+        adhyaya: 2,
+        section: "Final Teaching",
+        sanskrit: "यथोदकं शुद्धे शुद्धमासिक्तं तादृगेव भवति । एवं मुनेर्विजानत आत्मा भवति गौतम ॥ १५ ॥",
+        hindi: "हे गौतम (नचिकेता)! जैसे शुद्ध जल में डाला गया शुद्ध जल वैसा ही (एक रूप) हो जाता है, वैसे ही ज्ञानी मुनि की आत्मा परमात्मा में मिलकर वैसी ही हो जाती है।",
+        english: "As pure water poured into pure water becomes the same, so becomes the Self of the sage who understands, O Gautama.",
+        simpleExplanation: "BEAUTIFUL METAPHOR: Pure water poured into pure water becomes ONE. The knowing sage merges with the Absolute.",
+        simpleExplanationHindi: "सुंदर रूपक: शुद्ध जल शुद्ध जल में मिलकर एक हो जाता है। जानने वाला ज्ञानी परम में विलीन हो जाता है।",
+        theme: "Water Merges",
+        nanoBananaPrompt: "Pure water being poured into pure water—becoming indistinguishable, perfect merger with the Absolute."
     }
 ];
 
