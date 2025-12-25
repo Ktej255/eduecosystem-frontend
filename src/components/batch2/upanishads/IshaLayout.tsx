@@ -3,9 +3,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, BookOpen, Sun, Sparkles, Languages, ChevronRight, ChevronLeft, Volume2, VolumeX, Eye, Info, ListChecks, Heart, Zap } from "lucide-react";
+import { ArrowLeft, BookOpen, Sun, Sparkles, Languages, ChevronRight, ChevronLeft, Volume2, VolumeX, Eye, Info, ListChecks, Heart, Zap, ScrollText } from "lucide-react";
 import { ISHA_METADATA, ISHA_UPANISHAD } from "@/components/batch2/upanishads/data/isha-shlokas";
 import { getShlokaImage } from "@/components/batch2/upanishads/data/isha-images";
+import IshaResearchReport from "@/components/batch2/upanishads/IshaResearchReport";
 
 // Split data by sections defined in data file
 const foundationData = ISHA_UPANISHAD.filter(d => d.section === "Foundation");
@@ -471,7 +472,7 @@ function RevelationMode({ lang }: { lang: "en" | "hi" }) {
 export default function IshaLayout() {
     const router = useRouter();
     const [lang, setLang] = useState<"en" | "hi">("en");
-    const [activeTab, setActiveTab] = useState<"summary" | "foundation" | "philosophy" | "knowledge" | "prayer">("summary");
+    const [activeTab, setActiveTab] = useState<"summary" | "research" | "foundation" | "philosophy" | "knowledge" | "prayer">("summary");
     const [isPlaying, setIsPlaying] = useState(false);
 
     return (
@@ -534,6 +535,7 @@ export default function IshaLayout() {
                     <div className="flex bg-black/60 rounded-2xl p-1.5 border border-white/5 shadow-2xl overflow-x-auto no-scrollbar max-w-[60%] md:max-w-none">
                         {[
                             { id: "summary", label: "Overview", icon: Info },
+                            { id: "research", label: "Research", icon: ScrollText },
                             { id: "foundation", label: "Foundation", icon: BookOpen },
                             { id: "philosophy", label: "Philosophy", icon: Sparkles },
                             { id: "knowledge", label: "Knowledge", icon: Sun },
@@ -548,7 +550,7 @@ export default function IshaLayout() {
                                     }`}
                             >
                                 <tab.icon className="w-4 h-4" />
-                                <span className="uppercase tracking-widest">{lang === "en" ? tab.label : (tab.id === "summary" ? "सारांश" : tab.id === "foundation" ? "आधार" : tab.id === "philosophy" ? "दर्शन" : tab.id === "knowledge" ? "ज्ञान" : "प्रार्थना")}</span>
+                                <span className="uppercase tracking-widest">{lang === "en" ? tab.label : (tab.id === "summary" ? "सारांश" : tab.id === "research" ? "अनुसंधान" : tab.id === "foundation" ? "आधार" : tab.id === "philosophy" ? "दर्शन" : tab.id === "knowledge" ? "ज्ञान" : "प्रार्थना")}</span>
                             </button>
                         ))}
                     </div>
@@ -600,6 +602,9 @@ export default function IshaLayout() {
                     >
                         {activeTab === "summary" && (
                             <IshaOverview lang={lang} />
+                        )}
+                        {activeTab === "research" && (
+                            <IshaResearchReport lang={lang} />
                         )}
                         {activeTab === "foundation" && (
                             <WisdomStream
