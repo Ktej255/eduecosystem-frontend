@@ -49,6 +49,7 @@ def login_access_token(
             "access_token": security.create_access_token(
                 user.id,
                 expires_delta=timedelta(minutes=5),  # Short expiry for 2FA step
+                token_version=user.token_version,
             ),
             "token_type": "bearer",
             "require_2fa": True,
@@ -56,7 +57,7 @@ def login_access_token(
 
     return {
         "access_token": security.create_access_token(
-            user.id, expires_delta=access_token_expires
+            user.id, expires_delta=access_token_expires, token_version=user.token_version
         ),
         "token_type": "bearer",
         "require_2fa": False,
@@ -117,7 +118,7 @@ def register(
             
             Please login to the admin panel to approve or reject this request.
             
-            Admin Panel: https://d2azz9jngd0rmq.amplifyapp.com/admin/users
+            Admin Panel: https://eduecosystem-frontend.vercel.app/admin/users
             """
             
             # Log the approval request (email sending may fail if SMTP not configured)

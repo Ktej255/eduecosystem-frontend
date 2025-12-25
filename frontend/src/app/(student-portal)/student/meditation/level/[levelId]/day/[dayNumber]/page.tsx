@@ -1,12 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { ArrowLeft, Play, CheckCircle2, Circle, Video, Clock, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowLeft, Play, CheckCircle2, Video, Clock, ChevronRight, Sparkles, Maximize2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { meditationService, MeditationDayOverview, MeditationProcessInfo } from "@/services/meditationService";
+import dynamic from "next/dynamic";
+
+// Dynamic import for the full meditation player (heavy component)
+const MeditationPlayer = dynamic(
+    () => import("@/components/meditation/MeditationPlayer"),
+    {
+        ssr: false,
+        loading: () => (
+            <div className="fixed inset-0 bg-black flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500"></div>
+            </div>
+        )
+    }
+);
 
 export default function MeditationDayPage() {
     const params = useParams();
@@ -19,6 +33,8 @@ export default function MeditationDayPage() {
     const [completingProcess, setCompletingProcess] = useState<number | null>(null);
     const [completingDay, setCompletingDay] = useState(false);
     const [currentVideoProcess, setCurrentVideoProcess] = useState<MeditationProcessInfo | null>(null);
+    const [isImmersiveMode, setIsImmersiveMode] = useState(false);
+    const [currentStreak, setCurrentStreak] = useState(0);
 
     useEffect(() => {
         if (levelId && dayNumber) {
@@ -31,6 +47,14 @@ export default function MeditationDayPage() {
             setLoading(true);
             const data = await meditationService.getDayProcesses(levelId, dayNumber);
             setDayData(data);
+
+            // Also get overview for streak info
+            try {
+                const overview = await meditationService.getOverview();
+                setCurrentStreak(overview.total_streak);
+            } catch (e) {
+                console.log("Could not get streak");
+            }
         } catch (err: any) {
             console.error("Failed to load day:", err);
             toast.error(err.message || "Failed to load day data");
@@ -38,6 +62,32 @@ export default function MeditationDayPage() {
             setLoading(false);
         }
     };
+
+    // Convert MeditationProcessInfo to MeditationProcess format for player
+    const processesForPlayer = useMemo(() => {
+        if (!dayData) return [];
+        return dayData.processes.map(p => ({
+            id: p.id,
+            name: p.name,
+            description: p.description,
+            order: p.order,
+            duration_seconds: p.duration_minutes * 60, // Convert to seconds
+            video_url: p.video_url || undefined,
+            announcement_audio_url: undefined,
+            background_music_url: undefined,
+            bell_sound_url: undefined
+        }));
+    }, [dayData]);
+
+    // Identify new processes for tutorial mode
+    const newProcessesForPlayer = useMemo(() => {
+        if (!dayData?.is_unlock_day || !dayData.new_process_start || !dayData.new_process_end) {
+            return [];
+        }
+        return processesForPlayer.filter(
+            p => p.order >= dayData.new_process_start! && p.order <= dayData.new_process_end!
+        );
+    }, [dayData, processesForPlayer]);
 
     const handleCompleteProcess = async (process: MeditationProcessInfo, watchedVideo: boolean = false) => {
         if (!dayData) return;
@@ -48,11 +98,9 @@ export default function MeditationDayPage() {
             const result = await meditationService.completeProcess(levelId, dayNumber, process.id, watchedVideo);
 
             if (result.success) {
-                // Refresh data
                 await loadDayData();
                 toast.success(result.message);
 
-                // Check if all done
                 if (result.all_processes_done) {
                     toast.success("All processes completed! You can now complete the day.");
                 }
@@ -79,7 +127,6 @@ export default function MeditationDayPage() {
                     toast.success("Congratulations! You've completed this level!");
                 }
 
-                // Navigate back
                 setTimeout(() => {
                     router.push(`/student/meditation/level/${levelId}`);
                 }, 1500);
@@ -106,6 +153,20 @@ export default function MeditationDayPage() {
         return colors[level as keyof typeof colors] || colors[1];
     };
 
+    // Show immersive meditation player
+    if (isImmersiveMode && dayData) {
+        return (
+            <MeditationPlayer
+                levelId={levelId}
+                dayNumber={dayNumber}
+                processes={processesForPlayer}
+                isUnlockDay={dayData.is_unlock_day}
+                newProcesses={newProcessesForPlayer}
+                currentStreak={currentStreak}
+            />
+        );
+    }
+
     if (loading) {
         return (
             <div className="flex items-center justify-center min-h-[400px]">
@@ -128,6 +189,7 @@ export default function MeditationDayPage() {
     const colors = getLevelColor(levelId);
     const allCompleted = dayData.processes.every(p => dayData.completed_processes.includes(p.id));
     const completedCount = dayData.completed_processes.length;
+    const totalDuration = dayData.processes.reduce((sum, p) => sum + p.duration_minutes, 0);
 
     return (
         <div className="space-y-6 max-w-3xl mx-auto p-4 md:p-6">
@@ -146,7 +208,7 @@ export default function MeditationDayPage() {
                                 Day {dayNumber} - Meditation Practice
                             </h1>
                             <p className="text-gray-600 dark:text-gray-400 mt-1">
-                                {dayData.total_processes} processes to complete
+                                {dayData.total_processes} processes • ~{totalDuration} min
                             </p>
                             {dayData.is_unlock_day && (
                                 <div className="flex items-center gap-2 mt-2 text-green-600">
@@ -166,6 +228,34 @@ export default function MeditationDayPage() {
                     </div>
                 </CardContent>
             </Card>
+
+            {/* Launch Immersive Session Button */}
+            {!dayData.is_day_completed && (
+                <Card className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-0">
+                    <CardContent className="p-6">
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                            <div>
+                                <h3 className="text-xl font-bold flex items-center gap-2">
+                                    <Maximize2 className="h-5 w-5" />
+                                    Immersive Meditation Session
+                                </h3>
+                                <p className="text-indigo-100 text-sm mt-1">
+                                    Full-screen guided experience with timers, audio & auto-transitions
+                                </p>
+                            </div>
+                            <Button
+                                size="lg"
+                                variant="secondary"
+                                onClick={() => setIsImmersiveMode(true)}
+                                className="whitespace-nowrap"
+                            >
+                                <Play className="mr-2 h-5 w-5" />
+                                Start Session
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+            )}
 
             {/* Video Player Modal */}
             {currentVideoProcess && currentVideoProcess.video_url && (
@@ -206,7 +296,7 @@ export default function MeditationDayPage() {
             <div className="space-y-3">
                 <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200">Today's Processes</h2>
 
-                {dayData.processes.map((process, index) => {
+                {dayData.processes.map((process) => {
                     const isCompleted = dayData.completed_processes.includes(process.id);
                     const isNew = isProcessNew(process.order);
                     const hasVideo = !!process.video_url;

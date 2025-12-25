@@ -12,6 +12,10 @@ export interface MeditationProcessInfo {
     level: number;
     is_active: boolean;
     created_at: string;
+    // Audio assets for immersive player
+    announcement_audio_url?: string | null;
+    background_music_url?: string | null;
+    bell_sound_url?: string | null;
 }
 
 export interface MeditationLevelInfo {

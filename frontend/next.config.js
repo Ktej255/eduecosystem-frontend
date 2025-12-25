@@ -6,7 +6,7 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   compress: true,
 
-  // Image optimization - using unoptimized for Amplify compatibility
+  // Image optimization - enabled for Vercel
   images: {
     unoptimized: true,
   },
@@ -69,7 +69,7 @@ const nextConfig = {
   // Environment variables
   env: {
     NEXT_PUBLIC_API_URL:
-      process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com",
+      process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000",
   },
 
   // Experimental features for performance

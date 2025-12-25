@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.api import deps
@@ -11,7 +11,7 @@ router = APIRouter()
 
 class ChatRequest(BaseModel):
     message: str
-    context: str | None = None  # Optional context about user's learning journey
+    context: Optional[str] = None  # Optional context about user's learning journey
 
 
 @router.post("/chat")
@@ -49,7 +49,10 @@ Keep responses concise (2-3 sentences) and actionable.
     try:
         # Get AI response from Gemini
         response = gemini_service.chat(
-            messages=messages, system_prompt=system_prompt, temperature=0.7
+            messages=messages, 
+            user=current_user,
+            system_prompt=system_prompt, 
+            temperature=0.7
         )
 
         return {"response": response}

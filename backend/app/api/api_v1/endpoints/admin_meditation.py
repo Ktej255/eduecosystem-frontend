@@ -180,3 +180,217 @@ def delete_process_video(
     
     db.commit()
     return {"success": True, "message": "Video deleted"}
+
+
+# ============ AUDIO UPLOAD ENDPOINTS ============
+
+AUDIO_UPLOAD_DIR = "uploads/meditation/audio"
+os.makedirs(AUDIO_UPLOAD_DIR, exist_ok=True)
+
+
+@router.post("/processes/{process_id}/audio/announcement", response_model=MeditationProcessResponse)
+async def upload_announcement_audio(
+    process_id: int,
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin)
+):
+    """Upload announcement voiceover for a meditation process"""
+    process = db.query(MeditationProcess).filter(MeditationProcess.id == process_id).first()
+    if not process:
+        raise HTTPException(status_code=404, detail="Process not found")
+    
+    # Validate file type
+    allowed_types = ["audio/mpeg", "audio/mp3", "audio/wav", "audio/ogg", "audio/webm"]
+    if file.content_type not in allowed_types:
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Invalid file type. Allowed: MP3, WAV, OGG, WebM"
+        )
+    
+    # Generate unique filename
+    file_ext = os.path.splitext(file.filename)[1] if file.filename else ".mp3"
+    unique_filename = f"announcement_{process_id}_{uuid.uuid4().hex}{file_ext}"
+    file_path = os.path.join(AUDIO_UPLOAD_DIR, unique_filename)
+    
+    # Save file
+    contents = await file.read()
+    with open(file_path, "wb") as f:
+        f.write(contents)
+    
+    # Update process
+    process.announcement_audio_url = f"/uploads/meditation/audio/{unique_filename}"
+    
+    db.commit()
+    db.refresh(process)
+    
+    return process
+
+
+@router.post("/processes/{process_id}/audio/background", response_model=MeditationProcessResponse)
+async def upload_background_music(
+    process_id: int,
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin)
+):
+    """Upload background music for a meditation process"""
+    process = db.query(MeditationProcess).filter(MeditationProcess.id == process_id).first()
+    if not process:
+        raise HTTPException(status_code=404, detail="Process not found")
+    
+    # Validate file type
+    allowed_types = ["audio/mpeg", "audio/mp3", "audio/wav", "audio/ogg", "audio/webm"]
+    if file.content_type not in allowed_types:
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Invalid file type. Allowed: MP3, WAV, OGG, WebM"
+        )
+    
+    # Generate unique filename
+    file_ext = os.path.splitext(file.filename)[1] if file.filename else ".mp3"
+    unique_filename = f"background_{process_id}_{uuid.uuid4().hex}{file_ext}"
+    file_path = os.path.join(AUDIO_UPLOAD_DIR, unique_filename)
+    
+    # Save file
+    contents = await file.read()
+    with open(file_path, "wb") as f:
+        f.write(contents)
+    
+    # Update process
+    process.background_music_url = f"/uploads/meditation/audio/{unique_filename}"
+    
+    db.commit()
+    db.refresh(process)
+    
+    return process
+
+
+@router.post("/processes/{process_id}/audio/bell", response_model=MeditationProcessResponse)
+async def upload_bell_sound(
+    process_id: int,
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin)
+):
+    """Upload bell/chime transition sound for a meditation process"""
+    process = db.query(MeditationProcess).filter(MeditationProcess.id == process_id).first()
+    if not process:
+        raise HTTPException(status_code=404, detail="Process not found")
+    
+    # Validate file type
+    allowed_types = ["audio/mpeg", "audio/mp3", "audio/wav", "audio/ogg", "audio/webm"]
+    if file.content_type not in allowed_types:
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Invalid file type. Allowed: MP3, WAV, OGG, WebM"
+        )
+    
+    # Generate unique filename
+    file_ext = os.path.splitext(file.filename)[1] if file.filename else ".mp3"
+    unique_filename = f"bell_{process_id}_{uuid.uuid4().hex}{file_ext}"
+    file_path = os.path.join(AUDIO_UPLOAD_DIR, unique_filename)
+    
+    # Save file
+    contents = await file.read()
+    with open(file_path, "wb") as f:
+        f.write(contents)
+    
+    # Update process
+    process.bell_sound_url = f"/uploads/meditation/audio/{unique_filename}"
+    
+    db.commit()
+    db.refresh(process)
+    
+    return process
+
+
+# ============ PROGRESS MANAGEMENT ENDPOINTS ============
+
+@router.delete("/progress/reset/{user_id}")
+def reset_user_progress(
+    user_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin)
+):
+    """Reset a user's meditation progress to Day 1 (for testing purposes)"""
+    from app.models.meditation import MeditationProgress, MeditationDayCompletion, MeditationProcessCompletion
+    
+    # Find user's progress
+    progress = db.query(MeditationProgress).filter(MeditationProgress.user_id == user_id).first()
+    
+    if not progress:
+        raise HTTPException(status_code=404, detail="User progress not found")
+    
+    # Delete all process completions first (due to foreign key)
+    day_completions = db.query(MeditationDayCompletion).filter(
+        MeditationDayCompletion.progress_id == progress.id
+    ).all()
+    
+    for day in day_completions:
+        db.query(MeditationProcessCompletion).filter(
+            MeditationProcessCompletion.day_completion_id == day.id
+        ).delete()
+    
+    # Delete all day completions
+    db.query(MeditationDayCompletion).filter(
+        MeditationDayCompletion.progress_id == progress.id
+    ).delete()
+    
+    # Reset progress to Day 1
+    progress.current_level = 1
+    progress.current_day = 1
+    progress.total_streak = 0
+    progress.last_practice_date = None
+    
+    db.commit()
+    
+    return {
+        "success": True,
+        "message": f"Reset meditation progress for user {user_id} to Day 1",
+        "user_id": user_id
+    }
+
+
+@router.delete("/progress/reset-me")
+def reset_my_progress(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin)
+):
+    """Reset the current admin user's own meditation progress to Day 1 (for testing)"""
+    from app.models.meditation import MeditationProgress, MeditationDayCompletion, MeditationProcessCompletion
+    
+    # Find current user's progress
+    progress = db.query(MeditationProgress).filter(MeditationProgress.user_id == current_user.id).first()
+    
+    if not progress:
+        return {"success": True, "message": "No progress to reset", "user_id": current_user.id}
+    
+    # Delete all process completions first
+    day_completions = db.query(MeditationDayCompletion).filter(
+        MeditationDayCompletion.progress_id == progress.id
+    ).all()
+    
+    for day in day_completions:
+        db.query(MeditationProcessCompletion).filter(
+            MeditationProcessCompletion.day_completion_id == day.id
+        ).delete()
+    
+    # Delete all day completions
+    db.query(MeditationDayCompletion).filter(
+        MeditationDayCompletion.progress_id == progress.id
+    ).delete()
+    
+    # Reset progress
+    progress.current_level = 1
+    progress.current_day = 1
+    progress.total_streak = 0
+    progress.last_practice_date = None
+    
+    db.commit()
+    
+    return {
+        "success": True,
+        "message": "Your meditation progress has been reset to Day 1",
+        "user_id": current_user.id
+    }
