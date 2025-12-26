@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PolityHome from "@/components/batch1/polity/PolityHome";
 
 // 90-Day UPSC Course Structure
 const UPSC_CYCLES = [
@@ -149,24 +151,60 @@ export default function Batch1Page() {
                         </CardContent>
                     </Card>
 
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Select Day</h3>
-                    <div className="grid grid-cols-5 gap-3">
-                        {Array.from({ length: 10 }, (_, i) => i + 1).map((day) => (
-                            <Card
-                                key={day}
-                                className="cursor-pointer hover:shadow-md hover:border-primary transition-all text-center"
-                                onClick={() => setSelectedDay(day)}
-                            >
-                                <CardContent className="p-4">
-                                    <div className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
-                                        {day}
-                                    </div>
-                                    <div className="text-xs text-gray-500">Day {day}</div>
-                                    <div className="text-xs text-gray-400 mt-1">3 parts • 6 hrs</div>
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
+                    {/* Cycle 1 (Polity) - Show Tabs for Topics View */}
+                    {selectedCycle === 1 ? (
+                        <Tabs defaultValue="daily" className="w-full">
+                            <TabsList className="grid w-full grid-cols-2 mb-6">
+                                <TabsTrigger value="daily">Daily Plan (10 Days)</TabsTrigger>
+                                <TabsTrigger value="topics">Full Syllabus (50 Topics)</TabsTrigger>
+                            </TabsList>
+                            <TabsContent value="daily" className="space-y-4">
+                                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Select Day</h3>
+                                <div className="grid grid-cols-5 gap-3">
+                                    {Array.from({ length: 10 }, (_, i) => i + 1).map((day) => (
+                                        <Card
+                                            key={day}
+                                            className="cursor-pointer hover:shadow-md hover:border-primary transition-all text-center"
+                                            onClick={() => setSelectedDay(day)}
+                                        >
+                                            <CardContent className="p-4">
+                                                <div className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
+                                                    {day}
+                                                </div>
+                                                <div className="text-xs text-gray-500">Day {day}</div>
+                                                <div className="text-xs text-gray-400 mt-1">3 parts • 6 hrs</div>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </div>
+                            </TabsContent>
+                            <TabsContent value="topics">
+                                <PolityHome embedded />
+                            </TabsContent>
+                        </Tabs>
+                    ) : (
+                        /* Standard View for Other Cycles */
+                        <>
+                            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Select Day</h3>
+                            <div className="grid grid-cols-5 gap-3">
+                                {Array.from({ length: 10 }, (_, i) => i + 1).map((day) => (
+                                    <Card
+                                        key={day}
+                                        className="cursor-pointer hover:shadow-md hover:border-primary transition-all text-center"
+                                        onClick={() => setSelectedDay(day)}
+                                    >
+                                        <CardContent className="p-4">
+                                            <div className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
+                                                {day}
+                                            </div>
+                                            <div className="text-xs text-gray-500">Day {day}</div>
+                                            <div className="text-xs text-gray-400 mt-1">3 parts • 6 hrs</div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </div>
             ) : (
                 /* Part Selection */

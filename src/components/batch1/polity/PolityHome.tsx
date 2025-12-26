@@ -5,7 +5,7 @@ import { Book, ChevronRight, Clock, Sparkles, Target, TrendingUp } from 'lucide-
 import Link from 'next/link';
 import { POLITY_MODULES, POLITY_TOPICS, getModuleColors, getTopicsByModule } from './data/polity-registry';
 
-export default function PolityHome() {
+export default function PolityHome({ embedded = false }: { embedded?: boolean }) {
     const [selectedModule, setSelectedModule] = useState<string | null>(null);
 
     // Calculate overall stats
@@ -14,48 +14,50 @@ export default function PolityHome() {
     const highPriorityTopics = POLITY_TOPICS.filter(t => t.priority === 'High').length;
 
     return (
-        <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a]">
-            {/* Hero Section */}
-            <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white">
-                <div className="max-w-6xl mx-auto px-6 py-12">
-                    <div className="flex items-center gap-2 text-blue-200 text-sm mb-2">
-                        <Book className="w-4 h-4" />
-                        <span>UPSC Prelims 2026 • Cycle 1</span>
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-bold mb-3">
-                        Indian Polity & Governance
-                    </h1>
-                    <p className="text-xl text-blue-100 mb-6">
-                        The Smart 50 Module: Laxmikanth + Current Affairs (Jan 2024 – May 2026)
-                    </p>
+        <div className={`min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a] ${embedded ? 'min-h-0 bg-transparent' : ''}`}>
+            {/* Hero Section - Hidden in embedded mode */}
+            {!embedded && (
+                <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white">
+                    <div className="max-w-6xl mx-auto px-6 py-12">
+                        <div className="flex items-center gap-2 text-blue-200 text-sm mb-2">
+                            <Book className="w-4 h-4" />
+                            <span>UPSC Prelims 2026 • Cycle 1</span>
+                        </div>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-3">
+                            Indian Polity & Governance
+                        </h1>
+                        <p className="text-xl text-blue-100 mb-6">
+                            The Smart 50 Module: Laxmikanth + Current Affairs (Jan 2024 – May 2026)
+                        </p>
 
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                        <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                            <div className="text-3xl font-bold">50</div>
-                            <div className="text-blue-200 text-sm">Topics</div>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                            <div className="text-3xl font-bold">9</div>
-                            <div className="text-blue-200 text-sm">Modules</div>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                            <div className="text-3xl font-bold flex items-center gap-1">
-                                {totalCA}
-                                <Sparkles className="w-5 h-5 text-yellow-400" />
+                        {/* Stats */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                            <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                                <div className="text-3xl font-bold">50</div>
+                                <div className="text-blue-200 text-sm">Topics</div>
                             </div>
-                            <div className="text-blue-200 text-sm">Current Affairs</div>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                            <div className="text-3xl font-bold flex items-center gap-1">
-                                {highPriorityTopics}
-                                <Target className="w-5 h-5 text-red-400" />
+                            <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                                <div className="text-3xl font-bold">9</div>
+                                <div className="text-blue-200 text-sm">Modules</div>
                             </div>
-                            <div className="text-blue-200 text-sm">High Priority</div>
+                            <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                                <div className="text-3xl font-bold flex items-center gap-1">
+                                    {totalCA}
+                                    <Sparkles className="w-5 h-5 text-yellow-400" />
+                                </div>
+                                <div className="text-blue-200 text-sm">Current Affairs</div>
+                            </div>
+                            <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                                <div className="text-3xl font-bold flex items-center gap-1">
+                                    {highPriorityTopics}
+                                    <Target className="w-5 h-5 text-red-400" />
+                                </div>
+                                <div className="text-blue-200 text-sm">High Priority</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
 
             {/* Module Navigation */}
             <div className="max-w-6xl mx-auto px-6 py-8">
@@ -77,8 +79,8 @@ export default function PolityHome() {
                                 onClick={() => isActive && setSelectedModule(module.id)}
                                 disabled={!isActive}
                                 className={`text-left p-5 rounded-2xl border-2 transition-all ${isActive
-                                        ? `hover:shadow-lg hover:border-blue-500 bg-white dark:bg-[#111] border-gray-200 dark:border-gray-800`
-                                        : `opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-900 border-gray-200 dark:border-gray-800`
+                                    ? `hover:shadow-lg hover:border-blue-500 bg-white dark:bg-[#111] border-gray-200 dark:border-gray-800`
+                                    : `opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-900 border-gray-200 dark:border-gray-800`
                                     }`}
                             >
                                 <div className="flex items-center gap-3 mb-3">
