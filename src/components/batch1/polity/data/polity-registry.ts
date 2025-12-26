@@ -49,6 +49,20 @@ import { topic36NHRCLegalAid } from './topics/topic-36-nhrc-legal-aid';
 import { topic37CICLokpal } from './topics/topic-37-cic-lokpal';
 import { topic38NITINIACBl } from './topics/topic-38-niti-nia-cbi';
 
+// Import Topics 39-50 (Phase 5)
+import { topic39SpecialProvisions } from './topics/topic-39-special-provisions';
+import { topic40Schedules } from './topics/topic-40-schedules';
+import { topic41OfficialLanguage } from './topics/topic-41-official-language';
+import { topic42Tribunals } from './topics/topic-42-tribunals';
+import { topic43AGAG } from './topics/topic-43-ag';
+import { topic44GoodGovernance } from './topics/topic-44-good-governance';
+import { topic45PressureGroups } from './topics/topic-45-pressure-groups';
+import { topic46IssuesI } from './topics/topic-46-issues-1';
+import { topic47IssuesII } from './topics/topic-47-issues-2';
+import { topic48ElectoralReforms } from './topics/topic-48-electoral-reforms';
+import { topic49GovernanceTerms } from './topics/topic-49-governance-terms';
+import { topic50CurrentAffairs } from './topics/topic-50-current-affairs';
+
 // All topics registry
 export const POLITY_TOPICS: PolityTopic[] = [
     topic01HistoricalEvolution,
@@ -89,7 +103,18 @@ export const POLITY_TOPICS: PolityTopic[] = [
     topic36NHRCLegalAid,
     topic37CICLokpal,
     topic38NITINIACBl,
-    // Topics 39-50 will be added in Phase 5
+    topic39SpecialProvisions,
+    topic40Schedules,
+    topic41OfficialLanguage,
+    topic42Tribunals,
+    topic43AGAG,
+    topic44GoodGovernance,
+    topic45PressureGroups,
+    topic46IssuesI,
+    topic47IssuesII,
+    topic48ElectoralReforms,
+    topic49GovernanceTerms,
+    topic50CurrentAffairs,
 ];
 
 // Get topic by ID
