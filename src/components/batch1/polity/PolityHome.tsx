@@ -19,6 +19,11 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
             {!embedded && (
                 <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white">
                     <div className="max-w-6xl mx-auto px-6 py-12">
+                        <Link href="/student/batch1" className="inline-flex items-center gap-2 text-blue-200 hover:text-white transition-colors mb-6 text-sm font-medium">
+                            <ChevronRight className="w-4 h-4 rotate-180" />
+                            Back to Dashboard
+                        </Link>
+
                         <div className="flex items-center gap-2 text-blue-200 text-sm mb-2">
                             <Book className="w-4 h-4" />
                             <span>UPSC Prelims 2026 • Cycle 1</span>
