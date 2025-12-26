@@ -135,8 +135,99 @@ export default function Batch1Page() {
                         );
                     })}
                 </div>
+            ) : selectedCycle === 1 ? (
+                /* Cycle 1 (Polity) - Tabbed Interface covering BOTH Day Selection and Part Selection */
+                <div className="space-y-4">
+                    <Button variant="ghost" onClick={() => { setSelectedCycle(null); setSelectedDay(null); }} className="text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white">
+                        ← Back to All Cycles
+                    </Button>
+
+                    <Card className={`${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).bg} border-0`}>
+                        <CardContent className="p-6">
+                            <h2 className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
+                                Cycle {selectedCycle}: {UPSC_CYCLES[selectedCycle - 1].name}
+                            </h2>
+                            <p className="text-gray-600 dark:text-gray-400">{UPSC_CYCLES[selectedCycle - 1].theme}</p>
+                        </CardContent>
+                    </Card>
+
+                    <Tabs defaultValue="daily" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 mb-6">
+                            <TabsTrigger value="daily">Daily Plan (10 Days)</TabsTrigger>
+                            <TabsTrigger value="topics">Full Syllabus (50 Topics)</TabsTrigger>
+                        </TabsList>
+
+                        <TabsContent value="daily" className="space-y-4">
+                            {!selectedDay ? (
+                                /* Day Selection View */
+                                <>
+                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Select Day</h3>
+                                    <div className="grid grid-cols-5 gap-3">
+                                        {Array.from({ length: 10 }, (_, i) => i + 1).map((day) => (
+                                            <Card
+                                                key={day}
+                                                className="cursor-pointer hover:shadow-md hover:border-primary transition-all text-center"
+                                                onClick={() => setSelectedDay(day)}
+                                            >
+                                                <CardContent className="p-4">
+                                                    <div className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1]?.color || 'blue').text}`}>
+                                                        {day}
+                                                    </div>
+                                                    <div className="text-xs text-gray-500">Day {day}</div>
+                                                    <div className="text-xs text-gray-400 mt-1">3 parts • 6 hrs</div>
+                                                </CardContent>
+                                            </Card>
+                                        ))}
+                                    </div>
+                                </>
+                            ) : (
+                                /* Part Selection View (Inside Daily Tab) */
+                                <div className="space-y-4">
+                                    <Button variant="ghost" onClick={() => setSelectedDay(null)} className="text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white">
+                                        ← Back to Days
+                                    </Button>
+
+                                    <Card className={`${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).bg} border-0`}>
+                                        <CardContent className="p-6">
+                                            <h2 className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
+                                                Cycle {selectedCycle}, Day {selectedDay}
+                                            </h2>
+                                            <p className="text-gray-600 dark:text-gray-400">Select a part to start learning (2 hours each)</p>
+                                        </CardContent>
+                                    </Card>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        {[1, 2, 3].map((part) => (
+                                            <Link
+                                                key={part}
+                                                href={`/student/batch1/cycle/${selectedCycle}/day/${selectedDay}/part/${part}`}
+                                            >
+                                                <Card className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-primary">
+                                                    <CardContent className="p-6 text-center">
+                                                        <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).bg} flex items-center justify-center`}>
+                                                            <Play className={`h-8 w-8 ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`} />
+                                                        </div>
+                                                        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Part {part}</h3>
+                                                        <p className="text-gray-500 text-sm mt-1">2 hours • 4 segments</p>
+                                                        <Button className="mt-4 w-full">
+                                                            Start Part {part}
+                                                        </Button>
+                                                    </CardContent>
+                                                </Card>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </TabsContent>
+
+                        <TabsContent value="topics">
+                            <PolityHome embedded />
+                        </TabsContent>
+                    </Tabs>
+                </div>
             ) : !selectedDay ? (
-                /* Day Selection */
+                /* Non-Polity Cycles: Day Selection */
                 <div className="space-y-4">
                     <Button variant="ghost" onClick={() => setSelectedCycle(null)} className="text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white">
                         ← Back to All Cycles
@@ -151,63 +242,27 @@ export default function Batch1Page() {
                         </CardContent>
                     </Card>
 
-                    {/* Cycle 1 (Polity) - Show Tabs for Topics View */}
-                    {selectedCycle === 1 ? (
-                        <Tabs defaultValue="daily" className="w-full">
-                            <TabsList className="grid w-full grid-cols-2 mb-6">
-                                <TabsTrigger value="daily">Daily Plan (10 Days)</TabsTrigger>
-                                <TabsTrigger value="topics">Full Syllabus (50 Topics)</TabsTrigger>
-                            </TabsList>
-                            <TabsContent value="daily" className="space-y-4">
-                                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Select Day</h3>
-                                <div className="grid grid-cols-5 gap-3">
-                                    {Array.from({ length: 10 }, (_, i) => i + 1).map((day) => (
-                                        <Card
-                                            key={day}
-                                            className="cursor-pointer hover:shadow-md hover:border-primary transition-all text-center"
-                                            onClick={() => setSelectedDay(day)}
-                                        >
-                                            <CardContent className="p-4">
-                                                <div className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
-                                                    {day}
-                                                </div>
-                                                <div className="text-xs text-gray-500">Day {day}</div>
-                                                <div className="text-xs text-gray-400 mt-1">3 parts • 6 hrs</div>
-                                            </CardContent>
-                                        </Card>
-                                    ))}
-                                </div>
-                            </TabsContent>
-                            <TabsContent value="topics">
-                                <PolityHome embedded />
-                            </TabsContent>
-                        </Tabs>
-                    ) : (
-                        /* Standard View for Other Cycles */
-                        <>
-                            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Select Day</h3>
-                            <div className="grid grid-cols-5 gap-3">
-                                {Array.from({ length: 10 }, (_, i) => i + 1).map((day) => (
-                                    <Card
-                                        key={day}
-                                        className="cursor-pointer hover:shadow-md hover:border-primary transition-all text-center"
-                                        onClick={() => setSelectedDay(day)}
-                                    >
-                                        <CardContent className="p-4">
-                                            <div className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
-                                                {day}
-                                            </div>
-                                            <div className="text-xs text-gray-500">Day {day}</div>
-                                            <div className="text-xs text-gray-400 mt-1">3 parts • 6 hrs</div>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </>
-                    )}
+                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Select Day</h3>
+                    <div className="grid grid-cols-5 gap-3">
+                        {Array.from({ length: 10 }, (_, i) => i + 1).map((day) => (
+                            <Card
+                                key={day}
+                                className="cursor-pointer hover:shadow-md hover:border-primary transition-all text-center"
+                                onClick={() => setSelectedDay(day)}
+                            >
+                                <CardContent className="p-4">
+                                    <div className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
+                                        {day}
+                                    </div>
+                                    <div className="text-xs text-gray-500">Day {day}</div>
+                                    <div className="text-xs text-gray-400 mt-1">3 parts • 6 hrs</div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
                 </div>
             ) : (
-                /* Part Selection */
+                /* Non-Polity Cycles: Part Selection */
                 <div className="space-y-4">
                     <Button variant="ghost" onClick={() => setSelectedDay(null)} className="text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white">
                         ← Back to Days
