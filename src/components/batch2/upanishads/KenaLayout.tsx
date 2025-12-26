@@ -30,6 +30,24 @@ const philosophyData = kenaData.filter(d => d.section === "Philosophy");
 const storyData = kenaData.filter(d => d.section === "Story");
 
 // ==========================================
+// WORD MEANINGS COMPONENT
+// ==========================================
+function WordMeanings({ meanings, lang }: { meanings: any[], lang: "en" | "hi" }) {
+    if (!meanings || meanings.length === 0) return null;
+    return (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+            {meanings.map((m, i) => (
+                <div key={i} className="bg-slate-900/50 border border-teal-500/10 rounded-xl p-3 hover:border-teal-500/30 transition-all">
+                    <p className="text-teal-100 font-serif text-lg mb-1">{m.devanagari}</p>
+                    <p className="text-teal-600 text-[10px] uppercase tracking-tighter mb-1">{m.sanskrit}</p>
+                    <p className="text-slate-300 text-sm">{lang === "en" ? m.english : m.hindi}</p>
+                </div>
+            ))}
+        </div>
+    );
+}
+
+// ==========================================
 // KENA OVERVIEW COMPONENT (NEW)
 // ==========================================
 function KenaOverview({ lang, setActiveTab }: { lang: "en" | "hi", setActiveTab: (tab: any) => void }) {
@@ -226,6 +244,17 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                     {lang === "en" ? shloka.english : shloka.hindi}
                                 </p>
                             </div>
+
+                            {/* Word Meanings - Only show if data exists */}
+                            {shloka.wordMeanings && shloka.wordMeanings.length > 0 && (
+                                <div>
+                                    <h4 className="text-teal-600 text-[10px] font-black uppercase tracking-widest flex items-center gap-2 mb-4">
+                                        <BookOpen className="w-3 h-3" />
+                                        {lang === "en" ? "Word Meanings" : "शब्दार्थ"}
+                                    </h4>
+                                    <WordMeanings meanings={shloka.wordMeanings} lang={lang} />
+                                </div>
+                            )}
 
                             {/* The Essence - Insight Box */}
                             <div className="bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-2xl p-8 border border-teal-400/40 shadow-xl relative overflow-hidden group">

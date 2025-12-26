@@ -1,6 +1,13 @@
 // Kena Upanishad - The Complete 34 Mantras
 // Logical Chunks: Philosophy (1-13) and Story (14-34)
 
+export interface WordMeaning {
+    sanskrit: string;
+    devanagari: string;
+    hindi: string;
+    english: string;
+}
+
 export interface KenaDataEntry {
     id: number;
     section: "Philosophy" | "Story";
@@ -12,6 +19,7 @@ export interface KenaDataEntry {
     simpleExplanationHindi: string;
     nanoBananaPrompt: string;
     theme?: string;
+    wordMeanings?: WordMeaning[];
 }
 
 export const kenaData: KenaDataEntry[] = [
@@ -26,7 +34,16 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "Think of your brain like a computer. Who pushed the 'Power On' button? Who is the electricity running the hardware? That source is Brahman.",
         simpleExplanationHindi: "अपने मस्तिष्क को एक कंप्यूटर की तरह समझें। 'पावर ऑन' बटन किसने दबाया? हार्डवेयर चलाने वाली बिजली कौन है? वह स्रोत ब्रह्म है।",
         nanoBananaPrompt: "A glowing human brain connected to an infinite beam of light from above, digital art style, cyber-spiritual aesthetic.",
-        theme: "The Inquiry"
+        theme: "The Inquiry",
+        wordMeanings: [
+            { sanskrit: "kena", devanagari: "केन", hindi: "किसके द्वारा", english: "by whom" },
+            { sanskrit: "iṣitam", devanagari: "इषितं", hindi: "इच्छित", english: "willed" },
+            { sanskrit: "patati", devanagari: "पतति", hindi: "गिरता है", english: "lights on" },
+            { sanskrit: "preṣitam", devanagari: "प्रेषितं", hindi: "भेजा गया", english: "sent" },
+            { sanskrit: "manaḥ", devanagari: "मनः", hindi: "मन", english: "mind" },
+            { sanskrit: "prāṇaḥ", devanagari: "प्राणः", hindi: "प्राण", english: "vital force" },
+            { sanskrit: "yunakti", devanagari: "युनक्ति", hindi: "नियुक्त करता है", english: "directs" }
+        ]
     },
     {
         id: 2,
@@ -38,7 +55,15 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Sensor behind the Sensors. Your eyes are cameras, but who is the observer watching the feed? You are the electricity, not just the bulb.",
         simpleExplanationHindi: "सेंसर के पीछे का सेंसर। आपकी आँखें कैमरे हैं, लेकिन फीड देखने वाला पर्यवेक्षक कौन है? आप बिजली हैं, सिर्फ बल्ब नहीं।",
         nanoBananaPrompt: "A central glowing eye or heart surrounded by smaller icons of ears, eyes, and mouths, all connected by golden threads of light.",
-        theme: "Internal Sensors"
+        theme: "Internal Sensors",
+        wordMeanings: [
+            { sanskrit: "śrotrasya śrotram", devanagari: "श्रोत्रस्य श्रोत्रम्", hindi: "कान का कान", english: "Ear of the ear" },
+            { sanskrit: "manasaḥ manaḥ", devanagari: "मनसो मनः", hindi: "मन का मन", english: "Mind of the mind" },
+            { sanskrit: "vācaḥ vācam", devanagari: "वाचो वाचम्", hindi: "वाणी की वाणी", english: "Speech of speech" },
+            { sanskrit: "prāṇasya prāṇaḥ", devanagari: "प्राणस्य प्राणः", hindi: "प्राण का प्राण", english: "Life of life" },
+            { sanskrit: "dhīrāḥ", devanagari: "धीराः", hindi: "बुद्धिमान", english: "the wise" },
+            { sanskrit: "amṛtāḥ", devanagari: "अमृताः", hindi: "अमर", english: "immortal" }
+        ]
     },
     {
         id: 3,
@@ -50,7 +75,15 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Limit of logic. Imagine trying to explain 'Color' to someone who has never seen light. Brahman is beyond the reach of our physical tools.",
         simpleExplanationHindi: "तर्क की सीमा। कल्पना कीजिए कि किसी ऐसे व्यक्ति को 'रंग' समझाने की कोशिश की जा रही है जिसने कभी प्रकाश नहीं देखा है। ब्रह्म हमारे भौतिक उपकरणों की पहुंच से परे है।",
         nanoBananaPrompt: "A figure standing at the edge of a vast ocean of light, reaching out but unable to touch the horizon. Ethereal teal colors.",
-        theme: "Beyond Reach"
+        theme: "Beyond Reach",
+        wordMeanings: [
+            { sanskrit: "cakṣuḥ", devanagari: "चक्षुः", hindi: "आँख", english: "eye" },
+            { sanskrit: "gacchati", devanagari: "गच्छति", hindi: "जाती है", english: "goes" },
+            { sanskrit: "vāk", devanagari: "वाक्", hindi: "वाणी", english: "speech" },
+            { sanskrit: "manaḥ", devanagari: "मनः", hindi: "मन", english: "mind" },
+            { sanskrit: "na vidmaḥ", devanagari: "न विद्मः", hindi: "हम नहीं जानते", english: "we do not know" },
+            { sanskrit: "anuśiṣyāt", devanagari: "अनुशिष्यात्", hindi: "सिखाया जाए", english: "can teach" }
+        ]
     },
     {
         id: 4,
@@ -62,7 +95,14 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "Neither Google nor Ignorance. It's not something you already know, and it's not something you can't ever know. It's a different dimension of reality.",
         simpleExplanationHindi: "न गूगल, न अज्ञान। यह ऐसा कुछ नहीं है जिसे आप पहले से जानते हैं, और यह ऐसा कुछ भी नहीं है जिसे आप कभी नहीं जान सकते। यह वास्तविकता का एक अलग आयाम है।",
         nanoBananaPrompt: "A glowing portal between a library (known) and a dark nebula (unknown), with the portal representing a higher truth.",
-        theme: "The Third Dimension"
+        theme: "The Third Dimension",
+        wordMeanings: [
+            { sanskrit: "anyat", devanagari: "अन्यत्", hindi: "भिन्न", english: "different" },
+            { sanskrit: "viditāt", devanagari: "विदितात्", hindi: "ज्ञात से", english: "from the known" },
+            { sanskrit: "aviditāt", devanagari: "अविदितात्", hindi: "अज्ञात से", english: "from the unknown" },
+            { sanskrit: "pūrveṣām", devanagari: "पूर्वेषाम्", hindi: "पूर्वजों का", english: "of the ancients" },
+            { sanskrit: "śuśruma", devanagari: "शुश्रुम", hindi: "हमने सुना", english: "we heard" }
+        ]
     },
     {
         id: 5,
@@ -74,7 +114,16 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Source of Voice. Words can describe a mountain, but they cannot describe the silence from which the words come. Know that silence as the source.",
         simpleExplanationHindi: "वाणी का स्रोत। शब्द एक पर्वत का वर्णन कर सकते हैं, लेकिन वे उस मौन का वर्णन नहीं कर सकते जिससे शब्द निकलते हैं। उस मौन को स्रोत के रूप में जानें।",
         nanoBananaPrompt: "Luminous ripples spreading out from a silent center, visualizing the power of sound emerging from stillness.",
-        theme: "Unspoken Power"
+        theme: "Unspoken Power",
+        wordMeanings: [
+            { sanskrit: "vācā", devanagari: "वाचा", hindi: "वाणी से", english: "by speech" },
+            { sanskrit: "anabhyuditam", devanagari: "अनभ्युदितम्", hindi: "व्यक्त नहीं किया जा सकता", english: "not expressed" },
+            { sanskrit: "yena", devanagari: "येन", hindi: "जिससे", english: "by which" },
+            { sanskrit: "abhyudyate", devanagari: "अभ्युद्यते", hindi: "व्यक्त होती है", english: "is expressed" },
+            { sanskrit: "brahma", devanagari: "ब्रह्म", hindi: "ब्रह्म", english: "Brahman" },
+            { sanskrit: "viddhi", devanagari: "विद्धि", hindi: "जानो", english: "know" },
+            { sanskrit: "upāsate", devanagari: "उपासते", hindi: "उपासना करते हैं", english: "worship" }
+        ]
     },
     {
         id: 6,
@@ -86,7 +135,15 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Thinker. You can think about a car, but can you think about the 'thing' that is doing the thinking? Brahman is the subject, not the object.",
         simpleExplanationHindi: "विचारक। आप एक कार के बारे में सोच सकते हैं, लेकिन क्या आप उस 'चीज़' के बारे में सोच सकते हैं जो सोच रही है? ब्रह्म विषय है, वस्तु नहीं।",
         nanoBananaPrompt: "A brain silhouetted against a universe of stars, with a single bright light at the core of the mind.",
-        theme: "The Thinker"
+        theme: "The Thinker",
+        wordMeanings: [
+            { sanskrit: "manasā", devanagari: "मनसा", hindi: "मन से", english: "by the mind" },
+            { sanskrit: "na manute", devanagari: "न मनुते", hindi: "नहीं सोचा जाता", english: "cannot be thought" },
+            { sanskrit: "yena", devanagari: "येन", hindi: "जिससे", english: "by which" },
+            { sanskrit: "mano matam", devanagari: "मनो मतम्", hindi: "मन सोचता है", english: "mind thinks" },
+            { sanskrit: "tadeva", devanagari: "तदेव", hindi: "वही", english: "that alone" },
+            { sanskrit: "brahma", devanagari: "ब्रह्म", hindi: "ब्रह्म", english: "Brahman" }
+        ]
     },
     {
         id: 7,
@@ -98,7 +155,14 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Eye of the Eye. You see the screen, but you don't see the light particles that make seeing possible. Brahman is that fundamental light.",
         simpleExplanationHindi: "आँख की आँख। आप स्क्रीन को देखते हैं, लेकिन आप उन प्रकाश कणों को नहीं देखते जो देखना संभव बनाते हैं। ब्रह्म वह मौलिक प्रकाश है।",
         nanoBananaPrompt: "An eye reflecting a galaxy, with golden rays of light originating from behind the eye.",
-        theme: "Divine Sight"
+        theme: "Divine Sight",
+        wordMeanings: [
+            { sanskrit: "cakṣuṣā", devanagari: "चक्षुषा", hindi: "आँख से", english: "by the eye" },
+            { sanskrit: "na paśyati", devanagari: "न पश्यति", hindi: "नहीं देखा जाता", english: "cannot be seen" },
+            { sanskrit: "yena", devanagari: "येन", hindi: "जिससे", english: "by which" },
+            { sanskrit: "cakṣūṃṣi paśyati", devanagari: "चक्षूंषि पश्यति", hindi: "आँखें देखती हैं", english: "the eyes see" },
+            { sanskrit: "tadeva brahma", devanagari: "तदेव ब्रह्म", hindi: "वही ब्रह्म है", english: "that alone is Brahman" }
+        ]
     },
     {
         id: 8,
@@ -110,7 +174,14 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Silent Listener. Behind every sound you hear, there is a space of awareness that hears it. That space is Brahman.",
         simpleExplanationHindi: "मौन श्रोता। आपके द्वारा सुनी जाने वाली हर ध्वनि के पीछे जागरूकता का एक स्थान होता है जो उसे सुनता है। वह स्थान ब्रह्म है।",
         nanoBananaPrompt: "Sound waves turning into glowing vines that lead into a chamber of pure, golden light.",
-        theme: "Eternal Hearing"
+        theme: "Eternal Hearing",
+        wordMeanings: [
+            { sanskrit: "śrotreṇa", devanagari: "श्रोत्रेण", hindi: "कान से", english: "by the ear" },
+            { sanskrit: "na śṛṇoti", devanagari: "न शृणोति", hindi: "नहीं सुना जाता", english: "cannot be heard" },
+            { sanskrit: "yena", devanagari: "येन", hindi: "जिससे", english: "by which" },
+            { sanskrit: "śrotram śrutam", devanagari: "श्रोत्रम् श्रुतम्", hindi: "कान सुनता है", english: "the ear hears" },
+            { sanskrit: "tadeva brahma", devanagari: "तदेव ब्रह्म", hindi: "वही ब्रह्म है", english: "that alone is Brahman" }
+        ]
     },
 
     // CHUNK 2: THE PARADOX (Khanda 2: Verses 9-13)
@@ -124,7 +195,14 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Hubris of Knowledge. The moment you say 'I know everything about the Ocean,' you have missed its depth. Stay curious, stay humble.",
         simpleExplanationHindi: "ज्ञान का अहंकार। जिस क्षण आप कहते हैं 'मैं समुद्र के बारे में सब कुछ जानता हूँ', आप उसकी गहराई को भूल जाते हैं। जिज्ञासु रहें, विनम्र रहें।",
         nanoBananaPrompt: "A scientist looking through a microscope at a tiny speck, unaware of a giant cosmic entity behind them.",
-        theme: "Humility in Knowledge"
+        theme: "Humility in Knowledge",
+        wordMeanings: [
+            { sanskrit: "yadi manyase", devanagari: "यदि मन्यसे", hindi: "यदि तुम सोचते हो", english: "if you think" },
+            { sanskrit: "suvedeti", devanagari: "सुवेदेति", hindi: "अच्छी तरह जानता हूँ", english: "I know it well" },
+            { sanskrit: "dabhram", devanagari: "दभ्रम्", hindi: "थोड़ा सा", english: "but little" },
+            { sanskrit: "vettha", devanagari: "वेत्थ", hindi: "जानते हो", english: "you know" },
+            { sanskrit: "brahmaṇaḥ rūpam", devanagari: "ब्रह्मणो रूपम्", hindi: "ब्रह्म का स्वरूप", english: "the form of Brahman" }
+        ]
     },
     {
         id: 10,
@@ -136,7 +214,14 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Great 'I Don't Know'. True wisdom is knowing that you are part of the truth, even if you can't define it in words. It's a feeling, not a fact.",
         simpleExplanationHindi: "महान 'मैं नहीं जानता'। सच्ची बुद्धिमत्ता यह जानना है कि आप सत्य का हिस्सा हैं, भले ही आप इसे शब्दों में परिभाषित न कर सकें। यह एक एहसास है, तथ्य नहीं।",
         nanoBananaPrompt: "A man holding a lantern in a misty forest, where the light shows the path but not the end of the forest.",
-        theme: "The Middle Path"
+        theme: "The Middle Path",
+        wordMeanings: [
+            { sanskrit: "nāham manye", devanagari: "नाहं मन्ये", hindi: "मैं नहीं मानता", english: "I do not think" },
+            { sanskrit: "suvedeti", devanagari: "सुवेदेति", hindi: "अच्छी तरह जानता हूँ", english: "I know it well" },
+            { sanskrit: "na vedeti", devanagari: "न वेदेति", hindi: "नहीं जानता", english: "I do not know" },
+            { sanskrit: "veda", devanagari: "वेद", hindi: "जानता है", english: "knows" },
+            { sanskrit: "tad veda", devanagari: "तद् वेद", hindi: "उसे जानता है", english: "knows It" }
+        ]
     },
     {
         id: 11,
@@ -148,7 +233,15 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Knowledge Paradox. If you think Truth is a trophy on your shelf, you don't have it. If you search for it like your own breath, you found it.",
         simpleExplanationHindi: "ज्ञान का विरोधाभास। यदि आपको लगता है कि सत्य आपकी शेल्फ पर एक ट्रॉफी है, तो आपके पास यह नहीं है। यदि आप इसे अपनी साँस की तरह खोजते हैं, तो आपने इसे पा लिया।",
         nanoBananaPrompt: "An empty pedestal glowing with light, while scholars with heavy books walk away in confusion.",
-        theme: "The Paradox"
+        theme: "The Paradox",
+        wordMeanings: [
+            { sanskrit: "yasya amatam", devanagari: "यस्य अमतम्", hindi: "जिसके लिए अज्ञात", english: "to whom unknown" },
+            { sanskrit: "tasya matam", devanagari: "तस्य मतम्", hindi: "उसके लिए ज्ञात", english: "to him known" },
+            { sanskrit: "matam yasya", devanagari: "मतं यस्य", hindi: "जिसके लिए ज्ञात", english: "to whom known" },
+            { sanskrit: "na veda saḥ", devanagari: "न वेद सः", hindi: "वह नहीं जानता", english: "he does not know" },
+            { sanskrit: "avijñātam", devanagari: "अविज्ञातम्", hindi: "अज्ञात", english: "unknown" },
+            { sanskrit: "vijñātam", devanagari: "विज्ञातम्", hindi: "ज्ञात", english: "known" }
+        ]
     },
     {
         id: 12,
@@ -160,7 +253,15 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Golden Thread. Every time you feel happy, sad, or alive, that's a 'ping' from Brahman. You don't need a temple; you just need to pay attention.",
         simpleExplanationHindi: "स्वर्ण धागा। हर बार जब आप खुशी, दुख या जीवित महसूस करते हैं, तो वह ब्रह्म का एक 'पिंग' होता है। आपको मंदिर की आवश्यकता नहीं है; आपको बस ध्यान देने की आवश्यकता है।",
         nanoBananaPrompt: "A heart beating with golden light, sending ripples of energy through a transparent human body.",
-        theme: "Every Pulse"
+        theme: "Every Pulse",
+        wordMeanings: [
+            { sanskrit: "pratibodha", devanagari: "प्रतिबोध", hindi: "प्रत्येक जागरण", english: "each awakening" },
+            { sanskrit: "viditam", devanagari: "विदितम्", hindi: "जाना गया", english: "is known" },
+            { sanskrit: "amṛtatvam", devanagari: "अमृतत्वम्", hindi: "अमरत्व", english: "immortality" },
+            { sanskrit: "vindate", devanagari: "विन्दते", hindi: "प्राप्त करता है", english: "obtains" },
+            { sanskrit: "ātmanā", devanagari: "आत्मना", hindi: "आत्मा से", english: "by the Self" },
+            { sanskrit: "vīryam", devanagari: "वीर्यम्", hindi: "शक्ति", english: "strength" }
+        ]
     },
     {
         id: 13,
@@ -172,7 +273,15 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "Don't Waste Life. Life is a limited-time opportunity to find the source. If you miss it, you're just a machine running on borrowed time. Find it now.",
         simpleExplanationHindi: "जीवन व्यर्थ न गँवाएँ। जीवन स्रोत को खोजने का एक सीमित समय का अवसर है। यदि आप इसे चूक जाते हैं, तो आप केवल उधार के समय पर चलने वाली एक मशीन हैं। इसे अभी खोजें।",
         nanoBananaPrompt: "An hourglass where the sand is turning into golden light as it falls. Time vs Eternity theme.",
-        theme: "The Urgency"
+        theme: "The Urgency",
+        wordMeanings: [
+            { sanskrit: "iha ced avedīt", devanagari: "इह चेदवेदीत्", hindi: "यदि यहाँ जान लिया", english: "if one knows here" },
+            { sanskrit: "satyam asti", devanagari: "सत्यम् अस्ति", hindi: "सत्य है", english: "truth is" },
+            { sanskrit: "na ced", devanagari: "न चेत्", hindi: "यदि नहीं", english: "if not" },
+            { sanskrit: "mahatī vinaṣṭiḥ", devanagari: "महती विनष्टिः", hindi: "महान विनाश", english: "great destruction" },
+            { sanskrit: "bhūteṣu", devanagari: "भूतेषु", hindi: "सभी प्राणियों में", english: "in all beings" },
+            { sanskrit: "dhīrāḥ", devanagari: "धीराः", hindi: "बुद्धिमान", english: "the wise" }
+        ]
     },
 
     // CHUNK 3: THE STORY OF THE GODS (Khanda 3: Verses 14-25)
@@ -186,7 +295,14 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Stolen Credit. Imagine a company wins a big contract because of the invisible founder, but the employees think it was all their individual talent. That's Ego.",
         simpleExplanationHindi: "चोरी का श्रेय। कल्पना कीजिए कि एक कंपनी अदृश्य संस्थापक के कारण एक बड़ा अनुबंध जीतती है, लेकिन कर्मचारी सोचते हैं कि यह सब उनकी व्यक्तिगत प्रतिभा थी। यही अहंकार है।",
         nanoBananaPrompt: "Shining gods (Agni, Vayu, Indra) celebrating on a golden pedestal, looking proud and arrogant.",
-        theme: "The Illusion of Success"
+        theme: "The Illusion of Success",
+        wordMeanings: [
+            { sanskrit: "brahma", devanagari: "ब्रह्म", hindi: "ब्रह्म", english: "Brahman" },
+            { sanskrit: "devebhyaḥ", devanagari: "देवेभ्यः", hindi: "देवताओं के लिए", english: "for the gods" },
+            { sanskrit: "vijigye", devanagari: "विजिग्ये", hindi: "विजय प्राप्त की", english: "won victory" },
+            { sanskrit: "vijaye", devanagari: "विजये", hindi: "विजय में", english: "in the victory" },
+            { sanskrit: "amahīyanta", devanagari: "अमहीयन्त", hindi: "गौरवान्वित हुए", english: "became proud" }
+        ]
     },
     {
         id: 15,
@@ -198,7 +314,13 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Mystery Guest. A stranger enters the party, and suddenly the most powerful people feel small because they can't identify him. The unknown is the greatest teacher.",
         simpleExplanationHindi: "रहस्यमय अतिथि। पार्टी में एक अजनबी प्रवेश करता है, और अचानक सबसे शक्तिशाली लोग छोटा महसूस करते हैं क्योंकि वे उसे पहचान नहीं पाते। अज्ञात सबसे बड़ा शिक्षक है।",
         nanoBananaPrompt: "A towering silhouette of pure light appearing before the gods, casting a long shadow.",
-        theme: "The Intrusion"
+        theme: "The Intrusion",
+        wordMeanings: [
+            { sanskrit: "yakṣam", devanagari: "यक्षम्", hindi: "रहस्यमय आत्मा", english: "mysterious Spirit" },
+            { sanskrit: "prādurbabhūva", devanagari: "प्रादुर्बभूव", hindi: "प्रकट हुआ", english: "appeared" },
+            { sanskrit: "na vyajānanta", devanagari: "न व्यजानन्त", hindi: "नहीं पहचाने", english: "did not recognize" },
+            { sanskrit: "kim idam", devanagari: "किमिदम्", hindi: "यह क्या है", english: "what is this" }
+        ]
     },
     {
         id: 16,
@@ -210,7 +332,13 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The First Scout. Agni, the god of fire and intelligence, is sent first. He represents our 'sight' and 'power to act.'",
         simpleExplanationHindi: "पहला स्काउट। अग्नि, अग्नि और बुद्धि के देवता, पहले भेजे जाते हैं। वह हमारी 'दृष्टि' और 'कार्य करने की शक्ति' का प्रतिनिधित्व करते हैं।",
         nanoBananaPrompt: "Agni, the god of fire with flames around him, walking towards a column of white light.",
-        theme: "Mission Intelligence"
+        theme: "Mission Intelligence",
+        wordMeanings: [
+            { sanskrit: "agnim", devanagari: "अग्निम्", hindi: "अग्नि को", english: "to Agni" },
+            { sanskrit: "abruvan", devanagari: "अब्रुवन्", hindi: "कहा", english: "said" },
+            { sanskrit: "jātavedaḥ", devanagari: "जातवेदः", hindi: "सर्वज्ञ", english: "all-knowing" },
+            { sanskrit: "vijānīhi", devanagari: "विजानीहि", hindi: "पता लगाओ", english: "find out" }
+        ]
     },
     {
         id: 17,
@@ -222,7 +350,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Resume. Agni lists his titles. He is proud of his 'identity.' This is how we behave when we meet the Divine—we show our visiting cards first.",
         simpleExplanationHindi: "बायोडाटा। अग्नि अपनी उपाधियाँ गिनाते हैं। उन्हें अपनी 'पहचान' पर गर्व है। जब हम ईश्वर से मिलते हैं तो हम इसी तरह व्यवहार करते हैं—हम पहले अपने विजिटिंग कार्ड दिखाते हैं।",
         nanoBananaPrompt: "Agni standing tall, glowing brightly, pointing at himself while talking to a brilliant light.",
-        theme: "The Ego's Name"
+        theme: "The Ego's Name",
+        wordMeanings: [
+            { sanskrit: "ko asi", devanagari: "कोअसि", hindi: "तुम कौन हो", english: "who are you" },
+            { sanskrit: "agniḥ vā aham asmi", devanagari: "अग्निर्वा अहमस्मि", hindi: "मैं अग्नि हूँ", english: "I am Agni" },
+            { sanskrit: "abravīt", devanagari: "अब्रवीत्", hindi: "कहा", english: "said" }
+        ]
     },
     {
         id: 18,
@@ -234,7 +367,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Boast. 'I am a disruptor! I am a leader!' Agni thinks the heat is HIS. He forgets he's just a channel for the energy.",
         simpleExplanationHindi: "डींग मारना। 'मैं एक विघ्नकारी हूँ! मैं एक नेता हूँ!' अग्नि को लगता है कि गर्मी उसकी है। वह भूल जाता है कि वह केवल ऊर्जा का एक माध्यम है।",
         nanoBananaPrompt: "Agni shooting beams of fire from his hands into a dark void, showing off his power.",
-        theme: "The Boast"
+        theme: "The Boast",
+        wordMeanings: [
+            { sanskrit: "kiṃ vīryam", devanagari: "किं वीर्यम्", hindi: "क्या शक्ति", english: "what power" },
+            { sanskrit: "sarvam daheyam", devanagari: "सर्वं दहेयम्", hindi: "सब जला सकता हूँ", english: "I can burn all" },
+            { sanskrit: "pṛthivyām", devanagari: "पृथिव्याम्", hindi: "पृथ्वी पर", english: "on earth" }
+        ]
     },
     {
         id: 19,
@@ -246,7 +384,14 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Ultimate Test. Even the mighty God of Fire cannot destroy a tiny piece of grass without the main power source (Brahman). Your talent is zero without the Soul.",
         simpleExplanationHindi: "अंतिम परीक्षा। यहां तक कि अग्नि का शक्तिशाली देवता भी मुख्य शक्ति स्रोत (ब्रह्म) के बिना घास के एक छोटे से टुकड़े को नष्ट नहीं कर सकता। आत्मा के बिना आपकी प्रतिभा शून्य है।",
         nanoBananaPrompt: "A mighty god of fire trying to burn a single floating blade of grass but failing, dramatic lighting.",
-        theme: "The Straw Test"
+        theme: "The Straw Test",
+        wordMeanings: [
+            { sanskrit: "tṛṇam", devanagari: "तृणम्", hindi: "तिनका", english: "straw" },
+            { sanskrit: "nidadhāu", devanagari: "निदधौ", hindi: "रखा", english: "placed" },
+            { sanskrit: "daha", devanagari: "दह", hindi: "जलाओ", english: "burn" },
+            { sanskrit: "na śaśāka", devanagari: "न शशाक", hindi: "नहीं कर सका", english: "was unable" },
+            { sanskrit: "dagdhum", devanagari: "दग्धुम्", hindi: "जलाने में", english: "to burn" }
+        ]
     },
     {
         id: 20,
@@ -258,7 +403,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "Humbled. The first 'Expert' admits failure. This is the beginning of wisdom: admitting you don't have all the answers.",
         simpleExplanationHindi: "विनम्रता। पहला 'विशेषज्ञ' असफलता स्वीकार करता है। यह बुद्धिमत्ता की शुरुआत है: यह स्वीकार करना कि आपके पास सभी उत्तर नहीं हैं।",
         nanoBananaPrompt: "Agni walking back to the other gods with his head bowed down and flames dimmed.",
-        theme: "The Retreat of Fire"
+        theme: "The Retreat of Fire",
+        wordMeanings: [
+            { sanskrit: "nivavṛte", devanagari: "निववृते", hindi: "लौट आया", english: "returned" },
+            { sanskrit: "na aśakam", devanagari: "न अशकम्", hindi: "मैं नहीं कर सका", english: "I was unable" },
+            { sanskrit: "vijñātum", devanagari: "विज्ञातुम्", hindi: "जानने में", english: "to know" }
+        ]
     },
     {
         id: 21,
@@ -270,7 +420,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Second Scout. Now the power of 'Movement' and 'Will' is tested. Vayu thinks he is the master of speed.",
         simpleExplanationHindi: "दूसरा स्काउट। अब 'गति' और 'इच्छा' की शक्ति का परीक्षण किया गया है। वायु को लगता है कि वह गति का स्वामी है।",
         nanoBananaPrompt: "Vayu, the god of wind with swirling clouds around him, flying towards the mysterious Spirit.",
-        theme: "The Force of Nature"
+        theme: "The Force of Nature",
+        wordMeanings: [
+            { sanskrit: "vāyum", devanagari: "वायुम्", hindi: "वायु को", english: "to Vayu" },
+            { sanskrit: "abruvan", devanagari: "अब्रुवन्", hindi: "कहा", english: "said" },
+            { sanskrit: "vijānīhi", devanagari: "विजानीहि", hindi: "पता लगाओ", english: "find out" }
+        ]
     },
     {
         id: 22,
@@ -282,7 +437,11 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Brand. Vayu uses another fancy name - Matarisvan. We love our titles, don't we? Manager, Director, Vayu.",
         simpleExplanationHindi: "ब्रांड। वायु एक और शानदार नाम का उपयोग करता है - मातरिश्वन। हमें अपनी उपाधियाँ पसंद हैं, है न? प्रबंधक, निदेशक, वायु।",
         nanoBananaPrompt: "Vayu boasting with giant cyclones forming under his feet in front of the light.",
-        theme: "The Pride of Movement"
+        theme: "The Pride of Movement",
+        wordMeanings: [
+            { sanskrit: "vāyuḥ vā aham asmi", devanagari: "वायुर्वा अहमस्मि", hindi: "मैं वायु हूँ", english: "I am Vayu" },
+            { sanskrit: "mātariśvā", devanagari: "मातरिश्वा", hindi: "अंतरिक्ष में चलने वाला", english: "one who moves through space" }
+        ]
     },
     {
         id: 23,
@@ -294,7 +453,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Force. 'I can move mountains!' Vayu is certain of his physical strength. He is the master of hurricanes.",
         simpleExplanationHindi: "शक्ति। 'मैं पहाड़ों को हिला सकता हूँ!' वायु को अपनी शारीरिक शक्ति पर पूरा भरोसा है। वह तूफानों का स्वामी है।",
         nanoBananaPrompt: "Vayu creating a massive hurricane that shakes everything except the mysterious Spirit.",
-        theme: "The Great Blow"
+        theme: "The Great Blow",
+        wordMeanings: [
+            { sanskrit: "kiṃ vīryam", devanagari: "किं वीर्यम्", hindi: "क्या शक्ति", english: "what power" },
+            { sanskrit: "sarvam ādadīya", devanagari: "सर्वमआददीय", hindi: "सब उड़ा सकता हूँ", english: "I can lift all" },
+            { sanskrit: "pṛthivyām", devanagari: "पृथिव्याम्", hindi: "पृथ्वी पर", english: "on earth" }
+        ]
     },
     {
         id: 24,
@@ -306,7 +470,13 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Dead Weight. The greatest hurricane in the universe cannot move a single dry leaf if the 'Life Force' within the leaf is anchored by Brahman.",
         simpleExplanationHindi: "मृत भार। यदि पत्ती के भीतर की 'जीवन शक्ति' ब्रह्म द्वारा लंगर डाले हुए है, तो ब्रह्मांड का सबसे बड़ा तूफान एक सूखी पत्ती को भी नहीं हिला सकता।",
         nanoBananaPrompt: "A hurricane swirling around a tiny straw which remains fixed to the ground as if made of lead.",
-        theme: "Immutable Straw"
+        theme: "Immutable Straw",
+        wordMeanings: [
+            { sanskrit: "tṛṇam", devanagari: "तृणम्", hindi: "तिनका", english: "straw" },
+            { sanskrit: "ādatsva", devanagari: "आदत्स्व", hindi: "उठाओ", english: "lift" },
+            { sanskrit: "na śaśāka", devanagari: "न शशाक", hindi: "नहीं कर सका", english: "was unable" },
+            { sanskrit: "ādātum", devanagari: "आदातुम्", hindi: "उठाने में", english: "to lift" }
+        ]
     },
     {
         id: 25,
@@ -318,7 +488,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "Failure #2. Speed and Power are useless without Awareness. Vayu learns that his breath is not his own.",
         simpleExplanationHindi: "असफलता #2। जागरूकता के बिना गति और शक्ति बेकार हैं। वायु को पता चला है कि उसकी साँस उसकी अपनी नहीं है।",
         nanoBananaPrompt: "Vayu descending from the clouds, looking exhausted and quiet.",
-        theme: "The Retreat of Wind"
+        theme: "The Retreat of Wind",
+        wordMeanings: [
+            { sanskrit: "nivavṛte", devanagari: "निववृते", hindi: "लौट आया", english: "returned" },
+            { sanskrit: "na aśakam", devanagari: "न अशकम्", hindi: "मैं नहीं कर सका", english: "I was unable" },
+            { sanskrit: "vijñātum", devanagari: "विज्ञातुम्", hindi: "जानने में", english: "to know" }
+        ]
     },
 
     // CHUNK 4: THE REVELATION (Khanda 4: Verses 26-34)
@@ -332,7 +507,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The CEO approaches. Indra, the king of the gods (symbolizing the Mind/Ego), goes to meet Truth. But Truth cannot be caught by the ego. It vanishes.",
         simpleExplanationHindi: "CEO आता है। इंद्र, देवताओं का राजा (मन/अहंकार का प्रतीक), सत्य से मिलने जाता है। लेकिन सत्य अहंकार द्वारा नहीं पकड़ा जा सकता। वह गायब हो जाता है।",
         nanoBananaPrompt: "Indra, the king with a crown, reaching out to touch a fading ghost of golden light.",
-        theme: "The Vanished Truth"
+        theme: "The Vanished Truth",
+        wordMeanings: [
+            { sanskrit: "indram", devanagari: "इन्द्रम्", hindi: "इन्द्र को", english: "to Indra" },
+            { sanskrit: "maghavan", devanagari: "मघवन्", hindi: "शक्तिशाली", english: "mighty one" },
+            { sanskrit: "tirodadhe", devanagari: "तिरोदधे", hindi: "गायब हो गया", english: "vanished" }
+        ]
     },
     {
         id: 27,
@@ -344,7 +524,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Guide Appears. When the ego is confused, Divine Mother Uma (Knowledge/Wisdom) appears. You need a teacher to bridge the gap between You and Brahman.",
         simpleExplanationHindi: "मार्गदर्शक प्रकट होता है। जब अहंकार भ्रमित होता है, तो दिव्य माता उमा (ज्ञान/बुद्धि) प्रकट होती हैं। आपको अपने और ब्रह्म के बीच की खाई को पाटने के लिए एक शिक्षक की आवश्यकता है।",
         nanoBananaPrompt: "A beautiful celestial goddess in golden robes appearing in a vast indigo sky.",
-        theme: "Goddess of Wisdom"
+        theme: "Goddess of Wisdom",
+        wordMeanings: [
+            { sanskrit: "striyam", devanagari: "स्त्रियम्", hindi: "स्त्री", english: "woman" },
+            { sanskrit: "bahuśobhamānām", devanagari: "बहुशोभमानाम्", hindi: "अत्यंत सुंदर", english: "very beautiful" },
+            { sanskrit: "umām haimatīm", devanagari: "उमां हैमवतीम्", hindi: "हिमालय की पुत्री उमा", english: "Uma, daughter of Himalayas" }
+        ]
     },
     {
         id: 28,
@@ -356,7 +541,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Big Reveal. 'It wasn't you, Indra. It was Brahman.' The miracle of life is not your achievement; it's the signature of the creator.",
         simpleExplanationHindi: "बड़ा खुलासा। 'यह तुम नहीं थे, इंद्र। यह ब्रह्म था।' जीवन का चमत्कार आपकी उपलब्धि नहीं है; यह रचयिता के हस्ताक्षर हैं।",
         nanoBananaPrompt: "Uma pointing towards the infinite sky, showing Indra the source of all power.",
-        theme: "The Revelation"
+        theme: "The Revelation",
+        wordMeanings: [
+            { sanskrit: "brahma iti", devanagari: "ब्रह्मेति", hindi: "वह ब्रह्म था", english: "that was Brahman" },
+            { sanskrit: "vijaye", devanagari: "विजये", hindi: "विजय में", english: "in the victory" },
+            { sanskrit: "mahīyadhvam", devanagari: "महीयध्वम्", hindi: "गौरवान्वित हुए", english: "you became glorious" }
+        ]
     },
     {
         id: 29,
@@ -368,7 +558,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "Epiphany. The moment of realization. The 'Aha!' moment where the ego dissolves and knows the true power source.",
         simpleExplanationHindi: "जागरूकता। अहसास का क्षण। 'अहा!' क्षण जहाँ अहंकार विलीन हो जाता है और सच्ची शक्ति के स्रोत को जान जाता है।",
         nanoBananaPrompt: "Indra kneeling in respect to the sky, with a look of profound peace on his face.",
-        theme: "The Realization"
+        theme: "The Realization",
+        wordMeanings: [
+            { sanskrit: "tataḥ", devanagari: "ततः", hindi: "तब", english: "then" },
+            { sanskrit: "vidāñcakāra", devanagari: "विदाञ्चकार", hindi: "जान लिया", english: "understood" },
+            { sanskrit: "brahma iti", devanagari: "ब्रह्मेति", hindi: "वह ब्रह्म था", english: "that it was Brahman" }
+        ]
     },
     {
         id: 30,
@@ -380,7 +575,13 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Superior Gods. Why is some knowledge better than others? Because it brings you closer to the core. Physics, Chemistry are great, but Philosophy (Self-knowledge) is supreme.",
         simpleExplanationHindi: "श्रेष्ठ देवता। क्यों कुछ ज्ञान दूसरों से बेहतर है? क्योंकि यह आपको मूल के करीब लाता है। भौतिकी, रसायन विज्ञान महान हैं, लेकिन दर्शन (आत्म-ज्ञान) सर्वोच्च है।",
         nanoBananaPrompt: "The three gods Agni, Vayu, and Indra standing closer to a central sun than all other divine beings.",
-        theme: "The Inner Circle"
+        theme: "The Inner Circle",
+        wordMeanings: [
+            { sanskrit: "ete devāḥ", devanagari: "एते देवाः", hindi: "ये देवता", english: "these gods" },
+            { sanskrit: "atitaram", devanagari: "अतितरम्", hindi: "श्रेष्ठ", english: "excel" },
+            { sanskrit: "nediṣṭham", devanagari: "नेदिष्ठम्", hindi: "निकटतम", english: "nearest" },
+            { sanskrit: "pasparśuḥ", devanagari: "पस्पर्शुः", hindi: "छुआ", english: "touched" }
+        ]
     },
     {
         id: 31,
@@ -392,7 +593,12 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The King of Senses. Indra is our Mind. The mind is superior because it can process the mystery that the body and breath cannot. It can 'realize' Truth.",
         simpleExplanationHindi: "इंद्रियों का राजा। इंद्र हमारा मन है। मन श्रेष्ठ है क्योंकि यह उस रहस्य को संसाधित कर सकता है जिसे शरीर और श्वास नहीं कर सकते। यह सत्य का 'अहसास' कर सकता है।",
         nanoBananaPrompt: "Indra crowned with a halo of light, standing at the summit of a crystal mountain.",
-        theme: "Supremacy of Mind"
+        theme: "Supremacy of Mind",
+        wordMeanings: [
+            { sanskrit: "indraḥ", devanagari: "इन्द्रः", hindi: "इन्द्र", english: "Indra" },
+            { sanskrit: "atitaram", devanagari: "अतितरम्", hindi: "सबसे श्रेष्ठ", english: "excels the most" },
+            { sanskrit: "nediṣṭham", devanagari: "नेदिष्ठम्", hindi: "सबसे निकट", english: "nearest" }
+        ]
     },
     {
         id: 32,
@@ -404,7 +610,13 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "Lightning Strike. Enlightenment is fast. You don't 'slowly' realize your house is on fire—you see it in a split second. Brahman is a sudden Flash of Truth.",
         simpleExplanationHindi: "बिजली का गिरना। ज्ञानोदय तीव्र है। आपको 'धीरे-धीरे' यह अहसास नहीं होता कि आपके घर में आग लगी है—आप इसे एक सेकंड में देखते हैं। ब्रह्म सत्य की एक अचानक चमक है।",
         nanoBananaPrompt: "A giant lightning bolt illuminating a dark city for a fraction of a second, revealing its true beauty.",
-        theme: "The Flash"
+        theme: "The Flash",
+        wordMeanings: [
+            { sanskrit: "ādeśaḥ", devanagari: "आदेशः", hindi: "उपदेश", english: "instruction" },
+            { sanskrit: "vidyutaḥ", devanagari: "विद्युतः", hindi: "बिजली", english: "lightning" },
+            { sanskrit: "vyadyutat", devanagari: "व्यद्युतत्", hindi: "चमकी", english: "flashed" },
+            { sanskrit: "nyamīmiṣat", devanagari: "न्यमीमिषत्", hindi: "पलक झपकी", english: "winked" }
+        ]
     },
     {
         id: 33,
@@ -416,7 +628,15 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "The Foundation. How do you keep the light on? You need 'Tapa' (Hard work), 'Dama' (Control), and 'Karma' (Service). This is the infrastructure of a spiritual life.",
         simpleExplanationHindi: "बुनियाद। आप प्रकाश को कैसे चालू रखते हैं? आपको 'तप' (कड़ी मेहनत), 'दम' (नियंत्रण), और 'कर्म' (सेवा) की आवश्यकता है। यह एक आध्यात्मिक जीवन का बुनियादी ढांचा है।",
         nanoBananaPrompt: "A temple with three strong pillars labeled 'Austerity', 'Restraint', and 'Action'. Clean, minimal design.",
-        theme: "The Three Pillars"
+        theme: "The Three Pillars",
+        wordMeanings: [
+            { sanskrit: "tapaḥ", devanagari: "तपः", hindi: "तपस्या", english: "austerity" },
+            { sanskrit: "damaḥ", devanagari: "दमः", hindi: "संयम", english: "restraint" },
+            { sanskrit: "karma", devanagari: "कर्म", hindi: "कर्म", english: "action" },
+            { sanskrit: "pratiṣṭhā", devanagari: "प्रतिष्ठा", hindi: "आधार", english: "foundation" },
+            { sanskrit: "satyam", devanagari: "सत्यम्", hindi: "सत्य", english: "truth" },
+            { sanskrit: "āyatanam", devanagari: "आयतनम्", hindi: "निवास", english: "abode" }
+        ]
     },
     {
         id: 34,
@@ -428,7 +648,13 @@ export const kenaData: KenaDataEntry[] = [
         simpleExplanation: "Total Freedom. Success is not a bigger house. Success is 'Pratitiṣṭhati'—becoming established in your own infinite self. This is the end of all suffering.",
         simpleExplanationHindi: "पूर्ण स्वतंत्रता। सफलता एक बड़ा घर नहीं है। सफलता 'प्रतिष्ठित' होना है—अपने स्वयं के अनंत स्व में स्थापित होना। यह सभी दुखों का अंत है।",
         nanoBananaPrompt: "A human figure dissolving into a golden sun, representing total liberation and bliss.",
-        theme: "Final Liberation"
+        theme: "Final Liberation",
+        wordMeanings: [
+            { sanskrit: "yaḥ evaṃ veda", devanagari: "यो वा एतामेवं वेद", hindi: "जो इस प्रकार जानता है", english: "he who knows this thus" },
+            { sanskrit: "apahatya pāpmānam", devanagari: "अपहत्य पाप्मानम्", hindi: "पापों को नष्ट करके", english: "shaking off all evil" },
+            { sanskrit: "anante svarge loke", devanagari: "अनन्ते स्वर्गे लोके", hindi: "अनन्त स्वर्ग में", english: "in infinite heaven" },
+            { sanskrit: "pratiṭiṣṭhati", devanagari: "प्रतितिष्ठति", hindi: "स्थापित होता है", english: "becomes established" }
+        ]
     }
 ];
 

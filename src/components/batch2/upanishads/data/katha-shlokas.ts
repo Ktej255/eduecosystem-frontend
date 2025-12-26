@@ -3,6 +3,13 @@
 // Structure: 2 Adhyayas (Chapters), 6 Vallis (Sections)
 // Theme: Dialogue between Nachiketa and Yama (Lord of Death)
 
+export interface WordMeaning {
+    sanskrit: string;
+    devanagari: string;
+    hindi: string;
+    english: string;
+}
+
 export interface KathaDataEntry {
     id: number;
     valli: 1 | 2 | 3 | 4 | 5 | 6;
@@ -16,6 +23,7 @@ export interface KathaDataEntry {
     simpleExplanationHindi: string;
     theme?: string;
     nanoBananaPrompt: string;
+    wordMeanings?: WordMeaning[];
 }
 
 // ==========================================
@@ -34,7 +42,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The story begins with a transaction—giving to get something in return. This sets up the contrast between greed (father) and purity (son).",
         simpleExplanationHindi: "यह कहानी एक लेन-देन से शुरू होती है—बदले में कुछ पाने के लिए देना। यह लालच (पिता) और पवित्रता (पुत्र) के बीच का विरोधाभास स्थापित करती है।",
         theme: "The Sacrifice",
-        nanoBananaPrompt: "An ancient Indian sacrifice arena with a rich king performing rituals near a fire, weak skeletal cows in background, tense atmosphere."
+        nanoBananaPrompt: "An ancient Indian sacrifice arena with a rich king performing rituals near a fire, weak skeletal cows in background, tense atmosphere.",
+        wordMeanings: [
+            { sanskrit: "vājaśravasaḥ", devanagari: "वाजश्रवसः", hindi: "वाजश्रवस के", english: "of Vajashravas" },
+            { sanskrit: "sarvavedasaṃ", devanagari: "सर्ववेदसम्", hindi: "सारी संपत्ति", english: "all possessions" },
+            { sanskrit: "dadāu", devanagari: "ददौ", hindi: "दान किया", english: "gave" },
+            { sanskrit: "naciketāḥ", devanagari: "नचिकेताः", hindi: "नचिकेता", english: "Nachiketa" },
+            { sanskrit: "putra", devanagari: "पुत्र", hindi: "पुत्र", english: "son" }
+        ]
     },
 
     // Verse 2: The Awakening of Faith
@@ -49,7 +64,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "'Shraddha' is the most important word in the Upanishads. It is not just faith—it is the courage for Truth. Wisdom starts when you question the status quo.",
         simpleExplanationHindi: "'श्रद्धा' उपनिषदों का सबसे महत्वपूर्ण शब्द है। यह केवल विश्वास नहीं, बल्कि सत्य के लिए साहस है। बुद्धिमत्ता तब शुरू होती है जब आप यथास्थिति पर सवाल उठाते हैं।",
         theme: "Awakening of Faith",
-        nanoBananaPrompt: "A young radiant boy with a glowing heart, watching weak cows being led away, questioning look, sacred fire in background."
+        nanoBananaPrompt: "A young radiant boy with a glowing heart, watching weak cows being led away, questioning look, sacred fire in background.",
+        wordMeanings: [
+            { sanskrit: "kumāram", devanagari: "कुमारम्", hindi: "बालक", english: "young boy" },
+            { sanskrit: "dakṣiṇāsu", devanagari: "दक्षिणासु", hindi: "दक्षिणा में", english: "in gifts" },
+            { sanskrit: "śraddhā", devanagari: "श्रद्धा", hindi: "श्रद्धा/आस्था", english: "faith" },
+            { sanskrit: "viveśa", devanagari: "विवेश", hindi: "प्रवेश कर गई", english: "entered" },
+            { sanskrit: "amanyata", devanagari: "अमन्यत", hindi: "सोचा", english: "thought" }
+        ]
     },
 
     // Verse 3: The Useless Cows
@@ -64,7 +86,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "A critique of empty rituals. Spiritual currency requires sacrifice of something valuable, not something useless. You can't buy 'heaven' by donating 'garbage'.",
         simpleExplanationHindi: "खोखले कर्मकांड की आलोचना। आध्यात्मिक मुद्रा के लिए कुछ मूल्यवान का त्याग आवश्यक है, न कि बेकार चीज़ का। 'कचरा' दान करके 'स्वर्ग' नहीं खरीदा जा सकता।",
         theme: "The Useless Gift",
-        nanoBananaPrompt: "Weak, skeletal, old cows with dry udders, symbolic of worthless sacrifice, dark atmosphere, hypocrisy exposed."
+        nanoBananaPrompt: "Weak, skeletal, old cows with dry udders, symbolic of worthless sacrifice, dark atmosphere, hypocrisy exposed.",
+        wordMeanings: [
+            { sanskrit: "pītodakāḥ", devanagari: "पीतोदकाः", hindi: "पानी पी चुकीं", english: "drunk water" },
+            { sanskrit: "jagdhatṛṇāḥ", devanagari: "जग्धतृणाः", hindi: "घास खा चुकीं", english: "eaten grass" },
+            { sanskrit: "dugdhadohāḥ", devanagari: "दुग्धदोहाः", hindi: "दूध दुही जा चुकीं", english: "milked" },
+            { sanskrit: "nirindriyāḥ", devanagari: "निरिन्द्रियाः", hindi: "शक्तिहीन", english: "barren" },
+            { sanskrit: "anandā lokāḥ", devanagari: "अनन्दा लोकाः", hindi: "सुखहीन लोक", english: "joyless worlds" }
+        ]
     },
 
     // Verse 4: The Question
@@ -79,7 +108,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Nachiketa knew a son is the father's greatest wealth. To make his father's sacrifice complete, he offered himself. Words once spoken cannot be taken back.",
         simpleExplanationHindi: "नचिकेता जानता था कि पुत्र पिता की सबसे बड़ी संपत्ति है। पिता के यज्ञ को सफल बनाने के लिए उसने खुद को अर्पित किया। बोले गए शब्द वापस नहीं लिए जा सकते।",
         theme: "The Curse",
-        nanoBananaPrompt: "Dramatic scene: angry king pointing at a calm young boy, sacrificial fire between them, Sanskrit text 'मृत्यवे त्वा ददामीति' floating in smoke."
+        nanoBananaPrompt: "Dramatic scene: angry king pointing at a calm young boy, sacrificial fire between them, Sanskrit text 'मृत्यवे त्वा ददामीति' floating in smoke.",
+        wordMeanings: [
+            { sanskrit: "pitar", devanagari: "पितरम्", hindi: "पिता को", english: "to father" },
+            { sanskrit: "kasmai", devanagari: "कस्मै", hindi: "किसको", english: "to whom" },
+            { sanskrit: "māṃ dāsyasi", devanagari: "मां दास्यसि", hindi: "मुझे दोगे", english: "will give me" },
+            { sanskrit: "mṛtyave", devanagari: "मृत्यवे", hindi: "मृत्यु को", english: "to Death" },
+            { sanskrit: "dadāmi", devanagari: "ददामि", hindi: "देता हूँ", english: "I give" }
+        ]
     },
 
     // Verse 5: The Ranking
@@ -94,7 +130,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Self-Audit before death. Nachiketa realizes he has value and is not afraid to face his destiny. He questions his worth before the ultimate test.",
         simpleExplanationHindi: "मृत्यु से पहले आत्म-विश्लेषण। नचिकेता को अहसास है कि उसकी कीमत है और वह अपने भाग्य का सामना करने से नहीं डरता। वह अंतिम परीक्षा से पहले अपनी योग्यता पर सवाल उठाता है।",
         theme: "Self-Audit",
-        nanoBananaPrompt: "Young boy in contemplation, looking at his own reflection, measuring his worth, cosmic scales in background."
+        nanoBananaPrompt: "Young boy in contemplation, looking at his own reflection, measuring his worth, cosmic scales in background.",
+        wordMeanings: [
+            { sanskrit: "bahūnām", devanagari: "बहूनाम्", hindi: "बहुतों में", english: "among many" },
+            { sanskrit: "prathamaḥ", devanagari: "प्रथमः", hindi: "प्रथम/श्रेष्ठ", english: "first/best" },
+            { sanskrit: "madhyamaḥ", devanagari: "मध्यमः", hindi: "मध्यम", english: "middle" },
+            { sanskrit: "yamasya", devanagari: "यमस्य", hindi: "यम का", english: "of Yama" },
+            { sanskrit: "kartavyam", devanagari: "कर्तव्यम्", hindi: "कर्तव्य", english: "purpose" }
+        ]
     },
 
     // Verse 6: The Cycle of Crops
@@ -109,7 +152,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The Law of Nature. Everything is cyclical. Why fear death if it is just a harvest? This is the doctrine of rebirth—life is a crop, death is not the end.",
         simpleExplanationHindi: "प्रकृति का नियम। सब कुछ चक्रीय है। मृत्यु से क्यों डरें जब यह केवल एक फसल है? यह पुनर्जन्म का सिद्धांत है—जीवन एक फसल है, मृत्यु अंत नहीं है।",
         theme: "Cycle of Life",
-        nanoBananaPrompt: "Surreal art: golden wheat fields being harvested, human silhouettes rising from seeds, cycle of life visualization, spiritual journey."
+        nanoBananaPrompt: "Surreal art: golden wheat fields being harvested, human silhouettes rising from seeds, cycle of life visualization, spiritual journey.",
+        wordMeanings: [
+            { sanskrit: "pūrve", devanagari: "पूर्वे", hindi: "पूर्वज", english: "ancestors" },
+            { sanskrit: "sasyam iva", devanagari: "सस्यमिव", hindi: "अन्न की तरह", english: "like grain" },
+            { sanskrit: "martyaḥ", devanagari: "मर्त्यः", hindi: "मनुष्य", english: "mortal" },
+            { sanskrit: "pacyate", devanagari: "पच्यते", hindi: "पकता है", english: "ripens" },
+            { sanskrit: "jāyate punaḥ", devanagari: "जायते पुनः", hindi: "फिर जन्म लेता है", english: "born again" }
+        ]
     },
 
     // Verse 7: The Guest as Fire
@@ -124,7 +174,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Treating a guest is like handling fire—neglect burns you, care warms you. Yama realizes his error in making Nachiketa wait.",
         simpleExplanationHindi: "अतिथि का स्वागत अग्नि को संभालने जैसा है—लापरवाही जलाती है, देखभाल गर्मी देती है। यम को अपनी गलती का अहसास होता है।",
         theme: "The Guest as Fire",
-        nanoBananaPrompt: "A young boy radiating golden fire energy, standing at a dark doorway, Yama approaching with water vessel."
+        nanoBananaPrompt: "A young boy radiating golden fire energy, standing at a dark doorway, Yama approaching with water vessel.",
+        wordMeanings: [
+            { sanskrit: "vaiśvānaraḥ", devanagari: "वैश्वानरः", hindi: "अग्नि/वैश्वानर", english: "universal fire" },
+            { sanskrit: "atithiḥ", devanagari: "अतिथिः", hindi: "अतिथि", english: "guest" },
+            { sanskrit: "brāhmaṇaḥ", devanagari: "ब्राह्मणः", hindi: "ब्राह्मण", english: "Brahmin" },
+            { sanskrit: "gṛhān", devanagari: "गृहान्", hindi: "घर में", english: "into house" },
+            { sanskrit: "udakam", devanagari: "उदकम्", hindi: "जल", english: "water" }
+        ]
     },
 
     // Verse 8: The Cost of Neglect
@@ -139,7 +196,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Neglecting a guest destroys all your accumulated merit. Hospitality is not optional—it's spiritual law.",
         simpleExplanationHindi: "अतिथि की उपेक्षा आपके सभी संचित पुण्यों को नष्ट कर देती है। आतिथ्य वैकल्पिक नहीं है—यह आध्यात्मिक नियम है।",
         theme: "Cost of Neglect",
-        nanoBananaPrompt: "Dark scene showing wealth, sons, and cattle fading away like smoke from a house where a hungry guest waits."
+        nanoBananaPrompt: "Dark scene showing wealth, sons, and cattle fading away like smoke from a house where a hungry guest waits.",
+        wordMeanings: [
+            { sanskrit: "āśāpratīkṣe", devanagari: "आशाप्रतीक्षे", hindi: "आशा और प्रतीक्षा", english: "hope and expectation" },
+            { sanskrit: "iṣṭāpūrte", devanagari: "इष्टापूर्ते", hindi: "यज्ञ और दान", english: "sacrifices and charity" },
+            { sanskrit: "putra-paśūn", devanagari: "पुत्रपशून्", hindi: "पुत्र और पशु", english: "sons and cattle" },
+            { sanskrit: "vṛṅkte", devanagari: "वृङ्क्ते", hindi: "नष्ट हो जाते हैं", english: "are destroyed" },
+            { sanskrit: "anaśnan", devanagari: "अनश्नन्", hindi: "बिना खाए", english: "without eating" }
+        ]
     },
 
     // Verse 9: The Three Boons Offered
@@ -154,7 +218,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Yama offers three boons—one for each night of neglect. The stage is set for the greatest spiritual dialogue in history.",
         simpleExplanationHindi: "यम तीन वर प्रदान करते हैं—उपेक्षा की प्रत्येक रात के लिए एक। इतिहास के सबसे महान आध्यात्मिक संवाद की भूमिका तैयार हो गई।",
         theme: "Three Boons Offered",
-        nanoBananaPrompt: "Yama bowing respectfully to young Nachiketa, three golden orbs floating between them representing three boons."
+        nanoBananaPrompt: "Yama bowing respectfully to young Nachiketa, three golden orbs floating between them representing three boons.",
+        wordMeanings: [
+            { sanskrit: "tisraḥ rātrīḥ", devanagari: "तिस्रो रात्रीः", hindi: "तीन रातें", english: "three nights" },
+            { sanskrit: "anaśnan", devanagari: "अनश्नन्", hindi: "बिना खाए", english: "without eating" },
+            { sanskrit: "namasyaḥ", devanagari: "नमस्यः", hindi: "वंदनीय", english: "worthy of reverence" },
+            { sanskrit: "trīn varān", devanagari: "त्रीन् वरान्", hindi: "तीन वर", english: "three boons" },
+            { sanskrit: "vṛṇīṣva", devanagari: "वृणीष्व", hindi: "मांग लो", english: "choose" }
+        ]
     },
 
     // Verse 10: Boon 1 - Peace for Father
@@ -169,7 +240,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Nachiketa's first wish is selfless—peace for his father. He doesn't hold grudges. True seekers forgive first.",
         simpleExplanationHindi: "नचिकेता की पहली इच्छा निःस्वार्थ है—अपने पिता के लिए शांति। वह द्वेष नहीं रखता। सच्चे साधक पहले क्षमा करते हैं।",
         theme: "First Boon: Forgiveness",
-        nanoBananaPrompt: "A father and son reuniting with golden light, the father's face transforming from anger to love."
+        nanoBananaPrompt: "A father and son reuniting with golden light, the father's face transforming from anger to love.",
+        wordMeanings: [
+            { sanskrit: "śāntasaṅkalpaḥ", devanagari: "शान्तसङ्कल्पः", hindi: "शांत संकल्प वाले", english: "calm of mind" },
+            { sanskrit: "sumanāḥ", devanagari: "सुमनाः", hindi: "प्रसन्नचित्त", english: "happy minded" },
+            { sanskrit: "vītamanyuḥ", devanagari: "वीतमन्युः", hindi: "क्रोधरहित", english: "free from anger" },
+            { sanskrit: "gautamaḥ", devanagari: "गौतमः", hindi: "गौतम (पिता)", english: "father Gautama" },
+            { sanskrit: "pratītaḥ", devanagari: "प्रतीतः", hindi: "पहचान लें", english: "recognize" }
+        ]
     },
 
     // Verse 11: Yama Grants Boon 1
@@ -184,7 +262,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "First boon granted. The family wound is healed before the deeper teaching begins.",
         simpleExplanationHindi: "पहला वर स्वीकृत। गहरी शिक्षा शुरू होने से पहले पारिवारिक घाव भर गया।",
         theme: "Boon 1 Granted",
-        nanoBananaPrompt: "A peaceful sleeping father, dreaming of his son returning safely, moonlight through window."
+        nanoBananaPrompt: "A peaceful sleeping father, dreaming of his son returning safely, moonlight through window.",
+        wordMeanings: [
+            { sanskrit: "uddālaki āruṇi", devanagari: "उद्दालकि आरुणि", hindi: "उद्दालक के पुत्र", english: "son of Uddalaka" },
+            { sanskrit: "matprasṛṣṭaḥ", devanagari: "मत्प्रसृष्टः", hindi: "मेरे द्वारा मुक्त", english: "released by me" },
+            { sanskrit: "sukham", devanagari: "सुखम्", hindi: "सुख से", english: "peacefully" },
+            { sanskrit: "vītamanyuḥ", devanagari: "वीतमन्युः", hindi: "क्रोधरहित", english: "free from anger" },
+            { sanskrit: "mṛtyumukhāt", devanagari: "मृत्युमुखात्", hindi: "मृत्यु के मुख से", english: "from death's jaws" }
+        ]
     },
 
     // Verse 12: Boon 2 - The Fire Sacrifice
@@ -199,7 +284,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Nachiketa describes heaven—a place without death, aging, hunger, or thirst. But is this the ultimate goal?",
         simpleExplanationHindi: "नचिकेता स्वर्ग का वर्णन करता है—एक ऐसा स्थान जहां मृत्यु, बुढ़ापा, भूख या प्यास नहीं है। लेकिन क्या यह अंतिम लक्ष्य है?",
         theme: "Description of Heaven",
-        nanoBananaPrompt: "Celestial realm with no shadows, beings in eternal youth, free from hunger and sorrow."
+        nanoBananaPrompt: "Celestial realm with no shadows, beings in eternal youth, free from hunger and sorrow.",
+        wordMeanings: [
+            { sanskrit: "svarge loke", devanagari: "स्वर्गे लोके", hindi: "स्वर्ग लोक में", english: "in heavenly world" },
+            { sanskrit: "na bhayam", devanagari: "न भयम्", hindi: "भय नहीं", english: "no fear" },
+            { sanskrit: "na jarā", devanagari: "न जरा", hindi: "बुढ़ापा नहीं", english: "no old age" },
+            { sanskrit: "aśanāyā", devanagari: "अशनाया", hindi: "भूख", english: "hunger" },
+            { sanskrit: "modate", devanagari: "मोदते", hindi: "आनंदित होता है", english: "rejoices" }
+        ]
     },
 
     // Verse 13: Request for the Fire Knowledge
@@ -214,7 +306,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The second boon is for spiritual knowledge—the Nachiketa Fire ritual that leads to heaven.",
         simpleExplanationHindi: "दूसरा वर आध्यात्मिक ज्ञान के लिए है—नाचिकेता अग्नि अनुष्ठान जो स्वर्ग की ओर ले जाता है।",
         theme: "Second Boon Request",
-        nanoBananaPrompt: "Nachiketa kneeling before Yama, a sacred fire diagram floating between them, golden light."
+        nanoBananaPrompt: "Nachiketa kneeling before Yama, a sacred fire diagram floating between them, golden light.",
+        wordMeanings: [
+            { sanskrit: "agnim", devanagari: "अग्निम्", hindi: "अग्नि", english: "fire" },
+            { sanskrit: "svargyam", devanagari: "स्वर्ग्यम्", hindi: "स्वर्ग देने वाली", english: "leading to heaven" },
+            { sanskrit: "śraddadhānāya", devanagari: "श्रद्दधानाय", hindi: "श्रद्धालु को", english: "to the faithful" },
+            { sanskrit: "amṛtatvam", devanagari: "अमृतत्वम्", hindi: "अमरता", english: "immortality" },
+            { sanskrit: "dvitīyena vareṇa", devanagari: "द्वितीयेन वरेण", hindi: "दूसरे वर से", english: "as second boon" }
+        ]
     },
 
     // Verse 14: Yama Teaches the Fire
@@ -229,7 +328,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The secret fire is hidden in the cave of the heart. External rituals point to internal transformation.",
         simpleExplanationHindi: "गुप्त अग्नि हृदय की गुफा में छिपी है। बाहरी अनुष्ठान आंतरिक परिवर्तन की ओर इशारा करते हैं।",
         theme: "Fire Teaching",
-        nanoBananaPrompt: "A glowing fire inside a cave-like heart, radiating wisdom light outward."
+        nanoBananaPrompt: "A glowing fire inside a cave-like heart, radiating wisdom light outward.",
+        wordMeanings: [
+            { sanskrit: "prajānan", devanagari: "प्रजानन्", hindi: "जानकर", english: "knowing well" },
+            { sanskrit: "ananta-loka", devanagari: "अनन्तलोक", hindi: "अनंत लोक", english: "infinite world" },
+            { sanskrit: "pratiṣṭhā", devanagari: "प्रतिष्ठा", hindi: "आधार", english: "foundation" },
+            { sanskrit: "guhāyām", devanagari: "गुहायाम्", hindi: "गुफा में", english: "in the cave" },
+            { sanskrit: "nihitam", devanagari: "निहितम्", hindi: "स्थित", english: "hidden/located" }
+        ]
     },
 
     // Verse 15: The Lesson Verified
@@ -244,7 +350,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Nachiketa proves he's a worthy student—he repeats the teaching perfectly. A good student makes the teacher want to give more.",
         simpleExplanationHindi: "नचिकेता साबित करता है कि वह योग्य शिष्य है—वह शिक्षा को पूर्णतः दोहराता है। एक अच्छा शिष्य गुरु को और देने की इच्छा जगाता है।",
         theme: "Perfect Student",
-        nanoBananaPrompt: "Nachiketa reciting the fire ritual perfectly, Yama looking impressed and pleased."
+        nanoBananaPrompt: "Nachiketa reciting the fire ritual perfectly, Yama looking impressed and pleased.",
+        wordMeanings: [
+            { sanskrit: "lokādim", devanagari: "लोकादिम्", hindi: "लोकों का आदि", english: "source of worlds" },
+            { sanskrit: "iṣṭakāḥ", devanagari: "इष्टकाः", hindi: "ईंटें", english: "bricks" },
+            { sanskrit: "pratyavadat", devanagari: "प्रत्यवदत्", hindi: "दोहराया", english: "repeated back" },
+            { sanskrit: "tuṣṭaḥ", devanagari: "तुष्टः", hindi: "संतुष्ट", english: "pleased" }
+        ]
     },
 
     // Verse 16: The Bonus Boon
@@ -259,7 +371,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Bonus boon! The fire will be named after Nachiketa forever. Excellence earns rewards beyond what you ask.",
         simpleExplanationHindi: "बोनस वर! अग्नि को हमेशा के लिए नचिकेता का नाम दिया जाएगा। उत्कृष्टता आपकी मांग से अधिक पुरस्कार अर्जित करती है।",
         theme: "Bonus Boon",
-        nanoBananaPrompt: "A sacred fire with 'Nachiketa' written in Sanskrit above it, eternal flame, legacy symbol."
+        nanoBananaPrompt: "A sacred fire with 'Nachiketa' written in Sanskrit above it, eternal flame, legacy symbol.",
+        wordMeanings: [
+            { sanskrit: "prīyamāṇaḥ", devanagari: "प्रीयमाणः", hindi: "प्रसन्न होकर", english: "being pleased" },
+            { sanskrit: "mahātmā", devanagari: "महात्मा", hindi: "महान आत्मा", english: "great soul" },
+            { sanskrit: "bhaviṣyati", devanagari: "भविष्यति", hindi: "होगी", english: "will become" },
+            { sanskrit: "nāmnā", devanagari: "नाम्ना", hindi: "नाम से", english: "by name" }
+        ]
     },
 
     // Verse 17: Result of the Fire
@@ -274,7 +392,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The Nachiketa Fire grants liberation from the cycle of birth and death—but this is still not the ultimate teaching.",
         simpleExplanationHindi: "नाचिकेता अग्नि जन्म-मृत्यु के चक्र से मुक्ति प्रदान करती है—लेकिन यह अभी भी अंतिम शिक्षा नहीं है।",
         theme: "Liberation Through Fire",
-        nanoBananaPrompt: "A soul ascending from the cycle of birth-death wheel, breaking free through sacred fire."
+        nanoBananaPrompt: "A soul ascending from the cycle of birth-death wheel, breaking free through sacred fire.",
+        wordMeanings: [
+            { sanskrit: "triṇāciketaḥ", devanagari: "त्रिणाचिकेतः", hindi: "तीन बार नाचिकेत", english: "threefold Nachiketa" },
+            { sanskrit: "tribhiḥ", devanagari: "त्रिभिः", hindi: "तीन से", english: "by three" },
+            { sanskrit: "janmamṛtyū", devanagari: "जन्ममृत्यू", hindi: "जन्म-मृत्यु", english: "birth-death" },
+            { sanskrit: "śāntim", devanagari: "शान्तिम्", hindi: "शांति", english: "peace" }
+        ]
     },
 
     // Verse 18: Closing the Second Boon
@@ -289,7 +413,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Second boon complete. Heaven is achieved. But Nachiketa wants MORE—the ultimate secret.",
         simpleExplanationHindi: "दूसरा वर पूर्ण। स्वर्ग प्राप्त हो गया। लेकिन नचिकेता और चाहता है—परम रहस्य।",
         theme: "Second Boon Complete",
-        nanoBananaPrompt: "Nachiketa looking beyond heaven towards ultimate truth, not satisfied with celestial pleasures."
+        nanoBananaPrompt: "Nachiketa looking beyond heaven towards ultimate truth, not satisfied with celestial pleasures.",
+        wordMeanings: [
+            { sanskrit: "mṛtyu-pāśān", devanagari: "मृत्युपाशान्", hindi: "मृत्यु के बंधन", english: "bonds of death" },
+            { sanskrit: "praṇodya", devanagari: "प्रणोद्य", hindi: "तोड़कर", english: "throwing off" },
+            { sanskrit: "śokātigaḥ", devanagari: "शोकातिगः", hindi: "शोक से परे", english: "beyond sorrow" },
+            { sanskrit: "svarga-loke", devanagari: "स्वर्गलोके", hindi: "स्वर्ग में", english: "in heaven" }
+        ]
     },
 
     // Verse 19: Offering the Third Boon
@@ -304,7 +434,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Yama confirms the second boon and invites the third. The stage is set for the ultimate question.",
         simpleExplanationHindi: "यम दूसरे वर की पुष्टि करते हैं और तीसरे के लिए आमंत्रित करते हैं। परम प्रश्न के लिए मंच तैयार है।",
         theme: "Third Boon Offered",
-        nanoBananaPrompt: "Yama gesturing with open palms, offering the third boon, dramatic lighting, pivotal moment."
+        nanoBananaPrompt: "Yama gesturing with open palms, offering the third boon, dramatic lighting, pivotal moment.",
+        wordMeanings: [
+            { sanskrit: "svargyaḥ", devanagari: "स्वर्ग्यः", hindi: "स्वर्ग देने वाली", english: "leading to heaven" },
+            { sanskrit: "pravakṣyanti", devanagari: "प्रवक्ष्यन्ति", hindi: "कहेंगे", english: "will call" },
+            { sanskrit: "janāsaḥ", devanagari: "जनासः", hindi: "लोग", english: "people" },
+            { sanskrit: "tṛtīyam varam", devanagari: "तृतीयं वरम्", hindi: "तीसरा वर", english: "third boon" }
+        ]
     },
 
     // Verse 20: Boon 3 - The Great Doubt
@@ -319,7 +455,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE CORE QUESTION: Does consciousness survive death? This is the question that defines the entire Upanishad.",
         simpleExplanationHindi: "मुख्य प्रश्न: क्या चेतना मृत्यु के बाद बची रहती है? यह वह प्रश्न है जो पूरे उपनिषद को परिभाषित करता है।",
         theme: "The Ultimate Question",
-        nanoBananaPrompt: "A soul hovering between existence and non-existence, question mark made of stars, profound mystery visual."
+        nanoBananaPrompt: "A soul hovering between existence and non-existence, question mark made of stars, profound mystery visual.",
+        wordMeanings: [
+            { sanskrit: "prete", devanagari: "प्रेते", hindi: "मरने पर", english: "after death" },
+            { sanskrit: "vicikitsā", devanagari: "विचिकित्सा", hindi: "संदेह", english: "doubt" },
+            { sanskrit: "asti", devanagari: "अस्ति", hindi: "है", english: "exists" },
+            { sanskrit: "na asti", devanagari: "न अस्ति", hindi: "नहीं है", english: "does not exist" },
+            { sanskrit: "anuśiṣṭaḥ", devanagari: "अनुशिष्टः", hindi: "सिखाया हुआ", english: "instructed" }
+        ]
     },
 
     // Verse 21: Yama Refuses
@@ -334,7 +477,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Yama tries to avoid the question—even GODS don't fully understand this! The first temptation begins.",
         simpleExplanationHindi: "यम प्रश्न से बचने की कोशिश करते हैं—देवता भी इसे पूरी तरह नहीं समझते! पहला प्रलोभन शुरू होता है।",
         theme: "Yama Refuses",
-        nanoBananaPrompt: "Yama backing away with hands raised, looking uncomfortable, the question too powerful even for Death."
+        nanoBananaPrompt: "Yama backing away with hands raised, looking uncomfortable, the question too powerful even for Death.",
+        wordMeanings: [
+            { sanskrit: "devaiḥ", devanagari: "देवैः", hindi: "देवताओं द्वारा", english: "by gods" },
+            { sanskrit: "aṇuḥ", devanagari: "अणुः", hindi: "सूक्ष्म", english: "subtle" },
+            { sanskrit: "suvijñeyaṃ", devanagari: "सुविज्ञेयम्", hindi: "आसानी से जानना", english: "easy to know" },
+            { sanskrit: "anyam varam", devanagari: "अन्यं वरम्", hindi: "दूसरा वर", english: "another boon" },
+            { sanskrit: "mā sṛjainam", devanagari: "मा सृजैनम्", hindi: "मुक्त करो", english: "release me" }
+        ]
     },
 
     // Verse 22: Nachiketa Insists
@@ -349,7 +499,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Nachiketa's logic: 'If even you can't teach it, who can? There's no better teacher, no better question.'",
         simpleExplanationHindi: "नचिकेता का तर्क: 'यदि आप भी नहीं सिखा सकते, तो कौन सिखा सकता है? कोई बेहतर शिक्षक नहीं, कोई बेहतर प्रश्न नहीं।'",
         theme: "Nachiketa Insists",
-        nanoBananaPrompt: "Nachiketa standing firm, unshaken, finger pointing at Yama, determination in his eyes."
+        nanoBananaPrompt: "Nachiketa standing firm, unshaken, finger pointing at Yama, determination in his eyes.",
+        wordMeanings: [
+            { sanskrit: "vaktā", devanagari: "वक्ता", hindi: "वक्ता/शिक्षक", english: "speaker/teacher" },
+            { sanskrit: "tvādṛk", devanagari: "त्वादृक्", hindi: "आपके जैसा", english: "like you" },
+            { sanskrit: "tulyaḥ", devanagari: "तुल्यः", hindi: "बराबर", english: "equal" },
+            { sanskrit: "labhyaḥ", devanagari: "लभ्यः", hindi: "प्राप्त होने योग्य", english: "obtainable" }
+        ]
     },
 
     // Verse 23: Yama Offers Wealth
@@ -364,7 +520,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The TEMPTATION begins: Yama offers unlimited wealth, dynasty, and immortal life. Will Nachiketa fall?",
         simpleExplanationHindi: "प्रलोभन शुरू: यम असीमित धन, वंश और अमर जीवन प्रदान करते हैं। क्या नचिकेता गिरेगा?",
         theme: "Temptation: Wealth",
-        nanoBananaPrompt: "Mountains of gold, elephants, horses, vast kingdoms materializing before Nachiketa, glittering temptation."
+        nanoBananaPrompt: "Mountains of gold, elephants, horses, vast kingdoms materializing before Nachiketa, glittering temptation.",
+        wordMeanings: [
+            { sanskrit: "śatāyuṣaḥ", devanagari: "शतायुषः", hindi: "सौ वर्ष आयु", english: "hundred-year life" },
+            { sanskrit: "putra-pautrān", devanagari: "पुत्रपौत्रान्", hindi: "पुत्र-पौत्र", english: "sons and grandsons" },
+            { sanskrit: "hasti-hiraṇyam", devanagari: "हस्तिहिरण्यम्", hindi: "हाथी और सोना", english: "elephants and gold" },
+            { sanskrit: "bhūmeḥ āyatanam", devanagari: "भूमेः आयतनम्", hindi: "पृथ्वी का साम्राज्य", english: "dominion of earth" }
+        ]
     },
 
     // Verse 24: More Temptations
@@ -379,7 +541,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Yama escalates: 'I'll make you ruler of the ENTIRE EARTH and fulfill every desire!' Still not enough.",
         simpleExplanationHindi: "यम बढ़ाते हैं: 'मैं तुम्हें पूरी पृथ्वी का शासक बनाऊंगा और हर इच्छा पूरी करूंगा!' फिर भी पर्याप्त नहीं।",
         theme: "Temptation: Power",
-        nanoBananaPrompt: "Nachiketa on a golden throne, the entire world as his kingdom, ultimate power offered."
+        nanoBananaPrompt: "Nachiketa on a golden throne, the entire world as his kingdom, ultimate power offered.",
+        wordMeanings: [
+            { sanskrit: "vittam", devanagari: "वित्तम्", hindi: "धन", english: "wealth" },
+            { sanskrit: "cirajīvikām", devanagari: "चिरजीविकाम्", hindi: "दीर्घ आयु", english: "long life" },
+            { sanskrit: "mahā-bhūmau", devanagari: "महाभूमौ", hindi: "बड़ी पृथ्वी पर", english: "on great earth" },
+            { sanskrit: "kāma-bhājam", devanagari: "कामभाजम्", hindi: "कामनाओं का भोक्ता", english: "enjoyer of desires" }
+        ]
     },
 
     // Verse 25: The Celestial Pleasures
@@ -394,7 +562,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The FINAL temptation: Divine women, celestial pleasures, everything humans can't have. 'Just don't ask about death!'",
         simpleExplanationHindi: "अंतिम प्रलोभन: दिव्य स्त्रियां, स्वर्गीय सुख, वह सब जो मनुष्यों को नहीं मिल सकता। 'बस मृत्यु के बारे में मत पूछो!'",
         theme: "Temptation: Pleasure",
-        nanoBananaPrompt: "Celestial maidens with chariots and music surrounding Nachiketa, ultimate sensory pleasure visualization."
+        nanoBananaPrompt: "Celestial maidens with chariots and music surrounding Nachiketa, ultimate sensory pleasure visualization.",
+        wordMeanings: [
+            { sanskrit: "durlabhāḥ", devanagari: "दुर्लभाः", hindi: "दुर्लभ", english: "rare/difficult to obtain" },
+            { sanskrit: "rāmāḥ", devanagari: "रामाः", hindi: "सुंदरियाँ", english: "fair maidens" },
+            { sanskrit: "sa-rathāḥ", devanagari: "सरथाः", hindi: "रथों सहित", english: "with chariots" },
+            { sanskrit: "maraṇam", devanagari: "मरणम्", hindi: "मृत्यु", english: "death" },
+            { sanskrit: "mā anuprākṣīḥ", devanagari: "मा अनुप्राक्षीः", hindi: "मत पूछो", english: "do not ask" }
+        ]
     },
 
     // Verse 26: Nachiketa's Rejection
@@ -409,7 +584,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE ULTIMATE REJECTION: 'Keep your pleasures—they fade by tomorrow. Even 100 years is SHORT. I want ETERNAL truth.'",
         simpleExplanationHindi: "परम अस्वीकृति: 'अपने सुख अपने पास रखें—वे कल तक मुरझा जाएंगे। 100 साल भी कम है। मुझे शाश्वत सत्य चाहिए।'",
         theme: "The Great Rejection",
-        nanoBananaPrompt: "Nachiketa pushing away golden treasures and celestial maidens, walking towards a simple light of truth."
+        nanoBananaPrompt: "Nachiketa pushing away golden treasures and celestial maidens, walking towards a simple light of truth.",
+        wordMeanings: [
+            { sanskrit: "śvo-bhāvaḥ", devanagari: "श्वोभावः", hindi: "कल तक रहने वाले", english: "existing till tomorrow" },
+            { sanskrit: "indriyāṇām tejas", devanagari: "इन्द्रियाणां तेजः", hindi: "इन्द्रियों का तेज", english: "vigor of senses" },
+            { sanskrit: "alpam", devanagari: "अल्पम्", hindi: "थोड़ा", english: "short/little" },
+            { sanskrit: "nṛtya-gīte", devanagari: "नृत्यगीते", hindi: "नृत्य-गीत", english: "dance and song" }
+        ]
     },
 
     // Verse 27: Wealth Cannot Satisfy
@@ -424,7 +605,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Nachiketa's logic: 'Wealth never satisfies. Having met Death himself, I've already conquered fear. Give me WISDOM.'",
         simpleExplanationHindi: "नचिकेता का तर्क: 'धन कभी संतुष्ट नहीं करता। मृत्यु से मिलकर, मैंने पहले ही भय पर विजय पा ली। मुझे ज्ञान दो।'",
         theme: "Wealth Cannot Satisfy",
-        nanoBananaPrompt: "A man surrounded by infinite gold yet still empty and hungry, visualizing 'wealth never satisfies'."
+        nanoBananaPrompt: "A man surrounded by infinite gold yet still empty and hungry, visualizing 'wealth never satisfies'.",
+        wordMeanings: [
+            { sanskrit: "vittena", devanagari: "वित्तेन", hindi: "धन से", english: "by wealth" },
+            { sanskrit: "tarpaṇīyaḥ", devanagari: "तर्पणीयः", hindi: "तृप्त", english: "satisfied" },
+            { sanskrit: "manuṣyaḥ", devanagari: "मनुष्यः", hindi: "मनुष्य", english: "man" },
+            { sanskrit: "varaṇīyaḥ", devanagari: "वरणीयः", hindi: "चुनने योग्य", english: "to be chosen" }
+        ]
     },
 
     // Verse 28: The Logic of Immortality
@@ -439,7 +626,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Nachiketa's killer argument: 'When I can learn from immortals, why would I choose temporary pleasures?'",
         simpleExplanationHindi: "नचिकेता का निर्णायक तर्क: 'जब मैं अमरों से सीख सकता हूं, तो अस्थायी सुख क्यों चुनूं?'",
         theme: "Logic of Immortality",
-        nanoBananaPrompt: "A mortal human looking up at eternal beings of light, choosing wisdom over fleeting pleasure."
+        nanoBananaPrompt: "A mortal human looking up at eternal beings of light, choosing wisdom over fleeting pleasure.",
+        wordMeanings: [
+            { sanskrit: "ajīryatām", devanagari: "अजीर्यताम्", hindi: "अजरों के पास", english: "approaching the undecaying" },
+            { sanskrit: "amṛtānām", devanagari: "अमृतानाम्", hindi: "अमरों के", english: "of immortals" },
+            { sanskrit: "jīryan", devanagari: "जीर्यन्", hindi: "बूढ़ा होता", english: "decaying" },
+            { sanskrit: "martyaḥ", devanagari: "मर्त्यः", hindi: "मरणशील", english: "mortal" }
+        ]
     },
 
     // Verse 29: The Final Demand
@@ -454,7 +647,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "FINAL STAND: 'Tell me the mystery of death and the beyond. I choose NOTHING else.' Valli 1 ends with victory.",
         simpleExplanationHindi: "अंतिम स्थिति: 'मुझे मृत्यु और परलोक का रहस्य बताइए। मैं और कुछ नहीं चुनता।' वल्ली 1 विजय के साथ समाप्त।",
         theme: "The Final Demand",
-        nanoBananaPrompt: "Nachiketa standing victorious, Yama bowing in respect, the greatest student meets the greatest test."
+        nanoBananaPrompt: "Nachiketa standing victorious, Yama bowing in respect, the greatest student meets the greatest test.",
+        wordMeanings: [
+            { sanskrit: "sāmparāye", devanagari: "साम्पराये", hindi: "परलोक में", english: "in the hereafter" },
+            { sanskrit: "mahati", devanagari: "महति", hindi: "महान", english: "great" },
+            { sanskrit: "gūḍham", devanagari: "गूढम्", hindi: "गूढ़/रहस्यमय", english: "hidden/secret" },
+            { sanskrit: "anyam", devanagari: "अन्यम्", hindi: "दूसरा", english: "another" }
+        ]
     },
 
     // ==========================================
@@ -473,7 +672,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE FUNDAMENTAL CHOICE: Every decision has two options—what feels good NOW vs what IS good for eternity. Choose wisely.",
         simpleExplanationHindi: "मौलिक चुनाव: हर निर्णय में दो विकल्प हैं—जो अभी अच्छा लगता है बनाम जो अनंत काल के लिए अच्छा है। बुद्धिमानी से चुनें।",
         theme: "Shreyas vs Preyas",
-        nanoBananaPrompt: "A fork in the road: one path golden and easy leading to flames, another rocky but leading to light. Ultimate choice visualization."
+        nanoBananaPrompt: "A fork in the road: one path golden and easy leading to flames, another rocky but leading to light. Ultimate choice visualization.",
+        wordMeanings: [
+            { sanskrit: "śreyaḥ", devanagari: "श्रेयः", hindi: "कल्याण/मोक्ष", english: "the good" },
+            { sanskrit: "preyaḥ", devanagari: "प्रेयः", hindi: "प्रिय/सुखद", english: "the pleasant" },
+            { sanskrit: "sinītaḥ", devanagari: "सिनीतः", hindi: "बाँधते हैं", english: "bind" },
+            { sanskrit: "sādhu", devanagari: "साधु", hindi: "कल्याण", english: "well/good" }
+        ]
     },
 
     // Verse 2 (Valli 2): The Choice of the Wise
@@ -488,7 +693,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The wise EXAMINE before choosing. The fool grabs what glitters. Wisdom = the pause between stimulus and response.",
         simpleExplanationHindi: "बुद्धिमान चुनने से पहले जांच करते हैं। मूर्ख चमकती चीज़ पकड़ लेता है। बुद्धि = उत्तेजना और प्रतिक्रिया के बीच का विराम।",
         theme: "Wisdom's Choice",
-        nanoBananaPrompt: "A wise sage examining two gems—one glittering fake, one dull but real diamond. Discernment visualization."
+        nanoBananaPrompt: "A wise sage examining two gems—one glittering fake, one dull but real diamond. Discernment visualization.",
+        wordMeanings: [
+            { sanskrit: "dhīraḥ", devanagari: "धीरः", hindi: "बुद्धिमान", english: "wise person" },
+            { sanskrit: "vivinakti", devanagari: "विविनक्ति", hindi: "भेद करता है", english: "distinguishes" },
+            { sanskrit: "mandaḥ", devanagari: "मन्दः", hindi: "मूर्ख", english: "dull/foolish" },
+            { sanskrit: "yogakṣemāt", devanagari: "योगक्षेमात्", hindi: "सुरक्षा के लिए", english: "for material security" }
+        ]
     },
 
     // Verse 3 (Valli 2): Nachiketa's Renunciation
@@ -503,7 +714,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Yama praises Nachiketa: 'You saw the trap and avoided it.' Most people drown in the golden chain of wealth.",
         simpleExplanationHindi: "यम नचिकेता की प्रशंसा करते हैं: 'तुमने जाल देखा और बच गए।' अधिकांश लोग धन की सुनहरी जंजीर में डूब जाते हैं।",
         theme: "The Golden Chain",
-        nanoBananaPrompt: "People drowning in golden chains while one boy walks on water above them, free from attachment."
+        nanoBananaPrompt: "People drowning in golden chains while one boy walks on water above them, free from attachment.",
+        wordMeanings: [
+            { sanskrit: "priyān", devanagari: "प्रियान्", hindi: "प्रिय", english: "beloved" },
+            { sanskrit: "kāmān", devanagari: "कामान्", hindi: "कामनाएँ", english: "desires" },
+            { sanskrit: "vittamayīm", devanagari: "वित्तमयीम्", hindi: "धन की", english: "made of wealth" },
+            { sanskrit: "sṛṅkām", devanagari: "सृङ्काम्", hindi: "श्रृंखला/जंजीर", english: "chain/fetter" }
+        ]
     },
 
     // Verse 4 (Valli 2): Ignorance vs Knowledge
@@ -518,7 +735,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Avidya and Vidya are OPPOSITE directions. Nachiketa chose Vidya because NO temptation could shake him.",
         simpleExplanationHindi: "अविद्या और विद्या विपरीत दिशाएं हैं। नचिकेता ने विद्या चुनी क्योंकि कोई प्रलोभन उसे हिला नहीं सका।",
         theme: "Vidya vs Avidya",
-        nanoBananaPrompt: "Two roads diverging infinitely—one into darkness (Avidya), one into light (Vidya). Cosmic compass."
+        nanoBananaPrompt: "Two roads diverging infinitely—one into darkness (Avidya), one into light (Vidya). Cosmic compass.",
+        wordMeanings: [
+            { sanskrit: "dūram", devanagari: "दूरम्", hindi: "दूर", english: "far apart" },
+            { sanskrit: "viparīte", devanagari: "विपरीते", hindi: "विपरीत", english: "opposite" },
+            { sanskrit: "avidyā", devanagari: "अविद्या", hindi: "अविद्या/अज्ञान", english: "ignorance" },
+            { sanskrit: "vidyā", devanagari: "विद्या", hindi: "विद्या/ज्ञान", english: "knowledge" }
+        ]
     },
 
     // Verse 5 (Valli 2): The Blind Leading the Blind
@@ -533,7 +756,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The BLIND LEADING THE BLIND. People who think they're wise but aren't—leading others into the same pit.",
         simpleExplanationHindi: "अंधे अंधों को ले जा रहे हैं। जो लोग सोचते हैं कि वे बुद्धिमान हैं लेकिन नहीं हैं—दूसरों को उसी गड्ढे में ले जा रहे हैं।",
         theme: "Blind Leading Blind",
-        nanoBananaPrompt: "A line of blindfolded people following each other in circles, falling into a pit one by one."
+        nanoBananaPrompt: "A line of blindfolded people following each other in circles, falling into a pit one by one.",
+        wordMeanings: [
+            { sanskrit: "mūḍhāḥ", devanagari: "मूढाः", hindi: "मूर्ख", english: "fools" },
+            { sanskrit: "paṇḍitam", devanagari: "पण्डितम्", hindi: "पंडित", english: "learned" },
+            { sanskrit: "manyāmānāḥ", devanagari: "मन्यमानाः", hindi: "मानते हुए", english: "thinking themselves" },
+            { sanskrit: "andhāḥ", devanagari: "अन्धाः", hindi: "अंधे", english: "blind" }
+        ]
     },
 
     // Verse 6 (Valli 2): The Delusion of Wealth
@@ -548,7 +777,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Materialists who say 'YOLO—there's no afterlife' keep falling into Death's trap again and again.",
         simpleExplanationHindi: "भौतिकवादी जो कहते हैं 'बस यही जीवन है—कोई परलोक नहीं' बार-बार मृत्यु के जाल में गिरते रहते हैं।",
         theme: "Materialism's Trap",
-        nanoBananaPrompt: "A person grabbing gold coins while falling into Death's mouth repeatedly, cycle of rebirth."
+        nanoBananaPrompt: "A person grabbing gold coins while falling into Death's mouth repeatedly, cycle of rebirth.",
+        wordMeanings: [
+            { sanskrit: "bālam", devanagari: "बालम्", hindi: "बालक/अज्ञानी", english: "child/ignorant" },
+            { sanskrit: "vittamohena", devanagari: "वित्तमोहेन", hindi: "धन के मोह से", english: "by delusion of wealth" },
+            { sanskrit: "ayam lokaḥ", devanagari: "अयं लोकः", hindi: "यह लोक", english: "this world" },
+            { sanskrit: "punaḥ punaḥ", devanagari: "पुनः पुनः", hindi: "बार-बार", english: "again and again" }
+        ]
     },
 
     // Verse 7 (Valli 2): The Rarity of the Teacher
@@ -563,7 +798,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "RARE: A true teacher. RARER: A true student. RAREST: When both meet and transmission happens.",
         simpleExplanationHindi: "दुर्लभ: एक सच्चा शिक्षक। और दुर्लभ: एक सच्चा शिष्य। सबसे दुर्लभ: जब दोनों मिलते हैं और संप्रेषण होता है।",
         theme: "Rare Teacher & Student",
-        nanoBananaPrompt: "A single flame passing from one candle to another in a vast darkness—rare transmission of knowledge."
+        nanoBananaPrompt: "A single flame passing from one candle to another in a vast darkness—rare transmission of knowledge.",
+        wordMeanings: [
+            { sanskrit: "śravaṇāya", devanagari: "श्रवणाय", hindi: "सुनने को", english: "for hearing" },
+            { sanskrit: "āścaryaḥ", devanagari: "आश्चर्यः", hindi: "आश्चर्यजनक", english: "wonderful" },
+            { sanskrit: "vaktā", devanagari: "वक्ता", hindi: "वक्ता", english: "speaker" },
+            { sanskrit: "kuśalaḥ", devanagari: "कुशलः", hindi: "कुशल", english: "skilled" },
+            { sanskrit: "jñātā", devanagari: "ज्ञाता", hindi: "जानने वाला", english: "knower" }
+        ]
     },
 
     // Verse 8 (Valli 2): Logic vs Awakening
@@ -578,7 +820,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "You can't ARGUE your way to enlightenment. It's SUBTLER than logic. Only a realized teacher can transmit it.",
         simpleExplanationHindi: "आप तर्क से ज्ञान प्राप्त नहीं कर सकते। यह तर्क से भी सूक्ष्म है। केवल एक आत्मसाक्षात्कारी गुरु ही इसे संप्रेषित कर सकते हैं।",
         theme: "Beyond Logic",
-        nanoBananaPrompt: "A philosopher's books burning while a silent master transmits light through his eyes to a student."
+        nanoBananaPrompt: "A philosopher's books burning while a silent master transmits light through his eyes to a student.",
+        wordMeanings: [
+            { sanskrit: "avareṇa", devanagari: "अवरेण", hindi: "निम्न", english: "inferior" },
+            { sanskrit: "ananya-prokte", devanagari: "अनन्यप्रोक्ते", hindi: "अनन्य द्वारा कहा", english: "told by one with It" },
+            { sanskrit: "aṇīyān", devanagari: "अणीयान्", hindi: "अणु से सूक्ष्म", english: "subtler than atom" },
+            { sanskrit: "atarkyam", devanagari: "अतर्क्यम्", hindi: "तर्क से परे", english: "beyond logic" }
+        ]
     },
 
     // Verse 9 (Valli 2): Faith over Argument
@@ -593,7 +841,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Yama's blessing: 'May I always find students like you!' The highest compliment from Death himself.",
         simpleExplanationHindi: "यम का आशीर्वाद: 'काश मुझे हमेशा तुम्हारे जैसे शिष्य मिलें!' मृत्यु की ओर से सर्वोच्च प्रशंसा।",
         theme: "Yama's Blessing",
-        nanoBananaPrompt: "Yama blessing Nachiketa with folded hands, role reversal—Death honoring a mortal student."
+        nanoBananaPrompt: "Yama blessing Nachiketa with folded hands, role reversal—Death honoring a mortal student.",
+        wordMeanings: [
+            { sanskrit: "tarka", devanagari: "तर्क", hindi: "तर्क", english: "reasoning" },
+            { sanskrit: "satyadhṛtiḥ", devanagari: "सत्यधृतिः", hindi: "सत्य में स्थिर", english: "fixed in truth" },
+            { sanskrit: "praṣṭā", devanagari: "प्रष्टा", hindi: "पूछने वाला", english: "questioner" }
+        ]
     },
 
     // Verse 10 (Valli 2): Yama's Confession
@@ -608,7 +861,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Even DEATH confesses: 'I used temporary rituals to get my temporary position. The Eternal requires a different approach.'",
         simpleExplanationHindi: "मृत्यु भी स्वीकार करता है: 'मैंने अपनी अस्थायी स्थिति पाने के लिए अस्थायी अनुष्ठानों का उपयोग किया। शाश्वत के लिए अलग दृष्टिकोण चाहिए।'",
         theme: "Death's Confession",
-        nanoBananaPrompt: "Yama looking at his own throne, realizing even his position is temporary compared to the Eternal."
+        nanoBananaPrompt: "Yama looking at his own throne, realizing even his position is temporary compared to the Eternal.",
+        wordMeanings: [
+            { sanskrit: "śevadhiḥ", devanagari: "शेवधिः", hindi: "निधि", english: "treasure" },
+            { sanskrit: "anityaṃ", devanagari: "अनित्यम्", hindi: "अनित्य", english: "impermanent" },
+            { sanskrit: "dhruvam", devanagari: "ध्रुवम्", hindi: "स्थिर", english: "permanent" },
+            { sanskrit: "nityam", devanagari: "नित्यम्", hindi: "नित्य", english: "eternal" }
+        ]
     },
 
     // Verse 11 (Valli 2): Nachiketa's Superiority
@@ -623,7 +882,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Nachiketa SAW everything—heaven, power, immortality—and STILL said 'Not enough. Give me the TRUTH.'",
         simpleExplanationHindi: "नचिकेता ने सब कुछ देखा—स्वर्ग, शक्ति, अमरता—और फिर भी कहा 'पर्याप्त नहीं। मुझे सत्य दो।'",
         theme: "Ultimate Discernment",
-        nanoBananaPrompt: "Nachiketa standing on a mountain of treasures, looking beyond at a simple eternal light."
+        nanoBananaPrompt: "Nachiketa standing on a mountain of treasures, looking beyond at a simple eternal light.",
+        wordMeanings: [
+            { sanskrit: "kāmasyāptim", devanagari: "कामस्याप्तिम्", hindi: "कामनाओं की पूर्ति", english: "fulfillment of desires" },
+            { sanskrit: "pratiṣṭhām", devanagari: "प्रतिष्ठाम्", hindi: "आधार", english: "support" },
+            { sanskrit: "abhayasya", devanagari: "अभयस्य", hindi: "अभय का", english: "of fearlessness" },
+            { sanskrit: "atyasरākṣīḥ", devanagari: "अत्यस्राक्षीः", hindi: "त्याग दिया", english: "rejected" }
+        ]
     },
 
     // Verse 12 (Valli 2): The Difficult Path (Yoga)
@@ -638,7 +903,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The path is ADHYATMA YOGA—going inward. Find the Self in the cave of the heart. Then joy and sorrow both dissolve.",
         simpleExplanationHindi: "मार्ग अध्यात्म योग है—अंतर्मुख होना। हृदय की गुफा में आत्मा को खोजें। तब हर्ष और शोक दोनों विलीन हो जाते हैं।",
         theme: "Adhyatma Yoga",
-        nanoBananaPrompt: "A yogi diving into a glowing cave within his own heart, discovering the eternal light inside."
+        nanoBananaPrompt: "A yogi diving into a glowing cave within his own heart, discovering the eternal light inside.",
+        wordMeanings: [
+            { sanskrit: "durdarśam", devanagari: "दुर्दर्शम्", hindi: "कठिनाई से दिखने वाला", english: "hard to see" },
+            { sanskrit: "guhāhitam", devanagari: "गुहाहितम्", hindi: "गुहा में स्थित", english: "hidden in cave" },
+            { sanskrit: "adhyātma-yoga", devanagari: "अध्यात्मयोग", hindi: "अध्यात्म योग", english: "meditation on Self" },
+            { sanskrit: "harṣa-śokau", devanagari: "हर्षशोकौ", hindi: "हर्ष-शोक", english: "joy and sorrow" }
+        ]
     },
 
     // Verse 13 (Valli 2): The Essence of Dharma
@@ -653,7 +924,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Yama declares: 'The door to Brahman is OPEN for you, Nachiketa!' The ultimate invitation.",
         simpleExplanationHindi: "यम घोषणा करते हैं: 'ब्रह्म का द्वार तुम्हारे लिए खुला है, नचिकेता!' परम निमंत्रण।",
         theme: "Door to Brahman",
-        nanoBananaPrompt: "A massive golden door opening to infinite light, Nachiketa standing at the threshold."
+        nanoBananaPrompt: "A massive golden door opening to infinite light, Nachiketa standing at the threshold.",
+        wordMeanings: [
+            { sanskrit: "dharmyam", devanagari: "धर्म्यम्", hindi: "धार्मिक", english: "righteous" },
+            { sanskrit: "modate", devanagari: "मोदते", hindi: "आनंदित होता है", english: "rejoices" },
+            { sanskrit: "vivṛtam sadma", devanagari: "विवृतं सद्म", hindi: "खुला घर", english: "open abode" },
+            { sanskrit: "brahmaṇaḥ", devanagari: "ब्रह्मणः", hindi: "ब्रह्मन का", english: "of Brahman" }
+        ]
     },
 
     // Verse 14 (Valli 2): The Main Question
@@ -668,7 +945,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Nachiketa asks for the ULTIMATE: 'What is beyond good/evil, past/future, cause/effect?' The Absolute.",
         simpleExplanationHindi: "नचिकेता परम की मांग करता है: 'अच्छे/बुरे, अतीत/भविष्य, कारण/कार्य से परे क्या है?' परम तत्व।",
         theme: "The Absolute",
-        nanoBananaPrompt: "A point of light beyond all dualities—beyond time, beyond karma, beyond everything."
+        nanoBananaPrompt: "A point of light beyond all dualities—beyond time, beyond karma, beyond everything.",
+        wordMeanings: [
+            { sanskrit: "dharma", devanagari: "धर्म", hindi: "धर्म", english: "righteousness" },
+            { sanskrit: "adharma", devanagari: "अधर्म", hindi: "अधर्म", english: "unrighteousness" },
+            { sanskrit: "bhūta", devanagari: "भूत", hindi: "भूत/अतीत", english: "past" },
+            { sanskrit: "bhavya", devanagari: "भव्य", hindi: "भविष्य", english: "future" }
+        ]
     },
 
     // Verse 15 (Valli 2): The Answer is OM
@@ -683,7 +966,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE ANSWER: OM. All Vedas point to it. All disciplines aim for it. OM is the name of the Absolute.",
         simpleExplanationHindi: "उत्तर: ॐ। सभी वेद इसकी ओर इशारा करते हैं। सभी साधनाएं इसके लिए हैं। ॐ परम तत्व का नाम है।",
         theme: "OM - The Answer",
-        nanoBananaPrompt: "The symbol OM radiating infinite light, all scriptures and disciplines flowing towards it."
+        nanoBananaPrompt: "The symbol OM radiating infinite light, all scriptures and disciplines flowing towards it.",
+        wordMeanings: [
+            { sanskrit: "vedāḥ", devanagari: "वेदाः", hindi: "वेद", english: "Vedas" },
+            { sanskrit: "padam", devanagari: "पदम्", hindi: "पद", english: "goal/word" },
+            { sanskrit: "tapāṃsi", devanagari: "तपांसि", hindi: "तपस्याएँ", english: "austerities" },
+            { sanskrit: "brahmacaryam", devanagari: "ब्रह्मचर्यम्", hindi: "ब्रह्मचर्य", english: "celibacy" },
+            { sanskrit: "om", devanagari: "ओम्", hindi: "ओम", english: "OM" }
+        ]
     },
 
     // Verse 16 (Valli 2): The Power of OM
@@ -698,7 +988,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "OM = Brahman = The Supreme. Know OM truly, and all desires are fulfilled—because you realize you ARE everything.",
         simpleExplanationHindi: "ॐ = ब्रह्म = परम। ॐ को सच में जानो, और सभी इच्छाएं पूरी हो जाती हैं—क्योंकि आप अनुभव करते हैं कि आप ही सब कुछ हैं।",
         theme: "OM is Brahman",
-        nanoBananaPrompt: "OM symbol dissolving into infinite Brahman, becoming everything and nothing simultaneously."
+        nanoBananaPrompt: "OM symbol dissolving into infinite Brahman, becoming everything and nothing simultaneously.",
+        wordMeanings: [
+            { sanskrit: "akṣaram", devanagari: "अक्षरम्", hindi: "अक्षर/अविनाशी", english: "syllable/imperishable" },
+            { sanskrit: "brahma", devanagari: "ब्रह्म", hindi: "ब्रह्म", english: "Brahman" },
+            { sanskrit: "param", devanagari: "परम्", hindi: "परम", english: "supreme" },
+            { sanskrit: "icchati", devanagari: "इच्छति", hindi: "इच्छा करता है", english: "desires" }
+        ]
     },
 
     // Verse 17 (Valli 2): The Best Support
@@ -713,7 +1009,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "OM is the ultimate SUPPORT. When everything else fails, OM remains. The cosmic safety net.",
         simpleExplanationHindi: "ॐ परम सहारा है। जब बाकी सब विफल हो जाए, ॐ बना रहता है। ब्रह्मांडीय सुरक्षा जाल।",
         theme: "Ultimate Support",
-        nanoBananaPrompt: "A person falling through space, caught by the vibration of OM—the ultimate safety net."
+        nanoBananaPrompt: "A person falling through space, caught by the vibration of OM—the ultimate safety net.",
+        wordMeanings: [
+            { sanskrit: "ālambanam", devanagari: "आलम्बनम्", hindi: "आलंबन/सहारा", english: "support" },
+            { sanskrit: "śreṣṭham", devanagari: "श्रेष्ठम्", hindi: "श्रेष्ठ", english: "best" },
+            { sanskrit: "brahmaloke", devanagari: "ब्रह्मलोके", hindi: "ब्रह्मलोक में", english: "in Brahma-world" },
+            { sanskrit: "mahīyate", devanagari: "महीयते", hindi: "महिमा पाता है", english: "is worshipped" }
+        ]
     },
 
     // Verse 18 (Valli 2): The Eternal Self - MOST FAMOUS VERSE
@@ -728,7 +1030,15 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE MOST FAMOUS VERSE (also in Bhagavad Gita 2.20): The Self is NEVER born, NEVER dies. Bodies fall, the Self remains.",
         simpleExplanationHindi: "सबसे प्रसिद्ध श्लोक (गीता 2.20 में भी): आत्मा कभी जन्म नहीं लेती, कभी मरती नहीं। शरीर गिरते हैं, आत्मा बनी रहती है।",
         theme: "Eternal Self",
-        nanoBananaPrompt: "An indestructible brilliant light inside a body that is dissolving—the Self surviving death."
+        nanoBananaPrompt: "An indestructible brilliant light inside a body that is dissolving—the Self surviving death.",
+        wordMeanings: [
+            { sanskrit: "na jāyate", devanagari: "न जायते", hindi: "जन्म नहीं लेता", english: "not born" },
+            { sanskrit: "na mriyate", devanagari: "न म्रियते", hindi: "मरता नहीं", english: "not die" },
+            { sanskrit: "ajaḥ", devanagari: "अजः", hindi: "अजन्मा", english: "unborn" },
+            { sanskrit: "nityaḥ", devanagari: "नित्यः", hindi: "नित्य", english: "eternal" },
+            { sanskrit: "śāśvataḥ", devanagari: "शाश्वतः", hindi: "शाश्वत", english: "everlasting" },
+            { sanskrit: "purāṇaḥ", devanagari: "पुराणः", hindi: "पुरातन", english: "ancient" }
+        ]
     },
 
     // Verse 19 (Valli 2): The Slayer and the Slain
@@ -743,7 +1053,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Both killer and killed are WRONG. The Self neither kills nor can be killed. Only bodies interact; the Self is untouched.",
         simpleExplanationHindi: "मारने वाला और मरने वाला दोनों गलत हैं। आत्मा न मारती है न मारी जा सकती है। केवल शरीर संपर्क करते हैं; आत्मा अछूती है।",
         theme: "Beyond Death",
-        nanoBananaPrompt: "A sword passing through a being of light without touching it—the Self untouched by violence."
+        nanoBananaPrompt: "A sword passing through a being of light without touching it—the Self untouched by violence.",
+        wordMeanings: [
+            { sanskrit: "hantā", devanagari: "हन्ता", hindi: "मारने वाला", english: "killer" },
+            { sanskrit: "hataḥ", devanagari: "हतः", hindi: "मारा गया", english: "killed" },
+            { sanskrit: "na hanti", devanagari: "न हन्ति", hindi: "नहीं मारता", english: "does not kill" },
+            { sanskrit: "na hanyate", devanagari: "न हन्यते", hindi: "नहीं मारा जाता", english: "is not killed" }
+        ]
     },
 
     // Verse 20 (Valli 2): Smaller than Small, Greater than Great
@@ -758,7 +1074,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "SMALLER than an atom, BIGGER than the universe—the Self is both. Only the desireless can perceive it.",
         simpleExplanationHindi: "परमाणु से छोटा, ब्रह्मांड से बड़ा—आत्मा दोनों है। केवल इच्छा रहित ही इसे देख सकता है।",
         theme: "Infinite & Infinitesimal",
-        nanoBananaPrompt: "An atom containing a universe, and a universe contained in an atom—the Self as both extremes."
+        nanoBananaPrompt: "An atom containing a universe, and a universe contained in an atom—the Self as both extremes.",
+        wordMeanings: [
+            { sanskrit: "aṇoḥ aṇīyān", devanagari: "अणोरणीयान्", hindi: "अणु से अणु", english: "subtler than subtle" },
+            { sanskrit: "mahato mahīyān", devanagari: "महतो महीयान्", hindi: "महान से महान", english: "greater than great" },
+            { sanskrit: "guhāyām", devanagari: "गुहायाम्", hindi: "गुहा में", english: "in the cave" },
+            { sanskrit: "vītaśokaḥ", devanagari: "वीतशोकः", hindi: "शोकरहित", english: "free from sorrow" }
+        ]
     },
 
     // Verse 21 (Valli 2): The Paradox of Motion
@@ -773,7 +1095,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The Self doesn't move, yet reaches everywhere. It doesn't act, yet does everything. The ultimate paradox.",
         simpleExplanationHindi: "आत्मा हिलती नहीं, फिर भी हर जगह पहुंचती है। कार्य नहीं करती, फिर भी सब कुछ करती है। परम विरोधाभास।",
         theme: "Motionless Mover",
-        nanoBananaPrompt: "A still point at the center of a spinning galaxy—motionless yet the cause of all motion."
+        nanoBananaPrompt: "A still point at the center of a spinning galaxy—motionless yet the cause of all motion.",
+        wordMeanings: [
+            { sanskrit: "āsīnaḥ", devanagari: "आसीनः", hindi: "बैठा हुआ", english: "sitting" },
+            { sanskrit: "dūram vrajai", devanagari: "दूरं व्रजति", hindi: "दूर जाता है", english: "goes far" },
+            { sanskrit: "śayānaḥ", devanagari: "शयानः", hindi: "सोता हुआ", english: "lying down" },
+            { sanskrit: "sarvataḥ", devanagari: "सर्वतः", hindi: "सब जगह", english: "everywhere" }
+        ]
     },
 
     // Verse 22 (Valli 2): Bodiless in Bodies
@@ -788,7 +1116,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The Self is BODILESS in bodies, PERMANENT in impermanent things. Know this = no more grief.",
         simpleExplanationHindi: "आत्मा शरीरों में अशरीर है, अस्थिर में स्थिर है। यह जानो = अब कोई शोक नहीं।",
         theme: "Bodiless Self",
-        nanoBananaPrompt: "A ghost-like pure consciousness inhabiting a body, unaffected by the body's changes."
+        nanoBananaPrompt: "A ghost-like pure consciousness inhabiting a body, unaffected by the body's changes.",
+        wordMeanings: [
+            { sanskrit: "aśarīram", devanagari: "अशरीरम्", hindi: "शरीररहित", english: "bodiless" },
+            { sanskrit: "śarīreṣu", devanagari: "शरीरेषु", hindi: "शरीरों में", english: "in bodies" },
+            { sanskrit: "mahāntam", devanagari: "महान्तम्", hindi: "महान", english: "great" },
+            { sanskrit: "vibhum", devanagari: "विभुम्", hindi: "व्यापक", english: "all-pervading" },
+            { sanskrit: "na śocati", devanagari: "न शोचति", hindi: "शोक नहीं करता", english: "does not grieve" }
+        ]
     },
 
     // Verse 23 (Valli 2): Not by Logic, but by Choice - KEY VERSE
@@ -803,7 +1138,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "KEY VERSE: Not by study, not by intellect, not by listening. The Self CHOOSES whom to reveal itself to. Grace + Surrender.",
         simpleExplanationHindi: "मुख्य श्लोक: अध्ययन से नहीं, बुद्धि से नहीं, सुनने से नहीं। आत्मा चुनती है किसे अपने को प्रकट करना है। कृपा + समर्पण।",
         theme: "Grace of Self-Revelation",
-        nanoBananaPrompt: "The Self as light choosing to illuminate a humble, surrendered seeker among many scholars."
+        nanoBananaPrompt: "The Self as light choosing to illuminate a humble, surrendered seeker among many scholars.",
+        wordMeanings: [
+            { sanskrit: "pravacanena", devanagari: "प्रवचनेन", hindi: "प्रवचन से", english: "by instruction" },
+            { sanskrit: "medhā", devanagari: "मेधा", hindi: "बुद्धि", english: "intellect" },
+            { sanskrit: "śrutena", devanagari: "श्रुतेन", hindi: "सुनने से", english: "by hearing" },
+            { sanskrit: "vṛṇute", devanagari: "वृणुते", hindi: "चुनता है", english: "chooses" },
+            { sanskrit: "vivṛṇute tanūm", devanagari: "विवृणुते तनूम्", hindi: "स्वरूप प्रकट करता है", english: "reveals Its form" }
+        ]
     },
 
     // Verse 24 (Valli 2): Requirements for Knowledge
@@ -818,7 +1160,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "PREREQUISITES: Stop wrongdoing. Be calm. Concentrate. Find inner peace. WITHOUT these, even knowledge won't reveal the Self.",
         simpleExplanationHindi: "पूर्व शर्तें: गलत काम बंद करो। शांत रहो। एकाग्र हो जाओ। आंतरिक शांति पाओ। इनके बिना, ज्ञान भी आत्मा को प्रकट नहीं करेगा।",
         theme: "Prerequisites for Knowledge",
-        nanoBananaPrompt: "Four steps carved in stone: Stop Evil, Be Calm, Concentrate, Find Peace—leading to light."
+        nanoBananaPrompt: "Four steps carved in stone: Stop Evil, Be Calm, Concentrate, Find Peace—leading to light.",
+        wordMeanings: [
+            { sanskrit: "avirataḥ", devanagari: "अविरतः", hindi: "न रुका हुआ", english: "not turned away" },
+            { sanskrit: "duścaritāt", devanagari: "दुश्चरितात्", hindi: "दुराचार से", english: "from wickedness" },
+            { sanskrit: "aśāntaḥ", devanagari: "अशान्तः", hindi: "अशांत", english: "not tranquil" },
+            { sanskrit: "asamāhitaḥ", devanagari: "असमाहितः", hindi: "असंकेंद्रित", english: "not concentrated" },
+            { sanskrit: "prajñānena", devanagari: "प्रज्ञानेन", hindi: "ज्ञान से", english: "by knowledge" }
+        ]
     },
 
     // Verse 25 (Valli 2): The Consumer of All
@@ -833,7 +1182,14 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The Absolute EATS everything—even Death is just a side dish! Who can measure such infinite power?",
         simpleExplanationHindi: "परम तत्व सब कुछ खा जाता है—मृत्यु भी केवल एक साइड डिश है! ऐसी अनंत शक्ति को कौन माप सकता है?",
         theme: "Consumer of All",
-        nanoBananaPrompt: "A cosmic being consuming the entire universe including Death—the Absolute that devours all."
+        nanoBananaPrompt: "A cosmic being consuming the entire universe including Death—the Absolute that devours all.",
+        wordMeanings: [
+            { sanskrit: "brahma", devanagari: "ब्रह्म", hindi: "ब्राह्मण", english: "Brahmana" },
+            { sanskrit: "kṣatram", devanagari: "क्षत्रम्", hindi: "क्षत्रिय", english: "Kshatriya" },
+            { sanskrit: "odanaḥ", devanagari: "ओदनः", hindi: "भोजन", english: "food" },
+            { sanskrit: "mṛtyuḥ", devanagari: "मृत्युः", hindi: "मृत्यु", english: "death" },
+            { sanskrit: "upasecanam", devanagari: "उपसेचनम्", hindi: "चटनी", english: "condiment" }
+        ]
     },
 
     // ==========================================
@@ -852,7 +1208,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Two birds on one tree: the Ego (experiencing) and the Self (witnessing). One eats the fruit, one watches.",
         simpleExplanationHindi: "एक पेड़ पर दो पक्षी: अहंकार (अनुभव करने वाला) और आत्मा (साक्षी)। एक फल खाता है, एक देखता है।",
         theme: "Two Birds",
-        nanoBananaPrompt: "Two birds on a tree—one eating fruit (ego), one watching serenely (Self). Shadow and Light metaphor."
+        nanoBananaPrompt: "Two birds on a tree—one eating fruit (ego), one watching serenely (Self). Shadow and Light metaphor.",
+        wordMeanings: [
+            { sanskrit: "ṛtam", devanagari: "ऋतम्", hindi: "सत्य", english: "truth" },
+            { sanskrit: "guhām", devanagari: "गुहाम्", hindi: "गुहा", english: "cave" },
+            { sanskrit: "chāyā-tapau", devanagari: "छायातपौ", hindi: "छाया-धूप", english: "shadow-light" }
+        ]
     },
 
     // Verse 2 (Valli 3): The Bridge to Fearlessness
@@ -867,7 +1228,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The Nachiketa Fire is a BRIDGE to heaven; Brahman knowledge is the SHORE of fearlessness.",
         simpleExplanationHindi: "नाचिकेता अग्नि स्वर्ग का पुल है; ब्रह्म ज्ञान अभय का तट है।",
         theme: "Bridge to Freedom",
-        nanoBananaPrompt: "A bridge of fire crossing an ocean of confusion, leading to a shore of pure light—fearlessness."
+        nanoBananaPrompt: "A bridge of fire crossing an ocean of confusion, leading to a shore of pure light—fearlessness.",
+        wordMeanings: [
+            { sanskrit: "setuḥ", devanagari: "सेतुः", hindi: "सेतु", english: "bridge" },
+            { sanskrit: "abhayam", devanagari: "अभयम्", hindi: "अभय", english: "fearlessness" },
+            { sanskrit: "pāram", devanagari: "पारम्", hindi: "पार", english: "shore" }
+        ]
     },
 
     // Verse 3 (Valli 3): THE CHARIOT ANALOGY - MOST FAMOUS VERSE
@@ -882,7 +1248,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE CHARIOT METAPHOR: Self = Owner, Body = Chariot, Intellect = Driver, Mind = Reins. The most famous psychological model!",
         simpleExplanationHindi: "रथ रूपक: आत्मा = मालिक, शरीर = रथ, बुद्धि = चालक, मन = लगाम। सबसे प्रसिद्ध मनोवैज्ञानिक मॉडल!",
         theme: "The Chariot Metaphor",
-        nanoBananaPrompt: "A golden chariot with labeled parts: Self as passenger, Intellect as driver, Mind as reins, Body as chariot."
+        nanoBananaPrompt: "A golden chariot with labeled parts: Self as passenger, Intellect as driver, Mind as reins, Body as chariot.",
+        wordMeanings: [
+            { sanskrit: "ātmānam rathinam", devanagari: "आत्मानं रथिनम्", hindi: "आत्मा रथी", english: "Self as chariot-lord" },
+            { sanskrit: "śarīram ratham", devanagari: "शरीरं रथम्", hindi: "शरीर रथ", english: "body as chariot" },
+            { sanskrit: "buddhim sārathim", devanagari: "बुद्धिं सारथिम्", hindi: "बुद्धि सारथी", english: "intellect as driver" },
+            { sanskrit: "manaḥ pragraham", devanagari: "मनः प्रग्रहम्", hindi: "मन लगाम", english: "mind as reins" }
+        ]
     },
 
     // Verse 4 (Valli 3): The Horses and the Road
@@ -897,7 +1269,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "CONTINUING THE METAPHOR: Senses = Horses, Sense-Objects = Roads. The Self RIDES this vehicle of experience.",
         simpleExplanationHindi: "रूपक जारी: इन्द्रियां = घोड़े, विषय = रास्ते। आत्मा इस अनुभव के वाहन की सवारी करती है।",
         theme: "Horses and Roads",
-        nanoBananaPrompt: "Five horses (senses) running on five roads (sight, sound, smell, taste, touch) pulling the chariot."
+        nanoBananaPrompt: "Five horses (senses) running on five roads (sight, sound, smell, taste, touch) pulling the chariot.",
+        wordMeanings: [
+            { sanskrit: "indriyāṇi hayān", devanagari: "इन्द्रियाणि हयान्", hindi: "इन्द्रियाँ घोड़े", english: "senses as horses" },
+            { sanskrit: "viṣayān gocarān", devanagari: "विषयान् गोचरान्", hindi: "विषय मार्ग", english: "objects as roads" },
+            { sanskrit: "bhoktā", devanagari: "भोक्ता", hindi: "भोक्ता", english: "enjoyer" }
+        ]
     },
 
     // Verse 5 (Valli 3): The Uncontrolled Mind
@@ -912,7 +1289,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "BAD DRIVER: No intellect + loose reins = wild horses! Your senses will drag you anywhere.",
         simpleExplanationHindi: "बुरा चालक: कोई बुद्धि नहीं + ढीली लगाम = जंगली घोड़े! आपकी इन्द्रियां आपको कहीं भी खींच ले जाएंगी।",
         theme: "Uncontrolled Senses",
-        nanoBananaPrompt: "Wild horses pulling a crashing chariot with a helpless driver who lost the reins—chaos visualization."
+        nanoBananaPrompt: "Wild horses pulling a crashing chariot with a helpless driver who lost the reins—chaos visualization.",
+        wordMeanings: [
+            { sanskrit: "avijñānavān", devanagari: "अविज्ञानवान्", hindi: "विवेकहीन", english: "without discrimination" },
+            { sanskrit: "duṣṭāśvāḥ", devanagari: "दुष्टाश्वाः", hindi: "दुष्ट घोड़े", english: "vicious horses" }
+        ]
     },
 
     // Verse 6 (Valli 3): The Controlled Mind
@@ -927,7 +1308,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "GOOD DRIVER: Sharp intellect + firm reins = trained horses! Your senses obey YOUR direction.",
         simpleExplanationHindi: "अच्छा चालक: तीक्ष्ण बुद्धि + मजबूत लगाम = प्रशिक्षित घोड़े! आपकी इन्द्रियां आपकी दिशा का पालन करती हैं।",
         theme: "Controlled Senses",
-        nanoBananaPrompt: "A skilled charioteer with well-trained horses moving gracefully in perfect harmony."
+        nanoBananaPrompt: "A skilled charioteer with well-trained horses moving gracefully in perfect harmony.",
+        wordMeanings: [
+            { sanskrit: "vijñānavān", devanagari: "विज्ञानवान्", hindi: "विवेकी", english: "with discrimination" },
+            { sanskrit: "sadaśvāḥ", devanagari: "सदश्वाः", hindi: "अच्छे घोड़े", english: "good horses" }
+        ]
     },
 
     // Verse 7 (Valli 3): The Cycle of Rebirth
@@ -942,7 +1327,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "RESULT OF BAD DRIVING: Miss the destination, crash into rebirth cycle again and again.",
         simpleExplanationHindi: "बुरी ड्राइविंग का परिणाम: गंतव्य चूक गए, बार-बार पुनर्जन्म चक्र में दुर्घटनाग्रस्त।",
         theme: "Rebirth Cycle",
-        nanoBananaPrompt: "A chariot going in circles forever, never reaching the destination—the cycle of Samsara."
+        nanoBananaPrompt: "A chariot going in circles forever, never reaching the destination—the cycle of Samsara.",
+        wordMeanings: [
+            { sanskrit: "aśuciḥ", devanagari: "अशुचिः", hindi: "अपवित्र", english: "impure" },
+            { sanskrit: "saṃsāram", devanagari: "संसारम्", hindi: "संसार", english: "cycle of rebirth" }
+        ]
     },
 
     // Verse 8 (Valli 3): The Destination
@@ -957,7 +1346,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "RESULT OF GOOD DRIVING: Reach the destination—no more rebirth! Liberation achieved.",
         simpleExplanationHindi: "अच्छी ड्राइविंग का परिणाम: गंतव्य पर पहुंचे—अब पुनर्जन्म नहीं! मुक्ति प्राप्त।",
         theme: "Liberation",
-        nanoBananaPrompt: "A chariot arriving at a brilliant destination of light, journey complete, no return needed."
+        nanoBananaPrompt: "A chariot arriving at a brilliant destination of light, journey complete, no return needed.",
+        wordMeanings: [
+            { sanskrit: "śuciḥ", devanagari: "शुचिः", hindi: "पवित्र", english: "pure" },
+            { sanskrit: "padam", devanagari: "पदम्", hindi: "पद", english: "goal" },
+            { sanskrit: "na jāyate", devanagari: "न जायते", hindi: "जन्म नहीं", english: "not born again" }
+        ]
     },
 
     // Verse 9 (Valli 3): The Supreme Abode - Vishnu Padam
@@ -972,7 +1366,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE DESTINATION: Vishnu's Supreme Abode—the final resting place. Journey's end for the well-driven chariot.",
         simpleExplanationHindi: "गंतव्य: विष्णु का परम धाम—अंतिम विश्राम स्थल। अच्छी तरह चलाए गए रथ की यात्रा का अंत।",
         theme: "Vishnu's Abode",
-        nanoBananaPrompt: "A chariot reaching a cosmic palace of infinite light—Vishnu's Supreme Abode, journey complete."
+        nanoBananaPrompt: "A chariot reaching a cosmic palace of infinite light—Vishnu's Supreme Abode, journey complete.",
+        wordMeanings: [
+            { sanskrit: "vijñāna-sārathiḥ", devanagari: "विज्ञानसारथिः", hindi: "बुद्धि सारथी", english: "intellect as driver" },
+            { sanskrit: "viṣṇoḥ padam", devanagari: "विष्णोः पदम्", hindi: "विष्णु का पद", english: "abode of Vishnu" }
+        ]
     },
 
     // Verse 10 (Valli 3): The Hierarchy of Existence
@@ -987,7 +1385,13 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE HIERARCHY: Senses < Objects < Mind < Intellect < Mahat (Cosmic Mind). Each level subtler than the last.",
         simpleExplanationHindi: "पदानुक्रम: इन्द्रियां < विषय < मन < बुद्धि < महत्। प्रत्येक स्तर पिछले से सूक्ष्म।",
         theme: "Hierarchy of Reality",
-        nanoBananaPrompt: "A layered pyramid of consciousness—senses at bottom, rising to Mahat, ultimate reality at top."
+        nanoBananaPrompt: "A layered pyramid of consciousness—senses at bottom, rising to Mahat, ultimate reality at top.",
+        wordMeanings: [
+            { sanskrit: "indriyebhyaḥ", devanagari: "इन्द्रियेभ्यः", hindi: "इन्द्रियों से", english: "beyond senses" },
+            { sanskrit: "manaḥ", devanagari: "मनः", hindi: "मन", english: "mind" },
+            { sanskrit: "buddhiḥ", devanagari: "बुद्धिः", hindi: "बुद्धि", english: "intellect" },
+            { sanskrit: "mahān ātmā", devanagari: "महान् आत्मा", hindi: "महान आत्मा", english: "great Self" }
+        ]
     },
 
     // Verse 11 (Valli 3): The Ultimate Reality
@@ -1002,7 +1406,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE APEX: Mahat < Prakriti < PURUSHA. Beyond Purusha—NOTHING. That's the END, the ULTIMATE GOAL.",
         simpleExplanationHindi: "शिखर: महत् < प्रकृति < पुरुष। पुरुष से परे—कुछ नहीं। वही अंत है, परम लक्ष्य।",
         theme: "The Purusha",
-        nanoBananaPrompt: "The ultimate point beyond all layers—Purusha as the final reality, nothing beyond."
+        nanoBananaPrompt: "The ultimate point beyond all layers—Purusha as the final reality, nothing beyond.",
+        wordMeanings: [
+            { sanskrit: "avyaktam", devanagari: "अव्यक्तम्", hindi: "अव्यक्त", english: "unmanifest" },
+            { sanskrit: "puruṣaḥ", devanagari: "पुरुषः", hindi: "पुरुष", english: "Supreme Spirit" },
+            { sanskrit: "parā gatiḥ", devanagari: "परा गतिः", hindi: "परम गति", english: "supreme goal" }
+        ]
     },
 
     // Verse 12 (Valli 3): The Hidden Self
@@ -1017,7 +1426,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The Self is HIDDEN in plain sight. Only those with SUBTLE vision can perceive it.",
         simpleExplanationHindi: "आत्मा सामने होते हुए भी छिपी है। केवल सूक्ष्म दृष्टि वाले ही इसे देख सकते हैं।",
         theme: "Hidden Self",
-        nanoBananaPrompt: "A hidden light within all beings, visible only to those with special spiritual vision."
+        nanoBananaPrompt: "A hidden light within all beings, visible only to those with special spiritual vision.",
+        wordMeanings: [
+            { sanskrit: "gūḍhaḥ", devanagari: "गूढः", hindi: "छिपा", english: "hidden" },
+            { sanskrit: "sūkṣmayā buddhyā", devanagari: "सूक्ष्मया बुद्ध्या", hindi: "सूक्ष्म बुद्धि", english: "subtle intellect" }
+        ]
     },
 
     // Verse 13 (Valli 3): The Process of Yoga
@@ -1032,7 +1445,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE YOGA PROCESS: Senses → Mind → Intellect → Mahat → Supreme Peace. Systematic withdrawal to the Source.",
         simpleExplanationHindi: "योग प्रक्रिया: इन्द्रियां → मन → बुद्धि → महत् → परम शांति। स्रोत की ओर व्यवस्थित वापसी।",
         theme: "Yogic Withdrawal",
-        nanoBananaPrompt: "Layers of consciousness folding inward like a flower closing, returning to the seed—the Source."
+        nanoBananaPrompt: "Layers of consciousness folding inward like a flower closing, returning to the seed—the Source.",
+        wordMeanings: [
+            { sanskrit: "yacchet", devanagari: "यच्छेत्", hindi: "निरोध करे", english: "should merge" },
+            { sanskrit: "śānta ātmani", devanagari: "शान्त आत्मनि", hindi: "शांत आत्मा में", english: "in peaceful Self" }
+        ]
     },
 
     // Verse 14 (Valli 3): ARISE! AWAKE! - MOST FAMOUS VERSE
@@ -1047,7 +1464,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "SWAMI VIVEKANANDA'S FAVORITE: Arise! Awake! Seek teachers! The path is sharp as a razor—but POSSIBLE.",
         simpleExplanationHindi: "स्वामी विवेकानंद का प्रिय: उठो! जागो! गुरुओं की खोज करो! मार्ग उस्तरे जैसा तीखा है—पर संभव है।",
         theme: "Arise! Awake!",
-        nanoBananaPrompt: "A person awakening and walking on a razor's edge path towards light—difficult but possible."
+        nanoBananaPrompt: "A person awakening and walking on a razor's edge path towards light—difficult but possible.",
+        wordMeanings: [
+            { sanskrit: "uttiṣṭhata", devanagari: "उत्तिष्ठत", hindi: "उठो", english: "arise" },
+            { sanskrit: "jāgrata", devanagari: "जाग्रत", hindi: "जागो", english: "awake" },
+            { sanskrit: "kṣurasya dhārā", devanagari: "क्षुरस्य धारा", hindi: "उस्तरे की धार", english: "razor's edge" }
+        ]
     },
 
     // Verse 15 (Valli 3): Description of the Absolute
@@ -1062,7 +1484,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE ABSOLUTE: No sound, no touch, no form, no taste, no smell. Beyond time, beyond everything. Know THIS = Freedom from Death.",
         simpleExplanationHindi: "परम तत्व: न ध्वनि, न स्पर्श, न रूप, न स्वाद, न गंध। समय से परे, सब से परे। इसे जानो = मृत्यु से मुक्ति।",
         theme: "The Absolute",
-        nanoBananaPrompt: "Pure existence beyond all senses—no form, no sound, just infinite unchanging presence."
+        nanoBananaPrompt: "Pure existence beyond all senses—no form, no sound, just infinite unchanging presence.",
+        wordMeanings: [
+            { sanskrit: "aśabdam", devanagari: "अशब्दम्", hindi: "शब्दरहित", english: "soundless" },
+            { sanskrit: "arūpam", devanagari: "अरूपम्", hindi: "रूपरहित", english: "formless" },
+            { sanskrit: "anādi-anantam", devanagari: "अनाद्यनन्तम्", hindi: "आदि-अंतरहित", english: "beginningless-endless" }
+        ]
     },
 
     // Verse 16 (Valli 3): The Fruit of Hearing
@@ -1077,7 +1504,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "FRUIT OF THIS TEACHING: Whoever shares or hears this Nachiketa story is glorified in Brahman's realm.",
         simpleExplanationHindi: "इस शिक्षा का फल: जो भी इस नचिकेता कथा को सुनाता या सुनता है, वह ब्रह्म लोक में महिमावान होता है।",
         theme: "Fruit of Learning",
-        nanoBananaPrompt: "A person sharing the Nachiketa story, radiating light, honored in the realm of Brahman."
+        nanoBananaPrompt: "A person sharing the Nachiketa story, radiating light, honored in the realm of Brahman.",
+        wordMeanings: [
+            { sanskrit: "nāciketam", devanagari: "नाचिकेतम्", hindi: "नाचिकेत", english: "Nachiketa" },
+            { sanskrit: "mṛtyu-proktam", devanagari: "मृत्युप्रोक्तम्", hindi: "मृत्यु द्वारा कही", english: "told by Death" }
+        ]
     },
 
     // Verse 17 (Valli 3): The Fruit of Recitation
@@ -1092,7 +1523,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "INFINITE MERIT: Reciting this at sacred gatherings yields INFINITE results. The verse repeats for emphasis!",
         simpleExplanationHindi: "अनंत पुण्य: पवित्र सभाओं में इसे पढ़ने से अनंत फल मिलता है। जोर देने के लिए पंक्ति दोहराई गई!",
         theme: "Infinite Results",
-        nanoBananaPrompt: "Infinite ripples spreading from one recitation—endless merit multiplying forever."
+        nanoBananaPrompt: "Infinite ripples spreading from one recitation—endless merit multiplying forever.",
+        wordMeanings: [
+            { sanskrit: "paramam guhyam", devanagari: "परमं गुह्यम्", hindi: "परम रहस्य", english: "supreme secret" },
+            { sanskrit: "ānantyāya", devanagari: "आनन्त्याय", hindi: "अनंत के लिए", english: "for infinity" }
+        ]
     },
 
     // ==========================================
@@ -1111,7 +1546,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "KEY INSIGHT: Our senses are designed to point OUTWARD. Only a rare wise person TURNS INWARD to find immortality.",
         simpleExplanationHindi: "मुख्य अंतर्दृष्टि: हमारी इन्द्रियां बाहर की ओर इशारा करने के लिए बनी हैं। केवल विरला ज्ञानी अमरता पाने के लिए अंदर मुड़ता है।",
         theme: "Outward Senses",
-        nanoBananaPrompt: "Eyes pointing outward like beams, while a rare sage turns his vision 180 degrees to see the inner light."
+        nanoBananaPrompt: "Eyes pointing outward like beams, while a rare sage turns his vision 180 degrees to see the inner light.",
+        wordMeanings: [
+            { sanskrit: "parāñci khāni", devanagari: "पराञ्चि खानि", hindi: "बाहरमुखी इन्द्रियाँ", english: "outward senses" },
+            { sanskrit: "pratyag-ātmānam", devanagari: "प्रत्यगात्मानम्", hindi: "अंतरात्मा", english: "inner Self" },
+            { sanskrit: "amṛtatvam", devanagari: "अमृतत्वम्", hindi: "अमरत्व", english: "immortality" }
+        ]
     },
 
     // Verse 2 (Valli 4): The Trap of Desires
@@ -1126,7 +1566,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Chasing external desires = walking into Death's net. The wise don't seek eternal things in a temporary world.",
         simpleExplanationHindi: "बाहरी इच्छाओं का पीछा करना = मृत्यु के जाल में चलना। ज्ञानी अस्थायी दुनिया में शाश्वत चीज़ें नहीं खोजते।",
         theme: "Desire's Trap",
-        nanoBananaPrompt: "People running after shiny objects, falling into a vast invisible net labeled 'Death'."
+        nanoBananaPrompt: "People running after shiny objects, falling into a vast invisible net labeled 'Death'.",
+        wordMeanings: [
+            { sanskrit: "bālāḥ", devanagari: "बालाः", hindi: "बालक/अज्ञानी", english: "childish" },
+            { sanskrit: "mṛtyoḥ pāśam", devanagari: "मृत्योः पाशम्", hindi: "मृत्यु का जाल", english: "death's snare" },
+            { sanskrit: "dhīrāḥ", devanagari: "धीराः", hindi: "धीर/ज्ञानी", english: "wise" }
+        ]
     },
 
     // Verse 3 (Valli 4): The Knower of Senses - ETAD VAI TAT
@@ -1141,7 +1586,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "FIRST 'ETAD VAI TAT': The Self is the KNOWER behind all senses. Nothing escapes its awareness.",
         simpleExplanationHindi: "पहला 'एतद्वै तत्': आत्मा सभी इन्द्रियों के पीछे जानने वाला है। कुछ भी इसकी जागरूकता से नहीं बचता।",
         theme: "Etad Vai Tat",
-        nanoBananaPrompt: "A central consciousness perceiving through five senses like spokes of a wheel—the Knower behind all knowing."
+        nanoBananaPrompt: "A central consciousness perceiving through five senses like spokes of a wheel—the Knower behind all knowing.",
+        wordMeanings: [
+            { sanskrit: "rūpam", devanagari: "रूपम्", hindi: "रूप", english: "form" },
+            { sanskrit: "rasam", devanagari: "रसम्", hindi: "रस", english: "taste" },
+            { sanskrit: "etad vai tat", devanagari: "एतद्वै तत्", hindi: "यही वह है", english: "this is verily That" }
+        ]
     },
 
     // Verse 4 (Valli 4): The Witness of States
@@ -1156,7 +1606,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The Self WITNESSES both dreaming and waking. It's PRESENT in both states—the unchanging observer.",
         simpleExplanationHindi: "आत्मा स्वप्न और जागृति दोनों का साक्षी है। यह दोनों अवस्थाओं में उपस्थित है—अपरिवर्तनशील पर्यवेक्षक।",
         theme: "Witness of States",
-        nanoBananaPrompt: "A single eye observing both a dreaming person and an awake person—the Witness of all states."
+        nanoBananaPrompt: "A single eye observing both a dreaming person and an awake person—the Witness of all states.",
+        wordMeanings: [
+            { sanskrit: "svapnāntam", devanagari: "स्वप्नान्तम्", hindi: "स्वप्न", english: "dream state" },
+            { sanskrit: "jāgaritāntam", devanagari: "जागरितान्तम्", hindi: "जागृत", english: "waking state" },
+            { sanskrit: "na śocati", devanagari: "न शोचति", hindi: "शोक नहीं करता", english: "does not grieve" }
+        ]
     },
 
     // Verse 5 (Valli 4): Lord of Past and Future
@@ -1186,7 +1641,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "HIRANYAGARBHA: The First-Born, the Golden Womb of creation. Born before even water existed. Lives in YOUR heart.",
         simpleExplanationHindi: "हिरण्यगर्भ: प्रथम जन्मा, सृष्टि का स्वर्ण गर्भ। जल के अस्तित्व से भी पहले जन्मा। आपके हृदय में रहता है।",
         theme: "Hiranyagarbha",
-        nanoBananaPrompt: "A golden cosmic egg (Hiranyagarbha) residing in the heart, born before the first waters."
+        nanoBananaPrompt: "A golden cosmic egg (Hiranyagarbha) residing in the heart, born before the first waters.",
+        wordMeanings: [
+            { sanskrit: "hiraṇyagarbhaḥ", devanagari: "हिरण्यगर्भः", hindi: "हिरण्यगर्भ", english: "Golden Womb" },
+            { sanskrit: "guhām", devanagari: "गुहाम्", hindi: "गुफा", english: "cave (of heart)" },
+            { sanskrit: "tapasāḥ", devanagari: "तपसाः", hindi: "तप से", english: "from austerity" }
+        ]
     },
 
     // Verse 7 (Valli 4): Aditi - The Cosmic Mother
@@ -1201,7 +1661,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "ADITI: The Boundless Mother, appearing as Prana (Life Force). All gods are within her. She lives in your heart.",
         simpleExplanationHindi: "अदिति: असीम माता, प्राण (जीवन शक्ति) के रूप में प्रकट। सभी देवता उसमें हैं। वह आपके हृदय में रहती है।",
         theme: "Aditi - Life Force",
-        nanoBananaPrompt: "The cosmic mother Aditi as breathing life force, containing all gods, residing in the heart."
+        nanoBananaPrompt: "The cosmic mother Aditi as breathing life force, containing all gods, residing in the heart.",
+        wordMeanings: [
+            { sanskrit: "aditiḥ", devanagari: "अदितिः", hindi: "अदिति", english: "Boundless" },
+            { sanskrit: "prāṇena", devanagari: "प्राणेन", hindi: "प्राण से", english: "as Prana" },
+            { sanskrit: "devatāmayī", devanagari: "देवतामयी", hindi: "देवताओं से भरी", english: "comprising all gods" }
+        ]
     },
 
     // Verse 8 (Valli 4): The Hidden Fire
@@ -1246,7 +1711,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "KEY TEACHING: HERE = THERE. The world = Brahman. Seeing DIFFERENCE = endless rebirth. Seeing UNITY = Liberation.",
         simpleExplanationHindi: "मुख्य शिक्षा: यहाँ = वहाँ। संसार = ब्रह्म। भेद देखना = अंतहीन पुनर्जन्म। एकता देखना = मुक्ति।",
         theme: "Unity of Existence",
-        nanoBananaPrompt: "Two mirrors facing each other showing the same reflection—here and there are one."
+        nanoBananaPrompt: "Two mirrors facing each other showing the same reflection—here and there are one.",
+        wordMeanings: [
+            { sanskrit: "yad eva iha", devanagari: "यदेवेह", hindi: "जो यहाँ", english: "what is here" },
+            { sanskrit: "tad amutra", devanagari: "तदमुत्र", hindi: "वही वहाँ", english: "that is there" },
+            { sanskrit: "nāna", devanagari: "नाना", hindi: "भेद", english: "difference" }
+        ]
     },
 
     // Verse 11 (Valli 4): Mind Alone Perceives
@@ -1276,7 +1746,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE THUMB-SIZED PURUSHA: The Self is described as 'thumb-sized'—residing in the heart, Lord of all time.",
         simpleExplanationHindi: "अंगूठे के आकार का पुरुष: आत्मा को 'अंगूठे के आकार' का बताया गया है—हृदय में रहती है, सभी समय की स्वामी।",
         theme: "Thumb-Sized Self",
-        nanoBananaPrompt: "A luminous thumb-sized being sitting in the heart—the Purusha, master of time."
+        nanoBananaPrompt: "A luminous thumb-sized being sitting in the heart—the Purusha, master of time.",
+        wordMeanings: [
+            { sanskrit: "aṅguṣṭha-mātraḥ", devanagari: "अङ्गुष्ठमात्रः", hindi: "अंगुष्ठमात्र", english: "thumb-sized" },
+            { sanskrit: "īśānam", devanagari: "ईशानम्", hindi: "शासक", english: "Lord" },
+            { sanskrit: "bhūta-bhavyasya", devanagari: "भूतभव्यस्य", hindi: "भूत-भविष्य", english: "past and future" }
+        ]
     },
 
     // Verse 13 (Valli 4): Smokeless Flame
@@ -1321,7 +1796,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "BEAUTIFUL METAPHOR: Pure water poured into pure water becomes ONE. The knowing sage merges with the Absolute.",
         simpleExplanationHindi: "सुंदर रूपक: शुद्ध जल शुद्ध जल में मिलकर एक हो जाता है। जानने वाला ज्ञानी परम में विलीन हो जाता है।",
         theme: "Water Merges",
-        nanoBananaPrompt: "Pure water being poured into pure water—becoming indistinguishable, perfect merger with the Absolute."
+        nanoBananaPrompt: "Pure water being poured into pure water—becoming indistinguishable, perfect merger with the Absolute.",
+        wordMeanings: [
+            { sanskrit: "udakam śuddhe", devanagari: "उदकं शुद्धे", hindi: "शुद्ध जल", english: "pure water" },
+            { sanskrit: "tādṛg eva bhavati", devanagari: "तादृगेव भवति", hindi: "वैसा ही हो जाता है", english: "becomes the same" },
+            { sanskrit: "muner vijānataḥ", devanagari: "मुनेर्विजानतः", hindi: "जानने वाले मुनि", english: "of the knowing sage" }
+        ]
     },
 
     // ==========================================
@@ -1340,7 +1820,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Your body is a city with 11 gates (eyes, ears, etc.). The King (Self) lives inside. Serve the King, not the gates.",
         simpleExplanationHindi: "आपका शरीर 11 द्वारों (आँखें, कान, आदि) वाला एक नगर है। राजा (आत्मा) भीतर रहता है। राजा की सेवा करो, द्वारों की नहीं।",
         theme: "City of 11 Gates",
-        nanoBananaPrompt: "A glowing golden citadel with eleven gates, populated by senses, with a serene King sitting in the center."
+        nanoBananaPrompt: "A glowing golden citadel with eleven gates, populated by senses, with a serene King sitting in the center.",
+        wordMeanings: [
+            { sanskrit: "puram ekādaśa-dvāram", devanagari: "पुरमेकादशद्वारम्", hindi: "ग्यारह द्वारों का नगर", english: "city of 11 gates" },
+            { sanskrit: "ajasya", devanagari: "अजस्य", hindi: "अजन्मा", english: "of the unborn" },
+            { sanskrit: "vimuktaḥ", devanagari: "विमुक्तः", hindi: "मुक्त", english: "liberated" }
+        ]
     },
 
     // Verse 2 (Valli 5): The Omnipresent Spirit
@@ -1370,7 +1855,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The 'Dwarf' (Self) sits in the center of your energy system, controlling breath. All your senses worship Him.",
         simpleExplanationHindi: "'वामन' (आत्मा) आपकी ऊर्जा प्रणाली के केंद्र में बैठता है, श्वास को नियंत्रित करता है। आपकी सभी इंद्रियां उसकी पूजा करती हैं।",
         theme: "The Thumb-sized Dweller",
-        nanoBananaPrompt: "A tiny luminous being sitting in the center of a lotus in the heart, with energies swirling up and down around him."
+        nanoBananaPrompt: "A tiny luminous being sitting in the center of a lotus in the heart, with energies swirling up and down around him.",
+        wordMeanings: [
+            { sanskrit: "vāmanaḥ", devanagari: "वामनः", hindi: "वामन/छोटा", english: "dwarf/adorable" },
+            { sanskrit: "prāṇam", devanagari: "प्राणम्", hindi: "प्राण", english: "Prana" },
+            { sanskrit: "apānam", devanagari: "अपानम्", hindi: "अपान", english: "Apana" }
+        ]
     },
 
     // Verse 4 (Valli 5): What Remains?
@@ -1385,7 +1875,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "What's left of a house when the owner leaves? Just walls. When the Soul leaves, the body is nothing. The Soul is the value.",
         simpleExplanationHindi: "जब मालिक चला जाता है तो घर का क्या बचता है? बस दीवारें। जब आत्मा निकल जाती है, तो शरीर कुछ नहीं होता। आत्मा ही मूल्य है।",
         theme: "What Remains?",
-        nanoBananaPrompt: "A silhouette of a body turning into dust as a glowing spirit rises out of it."
+        nanoBananaPrompt: "A silhouette of a body turning into dust as a glowing spirit rises out of it.",
+        wordMeanings: [
+            { sanskrit: "dehinaḥ", devanagari: "देहिनः", hindi: "देही", english: "embodied one" },
+            { sanskrit: "vimucyamānasya", devanagari: "विमुच्यमानस्य", hindi: "मुक्त होते समय", english: "being released" }
+        ]
     },
 
     // Verse 5 (Valli 5): The Real Source of Life
@@ -1430,7 +1924,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "REBIRTH MECHANISM: Good deeds + Knowledge = Human birth. Bad deeds + Ignorance = Animal/Plant birth.",
         simpleExplanationHindi: "पुनर्जन्म तंत्र: अच्छे कर्म + ज्ञान = मानव जन्म। बुरे कर्म + अज्ञान = पशु/पौधे का जन्म।",
         theme: "Paths of Rebirth",
-        nanoBananaPrompt: "Souls splitting into two paths: one going into a mother's womb, another merging into a tree."
+        nanoBananaPrompt: "Souls splitting into two paths: one going into a mother's womb, another merging into a tree.",
+        wordMeanings: [
+            { sanskrit: "yonim", devanagari: "योनिम्", hindi: "गर्भ", english: "womb" },
+            { sanskrit: "sthāṇum", devanagari: "स्थाणुम्", hindi: "स्थावर", english: "stationary (plants)" },
+            { sanskrit: "yathākarma", devanagari: "यथाकर्म", hindi: "कर्म अनुसार", english: "according to deeds" }
+        ]
     },
 
     // Verse 8 (Valli 5): The Dream Creator
@@ -1460,7 +1959,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Fire has no shape, but it takes the shape of the log it burns. Soul has no shape, but takes the shape of the body it inhabits.",
         simpleExplanationHindi: "आग का कोई आकार नहीं होता, लेकिन वह उस लकड़ी का आकार ले लेती है जिसे वह जलाती है। आत्मा का कोई आकार नहीं होता, लेकिन वह उस शरीर का आकार ले लेती है जिसमें वह रहती है।",
         theme: "Fire Analogy",
-        nanoBananaPrompt: "One central fire splitting into many flames of different shapes and sizes."
+        nanoBananaPrompt: "One central fire splitting into many flames of different shapes and sizes.",
+        wordMeanings: [
+            { sanskrit: "agniḥ", devanagari: "अग्निः", hindi: "अग्नि", english: "fire" },
+            { sanskrit: "ekaḥ", devanagari: "एकः", hindi: "एक", english: "one" },
+            { sanskrit: "rūpam rūpam", devanagari: "रूपं रूपम्", hindi: "अनेक रूप", english: "various forms" }
+        ]
     },
 
     // Verse 10 (Valli 5): The Air Analogy
@@ -1490,7 +1994,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "The Sun shines on trash but doesn't get dirty. The Soul witnesses sadness but doesn't get sad. It remains pure.",
         simpleExplanationHindi: "सूरज कचरे पर चमकता है लेकिन गंदा नहीं होता। आत्मा उदासी को देखती है लेकिन उदास नहीं होती। यह शुद्ध रहती है।",
         theme: "Sun Analogy",
-        nanoBananaPrompt: "A bright sun shining on a muddy swamp, remaining totally clean and distant in the sky."
+        nanoBananaPrompt: "A bright sun shining on a muddy swamp, remaining totally clean and distant in the sky.",
+        wordMeanings: [
+            { sanskrit: "sūryaḥ", devanagari: "सूर्यः", hindi: "सूर्य", english: "sun" },
+            { sanskrit: "na lipyate", devanagari: "न लिप्यते", hindi: "लिप्त नहीं होता", english: "is not defiled" },
+            { sanskrit: "loka-duḥkhena", devanagari: "लोकदुःखेन", hindi: "संसार के दुख", english: "misery of world" }
+        ]
     },
 
     // Verse 12 (Valli 5): Eternal Happiness
@@ -1505,7 +2014,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Happiness is NOT outside. It belongs only to those who see the One Master inside themselves.",
         simpleExplanationHindi: "खुशी बाहर नहीं है। यह केवल उन लोगों की है जो अपने भीतर एक स्वामी को देखते हैं।",
         theme: "Eternal Happiness",
-        nanoBananaPrompt: "A meditating person smiling with deep inner joy, while outside people chase fleeing pleasures."
+        nanoBananaPrompt: "A meditating person smiling with deep inner joy, while outside people chase fleeing pleasures.",
+        wordMeanings: [
+            { sanskrit: "eko vaśī", devanagari: "एको वशी", hindi: "एक शासक", english: "one Ruler" },
+            { sanskrit: "sukham śāśvatam", devanagari: "सुखं शाश्वतम्", hindi: "शाश्वत सुख", english: "eternal happiness" }
+        ]
     },
 
     // Verse 13 (Valli 5): Eternal Peace
@@ -1520,7 +2033,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Everything changes; He is Unchanging. Everyone thinks; He is the Thinker. Know Him -> Peace.",
         simpleExplanationHindi: "सब कुछ बदलता है; वह अपरिवर्तनीय है। हर कोई सोचता है; वह विचारक है। उसे जानो -> शांति।",
         theme: "Eternal Peace",
-        nanoBananaPrompt: "A rock standing firm in a rushing river—the Eternal witnessing the changing flow of time."
+        nanoBananaPrompt: "A rock standing firm in a rushing river—the Eternal witnessing the changing flow of time.",
+        wordMeanings: [
+            { sanskrit: "nityaḥ", devanagari: "नित्यः", hindi: "नित्य", english: "eternal" },
+            { sanskrit: "cetanāḥ", devanagari: "चेतनाः", hindi: "चेतन", english: "consciousness" },
+            { sanskrit: "śāntiḥ śāśvatī", devanagari: "शान्तिः शाश्वती", hindi: "शाश्वत शांति", english: "eternal peace" }
+        ]
     },
 
     // Verse 14 (Valli 5): The Indescribable Joy
@@ -1550,7 +2068,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "FAMOUS VERSE (Aarti): God is the Source of all Light. Sun, Moon, Fire only reflect His borrowed light.",
         simpleExplanationHindi: "प्रसिद्ध श्लोक (आरती): ईश्वर समस्त प्रकाश का स्रोत है। सूर्य, चंद्रमा, अग्नि केवल उसके उधार प्रकाश को प्रतिबिंबित करते हैं।",
         theme: "Light of Lights",
-        nanoBananaPrompt: "The silhouette of a Divine presence, and from it, the sun, moon, and stars lighting up like lamps."
+        nanoBananaPrompt: "The silhouette of a Divine presence, and from it, the sun, moon, and stars lighting up like lamps.",
+        wordMeanings: [
+            { sanskrit: "na sūryaḥ bhāti", devanagari: "न सूर्यो भाति", hindi: "सूर्य नहीं चमकता", english: "sun does not shine" },
+            { sanskrit: "tam eva bhāntam", devanagari: "तमेव भान्तम्", hindi: "उसी के चमकने से", english: "Him alone shining" },
+            { sanskrit: "anubhāti sarvam", devanagari: "अनुभाति सर्वम्", hindi: "सब चमकता है", english: "all things shine after" }
+        ]
     },
 
     // ==========================================
@@ -1569,7 +2092,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE INVERTED TREE: Roots in heaven (Brahman), branches below (world). Also in Gita 15! The universe grows DOWNWARD from spirit.",
         simpleExplanationHindi: "उल्टा वृक्ष: जड़ें स्वर्ग में (ब्रह्म), शाखाएं नीचे (संसार)। गीता 15 में भी! ब्रह्मांड आत्मा से नीचे की ओर बढ़ता है।",
         theme: "Inverted Tree",
-        nanoBananaPrompt: "A cosmic tree with roots in the sky (Brahman) and branches growing downward into the world—the Ashvattha."
+        nanoBananaPrompt: "A cosmic tree with roots in the sky (Brahman) and branches growing downward into the world—the Ashvattha.",
+        wordMeanings: [
+            { sanskrit: "ūrdhva-mūlaḥ", devanagari: "ऊर्ध्वमूलः", hindi: "ऊपर जड़", english: "root above" },
+            { sanskrit: "avāk-śākhaḥ", devanagari: "अवाक्शाखः", hindi: "नीचे शाखा", english: "branches below" },
+            { sanskrit: "aśvatthaḥ", devanagari: "अश्वत्थः", hindi: "अश्वत्थ", english: "sacred fig tree" }
+        ]
     },
 
     // Verse 2 (Valli 6): The Cosmic Terror
@@ -1584,7 +2112,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Brahman is like a RAISED THUNDERBOLT—cosmic terror! Everything vibrates in fear of it. Know this = immortality.",
         simpleExplanationHindi: "ब्रह्म उठे हुए वज्र की तरह है—ब्रह्मांडीय भय! सब कुछ इसके भय में कांपता है। इसे जानो = अमरता।",
         theme: "Cosmic Terror",
-        nanoBananaPrompt: "A massive thunderbolt held in the sky, the entire universe trembling before its power."
+        nanoBananaPrompt: "A massive thunderbolt held in the sky, the entire universe trembling before its power.",
+        wordMeanings: [
+            { sanskrit: "mahad-bhayam", devanagari: "महद्भयम्", hindi: "महान भय", english: "great terror" },
+            { sanskrit: "vajram udyatam", devanagari: "वज्रमुद्यतम्", hindi: "उठा वज्र", english: "uplifted thunderbolt" }
+        ]
     },
 
     // Verse 3 (Valli 6): Fear of the Absolute
@@ -1599,7 +2131,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "Even the GODS work out of fear of Brahman! Fire, Sun, Wind, Indra, Death—all obey cosmic law through fear.",
         simpleExplanationHindi: "देवता भी ब्रह्म के भय से काम करते हैं! अग्नि, सूर्य, वायु, इंद्र, मृत्यु—सभी भय से ब्रह्मांडीय नियम का पालन करते हैं।",
         theme: "Cosmic Order",
-        nanoBananaPrompt: "Sun, Fire, Wind, Indra, and Death all hastening to do their duties, with Brahman watching from above."
+        nanoBananaPrompt: "Sun, Fire, Wind, Indra, and Death all hastening to do their duties, with Brahman watching from above.",
+        wordMeanings: [
+            { sanskrit: "bhayāt", devanagari: "भयात्", hindi: "भय से", english: "from fear" },
+            { sanskrit: "mṛtyuḥ pañcamaḥ", devanagari: "मृत्युः पञ्चमः", hindi: "पाँचवीं मृत्यु", english: "Death, the fifth" }
+        ]
     },
 
     // Verse 4 (Valli 6): The Urgent Warning
@@ -1674,7 +2210,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE APEX: Beyond even Avyakta is PURUSHA—formless, all-pervading. Know this = liberation + immortality.",
         simpleExplanationHindi: "शिखर: अव्यक्त से भी परे पुरुष है—निराकार, सर्वव्यापी। इसे जानो = मुक्ति + अमरता।",
         theme: "The Supreme Purusha",
-        nanoBananaPrompt: "Beyond all layers, the formless all-pervading Purusha—the ultimate goal of liberation."
+        nanoBananaPrompt: "Beyond all layers, the formless all-pervading Purusha—the ultimate goal of liberation.",
+        wordMeanings: [
+            { sanskrit: "vyāpakaḥ", devanagari: "व्यापकः", hindi: "व्यापक", english: "all-pervading" },
+            { sanskrit: "aliṅgaḥ", devanagari: "अलिङ्गः", hindi: "चिह्नरहित", english: "without marks" },
+            { sanskrit: "amṛtatvam", devanagari: "अमृतत्वम्", hindi: "अमरत्व", english: "immortality" }
+        ]
     },
 
     // Verse 9 (Valli 6): Seen by the Heart
@@ -1704,7 +2245,11 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "YOGA STATE: All 5 senses + mind + intellect = STILL. Complete cessation of mental activity. THAT is the goal.",
         simpleExplanationHindi: "योग अवस्था: सभी 5 इन्द्रियां + मन + बुद्धि = स्थिर। मानसिक गतिविधि का पूर्ण समाप्ति। वही लक्ष्य है।",
         theme: "Yoga State",
-        nanoBananaPrompt: "Five senses and mind coming to complete stillness—total silence, the highest state of Yoga."
+        nanoBananaPrompt: "Five senses and mind coming to complete stillness—total silence, the highest state of Yoga.",
+        wordMeanings: [
+            { sanskrit: "pañca jñānāni", devanagari: "पञ्च ज्ञानानि", hindi: "पांच ज्ञानेंद्रियां", english: "five senses" },
+            { sanskrit: "paramāṃ gatim", devanagari: "परमां गतिम्", hindi: "परम गति", english: "highest goal" }
+        ]
     },
 
     // Verse 11 (Valli 6): Definition of Yoga - FAMOUS
@@ -1719,7 +2264,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "YOGA DEFINITION: Steady sense-control. But WARNING: Yoga comes and goes! Stay vigilant or lose it.",
         simpleExplanationHindi: "योग परिभाषा: स्थिर इन्द्रिय-नियंत्रण। लेकिन चेतावनी: योग आता और जाता है! सतर्क रहो या खो दोगे।",
         theme: "Yoga Definition",
-        nanoBananaPrompt: "A yogi holding the reins of five horses (senses) perfectly still—but ready to slip if careless."
+        nanoBananaPrompt: "A yogi holding the reins of five horses (senses) perfectly still—but ready to slip if careless.",
+        wordMeanings: [
+            { sanskrit: "yogam", devanagari: "योगम्", hindi: "योग", english: "Yoga" },
+            { sanskrit: "sthirām indriya-dhāraṇām", devanagari: "स्थिरामिन्द्रियधारणाम्", hindi: "स्थिर इंद्रिय-धारणा", english: "steady sense-control" },
+            { sanskrit: "apramattaḥ", devanagari: "अप्रमत्तः", hindi: "सावधान", english: "vigilant" }
+        ]
     },
 
     // Verse 12 (Valli 6): Not by Speech nor Mind
@@ -1764,7 +2314,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "LIBERATION FORMULA: Remove ALL desires from the heart = INSTANT immortality + Brahman realization HERE AND NOW.",
         simpleExplanationHindi: "मुक्ति सूत्र: हृदय से सभी इच्छाओं को हटाओ = तुरंत अमरता + यहीं अभी ब्रह्म अनुभव।",
         theme: "Desirelessness = Liberation",
-        nanoBananaPrompt: "Heart releasing all desires like birds flying away, becoming instantly luminous with Brahman."
+        nanoBananaPrompt: "Heart releasing all desires like birds flying away, becoming instantly luminous with Brahman.",
+        wordMeanings: [
+            { sanskrit: "kāmāḥ", devanagari: "कामाः", hindi: "कामनाएं", english: "desires" },
+            { sanskrit: "pramucyante", devanagari: "प्रमुच्यन्ते", hindi: "छूट जाती हैं", english: "are released" },
+            { sanskrit: "amṛtaḥ bhavati", devanagari: "अमृतो भवति", hindi: "अमर हो जाता है", english: "becomes immortal" }
+        ]
     },
 
     // Verse 15 (Valli 6): Cutting the Knots - KEY VERSE
@@ -1779,7 +2334,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE ENTIRE TEACHING SUMMARIZED: Cut the knots of the heart (ignorance) = immortality. THAT'S IT. That's all of Vedanta.",
         simpleExplanationHindi: "संपूर्ण शिक्षा का सार: हृदय की गांठें (अज्ञान) काटो = अमरता। बस इतना ही। यही पूरा वेदान्त है।",
         theme: "Cutting Knots",
-        nanoBananaPrompt: "A sword cutting through knots in the heart—ignorance dissolving, light pouring in."
+        nanoBananaPrompt: "A sword cutting through knots in the heart—ignorance dissolving, light pouring in.",
+        wordMeanings: [
+            { sanskrit: "granthayaḥ", devanagari: "ग्रन्थयः", hindi: "गांठें", english: "knots" },
+            { sanskrit: "prabhidyante", devanagari: "प्रभिद्यन्ते", hindi: "टूट जाती हैं", english: "are severed" },
+            { sanskrit: "anuśāsanam", devanagari: "अनुशासनम्", hindi: "उपदेश", english: "teaching" }
+        ]
     },
 
     // Verse 16 (Valli 6): The Sushumna - YOGIC PHYSIOLOGY
@@ -1794,7 +2354,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "YOGIC ANATOMY: 101 nadis in heart. Only ONE (Sushumna) goes up to the crown. Exit through it = liberation. Other exits = rebirth.",
         simpleExplanationHindi: "योगिक शरीर रचना: हृदय में 101 नाड़ियां। केवल एक (सुषुम्ना) मस्तक तक जाती है। इससे निकलो = मुक्ति। अन्य से = पुनर्जन्म।",
         theme: "Sushumna Path",
-        nanoBananaPrompt: "101 channels from the heart, one going straight up through the crown (Sushumna)—the path to immortality."
+        nanoBananaPrompt: "101 channels from the heart, one going straight up through the crown (Sushumna)—the path to immortality.",
+        wordMeanings: [
+            { sanskrit: "śataṃ ca ekā", devanagari: "शतञ्चैका", hindi: "एक सौ एक", english: "one hundred and one" },
+            { sanskrit: "nāḍyaḥ", devanagari: "नाड्यः", hindi: "नाड़ियां", english: "nerves/channels" },
+            { sanskrit: "mūrdhānam", devanagari: "मूर्धानम्", hindi: "मस्तक", english: "head/crown" }
+        ]
     },
 
     // Verse 17 (Valli 6): Drawing out the Soul
@@ -1809,7 +2374,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "MEDITATION TECHNIQUE: Draw the thumb-sized Self out of the body like extracting a stalk from grass. Pure and Immortal!",
         simpleExplanationHindi: "ध्यान तकनीक: अंगूठे के आकार की आत्मा को शरीर से वैसे निकालो जैसे घास से सींक। शुद्ध और अमर!",
         theme: "Drawing Out the Self",
-        nanoBananaPrompt: "A luminous thumb-sized being gently being drawn out of the body like a reed from grass—the soul extracted."
+        nanoBananaPrompt: "A luminous thumb-sized being gently being drawn out of the body like a reed from grass—the soul extracted.",
+        wordMeanings: [
+            { sanskrit: "muñjāt iṣīkām", devanagari: "मुञ्जादिवेषीकाम्", hindi: "मूंज से सींक", english: "pith from reed" },
+            { sanskrit: "dhairyeṇa", devanagari: "धैर्येण", hindi: "धैर्य से", english: "with steadiness" },
+            { sanskrit: "śukram amṛtam", devanagari: "शुक्रममृतम्", hindi: "शुद्ध अमर", english: "pure immortal" }
+        ]
     },
 
     // Verse 18 (Valli 6): THE CONCLUSION - NACHIKETA'S LIBERATION
@@ -1824,7 +2394,12 @@ export const kathaData: KathaDataEntry[] = [
         simpleExplanation: "THE GRAND FINALE: Nachiketa got the teaching + Yoga practice from Death → attained Brahman → became deathless. YOU CAN TOO!",
         simpleExplanationHindi: "महान समापन: नचिकेता को मृत्यु से शिक्षा + योग विधि मिली → ब्रह्म प्राप्त किया → मृत्यु-रहित हो गया। आप भी कर सकते हैं!",
         theme: "Grand Conclusion",
-        nanoBananaPrompt: "Nachiketa radiating light, having conquered Death, merged with Brahman—the triumphant conclusion."
+        nanoBananaPrompt: "Nachiketa radiating light, having conquered Death, merged with Brahman—the triumphant conclusion.",
+        wordMeanings: [
+            { sanskrit: "mṛtyu-proktām", devanagari: "मृत्युप्रोक्ताम्", hindi: "मृत्यु द्वारा कही", english: "declared by Death" },
+            { sanskrit: "brahma-prāptaḥ", devanagari: "ब्रह्मप्राप्तः", hindi: "ब्रह्म प्राप्त", english: "attained Brahman" },
+            { sanskrit: "vimṛtyuḥ", devanagari: "विमृत्युः", hindi: "मृत्यु-रहित", english: "free from death" }
+        ]
     }
 ];
 

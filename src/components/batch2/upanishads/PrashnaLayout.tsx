@@ -186,6 +186,25 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                 </p>
                             </div>
 
+                            {/* Word Meanings */}
+                            {shloka.wordMeanings && shloka.wordMeanings.length > 0 && (
+                                <div>
+                                    <h4 className="text-emerald-600 text-[10px] font-black uppercase tracking-widest flex items-center gap-2 mb-4">
+                                        <BookOpen className="w-3 h-3" />
+                                        {lang === "en" ? "Word Meanings" : "शब्दार्थ"}
+                                    </h4>
+                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                        {shloka.wordMeanings.map((m: any, i: number) => (
+                                            <div key={i} className="bg-slate-900/50 border border-emerald-500/10 rounded-xl p-3 hover:border-emerald-500/30 transition-all">
+                                                <p className="text-emerald-100 font-serif text-lg mb-1">{m.devanagari}</p>
+                                                <p className="text-emerald-600 text-[10px] uppercase tracking-tighter mb-1">{m.sanskrit}</p>
+                                                <p className="text-slate-300 text-sm">{lang === "en" ? m.english : m.hindi}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
                             {/* The Essence */}
                             <div className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl p-8 border border-emerald-400/40 shadow-xl relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
