@@ -162,7 +162,7 @@ function ListNodeComponent({ data }: NodeProps) {
                     width: "auto",
                     height: "auto",
                     minWidth: 160,
-                    maxWidth: 280,
+                    // Removed maxWidth to allow expansion as per user request
                     background: styleConfig.bg,
                     border: `2px solid ${styleConfig.border}`,
                     borderRadius: 10,
@@ -223,7 +223,7 @@ function ListNodeComponent({ data }: NodeProps) {
                         margin: 0,
                         width: "100%",
                         columns: items.length > 8 ? 2 : 1,
-                        columnGap: 16,
+                        columnGap: 24, // Increased gap for better separation
                     }}
                 >
                     {items.map((item, i) => (
@@ -254,7 +254,7 @@ function ListNodeComponent({ data }: NodeProps) {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </div >
             <Handle type="source" position={Position.Bottom} className="!bg-transparent !border-0" />
         </>
     );
