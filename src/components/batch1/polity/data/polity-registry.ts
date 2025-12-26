@@ -35,6 +35,20 @@ import { topic24Parliament4 } from './topics/topic-24-parliament-4';
 import { topic25Committees } from './topics/topic-25-committees';
 import { topic26AntiDefection } from './topics/topic-26-anti-defection';
 
+// Import Topics 27-38 (Phase 4)
+import { topic27SupremeCourt } from './topics/topic-27-supreme-court';
+import { topic28HighCourts } from './topics/topic-28-high-courts';
+import { topic29JudicialDoctrines } from './topics/topic-29-judicial-doctrines';
+import { topic30PanchayatiRaj } from './topics/topic-30-panchayati-raj';
+import { topic31Municipalities } from './topics/topic-31-municipalities';
+import { topic32Elections } from './topics/topic-32-elections';
+import { topic33CAGFinance } from './topics/topic-33-cag-finance';
+import { topic34UPSCSPSC } from './topics/topic-34-upsc-spsc';
+import { topic35VulnerableCommissions } from './topics/topic-35-vulnerable-commissions';
+import { topic36NHRCLegalAid } from './topics/topic-36-nhrc-legal-aid';
+import { topic37CICLokpal } from './topics/topic-37-cic-lokpal';
+import { topic38NITINIACBl } from './topics/topic-38-niti-nia-cbi';
+
 // All topics registry
 export const POLITY_TOPICS: PolityTopic[] = [
     topic01HistoricalEvolution,
@@ -63,7 +77,19 @@ export const POLITY_TOPICS: PolityTopic[] = [
     topic24Parliament4,
     topic25Committees,
     topic26AntiDefection,
-    // Topics 27-50 will be added in subsequent phases
+    topic27SupremeCourt,
+    topic28HighCourts,
+    topic29JudicialDoctrines,
+    topic30PanchayatiRaj,
+    topic31Municipalities,
+    topic32Elections,
+    topic33CAGFinance,
+    topic34UPSCSPSC,
+    topic35VulnerableCommissions,
+    topic36NHRCLegalAid,
+    topic37CICLokpal,
+    topic38NITINIACBl,
+    // Topics 39-50 will be added in Phase 5
 ];
 
 // Get topic by ID
