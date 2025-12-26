@@ -5,6 +5,9 @@ import { ALL_108_UPANISHADS } from "./upanishads-108-data";
 
 // Import all available data files with consistent exports
 import { ISHA_UPANISHAD, ISHA_METADATA } from "./data/isha-shlokas";
+import { kenaData } from "./data/kena-shlokas";
+import { kathaData } from "./data/katha-shlokas";
+import { prashnaData } from "./data/prashna-shlokas";
 import { MANDUKYA_SHLOKAS, MANDUKYA_METADATA } from "./data/mandukya-shlokas";
 import { TAITTIRIYA_SHLOKAS, TAITTIRIYA_METADATA } from "./data/taittiriya-shlokas";
 import { AITAREYA_SHLOKAS, AITAREYA_METADATA } from "./data/aitareya-shlokas";
@@ -110,12 +113,16 @@ export interface UpanishadRegistryEntry {
 export const UPANISHAD_REGISTRY: Record<string, UpanishadRegistryEntry> = {
     // Major 10 (Mukhya) - Some have custom layouts
     "isa": { data: ISHA_UPANISHAD as any, metadata: ISHA_METADATA as any, hasCustomLayout: true },
+    "kena": { data: kenaData as any, metadata: { id: "kena", name: "Kena", nameSanskrit: "केन", veda: "Sama Veda", category: "Mukhya", shlokaCount: 34 } as any, hasCustomLayout: true },
+    "katha": { data: kathaData as any, metadata: { id: "katha", name: "Katha", nameSanskrit: "कठ", veda: "Krishna Yajur Veda", category: "Mukhya", shlokaCount: 119 } as any, hasCustomLayout: true },
+    "prasna": { data: prashnaData as any, metadata: { id: "prasna", name: "Prashna", nameSanskrit: "प्रश्न", veda: "Atharva Veda", category: "Mukhya", shlokaCount: 67 } as any, hasCustomLayout: true },
     "mundaka": { data: MUNDAKA_SHLOKAS as any, metadata: MUNDAKA_METADATA as any },
     "mandukya": { data: MANDUKYA_SHLOKAS as any, metadata: MANDUKYA_METADATA as any },
     "taittiriya": { data: TAITTIRIYA_SHLOKAS as any, metadata: TAITTIRIYA_METADATA as any },
     "aitareya": { data: AITAREYA_SHLOKAS as any, metadata: AITAREYA_METADATA as any },
     "chandogya": { data: CHANDOGYA_SHLOKAS as any, metadata: CHANDOGYA_METADATA as any },
     "brihadaranyaka": { data: BRIHADARANYAKA_SHLOKAS as any, metadata: BRIHADARANYAKA_METADATA as any },
+
 
     // Yoga Upanishads
     "amritabindu": { data: AMRITABINDU_SHLOKAS as any, metadata: AMRITABINDU_METADATA as any },
