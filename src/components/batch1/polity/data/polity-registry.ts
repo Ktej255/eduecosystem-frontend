@@ -10,6 +10,14 @@ import { topic03Preamble } from './topics/topic-03-preamble';
 import { topic04UnionTerritory } from './topics/topic-04-union-territory';
 import { topic05Citizenship } from './topics/topic-05-citizenship';
 
+// Import Topics 6-11 (Phase 2)
+import { topic06FREquality } from './topics/topic-06-fr-equality';
+import { topic07FRFreedom } from './topics/topic-07-fr-freedom';
+import { topic08FRReligion } from './topics/topic-08-fr-religion';
+import { topic09DPSP } from './topics/topic-09-dpsp';
+import { topic10DutiesBasicStructure } from './topics/topic-10-duties-basic-structure';
+import { topic11Amendment } from './topics/topic-11-amendment';
+
 // All topics registry
 export const POLITY_TOPICS: PolityTopic[] = [
     topic01HistoricalEvolution,
@@ -17,7 +25,13 @@ export const POLITY_TOPICS: PolityTopic[] = [
     topic03Preamble,
     topic04UnionTerritory,
     topic05Citizenship,
-    // Topics 6-50 will be added in subsequent phases
+    topic06FREquality,
+    topic07FRFreedom,
+    topic08FRReligion,
+    topic09DPSP,
+    topic10DutiesBasicStructure,
+    topic11Amendment,
+    // Topics 12-50 will be added in subsequent phases
 ];
 
 // Get topic by ID
