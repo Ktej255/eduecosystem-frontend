@@ -20,34 +20,27 @@ export const upanishads: Upanishad[] = [
     { number: 9, id: "chandogya", name: "Chandogya", veda: "Samaveda", category: "Mukhya", description: "Meditation on Om and the statement 'Tat Tvam Asi'." },
     { number: 10, id: "brihadaranyaka", name: "Brihadaranyaka", veda: "Yajurveda", category: "Mukhya", description: "One of the oldest; deep philosophical debates." },
 
-    // Samanya (General)
-    { number: 11, id: "svetasvatara", name: "Shvetashvatara", veda: "Yajurveda", category: "Shaiva" },
-    { number: 12, id: "kaushitaki", name: "Kaushitaki", veda: "Rigveda", category: "Samanya" },
-    { number: 13, id: "maitrayani", name: "Maitrayani", veda: "Samaveda", category: "Samanya" },
-    { number: 14, id: "kaivalya", name: "Kaivalya", veda: "Yajurveda", category: "Shaiva" },
-    { number: 15, id: "jabala", name: "Jabala", veda: "Yajurveda", category: "Sannyasa" },
+    // #11-16 (Muktika Canon Order)
+    { number: 11, id: "brahma", name: "Brahma", veda: "Yajurveda", category: "Shaiva", description: "Teaching on Brahman and the nature of Ultimate Reality." },
+    { number: 12, id: "kaivalya", name: "Kaivalya", veda: "Yajurveda", category: "Shaiva", description: "Path to Kaivalya (liberation) through Shiva meditation." },
+    { number: 13, id: "jabala", name: "Jabala", veda: "Yajurveda", category: "Sannyasa", description: "Rules of renunciation and the Sannyasa ashrama." },
+    { number: 14, id: "shvetashvatara", name: "Shvetashvatara", veda: "Yajurveda", category: "Shaiva", description: "Theistic Upanishad on Rudra-Shiva and devotion." },
+    { number: 15, id: "hamsa", name: "Hamsa", veda: "Yajurveda", category: "Yoga", description: "The Swan - Ajapa Gayatri and Nada meditation." },
+    { number: 16, id: "aruni", name: "Aruni", veda: "Samaveda", category: "Sannyasa", description: "Lifestyle of the wandering monk (Parivrajaka)." },
 
-    // Yoga Upanishads
-    { number: 16, id: "yogatattva", name: "Yogatattva", veda: "Yajurveda", category: "Yoga" },
-    { number: 17, id: "nadabindu", name: "Nadabindu", veda: "Rigveda", category: "Yoga" },
-    { number: 18, id: "hamsaupanishad", name: "Hamsa", veda: "Yajurveda", category: "Yoga" }, // Fixed ID to avoid conflict if any
-    { number: 19, id: "amritabindu", name: "Amritabindu", veda: "Atharvaveda", category: "Yoga" },
+    // #17-27 (Continuing Muktika Canon)
+    { number: 17, id: "garbha", name: "Garbha", veda: "Yajurveda", category: "Samanya", description: "Embryology and development of the fetus." },
+    { number: 18, id: "narayana", name: "Narayana", veda: "Yajurveda", category: "Vaishnava", description: "Narayana as Supreme Being, the Eight-Syllabled Mantra." },
+    { number: 19, id: "paramahamsa", name: "Paramahamsa", veda: "Yajurveda", category: "Sannyasa", description: "The highest class of monks (Paramahamsas)." },
+    { number: 20, id: "amritabindu", name: "Amritabindu", veda: "Atharvaveda", category: "Yoga", description: "The immortal drop - mind control teachings." },
+    { number: 21, id: "amritanada", name: "Amritanada", veda: "Atharvaveda", category: "Yoga", description: "The immortal sound - yoga practices." },
+    { number: 22, id: "atharvashiras", name: "Atharvashiras", veda: "Atharvaveda", category: "Shaiva", description: "Head of Atharva - Rudra's nature." },
+    { number: 23, id: "atharvashikha", name: "Atharvashikha", veda: "Atharvaveda", category: "Shaiva", description: "Crest of Atharva - Agni and consciousness." },
+    { number: 24, id: "maitrayani", name: "Maitrayani", veda: "Samaveda", category: "Samanya", description: "Dialogue on liberation and yoga." },
+    { number: 25, id: "kaushitaki", name: "Kaushitaki", veda: "Rigveda", category: "Samanya", description: "Prana, transmigration, and liberation." },
+    { number: 26, id: "brihajjabala", name: "Brihajjabala", veda: "Atharvaveda", category: "Shaiva", description: "Great Jabala - Shiva worship rules." },
+    { number: 27, id: "nrsimhatapani", name: "Nrsimha Tapani", veda: "Atharvaveda", category: "Vaishnava", description: "Worship of Narasimha avatar." },
 
-    // Sannyasa Upanishads
-    { number: 20, id: "aruni", name: "Aruni", veda: "Samaveda", category: "Sannyasa" },
-    { number: 21, id: "paramahamsa", name: "Paramahamsa", veda: "Yajurveda", category: "Sannyasa" },
-
-    // Vaishnava
-    { number: 22, id: "narayana", name: "Narayana", veda: "Yajurveda", category: "Vaishnava" },
-    { number: 23, id: "nrsimhatapani", name: "Nrsimha Tapani", veda: "Atharvaveda", category: "Vaishnava" },
-
-    // Shaiva
-    { number: 24, id: "atharvasiras", name: "Atharvashiras", veda: "Atharvaveda", category: "Shaiva" },
-    { number: 25, id: "atharvasikha", name: "Atharvashikha", veda: "Atharvaveda", category: "Shaiva" },
-
-    // Shakta
-    { number: 26, id: "sita", name: "Sita", veda: "Atharvaveda", category: "Shakta" },
-    { number: 27, id: "tripuratapini", name: "Tripura Tapini", veda: "Atharvaveda", category: "Shakta" },
 
     // Placeholder generation for the rest to simulate full 108 list for UI development
     // In a real scenario, we would populate this with the exact canonical list.
