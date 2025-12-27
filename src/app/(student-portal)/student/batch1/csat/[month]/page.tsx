@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
 import {
     Play,
     BookOpen,
@@ -20,9 +21,35 @@ import {
     Trophy,
     Timer,
     Calendar,
-    AlertTriangle
+    AlertTriangle,
+    Save
 } from "lucide-react";
 import Link from "next/link";
+
+// API Base URL
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+
+// Save progress to backend
+async function saveProgress(data: {
+    user_id: string;
+    month: string;
+    session_day: number;
+    video_completed: boolean;
+    practice_score: number;
+    time_spent_minutes: number;
+}) {
+    try {
+        const response = await fetch(`${API_BASE}/session-progress/csat/save`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        return response.ok;
+    } catch (error) {
+        console.error('Failed to save progress:', error);
+        return false;
+    }
+}
 
 // CSAT data for each month
 const CSAT_DATA: Record<string, { month: string; topic: string; sessions: { day: number; title: string }[] }> = {
@@ -219,10 +246,28 @@ export default function CSATMonthPage() {
         setSelectedAnswers(prev => ({ ...prev, [questionId]: answerIndex }));
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         setShowResults(true);
         setTimerActive(false);
         if (timerRef.current) clearInterval(timerRef.current);
+
+        // Calculate and save progress
+        const score = calculateScore();
+        const timeSpent = Math.floor((25 * 60 - timeLeft) / 60);
+
+        // Save to backend (using 'guest' as user_id for now)
+        const saved = await saveProgress({
+            user_id: 'guest',
+            month: monthSlug,
+            session_day: selectedSession !== null ? selectedSession + 1 : 1,
+            video_completed: videoUrl !== '',
+            practice_score: Math.round((score / questions.length) * 100),
+            time_spent_minutes: timeSpent
+        });
+
+        if (saved) {
+            console.log('Progress saved successfully');
+        }
     };
 
     const calculateScore = () => {
@@ -436,8 +481,8 @@ export default function CSATMonthPage() {
                                             Question {currentQuestion + 1} of {questions.length}
                                         </span>
                                         <span className={`text-sm font-mono px-3 py-1 rounded-full ${isTimeWarning
-                                                ? 'bg-red-100 text-red-600 animate-pulse'
-                                                : 'bg-amber-100 text-amber-600'
+                                            ? 'bg-red-100 text-red-600 animate-pulse'
+                                            : 'bg-amber-100 text-amber-600'
                                             }`}>
                                             {isTimeWarning && <AlertTriangle className="inline h-4 w-4 mr-1" />}
                                             <Timer className="inline h-4 w-4 mr-1" />

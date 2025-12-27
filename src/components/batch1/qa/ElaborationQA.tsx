@@ -240,20 +240,50 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
             return newRecordings;
         });
 
-        // Simulate AI analysis (in production, send audio to backend for transcription + analysis)
-        await new Promise(resolve => setTimeout(resolve, 2000));
-
-        // Determine if student's explanation is correct
         const isCorrectOption = optionIndex === currentQuestion.correctAnswer;
+        const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
 
-        // Simulate AI feedback based on whether student correctly identified the option
-        // In real implementation, AI would analyze the audio transcription
-        const simulatedCorrect = Math.random() > 0.3; // 70% chance of correct explanation for demo
+        try {
+            // Call backend API for AI analysis
+            const response = await fetch(`${API_BASE}/audio/analyze`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    audio_base64: '', // Would include actual audio in production
+                    option_text: currentQuestion.options[optionIndex],
+                    is_correct_option: isCorrectOption,
+                    correct_explanation: currentQuestion.explanations[optionIndex],
+                    topic: currentQuestion.topic
+                })
+            });
 
+            if (response.ok) {
+                const data = await response.json();
+                setRecordings(prev => {
+                    const newRecordings = [...prev];
+                    newRecordings[optionIndex] = {
+                        ...newRecordings[optionIndex],
+                        isAnalyzing: false,
+                        isAnalyzed: true,
+                        aiFeedback: data.feedback || (data.is_correct ? "✓ Good explanation!" : "⚠ Review needed"),
+                        isCorrect: data.is_correct
+                    };
+                    return newRecordings;
+                });
+                return;
+            }
+        } catch (error) {
+            console.log('Falling back to simulated analysis:', error);
+        }
+
+        // Fallback to simulated analysis if API fails
+        await new Promise(resolve => setTimeout(resolve, 1500));
+
+        const simulatedCorrect = Math.random() > 0.3;
         let feedback = "";
         if (simulatedCorrect) {
             if (isCorrectOption) {
-                feedback = "✓ Great explanation! You correctly identified this as the RIGHT answer and provided good reasoning.";
+                feedback = "✓ Great explanation! You correctly identified this as the RIGHT answer.";
             } else {
                 feedback = "✓ Good job! You correctly identified this as an INCORRECT option.";
             }
@@ -424,22 +454,22 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
                         <Card
                             key={idx}
                             className={`transition-all ${recording.isAnalyzed
-                                    ? recording.isCorrect
-                                        ? 'border-2 border-green-500 bg-green-50 dark:bg-green-900/20'
-                                        : 'border-2 border-amber-400 bg-amber-50 dark:bg-amber-900/20'
-                                    : recording.isRecording
-                                        ? 'border-2 border-red-500 bg-red-50 dark:bg-red-900/10'
-                                        : 'hover:shadow-md'
+                                ? recording.isCorrect
+                                    ? 'border-2 border-green-500 bg-green-50 dark:bg-green-900/20'
+                                    : 'border-2 border-amber-400 bg-amber-50 dark:bg-amber-900/20'
+                                : recording.isRecording
+                                    ? 'border-2 border-red-500 bg-red-50 dark:bg-red-900/10'
+                                    : 'hover:shadow-md'
                                 }`}
                         >
                             <CardContent className="p-4">
                                 {/* Option Header */}
                                 <div className="flex items-start gap-3 mb-4">
                                     <span className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${recording.isAnalyzed && recording.isCorrect
-                                            ? 'bg-green-500 text-white'
-                                            : recording.isAnalyzed
-                                                ? 'bg-amber-500 text-white'
-                                                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                                        ? 'bg-green-500 text-white'
+                                        : recording.isAnalyzed
+                                            ? 'bg-amber-500 text-white'
+                                            : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
                                         }`}>
                                         {String.fromCharCode(65 + idx)}
                                     </span>
@@ -524,8 +554,8 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
                                 {/* AI Feedback */}
                                 {recording.isAnalyzed && recording.aiFeedback && (
                                     <div className={`mt-3 p-3 rounded-lg text-sm ${recording.isCorrect
-                                            ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200'
-                                            : 'bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200'
+                                        ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200'
+                                        : 'bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200'
                                         }`}>
                                         <div className="flex items-center gap-1 text-xs mb-1 font-semibold">
                                             <Brain className="h-3 w-3" />
