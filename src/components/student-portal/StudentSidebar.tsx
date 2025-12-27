@@ -14,6 +14,7 @@ import {
     Settings,
     User,
     Shield,
+    Target,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -89,11 +90,13 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
     const { user } = useAuth();
     // Access Control Configuration
     const MASTER_EMAILS = ["ktej255@gmail.com"];
-    const BATCH_1_EMAILS = ["student1@eduecosystem.com"]; // Placeholder
+    const CUSTOM_PLAN_EMAILS = ["chitrakumawat33@gmail.com"]; // Custom RAS planner access
+    const BATCH_1_EMAILS = ["student1@eduecosystem.com", "chitrakumawat33@gmail.com"]; // Added Chitra to Batch 1
     const BATCH_2_EMAILS = ["student2@eduecosystem.com"]; // Placeholder
 
     const userEmail = user?.email || "";
     const isMaster = MASTER_EMAILS.includes(userEmail);
+    const hasCustomPlan = CUSTOM_PLAN_EMAILS.includes(userEmail.toLowerCase());
     const isBatch1Access = isMaster || BATCH_1_EMAILS.includes(userEmail);
     const isBatch2Access = isMaster || BATCH_2_EMAILS.includes(userEmail);
 
@@ -231,6 +234,23 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                         <Layers className="h-5 w-5 shrink-0" />
                         <span className={`font-medium whitespace-nowrap transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 w-0"}`}>
                             Batch 2
+                        </span>
+                    </Link>
+                )}
+
+                {/* My Plan - Custom RAS Planner */}
+                {hasCustomPlan && (
+                    <Link
+                        href="/student/my-plan"
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${pathname === "/student/my-plan"
+                            ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-600/30"
+                            : "text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-purple-900/10"
+                            } ${!showExpanded ? "justify-center px-2" : ""}`}
+                        title={!showExpanded ? "My Plan" : ""}
+                    >
+                        <Target className="h-5 w-5 shrink-0" />
+                        <span className={`font-medium whitespace-nowrap transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 w-0"}`}>
+                            My Plan
                         </span>
                     </Link>
                 )}
