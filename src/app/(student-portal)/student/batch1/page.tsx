@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Book, Calendar, Clock, ChevronRight, Lock, Unlock, Play, Target, Brain, CheckCircle2 } from "lucide-react";
+import { Book, Calendar, Clock, ChevronRight, Lock, Unlock, Play, Target, Brain, CheckCircle2, BarChart3 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -45,9 +45,17 @@ export default function Batch1Page() {
     return (
         <div className="space-y-6 max-w-6xl mx-auto p-4 md:p-6">
             {/* Header */}
-            <div>
-                <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200">UPSC Prelims 2026</h1>
-                <p className="text-gray-600 dark:text-gray-400">90-Day Crash Course • Batch 1</p>
+            <div className="flex justify-between items-start">
+                <div>
+                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200">UPSC Prelims 2026</h1>
+                    <p className="text-gray-600 dark:text-gray-400">90-Day Crash Course • Batch 1</p>
+                </div>
+                <Link href="/student/batch1/progress">
+                    <Button variant="outline" className="flex items-center gap-2">
+                        <BarChart3 className="h-4 w-4" />
+                        View Progress
+                    </Button>
+                </Link>
             </div>
 
             {/* Progress Overview */}
