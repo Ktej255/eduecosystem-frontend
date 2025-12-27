@@ -255,16 +255,31 @@ export function markMeditationDayComplete(level: number, day: number): void {
             newStreak = 1;
         }
 
+        const newMeditationState = {
+            ...progress.meditation,
+            currentLevel: nextLevel,
+            currentDay: nextDay,
+            processIndex: 0,
+            streakDays: newStreak,
+            lastCompleted: today,
+        };
+
         saveLearningProgress({
             completedMeditation: [...progress.completedMeditation, key],
+            meditation: newMeditationState,
+        });
+
+        // Sync stats immediately
+        const currentStats = getStudentStats();
+        saveStudentStats({
+            ...currentStats,
             meditation: {
-                ...progress.meditation,
+                ...currentStats.meditation,
                 currentLevel: nextLevel,
                 currentDay: nextDay,
-                processIndex: 0,
                 streakDays: newStreak,
-                lastCompleted: today,
             },
+            overallStreak: Math.max(newStreak, currentStats.graphotherapy.streakDays),
         });
     }
 }
@@ -315,6 +330,19 @@ export function markGraphotherapyDayComplete(level: number, day: number): void {
                 streakDays: newStreak,
                 lastCompleted: today,
             },
+        });
+
+        // Sync stats immediately
+        const currentStats = getStudentStats();
+        saveStudentStats({
+            ...currentStats,
+            graphotherapy: {
+                ...currentStats.graphotherapy,
+                currentLevel: nextLevel,
+                currentDay: nextDay,
+                streakDays: newStreak,
+            },
+            overallStreak: Math.max(currentStats.meditation.streakDays, newStreak),
         });
     }
 }

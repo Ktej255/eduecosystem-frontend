@@ -30,6 +30,11 @@ const menuItems = [
         icon: BookOpen,
     },
     {
+        name: "My Plans",
+        href: "/student/learning-paths",
+        icon: BookOpen,
+    },
+    {
         name: "Graphotherapy",
         href: "/student/graphotherapy",
         icon: PenTool,
@@ -82,7 +87,16 @@ interface StudentSidebarProps {
 export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebarProps) {
     const pathname = usePathname();
     const { user } = useAuth();
-    const isMasterId = user?.email === "ktej255@gmail.com";
+    // Access Control Configuration
+    const MASTER_EMAILS = ["ktej255@gmail.com"];
+    const BATCH_1_EMAILS = ["student1@eduecosystem.com"]; // Placeholder
+    const BATCH_2_EMAILS = ["student2@eduecosystem.com"]; // Placeholder
+
+    const userEmail = user?.email || "";
+    const isMaster = MASTER_EMAILS.includes(userEmail);
+    const isBatch1Access = isMaster || BATCH_1_EMAILS.includes(userEmail);
+    const isBatch2Access = isMaster || BATCH_2_EMAILS.includes(userEmail);
+
     const [stats, setStats] = useState<StudentStats | null>(null);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -180,35 +194,45 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                     );
                 })}
 
-                {/* Batch Items for Master ID */}
-                {isMasterId && (
-                    <>
-                        <div className={`mt-4 mb-2 px-4 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}>
-                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Batches</p>
-                        </div>
-                        {batchItems.map((item) => {
-                            const Icon = item.icon;
-                            const isActive = pathname === item.href;
+                {/* Batches Section */}
+                {(isBatch1Access || isBatch2Access) && (
+                    <div className={`mt-4 mb-2 px-4 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Batches</p>
+                    </div>
+                )}
 
-                            return (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${isActive
-                                        ? "bg-amber-500 text-white shadow-lg shadow-amber-500/30"
-                                        : "text-gray-700 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/10"
-                                        } ${!showExpanded ? "justify-center px-2" : ""}`}
-                                    title={!showExpanded ? item.name : ""}
-                                >
-                                    <Icon className="h-5 w-5 shrink-0" />
-                                    <span className={`font-medium whitespace-nowrap transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 w-0"
-                                        }`}>
-                                        {item.name}
-                                    </span>
-                                </Link>
-                            );
-                        })}
-                    </>
+                {/* Batch 1 Link */}
+                {isBatch1Access && (
+                    <Link
+                        href="/student/planner"
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${pathname === "/student/planner"
+                            ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
+                            : "text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/10"
+                            } ${!showExpanded ? "justify-center px-2" : ""}`}
+                        title={!showExpanded ? "Batch 1" : ""}
+                    >
+                        <BookOpen className="h-5 w-5 shrink-0" />
+                        <span className={`font-medium whitespace-nowrap transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 w-0"}`}>
+                            Batch 1
+                        </span>
+                    </Link>
+                )}
+
+                {/* Batch 2 Link */}
+                {isBatch2Access && (
+                    <Link
+                        href="/student/batch2"
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${pathname === "/student/batch2"
+                            ? "bg-amber-500 text-white shadow-lg shadow-amber-500/30"
+                            : "text-gray-700 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/10"
+                            } ${!showExpanded ? "justify-center px-2" : ""}`}
+                        title={!showExpanded ? "Batch 2" : ""}
+                    >
+                        <Layers className="h-5 w-5 shrink-0" />
+                        <span className={`font-medium whitespace-nowrap transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 w-0"}`}>
+                            Batch 2
+                        </span>
+                    </Link>
                 )}
             </nav>
 
@@ -251,10 +275,10 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
             </div>
 
             {/* Admin Portal Switcher - Only for Master ID */}
-            {isMasterId && (
+            {isMaster && (
                 <div className={`p-4 border-t border-gray-200 dark:border-gray-800 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden p-0"}`}>
                     <Link
-                        href="/dashboard"
+                        href="/admin"
                         className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700 transition-all shadow-lg"
                     >
                         <Shield className="h-5 w-5" />

@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PolityHome from "@/components/batch1/polity/PolityHome";
+import EveningSessionDayView from "@/components/batch1/EveningSessionDayView";
 
 // 90-Day UPSC Course Structure
 const UPSC_CYCLES = [
@@ -158,8 +159,7 @@ export default function Batch1Page() {
                         </TabsList>
 
                         <TabsContent value="daily" className="space-y-4">
-                            {!selectedDay ? (
-                                /* Day Selection View */
+                            {!selectedDay && (
                                 <>
                                     <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Select Day</h3>
                                     <div className="grid grid-cols-5 gap-3">
@@ -180,8 +180,9 @@ export default function Batch1Page() {
                                         ))}
                                     </div>
                                 </>
-                            ) : (
-                                /* Part Selection View (Inside Daily Tab) */
+                            )}
+
+                            {selectedDay && (
                                 <div className="space-y-4">
                                     <Button variant="ghost" onClick={() => setSelectedDay(null)} className="text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white">
                                         ← Back to Days
@@ -192,31 +193,44 @@ export default function Batch1Page() {
                                             <h2 className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
                                                 Cycle {selectedCycle}, Day {selectedDay}
                                             </h2>
-                                            <p className="text-gray-600 dark:text-gray-400">Select a part to start learning (2 hours each)</p>
+                                            <p className="text-gray-600 dark:text-gray-400">Select a session to start learning</p>
                                         </CardContent>
                                     </Card>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        {[1, 2, 3].map((part) => (
-                                            <Link
-                                                key={part}
-                                                href={`/student/batch1/cycle/${selectedCycle}/day/${selectedDay}/part/${part}`}
-                                            >
-                                                <Card className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-primary">
-                                                    <CardContent className="p-6 text-center">
-                                                        <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).bg} flex items-center justify-center`}>
-                                                            <Play className={`h-8 w-8 ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`} />
-                                                        </div>
-                                                        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Part {part}</h3>
-                                                        <p className="text-gray-500 text-sm mt-1">2 hours • 4 segments</p>
-                                                        <Button className="mt-4 w-full">
-                                                            Start Part {part}
-                                                        </Button>
-                                                    </CardContent>
-                                                </Card>
-                                            </Link>
-                                        ))}
-                                    </div>
+                                    <Tabs defaultValue="morning" className="w-full">
+                                        <TabsList className="grid w-full grid-cols-2 mb-6">
+                                            <TabsTrigger value="morning">☀️ Morning Session (6 Hrs)</TabsTrigger>
+                                            <TabsTrigger value="evening">🌙 Evening Session (3 Hrs)</TabsTrigger>
+                                        </TabsList>
+
+                                        <TabsContent value="morning">
+                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                {[1, 2, 3].map((part) => (
+                                                    <Link
+                                                        key={part}
+                                                        href={`/student/batch1/cycle/${selectedCycle}/day/${selectedDay}/part/${part}`}
+                                                    >
+                                                        <Card className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-primary">
+                                                            <CardContent className="p-6 text-center">
+                                                                <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).bg} flex items-center justify-center`}>
+                                                                    <Play className={`h-8 w-8 ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`} />
+                                                                </div>
+                                                                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Part {part}</h3>
+                                                                <p className="text-gray-500 text-sm mt-1">2 hours • 4 segments</p>
+                                                                <Button className="mt-4 w-full">
+                                                                    Start Part {part}
+                                                                </Button>
+                                                            </CardContent>
+                                                        </Card>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </TabsContent>
+
+                                        <TabsContent value="evening">
+                                            <EveningSessionDayView cycleId={selectedCycle} day={selectedDay} />
+                                        </TabsContent>
+                                    </Tabs>
                                 </div>
                             )}
                         </TabsContent>
@@ -273,33 +287,47 @@ export default function Batch1Page() {
                             <h2 className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
                                 Cycle {selectedCycle}, Day {selectedDay}
                             </h2>
-                            <p className="text-gray-600 dark:text-gray-400">Select a part to start learning (2 hours each)</p>
+                            <p className="text-gray-600 dark:text-gray-400">Select a session to start learning</p>
                         </CardContent>
                     </Card>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        {[1, 2, 3].map((part) => (
-                            <Link
-                                key={part}
-                                href={`/student/batch1/cycle/${selectedCycle}/day/${selectedDay}/part/${part}`}
-                            >
-                                <Card className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-primary">
-                                    <CardContent className="p-6 text-center">
-                                        <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).bg} flex items-center justify-center`}>
-                                            <Play className={`h-8 w-8 ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`} />
-                                        </div>
-                                        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Part {part}</h3>
-                                        <p className="text-gray-500 text-sm mt-1">2 hours • 4 segments</p>
-                                        <Button className="mt-4 w-full">
-                                            Start Part {part}
-                                        </Button>
-                                    </CardContent>
-                                </Card>
-                            </Link>
-                        ))}
-                    </div>
+                    <Tabs defaultValue="morning" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 mb-6">
+                            <TabsTrigger value="morning">☀️ Morning Session (6 Hrs)</TabsTrigger>
+                            <TabsTrigger value="evening">🌙 Evening Session (3 Hrs)</TabsTrigger>
+                        </TabsList>
+
+                        <TabsContent value="morning">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {[1, 2, 3].map((part) => (
+                                    <Link
+                                        key={part}
+                                        href={`/student/batch1/cycle/${selectedCycle}/day/${selectedDay}/part/${part}`}
+                                    >
+                                        <Card className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-primary">
+                                            <CardContent className="p-6 text-center">
+                                                <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).bg} flex items-center justify-center`}>
+                                                    <Play className={`h-8 w-8 ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`} />
+                                                </div>
+                                                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Part {part}</h3>
+                                                <p className="text-gray-500 text-sm mt-1">2 hours • 4 segments</p>
+                                                <Button className="mt-4 w-full">
+                                                    Start Part {part}
+                                                </Button>
+                                            </CardContent>
+                                        </Card>
+                                    </Link>
+                                ))}
+                            </div>
+                        </TabsContent>
+
+                        <TabsContent value="evening">
+                            <EveningSessionDayView cycleId={selectedCycle} day={selectedDay} />
+                        </TabsContent>
+                    </Tabs>
                 </div>
-            )}
+            )
+            }
 
             {/* CSAT Track - Unlocked */}
             <Card className="bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800">
@@ -344,6 +372,6 @@ export default function Batch1Page() {
                     </div>
                 </CardContent>
             </Card>
-        </div>
+        </div >
     );
 }

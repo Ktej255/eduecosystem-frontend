@@ -60,6 +60,7 @@ const menuItems = [
         children: [
             { name: "Submissions", href: "/admin/submissions", icon: FileText },
             { name: "Courses", href: "/admin/courses", icon: GraduationCap },
+            { name: "Learning Paths", href: "/admin/learning-paths", icon: TrendingUp },
             { name: "Categories", href: "/admin/categories", icon: BookOpen },
         ],
     },
