@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, BookOpen, Brain, PlayCircle, Trophy, Sparkles } from "lucide-react";
+import { RefreshCw, BookOpen, Brain, PlayCircle, Trophy, Sparkles, Target } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import RevisionWheel from "./gamification/RevisionWheel";
