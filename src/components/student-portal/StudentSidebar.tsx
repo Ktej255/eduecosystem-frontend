@@ -90,13 +90,15 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
     const { user } = useAuth();
     // Access Control Configuration
     const MASTER_EMAILS = ["ktej255@gmail.com"];
-    const CUSTOM_PLAN_EMAILS = ["chitrakumawat33@gmail.com"]; // Custom RAS planner access
-    const BATCH_1_EMAILS = ["student1@eduecosystem.com", "chitrakumawat33@gmail.com"]; // Added Chitra to Batch 1
+    const CUSTOM_PLAN_EMAILS: string[] = []; // Custom RAS planner access (removed Chitra)
+    const BATCH_1_EMAILS = ["student1@eduecosystem.com"]; // Regular Batch 1 students
     const BATCH_2_EMAILS = ["student2@eduecosystem.com"]; // Placeholder
+    const RAS_LEARNER_EMAILS = ["chitrakumawat33@gmail.com"]; // RAS revision in Learn section
 
     const userEmail = user?.email || "";
     const isMaster = MASTER_EMAILS.includes(userEmail);
     const hasCustomPlan = CUSTOM_PLAN_EMAILS.includes(userEmail.toLowerCase());
+    const isRasLearner = RAS_LEARNER_EMAILS.includes(userEmail.toLowerCase());
     const isBatch1Access = isMaster || BATCH_1_EMAILS.includes(userEmail);
     const isBatch2Access = isMaster || BATCH_2_EMAILS.includes(userEmail);
 
@@ -196,6 +198,28 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                         </Link>
                     );
                 })}
+
+                {/* RAS Revision Section - for RAS learners only */}
+                {isRasLearner && (
+                    <>
+                        <div className={`mt-4 mb-2 px-4 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}>
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">RAS Revision</p>
+                        </div>
+                        <Link
+                            href="/student/my-plan"
+                            className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${pathname === "/student/my-plan"
+                                ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-600/30"
+                                : "text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/10"
+                                } ${!showExpanded ? "justify-center px-2" : ""}`}
+                            title={!showExpanded ? "RAS Syllabus" : ""}
+                        >
+                            <Target className="h-5 w-5 shrink-0" />
+                            <span className={`font-medium whitespace-nowrap transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 w-0"}`}>
+                                RAS Syllabus
+                            </span>
+                        </Link>
+                    </>
+                )}
 
                 {/* Batches Section */}
                 {(isBatch1Access || isBatch2Access) && (
