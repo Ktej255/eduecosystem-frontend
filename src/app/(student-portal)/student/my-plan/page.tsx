@@ -250,12 +250,6 @@ export default function MyPlanPage() {
                                 <Calendar className="mr-2 h-4 w-4" />
                                 View Today's Schedule
                             </Button>
-                            <Link href="/student/batch1/csat/january" className="flex-1">
-                                <Button variant="outline" className="w-full">
-                                    <FileQuestion className="mr-2 h-4 w-4" />
-                                    Practice CSAT
-                                </Button>
-                            </Link>
                         </CardContent>
                     </Card>
                 </>
