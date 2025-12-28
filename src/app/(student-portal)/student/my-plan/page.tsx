@@ -22,7 +22,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+// PRODUCTION: Railway backend - DO NOT CHANGE
+const API_BASE = "https://eduecosystem-backend-production.up.railway.app/api/v1";
 
 interface SubjectProgress {
     name: string;
@@ -275,8 +276,8 @@ export default function MyPlanPage() {
                                 <div
                                     key={idx}
                                     className={`p-4 rounded-lg border-2 ${slot.type === 'new_topic'
-                                            ? 'border-indigo-200 bg-indigo-50 dark:bg-indigo-900/20'
-                                            : 'border-gray-200 bg-gray-50 dark:bg-gray-800'
+                                        ? 'border-indigo-200 bg-indigo-50 dark:bg-indigo-900/20'
+                                        : 'border-gray-200 bg-gray-50 dark:bg-gray-800'
                                         }`}
                                 >
                                     <div className="flex items-start justify-between">
