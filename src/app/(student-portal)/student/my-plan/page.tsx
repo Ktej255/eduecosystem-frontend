@@ -157,8 +157,8 @@ export default function MyPlanPage() {
                 <Lock className="h-16 w-16 text-gray-400 mb-4" />
                 <h2 className="text-2xl font-bold text-gray-600">Access Restricted</h2>
                 <p className="text-gray-500 mt-2">This personalized plan is not available for your account.</p>
-                <Link href="/student/batch1">
-                    <Button className="mt-4">Go to Batch 1</Button>
+                <Link href="/student/dashboard">
+                    <Button className="mt-4">Go to Dashboard</Button>
                 </Link>
             </div>
         );
