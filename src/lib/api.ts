@@ -1,10 +1,8 @@
 import axios from "axios";
 
-// PRODUCTION: Using Railway backend directly
-const RAILWAY_BACKEND = "https://eduecosystem-backend-production.up.railway.app/api/v1";
-
+// PRODUCTION: Railway backend - DO NOT CHANGE
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || RAILWAY_BACKEND,
+  baseURL: "https://eduecosystem-backend-production.up.railway.app/api/v1",
   headers: {
     "Content-Type": "application/json",
   },
