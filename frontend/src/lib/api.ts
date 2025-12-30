@@ -1,7 +1,11 @@
 import axios from "axios";
 
+// CRITICAL: Hardcoded to AWS App Runner backend 
+// Vercel env variable was pointing to old Railway backend
+const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+
 const api = axios.create({
-  baseURL: (process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1").replace(/\/$/, "") + (process.env.NEXT_PUBLIC_API_URL?.includes("/api/v1") ? "" : "/api/v1"),
+  baseURL: API_BASE,
   headers: {
     "Content-Type": "application/json",
   },
