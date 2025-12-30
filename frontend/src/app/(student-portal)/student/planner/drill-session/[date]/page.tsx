@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import {
     Clock, Upload, Camera, Image as ImageIcon, CheckCircle,
-    ArrowRight, AlertCircle, FileText, Award, Coffee
+    ArrowRight, AlertCircle, FileText, Award, Coffee, Maximize2
 } from "lucide-react";
+import { FocusMode } from "@/components/features/focus-mode/FocusMode";
 
 // Mock data for 3 questions
 const getMockDrillData = (questionNumber: number) => {
@@ -87,6 +88,7 @@ export default function DrillSessionPage() {
     const [currentStep, setCurrentStep] = useState(1);
     const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
     const [isTimerRunning, setIsTimerRunning] = useState(true);
+    const [isFocusMode, setIsFocusMode] = useState(false);
 
     // Separate state for each question's answers
     const [answers, setAnswers] = useState({
@@ -429,6 +431,9 @@ export default function DrillSessionPage() {
                                         <p className="text-sm text-muted-foreground">Time Remaining</p>
                                         <p className="text-3xl font-bold text-primary">{formatTime(timeLeft)}</p>
                                     </div>
+                                    <Button variant="ghost" size="icon" onClick={() => setIsFocusMode(true)} className="ml-2 hover:bg-slate-100 dark:hover:bg-slate-800">
+                                        <Maximize2 className="h-5 w-5 text-muted-foreground" />
+                                    </Button>
                                 </div>
                                 <Button onClick={handleNext} size="lg">
                                     Done <ArrowRight className="ml-2 h-5 w-5" />
@@ -791,6 +796,23 @@ export default function DrillSessionPage() {
                     </div>
                 )}
             </div>
+
+            {/* Immersive Focus Mode Overlay */}
+            {isFocusMode && (
+                <FocusMode
+                    timeLeft={timeLeft}
+                    totalTime={
+                        currentStep === 2 ? 1200 :
+                            currentStep === 4 ? 3600 :
+                                currentStep === 5 ? 1200 :
+                                    currentStep === 7 ? 600 : 300
+                    }
+                    isActive={isTimerRunning}
+                    onToggleTimer={() => setIsTimerRunning(!isTimerRunning)}
+                    onExit={() => setIsFocusMode(false)}
+                    taskName={`Question ${currentQuestion} - ${stepTitles[currentStep - 1]}`}
+                />
+            )}
         </div>
     );
 }

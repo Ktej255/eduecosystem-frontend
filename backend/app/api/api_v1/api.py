@@ -15,6 +15,8 @@ from app.api.api_v1.endpoints import (
     ai_debug,
     ai,
 )
+print("DEBUG: Standard endpoints imported")
+
 
 api_router = APIRouter()
 
@@ -81,3 +83,9 @@ api_router.include_router(marketing_automation.router, prefix="/marketing-automa
 # Retention System (FSRS-based knowledge decay tracking)
 from app.api.api_v1.endpoints import retention
 api_router.include_router(retention.router, prefix="/retention", tags=["retention"])
+
+# AI Learning (MCQ Generator, Coaching)
+print("DEBUG: Importing ai_learning...")
+from app.api.api_v1.endpoints import ai_learning
+print("DEBUG: ai_learning imported")
+api_router.include_router(ai_learning.router, prefix="/ai-learning", tags=["ai-learning"])

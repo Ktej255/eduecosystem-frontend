@@ -14,6 +14,7 @@ import {
     Settings,
     User,
     Shield,
+    BrainCircuit,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -28,6 +29,11 @@ const menuItems = [
         name: "Learn",
         href: "/student/learn",
         icon: BookOpen,
+    },
+    {
+        name: "AI Coach",
+        href: "/student/ai-coach",
+        icon: BrainCircuit,
     },
     {
         name: "Graphotherapy",
