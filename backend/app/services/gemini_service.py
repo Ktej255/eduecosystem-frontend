@@ -1,16 +1,20 @@
 import os
 import httpx
+import google.generativeai as genai
 from typing import Optional, List, Dict, Any, Tuple
 from app.core.config import settings
+import logging
+
+logger = logging.getLogger(__name__)
 
 class GeminiService:
     """
-    FRESH 2025 AI SERVICE IMPLEMENTATION
+    FRESH 2025 AI SERVICE IMPLEMENTATION - DIRECT GOOGLE API
     
     Features:
-    1. Tiered Access: Free vs Premium students.
-    2. Model Cascading: Gemini 3 -> Gemma 3 -> Llama 3.3 (Ensures 100% availability).
-    3. Smart Routing: High-precision tasks (OCR/Graphology) use Gemini 3 Pro for Premium.
+    1. Direct Google Access: Uses `google-generativeai` for 15 RPM Free Tier.
+    2. Fallback Support: Keeps OpenRouter for specific models if needed.
+    3. Multi-modal: Native image support via Gemini.
     """
 
     def __init__(self):
@@ -18,79 +22,102 @@ class GeminiService:
         self.free_key = settings.FREE_GEMINI_API_KEY
         self.paid_key = settings.PAID_GEMINI_API_KEY
         
+        # Configure Google GenAI
+        if self.free_key:
+            genai.configure(api_key=self.free_key)
+        
         # Fallback Keys (OpenRouter)
         self.gemma_key = settings.GEMMA_API_KEY
         self.llama_key = settings.LLAMA_API_KEY
         
         self.base_url = settings.OPENROUTER_BASE_URL
-        self.default_model = settings.DEFAULT_AI_MODEL or "google/gemini-3-flash-preview"
+        self.default_model = "gemini-1.5-flash" # Safe default for Google
 
-    def _get_execution_plan(self, user: Any = None, is_complex: bool = False) -> List[Tuple[str, str]]:
+    def _get_execution_plan(self, user: Any = None, is_complex: bool = False) -> List[Tuple[str, str, str]]:
         """
-        Determines the plan of (API_KEY, MODEL) pairs to try in order.
+        Determines the plan of (PROVIDER, API_KEY, MODEL) triples to try.
+        Provider: 'google' or 'openrouter'
         """
         is_premium = getattr(user, "is_premium", False) or getattr(user, "subscription_status", "free") == "active"
         
         plan = []
         
-        if is_premium:
-            if is_complex:
-                # Premium Complex Plan: Paid Pro -> Fallback to Flash
-                plan.append((self.paid_key or self.free_key, "google/gemini-3-pro-preview"))
-                plan.append((self.free_key, "google/gemini-3-flash-preview"))
-            else:
-                # Premium Simple Plan: Free Flash -> Paid Pro (as fallback)
-                plan.append((self.free_key, "google/gemini-3-flash-preview"))
-                plan.append((self.paid_key, "google/gemini-3-pro-preview"))
+        # Primary: Google Direct (Fast, Free/Paid)
+        if is_premium and self.paid_key:
+             # Paid Pro -> Free Flash
+             plan.append(("google", self.paid_key, "gemini-1.5-pro"))
+             plan.append(("google", self.free_key, "gemini-1.5-flash"))
         else:
-            # Free Plan: Flash -> Gemma -> Llama
-            plan.append((self.free_key, "google/gemini-3-flash-preview"))
-            
-        # Global Fallbacks (Available to all if primary fails)
+             # Free Flash
+             plan.append(("google", self.free_key, "gemini-1.5-flash"))
+             
+        # Fallbacks (OpenRouter)
         if self.gemma_key:
-            plan.append((self.gemma_key, "google/gemma-3-27b-it:free"))
+            plan.append(("openrouter", self.gemma_key, "google/gemma-2-9b-it:free"))
         if self.llama_key:
-            plan.append((self.llama_key, "meta-llama/llama-3.3-70b-instruct:free"))
+            plan.append(("openrouter", self.llama_key, "meta-llama/llama-3.3-70b-instruct:free"))
             
         return plan
 
-    async def _call_api(self, api_key: str, model: str, messages: List[Dict[str, str]], temperature: float, max_tokens: int) -> str:
-        """Low-level API caller"""
-        if not api_key:
-            raise ValueError("Missing API Key")
-
-        headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://eduecosystem.com",
-            "X-Title": "Eduecosystem - Mastery Learning",
-        }
+    def _call_google(self, api_key: str, model_name: str, messages: List[Dict[str, str]], temperature: float) -> str:
+        """Call Google Generic AI SDK"""
+        # Configure specifically for this call (in case of multiple keys)
+        genai.configure(api_key=api_key)
         
-        payload = {
-            "model": model,
-            "messages": messages,
-            "temperature": temperature,
-            "max_tokens": max_tokens,
-        }
+        # Convert OpenAI format messages to Gemini format
+        # User -> user, Assistant -> model
+        history = []
+        system_instruction = None
+        current_user_message = ""
 
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            response = await client.post(f"{self.base_url}/chat/completions", headers=headers, json=payload)
+        for msg in messages:
+            role = msg["role"]
+            content = msg["content"]
             
-            if response.status_code == 200:
-                return response.json()["choices"][0]["message"]["content"]
-            else:
-                raise Exception(f"API Error {response.status_code}: {response.text}")
+            if role == "system":
+                system_instruction = content
+            elif role == "user":
+                current_user_message = content # Last message is the prompt
+            elif role == "assistant":
+                history.append({"role": "model", "parts": [content]})
+            else: # previous user messages
+                 history.append({"role": "user", "parts": [content]})
 
-    def _call_api_sync(self, api_key: str, model: str, messages: List[Dict[str, str]], temperature: float, max_tokens: int) -> str:
-        """Sync version of the API caller for backward compatibility"""
+        # Instantiate Model
+        model = genai.GenerativeModel(
+            model_name=model_name,
+            system_instruction=system_instruction
+        )
+        
+        # Generate
+        # Note: Gemini python lib chat history is stateful, but here we just want generation
+        # passing history as 'contents' if needed, generally usually just text generation for simple usage
+        # or chat.
+        
+        generation_config = genai.types.GenerationConfig(
+            temperature=temperature,
+            candidate_count=1,
+        )
+        
+        if history:
+             chat = model.start_chat(history=history)
+             response = chat.send_message(current_user_message, generation_config=generation_config)
+             return response.text
+        else:
+             response = model.generate_content(current_user_message, generation_config=generation_config)
+             return response.text
+
+
+    def _call_openrouter_sync(self, api_key: str, model: str, messages: List[Dict[str, str]], temperature: float, max_tokens: int) -> str:
+        """Sync version of the OpenRouter API caller"""
         if not api_key:
-            raise ValueError("Missing API Key")
+            raise ValueError("Missing OpenRouter API Key")
 
         headers = {
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
             "HTTP-Referer": "https://eduecosystem.com",
-            "X-Title": "Eduecosystem - Mastery Learning",
+            "X-Title": "Eduecosystem",
         }
         
         payload = {
@@ -103,9 +130,12 @@ class GeminiService:
         with httpx.Client(timeout=60.0) as client:
             response = client.post(f"{self.base_url}/chat/completions", headers=headers, json=payload)
             if response.status_code == 200:
-                return response.json()["choices"][0]["message"]["content"]
+                data = response.json()
+                if "choices" in data and len(data["choices"]) > 0:
+                     return data["choices"][0]["message"]["content"]
+                return "Empty response from AI"
             else:
-                raise Exception(f"API Error {response.status_code}: {response.text}")
+                raise Exception(f"OpenRouter Error {response.status_code}: {response.text}")
 
     def generate_text(self, prompt: str, user: Any = None, is_complex: bool = False, temperature: float = 0.7, max_tokens: int = 2000) -> str:
         """Generates text with cascading fallback mechanism"""
@@ -113,43 +143,46 @@ class GeminiService:
         plan = self._get_execution_plan(user, is_complex)
         
         last_error = "No API keys configured"
-        for api_key, model in plan:
+        
+        for provider, api_key, model in plan:
             try:
-                return self._call_api_sync(api_key, model, messages, temperature, max_tokens)
+                if not api_key: continue
+                
+                if provider == "google":
+                    return self._call_google(api_key, model, messages, temperature)
+                else:
+                    return self._call_openrouter_sync(api_key, model, messages, temperature, max_tokens)
+                    
             except Exception as e:
                 last_error = str(e)
-                print(f"Fallback: {model} failed, trying next... Error: {e}")
+                logger.warning(f"Fallback: {provider}/{model} failed. Error: {e}")
                 continue
         
         return f"AI Service Unavailable. Last error: {last_error}"
 
     def analyze_image(self, image_path: str, prompt: str, user: Any = None, temperature: float = 0.4) -> str:
-        """Analyze image with cascading vision support"""
-        import base64
-        with open(image_path, "rb") as f:
-            image_data = base64.b64encode(f.read()).decode("utf-8")
+        """Analyze image using Gemini Vision"""
+        import PIL.Image
         
-        ext = image_path.lower().split(".")[-1]
-        mime_type = f"image/{ext}" if ext in ["png", "jpg", "jpeg", "gif", "webp"] else "image/jpeg"
-        
-        messages = [{
-            "role": "user",
-            "content": [
-                {"type": "text", "text": prompt},
-                {"type": "image_url", "image_url": {"url": f"data:{mime_type};base64,{image_data}"}},
-            ],
-        }]
-        
-        # For vision, we strictly try Gemini models first as they are best at it
         plan = self._get_execution_plan(user, is_complex=True)
+        # Filter for Google only
+        google_plan = [p for p in plan if p[0] == "google"]
         
         last_error = ""
-        for api_key, model in plan:
-            # Skip non-vision models if necessary (Gemma/Llama might not support multi-modal on all endpoints)
-            if "gemma" in model or "llama" in model:
-                continue 
+        
+        # Load Image once
+        try:
+             img = PIL.Image.open(image_path)
+        except Exception as e:
+             return f"Error loading image: {e}"
+
+        for provider, api_key, model in google_plan:
             try:
-                return self._call_api_sync(api_key, model, messages, temperature, 2000)
+                if not api_key: continue
+                genai.configure(api_key=api_key)
+                m = genai.GenerativeModel(model)
+                response = m.generate_content([prompt, img])
+                return response.text
             except Exception as e:
                 last_error = str(e)
                 continue
@@ -157,105 +190,53 @@ class GeminiService:
         return f"Image Analysis Error: {last_error}"
 
     def chat(self, messages: List[Dict[str, str]], user: Any = None, system_prompt: Optional[str] = None, temperature: float = 0.7) -> str:
-        """Multi-turn chat with cascading fallback"""
+        """Multi-turn chat"""
+        # Inject system prompt into messages if needed for consistent format
         api_messages = []
         if system_prompt:
             api_messages.append({"role": "system", "content": system_prompt})
-        
-        for msg in messages:
-            role = "assistant" if msg.get("role", "").lower() in ["assistant", "ai", "bot"] else "user"
-            api_messages.append({"role": role, "content": msg["content"]})
+        api_messages.extend(messages)
 
         plan = self._get_execution_plan(user, is_complex=False)
         
         last_error = ""
-        for api_key, model in plan:
+        for provider, api_key, model in plan:
             try:
-                return self._call_api_sync(api_key, model, api_messages, temperature, 1000)
+                if not api_key: continue
+                if provider == "google":
+                    return self._call_google(api_key, model, api_messages, temperature)
+                else:
+                    return self._call_openrouter_sync(api_key, model, api_messages, temperature, 1000)
             except Exception as e:
                 last_error = str(e)
                 continue
         
         return f"Chat Error: {last_error}"
 
-    def analyze_comprehension(
-        self, 
-        student_summary: str, 
-        key_concepts: List[str], 
-        user: Any = None
-    ) -> Dict[str, Any]:
-        """
-        Analyze student's Feynman explanation for comprehension scoring.
-        Used by the Retention System for FSRS calculations.
-        
-        Returns:
-            {
-                "score": float (0.0-1.0),
-                "grade": int (1-4 FSRS grade),
-                "missing_concepts": List[str],
-                "feedback": str
-            }
-        """
-        prompt = f"""You are an educational assessment AI. Analyze how well the student explained these concepts.
-
-KEY CONCEPTS TO CHECK:
-{chr(10).join([f"- {c}" for c in key_concepts])}
-
-STUDENT'S EXPLANATION:
-{student_summary}
-
-SCORING:
-- 0.0-0.4 = Failed to cover most concepts
-- 0.5-0.6 = Partial understanding, key gaps
-- 0.7-0.8 = Good understanding, minor gaps
-- 0.9-1.0 = Excellent, comprehensive understanding
-
-RESPOND IN THIS EXACT JSON FORMAT:
+    def analyze_comprehension(self, student_summary: str, key_concepts: List[str], user: Any = None) -> Dict[str, Any]:
+        """FSRS Retention Analysis"""
+        prompt = f"""You are an educational assessment AI. Analyze score/1.0 and grade(1-4).
+JSON ONLY:
 {{
     "score": 0.XX,
     "grade": X,
-    "missing_concepts": ["concept1", "concept2"],
-    "feedback": "Brief feedback message"
+    "missing_concepts": [],
+    "feedback": "string"
 }}
-
-Only respond with the JSON, no other text."""
+Concepts: {key_concepts}
+Student: {student_summary}"""
 
         try:
-            response = self.generate_text(prompt, user=user, is_complex=False, temperature=0.3, max_tokens=500)
+            response = self.generate_text(prompt, user=user, is_complex=False, temperature=0.3)
             
-            # Parse JSON response
+            # Simple cleanup for markdown json
             import json
-            # Clean response in case of markdown
-            if "```" in response:
-                response = response.split("```")[1]
-                if response.startswith("json"):
-                    response = response[4:]
-            
-            result = json.loads(response.strip())
-            
-            # Ensure valid values
-            score = max(0.0, min(1.0, float(result.get("score", 0.5))))
-            grade = max(1, min(4, int(result.get("grade", 2))))
-            
-            return {
-                "score": score,
-                "grade": grade,
-                "missing_concepts": result.get("missing_concepts", []),
-                "feedback": result.get("feedback", "Review complete.")
-            }
-            
+            clean = response.replace("```json", "").replace("```", "").strip()
+            result = json.loads(clean)
+            return result
         except Exception as e:
-            print(f"Comprehension analysis error: {e}")
-            # Fallback: simple word-based scoring
-            words = len(student_summary.split())
-            basic_score = min(1.0, words / 100)
-            return {
-                "score": basic_score,
-                "grade": 2 if basic_score < 0.5 else 3,
-                "missing_concepts": [],
-                "feedback": "Unable to perform AI analysis, using basic scoring."
-            }
-
+             print(f"Analysis error: {e}")
+             return {"score": 0.5, "grade": 2, "feedback": "AI Error", "missing_concepts": []}
 
 # Global instance
 gemini_service = GeminiService()
