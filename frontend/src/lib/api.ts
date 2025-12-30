@@ -2,6 +2,7 @@ import axios from "axios";
 
 // CRITICAL: Hardcoded to AWS App Runner backend 
 // Vercel env variable was pointing to old Railway backend
+// CACHE BUST: 2024-12-31T00:05:00 - Force rebuild
 const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
 const api = axios.create({
