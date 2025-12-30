@@ -76,20 +76,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const login = async (email: string, password: string) => {
+    // CRITICAL FIX: Hardcode AWS URL directly here to bypass Vercel env override
+    const AWS_API_URL = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+
     // FastAPI OAuth2 expects form data
     const formData = new URLSearchParams();
     formData.append("username", email); // FastAPI uses 'username' field
     formData.append("password", password);
 
-    const response = await api.post("/login/access-token", formData, {
+    // Use direct fetch instead of api module to ensure correct URL
+    const response = await fetch(`${AWS_API_URL}/login/access-token`, {
+      method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formData.toString(),
     });
 
-    const { access_token, require_2fa } = response.data;
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.detail || "Invalid email or password");
+    }
+
+    const data = await response.json();
+
+    const { access_token, require_2fa } = data;
 
     // If 2FA is required, return the response data for handling
     if (require_2fa) {
-      return response.data;
+      return data;
     }
 
     // Standard login flow
