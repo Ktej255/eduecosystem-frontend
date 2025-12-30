@@ -84,5 +84,8 @@ from app.models import (
     user_management,
     marketing_automation,
     retention,
+    field_activity,
+    voice_note,
+    call_log,
 )
 print("DEBUG: Models imported in base.py")
