@@ -13,9 +13,13 @@ import {
     Sparkles,
     BookOpen,
     Lightbulb,
-    ArrowLeft
+    ArrowLeft,
+    Mic,
+    Loader2
 } from "lucide-react";
 import { Flashcard, generateFlashcardsFromTopic, getFlashcardsForDay, shuffleArray } from "./flashcard-utils";
+import VoiceRecorder from "../../ui/VoiceRecorder";
+import { toast } from "sonner";
 
 // Import topic data dynamically based on topic ID
 import { topic01HistoricalEvolution } from "../polity/data/topics/topic-01-historical-evolution";
@@ -48,6 +52,18 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
     const [practiceCards, setPracticeCards] = useState<Set<string>>(new Set());
     const [sessionComplete, setSessionComplete] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [isRecordingMode, setIsRecordingMode] = useState(false);
+    const [isAnalyzing, setIsAnalyzing] = useState(false);
+    const [aiResult, setAiResult] = useState<{
+        transcription: string;
+        is_correct: boolean;
+        score: number;
+        feedback: string;
+        key_points_mentioned: string[];
+        missing_points: string[];
+    } | null>(null);
+
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
     useEffect(() => {
         loadFlashcards();
@@ -102,6 +118,8 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
 
     const goToNext = () => {
         setIsFlipped(false);
+        setIsRecordingMode(false);
+        setAiResult(null);
         if (currentIndex < flashcards.length - 1) {
             setCurrentIndex(currentIndex + 1);
         } else {
@@ -123,6 +141,37 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         setPracticeCards(new Set());
         setSessionComplete(false);
         setFlashcards(shuffleArray(flashcards));
+    };
+
+    const handleAudioRecording = async (base64Audio: string) => {
+        setIsAnalyzing(true);
+        try {
+            const response = await fetch(`${API_URL}/api/v1/audio-analysis/analyze-flashcard`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    audio_base64: base64Audio,
+                    card_front: currentCard.front,
+                    card_back: currentCard.back,
+                    topic: currentCard.source
+                })
+            });
+
+            if (!response.ok) throw new Error("Analysis failed");
+
+            const result = await response.json();
+            setAiResult(result);
+            if (result.score >= 70) {
+                setKnownCards(prev => new Set(prev).add(currentCard.id));
+            } else {
+                setPracticeCards(prev => new Set(prev).add(currentCard.id));
+            }
+        } catch (error) {
+            console.error("Audio analysis error:", error);
+            toast.error("Failed to analyze audio. Please try again.");
+        } finally {
+            setIsAnalyzing(false);
+        }
     };
 
     const getCategoryIcon = (category: string) => {
@@ -298,6 +347,58 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                             <p className="text-lg md:text-xl text-center text-gray-800 dark:text-gray-200 whitespace-pre-line">
                                 {currentCard?.back}
                             </p>
+
+                            {isRecordingMode && !aiResult && !isAnalyzing && (
+                                <div className="mt-6 w-full max-w-sm">
+                                    <VoiceRecorder onRecordingComplete={handleAudioRecording} />
+                                </div>
+                            )}
+
+                            {isAnalyzing && (
+                                <div className="mt-6 flex flex-col items-center gap-2">
+                                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                                    <p className="text-sm text-gray-500 font-medium">AI Analyzing your recall...</p>
+                                </div>
+                            )}
+
+                            {aiResult && (
+                                <div className="mt-6 w-full space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <div className={`text-2xl font-bold ${aiResult.score >= 70 ? 'text-green-600' : 'text-amber-600'}`}>
+                                                {aiResult.score}% Accuracy
+                                            </div>
+                                        </div>
+                                        {aiResult.score >= 70 ? (
+                                            <span className="px-2 py-1 bg-green-100 text-green-700 rounded-md text-xs font-bold flex items-center gap-1">
+                                                <CheckCircle2 className="h-3 w-3" /> MASTERED
+                                            </span>
+                                        ) : (
+                                            <span className="px-2 py-1 bg-amber-100 text-amber-700 rounded-md text-xs font-bold flex items-center gap-1">
+                                                <XCircle className="h-3 w-3" /> NEEDS PRACTICE
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    <div className="bg-white/50 dark:bg-black/20 p-4 rounded-lg border border-gray-100 dark:border-gray-800">
+                                        <p className="text-sm italic text-gray-600 dark:text-gray-400 mb-2">"{aiResult.transcription}"</p>
+                                        <p className="text-sm text-gray-800 dark:text-gray-200 font-medium">{aiResult.feedback}</p>
+                                    </div>
+
+                                    {aiResult.missing_points.length > 0 && (
+                                        <div className="text-xs">
+                                            <span className="font-bold text-gray-500 uppercase tracking-wider">Missing Points:</span>
+                                            <div className="flex flex-wrap gap-2 mt-2">
+                                                {aiResult.missing_points.map((p, i) => (
+                                                    <span key={i} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                                        {p}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
                         </CardContent>
                     </Card>
                 </div>
@@ -325,10 +426,22 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
 
                 <Button
                     size="lg"
-                    className="bg-green-600 hover:bg-green-700"
-                    onClick={handleKnown}
+                    className="bg-primary hover:bg-primary/90 min-w-[160px]"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        if (aiResult) {
+                            goToNext();
+                        } else {
+                            setIsRecordingMode(true);
+                            if (!isFlipped) setIsFlipped(true);
+                        }
+                    }}
                 >
-                    <CheckCircle2 className="mr-2 h-5 w-5" /> I Know This
+                    {aiResult ? (
+                        <>Got it <ChevronRight className="ml-2 h-5 w-5" /></>
+                    ) : (
+                        <><Mic className="mr-2 h-5 w-5" /> Audio Explain</>
+                    )}
                 </Button>
 
                 <Button

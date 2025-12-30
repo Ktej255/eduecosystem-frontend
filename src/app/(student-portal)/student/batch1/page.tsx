@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Book, Calendar, Clock, ChevronRight, Lock, Unlock, Play, Target, Brain, CheckCircle2, BarChart3 } from "lucide-react";
+import { Book, Calendar, Clock, ChevronRight, Lock, Unlock, Play, Target, Brain, CheckCircle2, BarChart3, Download } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -9,6 +9,74 @@ import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PolityHome from "@/components/batch1/polity/PolityHome";
 import EveningSessionDayView from "@/components/batch1/EveningSessionDayView";
+import { useEffect } from "react";
+
+const MorningSessionPartCard = ({
+    part,
+    cycleId,
+    day,
+    color,
+    apiUrl,
+    getColorClasses
+}: {
+    part: number;
+    cycleId: number;
+    day: number;
+    color: string;
+    apiUrl: string;
+    getColorClasses: (color: string) => any;
+}) => {
+    const [partData, setPartData] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchPartData = async () => {
+            try {
+                const response = await fetch(`${apiUrl}/api/v1/batch1/cycle/${cycleId}/day/${day}/part/${part}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setPartData(data);
+                }
+            } catch (error) {
+                console.error("Error fetching part data:", error);
+            }
+        };
+        if (cycleId && day) fetchPartData();
+    }, [part, cycleId, day, apiUrl]);
+
+    return (
+        <Card className="hover:shadow-lg transition-all border-2 hover:border-primary flex flex-col h-full">
+            <CardContent className="p-6 text-center flex-1 flex flex-col">
+                <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${getColorClasses(color).bg} flex items-center justify-center`}>
+                    <Play className={`h-8 w-8 ${getColorClasses(color).text}`} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Part {part}</h3>
+                <p className="text-gray-500 text-sm mt-1">2 hours • 4 segments</p>
+
+                <div className="mt-auto pt-4 space-y-2">
+                    <Link href={`/student/batch1/cycle/${cycleId}/day/${day}/part/${part}`}>
+                        <Button className="w-full">
+                            Start Part {part}
+                        </Button>
+                    </Link>
+
+                    {partData?.part_pdf_url && (
+                        <a
+                            href={`${apiUrl}${partData.part_pdf_url}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                        >
+                            <Button variant="outline" className="w-full gap-2 border-primary/20 hover:bg-primary/5">
+                                <Download className="h-4 w-4" />
+                                Download PDF
+                            </Button>
+                        </a>
+                    )}
+                </div>
+            </CardContent>
+        </Card>
+    );
+};
 
 // 90-Day UPSC Course Structure
 const UPSC_CYCLES = [
@@ -24,6 +92,7 @@ const UPSC_CYCLES = [
 ];
 
 export default function Batch1Page() {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
     const [selectedCycle, setSelectedCycle] = useState<number | null>(null);
     const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
@@ -214,23 +283,15 @@ export default function Batch1Page() {
                                         <TabsContent value="morning">
                                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                                 {[1, 2, 3].map((part) => (
-                                                    <Link
+                                                    <MorningSessionPartCard
                                                         key={part}
-                                                        href={`/student/batch1/cycle/${selectedCycle}/day/${selectedDay}/part/${part}`}
-                                                    >
-                                                        <Card className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-primary">
-                                                            <CardContent className="p-6 text-center">
-                                                                <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).bg} flex items-center justify-center`}>
-                                                                    <Play className={`h-8 w-8 ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`} />
-                                                                </div>
-                                                                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Part {part}</h3>
-                                                                <p className="text-gray-500 text-sm mt-1">2 hours • 4 segments</p>
-                                                                <Button className="mt-4 w-full">
-                                                                    Start Part {part}
-                                                                </Button>
-                                                            </CardContent>
-                                                        </Card>
-                                                    </Link>
+                                                        part={part}
+                                                        cycleId={selectedCycle || 1}
+                                                        day={selectedDay || 1}
+                                                        color={selectedCycle ? UPSC_CYCLES[selectedCycle - 1].color : "blue"}
+                                                        apiUrl={API_URL}
+                                                        getColorClasses={getColorClasses}
+                                                    />
                                                 ))}
                                             </div>
                                         </TabsContent>

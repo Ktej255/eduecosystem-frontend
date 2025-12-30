@@ -160,18 +160,20 @@ interface UploadedSegment {
     title: string;
     key_points: string;
     video_url: string | null;
+    video_link: string | null;
 }
 
 // Day Content Upload Component
-function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
+const DayContentUpload = ({ cycleId, cycleName, dayNumber, color, onBack }: {
     cycleId: number;
     cycleName: string;
     dayNumber: number;
     color: string;
     onBack: () => void;
-}) {
+}) => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-    const [videos, setVideos] = useState<Record<string, { file: File | null; title: string; notes: string; existingVideoUrl?: string | null }>>({});
+    const [videos, setVideos] = useState<Record<string, { file: File | null; title: string; notes: string; existingVideoUrl?: string | null; video_link: string }>>({});
+    const [partPdfs, setPartPdfs] = useState<Record<number, { file: File | null; existingUrl?: string | null }>>({});
     const [saving, setSaving] = useState(false);
     const [uploadProgress, setUploadProgress] = useState<string>("");
     const [loading, setLoading] = useState(true);
@@ -192,16 +194,21 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                     if (response.ok) {
                         const data = await response.json();
                         // Update state with existing data
+                        if (data.part_pdf_url) {
+                            setPartPdfs(prev => ({ ...prev, [part]: { file: null, existingUrl: data.part_pdf_url } }));
+                        }
+
                         data.segments?.forEach((seg: UploadedSegment & { id: number }) => {
                             const key = `${part}-${seg.id}`;
-                            if (seg.video_url || (seg.title && !seg.title.includes("Not Uploaded"))) {
+                            if (seg.video_url || seg.video_link || (seg.title && !seg.title.includes("Not Uploaded"))) {
                                 setVideos(prev => ({
                                     ...prev,
                                     [key]: {
                                         file: null,
                                         title: seg.title || "",
                                         notes: seg.key_points || "",
-                                        existingVideoUrl: seg.video_url
+                                        existingVideoUrl: seg.video_url,
+                                        video_link: seg.video_link || ""
                                     }
                                 }));
                             }
@@ -237,7 +244,14 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
         const key = `${part}-${segment}`;
         setVideos(prev => ({
             ...prev,
-            [key]: { ...prev[key], file, title: prev[key]?.title || "", notes: prev[key]?.notes || "" }
+            [key]: { ...prev[key], file, title: prev[key]?.title || "", notes: prev[key]?.notes || "", video_link: prev[key]?.video_link || "" }
+        }));
+    };
+
+    const handlePdfChange = (part: number, file: File | null) => {
+        setPartPdfs(prev => ({
+            ...prev,
+            [part]: { ...prev[part], file }
         }));
     };
 
@@ -251,16 +265,28 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
 
             // Upload each segment that has content
             for (const part of parts) {
+                // Upload PDF if changed
+                if (partPdfs[part]?.file) {
+                    setUploadProgress(`Uploading Part ${part} combined PDF...`);
+                    const pdfFormData = new FormData();
+                    pdfFormData.append("file", partPdfs[part].file!);
+                    await fetch(`${API_URL}/api/v1/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/pdf`, {
+                        method: "POST",
+                        body: pdfFormData
+                    });
+                }
+
                 for (let seg = 1; seg <= segmentsPerPart; seg++) {
                     const key = `${part}-${seg}`;
                     const video = videos[key];
 
-                    if (video && (video.file || video.title)) {
+                    if (video && (video.file || video.title || video.video_link)) {
                         setUploadProgress(`Uploading Part ${part} Segment ${seg}...`);
 
                         const formData = new FormData();
                         formData.append("title", video.title || `Segment ${seg}`);
                         formData.append("key_points", video.notes || "");
+                        if (video.video_link) formData.append("video_link", video.video_link);
 
                         if (video.file) {
                             formData.append("video", video.file);
@@ -320,12 +346,40 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
             {/* Parts */}
             {parts.map((part) => (
                 <Card key={part}>
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            <Clock className="h-5 w-5" />
-                            Part {part} (2 Hours)
-                        </CardTitle>
-                        <CardDescription>Upload 4 video segments (~25 min each)</CardDescription>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                        <div>
+                            <CardTitle className="flex items-center gap-2">
+                                <Clock className="h-5 w-5" />
+                                Part {part} (2 Hours)
+                            </CardTitle>
+                            <CardDescription>Upload 4 video segments + 1 Combined PDF</CardDescription>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            {partPdfs[part]?.file ? (
+                                <div className="flex items-center gap-2 px-3 py-1 bg-green-100 text-green-700 rounded-md text-sm border border-green-200">
+                                    <FileText className="h-4 w-4" />
+                                    <span>{partPdfs[part].file?.name}</span>
+                                    <Trash2 className="h-4 w-4 cursor-pointer text-red-500" onClick={() => handlePdfChange(part, null)} />
+                                </div>
+                            ) : partPdfs[part]?.existingUrl ? (
+                                <div className="flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-md text-sm border border-blue-200">
+                                    <CheckCircle className="h-4 w-4" />
+                                    <span>Combined PDF Uploaded</span>
+                                    <Button size="sm" variant="ghost" onClick={() => document.getElementById(`pdf-${part}`)?.click()}>Change</Button>
+                                </div>
+                            ) : (
+                                <Button size="sm" variant="outline" onClick={() => document.getElementById(`pdf-${part}`)?.click()}>
+                                    <Upload className="h-4 w-4 mr-2" /> Upload Combined PDF
+                                </Button>
+                            )}
+                            <input
+                                type="file"
+                                accept=".pdf"
+                                className="hidden"
+                                id={`pdf-${part}`}
+                                onChange={(e) => handlePdfChange(part, e.target.files?.[0] || null)}
+                            />
+                        </div>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         {Array.from({ length: segmentsPerPart }, (_, i) => i + 1).map((seg) => {
@@ -341,8 +395,8 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
-                                            <Label>Video File</Label>
-                                            <div className="mt-1">
+                                            <Label>Video File or Link</Label>
+                                            <div className="mt-1 space-y-2">
                                                 {video?.file ? (
                                                     <div className="flex items-center gap-2 p-2 bg-green-50 rounded border border-green-200">
                                                         <Video className="h-4 w-4 text-green-600" />
@@ -379,7 +433,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                                                         </Button>
                                                     </div>
                                                 ) : (
-                                                    <>
+                                                    <div className="flex gap-2">
                                                         <input
                                                             type="file"
                                                             accept="video/*"
@@ -389,13 +443,25 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                                                         />
                                                         <Button
                                                             variant="outline"
-                                                            className="w-full"
+                                                            className="flex-1"
                                                             onClick={() => document.getElementById(`video-${key}`)?.click()}
                                                         >
                                                             <Upload className="mr-2 h-4 w-4" />
-                                                            Upload Video
+                                                            Upload
                                                         </Button>
-                                                    </>
+                                                        <div className="flex-[2] flex gap-2">
+                                                            <Input
+                                                                placeholder="Paste YouTube/Video Link..."
+                                                                value={video?.video_link || ""}
+                                                                onChange={(e) => {
+                                                                    setVideos(prev => ({
+                                                                        ...prev,
+                                                                        [key]: { ...prev[key], file: prev[key]?.file || null, video_link: e.target.value, title: prev[key]?.title || "", notes: prev[key]?.notes || "" }
+                                                                    }));
+                                                                }}
+                                                            />
+                                                        </div>
+                                                    </div>
                                                 )}
                                             </div>
                                         </div>
@@ -409,7 +475,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                                                 onChange={(e) => {
                                                     setVideos(prev => ({
                                                         ...prev,
-                                                        [key]: { ...prev[key], file: prev[key]?.file || null, title: e.target.value, notes: prev[key]?.notes || "" }
+                                                        [key]: { ...prev[key], file: prev[key]?.file || null, title: e.target.value, notes: prev[key]?.notes || "", video_link: prev[key]?.video_link || "" }
                                                     }));
                                                 }}
                                             />
@@ -426,7 +492,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                                             onChange={(e) => {
                                                 setVideos(prev => ({
                                                     ...prev,
-                                                    [key]: { ...prev[key], file: prev[key]?.file || null, title: prev[key]?.title || "", notes: e.target.value }
+                                                    [key]: { ...prev[key], file: prev[key]?.file || null, title: prev[key]?.title || "", notes: e.target.value, video_link: prev[key]?.video_link || "" }
                                                 }));
                                             }}
                                         />
