@@ -14,6 +14,7 @@ import {
     Clock,
     Rocket,
     Sparkles,
+    Bot,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,11 @@ export default function StudentDashboard() {
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
     const [isRefreshing, setIsRefreshing] = useState(false);
 
+    // RAS Data State
+    const [rasDashboard, setRasDashboard] = useState<any | null>(null);
+    const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    const userEmail = "chitrakumawat33@gmail.com";
+
     // Load stats from storage
     const loadStats = useCallback(() => {
         setIsRefreshing(true);
@@ -47,6 +53,22 @@ export default function StudentDashboard() {
         setLastUpdated(new Date());
 
         setTimeout(() => setIsRefreshing(false), 300);
+    }, []);
+
+    // Fetch RAS Data
+    useEffect(() => {
+        async function fetchRasData() {
+            try {
+                const res = await fetch(`${API_BASE}/planner/dashboard/${userEmail}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    setRasDashboard(data);
+                }
+            } catch (error) {
+                console.error("Error fetching RAS data:", error);
+            }
+        }
+        fetchRasData();
     }, []);
 
     // Initial load
@@ -162,8 +184,8 @@ export default function StudentDashboard() {
                         <GraduationCap className="w-5 h-5" />
                     </div>
                     <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Prelims Avg</p>
-                        <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">{stats?.prelims?.avgRecall || 0}%</h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">RAS Avg</p>
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">{rasDashboard?.overall_progress?.percentage || 0}%</h4>
                     </div>
                 </div>
 
@@ -189,51 +211,60 @@ export default function StudentDashboard() {
             </div>
 
             {/* Activity Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Prelims (Batch 1) Card */}
-                <Card className="border-l-4 border-l-indigo-500">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* RAS Revision Card - REPLACES Batch 1 & 2 */}
+                <Card className="border-l-4 border-l-indigo-600 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-900/20 dark:to-neutral-900 shadow-md">
                     <CardHeader className="pb-2">
                         <CardTitle className="flex items-center gap-2 text-lg">
                             <Target className="h-5 w-5 text-indigo-600" />
-                            UPSC Prelims (Batch 1)
+                            RAS Revision Mastery
+                            <span className="ml-auto px-2 py-0.5 text-xs bg-indigo-100 text-indigo-700 rounded-full flex items-center gap-1 animate-pulse">
+                                <Sparkles className="h-3 w-3" />
+                                Live
+                            </span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">
                             <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">Current Progress</span>
-                                <span className="font-semibold">Cycle {stats?.prelims?.currentCycle}, Day {stats?.prelims?.currentDay}</span>
+                                <span className="text-gray-500">Total Topics</span>
+                                <span className="font-semibold">{rasDashboard?.overall_progress?.completed_topics || 0} / {rasDashboard?.overall_progress?.total_topics || 350}</span>
                             </div>
 
-                            {stats?.prelims?.lastSessionRecalls && stats.prelims.lastSessionRecalls.length > 0 && (
-                                <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-3">
-                                    <p className="text-xs text-gray-500 mb-2">Last Session Recall Scores:</p>
-                                    <div className="flex gap-2">
-                                        {stats.prelims.lastSessionRecalls.map((score: number, i: number) => (
-                                            <div key={i} className="flex-1 text-center">
-                                                <div className={`text-lg font-bold ${score >= 80 ? 'text-green-600' : score >= 70 ? 'text-yellow-600' : 'text-orange-600'}`}>
-                                                    {score}%
-                                                </div>
-                                                <div className="text-xs text-gray-400">Part {i + 1}</div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="mt-2 pt-2 border-t border-indigo-200">
-                                        <div className="flex justify-between text-sm">
-                                            <span className="text-gray-500">Average</span>
-                                            <span className="font-bold text-indigo-600">{stats.prelims.avgRecall}%</span>
-                                        </div>
-                                    </div>
+                            <div className="space-y-1">
+                                <div className="flex justify-between text-xs text-gray-500 mb-1">
+                                    <span>Coverage</span>
+                                    <span>{rasDashboard?.overall_progress?.percentage || 0}%</span>
                                 </div>
-                            )}
-
-                            <div className="text-sm text-gray-500">
-                                {stats?.prelims?.totalSegmentsCompleted || 0} segments completed
+                                <Progress value={dashboard_percentage(rasDashboard)} className="h-2" />
                             </div>
 
-                            <Link href="/student/batch1">
-                                <Button className="w-full mt-2">
-                                    Continue Learning <ArrowRight className="ml-2 h-4 w-4" />
+                            <Link href="/student/my-plan">
+                                <Button className="w-full mt-2 bg-indigo-600 hover:bg-indigo-700">
+                                    Open Revision Plan <ArrowRight className="ml-2 h-4 w-4" />
+                                </Button>
+                            </Link>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                {/* AI Coach Card */}
+                <Card className="border-l-4 border-l-rose-500 bg-gradient-to-br from-rose-50 to-white dark:from-rose-900/20 dark:to-neutral-900 shadow-md">
+                    <CardHeader className="pb-2">
+                        <CardTitle className="flex items-center gap-2 text-lg">
+                            <Bot className="h-5 w-5 text-rose-600" />
+                            AI Personal Coach
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="space-y-4">
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                                Your 24/7 intelligent study companion. Ask doubts, get explanations, and track your learning gaps.
+                            </p>
+
+                            <Link href="/student/ai-coach">
+                                <Button className="w-full mt-2 bg-rose-500 hover:bg-rose-600 text-white">
+                                    Chat with Coach <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>
                         </div>
@@ -254,20 +285,9 @@ export default function StudentDashboard() {
                                 <span className="text-gray-500">Current Level</span>
                                 <span className="font-semibold">Level {stats?.meditation?.currentLevel}</span>
                             </div>
-                            <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">Current Day</span>
-                                <span className="font-semibold">Day {stats?.meditation?.currentDay} of 60</span>
-                            </div>
-
                             <Progress value={(stats?.meditation?.currentDay / 60) * 100} className="h-2" />
-
-                            <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">Streak</span>
-                                <span className="font-semibold text-purple-600">{stats?.meditation?.streakDays} days 🧘</span>
-                            </div>
-
                             <Link href="/student/meditation">
-                                <Button variant="outline" className="w-full mt-2 border-purple-500 text-purple-700 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/30">
+                                <Button variant="outline" className="w-full mt-2 border-purple-500 text-purple-700 hover:bg-purple-50">
                                     Practice Today <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>
@@ -289,20 +309,9 @@ export default function StudentDashboard() {
                                 <span className="text-gray-500">Current Level</span>
                                 <span className="font-semibold">Level {stats?.graphotherapy?.currentLevel}</span>
                             </div>
-                            <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">Current Day</span>
-                                <span className="font-semibold">Day {stats?.graphotherapy?.currentDay} of 60</span>
-                            </div>
-
                             <Progress value={(stats?.graphotherapy?.currentDay / 60) * 100} className="h-2" />
-
-                            <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">Streak</span>
-                                <span className="font-semibold text-green-600">{stats?.graphotherapy?.streakDays} days ✍️</span>
-                            </div>
-
                             <Link href="/student/graphotherapy">
-                                <Button variant="outline" className="w-full mt-2 border-green-500 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/30">
+                                <Button variant="outline" className="w-full mt-2 border-green-500 text-green-700 hover:bg-green-50">
                                     Practice Today <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>
@@ -310,125 +319,12 @@ export default function StudentDashboard() {
                     </CardContent>
                 </Card>
             </div>
-
-            {/* Batch 2 Section */}
-            <Card className="border-l-4 border-l-amber-500 bg-gradient-to-r from-amber-50/50 to-orange-50/50 dark:from-amber-900/10 dark:to-orange-900/10">
-                <CardHeader className="pb-2">
-                    <CardTitle className="flex items-center gap-2 text-lg">
-                        <Rocket className="h-5 w-5 text-amber-600" />
-                        Batch 2 - Research Hub
-                        <span className="ml-auto px-2 py-0.5 text-xs bg-amber-100 text-amber-700 rounded-full flex items-center gap-1">
-                            <Sparkles className="h-3 w-3" />
-                            Self Study
-                        </span>
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-4">
-                        <div className="flex justify-between text-sm">
-                            <span className="text-gray-500">Missions Completed</span>
-                            <span className="font-semibold">2 / 5</span>
-                        </div>
-
-                        {/* Day Progress */}
-                        <div className="grid grid-cols-5 gap-2">
-                            {[1, 2, 3, 4, 5].map((day) => (
-                                <div
-                                    key={day}
-                                    className={`text-center p-2 rounded-lg ${day <= 2
-                                            ? 'bg-amber-500 text-white'
-                                            : 'bg-gray-100 dark:bg-gray-800 text-gray-400'
-                                        }`}
-                                >
-                                    <div className="text-xs">Day</div>
-                                    <div className="font-bold">{day}</div>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="bg-amber-100 dark:bg-amber-900/20 rounded-lg p-3">
-                            <div className="flex justify-between text-sm mb-1">
-                                <span className="text-amber-800 dark:text-amber-200">Avg. AI Score</span>
-                                <span className="font-bold text-amber-600">82%</span>
-                            </div>
-                            <Progress value={82} className="h-2" />
-                        </div>
-
-                        <div className="flex gap-2">
-                            <Link href="/student/batch2?tab=missions" className="flex-1">
-                                <Button className="w-full bg-amber-500 hover:bg-amber-600">
-                                    Continue <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </Link>
-                            <Link href="/student/batch2?tab=progress">
-                                <Button variant="outline" className="border-amber-500 text-amber-700">
-                                    Details
-                                </Button>
-                            </Link>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
-
-
-            {/* Recent Activity */}
-            <Card>
-                <CardHeader>
-                    <CardTitle className="text-lg">Recent Activity</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-3">
-                        {stats?.prelims?.totalSegmentsCompleted > 0 && (
-                            <div className="flex items-center gap-4 p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl">
-                                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                                    <Target className="h-5 w-5 text-indigo-600" />
-                                </div>
-                                <div className="flex-1">
-                                    <h4 className="font-medium">Prelims: {stats.prelims.totalSegmentsCompleted} segments completed</h4>
-                                    <p className="text-xs text-muted-foreground">Average Recall: {stats.prelims.avgRecall}%</p>
-                                </div>
-                            </div>
-                        )}
-
-                        {stats?.meditation?.streakDays > 0 && (
-                            <div className="flex items-center gap-4 p-3 hover:bg-gray-50 dark:hover:bg-neutral-800 rounded-xl">
-                                <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                                    <Brain className="h-5 w-5 text-purple-600" />
-                                </div>
-                                <div className="flex-1">
-                                    <h4 className="font-medium">Meditation: Level {stats.meditation.currentLevel}, Day {stats.meditation.currentDay}</h4>
-                                    <p className="text-xs text-muted-foreground">{stats.meditation.streakDays} day streak</p>
-                                </div>
-                            </div>
-                        )}
-
-                        {stats?.graphotherapy?.streakDays > 0 && (
-                            <div className="flex items-center gap-4 p-3 hover:bg-gray-50 dark:hover:bg-neutral-800 rounded-xl">
-                                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                                    <Pen className="h-5 w-5 text-green-600" />
-                                </div>
-                                <div className="flex-1">
-                                    <h4 className="font-medium">Graphotherapy: Level {stats.graphotherapy.currentLevel}, Day {stats.graphotherapy.currentDay}</h4>
-                                    <p className="text-xs text-muted-foreground">{stats.graphotherapy.streakDays} day streak</p>
-                                </div>
-                            </div>
-                        )}
-
-                        {stats?.prelims?.totalSegmentsCompleted === 0 &&
-                            stats?.meditation?.streakDays === 0 &&
-                            stats?.graphotherapy?.streakDays === 0 && (
-                                <div className="text-center py-8 text-gray-500">
-                                    <BookOpen className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                                    <p>Start your learning journey today!</p>
-                                    <Link href="/student/batch1">
-                                        <Button className="mt-4">Get Started</Button>
-                                    </Link>
-                                </div>
-                            )}
-                    </div>
-                </CardContent>
-            </Card>
         </div>
     );
+}
+
+// Helper to safe get percentage
+function dashboard_percentage(data: any): number {
+    return data?.overall_progress?.percentage || 0;
 }
 
