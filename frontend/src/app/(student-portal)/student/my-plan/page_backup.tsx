@@ -34,8 +34,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-// PRODUCTION: Railway backend - DO NOT CHANGE
-const API_BASE = "https://eduecosystem-backend-production.up.railway.app/api/v1";
+// PRODUCTION: AWS App Runner backend
+const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
 interface SubjectProgress {
     name: string;
