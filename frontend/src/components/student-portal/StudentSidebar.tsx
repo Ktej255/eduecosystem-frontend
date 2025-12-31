@@ -15,6 +15,7 @@ import {
     User,
     Shield,
     BrainCircuit,
+    CalendarDays,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -26,9 +27,9 @@ const menuItems = [
         icon: LayoutDashboard,
     },
     {
-        name: "Learn",
-        href: "/student/learn",
-        icon: BookOpen,
+        name: "RAS Revision",
+        href: "/student/my-plan",
+        icon: CalendarDays,
     },
     {
         name: "AI Coach",
