@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Book, Calendar, Clock, ChevronRight, Lock, Unlock, Play, Target, Brain, CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -21,8 +22,19 @@ const UPSC_CYCLES = [
 ];
 
 export default function Batch1Page() {
+    const router = useRouter();
     const [selectedCycle, setSelectedCycle] = useState<number | null>(null);
     const [selectedDay, setSelectedDay] = useState<number | null>(null);
+
+    const handleCycleClick = (cycleId: number) => {
+        if (cycleId === 1) {
+            router.push('/student/batch1/polity');
+        } else if (cycleId === 2) {
+            router.push('/student/batch1/history');
+        } else {
+            setSelectedCycle(cycleId);
+        }
+    };
 
     const getColorClasses = (color: string) => {
         const colors: Record<string, { bg: string; text: string; border: string }> = {
@@ -101,7 +113,7 @@ export default function Batch1Page() {
                             <Card
                                 key={cycle.id}
                                 className={`cursor-pointer hover:shadow-lg transition-all border-l-4 ${colors.border}`}
-                                onClick={() => setSelectedCycle(cycle.id)}
+                                onClick={() => handleCycleClick(cycle.id)}
                             >
                                 <CardHeader className="pb-2">
                                     <div className="flex items-center gap-3">

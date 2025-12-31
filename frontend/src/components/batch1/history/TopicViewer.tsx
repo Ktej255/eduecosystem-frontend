@@ -8,6 +8,8 @@ import batch1Service, { SegmentData } from '@/services/batch1Service';
 import { Video as VideoIcon } from 'lucide-react';
 import InteractiveVideoPlayer from '@/components/features/lms/InteractiveVideoPlayer';
 
+import EveningSessionDayView from '../EveningSessionDayView';
+
 interface TopicViewerProps {
     topic: HistoryTopic;
 }
@@ -385,6 +387,11 @@ export default function TopicViewer({ topic }: TopicViewerProps) {
                         </p>
                     </div>
                 )}
+
+                {/* Evening Session Section */}
+                <div id="evening-session" className="pt-8 border-t border-gray-200 dark:border-gray-800">
+                    <EveningSessionDayView cycleId={1} day={topic.day} />
+                </div>
 
                 {/* Navigation */}
                 <div className="flex justify-between pt-6 border-t border-gray-200 dark:border-gray-800">
