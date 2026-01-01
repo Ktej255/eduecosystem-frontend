@@ -145,7 +145,7 @@ export const ALL_108_UPANISHADS: Upanishad108[] = [
     { id: "hayagriva", name: "Hayagriva", nameSanskrit: "हयग्रीव", veda: "Atharvaveda", category: "Vaishnava", studyOrder: 99, isPrincipal: false, description: "Horse-headed avatar" },
     { id: "dattatreya", name: "Dattatreya", nameSanskrit: "दत्तात्रेय", veda: "Atharvaveda", category: "Vaishnava", studyOrder: 101, isPrincipal: false, description: "Dattatreya worship" },
     { id: "garuda", name: "Garuda", nameSanskrit: "गरुड", veda: "Atharvaveda", category: "Vaishnava", studyOrder: 102, isPrincipal: false, description: "Eagle vehicle" },
-].sort((a, b) => a.studyOrder - b.studyOrder);
+];
 
 // Get Upanishads by Veda for clustering
 export const getUpanishadsByVeda = () => ({
