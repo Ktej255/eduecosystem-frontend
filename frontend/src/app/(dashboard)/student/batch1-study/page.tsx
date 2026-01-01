@@ -165,7 +165,7 @@ export default function Batch1StudyPage() {
                         {hasPdf ? (
                             <PDFStudySession
                                 segmentKey={segmentKey}
-                                onClose={() => router.back()}
+                                onBack={() => router.back()}
                                 onComplete={() => {
                                     router.push(`/student/batch1?completed=${day}`);
                                 }}
