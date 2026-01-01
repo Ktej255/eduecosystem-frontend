@@ -71,7 +71,7 @@ const nodeTypes = {
 
 export function SyllabusKnowledgeGraph() {
     const [nodes, setNodes, onNodesChange] = useNodesState([]);
-    const [edges, setEdges, onEdgesChange] = useEdgesState<Edge[]>([]);
+    const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
     const [loading, setLoading] = useState(true);
 
     const onConnect = useCallback(
