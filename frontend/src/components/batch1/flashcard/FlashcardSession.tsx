@@ -327,6 +327,37 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                             <p className="text-gray-400 mt-6 text-sm">
                                 Tap to reveal answer
                             </p>
+
+
+                            {/* Voice Recorder Overlay on Front */}
+                            {isRecordingMode && !isFlipped && (
+                                <div className="absolute inset-0 bg-white/95 dark:bg-black/95 rounded-xl z-20 flex flex-col items-center justify-center p-6 animate-in fade-in zoom-in duration-300">
+                                    <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">
+                                        Explain this concept
+                                    </h3>
+                                    <div className="w-full max-w-sm bg-white dark:bg-gray-900 p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800">
+                                        <VoiceRecorder onRecordingComplete={async (audio) => {
+                                            // Handle recording, THEN flip
+                                            await handleAudioRecording(audio);
+                                            setIsFlipped(true); // Flip to show answer + feedback
+                                        }} />
+                                        <Button
+                                            variant="ghost"
+                                            size="sm"
+                                            className="mt-4 w-full text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setIsRecordingMode(false);
+                                            }}
+                                        >
+                                            Cancel
+                                        </Button>
+                                    </div>
+                                    <p className="mt-4 text-sm text-gray-500 text-center px-4">
+                                        Record your explanation. AI will analyze your recall accuracy.
+                                    </p>
+                                </div>
+                            )}
                         </CardContent>
                     </Card>
 
@@ -348,11 +379,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                                 {currentCard?.back}
                             </p>
 
-                            {isRecordingMode && !aiResult && !isAnalyzing && (
-                                <div className="mt-6 w-full max-w-sm">
-                                    <VoiceRecorder onRecordingComplete={handleAudioRecording} />
-                                </div>
-                            )}
+                            {/* Removed Recorder from Back */}
 
                             {isAnalyzing && (
                                 <div className="mt-6 flex flex-col items-center gap-2">
@@ -433,7 +460,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                             goToNext();
                         } else {
                             setIsRecordingMode(true);
-                            if (!isFlipped) setIsFlipped(true);
+                            // Do not flip immediately. Wait for recording.
                         }
                     }}
                 >
@@ -458,6 +485,6 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
             <p className="text-center text-sm text-gray-500">
                 💡 Tip: Try to recall the answer before flipping the card
             </p>
-        </div>
+        </div >
     );
 }
