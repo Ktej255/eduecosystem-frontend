@@ -26,50 +26,74 @@ import Link from "next/link";
 const CSAT_MONTHS = [
     {
         month: "January",
-        topic: "Quantitative Aptitude",
+        topic: "English Comprehension (1-20) & Quants",
         sessions: [
-            { day: 1, title: "Number System Basics", videoUrl: "", completed: false },
-            { day: 2, title: "LCM & HCF", videoUrl: "", completed: false },
-            { day: 3, title: "Percentages", videoUrl: "", completed: false },
-            { day: 4, title: "Profit & Loss", videoUrl: "", completed: false },
-            { day: 5, title: "Simple & Compound Interest", videoUrl: "", completed: false },
-            { day: 6, title: "Ratio & Proportion", videoUrl: "", completed: false },
-            { day: 7, title: "Time & Work", videoUrl: "", completed: false },
-            { day: 8, title: "Time, Speed & Distance", videoUrl: "", completed: false },
-            { day: 9, title: "Averages & Mixtures", videoUrl: "", completed: false },
-            { day: 10, title: "Data Interpretation - Tables", videoUrl: "", completed: false },
+            // English Comprehension Phase (Jan 1-20)
+            { day: 1, title: "English: Reading Comprehension Foundation", videoUrl: "", completed: false },
+            { day: 2, title: "English: Determining Main Idea & Theme", videoUrl: "", completed: false },
+            { day: 3, title: "English: Inference & Conclusion Based", videoUrl: "", completed: false },
+            { day: 4, title: "English: Tone, Style & Attitude", videoUrl: "", completed: false },
+            { day: 5, title: "English: Assumptions & Implicit Concepts", videoUrl: "", completed: false },
+            { day: 6, title: "English: Vocabulary in Context", videoUrl: "", completed: false },
+            { day: 7, title: "English: Para Jumbles & Ordering", videoUrl: "", completed: false },
+            { day: 8, title: "English: Sentence Correction Rules", videoUrl: "", completed: false },
+            { day: 9, title: "English: Critical Reasoning Basics", videoUrl: "", completed: false },
+            { day: 10, title: "English: Weak vs Strong Arguments", videoUrl: "", completed: false },
+            { day: 11, title: "English: Causes & Effects", videoUrl: "", completed: false },
+            { day: 12, title: "English: Course of Action", videoUrl: "", completed: false },
+            { day: 13, title: "English: Syllogisms & Logic", videoUrl: "", completed: false },
+            { day: 14, title: "English: RC Practice Set 1 (Politics)", videoUrl: "", completed: false },
+            { day: 15, title: "English: RC Practice Set 2 (Economy)", videoUrl: "", completed: false },
+            { day: 16, title: "English: RC Practice Set 3 (Science)", videoUrl: "", completed: false },
+            { day: 17, title: "English: RC Practice Set 4 (Philosophy)", videoUrl: "", completed: false },
+            { day: 18, title: "English: Mixed Verbal Ability Test", videoUrl: "", completed: false },
+            { day: 19, title: "English: Previous Year Questions Analysis", videoUrl: "", completed: false },
+            { day: 20, title: "English: Final Comprehension Mock", videoUrl: "", completed: false },
+
+            // Quants & Reasoning Phase (Starts Jan 21)
+            { day: 21, title: "Quants: Number System Basics", videoUrl: "", completed: false },
+            { day: 22, title: "Quants: HCF & LCM, Remainders", videoUrl: "", completed: false },
+            { day: 23, title: "Quants: Simplification & series", videoUrl: "", completed: false },
+            { day: 24, title: "Reasoning: Blood Relations", videoUrl: "", completed: false },
+            { day: 25, title: "Reasoning: Direction Sense Test", videoUrl: "", completed: false },
+            { day: 26, title: "Quants: Percentages Foundation", videoUrl: "", completed: false },
+            { day: 27, title: "Quants: Profit, Loss & Discount", videoUrl: "", completed: false },
+            { day: 28, title: "Reasoning: Coding-Decoding", videoUrl: "", completed: false },
+            { day: 29, title: "Quants: Averages & Allegations", videoUrl: "", completed: false },
+            { day: 30, title: "Monthly Mock Test (Mixed)", videoUrl: "", completed: false },
         ]
     },
     {
         month: "February",
-        topic: "Logical Reasoning",
+        topic: "Core Quants & Logical Reasoning",
         sessions: [
-            { day: 1, title: "Blood Relations", videoUrl: "", completed: false },
-            { day: 2, title: "Direction Sense", videoUrl: "", completed: false },
-            { day: 3, title: "Coding-Decoding", videoUrl: "", completed: false },
-            { day: 4, title: "Syllogisms", videoUrl: "", completed: false },
-            { day: 5, title: "Analogies", videoUrl: "", completed: false },
-            { day: 6, title: "Series Completion", videoUrl: "", completed: false },
-            { day: 7, title: "Statement & Assumptions", videoUrl: "", completed: false },
-            { day: 8, title: "Statement & Arguments", videoUrl: "", completed: false },
-            { day: 9, title: "Cause & Effect", videoUrl: "", completed: false },
-            { day: 10, title: "Logical Puzzles", videoUrl: "", completed: false },
+            { day: 1, title: "Quants: Simple & Compound Interest", videoUrl: "", completed: false },
+            { day: 2, title: "Quants: Ratio & Proportion", videoUrl: "", completed: false },
+            { day: 3, title: "Quants: Time & Work", videoUrl: "", completed: false },
+            { day: 4, title: "Quants: Time, Speed & Distance", videoUrl: "", completed: false },
+            { day: 5, title: "Quants: Trains & Boats", videoUrl: "", completed: false },
+            { day: 6, title: "Reasoning: Seating Arrangements", videoUrl: "", completed: false },
+            { day: 7, title: "Reasoning: Puzzles & Tabulation", videoUrl: "", completed: false },
+            { day: 8, title: "Quants: Algebra Basics", videoUrl: "", completed: false },
+            { day: 9, title: "Reasoning: Cubes & Dice", videoUrl: "", completed: false },
+            { day: 10, title: "Quants: Data Interpretation (Tables)", videoUrl: "", completed: false },
+            // Extended Feb could go here
         ]
     },
     {
         month: "March",
-        topic: "Reading Comprehension + Mocks",
+        topic: "Advanced Reasoning, DI & Mocks",
         sessions: [
-            { day: 1, title: "RC: Finding Main Idea", videoUrl: "", completed: false },
-            { day: 2, title: "RC: Inference Questions", videoUrl: "", completed: false },
-            { day: 3, title: "RC: Tone & Attitude", videoUrl: "", completed: false },
-            { day: 4, title: "RC: Vocabulary in Context", videoUrl: "", completed: false },
-            { day: 5, title: "RC: Passage Structure", videoUrl: "", completed: false },
-            { day: 6, title: "Mock Test 1", videoUrl: "", completed: false },
-            { day: 7, title: "Mock Test 2", videoUrl: "", completed: false },
-            { day: 8, title: "Mock Test 3", videoUrl: "", completed: false },
+            { day: 1, title: "DI: Bar Graphs & Charts", videoUrl: "", completed: false },
+            { day: 2, title: "DI: Pie Charts & Caselets", videoUrl: "", completed: false },
+            { day: 3, title: "Reasoning: Statement & Assumptions", videoUrl: "", completed: false },
+            { day: 4, title: "Reasoning: Statement & Arguments", videoUrl: "", completed: false },
+            { day: 5, title: "Quants: Permutation & Combination", videoUrl: "", completed: false },
+            { day: 6, title: "Quants: Probability", videoUrl: "", completed: false },
+            { day: 7, title: "Full Length Mock Test 1", videoUrl: "", completed: false },
+            { day: 8, title: "Full Length Mock Test 2", videoUrl: "", completed: false },
             { day: 9, title: "Error Analysis & Review", videoUrl: "", completed: false },
-            { day: 10, title: "Final Revision", videoUrl: "", completed: false },
+            { day: 10, title: "Final Revision Strategy", videoUrl: "", completed: false },
         ]
     }
 ];
@@ -403,8 +427,8 @@ export default function CSATPage() {
                                         <h4 className="font-semibold text-gray-700 dark:text-gray-300">Answer Review:</h4>
                                         {SAMPLE_QUESTIONS.map((q, idx) => (
                                             <div key={q.id} className={`p-4 rounded-lg ${selectedAnswers[q.id] === q.correctAnswer
-                                                    ? 'bg-green-50 dark:bg-green-900/20'
-                                                    : 'bg-red-50 dark:bg-red-900/20'
+                                                ? 'bg-green-50 dark:bg-green-900/20'
+                                                : 'bg-red-50 dark:bg-red-900/20'
                                                 }`}>
                                                 <div className="flex items-start gap-2">
                                                     {selectedAnswers[q.id] === q.correctAnswer
@@ -472,14 +496,14 @@ export default function CSATPage() {
                                                 key={idx}
                                                 onClick={() => handleAnswerSelect(SAMPLE_QUESTIONS[currentQuestion].id, idx)}
                                                 className={`w-full text-left p-4 rounded-lg border-2 transition ${selectedAnswers[SAMPLE_QUESTIONS[currentQuestion].id] === idx
-                                                        ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20'
-                                                        : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                                    ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20'
+                                                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                                                     }`}
                                             >
                                                 <div className="flex items-center gap-3">
                                                     <span className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${selectedAnswers[SAMPLE_QUESTIONS[currentQuestion].id] === idx
-                                                            ? 'bg-amber-500 text-white'
-                                                            : 'bg-gray-200 dark:bg-gray-700'
+                                                        ? 'bg-amber-500 text-white'
+                                                        : 'bg-gray-200 dark:bg-gray-700'
                                                         }`}>
                                                         {String.fromCharCode(65 + idx)}
                                                     </span>
@@ -526,10 +550,10 @@ export default function CSATPage() {
                                                     key={q.id}
                                                     onClick={() => setCurrentQuestion(idx)}
                                                     className={`w-10 h-10 rounded flex items-center justify-center text-sm font-medium ${selectedAnswers[q.id] !== undefined
-                                                            ? 'bg-amber-500 text-white'
-                                                            : idx === currentQuestion
-                                                                ? 'bg-gray-200 border-2 border-amber-500'
-                                                                : 'bg-gray-100 dark:bg-gray-800'
+                                                        ? 'bg-amber-500 text-white'
+                                                        : idx === currentQuestion
+                                                            ? 'bg-gray-200 border-2 border-amber-500'
+                                                            : 'bg-gray-100 dark:bg-gray-800'
                                                         }`}
                                                 >
                                                     {idx + 1}
