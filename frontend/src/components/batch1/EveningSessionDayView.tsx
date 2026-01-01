@@ -4,7 +4,7 @@ import { RefreshCw, BookOpen, Brain, PlayCircle, Trophy, Sparkles, Target, Layer
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import FlashcardSession from "./flashcard/FlashcardSession";
-import ElaborationQA from "./qa/ElaborationQA";
+import MCQTestSession from "./qa/MCQTestSession";
 import batch1Service, { SegmentData } from "@/services/batch1Service";
 import { Video as VideoIcon } from "lucide-react";
 
@@ -40,7 +40,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
     }
 
     if (currentView === 'qa') {
-        return <ElaborationQA cycleId={cycleId} day={day} onClose={() => setCurrentView('menu')} />;
+        return <MCQTestSession cycleId={cycleId} day={day} onClose={() => setCurrentView('menu')} />;
     }
 
     return (
@@ -137,15 +137,15 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                                     <span className="text-sm text-gray-500">7:00 PM - 8:00 PM</span>
                                 </div>
                                 <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                                    Elaboration Q&A
+                                    Daily Practice Test (50 Questions)
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                    For each MCQ, explain WHY each option is correct or incorrect.
-                                    Build deep understanding, not just answer recognition!
+                                    Full length MCQ test with negative marking.
+                                    Test your knowledge under exam conditions!
                                 </p>
                                 <div className="flex items-center gap-4 text-sm text-gray-500">
-                                    <span className="flex items-center gap-1"><Brain className="h-4 w-4" /> Deep Analysis</span>
-                                    <span className="flex items-center gap-1"><Target className="h-4 w-4" /> Option Reasoning</span>
+                                    <span className="flex items-center gap-1"><Brain className="h-4 w-4" /> 50 MCQs</span>
+                                    <span className="flex items-center gap-1"><Target className="h-4 w-4" /> 60 Minutes</span>
                                 </div>
                             </div>
                             <div>
@@ -153,7 +153,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                                     className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all"
                                     onClick={() => setCurrentView('qa')}
                                 >
-                                    Start Q&A
+                                    Start Test
                                 </Button>
                             </div>
                         </div>
