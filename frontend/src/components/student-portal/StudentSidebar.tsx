@@ -16,9 +16,6 @@ import {
     Shield,
     BrainCircuit,
     CalendarDays,
-    Trophy,
-    Layers,
-    FileEdit,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -28,46 +25,37 @@ const menuItems = [
         name: "Dashboard",
         href: "/student/dashboard",
         icon: LayoutDashboard,
+        access: "all", // visible to all
+    },
+    {
+        name: "Batch 1",
+        href: "/student/batch1-study?cycle=1&day=1&segment=1",
+        icon: BookOpen,
+        access: "batch1", // visible to Batch 1 enrolled
     },
     {
         name: "RAS Revision",
         href: "/student/my-plan",
         icon: CalendarDays,
+        access: "ras", // visible to RAS enrolled
     },
     {
         name: "AI Coach",
         href: "/student/ai-coach",
         icon: BrainCircuit,
+        access: "all",
     },
     {
         name: "Graphotherapy",
         href: "/student/graphotherapy",
         icon: PenTool,
+        access: "all",
     },
     {
         name: "Meditation",
         href: "/student/meditation",
         icon: Brain,
-    },
-    {
-        name: "Wolf Packs",
-        href: "/student/wolf-packs",
-        icon: Trophy,
-    },
-    {
-        name: "Syllabus Map",
-        href: "/student/syllabus-explorer",
-        icon: Layers,
-    },
-    {
-        name: "AI Writing Tools",
-        href: "/student/ai-tools",
-        icon: FileEdit,
-    },
-    {
-        name: "Knowledge Memory",
-        href: "/student/knowledge-memory",
-        icon: BrainCircuit,
+        access: "all",
     },
 ];
 
@@ -180,28 +168,38 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
 
             {/* Main Navigation */}
             <nav className="p-4 space-y-2">
-                {menuItems.map((item) => {
-                    const Icon = item.icon;
-                    const isActive = pathname === item.href;
+                {menuItems
+                    .filter((item) => {
+                        // Show all items with "all" access
+                        if (item.access === "all") return true;
+                        // Show Batch 1 to everyone (focus for now)
+                        if (item.access === "batch1") return true;
+                        // Show RAS only to Master ID or RAS-enrolled students
+                        if (item.access === "ras") return isMasterId;
+                        return true;
+                    })
+                    .map((item) => {
+                        const Icon = item.icon;
+                        const isActive = pathname === item.href || pathname.startsWith(item.href.split("?")[0]);
 
-                    return (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${isActive
-                                ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                                } ${!showExpanded ? "justify-center px-2" : ""}`}
-                            title={!showExpanded ? item.name : ""}
-                        >
-                            <Icon className="h-5 w-5 shrink-0" />
-                            <span className={`font-medium whitespace-nowrap transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 w-0"
-                                }`}>
-                                {item.name}
-                            </span>
-                        </Link>
-                    );
-                })}
+                        return (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${isActive
+                                    ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                    } ${!showExpanded ? "justify-center px-2" : ""}`}
+                                title={!showExpanded ? item.name : ""}
+                            >
+                                <Icon className="h-5 w-5 shrink-0" />
+                                <span className={`font-medium whitespace-nowrap transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 w-0"
+                                    }`}>
+                                    {item.name}
+                                </span>
+                            </Link>
+                        );
+                    })}
 
                 {/* Batch Items for Master ID */}
                 {isMasterId && (
