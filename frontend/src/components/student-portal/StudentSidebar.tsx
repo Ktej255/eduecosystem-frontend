@@ -16,6 +16,9 @@ import {
     Shield,
     BrainCircuit,
     CalendarDays,
+    Trophy,
+    Layers,
+    FileEdit,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -47,9 +50,24 @@ const menuItems = [
         icon: Brain,
     },
     {
-        name: "Daily Action",
-        href: "/student/daily-action",
-        icon: CheckSquare,
+        name: "Wolf Packs",
+        href: "/student/wolf-packs",
+        icon: Trophy,
+    },
+    {
+        name: "Syllabus Map",
+        href: "/student/syllabus-explorer",
+        icon: Layers,
+    },
+    {
+        name: "AI Writing Tools",
+        href: "/student/ai-tools",
+        icon: FileEdit,
+    },
+    {
+        name: "Knowledge Memory",
+        href: "/student/knowledge-memory",
+        icon: BrainCircuit,
     },
 ];
 
@@ -78,8 +96,6 @@ const batchItems = [
         icon: Layers,
     }
 ];
-
-import { Layers } from "lucide-react";
 
 interface StudentSidebarProps {
     isCollapsed: boolean;

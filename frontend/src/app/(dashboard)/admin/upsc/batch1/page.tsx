@@ -172,6 +172,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
 }) {
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
     const [videos, setVideos] = useState<Record<string, { file: File | null; title: string; notes: string; existingVideoUrl?: string | null }>>({});
+    const [pdfs, setPdfs] = useState<Record<string, { file: File | null; pageCount?: number }>>({});
     const [saving, setSaving] = useState(false);
     const [uploadProgress, setUploadProgress] = useState<string>("");
     const [loading, setLoading] = useState(true);
@@ -247,16 +248,20 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
 
         try {
             let uploadedCount = 0;
-            const totalToUpload = Object.keys(videos).filter(k => videos[k]?.file || videos[k]?.title).length;
+            const videoCount = Object.keys(videos).filter(k => videos[k]?.file || videos[k]?.title).length;
+            const pdfCount = Object.keys(pdfs).filter(k => pdfs[k]?.file).length;
+            const totalToUpload = videoCount + pdfCount;
 
             // Upload each segment that has content
             for (const part of parts) {
                 for (let seg = 1; seg <= segmentsPerPart; seg++) {
                     const key = `${part}-${seg}`;
                     const video = videos[key];
+                    const pdf = pdfs[key];
 
+                    // Upload video/metadata
                     if (video && (video.file || video.title)) {
-                        setUploadProgress(`Uploading Part ${part} Segment ${seg}...`);
+                        setUploadProgress(`Uploading Video: Part ${part} Segment ${seg}...`);
 
                         const formData = new FormData();
                         formData.append("title", video.title || `Segment ${seg}`);
@@ -266,7 +271,6 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                             formData.append("video", video.file);
                         }
 
-                        // Call backend API
                         const response = await fetch(
                             `${API_URL}/api/v1/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/segment/${seg}`,
                             {
@@ -280,13 +284,39 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                         }
 
                         uploadedCount++;
-                        setUploadProgress(`Uploaded ${uploadedCount}/${totalToUpload} segments`);
+                        setUploadProgress(`Uploaded ${uploadedCount}/${totalToUpload}`);
+                    }
+
+                    // Upload PDF
+                    if (pdf?.file) {
+                        setUploadProgress(`Uploading PDF: Part ${part} Segment ${seg}...`);
+
+                        const pdfFormData = new FormData();
+                        pdfFormData.append("cycle_id", cycleId.toString());
+                        pdfFormData.append("day_number", dayNumber.toString());
+                        pdfFormData.append("segment_number", seg.toString());
+                        pdfFormData.append("pdf_file", pdf.file);
+
+                        const pdfResponse = await fetch(
+                            `${API_URL}/api/v1/pdf-study/upload`,
+                            {
+                                method: "POST",
+                                body: pdfFormData,
+                            }
+                        );
+
+                        if (!pdfResponse.ok) {
+                            throw new Error(`Failed to upload PDF for Part ${part} Segment ${seg}`);
+                        }
+
+                        uploadedCount++;
+                        setUploadProgress(`Uploaded ${uploadedCount}/${totalToUpload}`);
                     }
                 }
             }
 
             setUploadProgress("");
-            toast.success(`Successfully uploaded ${uploadedCount} segment(s)!`);
+            toast.success(`Successfully uploaded ${uploadedCount} item(s)!`);
         } catch (error: any) {
             console.error("Upload failed:", error);
             toast.error(`Upload failed: ${error.message}`);
@@ -413,6 +443,48 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                                                     }));
                                                 }}
                                             />
+                                        </div>
+
+                                        <div>
+                                            <Label>PDF for Self-Study</Label>
+                                            <div className="mt-1">
+                                                {pdfs[key]?.file ? (
+                                                    <div className="flex items-center gap-2 p-2 bg-purple-50 rounded border border-purple-200">
+                                                        <FileText className="h-4 w-4 text-purple-600" />
+                                                        <span className="text-sm text-purple-700 truncate flex-1">
+                                                            {pdfs[key].file!.name}
+                                                        </span>
+                                                        <Button
+                                                            size="sm"
+                                                            variant="ghost"
+                                                            onClick={() => setPdfs(prev => ({ ...prev, [key]: { file: null } }))}
+                                                        >
+                                                            <Trash2 className="h-4 w-4 text-red-500" />
+                                                        </Button>
+                                                    </div>
+                                                ) : (
+                                                    <>
+                                                        <input
+                                                            type="file"
+                                                            accept=".pdf"
+                                                            className="hidden"
+                                                            id={`pdf-${key}`}
+                                                            onChange={(e) => {
+                                                                const file = e.target.files?.[0] || null;
+                                                                setPdfs(prev => ({ ...prev, [key]: { file } }));
+                                                            }}
+                                                        />
+                                                        <Button
+                                                            variant="outline"
+                                                            className="w-full border-dashed border-purple-300 text-purple-600 hover:bg-purple-50"
+                                                            onClick={() => document.getElementById(`pdf-${key}`)?.click()}
+                                                        >
+                                                            <FileText className="mr-2 h-4 w-4" />
+                                                            Upload PDF
+                                                        </Button>
+                                                    </>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
 

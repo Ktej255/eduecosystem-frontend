@@ -470,6 +470,31 @@ export default function StudentDashboardPage() {
               )}
             </CardContent>
           </Card>
+
+          {/* Wolf Pack Widget */}
+          <Card className="bg-gradient-to-br from-cyan-950/40 to-black border-cyan-500/20 shadow-lg shadow-cyan-950/10">
+            <CardHeader className="pb-2">
+              <CardTitle className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Users className="w-5 h-5 text-cyan-400" />
+                  <span>Your Wolf Pack</span>
+                </div>
+                <div className="text-[10px] bg-cyan-600 px-2 py-0.5 rounded text-white uppercase font-bold">House of Alpha</div>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center py-2">
+                <div className="text-3xl font-black text-white mb-1">Rank #4</div>
+                <p className="text-xs text-gray-400 mb-4 italic">"Strength in Unity"</p>
+                <Button
+                  className="w-full bg-cyan-600 hover:bg-cyan-500 text-xs font-bold"
+                  onClick={() => router.push('/student/wolf-packs')}
+                >
+                  Enter Pack Hall
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

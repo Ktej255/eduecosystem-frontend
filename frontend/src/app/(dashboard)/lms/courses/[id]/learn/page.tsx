@@ -19,8 +19,11 @@ import { QuizResults } from "@/components/features/lms/QuizResults";
 import { AssignmentSubmit } from "@/components/features/lms/AssignmentSubmit";
 import { LockedLesson } from "@/components/features/lms/LockedLesson";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { MessageSquare, FileText, Star, Download, BrainCircuit, Sparkles, Loader2 } from "lucide-react";
 import CourseReviewsSection from "@/components/CourseReviews";
-import { MessageSquare, FileText, Star, Download } from "lucide-react";
+import { FlashcardDeck } from "@/components/video/FlashcardDeck";
+import { VideoDoubtBuster } from "@/components/video/VideoDoubtBuster";
+import { VideoAINotes } from "@/components/video/VideoAINotes";
 
 interface Lesson {
   id: number;
@@ -64,6 +67,9 @@ export default function CourseLearningPage() {
   );
   const [quizResult, setQuizResult] = useState<any>(null);
   const [accessInfo, setAccessInfo] = useState<any>(null);
+  const [flashcards, setFlashcards] = useState<any[]>([]);
+  const [loadingFlashcards, setLoadingFlashcards] = useState(false);
+  const [transcript, setTranscript] = useState<string>("");
 
   useEffect(() => {
     if (courseId) {
@@ -113,6 +119,9 @@ export default function CourseLearningPage() {
         `/lessons/${lesson.id}/access?course_id=${courseId}`,
       );
       setAccessInfo(response.data);
+
+      // Fetch Flashcards and Transcript
+      fetchLessonEnhancements(lesson.id);
     } catch (error) {
       console.error("Failed to check lesson access:", error);
       // Fallback to allow access if check fails (or handle error appropriately)
@@ -289,6 +298,36 @@ export default function CourseLearningPage() {
     }
   };
 
+  const fetchLessonEnhancements = async (lessonId: number) => {
+    setLoadingFlashcards(true);
+    try {
+      const fcRes = await api.get(`/flashcards/lesson/${lessonId}`);
+      // Try to fetch transcript, but don't fail if not available
+      let trans = "";
+      try {
+        const transRes = await api.get(`/batch1/transcription/lesson/${lessonId}`);
+        trans = transRes.data.transcript || "";
+      } catch (e) {
+        console.log("No transcript for this lesson");
+      }
+
+      setFlashcards(fcRes.data);
+      setTranscript(trans);
+    } catch (error) {
+      console.error("Failed to fetch lesson enhancements:", error);
+    } finally {
+      setLoadingFlashcards(false);
+    }
+  };
+
+  const handleFlashcardReview = async (cardId: number, grade: number) => {
+    try {
+      await api.post("/flashcards/review", { card_id: cardId, grade });
+    } catch (error) {
+      console.error("Failed to submit review:", error);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
@@ -344,11 +383,10 @@ export default function CourseLearningPage() {
                     <button
                       key={lesson.id}
                       onClick={() => handleLessonClick(lesson)}
-                      className={`w-full flex items-center gap-3 p-3 rounded-lg transition ${
-                        isActive
-                          ? "bg-cyan-600 text-white"
-                          : "hover:bg-gray-800 text-gray-300"
-                      }`}
+                      className={`w-full flex items-center gap-3 p-3 rounded-lg transition ${isActive
+                        ? "bg-cyan-600 text-white"
+                        : "hover:bg-gray-800 text-gray-300"
+                        }`}
                     >
                       <div className="flex-shrink-0">
                         {isCompleted ? (
@@ -450,6 +488,20 @@ export default function CourseLearningPage() {
                     >
                       Resources
                     </TabsTrigger>
+                    <TabsTrigger
+                      value="flashcards"
+                      className="rounded-none border-b-2 border-transparent data-[state=active]:border-cyan-500 data-[state=active]:bg-transparent px-6 py-3 flex items-center gap-2"
+                    >
+                      <BrainCircuit className="h-4 w-4" />
+                      Smart Flashcards
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="ai-notes"
+                      className="rounded-none border-b-2 border-transparent data-[state=active]:border-cyan-500 data-[state=active]:bg-transparent px-6 py-3 flex items-center gap-2"
+                    >
+                      <FileText className="h-4 w-4" />
+                      AI Notes
+                    </TabsTrigger>
                   </TabsList>
 
                   <TabsContent value="overview" className="space-y-4">
@@ -490,8 +542,58 @@ export default function CourseLearningPage() {
                       </p>
                     </div>
                   </TabsContent>
+
+                  <TabsContent value="flashcards">
+                    <div className="py-6">
+                      <div className="flex items-center justify-between mb-8">
+                        <div>
+                          <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                            AI Study Cards
+                            <div className="text-[10px] bg-cyan-600 px-2 py-0.5 rounded-full uppercase tracking-tighter">Powered by FSRS</div>
+                          </h3>
+                          <p className="text-gray-400">Master the key concepts from this video using spaced repetition.</p>
+                        </div>
+                      </div>
+
+                      {loadingFlashcards ? (
+                        <div className="text-center py-20">
+                          <Loader2 className="h-8 w-8 animate-spin text-cyan-500 mx-auto mb-4" />
+                          <p className="text-gray-500">AI is generating your study deck...</p>
+                        </div>
+                      ) : (
+                        <FlashcardDeck
+                          cards={flashcards}
+                          onReview={handleFlashcardReview}
+                        />
+                      )}
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="ai-notes">
+                    <div className="py-6">
+                      <div className="flex items-center justify-between mb-8">
+                        <div>
+                          <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                            AI-Generated Notes
+                            <div className="text-[10px] bg-purple-600 px-2 py-0.5 rounded-full uppercase tracking-tighter">Auto-Transcribed</div>
+                          </h3>
+                          <p className="text-gray-400">Summary, key points, and full transcript from this video.</p>
+                        </div>
+                      </div>
+                      <VideoAINotes
+                        segmentKey={`lesson_${currentLesson.id}`}
+                        lessonId={currentLesson.id}
+                      />
+                    </div>
+                  </TabsContent>
                 </Tabs>
               </div>
+
+              {/* AI Doubt Buster Component */}
+              <VideoDoubtBuster
+                lessonId={currentLesson.id}
+                transcript={transcript}
+              />
             </div>
           ) : (
             <div className="text-center py-20">
