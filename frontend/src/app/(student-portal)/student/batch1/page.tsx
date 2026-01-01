@@ -27,13 +27,13 @@ export default function Batch1Page() {
     const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
     const handleCycleClick = (cycleId: number) => {
-        if (cycleId === 1) {
-            router.push('/student/batch1/polity');
-        } else if (cycleId === 2) {
-            router.push('/student/batch1/history');
-        } else {
-            setSelectedCycle(cycleId);
-        }
+        // if (cycleId === 1) {
+        //     router.push('/student/batch1/polity');
+        // } else if (cycleId === 2) {
+        //     router.push('/student/batch1/history');
+        // } else {
+        setSelectedCycle(cycleId);
+        // }
     };
 
     const getColorClasses = (color: string) => {
@@ -154,10 +154,23 @@ export default function Batch1Page() {
 
                     <Card className={`${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).bg} border-0`}>
                         <CardContent className="p-6">
-                            <h2 className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
-                                Cycle {selectedCycle}: {UPSC_CYCLES[selectedCycle - 1].name}
-                            </h2>
-                            <p className="text-gray-600 dark:text-gray-400">{UPSC_CYCLES[selectedCycle - 1].theme}</p>
+                            <div className="flex justify-between items-center">
+                                <div>
+                                    <h2 className={`text-2xl font-bold ${getColorClasses(UPSC_CYCLES[selectedCycle - 1].color).text}`}>
+                                        Cycle {selectedCycle}: {UPSC_CYCLES[selectedCycle - 1].name}
+                                    </h2>
+                                    <p className="text-gray-600 dark:text-gray-400">{UPSC_CYCLES[selectedCycle - 1].theme}</p>
+                                </div>
+                                <div className="flex gap-2">
+                                    {(selectedCycle === 1 || selectedCycle === 2) && (
+                                        <Link href={selectedCycle === 1 ? "/student/batch1/polity" : "/student/batch1/history"}>
+                                            <Button variant="outline" className="bg-white/50 backdrop-blur">
+                                                <Book className="mr-2 h-4 w-4" /> View Syllabus
+                                            </Button>
+                                        </Link>
+                                    )}
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
 
@@ -216,6 +229,28 @@ export default function Batch1Page() {
                                 </Card>
                             </Link>
                         ))}
+                    </div>
+
+                    {/* Evening Session Button */}
+                    <div className="mt-8">
+                        <Link href={`/student/batch1/cycle/${selectedCycle}/day/${selectedDay}/evening`}>
+                            <Card className="cursor-pointer hover:shadow-lg transition-all border-2 border-indigo-200 dark:border-indigo-800 hover:border-indigo-500 bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/30">
+                                <CardContent className="p-6 flex items-center justify-between">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                                            <Target className="h-8 w-8" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-bold text-indigo-900 dark:text-indigo-100">Evening Session</h3>
+                                            <p className="text-indigo-600 dark:text-indigo-400 text-sm">Flashcards • Q&A • CSAT Practice</p>
+                                        </div>
+                                    </div>
+                                    <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white">
+                                        Start Session <ChevronRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        </Link>
                     </div>
                 </div>
             )}

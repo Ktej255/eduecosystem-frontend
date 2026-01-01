@@ -17,6 +17,7 @@ import {
     BrainCircuit,
     CalendarDays,
     Layers,
+    GraduationCap,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -30,7 +31,7 @@ const menuItems = [
     },
     {
         name: "Batch 1",
-        href: "/student/batch1-study?cycle=1&day=1&segment=1",
+        href: "/student/batch1",
         icon: BookOpen,
         access: "batch1", // visible to Batch 1 enrolled
     },
@@ -281,6 +282,13 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                     >
                         <Shield className="h-5 w-5" />
                         <span className="font-medium">Admin Portal</span>
+                    </Link>
+                    <Link
+                        href="/teacher/dashboard"
+                        className="mt-2 flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700 transition-all shadow-lg"
+                    >
+                        <GraduationCap className="h-5 w-5" />
+                        <span className="font-medium">Teacher Portal</span>
                     </Link>
                 </div>
             )}
