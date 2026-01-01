@@ -1,21 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Save, Plus, Trash2, GripVertical, Search } from "lucide-react";
 import learningPathService from "@/services/learningPathService";
 import { LearningPath, PathCourse } from "@/types/learningPath";
 
-interface Props {
-    params: {
-        id?: string;
-    };
-}
-
-export default function CreateEditPathPage({ params }: Props) {
+export default function CreateEditPathPage() {
     const router = useRouter();
-    const isEditMode = !!params.id;
+    const params = useParams();
+    const pathId = params?.id as string | undefined;
+    const isEditMode = !!pathId;
     const [loading, setLoading] = useState(false);
 
     // Form State
@@ -35,10 +31,10 @@ export default function CreateEditPathPage({ params }: Props) {
     const [availableCourses, setAvailableCourses] = useState<any[]>([]); // Should be Course type
 
     useEffect(() => {
-        if (isEditMode && params.id) {
-            loadPath(parseInt(params.id));
+        if (isEditMode && pathId) {
+            loadPath(parseInt(pathId));
         }
-    }, [isEditMode, params.id]);
+    }, [isEditMode, pathId]);
 
     const loadPath = async (id: number) => {
         try {
@@ -66,8 +62,8 @@ export default function CreateEditPathPage({ params }: Props) {
         e.preventDefault();
         try {
             setLoading(true);
-            if (isEditMode && params.id) {
-                await learningPathService.updateLearningPath(parseInt(params.id), formData);
+            if (isEditMode && pathId) {
+                await learningPathService.updateLearningPath(parseInt(pathId), formData);
                 alert("Path updated successfully!");
                 router.push("/admin/learning-paths");
             } else {
