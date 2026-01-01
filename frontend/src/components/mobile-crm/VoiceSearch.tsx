@@ -13,7 +13,7 @@ export default function VoiceSearch({ onResult, onClose }: VoiceSearchProps) {
     const [isListening, setIsListening] = useState(false);
     const [transcript, setTranscript] = useState("");
     const [error, setError] = useState<string | null>(null);
-    const [recognition, setRecognition] = useState<SpeechRecognition | null>(null);
+    const [recognition, setRecognition] = useState<any>(null);
 
     useEffect(() => {
         // Check for browser support
@@ -36,7 +36,7 @@ export default function VoiceSearch({ onResult, onClose }: VoiceSearchProps) {
             setError(null);
         };
 
-        recognitionInstance.onresult = (event: SpeechRecognitionEvent) => {
+        recognitionInstance.onresult = (event: any) => {
             const current = event.resultIndex;
             const transcriptText = event.results[current][0].transcript;
             setTranscript(transcriptText);
@@ -47,7 +47,7 @@ export default function VoiceSearch({ onResult, onClose }: VoiceSearchProps) {
             }
         };
 
-        recognitionInstance.onerror = (event: SpeechRecognitionErrorEvent) => {
+        recognitionInstance.onerror = (event: any) => {
             switch (event.error) {
                 case "not-allowed":
                     setError("Microphone access denied");
@@ -115,10 +115,10 @@ export default function VoiceSearch({ onResult, onClose }: VoiceSearchProps) {
             <div className="relative mb-8">
                 <div
                     className={`w-32 h-32 rounded-full flex items-center justify-center transition-all duration-300 ${isListening
-                            ? "bg-gradient-to-br from-emerald-500 to-teal-600 shadow-lg shadow-emerald-500/30"
-                            : error
-                                ? "bg-gradient-to-br from-red-500 to-orange-600"
-                                : "bg-gradient-to-br from-gray-600 to-gray-700"
+                        ? "bg-gradient-to-br from-emerald-500 to-teal-600 shadow-lg shadow-emerald-500/30"
+                        : error
+                            ? "bg-gradient-to-br from-red-500 to-orange-600"
+                            : "bg-gradient-to-br from-gray-600 to-gray-700"
                         }`}
                 >
                     {isListening ? (
