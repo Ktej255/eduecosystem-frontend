@@ -162,7 +162,9 @@ export default function CSATPage() {
     const handleSessionSelect = (sessionIndex: number) => {
         setSelectedSession(sessionIndex);
         setViewMode('learning');
-        setActiveTab('video');
+        // For Day 1, skip video and go straight to practice as per request
+        const isDay1Session = selectedMonth === 0 && sessionIndex === 0;
+        setActiveTab(isDay1Session ? 'practice' : 'video');
         setPracticeStarted(false);
         setShowResults(false);
         setCurrentQuestion(0);
@@ -181,30 +183,9 @@ export default function CSATPage() {
         : SAMPLE_QUESTIONS;
 
     // Find current passage for Day 1
-    const currentPassage = isDay1
+    const currentPassage = isDay1 && currentQuestions[currentQuestion]
         ? CSAT_DAY_1_DATA.passages.find(p => p.questions.some(q => q.id === currentQuestions[currentQuestion].id))
         : null;
-
-    const handleMonthSelect = (monthIndex: number) => {
-        setSelectedMonth(monthIndex);
-        setViewMode('sessions');
-    };
-
-    const handleSessionSelect = (sessionIndex: number) => {
-        setSelectedSession(sessionIndex);
-        setViewMode('learning');
-        // For Day 1, skip video and go straight to practice as per request
-        const isDay1Session = selectedMonth === 0 && sessionIndex === 0;
-        setActiveTab(isDay1Session ? 'practice' : 'video');
-        setPracticeStarted(false);
-        setShowResults(false);
-        setCurrentQuestion(0);
-        setSelectedAnswers({});
-    };
-
-    const handleAnswerSelect = (questionId: number, answerIndex: number) => {
-        setSelectedAnswers(prev => ({ ...prev, [questionId]: answerIndex }));
-    };
 
     const calculateScore = () => {
         let correct = 0;
