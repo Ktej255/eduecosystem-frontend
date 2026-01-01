@@ -12,6 +12,28 @@ const STORAGE_KEYS = {
     STATS: 'edueco_student_stats',
 };
 
+/**
+ * RESET ALL PROGRESS - Use this to start fresh
+ * Call from browser console: window.resetAllProgress()
+ */
+export function resetAllProgress(): void {
+    if (typeof window === 'undefined') return;
+    try {
+        localStorage.removeItem(STORAGE_KEYS.LEARNING_PROGRESS);
+        localStorage.removeItem(STORAGE_KEYS.ANALYSIS_REPORTS);
+        localStorage.removeItem(STORAGE_KEYS.STATS);
+        console.log('✅ All progress reset to 0!');
+        window.location.reload();
+    } catch (e) {
+        console.error('Failed to reset progress:', e);
+    }
+}
+
+// Expose to window for easy access from console
+if (typeof window !== 'undefined') {
+    (window as any).resetAllProgress = resetAllProgress;
+}
+
 // Types
 export interface PrelimsSession {
     cycleId: number;
