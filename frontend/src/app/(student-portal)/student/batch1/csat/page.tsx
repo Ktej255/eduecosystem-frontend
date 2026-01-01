@@ -18,7 +18,11 @@ import {
     FileQuestion,
     Trophy,
     Timer,
-    Calendar
+    Calendar,
+    Maximize2,
+    Minimize2,
+    ZoomIn,
+    ZoomOut
 } from "lucide-react";
 import Link from "next/link";
 import { CSAT_DAY_1_DATA } from "./csat-data";
@@ -153,6 +157,10 @@ export default function CSATPage() {
     const [showResults, setShowResults] = useState(false);
     const [practiceStarted, setPracticeStarted] = useState(false);
     const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
+
+    // Passage readability controls
+    const [passageFontSize, setPassageFontSize] = useState(14); // Default 14px
+    const [isPassageFullscreen, setIsPassageFullscreen] = useState(false);
 
     const handleMonthSelect = (monthIndex: number) => {
         setSelectedMonth(monthIndex);
@@ -431,25 +439,63 @@ export default function CSATPage() {
                                 </CardContent>
                             </Card>
                         ) : (
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                            <div className={isPassageFullscreen ? "" : "grid grid-cols-1 lg:grid-cols-2 gap-6 items-start"}>
                                 {/* Passage Display (Left/Top) - Only for Day 1/RC */}
                                 {currentPassage && (
-                                    <Card className="h-[600px] overflow-y-auto border-2 border-amber-100 dark:border-amber-900/30">
+                                    <Card className={`${isPassageFullscreen ? 'fixed inset-4 z-50 h-auto' : 'h-[600px]'} overflow-y-auto border-2 border-amber-100 dark:border-amber-900/30 bg-white dark:bg-gray-950`}>
                                         <CardHeader className="pb-2 sticky top-0 bg-white dark:bg-gray-950 z-10 border-b">
-                                            <CardTitle className="text-lg text-amber-700">
-                                                {currentPassage.title}
-                                            </CardTitle>
+                                            <div className="flex items-center justify-between">
+                                                <CardTitle className="text-lg text-amber-700">
+                                                    {currentPassage.title}
+                                                </CardTitle>
+                                                <div className="flex items-center gap-2">
+                                                    {/* Font Size Controls */}
+                                                    <Button
+                                                        variant="outline"
+                                                        size="sm"
+                                                        onClick={() => setPassageFontSize(prev => Math.max(12, prev - 2))}
+                                                        disabled={passageFontSize <= 12}
+                                                        title="Decrease font size"
+                                                    >
+                                                        <ZoomOut className="h-4 w-4" />
+                                                    </Button>
+                                                    <span className="text-xs text-gray-500 min-w-[40px] text-center">{passageFontSize}px</span>
+                                                    <Button
+                                                        variant="outline"
+                                                        size="sm"
+                                                        onClick={() => setPassageFontSize(prev => Math.min(24, prev + 2))}
+                                                        disabled={passageFontSize >= 24}
+                                                        title="Increase font size"
+                                                    >
+                                                        <ZoomIn className="h-4 w-4" />
+                                                    </Button>
+
+                                                    {/* Fullscreen Toggle */}
+                                                    <Button
+                                                        variant="outline"
+                                                        size="sm"
+                                                        onClick={() => setIsPassageFullscreen(prev => !prev)}
+                                                        title={isPassageFullscreen ? "Exit fullscreen" : "Fullscreen"}
+                                                        className="ml-2"
+                                                    >
+                                                        {isPassageFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+                                                    </Button>
+                                                </div>
+                                            </div>
                                         </CardHeader>
                                         <CardContent className="p-6">
-                                            <div className="prose dark:prose-invert max-w-none text-sm leading-relaxed whitespace-pre-wrap">
+                                            <div
+                                                className="prose dark:prose-invert max-w-none leading-relaxed whitespace-pre-wrap"
+                                                style={{ fontSize: `${passageFontSize}px`, lineHeight: '1.8' }}
+                                            >
                                                 {currentPassage.text}
                                             </div>
                                         </CardContent>
                                     </Card>
                                 )}
 
-                                {/* Question Display (Right/Bottom) */}
-                                <Card className={currentPassage ? "h-[600px] flex flex-col" : ""}>
+                                {/* Question Display (Right/Bottom) - Hidden when passage is fullscreen */}
+                                <Card className={`${currentPassage ? 'h-[600px] flex flex-col' : ''} ${isPassageFullscreen ? 'hidden' : ''}`}>
                                     <CardContent className="p-6 flex flex-col h-full">
                                         {/* Progress */}
                                         <div className="flex justify-between items-center mb-4 shrink-0">
