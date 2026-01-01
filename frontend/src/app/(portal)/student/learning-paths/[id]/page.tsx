@@ -1,30 +1,29 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, CheckCircle, PlayCircle, Lock } from "lucide-react";
 import learningPathService from "@/services/learningPathService";
 import { LearningPath, PathCourse } from "@/types/learningPath";
 
-interface Props {
-    params: {
-        id: string;
-    };
-}
-
-export default function StudentPathViewPage({ params }: Props) {
+export default function StudentPathViewPage() {
+    const params = useParams();
+    const pathId = params?.id as string;
     const [path, setPath] = useState<LearningPath | null>(null);
     const [courses, setCourses] = useState<PathCourse[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        loadPath();
-    }, [params.id]);
+        if (pathId) {
+            loadPath();
+        }
+    }, [pathId]);
 
     const loadPath = async () => {
         try {
             setLoading(true);
-            const pathData = await learningPathService.getLearningPath(parseInt(params.id));
+            const pathData = await learningPathService.getLearningPath(parseInt(pathId));
             setPath(pathData);
             if (pathData.path_courses) {
                 setCourses(pathData.path_courses);
