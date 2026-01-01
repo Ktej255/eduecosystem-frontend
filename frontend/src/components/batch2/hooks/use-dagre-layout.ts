@@ -51,14 +51,14 @@ export function getLayoutedElements(
 
     const layoutedNodes = nodes.map((node) => {
         const nodeWithPosition = dagreGraph.node(node.id);
-        const width = node.data?.width || nodeWidth;
-        const height = node.data?.height || nodeHeight;
+        const width = Number(node.data?.width) || nodeWidth;
+        const height = Number(node.data?.height) || nodeHeight;
 
         return {
             ...node,
             position: {
-                x: nodeWithPosition.x - width / 2,
-                y: nodeWithPosition.y - height / 2,
+                x: Number(nodeWithPosition.x) - width / 2,
+                y: Number(nodeWithPosition.y) - height / 2,
             },
             targetPosition: isHorizontal ? "left" : "top",
             sourcePosition: isHorizontal ? "right" : "bottom",
