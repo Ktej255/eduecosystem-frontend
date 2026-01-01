@@ -12,7 +12,7 @@ interface VideoUploaderProps {
   initialVideoUrl?: string;
 }
 
-export function VideoUploader({
+export default function VideoUploader({
   lessonId,
   onUploadComplete,
   initialVideoUrl,

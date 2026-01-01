@@ -11,7 +11,7 @@ import { analyzeRecall } from "@/services/prelimsRecallService";
 import api from "@/lib/api";
 import { useSessionProgress } from "@/hooks/useSessionProgress";
 import { markSegmentComplete, saveAnalysisReport, getAnalysisReport } from "@/services/progressStorage";
-import PDFStudySession from "@/components/batch1/PDFStudySession";
+// import PDFStudySession from "@/components/batch1/PDFStudySession";
 
 // Segment interface
 interface Segment {
@@ -560,7 +560,12 @@ export default function PartLearningPage() {
 
             {/* PDF Study Mode */}
             {studyMode === "pdf" && (
-                <PDFStudySession
+                <div className="p-12 text-center border-2 border-dashed border-gray-300 rounded-lg">
+                    <h3 className="text-lg font-semibold">PDF Mode Integration In Progress</h3>
+                    <p className="text-gray-500">Checking system resources...</p>
+                    <Button variant="outline" className="mt-4" onClick={() => setStudyMode("select")}>Go Back</Button>
+                </div>
+                /* <PDFStudySession
                     segmentKey={`${cycleId}_${dayId}_${currentSegment + 1}`}
                     onComplete={() => {
                         // Mark complete and move to next segment or part
@@ -576,7 +581,7 @@ export default function PartLearningPage() {
                         }
                     }}
                     onBack={() => setStudyMode("select")}
-                />
+                /> */
             )}
 
             {/* Video Mode - Original Flow */}
