@@ -23,7 +23,7 @@ import api from "@/lib/api";
 
 interface PDFStudySessionProps {
     segmentKey: string;
-    onClose: () => void;
+    onBack: () => void;
     onComplete?: () => void;
 }
 
@@ -36,7 +36,7 @@ interface RecallResult {
     transcription: string;
 }
 
-export default function PDFStudySession({ segmentKey, onClose, onComplete }: PDFStudySessionProps) {
+export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFStudySessionProps) {
     const [loading, setLoading] = useState(true);
     const [pdfData, setPdfData] = useState<{ page_count: number; title: string } | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
@@ -226,7 +226,7 @@ export default function PDFStudySession({ segmentKey, onClose, onComplete }: PDF
                 <FileText className="h-16 w-16 mx-auto text-gray-500 mb-4" />
                 <h3 className="text-xl font-bold text-gray-300 mb-2">No PDF Available</h3>
                 <p className="text-gray-500 mb-4">This segment doesn't have a PDF yet.</p>
-                <Button variant="outline" onClick={onClose}>Go Back</Button>
+                <Button variant="outline" onClick={onBack}>Go Back</Button>
             </div>
         );
     }
