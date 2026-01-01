@@ -8,13 +8,13 @@ import { Handle, Position, NodeProps } from "@xyflow/react";
 // ==========================================
 const VedaHeaderComponent = memo(({ data }: NodeProps) => {
     const isRoot = data?.isRoot;
-    const headerColor = data?.headerColor || "#8B4513";
+    const headerColor = (data?.headerColor as string) || "#8B4513";
 
     return (
         <div
             className={`relative flex flex-col items-center justify-center text-center transition-all duration-300 ${isRoot
-                    ? "px-8 py-5 bg-gradient-to-br from-amber-100 to-orange-100 border-3 border-amber-500 rounded-2xl shadow-xl"
-                    : "px-5 py-3"
+                ? "px-8 py-5 bg-gradient-to-br from-amber-100 to-orange-100 border-3 border-amber-500 rounded-2xl shadow-xl"
+                : "px-5 py-3"
                 }`}
             style={{
                 minWidth: isRoot ? 180 : 160,
