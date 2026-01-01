@@ -15,7 +15,7 @@ interface Flashcard {
 
 interface FlashcardDeckProps {
     cards: Flashcard[];
-    onReview: (cardId: number, grade: int) => void;
+    onReview: (cardId: number, grade: number) => void;
 }
 
 export function FlashcardDeck({ cards, onReview }: FlashcardDeckProps) {
