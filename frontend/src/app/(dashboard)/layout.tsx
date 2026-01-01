@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Sidebar from "@/components/sidebar";
+import StudentSidebar from "@/components/student-portal/StudentSidebar";
 import Navbar from "@/components/navbar";
+import StudentHeader from "@/components/student-portal/StudentHeader";
 import ProtectedRoute from "@/components/protected-route";
 import { logActivity } from "@/lib/activity-tracker";
 import MobileSidebar from "@/components/mobile-sidebar";
@@ -14,9 +16,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // Check if we're in admin area - admin has its own layout with sidebar
+  // Check route type
   const isAdminRoute = pathname?.startsWith("/admin");
+  const isStudentRoute = pathname?.startsWith("/student");
 
   useEffect(() => {
     try {
@@ -35,7 +39,35 @@ export default function DashboardLayout({
     );
   }
 
-  // For non-admin routes, show the standard dashboard layout with sidebar
+  // For student routes, use StudentSidebar
+  if (isStudentRoute) {
+    return (
+      <ProtectedRoute>
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+          <StudentHeader />
+          <div className="flex">
+            {/* Student Sidebar - Hidden on mobile, shown on md+ */}
+            <div className="hidden md:block">
+              <StudentSidebar
+                isCollapsed={isCollapsed}
+                onToggle={() => setIsCollapsed(!isCollapsed)}
+              />
+            </div>
+            {/* Main content */}
+            <main className={`flex-1 pt-20 transition-all duration-300 
+              px-4 pb-4 
+              md:px-6 md:pb-6
+              ${isCollapsed ? "md:ml-20" : "md:ml-64"
+              }`}>
+              {children}
+            </main>
+          </div>
+        </div>
+      </ProtectedRoute>
+    );
+  }
+
+  // For non-admin, non-student routes, show the standard dashboard layout
   return (
     <ProtectedRoute>
       <div className="h-full relative">
