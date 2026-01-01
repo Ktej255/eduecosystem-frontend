@@ -3,12 +3,30 @@
 import React, { memo } from "react";
 import { Handle, Position, NodeProps } from "@xyflow/react";
 
+// Type definition for node data
+interface UpanishadNodeData {
+    isRoot?: boolean;
+    headerColor?: string;
+    vedaName?: string;
+    subtitle?: string;
+    count?: number;
+    bgColor?: string;
+    textColor?: string;
+    studyOrder?: number;
+    nameSanskrit?: string;
+    name?: string;
+    borderColor?: string;
+    width?: number;
+    height?: number;
+}
+
 // ==========================================
 // ROOT/HEADER NODE - Sanskrit styled
 // ==========================================
 const VedaHeaderComponent = memo(({ data }: NodeProps) => {
-    const isRoot = data?.isRoot;
-    const headerColor = (data?.headerColor as string) || "#8B4513";
+    const nodeData = data as UpanishadNodeData;
+    const isRoot = nodeData?.isRoot;
+    const headerColor = nodeData?.headerColor || "#8B4513";
 
     return (
         <div
@@ -27,19 +45,19 @@ const VedaHeaderComponent = memo(({ data }: NodeProps) => {
                 className={`font-bold ${isRoot ? "text-2xl text-amber-900" : "text-lg"}`}
                 style={{ color: isRoot ? undefined : headerColor, fontFamily: "'Noto Sans Devanagari', sans-serif" }}
             >
-                {data?.vedaName}
+                {nodeData?.vedaName}
             </div>
 
-            {data?.subtitle && (
-                <div className="text-xs text-amber-600 mt-1">{data.subtitle}</div>
+            {nodeData?.subtitle && (
+                <div className="text-xs text-amber-600 mt-1">{nodeData.subtitle}</div>
             )}
 
-            {data?.count && (
+            {nodeData?.count && (
                 <div
                     className={`text-xs mt-1 px-2 py-0.5 rounded-full ${isRoot ? "bg-amber-200 text-amber-800" : ""}`}
                     style={{ backgroundColor: isRoot ? undefined : `${headerColor}20`, color: headerColor }}
                 >
-                    {data.count} texts
+                    {nodeData.count} texts
                 </div>
             )}
 
@@ -54,9 +72,10 @@ VedaHeaderComponent.displayName = "VedaHeaderComponent";
 // PRINCIPAL NODE - Bold/Solid Style
 // ==========================================
 const PrincipalNodeComponent = memo(({ data }: NodeProps) => {
-    const bgColor = data?.bgColor || "#D4A574";
-    const textColor = data?.textColor || "#FFFFFF";
-    const studyOrder = data?.studyOrder;
+    const nodeData = data as UpanishadNodeData;
+    const bgColor = nodeData?.bgColor || "#D4A574";
+    const textColor = nodeData?.textColor || "#FFFFFF";
+    const studyOrder = nodeData?.studyOrder;
 
     return (
         <div
@@ -84,12 +103,12 @@ const PrincipalNodeComponent = memo(({ data }: NodeProps) => {
                 className="font-bold text-base leading-tight"
                 style={{ color: textColor, fontFamily: "'Noto Sans Devanagari', sans-serif" }}
             >
-                {data?.nameSanskrit || data?.name}
+                {nodeData?.nameSanskrit || nodeData?.name}
             </div>
 
             {/* English Name */}
             <div className="text-xs mt-1 opacity-90" style={{ color: textColor }}>
-                {data?.name}
+                {nodeData?.name}
             </div>
 
             <Handle type="source" position={Position.Right} className="!bg-white !w-2 !h-2" />
@@ -102,8 +121,9 @@ PrincipalNodeComponent.displayName = "PrincipalNodeComponent";
 // MINOR NODE - Ghost/Outlined Style
 // ==========================================
 const MinorNodeComponent = memo(({ data }: NodeProps) => {
-    const borderColor = data?.borderColor || "#D4A574";
-    const textColor = data?.textColor || "#8B4513";
+    const nodeData = data as UpanishadNodeData;
+    const borderColor = nodeData?.borderColor || "#D4A574";
+    const textColor = nodeData?.textColor || "#8B4513";
 
     return (
         <div
@@ -120,16 +140,16 @@ const MinorNodeComponent = memo(({ data }: NodeProps) => {
                 className="font-medium text-sm leading-tight"
                 style={{ color: textColor }}
             >
-                {data?.name}
+                {nodeData?.name}
             </div>
 
             {/* Sanskrit in smaller text */}
-            {data?.nameSanskrit && (
+            {nodeData?.nameSanskrit && (
                 <div
                     className="text-xs opacity-70 mt-0.5"
                     style={{ color: textColor, fontFamily: "'Noto Sans Devanagari', sans-serif" }}
                 >
-                    {data?.nameSanskrit}
+                    {nodeData?.nameSanskrit}
                 </div>
             )}
 
