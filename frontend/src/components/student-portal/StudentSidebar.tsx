@@ -16,6 +16,7 @@ import {
     Shield,
     BrainCircuit,
     CalendarDays,
+    Layers,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
