@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { ArrowLeft, Play, Pause, Mic, MicOff, Camera, Image as ImageIcon, Send, CheckCircle2, Clock, Brain, Target, ChevronRight, Volume2, Upload, Loader2, X, Plus, RotateCcw, FileText, Video } from "lucide-react";
+import { ArrowLeft, Play, Pause, Mic, MicOff, Camera, Image as ImageIcon, Send, CheckCircle2, Clock, Brain, Target, ChevronRight, Volume2, Upload, Loader2, X, Plus, RotateCcw } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -509,7 +509,7 @@ export default function PartLearningPage() {
                                 >
                                     <CardContent className="p-6 text-center">
                                         <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                                            <Video className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+                                            <Play className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                                         </div>
                                         <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Video Mode</h3>
                                         <p className="text-gray-500 text-sm mt-2">Watch 25-min video segments</p>
@@ -536,7 +536,7 @@ export default function PartLearningPage() {
                                 >
                                     <CardContent className="p-6 text-center">
                                         <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                                            <FileText className="h-8 w-8 text-emerald-600 dark:text-emerald-400" />
+                                            <Brain className="h-8 w-8 text-emerald-600 dark:text-emerald-400" />
                                         </div>
                                         <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">PDF Mode</h3>
                                         <p className="text-gray-500 text-sm mt-2">Read page by page</p>
