@@ -10,7 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import VideoUploader from "@/components/features/lms/VideoUploader";
 import batch1Service, { DayContentResponse, SegmentData } from "@/services/batch1Service";
 
 // Mock data for initial dev
@@ -161,8 +160,8 @@ export default function Batch1ManagerPage() {
                                     key={seg.id}
                                     onClick={() => { setActiveSegment(idx); setVideoFile(null); }}
                                     className={`w-full text-left p-4 rounded-xl border transition-all ${idx === activeSegment
-                                            ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 ring-1 ring-indigo-500"
-                                            : "border-gray-200 dark:border-gray-800 hover:bg-gray-50"
+                                        ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 ring-1 ring-indigo-500"
+                                        : "border-gray-200 dark:border-gray-800 hover:bg-gray-50"
                                         }`}
                                 >
                                     <div className="flex justify-between items-start mb-1">
@@ -208,11 +207,23 @@ export default function Batch1ManagerPage() {
 
                             <div className="space-y-2">
                                 <label className="text-sm font-medium">Video Upload</label>
-                                <VideoUploader
-                                    onFileSelect={(file) => setVideoFile(file)}
-                                    currentFile={videoFile}
-                                    error={null}
-                                />
+                                <div className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-6 text-center hover:border-indigo-500 transition-colors">
+                                    <input
+                                        type="file"
+                                        accept="video/*"
+                                        onChange={(e) => setVideoFile(e.target.files?.[0] || null)}
+                                        className="hidden"
+                                        id="video-upload-input"
+                                    />
+                                    <label htmlFor="video-upload-input" className="cursor-pointer">
+                                        <VideoIcon className="w-8 h-8 mx-auto text-gray-400 mb-2" />
+                                        {videoFile ? (
+                                            <p className="text-sm text-green-600 font-medium">{videoFile.name}</p>
+                                        ) : (
+                                            <p className="text-sm text-gray-500">Click to select or drag video file</p>
+                                        )}
+                                    </label>
+                                </div>
                                 {content.segments[activeSegment]?.video_url && !videoFile && (
                                     <div className="mt-2 text-sm text-gray-500 flex items-center gap-2">
                                         <VideoIcon className="w-4 h-4" />
