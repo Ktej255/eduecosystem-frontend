@@ -268,16 +268,16 @@ export default function Batch1Page() {
                         </span>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                        <Link href="/student/batch1/csat/january" className="block p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md hover:border-amber-500 border-2 border-transparent transition-all cursor-pointer">
+                        <Link href="/student/batch1/csat" className="block p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md hover:border-amber-500 border-2 border-transparent transition-all cursor-pointer">
                             <div className="flex items-center justify-between mb-2">
                                 <div className="font-semibold text-gray-800 dark:text-gray-200">January</div>
                                 <Unlock className="h-4 w-4 text-green-500" />
                             </div>
-                            <div className="text-gray-500">Quantitative Aptitude</div>
+                            <div className="text-gray-500">English Comprehension</div>
                             <Progress value={0} className="h-1 mt-2" />
                             <div className="text-xs text-gray-400 mt-1">0% completed</div>
                         </Link>
-                        <Link href="/student/batch1/csat/february" className="block p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md hover:border-amber-500 border-2 border-transparent transition-all cursor-pointer">
+                        <Link href="/student/batch1/csat" className="block p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md hover:border-amber-500 border-2 border-transparent transition-all cursor-pointer">
                             <div className="flex items-center justify-between mb-2">
                                 <div className="font-semibold text-gray-800 dark:text-gray-200">February</div>
                                 <Unlock className="h-4 w-4 text-green-500" />
@@ -286,7 +286,7 @@ export default function Batch1Page() {
                             <Progress value={0} className="h-1 mt-2" />
                             <div className="text-xs text-gray-400 mt-1">0% completed</div>
                         </Link>
-                        <Link href="/student/batch1/csat/march" className="block p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md hover:border-amber-500 border-2 border-transparent transition-all cursor-pointer">
+                        <Link href="/student/batch1/csat" className="block p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md hover:border-amber-500 border-2 border-transparent transition-all cursor-pointer">
                             <div className="flex items-center justify-between mb-2">
                                 <div className="font-semibold text-gray-800 dark:text-gray-200">March</div>
                                 <Unlock className="h-4 w-4 text-green-500" />
