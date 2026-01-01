@@ -40,7 +40,8 @@ export default function LevelDetailPage() {
                     is_unlocked: i === 0,
                     is_completed: false,
                     completed_at: null,
-                    upload_url: null
+                    upload_url: null,
+                    unlock_date: null
                 }));
                 setLevelData({
                     level: levelId,
