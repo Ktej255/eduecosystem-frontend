@@ -12,6 +12,7 @@ import {
     Handle,
     Position,
     BackgroundVariant,
+    Edge,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { Loader2, Layers, Zap, BookOpen } from "lucide-react";
@@ -70,7 +71,7 @@ const nodeTypes = {
 
 export function SyllabusKnowledgeGraph() {
     const [nodes, setNodes, onNodesChange] = useNodesState([]);
-    const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+    const [edges, setEdges, onEdgesChange] = useEdgesState<Edge[]>([]);
     const [loading, setLoading] = useState(true);
 
     const onConnect = useCallback(
