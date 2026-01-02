@@ -89,3 +89,40 @@ print("DEBUG: Importing ai_learning...")
 from app.api.api_v1.endpoints import ai_learning
 print("DEBUG: ai_learning imported")
 api_router.include_router(ai_learning.router, prefix="/ai-learning", tags=["ai-learning"])
+
+# RAS Revision Planner (40-Day Plan)
+from app.api.api_v1.endpoints import planner
+api_router.include_router(planner.router, prefix="/planner", tags=["planner"])
+
+# AI Tools (Essay Grading, Quiz Generation, Difficulty Analysis, Plagiarism Detection)
+from app.api.api_v1.endpoints import ai_tools
+api_router.include_router(ai_tools.router, prefix="/ai-tools", tags=["ai-tools"])
+
+# AI Course Generation
+from app.api.api_v1.endpoints import ai_course
+api_router.include_router(ai_course.router, prefix="/ai-course", tags=["ai-course"])
+
+# AI Avatars
+from app.api.api_v1.endpoints import ai_avatars
+api_router.include_router(ai_avatars.router, prefix="/ai-avatars", tags=["ai-avatars"])
+
+# Flashcards (AI-driven spaced repetition)
+from app.api.api_v1.endpoints import flashcards
+api_router.include_router(flashcards.router, prefix="/flashcards", tags=["flashcards"])
+
+# Audio Analysis (Flashcard Recall)
+from app.api.api_v1.endpoints import audio_analysis
+api_router.include_router(audio_analysis.router, prefix="/audio-analysis", tags=["audio-analysis"])
+
+# Wolf Packs (Competitive Study Groups)
+from app.api.api_v1.endpoints import packs
+api_router.include_router(packs.router, prefix="/packs", tags=["packs"])
+
+# Knowledge Graph (Interactive Syllabus Explorer)
+from app.api.api_v1.endpoints import knowledge_graph
+api_router.include_router(knowledge_graph.router, prefix="/knowledge-graph", tags=["knowledge-graph"])
+
+# PDF Study (Self-Study Mode for Batch 1)
+from app.api.api_v1.endpoints import pdf_study
+api_router.include_router(pdf_study.router, prefix="/pdf-study", tags=["pdf-study"])
+

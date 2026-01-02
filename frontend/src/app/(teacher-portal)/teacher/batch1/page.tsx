@@ -244,10 +244,10 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                                         contentType: seg.content_type || 'video',
                                         existingVideoUrl: seg.video_url,
                                         youtubeUrl: seg.youtube_url || "",
-                                        pdfFiles: seg.pdf_files?.map((p, idx) => ({
+                                        pdfFiles: seg.pdf_files?.map((p: any, idx: number) => ({
                                             id: `existing-${idx}`,
                                             name: p.name,
-                                            order: p.order,
+                                            order: idx,
                                             url: p.url
                                         })) || [],
                                     }
@@ -322,13 +322,12 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                             formData.append("youtube_url", content.youtubeUrl);
                         } else if (content.contentType === 'pdf') {
                             // Append PDF files
-                            content.pdfFiles.forEach((pdf, idx) => {
+                            content.pdfFiles.forEach((pdf) => {
                                 if (pdf.file) {
-                                    formData.append(`pdf_${idx}`, pdf.file);
-                                    formData.append(`pdf_order_${idx}`, String(pdf.order));
+                                    formData.append("pdf_files", pdf.file);
+                                    formData.append("pdf_names", pdf.name);
                                 }
                             });
-                            formData.append("pdf_count", String(content.pdfFiles.filter(p => p.file).length));
                         }
 
                         // Call backend API

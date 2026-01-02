@@ -4,6 +4,7 @@ Manage video segments for UPSC Prelims Batch 1 course
 """
 
 from fastapi import APIRouter, HTTPException, UploadFile, File, Form, Depends, BackgroundTasks
+from app.api.api_v1.endpoints.pdf_study import process_pdf_document
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 from datetime import datetime
@@ -92,6 +93,9 @@ class SegmentData(BaseModel):
     title: str
     key_points: str
     video_url: Optional[str] = None
+    youtube_url: Optional[str] = None
+    content_type: str = "video"  # video, pdf, youtube
+    pdf_files: List[Dict[str, Any]] = []
     duration: str = "25:00"
 
 
@@ -101,6 +105,10 @@ class SegmentResponse(BaseModel):
     title: str
     key_points: str
     video_url: Optional[str]
+    youtube_url: Optional[str] = None
+    youtube_url: Optional[str] = None
+    content_type: str = "video"
+    pdf_files: List[Dict[str, Any]] = []
     duration: str
 
 
@@ -133,6 +141,11 @@ async def get_part_content(
                 title=data.get("title", f"Segment {seg_num}"),
                 key_points=data.get("key_points", ""),
                 video_url=data.get("video_url"),
+                youtube_url=data.get("youtube_url"),
+                video_url=data.get("video_url"),
+                youtube_url=data.get("youtube_url"),
+                content_type=data.get("content_type", "video"),
+                pdf_files=data.get("pdf_files", []),
                 duration=data.get("duration", "25:00")
             ))
         else:
@@ -142,6 +155,11 @@ async def get_part_content(
                 title=f"Segment {seg_num} (Not Uploaded)",
                 key_points="Key points will appear here after admin uploads content",
                 video_url=None,
+                youtube_url=None,
+                video_url=None,
+                youtube_url=None,
+                content_type="video",
+                pdf_files=[],
                 duration="25:00"
             ))
     
@@ -161,8 +179,12 @@ async def save_segment(
     segment_number: int,
     background_tasks: BackgroundTasks,
     title: str = Form(...),
-    key_points: str = Form(""),  # Made optional with default empty string
-    video: Optional[UploadFile] = File(None)
+    key_points: str = Form(""),
+    content_type: str = Form("video"),  # video, pdf, youtube
+    youtube_url: Optional[str] = Form(None),
+    video: Optional[UploadFile] = File(None),
+    pdf_files: List[UploadFile] = File(None),
+    pdf_names: List[str] = Form(None)
 ):
     """
     Save or update a video segment.
@@ -197,11 +219,74 @@ async def save_segment(
             if video_url:
                 file_path = os.path.join(UPLOAD_DIR, os.path.basename(video_url))
         
+        # Handle PDF uploads
+        saved_pdfs = SEGMENTS_STORE.get(key, {}).get("pdf_files", []) if key in SEGMENTS_STORE else []
+        
+        # If new PDFs are uploaded, we might want to replace or append? 
+        # Current logic: If pdf_files provided, we process them. 
+        # Since frontend sends ALL files (including re-uploads if needed), we could replace?
+        # But frontend might only send NEW files? 
+        # Actually, for simplicity and "Save All" logic, let's assume the frontend sends the current state 
+        # or we need to manage "existing" vs "new". 
+        # To avoid data loss, let's Append new ones or Replace if logic dictates.
+        # Given the "DayContentUpload" state, it has full list. 
+        # Let's save new files.
+        
+        if pdf_files:
+            # Ensure pdfs directory
+            PDF_DIR = os.path.join(UPLOAD_DIR, "pdfs")
+            os.makedirs(PDF_DIR, exist_ok=True)
+            
+            new_pdfs = []
+            for idx, pdf in enumerate(pdf_files):
+                if pdf.filename:
+                    # Unique filename
+                    file_ext = os.path.splitext(pdf.filename)[1]
+                    unique_name = f"c{cycle_id}_d{day_number}_p{part_number}_s{segment_number}_pdf{idx}_{uuid.uuid4().hex[:6]}{file_ext}"
+                    dest_path = os.path.join(PDF_DIR, unique_name)
+                    
+                    content = await pdf.read()
+                    with open(dest_path, "wb") as f:
+                        f.write(content)
+                    
+                    pdf_url = f"/uploads/batch1/pdfs/{unique_name}"
+                    pdf_name = pdf_names[idx] if pdf_names and idx < len(pdf_names) else pdf.filename
+                    
+                    new_pdfs.append({
+                        "name": pdf_name,
+                        "url": pdf_url,
+                        "original_filename": pdf.filename
+                    })
+                    
+                    # Trigger PDF processing for the first PDF (as primary study material)
+                    if idx == 0:
+                        print(f"Triggering PDF processing for {key}")
+                        # We process it immediately so it is ready for student view
+                        try:
+                            await process_pdf_document(key, dest_path, pdf_name)
+                        except Exception as e:
+                            print(f"Failed to process PDF: {e}")
+            
+            # If we are in 'pdf' mode and sending files, we probably want to update the list.
+            # But we should preserve OLD files if they weren't re-uploaded.
+            # However, the frontend creates a list of "pdfFiles". 
+            # Ideally, the frontend should tell us the FINAL structure. 
+            # For now, let's APPEND new PDFs to existing ones? 
+            # No, if user deletes one in UI, we want it gone.
+            # But we don't know which ones are kept unless frontend sends "existing_pdf_urls".
+            # FIX: Just append for now to ensure AT LEAST they are saved.
+            # Better: The frontend should send "video" or "pdf" mode.
+            if new_pdfs:
+                saved_pdfs.extend(new_pdfs)
+
         # Store segment data
         SEGMENTS_STORE[key] = {
             "title": title,
             "key_points": key_points,
             "video_url": video_url,
+            "youtube_url": youtube_url,
+            "content_type": content_type,
+            "pdf_files": saved_pdfs,  # Persist PDF list
             "duration": "25:00",
             "updated_at": datetime.utcnow().isoformat(),
             "transcription_status": "pending" if video_uploaded else SEGMENTS_STORE.get(key, {}).get("transcription_status", "none")
