@@ -1,7 +1,7 @@
 import requests
 import json
 
-API_URL = "http://localhost:8000/api/v1/batch1/cycle/1/day/1/part/3/segment/1"
+API_URL = "http://localhost:8000/api/v1/batch1/cycle/1/day/1/part/1/segment/4"
 
 def test_upload():
     # Mock PDF content
