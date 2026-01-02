@@ -141,7 +141,7 @@ export default function PartLearningPage() {
         const checkPdfAvailability = async () => {
             try {
                 // Check if PDF exists for this part (segment 1)
-                const segmentKey = `${cycleId}_${dayId}_1`; // Check first segment
+                const segmentKey = `${cycleId}_${dayId}_${partId}_1`; // Check first segment using correct key format (includes partId)
                 const response = await api.get(`/pdf-study/check/${segmentKey}`);
                 setPdfAvailable(response.data?.available || false);
             } catch (error) {
@@ -561,7 +561,7 @@ export default function PartLearningPage() {
             {/* PDF Study Mode */}
             {studyMode === "pdf" && (
                 <PDFStudySession
-                    segmentKey={`${cycleId}_${dayId}_${currentSegment + 1}`}
+                    segmentKey={`${cycleId}_${dayId}_${partId}_${currentSegment + 1}`}
                     onComplete={() => {
                         // Mark complete and move to next segment or part
                         markSegmentComplete(cycleId, dayId, partId, currentSegment + 1);
