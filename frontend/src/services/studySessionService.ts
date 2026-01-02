@@ -7,7 +7,7 @@
  * - Topic content retrieval
  */
 
-import { api } from '@/lib/api';
+import api from '@/lib/api';
 
 export interface StudyExplanationAnalysis {
     success: boolean;
