@@ -17,10 +17,15 @@ class Batch1Segment(Base):
     segment_key = Column(String, unique=True, index=True, nullable=False)
     
     title = Column(String, nullable=False)
+    # Content Details
+    content_type = Column(String, default="video")  # video, youtube, pdf
     video_url = Column(String, nullable=True)
+    youtube_url = Column(String, nullable=True)
+    pdf_files = Column(String, nullable=True)  # JSON list of PDFs (name, url, order)
     
     # Transcription / Content
     transcription_text = Column(String, nullable=True)  # Full text or link to file
+    pdf_data = Column(String, nullable=True)  # JSON blob of processed PDF pages (text/images)
     key_points = Column(String, nullable=True) # JSON list or text
     
     # Status
