@@ -129,34 +129,49 @@ async def get_part_content(
     Get all video segments for a specific part of a day.
     Returns 4 segments per part.
     """
-    segments = []
-    for seg_num in range(1, 5):  # 4 segments per part
-        key = f"{cycle_id}_{day_number}_{part_number}_{seg_num}"
-        
-        if key in SEGMENTS_STORE:
-            data = SEGMENTS_STORE[key]
-            segments.append(SegmentResponse(
-                id=seg_num,
-                title=data.get("title", f"Segment {seg_num}"),
-                key_points=data.get("key_points", ""),
-                video_url=data.get("video_url"),
-                youtube_url=data.get("youtube_url"),
-                content_type=data.get("content_type", "video"),
-                pdf_files=data.get("pdf_files", []),
-                duration=data.get("duration", "25:00")
-            ))
-        else:
-            # Default segment if not uploaded
-            segments.append(SegmentResponse(
-                id=seg_num,
-                title=f"Segment {seg_num} (Not Uploaded)",
-                key_points="Key points will appear here after admin uploads content",
-                video_url=None,
-                youtube_url=None,
-                content_type="video",
-                pdf_files=[],
-                duration="25:00"
-            ))
+    # --- PERSISTENCE FIX: Read from DB ---
+    from app.db.session import SessionLocal
+    from app.models.batch1 import Batch1Segment
+    
+    with SessionLocal() as db:
+        segments = []
+        for seg_num in range(1, 5):  # 4 segments per part
+            key = f"{cycle_id}_{day_number}_{part_number}_{seg_num}"
+            
+            # Query DB
+            segment_data = db.query(Batch1Segment).filter(Batch1Segment.segment_key == key).first()
+            
+            if segment_data:
+                # Parse PDF list
+                pdf_list = []
+                if segment_data.pdf_files:
+                    try:
+                        pdf_list = json.loads(segment_data.pdf_files)
+                    except:
+                        pass
+                
+                segments.append(SegmentResponse(
+                    id=seg_num,
+                    title=segment_data.title,
+                    key_points=segment_data.key_points or "",
+                    video_url=segment_data.video_url,
+                    youtube_url=segment_data.youtube_url,
+                    content_type=segment_data.content_type or "video",
+                    pdf_files=pdf_list,
+                    duration=segment_data.duration or "25:00"
+                ))
+            else:
+                # Default segment if not uploaded
+                segments.append(SegmentResponse(
+                    id=seg_num,
+                    title=f"Segment {seg_num} (Not Uploaded)",
+                    key_points="Key points will appear here after admin uploads content",
+                    video_url=None,
+                    youtube_url=None,
+                    content_type="video",
+                    pdf_files=[],
+                    duration="25:00"
+                ))
     
     return DayContentResponse(
         cycle_id=cycle_id,
