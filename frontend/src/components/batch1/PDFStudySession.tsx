@@ -181,6 +181,20 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
                         toast.success("+10 coins! Completed before time!");
                     }
                     setCompletedPages(prev => [...prev, currentPage]);
+
+                    // Save to retention system for spaced repetition tracking
+                    try {
+                        await api.post("/retention/submit-encoding", {
+                            topic_id: currentPage,
+                            topic_type: "pdf_page",
+                            topic_name: `${pdfData?.title || segmentKey} - Page ${currentPage}`,
+                            user_summary: res.data.transcription,
+                        });
+                        console.log("Retention data saved for page", currentPage);
+                    } catch (retentionError) {
+                        console.error("Failed to save retention data:", retentionError);
+                        // Don't block the user - retention save is secondary
+                    }
                 }
             };
         } catch (error) {
