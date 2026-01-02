@@ -7,6 +7,9 @@ export interface SegmentData {
     title: string;
     key_points: string;
     video_url?: string;
+    youtube_url?: string;
+    content_type?: 'video' | 'pdf' | 'youtube';
+    pdf_files?: { url: string; name: string; order: number }[];
     duration: string;
     transcription_status?: string;
 }

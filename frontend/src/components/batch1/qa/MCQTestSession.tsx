@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
+import axios from "axios";
+import { useAuth } from "@/contexts/auth-context";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -16,6 +18,7 @@ import {
     Flag
 } from "lucide-react";
 import { DAY1_MCQS, MCQ } from "../polity/data/day1-mcqs";
+import { DAY2_MCQS } from "../polity/data/day2-mcqs";
 
 interface MCQTestSessionProps {
     cycleId: number;
@@ -24,10 +27,23 @@ interface MCQTestSessionProps {
 }
 
 export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSessionProps) {
+    // Dynamic MCQ loading based on day
+    const mcqs = useMemo(() => {
+        switch (day) {
+            case 2:
+                return DAY2_MCQS;
+            case 1:
+            default:
+                return DAY1_MCQS;
+        }
+    }, [day]);
+
+    const { user } = useAuth();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState<{ [key: number]: number }>({}); // qId -> optionIndex
     const [timeLeft, setTimeLeft] = useState(60 * 60); // 60 minutes in seconds
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
     const [score, setScore] = useState(0);
     const [correctCount, setCorrectCount] = useState(0);
     const [incorrectCount, setIncorrectCount] = useState(0);
@@ -64,11 +80,11 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         if (isSubmitted) return;
         setAnswers(prev => ({
             ...prev,
-            [DAY1_MCQS[currentIndex].id]: optionIndex
+            [mcqs[currentIndex].id]: optionIndex
         }));
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (timerRef.current) clearInterval(timerRef.current);
 
         let calculatedScore = 0;
@@ -76,28 +92,63 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         let incorrect = 0;
         let unanswered = 0;
 
-        DAY1_MCQS.forEach(q => {
+        const resultsForApi = mcqs.map(q => {
             const userAnswer = answers[q.id];
+            let isCorrect = false;
             if (userAnswer === undefined) {
                 unanswered++;
             } else if (userAnswer === q.correctAnswer) {
                 calculatedScore += 2; // +2 for correct
                 correct++;
+                isCorrect = true;
             } else {
                 calculatedScore -= 0.66; // -0.66 (1/3rd of 2) for incorrect
                 incorrect++;
             }
+            return {
+                qId: q.id,
+                answer: userAnswer !== undefined ? userAnswer : -1,
+                isCorrect: isCorrect
+            };
         });
 
-        setScore(Number(calculatedScore.toFixed(2)));
+        const finalScore = Number(calculatedScore.toFixed(2));
+        setScore(finalScore);
         setCorrectCount(correct);
         setIncorrectCount(incorrect);
         setUnansweredCount(unanswered);
         setIsSubmitted(true);
         setCurrentIndex(0); // Go back to start for review
+
+        // Save to Database
+        setIsSaving(true);
+        try {
+            const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+            const token = localStorage.getItem('token');
+
+            await axios.post(`${API_BASE}/batch1/test-results`, {
+                cycle_id: cycleId,
+                day_number: day,
+                score: finalScore,
+                total_questions: mcqs.length,
+                correct_count: correct,
+                incorrect_count: incorrect,
+                unanswered_count: unanswered,
+                answers: resultsForApi
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            console.log("Test result saved to database");
+        } catch (error) {
+            console.error("Failed to save test result:", error);
+        } finally {
+            setIsSaving(false);
+        }
     };
 
-    const currentQuestion = DAY1_MCQS[currentIndex];
+    const currentQuestion = mcqs[currentIndex];
     const isAnswered = answers[currentQuestion.id] !== undefined;
 
     return (
@@ -116,40 +167,52 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                 )}
 
                 <div className="text-sm font-medium">
-                    Question {currentIndex + 1} / {DAY1_MCQS.length}
+                    Question {currentIndex + 1} / {mcqs.length}
                 </div>
             </div>
 
             {/* Progress Bar */}
-            <Progress value={((currentIndex + 1) / DAY1_MCQS.length) * 100} className="h-2" />
+            <Progress value={((currentIndex + 1) / mcqs.length) * 100} className="h-2" />
 
             {/* Results View */}
             {isSubmitted && currentIndex === 0 && (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                    <Card className="bg-blue-50 border-blue-200">
-                        <CardContent className="p-4 text-center">
-                            <div className="text-2xl font-bold text-blue-700">{score}</div>
-                            <div className="text-xs text-blue-600">Total Score</div>
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-green-50 border-green-200">
-                        <CardContent className="p-4 text-center">
-                            <div className="text-2xl font-bold text-green-700">{correctCount}</div>
-                            <div className="text-xs text-green-600">Correct</div>
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-red-50 border-red-200">
-                        <CardContent className="p-4 text-center">
-                            <div className="text-2xl font-bold text-red-700">{incorrectCount}</div>
-                            <div className="text-xs text-red-600">Incorrect</div>
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-gray-50 border-gray-200">
-                        <CardContent className="p-4 text-center">
-                            <div className="text-2xl font-bold text-gray-700">{unansweredCount}</div>
-                            <div className="text-xs text-gray-600">Unattempted</div>
-                        </CardContent>
-                    </Card>
+                <div className="space-y-4 mb-6">
+                    {isSaving && (
+                        <div className="flex items-center gap-2 text-sm text-blue-600 animate-pulse bg-blue-50 p-2 rounded justify-center">
+                            <Clock className="h-4 w-4" /> Saving your results to dashboard...
+                        </div>
+                    )}
+                    {!isSaving && isSubmitted && (
+                        <div className="flex items-center gap-2 text-sm text-green-600 bg-green-50 p-2 rounded justify-center">
+                            <CheckCircle2 className="h-4 w-4" /> Results saved! You can cross-check them later.
+                        </div>
+                    )}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <Card className="bg-blue-50 border-blue-200">
+                            <CardContent className="p-4 text-center">
+                                <div className="text-2xl font-bold text-blue-700">{score}</div>
+                                <div className="text-xs text-blue-600">Total Score</div>
+                            </CardContent>
+                        </Card>
+                        <Card className="bg-green-50 border-green-200">
+                            <CardContent className="p-4 text-center">
+                                <div className="text-2xl font-bold text-green-700">{correctCount}</div>
+                                <div className="text-xs text-green-600">Correct</div>
+                            </CardContent>
+                        </Card>
+                        <Card className="bg-red-50 border-red-200">
+                            <CardContent className="p-4 text-center">
+                                <div className="text-2xl font-bold text-red-700">{incorrectCount}</div>
+                                <div className="text-xs text-red-600">Incorrect</div>
+                            </CardContent>
+                        </Card>
+                        <Card className="bg-gray-50 border-gray-200">
+                            <CardContent className="p-4 text-center">
+                                <div className="text-2xl font-bold text-gray-700">{unansweredCount}</div>
+                                <div className="text-xs text-gray-600">Unattempted</div>
+                            </CardContent>
+                        </Card>
+                    </div>
                 </div>
             )}
 
@@ -194,9 +257,9 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                                     className={`p-4 rounded-lg flex items-start gap-3 ${optionClass}`}
                                 >
                                     <div className={`w-6 h-6 rounded-full border flex items-center justify-center text-xs font-bold flex-shrink-0 ${isSubmitted && isCorrect ? 'bg-green-500 border-green-500 text-white' :
-                                            isSubmitted && isSelected && !isCorrect ? 'bg-red-500 border-red-500 text-white' :
-                                                isSelected ? 'bg-blue-500 border-blue-500 text-white' :
-                                                    'border-gray-400 text-gray-500'
+                                        isSubmitted && isSelected && !isCorrect ? 'bg-red-500 border-red-500 text-white' :
+                                            isSelected ? 'bg-blue-500 border-blue-500 text-white' :
+                                                'border-gray-400 text-gray-500'
                                         }`}>
                                         {String.fromCharCode(65 + idx)}
                                     </div>
@@ -232,22 +295,38 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                     <ArrowLeft className="mr-2 h-4 w-4" /> Previous
                 </Button>
 
-                {!isSubmitted ? (
-                    currentIndex === DAY1_MCQS.length - 1 ? (
+                {!isSubmitted && (
+                    <div className="flex gap-2">
+                        {currentIndex < mcqs.length - 1 && (
+                            <Button
+                                variant="outline"
+                                onClick={() => setCurrentIndex(prev => Math.min(mcqs.length - 1, prev + 1))}
+                            >
+                                Next <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                        )}
                         <Button
                             className="bg-green-600 hover:bg-green-700 text-white px-8"
-                            onClick={handleSubmit}
+                            onClick={() => {
+                                const answeredCount = Object.keys(answers).length;
+                                if (answeredCount < mcqs.length) {
+                                    const unattempted = mcqs.length - answeredCount;
+                                    const confirmed = window.confirm(
+                                        `⚠️ Warning: You have ${unattempted} unattempted question(s) out of ${mcqs.length}.\n\nAre you sure you want to submit the test?`
+                                    );
+                                    if (confirmed) {
+                                        handleSubmit();
+                                    }
+                                } else {
+                                    handleSubmit();
+                                }
+                            }}
                         >
                             Submit Test
                         </Button>
-                    ) : (
-                        <Button
-                            onClick={() => setCurrentIndex(prev => Math.min(DAY1_MCQS.length - 1, prev + 1))}
-                        >
-                            Next <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                    )
-                ) : (
+                    </div>
+                )}
+                {isSubmitted && (
                     <div className="flex gap-2">
                         <Button
                             variant="outline"
@@ -262,8 +341,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                             <RotateCcw className="mr-2 h-4 w-4" /> Retake Test
                         </Button>
                         <Button
-                            onClick={() => setCurrentIndex(prev => Math.min(DAY1_MCQS.length - 1, prev + 1))}
-                            disabled={currentIndex === DAY1_MCQS.length - 1}
+                            onClick={() => setCurrentIndex(prev => Math.min(mcqs.length - 1, prev + 1))}
+                            disabled={currentIndex === mcqs.length - 1}
                         >
                             Next Review <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -274,7 +353,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             {/* Quick Navigation Sheet/Grid could be here, omitting for brevity */}
             {!isSubmitted && (
                 <div className="flex flex-wrap gap-2 justify-center mt-6">
-                    {DAY1_MCQS.map((q, idx) => (
+                    {mcqs.map((q, idx) => (
                         <button
                             key={idx}
                             onClick={() => setCurrentIndex(idx)}

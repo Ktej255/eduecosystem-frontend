@@ -96,6 +96,9 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
     const pathname = usePathname();
     const { user } = useAuth();
     const isMasterId = user?.email === "ktej255@gmail.com";
+    const isSpecialBatch1Student = user?.email === "kajaldhannatar@gmail.com" || user?.email === "dikshajakhar0212@gmail.com";
+    const isBatch1Allowed = isMasterId || isSpecialBatch1Student;
+
     const [stats, setStats] = useState<StudentStats | null>(null);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -174,10 +177,10 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                     .filter((item) => {
                         // Show all items with "all" access
                         if (item.access === "all") return true;
-                        // Show Batch 1 to everyone (focus for now)
-                        if (item.access === "batch1") return true;
-                        // Show RAS only to Master ID or RAS-enrolled students
-                        if (item.access === "ras") return isMasterId;
+                        // Show Batch 1 to everyone allowed
+                        if (item.access === "batch1") return isBatch1Allowed;
+                        // Show RAS only to Master ID (hide for special Batch 1 students to avoid confusion)
+                        if (item.access === "ras") return isMasterId && !isSpecialBatch1Student;
                         return true;
                     })
                     .map((item) => {

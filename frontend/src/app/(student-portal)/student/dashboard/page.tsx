@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useAuth } from "@/contexts/auth-context";
 import {
     BookOpen,
     Brain,
@@ -31,6 +32,7 @@ import {
 } from "@/services/progressStorage";
 
 export default function StudentDashboard() {
+    const { user } = useAuth();
     const [stats, setStats] = useState<StudentStats | null>(null);
     const [resumePoint, setResumePoint] = useState<ResumePoint | null>(null);
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
@@ -38,8 +40,9 @@ export default function StudentDashboard() {
 
     // RAS Data State
     const [rasDashboard, setRasDashboard] = useState<any | null>(null);
-    const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
-    const userEmail = "chitrakumawat33@gmail.com";
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    const userEmail = user?.email || "";
+    const isSpecialBatch1Student = userEmail === "kajaldhannatar@gmail.com" || userEmail === "dikshajakhar0212@gmail.com";
 
     // Load stats from storage
     const loadStats = useCallback(() => {
@@ -57,6 +60,7 @@ export default function StudentDashboard() {
 
     // Fetch RAS Data
     useEffect(() => {
+        if (!userEmail || isSpecialBatch1Student) return;
         async function fetchRasData() {
             try {
                 const res = await fetch(`${API_BASE}/planner/dashboard/${userEmail}`);
@@ -69,7 +73,7 @@ export default function StudentDashboard() {
             }
         }
         fetchRasData();
-    }, []);
+    }, [userEmail, isSpecialBatch1Student]);
 
     // Initial load
     useEffect(() => {
@@ -109,6 +113,7 @@ export default function StudentDashboard() {
             </div>
         );
     }
+
 
     return (
         <div className="space-y-8 max-w-7xl mx-auto p-4 md:p-6">
@@ -212,41 +217,71 @@ export default function StudentDashboard() {
 
             {/* Activity Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* RAS Revision Card - REPLACES Batch 1 & 2 */}
-                <Card className="border-l-4 border-l-indigo-600 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-900/20 dark:to-neutral-900 shadow-md">
-                    <CardHeader className="pb-2">
-                        <CardTitle className="flex items-center gap-2 text-lg">
-                            <Target className="h-5 w-5 text-indigo-600" />
-                            RAS Revision Mastery
-                            <span className="ml-auto px-2 py-0.5 text-xs bg-indigo-100 text-indigo-700 rounded-full flex items-center gap-1 animate-pulse">
-                                <Sparkles className="h-3 w-3" />
-                                Live
-                            </span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="space-y-4">
-                            <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">Total Topics</span>
-                                <span className="font-semibold">{rasDashboard?.overall_progress?.completed_topics || 0} / {rasDashboard?.overall_progress?.total_topics || 350}</span>
-                            </div>
-
-                            <div className="space-y-1">
-                                <div className="flex justify-between text-xs text-gray-500 mb-1">
-                                    <span>Coverage</span>
-                                    <span>{rasDashboard?.overall_progress?.percentage || 0}%</span>
+                {/* RAS Revision Card - REPLACES Batch 1 & 2 - Only for non-Batch 1 focused students */}
+                {!isSpecialBatch1Student && (
+                    <Card className="border-l-4 border-l-indigo-600 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-900/20 dark:to-neutral-900 shadow-md">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="flex items-center gap-2 text-lg">
+                                <Target className="h-5 w-5 text-indigo-600" />
+                                RAS Revision Mastery
+                                <span className="ml-auto px-2 py-0.5 text-xs bg-indigo-100 text-indigo-700 rounded-full flex items-center gap-1 animate-pulse">
+                                    <Sparkles className="h-3 w-3" />
+                                    Live
+                                </span>
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-500">Total Topics</span>
+                                    <span className="font-semibold">{rasDashboard?.overall_progress?.completed_topics || 0} / {rasDashboard?.overall_progress?.total_topics || 350}</span>
                                 </div>
-                                <Progress value={dashboard_percentage(rasDashboard)} className="h-2" />
-                            </div>
 
-                            <Link href="/student/my-plan">
-                                <Button className="w-full mt-2 bg-indigo-600 hover:bg-indigo-700">
-                                    Open Revision Plan <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </Link>
-                        </div>
-                    </CardContent>
-                </Card>
+                                <div className="space-y-1">
+                                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                                        <span>Coverage</span>
+                                        <span>{rasDashboard?.overall_progress?.percentage || 0}%</span>
+                                    </div>
+                                    <Progress value={dashboard_percentage(rasDashboard)} className="h-2" />
+                                </div>
+
+                                <Link href="/student/my-plan">
+                                    <Button className="w-full mt-2 bg-indigo-600 hover:bg-indigo-700">
+                                        Open Revision Plan <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </div>
+                        </CardContent>
+                    </Card>
+                )}
+
+                {/* Batch 1 Quick Link - For focused students */}
+                {isSpecialBatch1Student && (
+                    <Card className="border-l-4 border-l-blue-600 bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-neutral-900 shadow-md">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="flex items-center gap-2 text-lg">
+                                <BookOpen className="h-5 w-5 text-blue-600" />
+                                Batch 1: UPSC Prelims
+                                <span className="ml-auto px-2 py-0.5 text-xs bg-blue-100 text-blue-700 rounded-full flex items-center gap-1">
+                                    <Rocket className="h-3 w-3" />
+                                    Active
+                                </span>
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                    Continue your systematic 90-day coverage of the UPSC syllabus. 10-Day Polity Smart Modules active.
+                                </p>
+                                <Link href="/student/batch1">
+                                    <Button className="w-full mt-2 bg-blue-600 hover:bg-blue-700">
+                                        Go to Batch 1 <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </div>
+                        </CardContent>
+                    </Card>
+                )}
 
                 {/* AI Coach Card */}
                 <Card className="border-l-4 border-l-rose-500 bg-gradient-to-br from-rose-50 to-white dark:from-rose-900/20 dark:to-neutral-900 shadow-md">
@@ -319,9 +354,116 @@ export default function StudentDashboard() {
                     </CardContent>
                 </Card>
             </div>
+
+            {/* Test Analysis Section */}
+            <TestAnalysisBoard />
         </div>
     );
 }
+
+function TestAnalysisBoard() {
+    const [reports, setReports] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+
+    useEffect(() => {
+        async function fetchReports() {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) return;
+
+                const res = await fetch(`${API_BASE}/batch1/test-results`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    setReports(data);
+                }
+            } catch (error) {
+                console.error("Error fetching test reports:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchReports();
+    }, [API_BASE]);
+
+    if (loading) return null;
+    if (reports.length === 0) return null;
+
+    return (
+        <Card className="border-none shadow-xl bg-white dark:bg-gray-900 overflow-hidden">
+            <CardHeader className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-6">
+                <CardTitle className="flex items-center gap-3 text-2xl">
+                    <Trophy className="h-8 w-8 text-amber-300" />
+                    Daily Test Analysis
+                </CardTitle>
+                <p className="text-blue-100 opacity-90">Track your performance across Batch 1 Practice Tests</p>
+            </CardHeader>
+            <CardContent className="p-0">
+                <div className="overflow-x-auto">
+                    <table className="w-full text-left">
+                        <thead className="bg-gray-50 dark:bg-gray-800 text-gray-500 text-sm uppercase tracking-wider">
+                            <tr>
+                                <th className="px-6 py-4">Day / Test</th>
+                                <th className="px-6 py-4">Score</th>
+                                <th className="px-6 py-4">Accuracy</th>
+                                <th className="px-6 py-4">Date</th>
+                                <th className="px-6 py-4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
+                            {reports.map((report) => (
+                                <tr key={report.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                    <td className="px-6 py-4 whitespace-nowrap">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 font-bold">
+                                                D{report.day_number}
+                                            </div>
+                                            <div>
+                                                <div className="font-semibold text-gray-900 dark:text-gray-100">Batch 1 Practice</div>
+                                                <div className="text-xs text-gray-500">Cycle {report.cycle_id}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <div className="text-lg font-bold text-indigo-600">{report.score}</div>
+                                        <div className="text-xs text-gray-400">/{report.total_questions * 2} max</div>
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <div className="flex items-center gap-2">
+                                            <div className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                                {Math.round((report.correct_count / report.total_questions) * 100)}%
+                                            </div>
+                                            <div className="w-24 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                                <div
+                                                    className="h-full bg-green-500"
+                                                    style={{ width: `${(report.correct_count / report.total_questions) * 100}%` }}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="text-[10px] text-green-600 mt-1">{report.correct_count} Correct</div>
+                                    </td>
+                                    <td className="px-6 py-4 text-sm text-gray-500">
+                                        {new Date(report.timestamp).toLocaleDateString()}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <Button variant="ghost" size="sm" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50">
+                                            Details <ArrowRight className="ml-1 h-3 w-3" />
+                                        </Button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </CardContent>
+        </Card>
+    );
+}
+
 
 // Helper to safe get percentage
 function dashboard_percentage(data: any): number {

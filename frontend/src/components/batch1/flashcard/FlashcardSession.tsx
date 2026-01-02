@@ -28,6 +28,9 @@ import { topic03Preamble } from "../polity/data/topics/topic-03-preamble";
 import { topic04UnionTerritory } from "../polity/data/topics/topic-04-union-territory";
 import { topic05Citizenship } from "../polity/data/topics/topic-05-citizenship";
 
+// Import pre-built flashcard sets for specific days
+import { DAY2_FLASHCARDS } from "../polity/data/day2-flashcards";
+
 // Topic registry for dynamic loading
 const TOPIC_MAP: Record<number, any> = {
     1: topic01HistoricalEvolution,
@@ -72,26 +75,33 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
     const loadFlashcards = () => {
         setLoading(true);
         try {
-            const { topicIds } = getFlashcardsForDay(cycleId, day);
-            const allCards: Flashcard[] = [];
+            // For Day 2, use the pre-built flashcard set
+            if (day === 2 && cycleId === 1) {
+                const shuffled = shuffleArray(DAY2_FLASHCARDS);
+                setFlashcards(shuffled);
+            } else {
+                // Default: Generate dynamically from topic data
+                const { topicIds } = getFlashcardsForDay(cycleId, day);
+                const allCards: Flashcard[] = [];
 
-            topicIds.forEach(topicId => {
-                const topic = TOPIC_MAP[topicId];
-                if (topic) {
-                    const cards = generateFlashcardsFromTopic(topic);
-                    allCards.push(...cards);
-                }
-            });
+                topicIds.forEach(topicId => {
+                    const topic = TOPIC_MAP[topicId];
+                    if (topic) {
+                        const cards = generateFlashcardsFromTopic(topic);
+                        allCards.push(...cards);
+                    }
+                });
 
-            // Shuffle cards for randomized learning
-            const shuffled = shuffleArray(allCards);
-            setFlashcards(shuffled);
+                const shuffled = shuffleArray(allCards);
+                setFlashcards(shuffled);
+            }
         } catch (error) {
             console.error("Error loading flashcards:", error);
         } finally {
             setLoading(false);
         }
     };
+
 
     const currentCard = flashcards[currentIndex];
     const progress = flashcards.length > 0
