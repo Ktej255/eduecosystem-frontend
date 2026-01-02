@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Upload, Video, Save, ChevronRight, Layers, Calendar, Clock, FileText, Trash2, CheckCircle, Youtube } from "lucide-react";
+import { Upload, Video, Save, ChevronRight, Layers, Calendar, Clock, FileText, Trash2, CheckCircle, Youtube, Loader2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { toast } from "sonner";
+import { useToast } from "@/components/ui/Toast";
 import Link from "next/link";
 import PDFUploadManager from "@/components/batch1/PDFUploadManager";
 import YouTubePreview from "@/components/batch1/YouTubePreview";
@@ -29,6 +29,7 @@ const UPSC_CYCLES = [
 export default function TeacherBatch1Page() {
     const [selectedCycle, setSelectedCycle] = useState<number | null>(null);
     const [selectedDay, setSelectedDay] = useState<number | null>(null);
+    const { showToast } = useToast();
 
     const getColorClasses = (color: string) => {
         const colors: Record<string, { bg: string; text: string; border: string }> = {
@@ -186,6 +187,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
     onBack: () => void;
 }) {
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const { showToast } = useToast();
 
     // Content state for each segment: key = "part-segment"
     const [segmentContent, setSegmentContent] = useState<Record<string, {
@@ -322,12 +324,25 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                             formData.append("youtube_url", content.youtubeUrl);
                         } else if (content.contentType === 'pdf') {
                             // Append PDF files
+                            const existingPdfs: any[] = [];
+
                             content.pdfFiles.forEach((pdf) => {
                                 if (pdf.file) {
+                                    // New file
                                     formData.append("pdf_files", pdf.file);
                                     formData.append("pdf_names", pdf.name);
+                                } else if (pdf.url) {
+                                    // Existing file - keep it
+                                    existingPdfs.push({
+                                        name: pdf.name,
+                                        url: pdf.url,
+                                        order: pdf.order
+                                    });
                                 }
                             });
+
+                            // Send list of existing PDFs to preserve
+                            formData.append("preserved_pdf_data", JSON.stringify(existingPdfs));
                         }
 
                         // Call backend API
@@ -350,10 +365,10 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
             }
 
             setUploadProgress("");
-            toast.success(`Successfully uploaded ${uploadedCount} segment(s)!`);
+            showToast(`Successfully uploaded ${uploadedCount} segment(s)!`, "success");
         } catch (error: any) {
             console.error("Upload failed:", error);
-            toast.error(`Upload failed: ${error.message}`);
+            showToast(`Upload failed: ${error.message}`, "error");
             setUploadProgress("");
         } finally {
             setSaving(false);
@@ -539,9 +554,18 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                 {uploadProgress && (
                     <p className="text-sm text-blue-600 animate-pulse">{uploadProgress}</p>
                 )}
-                <Button size="lg" onClick={handleSaveAll} disabled={saving}>
-                    <Save className="mr-2 h-5 w-5" />
-                    {saving ? "Uploading..." : "Save All Content"}
+                <Button size="lg" onClick={handleSaveAll} disabled={saving} className="min-w-[180px]">
+                    {saving ? (
+                        <>
+                            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                            Saving...
+                        </>
+                    ) : (
+                        <>
+                            <Save className="mr-2 h-5 w-5" />
+                            Save All Content
+                        </>
+                    )}
                 </Button>
             </div>
         </div>
