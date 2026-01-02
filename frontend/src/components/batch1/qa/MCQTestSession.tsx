@@ -29,7 +29,8 @@ interface MCQTestSessionProps {
 export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSessionProps) {
     // Dynamic MCQ loading based on day
     const mcqs = useMemo(() => {
-        switch (day) {
+        const d = typeof day === 'string' ? parseInt(day) : day;
+        switch (d) {
             case 2:
                 return DAY2_MCQS;
             case 1:
@@ -123,10 +124,10 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         // Save to Database
         setIsSaving(true);
         try {
-            const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+            const AWS_API = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
             const token = localStorage.getItem('token');
 
-            await axios.post(`${API_BASE}/batch1/test-results`, {
+            await axios.post(`${AWS_API}/batch1/test-results`, {
                 cycle_id: cycleId,
                 day_number: day,
                 score: finalScore,
@@ -140,7 +141,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                     'Authorization': `Bearer ${token}`
                 }
             });
-            console.log("Test result saved to database");
+            console.log("Test result saved to AWS database");
         } catch (error) {
             console.error("Failed to save test result:", error);
         } finally {

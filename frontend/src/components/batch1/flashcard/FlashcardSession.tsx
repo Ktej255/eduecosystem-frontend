@@ -21,25 +21,14 @@ import { Flashcard, generateFlashcardsFromTopic, getFlashcardsForDay, shuffleArr
 import VoiceRecorder from "../../ui/VoiceRecorder";
 import { toast } from "sonner";
 
-// Import topic data dynamically based on topic ID
-import { topic01HistoricalEvolution } from "../polity/data/topics/topic-01-historical-evolution";
-import { topic02MakingConstitution } from "../polity/data/topics/topic-02-making-constitution";
-import { topic03Preamble } from "../polity/data/topics/topic-03-preamble";
-import { topic04UnionTerritory } from "../polity/data/topics/topic-04-union-territory";
-import { topic05Citizenship } from "../polity/data/topics/topic-05-citizenship";
-
-// Import pre-built flashcard sets for specific days
+import { POLITY_TOPICS } from "../polity/data/polity-registry";
 import { DAY2_FLASHCARDS } from "../polity/data/day2-flashcards";
 
-// Topic registry for dynamic loading
-const TOPIC_MAP: Record<number, any> = {
-    1: topic01HistoricalEvolution,
-    2: topic02MakingConstitution,
-    3: topic03Preamble,
-    4: topic04UnionTerritory,
-    5: topic05Citizenship,
-    // Add more as needed
-};
+// Map topics by ID for easy lookup
+const TOPIC_MAP: Record<number, any> = {};
+POLITY_TOPICS.forEach(topic => {
+    TOPIC_MAP[topic.id] = topic;
+});
 
 interface FlashcardSessionProps {
     cycleId: number;
@@ -66,37 +55,54 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         missing_points: string[];
     } | null>(null);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const API_URL = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
     useEffect(() => {
         loadFlashcards();
     }, [cycleId, day]);
 
     const loadFlashcards = () => {
+        const d = typeof day === 'string' ? parseInt(day) : day;
+        const c = typeof cycleId === 'string' ? parseInt(cycleId) : cycleId;
+
+        console.log(`[FlashcardSession] Loading: cycleId=${c}, day=${d}`);
         setLoading(true);
         try {
-            // For Day 2, use the pre-built flashcard set
-            if (day === 2 && cycleId === 1) {
-                const shuffled = shuffleArray(DAY2_FLASHCARDS);
-                setFlashcards(shuffled);
-            } else {
-                // Default: Generate dynamically from topic data
-                const { topicIds } = getFlashcardsForDay(cycleId, day);
-                const allCards: Flashcard[] = [];
+            let cardsToSet: Flashcard[] = [];
+
+            // For Day 2, priority is the pre-built static set
+            if (d === 2 && c === 1) {
+                console.log("[FlashcardSession] Attempting DAY2_FLASHCARDS static set");
+                if (DAY2_FLASHCARDS && DAY2_FLASHCARDS.length > 0) {
+                    cardsToSet = [...DAY2_FLASHCARDS];
+                } else {
+                    console.warn("[FlashcardSession] DAY2_FLASHCARDS is empty or missing. Falling back to dynamic registry.");
+                }
+            }
+
+            // Fallback or default: Generate dynamically from topic data
+            if (cardsToSet.length === 0) {
+                console.log("[FlashcardSession] Generating flashcards from topic mapping");
+                const { topicIds } = getFlashcardsForDay(c, d);
 
                 topicIds.forEach(topicId => {
                     const topic = TOPIC_MAP[topicId];
                     if (topic) {
                         const cards = generateFlashcardsFromTopic(topic);
-                        allCards.push(...cards);
+                        cardsToSet.push(...cards);
                     }
                 });
+            }
 
-                const shuffled = shuffleArray(allCards);
-                setFlashcards(shuffled);
+            if (cardsToSet.length > 0) {
+                setFlashcards(shuffleArray(cardsToSet));
+            } else {
+                console.error("[FlashcardSession] No flashcards found for Day", d);
+                setFlashcards([]);
             }
         } catch (error) {
-            console.error("Error loading flashcards:", error);
+            console.error("[FlashcardSession] Error loading flashcards:", error);
+            setFlashcards([]);
         } finally {
             setLoading(false);
         }

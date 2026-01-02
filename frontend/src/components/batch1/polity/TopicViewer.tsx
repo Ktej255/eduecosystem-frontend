@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { ArrowLeft, BookOpen, ChevronDown, ChevronUp, Clock, ExternalLink, Lightbulb, Pin, Sparkles, Scale } from 'lucide-react';
 import Link from 'next/link';
 import { PolityTopic, getModuleById, getModuleColors } from './data/polity-registry';
+import EveningSessionDayView from '../EveningSessionDayView';
 
 interface TopicViewerProps {
     topic: PolityTopic;
@@ -220,16 +221,16 @@ export default function TopicViewer({ topic }: TopicViewerProps) {
                             <div
                                 key={idx}
                                 className={`flex items-start gap-3 p-3 rounded-lg ${pointer.highlight
-                                        ? 'bg-emerald-100 dark:bg-emerald-800/30 border-l-4 border-emerald-500'
-                                        : 'bg-white dark:bg-[#111]'
+                                    ? 'bg-emerald-100 dark:bg-emerald-800/30 border-l-4 border-emerald-500'
+                                    : 'bg-white dark:bg-[#111]'
                                     }`}
                             >
                                 <span className={`text-xs px-2 py-0.5 rounded font-medium ${pointer.category === 'Article' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300' :
-                                        pointer.category === 'Amendment' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300' :
-                                            pointer.category === 'Case' ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/50 dark:text-rose-300' :
-                                                pointer.category === 'Year' ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300' :
-                                                    pointer.category === 'Commission' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300' :
-                                                        'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                                    pointer.category === 'Amendment' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300' :
+                                        pointer.category === 'Case' ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/50 dark:text-rose-300' :
+                                            pointer.category === 'Year' ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300' :
+                                                pointer.category === 'Commission' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300' :
+                                                    'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
                                     }`}>
                                     {pointer.category}
                                 </span>
@@ -260,6 +261,11 @@ export default function TopicViewer({ topic }: TopicViewerProps) {
                         Next Topic
                         <ArrowLeft className="w-4 h-4 rotate-180" />
                     </Link>
+                </div>
+
+                {/* Evening Session Section */}
+                <div id="evening-session" className="pt-8 border-t border-gray-200 dark:border-gray-800">
+                    <EveningSessionDayView cycleId={1} day={topic.id} />
                 </div>
             </div>
         </div>

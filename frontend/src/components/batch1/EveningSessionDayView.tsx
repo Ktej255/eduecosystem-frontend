@@ -184,7 +184,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                                 </div>
                             </div>
                             <div>
-                                <Link href={`/student/batch1/csat`}>
+                                <Link href={`/student/batch1/csat?day=${day}`}>
                                     <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
                                         Start CSAT
                                     </Button>

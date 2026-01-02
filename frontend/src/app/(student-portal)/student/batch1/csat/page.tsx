@@ -22,10 +22,12 @@ import {
     Maximize2,
     Minimize2,
     ZoomIn,
-    ZoomOut
+    ZoomOut,
+    Lightbulb
 } from "lucide-react";
 import Link from "next/link";
-import { CSAT_DAY_1_DATA } from "./csat-data";
+import { useSearchParams } from "next/navigation";
+import { CSAT_DATA_MAP, VocabularyItem } from "./csat-data";
 
 // Sample CSAT topics for each month
 const CSAT_MONTHS = [
@@ -151,12 +153,30 @@ export default function CSATPage() {
     const [activeTab, setActiveTab] = useState<'video' | 'practice'>('video');
     const [videoUrl, setVideoUrl] = useState("");
 
+    const searchParams = useSearchParams();
+    const dayParam = searchParams.get('day');
+
     // Practice state
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
     const [showResults, setShowResults] = useState(false);
     const [practiceStarted, setPracticeStarted] = useState(false);
     const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
+    const [showVocabulary, setShowVocabulary] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Initial load from params
+    useState(() => {
+        if (dayParam) {
+            const dayNum = parseInt(dayParam, 10);
+            if (dayNum > 0 && dayNum <= 30) {
+                setSelectedMonth(0); // Assuming Jan/Phase 1 for Day 1-30
+                setSelectedSession(dayNum - 1);
+                setViewMode('learning');
+                setActiveTab('practice');
+            }
+        }
+    });
 
     // Passage readability controls
     const [passageFontSize, setPassageFontSize] = useState(14); // Default 14px
@@ -183,17 +203,29 @@ export default function CSATPage() {
         setSelectedAnswers(prev => ({ ...prev, [questionId]: answerIndex }));
     };
 
-    const isDay1 = selectedMonth === 0 && selectedSession === 0;
+    const currentSessionDay = selectedMonth === 0 ? (selectedSession ?? 0) + 1 : 0;
+    const sessionData = CSAT_DATA_MAP[currentSessionDay];
 
     // Determine current questions based on session
-    const currentQuestions = isDay1
-        ? CSAT_DAY_1_DATA.passages.flatMap(p => p.questions)
+    const currentQuestions = sessionData
+        ? sessionData.passages.flatMap(p => p.questions)
         : SAMPLE_QUESTIONS;
 
-    // Find current passage for Day 1
-    const currentPassage = isDay1 && currentQuestions[currentQuestion]
-        ? CSAT_DAY_1_DATA.passages.find(p => p.questions.some(q => q.id === currentQuestions[currentQuestion].id))
+    // Find current passage
+    const currentPassage = sessionData && currentQuestions[currentQuestion]
+        ? sessionData.passages.find(p => p.questions.some(q => q.id === currentQuestions[currentQuestion].id))
         : null;
+
+    const handleSubmit = () => {
+        const unasweredCount = currentQuestions.length - Object.keys(selectedAnswers).length;
+        if (unasweredCount > 0) {
+            if (confirm(`You have ${unasweredCount} unanswered questions. Are you sure you want to submit?`)) {
+                setShowResults(true);
+            }
+        } else {
+            setShowResults(true);
+        }
+    };
 
     const calculateScore = () => {
         let correct = 0;
@@ -281,7 +313,7 @@ export default function CSATPage() {
                     </TabsList>
 
                     <TabsContent value="video" className="mt-6">
-                        {isDay1 ? (
+                        {sessionData ? (
                             <Card>
                                 <CardContent className="p-8 text-center bg-amber-50 dark:bg-amber-900/10">
                                     <Video className="h-12 w-12 mx-auto text-amber-600 mb-4 opacity-50" />
@@ -364,7 +396,7 @@ export default function CSATPage() {
                                     </h3>
                                     <p className="text-gray-600 dark:text-gray-400 mb-6">
                                         {currentQuestions.length} questions based on today's session.<br />
-                                        {isDay1 ? "Reading Comprehension Analysis" : "Time limit: 25 minutes"}
+                                        {currentSessionDay === 1 ? "Reading Comprehension Analysis" : "Time limit: 25 minutes"}
                                     </p>
                                     <Button
                                         size="lg"
@@ -426,9 +458,18 @@ export default function CSATPage() {
                                             setShowResults(false);
                                             setCurrentQuestion(0);
                                             setSelectedAnswers({});
+                                            setShowVocabulary(false);
                                         }}>
                                             Try Again
                                         </Button>
+                                        {sessionData?.vocabulary && (
+                                            <Button
+                                                className="bg-purple-600 hover:bg-purple-700"
+                                                onClick={() => setShowVocabulary(true)}
+                                            >
+                                                View Vocabulary Guide
+                                            </Button>
+                                        )}
                                         <Button
                                             className="bg-amber-600 hover:bg-amber-700"
                                             onClick={() => { setViewMode('sessions'); setSelectedSession(null); }}
@@ -436,6 +477,57 @@ export default function CSATPage() {
                                             Next Session
                                         </Button>
                                     </div>
+
+                                    {/* Vocabulary Dialog/Popup */}
+                                    {showVocabulary && sessionData?.vocabulary && (
+                                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 animate-in fade-in duration-300">
+                                            <Card className="w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col">
+                                                <CardHeader className="bg-purple-600 text-white flex flex-row items-center justify-between">
+                                                    <CardTitle className="text-xl">Day {currentSessionDay} Vocabulary Guide</CardTitle>
+                                                    <Button variant="ghost" size="sm" onClick={() => setShowVocabulary(false)} className="text-white hover:bg-white/20">
+                                                        ✕
+                                                    </Button>
+                                                </CardHeader>
+                                                <CardContent className="flex-1 overflow-y-auto p-6 space-y-6">
+                                                    <div className="bg-purple-50 p-4 rounded-lg border border-purple-100 italic text-purple-700 text-sm">
+                                                        Note: These words were selected from today's passages. Master these to improve your RC accuracy.
+                                                    </div>
+                                                    {sessionData.vocabulary.map((item, idx) => (
+                                                        <div key={idx} className="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                                                            <div className="flex items-center justify-between mb-1">
+                                                                <h4 className="font-bold text-lg text-gray-900">{item.word}</h4>
+                                                                {item.toneIndicator && (
+                                                                    <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full ${item.toneIndicator === 'positive' ? 'bg-green-100 text-green-700' :
+                                                                        item.toneIndicator === 'negative' ? 'bg-red-100 text-red-700' :
+                                                                            'bg-gray-100 text-gray-700'
+                                                                        }`}>
+                                                                        {item.toneIndicator}
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                            <p className="text-sm text-gray-800 mb-2 font-medium">{item.definition}</p>
+                                                            <div className="bg-gray-50 p-2 rounded text-xs text-gray-600 mb-2 border-l-2 border-gray-300">
+                                                                <span className="font-bold">Context:</span> "{item.context}"
+                                                            </div>
+                                                            <div className="grid grid-cols-2 gap-2 text-xs">
+                                                                <div><span className="font-bold text-gray-500">Synonyms:</span> {item.synonyms.join(', ')}</div>
+                                                                {item.antonyms.length > 0 && <div><span className="font-bold text-gray-500">Antonyms:</span> {item.antonyms.join(', ')}</div>}
+                                                            </div>
+                                                            {item.csatTip && (
+                                                                <div className="mt-2 text-xs bg-amber-50 text-amber-700 p-2 rounded flex items-start gap-2">
+                                                                    <Lightbulb className="w-4 h-4 shrink-0" />
+                                                                    {item.csatTip}
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    ))}
+                                                </CardContent>
+                                                <div className="p-4 border-t bg-gray-50 flex justify-end">
+                                                    <Button onClick={() => setShowVocabulary(false)}>Close Guide</Button>
+                                                </div>
+                                            </Card>
+                                        </div>
+                                    )}
                                 </CardContent>
                             </Card>
                         ) : (
@@ -555,8 +647,7 @@ export default function CSATPage() {
                                             {currentQuestion === currentQuestions.length - 1 ? (
                                                 <Button
                                                     className="bg-amber-600 hover:bg-amber-700"
-                                                    onClick={() => setShowResults(true)}
-                                                    disabled={Object.keys(selectedAnswers).length !== currentQuestions.length}
+                                                    onClick={handleSubmit}
                                                 >
                                                     Submit <CheckCircle2 className="ml-2 h-4 w-4" />
                                                 </Button>

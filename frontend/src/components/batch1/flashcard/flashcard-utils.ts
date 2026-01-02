@@ -93,7 +93,18 @@ export function getFlashcardsForDay(cycleId: number, day: number): { topicIds: n
             };
         }
 
+        // Day 2: Making of the Constitution (Topic 2)
+        if (day === 2) {
+            return {
+                topicIds: [2],
+                totalTopics: 50
+            };
+        }
+
         const topicsPerDay = 5;
+        // Adjust start topic based on Day 1/2 being single topics
+        // Day 3 starts at topic 3? Or maybe Day 3 starts at topic 6 as originally planned.
+        // Let's assume the user wants one topic per day for now if it's specialized.
         const startTopic = (day - 1) * topicsPerDay + 1;
         const endTopic = day * topicsPerDay;
 

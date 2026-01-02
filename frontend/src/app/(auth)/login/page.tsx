@@ -23,35 +23,15 @@ export default function LoginPage() {
     setError("");
 
     try {
-      // EMERGENCY FIX: Hardcode AWS URL directly here
-      const AWS_API = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+      const data = await login(email, password);
 
-      const formData = new URLSearchParams();
-      formData.append("username", email);
-      formData.append("password", password);
-
-      const res = await fetch(`${AWS_API}/login/access-token`, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData.toString(),
-      });
-
-      if (!res.ok) {
-        const errData = await res.json().catch(() => ({}));
-        throw new Error(errData.detail || "Invalid email or password");
-      }
-
-      const data = await res.json();
-
-      // Check if 2FA is required
-      if (data.require_2fa) {
+      // Check if 2FA is required based on response from auth-context's login
+      if (data && data.require_2fa) {
+        setRequires2FA(true);
         setRequires2FA(true);
         setTempToken(data.access_token);
-      } else {
-        // Standard login - store token and redirect
-        localStorage.setItem("token", data.access_token);
-        window.location.href = "/student/dashboard";
       }
+      // Success redirection is handled inside auth-context's login for non-2FA
     } catch (err: any) {
       console.error(err);
       setError(err.message || "Invalid email or password");
