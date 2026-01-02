@@ -106,7 +106,6 @@ class SegmentResponse(BaseModel):
     key_points: str
     video_url: Optional[str]
     youtube_url: Optional[str] = None
-    youtube_url: Optional[str] = None
     content_type: str = "video"
     pdf_files: List[Dict[str, Any]] = []
     duration: str
@@ -142,8 +141,6 @@ async def get_part_content(
                 key_points=data.get("key_points", ""),
                 video_url=data.get("video_url"),
                 youtube_url=data.get("youtube_url"),
-                video_url=data.get("video_url"),
-                youtube_url=data.get("youtube_url"),
                 content_type=data.get("content_type", "video"),
                 pdf_files=data.get("pdf_files", []),
                 duration=data.get("duration", "25:00")
@@ -154,8 +151,6 @@ async def get_part_content(
                 id=seg_num,
                 title=f"Segment {seg_num} (Not Uploaded)",
                 key_points="Key points will appear here after admin uploads content",
-                video_url=None,
-                youtube_url=None,
                 video_url=None,
                 youtube_url=None,
                 content_type="video",
