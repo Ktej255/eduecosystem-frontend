@@ -55,7 +55,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         missing_points: string[];
     } | null>(null);
 
-    const API_URL = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
     useEffect(() => {
         loadFlashcards();

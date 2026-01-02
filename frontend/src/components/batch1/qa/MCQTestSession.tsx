@@ -124,7 +124,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         // Save to Database
         setIsSaving(true);
         try {
-            const AWS_API = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+            const AWS_API = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
             const token = localStorage.getItem('token');
 
             await axios.post(`${AWS_API}/batch1/test-results`, {

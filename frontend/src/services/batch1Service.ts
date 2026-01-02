@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
 export interface SegmentData {
     id: number;
