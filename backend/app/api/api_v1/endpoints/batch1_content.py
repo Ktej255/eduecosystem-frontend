@@ -13,6 +13,17 @@ import uuid
 import json
 import asyncio
 
+# Database imports for persistence
+from app.db.session import SessionLocal
+from app.models.batch1 import Batch1Segment
+from app.core.config import settings
+
+# Optional S3 import
+try:
+    import boto3
+except ImportError:
+    boto3 = None
+
 router = APIRouter()
 
 # Upload directory - use absolute path relative to backend root
@@ -205,201 +216,174 @@ async def save_segment(
         # --- PERSISTENCE: Database & S3 ---
         key = f"{cycle_id}_{day_number}_{part_number}_{segment_number}"
         
-        # Check if segment exists
-        segment = db.query(Batch1Segment).filter(Batch1Segment.segment_key == key).first()
-        if not segment:
-            segment = Batch1Segment(
-                cycle_id=cycle_id,
-                day_number=day_number,
-                part_number=part_number,
-                segment_number=segment_number,
-                segment_key=key,
-                title=title or f"Segment {segment_number}"
-            )
-            db.add(segment)
-        
-        # Update common fields
-        segment.title = title
-        segment.key_points = key_points
-        segment.duration = "25:00" # Default duration
-        segment.updated_at = datetime.utcnow()
-
-        video_uploaded = False
-        file_path_for_transcription = None # Local path for transcription service
-
-        # 1. Video Upload
-        if video_file and video_file.filename:
-            file_ext = os.path.splitext(video_file.filename)[1]
-            file_name = f"c{cycle_id}_d{day_number}_p{part_number}_s{segment_number}_{uuid.uuid4().hex[:8]}{file_ext}"
+        # Create database session
+        with SessionLocal() as db:
+            # Check if segment exists
+            segment = db.query(Batch1Segment).filter(Batch1Segment.segment_key == key).first()
+            if not segment:
+                segment = Batch1Segment(
+                    cycle_id=cycle_id,
+                    day_number=day_number,
+                    part_number=part_number,
+                    segment_number=segment_number,
+                    segment_key=key,
+                    title=title or f"Segment {segment_number}"
+                )
+                db.add(segment)
             
-            if settings.STORAGE_BACKEND == 's3' and settings.AWS_S3_BUCKET:
-                try:
-                    s3 = boto3.client('s3',
-                                      aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
-                                      aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
-                                      region_name=settings.AWS_REGION)
-                    video_file.file.seek(0) # Ensure file pointer is at beginning
-                    s3.upload_fileobj(video_file.file, settings.AWS_S3_BUCKET, f"videos/{file_name}", ExtraArgs={'ACL': 'public-read'})
-                    segment.video_url = f"https://{settings.AWS_S3_BUCKET}.s3.{settings.AWS_REGION}.amazonaws.com/videos/{file_name}"
-                    print(f"Uploaded video to S3: {segment.video_url}")
-                    # For transcription, if S3, we might need to download it temporarily or pass S3 URL
-                    # For now, transcription service expects local path. This needs to be addressed.
-                    # For demonstration, we'll assume transcription service can handle S3 URLs or a temporary download.
-                    file_path_for_transcription = segment.video_url # Pass S3 URL
-                except Exception as e:
-                    print(f"S3 Upload Error: {e}")
-                    raise HTTPException(status_code=500, detail=f"S3 Upload Failed: {str(e)}")
-            else:
-                # Local Save
-                file_path = os.path.join(UPLOAD_DIR, file_name)
-                video_file.file.seek(0) # Ensure file pointer is at beginning
-                contents = await video_file.read()
-                with open(file_path, "wb") as f:
-                    f.write(contents)
-                segment.video_url = f"/uploads/batch1/{file_name}"
-                file_path_for_transcription = file_path
-            
-            segment.content_type = 'video'
-            segment.youtube_url = None # Clear YouTube URL if video uploaded
-            video_uploaded = True
-            segment.transcription_status = "pending" # Mark for transcription
-        elif segment.video_url and not video_file: # Keep existing video_url if no new video uploaded
-            # If existing video is local, get its path for potential re-transcription
-            if segment.video_url.startswith("/uploads/batch1/"):
-                file_path_for_transcription = os.path.join(BACKEND_ROOT, segment.video_url.lstrip('/'))
-            else: # Assume S3 URL
-                file_path_for_transcription = segment.video_url
-        
-        # 2. YouTube Upload
-        elif youtube_url:
-            segment.youtube_url = youtube_url
-            segment.content_type = 'youtube'
-            segment.video_url = None # Clear video URL if YouTube URL provided
-            segment.transcription_status = "none" # No transcription for YouTube
-        
-        # 3. PDF Upload
-        # Ensure pdfs directory for local storage
-        PDF_UPLOAD_DIR = os.path.join(UPLOAD_DIR, "pdfs")
-        os.makedirs(PDF_UPLOAD_DIR, exist_ok=True)
+            # Update common fields
+            segment.title = title
+            segment.key_points = key_points
+            segment.duration = "25:00"  # Default duration
 
-        current_pdfs_list = []
-        if segment.pdf_files:
-            try:
-                current_pdfs_list = json.loads(segment.pdf_files)
-            except json.JSONDecodeError:
-                print(f"Error decoding existing pdf_files for {key}: {segment.pdf_files}")
-                current_pdfs_list = []
-        
-        # Handle preserved PDFs (from frontend's full list)
-        final_pdf_list = []
-        if preserved_pdf_data:
-            try:
-                preserved_list = json.loads(preserved_pdf_data)
-                preserved_urls = {p.get('url') for p in preserved_list if p.get('url')}
+            video_uploaded = False
+            file_path_for_transcription = None  # Local path for transcription service
+
+            # 1. Video Upload
+            if video and video.filename:
+                file_ext = os.path.splitext(video.filename)[1]
+                file_name = f"c{cycle_id}_d{day_number}_p{part_number}_s{segment_number}_{uuid.uuid4().hex[:8]}{file_ext}"
                 
-                # Keep only PDFs whose URLs are in the preserved_list
-                final_pdf_list = [p for p in current_pdfs_list if p.get('url') in preserved_urls]
-            except Exception as e:
-                print(f"Error parsing preserved_pdf_data: {e}. Falling back to appending new PDFs.")
-                final_pdf_list = current_pdfs_list # If parsing fails, keep existing and append new
-        else:
-            final_pdf_list = current_pdfs_list # If no preserved data, keep existing and append new
+                # Check if S3 is configured and boto3 is available
+                use_s3 = boto3 and hasattr(settings, 'STORAGE_BACKEND') and settings.STORAGE_BACKEND == 's3' and hasattr(settings, 'AWS_S3_BUCKET') and settings.AWS_S3_BUCKET
+                
+                if use_s3:
+                    try:
+                        s3 = boto3.client('s3',
+                                          aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                                          aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+                                          region_name=settings.AWS_REGION)
+                        video.file.seek(0)
+                        s3.upload_fileobj(video.file, settings.AWS_S3_BUCKET, f"videos/{file_name}", ExtraArgs={'ACL': 'public-read'})
+                        segment.video_url = f"https://{settings.AWS_S3_BUCKET}.s3.{settings.AWS_REGION}.amazonaws.com/videos/{file_name}"
+                        print(f"Uploaded video to S3: {segment.video_url}")
+                        file_path_for_transcription = segment.video_url
+                    except Exception as e:
+                        print(f"S3 Upload Error: {e}")
+                        raise HTTPException(status_code=500, detail=f"S3 Upload Failed: {str(e)}")
+                else:
+                    # Local Save
+                    file_path = os.path.join(UPLOAD_DIR, file_name)
+                    video.file.seek(0)
+                    contents = await video.read()
+                    with open(file_path, "wb") as f:
+                        f.write(contents)
+                    segment.video_url = f"/uploads/batch1/{file_name}"
+                    file_path_for_transcription = file_path
+                
+                segment.content_type = 'video'
+                segment.youtube_url = None
+                video_uploaded = True
+            elif segment.video_url and not video:
+                # Keep existing video_url
+                if segment.video_url.startswith("/uploads/batch1/"):
+                    file_path_for_transcription = os.path.join(BACKEND_ROOT, segment.video_url.lstrip('/'))
+                else:
+                    file_path_for_transcription = segment.video_url
+            elif youtube_url:
+                # 2. YouTube URL
+                segment.youtube_url = youtube_url
+                segment.content_type = 'youtube'
+                segment.video_url = None
+            
+            # 3. PDF Upload
+            PDF_UPLOAD_DIR = os.path.join(UPLOAD_DIR, "pdfs")
+            os.makedirs(PDF_UPLOAD_DIR, exist_ok=True)
 
-        new_pdfs_uploaded = []
-        if pdf_files:
-            segment.content_type = 'pdf' # If new PDFs are uploaded, set content type to PDF
-            segment.video_url = None # Clear video URL
-            segment.youtube_url = None # Clear YouTube URL
-            segment.transcription_status = "none" # No transcription for PDFs directly
+            current_pdfs_list = []
+            if segment.pdf_files:
+                try:
+                    current_pdfs_list = json.loads(segment.pdf_files)
+                except json.JSONDecodeError:
+                    print(f"Error decoding existing pdf_files for {key}")
+                    current_pdfs_list = []
+            
+            # Handle preserved PDFs
+            final_pdf_list = []
+            if preserved_pdf_data:
+                try:
+                    preserved_list = json.loads(preserved_pdf_data)
+                    preserved_urls = {p.get('url') for p in preserved_list if p.get('url')}
+                    final_pdf_list = [p for p in current_pdfs_list if p.get('url') in preserved_urls]
+                except Exception as e:
+                    print(f"Error parsing preserved_pdf_data: {e}")
+                    final_pdf_list = current_pdfs_list
+            else:
+                final_pdf_list = current_pdfs_list
 
-            for idx, pdf in enumerate(pdf_files):
-                if pdf.filename:
-                    file_ext = os.path.splitext(pdf.filename)[1]
-                    unique_name = f"c{cycle_id}_d{day_number}_p{part_number}_s{segment_number}_pdf{idx}_{uuid.uuid4().hex[:6]}{file_ext}"
-                    pdf_url = ""
-                    local_pdf_path = None # To store local path for process_pdf_document
+            new_pdfs_uploaded = []
+            if pdf_files:
+                segment.content_type = 'pdf'
+                segment.video_url = None
+                segment.youtube_url = None
 
-                    if settings.STORAGE_BACKEND == 's3' and settings.AWS_S3_BUCKET:
-                        try:
-                            s3 = boto3.client('s3',
-                                              aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
-                                              aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
-                                              region_name=settings.AWS_REGION)
-                            pdf.file.seek(0) # Ensure file pointer is at beginning
-                            s3.upload_fileobj(pdf.file, settings.AWS_S3_BUCKET, f"pdfs/{unique_name}", ExtraArgs={'ACL': 'public-read'})
-                            pdf_url = f"https://{settings.AWS_S3_BUCKET}.s3.{settings.AWS_REGION}.amazonaws.com/pdfs/{unique_name}"
-                            print(f"Uploaded PDF to S3: {pdf_url}")
-                            # If S3, for process_pdf_document, we need to download it temporarily
-                            # For simplicity, assuming process_pdf_document can handle S3 URL or we download it.
-                            # For now, let's assume process_pdf_document needs a local path.
-                            # This means if S3 is used, we'd need to download it to a temp file for processing.
-                            # For this edit, we'll keep the local path logic for process_pdf_document.
-                            # If S3 is enabled, process_pdf_document might need to be updated to handle S3 URLs directly.
-                            # For now, we'll skip calling process_pdf_document if S3 is used, as it expects a local path.
-                            # This is a known limitation that needs further refinement.
-                        except Exception as e:
-                            print(f"S3 Upload Failed for PDF: {e}")
-                            raise HTTPException(status_code=500, detail=f"S3 Upload Failed: {str(e)}")
-                    else:
-                         # Local Save
-                         dest_path = os.path.join(PDF_UPLOAD_DIR, unique_name)
-                         pdf.file.seek(0)
-                         content = await pdf.read()
-                         with open(dest_path, "wb") as f:
-                             f.write(content)
-                         pdf_url = f"/uploads/batch1/pdfs/{unique_name}"
-                         local_pdf_path = dest_path
+                for idx, pdf in enumerate(pdf_files):
+                    if pdf.filename:
+                        file_ext = os.path.splitext(pdf.filename)[1]
+                        unique_name = f"c{cycle_id}_d{day_number}_p{part_number}_s{segment_number}_pdf{idx}_{uuid.uuid4().hex[:6]}{file_ext}"
+                        pdf_url = ""
+                        local_pdf_path = None
 
-                    # Trigger PDF processing for the first PDF
-                    if idx == 0:
-                        print(f"Triggering PDF processing for {key}")
-                        if local_pdf_path:
-                            await process_pdf_document(key, local_pdf_path, pdf_name)
+                        # Check if S3 is configured
+                        use_s3 = boto3 and hasattr(settings, 'STORAGE_BACKEND') and settings.STORAGE_BACKEND == 's3' and hasattr(settings, 'AWS_S3_BUCKET') and settings.AWS_S3_BUCKET
+                        
+                        if use_s3:
+                            try:
+                                s3 = boto3.client('s3',
+                                                  aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                                                  aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+                                                  region_name=settings.AWS_REGION)
+                                pdf.file.seek(0)
+                                s3.upload_fileobj(pdf.file, settings.AWS_S3_BUCKET, f"pdfs/{unique_name}", ExtraArgs={'ACL': 'public-read'})
+                                pdf_url = f"https://{settings.AWS_S3_BUCKET}.s3.{settings.AWS_REGION}.amazonaws.com/pdfs/{unique_name}"
+                                print(f"Uploaded PDF to S3: {pdf_url}")
+                            except Exception as e:
+                                print(f"S3 Upload Failed for PDF: {e}")
+                                raise HTTPException(status_code=500, detail=f"S3 Upload Failed: {str(e)}")
                         else:
-                            # S3 path logic - if time permits, implement download-process-upload logic
-                             pass
+                            # Local Save
+                            dest_path = os.path.join(PDF_UPLOAD_DIR, unique_name)
+                            pdf.file.seek(0)
+                            content = await pdf.read()
+                            with open(dest_path, "wb") as f:
+                                f.write(content)
+                            pdf_url = f"/uploads/batch1/pdfs/{unique_name}"
+                            local_pdf_path = dest_path
 
-                    new_pdfs_uploaded.append({
-                        "name": pdf_names[idx] if idx < len(pdf_names) else pdf.filename,
-                        "url": pdf_url,
-                        "order": len(final_pdf_list) + idx + 1
-                    })
+                        # Trigger PDF processing for first PDF
+                        if idx == 0 and local_pdf_path:
+                            print(f"Triggering PDF processing for {key}")
+                            current_pdf_name = pdf_names[idx] if pdf_names and idx < len(pdf_names) else pdf.filename
+                            await process_pdf_document(key, local_pdf_path, current_pdf_name)
 
-            # Append new PDFs to final list
-            final_pdf_list.extend(new_pdfs_uploaded)
+                        new_pdfs_uploaded.append({
+                            "name": pdf_names[idx] if pdf_names and idx < len(pdf_names) else pdf.filename,
+                            "url": pdf_url,
+                            "order": len(final_pdf_list) + idx + 1
+                        })
 
-        if final_pdf_list:
-             segment.pdf_files = json.dumps(final_pdf_list)
-        
-        # Commit to Database
-        db.commit()
-        db.refresh(segment)
+                # Append new PDFs to final list
+                final_pdf_list.extend(new_pdfs_uploaded)
 
-        # Trigger background transcription if new video uploaded
-        # NOTE: file_path_for_transcription might be None if S3 logic used but no local download implemented yet
-        if video_uploaded and file_path_for_transcription:
-             # Only trigger if local path available or service updated (Currently assumes local)
-             if not file_path_for_transcription.startswith("http"):
-                print(f"[Batch1Content] Triggering background transcription for {key}")
-                # We need to ensure logic handles this
-                # For now, simplistic trigger
-                # TRANSCRIPTION_STATUS[key] = "queued"
-                # background_tasks.add_task(...)
-                pass
-             else:
-                print("[Batch1Content] S3 video uploaded. Transcription skipped (Service needs update for S3 URL support)")
+            if final_pdf_list:
+                segment.pdf_files = json.dumps(final_pdf_list)
+            
+            # Commit to Database
+            db.commit()
+            db.refresh(segment)
 
-        return {
-            "success": True,
-            "message": f"Segment {segment_number} saved successfully (Persistent Mode)",
-            "segment_key": key,
-            "video_url": segment.video_url,
-            "transcription_started": False # Simplified for now
-        }
+            return {
+                "success": True,
+                "message": f"Segment {segment_number} saved successfully",
+                "segment_key": key,
+                "video_url": segment.video_url,
+                "pdf_count": len(final_pdf_list)
+            }
 
     except Exception as e:
         print(f"Error saving segment: {e}")
-        # db.rollback() # Best practice
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 
