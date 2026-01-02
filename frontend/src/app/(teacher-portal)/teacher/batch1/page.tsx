@@ -309,11 +309,21 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                     const key = `${part}-${seg}`;
                     const content = segmentContent[key];
 
-                    if (content && content.title) {
+                    // Check if segment has any content (title, video, PDF, YouTube)
+                    const hasContent = content && (
+                        content.title ||
+                        content.videoFile ||
+                        (content.contentType === 'youtube' && content.youtubeUrl) ||
+                        (content.contentType === 'pdf' && (content.pdfFiles.length > 0))
+                    );
+
+                    if (hasContent) {
                         setUploadProgress(`Uploading Part ${part} Segment ${seg}...`);
 
                         const formData = new FormData();
-                        formData.append("title", content.title);
+                        // Use provided title or default
+                        const finalTitle = content.title || `Segment ${seg}`;
+                        formData.append("title", finalTitle);
                         formData.append("key_points", content.notes || "");
                         formData.append("content_type", content.contentType);
 
