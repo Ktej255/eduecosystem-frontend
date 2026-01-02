@@ -34,8 +34,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-// PRODUCTION: AWS App Runner backend - DO NOT CHANGE
-const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+// Use environment variable for API base URL
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
 interface SubjectProgress {
     name: string;

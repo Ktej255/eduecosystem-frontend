@@ -22,7 +22,7 @@ import VoiceRecorder from "../../ui/VoiceRecorder";
 import { toast } from "sonner";
 
 import { POLITY_TOPICS } from "../polity/data/polity-registry";
-import { DAY2_FLASHCARDS } from "../polity/data/day2-flashcards";
+import { getFlashcardDataForDay, hasFlashcardContent } from "../content-registry";
 
 // Map topics by ID for easy lookup
 const TOPIC_MAP: Record<number, any> = {};
@@ -70,13 +70,14 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         try {
             let cardsToSet: Flashcard[] = [];
 
-            // For Day 2, priority is the pre-built static set
-            if (d === 2 && c === 1) {
-                console.log("[FlashcardSession] Attempting DAY2_FLASHCARDS static set");
-                if (DAY2_FLASHCARDS && DAY2_FLASHCARDS.length > 0) {
-                    cardsToSet = [...DAY2_FLASHCARDS];
+            // Check content registry for pre-built flashcard sets
+            if (hasFlashcardContent(d)) {
+                console.log(`[FlashcardSession] Loading flashcards from registry for Day ${d}`);
+                const registryCards = getFlashcardDataForDay(c, d);
+                if (registryCards && registryCards.length > 0) {
+                    cardsToSet = [...registryCards];
                 } else {
-                    console.warn("[FlashcardSession] DAY2_FLASHCARDS is empty or missing. Falling back to dynamic registry.");
+                    console.warn(`[FlashcardSession] Registry returned empty for Day ${d}. Falling back to dynamic generation.`);
                 }
             }
 
