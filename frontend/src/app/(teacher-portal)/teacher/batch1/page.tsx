@@ -1,14 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Upload, Video, Save, ChevronRight, Layers, Calendar, Clock, FileText, Trash2, CheckCircle } from "lucide-react";
+import { Upload, Video, Save, ChevronRight, Layers, Calendar, Clock, FileText, Trash2, CheckCircle, Youtube } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import Link from "next/link";
+import PDFUploadManager from "@/components/batch1/PDFUploadManager";
+import YouTubePreview from "@/components/batch1/YouTubePreview";
 
 // Course structure
 const UPSC_CYCLES = [
@@ -160,6 +163,18 @@ interface UploadedSegment {
     title: string;
     key_points: string;
     video_url: string | null;
+    youtube_url?: string | null;
+    pdf_files?: { url: string; name: string; order: number }[];
+    content_type?: 'video' | 'pdf' | 'youtube';
+}
+
+interface PDFFile {
+    id: string;
+    file?: File;
+    name: string;
+    order: number;
+    size?: number;
+    url?: string;
 }
 
 // Day Content Upload Component
@@ -171,13 +186,38 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
     onBack: () => void;
 }) {
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-    const [videos, setVideos] = useState<Record<string, { file: File | null; title: string; notes: string; existingVideoUrl?: string | null }>>({});
+
+    // Content state for each segment: key = "part-segment"
+    const [segmentContent, setSegmentContent] = useState<Record<string, {
+        title: string;
+        notes: string;
+        contentType: 'video' | 'pdf' | 'youtube';
+        // Video
+        videoFile: File | null;
+        existingVideoUrl?: string | null;
+        // PDF
+        pdfFiles: PDFFile[];
+        // YouTube
+        youtubeUrl: string;
+    }>>({});
+
     const [saving, setSaving] = useState(false);
     const [uploadProgress, setUploadProgress] = useState<string>("");
     const [loading, setLoading] = useState(true);
 
     const parts = [1, 2, 3];
     const segmentsPerPart = 4;
+
+    // Helper to get default content state
+    const getDefaultContent = () => ({
+        title: "",
+        notes: "",
+        contentType: 'video' as const,
+        videoFile: null,
+        existingVideoUrl: null,
+        pdfFiles: [] as PDFFile[],
+        youtubeUrl: "",
+    });
 
     // Fetch existing segments on load
     useEffect(() => {
@@ -194,14 +234,22 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                         // Update state with existing data
                         data.segments?.forEach((seg: UploadedSegment & { id: number }) => {
                             const key = `${part}-${seg.id}`;
-                            if (seg.video_url || (seg.title && !seg.title.includes("Not Uploaded"))) {
-                                setVideos(prev => ({
+                            if (seg.video_url || seg.youtube_url || seg.pdf_files?.length || (seg.title && !seg.title.includes("Not Uploaded"))) {
+                                setSegmentContent(prev => ({
                                     ...prev,
                                     [key]: {
-                                        file: null,
+                                        ...getDefaultContent(),
                                         title: seg.title || "",
                                         notes: seg.key_points || "",
-                                        existingVideoUrl: seg.video_url
+                                        contentType: seg.content_type || 'video',
+                                        existingVideoUrl: seg.video_url,
+                                        youtubeUrl: seg.youtube_url || "",
+                                        pdfFiles: seg.pdf_files?.map((p, idx) => ({
+                                            id: `existing-${idx}`,
+                                            name: p.name,
+                                            order: p.order,
+                                            url: p.url
+                                        })) || [],
                                     }
                                 }));
                             }
@@ -233,12 +281,15 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
         return colors[c] || colors.blue;
     };
 
-    const handleVideoChange = (part: number, segment: number, file: File | null) => {
-        const key = `${part}-${segment}`;
-        setVideos(prev => ({
+    const updateSegment = (key: string, updates: Partial<typeof segmentContent[string]>) => {
+        setSegmentContent(prev => ({
             ...prev,
-            [key]: { ...prev[key], file, title: prev[key]?.title || "", notes: prev[key]?.notes || "" }
+            [key]: { ...getDefaultContent(), ...prev[key], ...updates }
         }));
+    };
+
+    const handleVideoChange = (key: string, file: File | null) => {
+        updateSegment(key, { videoFile: file });
     };
 
     const handleSaveAll = async () => {
@@ -247,23 +298,37 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
 
         try {
             let uploadedCount = 0;
-            const totalToUpload = Object.keys(videos).filter(k => videos[k]?.file || videos[k]?.title).length;
+            const entries = Object.entries(segmentContent).filter(([_, v]) => v.title);
+            const totalToUpload = entries.length;
 
             // Upload each segment that has content
             for (const part of parts) {
                 for (let seg = 1; seg <= segmentsPerPart; seg++) {
                     const key = `${part}-${seg}`;
-                    const video = videos[key];
+                    const content = segmentContent[key];
 
-                    if (video && (video.file || video.title)) {
+                    if (content && content.title) {
                         setUploadProgress(`Uploading Part ${part} Segment ${seg}...`);
 
                         const formData = new FormData();
-                        formData.append("title", video.title || `Segment ${seg}`);
-                        formData.append("key_points", video.notes || "");
+                        formData.append("title", content.title);
+                        formData.append("key_points", content.notes || "");
+                        formData.append("content_type", content.contentType);
 
-                        if (video.file) {
-                            formData.append("video", video.file);
+                        // Add content based on type
+                        if (content.contentType === 'video' && content.videoFile) {
+                            formData.append("video", content.videoFile);
+                        } else if (content.contentType === 'youtube') {
+                            formData.append("youtube_url", content.youtubeUrl);
+                        } else if (content.contentType === 'pdf') {
+                            // Append PDF files
+                            content.pdfFiles.forEach((pdf, idx) => {
+                                if (pdf.file) {
+                                    formData.append(`pdf_${idx}`, pdf.file);
+                                    formData.append(`pdf_order_${idx}`, String(pdf.order));
+                                }
+                            });
+                            formData.append("pdf_count", String(content.pdfFiles.filter(p => p.file).length));
                         }
 
                         // Call backend API
@@ -313,7 +378,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                     <h2 className={`text-xl font-bold ${getColorClasses(color).text}`}>
                         Cycle {cycleId}: {cycleName} - Day {dayNumber}
                     </h2>
-                    <p className="text-gray-600">Upload 12 video segments (4 per part × 3 parts)</p>
+                    <p className="text-gray-600">Upload content for 12 segments (4 per part × 3 parts)</p>
                 </CardContent>
             </Card>
 
@@ -325,41 +390,83 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                             <Clock className="h-5 w-5" />
                             Part {part} (2 Hours)
                         </CardTitle>
-                        <CardDescription>Upload 4 video segments (~25 min each)</CardDescription>
+                        <CardDescription>Upload content for 4 segments (~25 min each)</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         {Array.from({ length: segmentsPerPart }, (_, i) => i + 1).map((seg) => {
                             const key = `${part}-${seg}`;
-                            const video = videos[key];
+                            const content = segmentContent[key] || getDefaultContent();
 
                             return (
-                                <div key={seg} className="border rounded-lg p-4 space-y-3">
+                                <div key={seg} className="border rounded-lg p-4 space-y-4">
                                     <div className="flex items-center justify-between">
                                         <h4 className="font-semibold text-gray-700">Segment {seg}</h4>
                                         <span className="text-xs text-gray-400">~25 minutes</span>
                                     </div>
 
+                                    {/* Title and Notes */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
-                                            <Label>Video File</Label>
-                                            <div className="mt-1">
-                                                {video?.file ? (
-                                                    <div className="flex items-center gap-2 p-2 bg-green-50 rounded border border-green-200">
-                                                        <Video className="h-4 w-4 text-green-600" />
+                                            <Label>Segment Title</Label>
+                                            <Input
+                                                placeholder="E.g., 1909 Morley-Minto Reforms"
+                                                className="mt-1"
+                                                value={content.title}
+                                                onChange={(e) => updateSegment(key, { title: e.target.value })}
+                                            />
+                                        </div>
+                                        <div>
+                                            <Label>Key Points (for AI analysis)</Label>
+                                            <Input
+                                                placeholder="Enter key concepts..."
+                                                className="mt-1"
+                                                value={content.notes}
+                                                onChange={(e) => updateSegment(key, { notes: e.target.value })}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Content Type Tabs */}
+                                    <Tabs
+                                        value={content.contentType}
+                                        onValueChange={(v) => updateSegment(key, { contentType: v as 'video' | 'pdf' | 'youtube' })}
+                                        className="w-full"
+                                    >
+                                        <TabsList className="grid w-full grid-cols-3">
+                                            <TabsTrigger value="video" className="flex items-center gap-2">
+                                                <Video className="h-4 w-4" />
+                                                Video Upload
+                                            </TabsTrigger>
+                                            <TabsTrigger value="pdf" className="flex items-center gap-2">
+                                                <FileText className="h-4 w-4" />
+                                                PDF Upload
+                                            </TabsTrigger>
+                                            <TabsTrigger value="youtube" className="flex items-center gap-2">
+                                                <Youtube className="h-4 w-4" />
+                                                YouTube Link
+                                            </TabsTrigger>
+                                        </TabsList>
+
+                                        {/* Video Upload Tab */}
+                                        <TabsContent value="video" className="mt-4">
+                                            <div className="space-y-2">
+                                                {content.videoFile ? (
+                                                    <div className="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200">
+                                                        <Video className="h-5 w-5 text-green-600" />
                                                         <span className="text-sm text-green-700 truncate flex-1">
-                                                            {video.file.name}
+                                                            {content.videoFile.name}
                                                         </span>
                                                         <Button
                                                             size="sm"
                                                             variant="ghost"
-                                                            onClick={() => handleVideoChange(part, seg, null)}
+                                                            onClick={() => handleVideoChange(key, null)}
                                                         >
                                                             <Trash2 className="h-4 w-4 text-red-500" />
                                                         </Button>
                                                     </div>
-                                                ) : video?.existingVideoUrl ? (
-                                                    <div className="flex items-center gap-2 p-2 bg-blue-50 rounded border border-blue-200">
-                                                        <CheckCircle className="h-4 w-4 text-blue-600" />
+                                                ) : content.existingVideoUrl ? (
+                                                    <div className="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                                                        <CheckCircle className="h-5 w-5 text-blue-600" />
                                                         <span className="text-sm text-blue-700 flex-1">
                                                             ✅ Video uploaded
                                                         </span>
@@ -368,7 +475,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                                                             accept="video/*"
                                                             className="hidden"
                                                             id={`video-${key}`}
-                                                            onChange={(e) => handleVideoChange(part, seg, e.target.files?.[0] || null)}
+                                                            onChange={(e) => handleVideoChange(key, e.target.files?.[0] || null)}
                                                         />
                                                         <Button
                                                             size="sm"
@@ -385,7 +492,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                                                             accept="video/*"
                                                             className="hidden"
                                                             id={`video-${key}`}
-                                                            onChange={(e) => handleVideoChange(part, seg, e.target.files?.[0] || null)}
+                                                            onChange={(e) => handleVideoChange(key, e.target.files?.[0] || null)}
                                                         />
                                                         <Button
                                                             variant="outline"
@@ -398,39 +505,29 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                                                     </>
                                                 )}
                                             </div>
-                                        </div>
+                                        </TabsContent>
 
-                                        <div>
-                                            <Label>Segment Title</Label>
-                                            <Input
-                                                placeholder="E.g., 1909 Morley-Minto Reforms"
-                                                className="mt-1"
-                                                value={video?.title || ""}
-                                                onChange={(e) => {
-                                                    setVideos(prev => ({
-                                                        ...prev,
-                                                        [key]: { ...prev[key], file: prev[key]?.file || null, title: e.target.value, notes: prev[key]?.notes || "" }
-                                                    }));
-                                                }}
+                                        {/* PDF Upload Tab */}
+                                        <TabsContent value="pdf" className="mt-4">
+                                            <PDFUploadManager
+                                                onFilesChange={(files) => updateSegment(key, { pdfFiles: files })}
+                                                existingPdfs={content.pdfFiles?.filter(p => p.url).map(p => ({
+                                                    url: p.url!,
+                                                    name: p.name,
+                                                    order: p.order
+                                                }))}
                                             />
-                                        </div>
-                                    </div>
+                                        </TabsContent>
 
-                                    <div>
-                                        <Label>Key Points (for AI analysis)</Label>
-                                        <Textarea
-                                            placeholder="Enter key concepts students should recall..."
-                                            className="mt-1"
-                                            rows={2}
-                                            value={video?.notes || ""}
-                                            onChange={(e) => {
-                                                setVideos(prev => ({
-                                                    ...prev,
-                                                    [key]: { ...prev[key], file: prev[key]?.file || null, title: prev[key]?.title || "", notes: e.target.value }
-                                                }));
-                                            }}
-                                        />
-                                    </div>
+                                        {/* YouTube Link Tab */}
+                                        <TabsContent value="youtube" className="mt-4">
+                                            <YouTubePreview
+                                                value={content.youtubeUrl}
+                                                onChange={(url) => updateSegment(key, { youtubeUrl: url })}
+                                                existingUrl={content.youtubeUrl}
+                                            />
+                                        </TabsContent>
+                                    </Tabs>
                                 </div>
                             );
                         })}
