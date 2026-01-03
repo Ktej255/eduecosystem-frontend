@@ -76,8 +76,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const login = async (email: string, password: string) => {
-    // CRITICAL FIX: Hardcode AWS URL directly here to bypass Vercel env override
-    const AWS_API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    // CRITICAL FIX: Ensure API URL always includes /api/v1 suffix
+    let baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+    // Remove trailing slash if present
+    baseUrl = baseUrl.replace(/\/$/, "");
+    // Add /api/v1 if not already present
+    const AWS_API_URL = baseUrl.endsWith("/api/v1") ? baseUrl : `${baseUrl}/api/v1`;
 
     // FastAPI OAuth2 expects form data
     const formData = new URLSearchParams();

@@ -186,7 +186,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
     color: string;
     onBack: () => void;
 }) {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
     const { showToast } = useToast();
 
     // Content state for each segment: key = "part-segment"
