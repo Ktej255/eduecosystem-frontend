@@ -44,6 +44,7 @@ export default function StudentDashboard() {
     // RAS Data State - ensure /api/v1 suffix
     const [rasDashboard, setRasDashboard] = useState<any | null>(null);
     const [studyStats, setStudyStats] = useState<StudySessionStats | null>(null);
+    const [testResults, setTestResults] = useState<any[]>([]);
     let _apiBase = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
     _apiBase = _apiBase.replace(/\/$/, "");
     const API_BASE = _apiBase.endsWith("/api/v1") ? _apiBase : `${_apiBase}/api/v1`;
@@ -92,6 +93,26 @@ export default function StudentDashboard() {
         }
         fetchRasData();
     }, [userEmail, API_BASE]);
+
+    // Fetch Batch 1 Test Results for dashboard
+    useEffect(() => {
+        if (!isBatch1Authorized) return;
+        async function fetchTestResults() {
+            try {
+                const token = localStorage.getItem('token');
+                const res = await fetch(`${API_BASE}/batch1/test-results`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    setTestResults(data.slice(0, 3)); // Only last 3 tests
+                }
+            } catch (error) {
+                console.error("Error fetching test results:", error);
+            }
+        }
+        fetchTestResults();
+    }, [isBatch1Authorized, API_BASE]);
 
     // Initial load
     useEffect(() => {
@@ -317,6 +338,26 @@ export default function StudentDashboard() {
                                 <p className="text-sm text-gray-600 dark:text-gray-400">
                                     Continue your systematic 90-day coverage of the UPSC syllabus. 10-Day Polity & History Smart Modules active.
                                 </p>
+
+                                {/* Recent Test Scores */}
+                                {testResults.length > 0 && (
+                                    <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                                        <p className="text-xs font-semibold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-1">
+                                            <Trophy className="h-3 w-3" /> Recent Test Scores
+                                        </p>
+                                        <div className="space-y-1">
+                                            {testResults.map((result, idx) => (
+                                                <div key={idx} className="flex justify-between text-xs">
+                                                    <span className="text-gray-600 dark:text-gray-400">Day {result.day_number}</span>
+                                                    <span className={`font-bold ${result.score >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                                                        {result.score} ({result.correct_count}/{result.total_questions})
+                                                    </span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
                                 <Link href="/student/batch1">
                                     <Button className="w-full mt-2 bg-blue-600 hover:bg-blue-700">
                                         Go to Batch 1 <ArrowRight className="ml-2 h-4 w-4" />

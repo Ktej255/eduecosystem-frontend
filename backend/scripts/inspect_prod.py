@@ -1,6 +1,6 @@
 import os
 import sys
-from sqlalchemy import create_engine, inspect
+from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.orm import sessionmaker
 
 # Add the backend directory to sys.path
@@ -17,25 +17,38 @@ def inspect_prod():
         engine = create_engine(PROD_DB_URL)
         inspector = inspect(engine)
         tables = inspector.get_table_names()
-        print(f"Tables found: {tables}")
         
-        if "users" in tables:
-            SessionLocal = sessionmaker(bind=engine)
-            db = SessionLocal()
-            count = db.query(User).count()
-            print(f"User count in PROD 'users' table: {count}")
-            if count > 0:
-                user = db.query(User).filter(User.email == "hitvar040@gmail.com").first()
-                if user:
-                    print(f"User hitvar040@gmail.com FOUND in PROD! ID={user.id}")
-                else:
-                    print(f"User hitvar040@gmail.com NOT FOUND in PROD among {count} users.")
-                    # Let's see some sample emails
-                    samples = db.query(User.email).limit(5).all()
-                    print(f"Sample emails: {[s[0] for s in samples]}")
-            db.close()
+        SessionLocal = sessionmaker(bind=engine)
+        db = SessionLocal()
+        
+        user = db.query(User).filter(User.email == "chitrakumawat33@gmail.com").first()
+        if user:
+            print(f"User {user.email} found in PROD. ID={user.id}")
+            if "ras_topic_progress" in tables:
+                columns = [col['name'] for col in inspector.get_columns('ras_topic_progress')]
+                print(f"Columns in 'ras_topic_progress': {columns}")
+                
+                with engine.connect() as conn:
+                    result = conn.execute(text("SELECT * FROM ras_topic_progress WHERE user_id = :uid"), {"uid": user.id}).fetchall()
+                    print(f"RAS Progress entries for {user.email}: {len(result)}")
+                    for p in result:
+                        print(f"  - Entry: {p}")
+            else:
+                print("'ras_topic_progress' table NOT FOUND in PROD.")
         else:
-            print("'users' table NOT FOUND in PROD database.")
+            print(f"User chitrakumawat33@gmail.com NOT FOUND in PROD.")
+            
+        if "ras_topic_progress" in tables:
+            with engine.connect() as conn:
+                count = conn.execute(text("SELECT count(*) FROM ras_topic_progress")).scalar()
+                print(f"Total rows in 'ras_topic_progress': {count}")
+                if count > 0:
+                    sample = conn.execute(text("SELECT * FROM ras_topic_progress LIMIT 5")).fetchall()
+                    print(f"Sample data: {sample}")
+        else:
+            print("'ras_topic_progress' table NOT FOUND in PROD.")
+            
+        db.close()
             
     except Exception as e:
         print(f"Error: {e}")

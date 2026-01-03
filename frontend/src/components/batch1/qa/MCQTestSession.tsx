@@ -45,6 +45,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const { user } = useAuth();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState<{ [key: number]: number }>({}); // qId -> optionIndex
+    const [confidenceLevels, setConfidenceLevels] = useState<{ [key: number]: number }>({}); // qId -> confidence (1-4)
     const [timeLeft, setTimeLeft] = useState(() => {
         const d = typeof day === 'string' ? parseInt(day) : day;
         return d === 3 ? 120 * 60 : 60 * 60; // 2 hours for Day 3, 1 hour otherwise
@@ -55,6 +56,9 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [correctCount, setCorrectCount] = useState(0);
     const [incorrectCount, setIncorrectCount] = useState(0);
     const [unansweredCount, setUnansweredCount] = useState(0);
+    const [showHistory, setShowHistory] = useState(false);
+    const [testHistory, setTestHistory] = useState<any[]>([]);
+    const [loadingHistory, setLoadingHistory] = useState(false);
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -89,6 +93,30 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             ...prev,
             [mcqs[currentIndex].id]: optionIndex
         }));
+    };
+
+    const handleConfidenceSelect = (confidence: number) => {
+        if (isSubmitted) return;
+        setConfidenceLevels(prev => ({
+            ...prev,
+            [mcqs[currentIndex].id]: confidence
+        }));
+    };
+
+    const fetchTestHistory = async () => {
+        setLoadingHistory(true);
+        try {
+            const AWS_API = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+            const token = localStorage.getItem('token');
+            const response = await axios.get(`${AWS_API}/batch1/test-results`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            setTestHistory(response.data);
+        } catch (error) {
+            console.error("Failed to fetch test history:", error);
+        } finally {
+            setLoadingHistory(false);
+        }
     };
 
     const handleSubmit = async () => {
@@ -160,10 +188,59 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
 
     return (
         <div className="space-y-6">
+            {/* Test History Modal */}
+            {showHistory && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+                    <Card className="w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col">
+                        <div className="p-4 border-b flex items-center justify-between bg-blue-600 text-white">
+                            <h3 className="font-bold text-lg">Previous Test Results</h3>
+                            <Button variant="ghost" size="sm" onClick={() => setShowHistory(false)} className="text-white hover:bg-white/20">✕</Button>
+                        </div>
+                        <div className="flex-1 overflow-y-auto p-4">
+                            {loadingHistory ? (
+                                <div className="flex items-center justify-center py-8">
+                                    <Clock className="h-6 w-6 animate-spin text-blue-600" />
+                                </div>
+                            ) : testHistory.length === 0 ? (
+                                <p className="text-center py-8 text-gray-500">No previous tests found. Complete a test to see your history!</p>
+                            ) : (
+                                <div className="space-y-3">
+                                    {testHistory.map((result, idx) => (
+                                        <Card key={idx} className="border hover:shadow-md transition-all">
+                                            <CardContent className="p-4">
+                                                <div className="flex items-center justify-between">
+                                                    <div>
+                                                        <p className="font-semibold">Cycle {result.cycle_id}, Day {result.day_number}</p>
+                                                        <p className="text-xs text-gray-500">{new Date(result.timestamp).toLocaleDateString()} at {new Date(result.timestamp).toLocaleTimeString()}</p>
+                                                    </div>
+                                                    <div className="text-right">
+                                                        <p className={`text-2xl font-bold ${result.score >= 0 ? 'text-green-600' : 'text-red-600'}`}>{result.score}</p>
+                                                        <p className="text-xs text-gray-500">{result.correct_count}/{result.total_questions} correct</p>
+                                                    </div>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </Card>
+                </div>
+            )}
+
             {/* Header */}
             <div className="flex items-center justify-between bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 sticky top-0 z-10">
                 <Button variant="ghost" size="sm" onClick={onClose}>
                     <ArrowLeft className="mr-2 h-4 w-4" /> Exit
+                </Button>
+
+                <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => { setShowHistory(true); fetchTestHistory(); }}
+                    className="text-blue-600 border-blue-200"
+                >
+                    <Trophy className="mr-2 h-4 w-4" /> History
                 </Button>
 
                 {!isSubmitted && (
@@ -277,6 +354,32 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                             );
                         })}
                     </div>
+
+                    {/* Confidence Level Selector - Only during test */}
+                    {!isSubmitted && isAnswered && (
+                        <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border">
+                            <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">How confident are you?</p>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                {[
+                                    { id: 1, label: "100% Sure", emoji: "✅", color: "bg-green-100 border-green-400 text-green-700" },
+                                    { id: 2, label: "50-50", emoji: "🤔", color: "bg-yellow-100 border-yellow-400 text-yellow-700" },
+                                    { id: 3, label: "One Known", emoji: "💡", color: "bg-orange-100 border-orange-400 text-orange-700" },
+                                    { id: 4, label: "Blind Guess", emoji: "🎲", color: "bg-red-100 border-red-400 text-red-700" }
+                                ].map(conf => (
+                                    <button
+                                        key={conf.id}
+                                        onClick={() => handleConfidenceSelect(conf.id)}
+                                        className={`p-2 rounded-lg border-2 text-sm font-medium transition-all ${confidenceLevels[currentQuestion.id] === conf.id
+                                                ? `${conf.color} ring-2 ring-offset-1`
+                                                : "bg-white dark:bg-gray-900 border-gray-200 hover:bg-gray-100"
+                                            }`}
+                                    >
+                                        <span className="mr-1">{conf.emoji}</span> {conf.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Explanation Section (Only after submit) */}
                     {isSubmitted && (

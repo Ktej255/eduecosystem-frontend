@@ -98,7 +98,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-2">
                                     <span className="px-2 py-1 bg-pink-100 text-pink-700 rounded text-xs font-bold uppercase">Hour 1</span>
-                                    <span className="text-sm text-gray-500">6:00 PM - 7:00 PM</span>
+                                    <span className="text-sm text-gray-500">5:00 PM - 6:00 PM</span>
                                 </div>
                                 <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                                     Topic Flashcards
@@ -134,7 +134,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-2">
                                     <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-bold uppercase">Hour 2</span>
-                                    <span className="text-sm text-gray-500">7:00 PM - 8:00 PM</span>
+                                    <span className="text-sm text-gray-500">6:00 PM - 7:00 PM</span>
                                 </div>
                                 <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                                     Daily Practice Test (50 Questions)
@@ -170,7 +170,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-2">
                                     <span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-bold uppercase">Hour 3</span>
-                                    <span className="text-sm text-gray-500">8:00 PM - 9:00 PM</span>
+                                    <span className="text-sm text-gray-500">7:00 PM - 8:00 PM</span>
                                 </div>
                                 <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                                     English Comprehension
