@@ -21,6 +21,8 @@ import {
 import BackgroundTimer from "./BackgroundTimer";
 import ExplanationRecorder from "./ExplanationRecorder";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/auth-context";
+import { getStudySessionService } from "@/services/studySessionService";
 
 interface RevisionSessionProps {
     classworkContent?: {
@@ -42,6 +44,8 @@ export default function RevisionSession({
     const [timerState, setTimerState] = useState<TimerState | null>(null);
     const [isRecording, setIsRecording] = useState(false);
 
+    const { user } = useAuth();
+
     // Get current time to determine if it's evening
     const currentHour = new Date().getHours();
     const isEvening = currentHour >= 17 && currentHour <= 21;
@@ -58,8 +62,24 @@ export default function RevisionSession({
     };
 
     // Handle timer completion
-    const handleTimerComplete = useCallback((sessionType: SessionType) => {
+    const handleTimerComplete = useCallback(async (sessionType: SessionType) => {
         if (sessionType === "revision_25") {
+            // Backend Recording for Revision Phase
+            if (user?.email) {
+                try {
+                    await getStudySessionService().recordSession({
+                        email: user.email,
+                        session_type: "revision_25",
+                        topic_name: "Evening Revision",
+                        start_time: new Date(Date.now() - 25 * 60 * 1000).toISOString(),
+                        end_time: new Date().toISOString(),
+                        duration_seconds: 25 * 60
+                    });
+                } catch (e) {
+                    console.error("Failed to sync revision to backend", e);
+                }
+            }
+
             // Move to recording phase
             const service = getPomodoroTimerService();
             service.startTimer("explanation_5", {
@@ -73,11 +93,29 @@ export default function RevisionSession({
             // Session complete
             setSessionState("completed");
         }
-    }, []);
+    }, [user, currentHour]);
 
     // Handle recording complete
-    const handleRecordingComplete = (audioBlob?: Blob) => {
+    const handleRecordingComplete = async (audioBlob?: Blob) => {
         setIsRecording(false);
+
+        // Backend Recording for Explanation Phase
+        if (user?.email && audioBlob) {
+            try {
+                await getStudySessionService().recordSession({
+                    email: user.email,
+                    session_type: "explanation_5",
+                    topic_name: "Revision Explanation",
+                    start_time: new Date(Date.now() - 5 * 60 * 1000).toISOString(),
+                    end_time: new Date().toISOString(),
+                    duration_seconds: 5 * 60,
+                    audio: audioBlob
+                });
+            } catch (e) {
+                console.error("Failed to sync revision recording to backend", e);
+            }
+        }
+
         setSessionState("completed");
         onComplete?.(audioBlob);
     };

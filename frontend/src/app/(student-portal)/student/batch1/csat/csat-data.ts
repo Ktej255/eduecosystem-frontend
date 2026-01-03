@@ -349,9 +349,85 @@ The Supreme Court order linked the Hills to groundwater recharge and ecosystem s
                     explanation: "The author calls for a 'binding test for when strategic considerations merit simpler procedures' and requiring 'landscape-level cumulative impact... assessments'."
                 }
             ]
+        },
+        {
+            id: 3,
+            title: "Passage 3: Education and Philosophy",
+            text: `The Delhi High Court's affirmation that law students may sit for examinations without satisfying rigid attendance thresholds has provoked predictable anxiety among administrators still tethered to an older, bureaucratised conception of education. But the ruling, far from eroding academic seriousness, restores a truth that Indian universities have resisted for decades: that learning cannot be secured through surveillance. Compulsory attendance belongs to a paternalistic era that believed students must be prodded into intellectual life rather than invited into it. A university worthy of its name should cultivate curiosity, not compliance.
+
+I say this not only as a critic of the managerial culture, but as someone who has spent more than 40 years in the classroom. In all those years, I rarely took attendance. I believed that coercion produces neither seriousness nor scholarship. If students do not wish to attend a class, the proper response is not punishment but introspection. A teacher must ask: what did I fail to offer that could have made this hour indispensable? Attendance is not a measure of learning; at best it is a measure of obedience. The obsession with physical presence flourishes where the classroom has been reduced to the perfunctory transfer of "yellowing" notes, the rote delivery of prefabricated knowledge that students could obtain faster through digital means.
+
+Paulo Freire saw this with a clarity that remains electrifying. For him, education was never the mechanical depositing of information but a dialogic encounter. In his Pedagogy of the Oppressed, students are not passive vessels receiving knowledge but beings who "name the world". My strongest classrooms were born of desire, not obligation. I remember speaking with Sir Isaiah Berlin in Oxford; he confessed how rigorously he prepared his notes—a meticulously constructed road map of ideas. His lectures captivated not by accident but because they were acts of craftsmanship. Students came out of anticipation.
+
+Terry Eagleton's lectures overflowed because his ideas were incendiary. Germaine Greer filled halls because she brought intellectual rebellion. None of them needed the threat of consequences to fill a classroom. They made absence unthinkable. This is what the Indian university has forgotten. The Centre's increasing control has transformed campuses into intellectual vassals, where mandatory attendance serves as a tool of pedagogical pacification.
+
+A university that prioritises attendance over engagement betrays its purpose. In an era where digital resources, AI tools, and open-access archives place vast knowledge at fingertips, the insistence on physical presence feels pedagogically unimaginative. The High Court ruling opens a transformative possibility. By removing the coercive element, educators will be compelled to innovate. An empty classroom can be a catalyst for introspection.`,
+            questions: [
+                {
+                    id: 11,
+                    question: "The author views the Delhi High Court's ruling on attendance as:",
+                    options: [
+                        "A dangerous precedent that will lead to students failing their exams.",
+                        "A restoration of the truth that learning relies on curiosity rather than surveillance.",
+                        "An administrative error that ignores the importance of discipline in law schools.",
+                        "A decision that only applies to students with high grades."
+                    ],
+                    correctAnswer: 1,
+                    explanation: "The text says the ruling 'restores a truth... that learning cannot be secured through surveillance' and 'university... should cultivate curiosity, not compliance'."
+                },
+                {
+                    id: 12,
+                    question: "According to the passage, what is the significance of the \"yellowing notes\" mentioned by the author?",
+                    options: [
+                        "They represent the high value of historical archives in university libraries.",
+                        "They symbolize outdated, rote-delivery teaching methods that make classrooms unengaging.",
+                        "They refer to the specific legal texts that law students must memorise.",
+                        "They are the notes prepared by students who attend classes regularly."
+                    ],
+                    correctAnswer: 1,
+                    explanation: "The 'yellowing notes' are linked to 'perfunctory transfer' and 'rote delivery of prefabricated knowledge'."
+                },
+                {
+                    id: 13,
+                    question: "The author references Paulo Freire's Pedagogy of the Oppressed to support the idea that:",
+                    options: [
+                        "Education should be a mechanical depositing of information from teacher to student.",
+                        "Students should be passive vessels who receive knowledge obediently.",
+                        "Education should be a dialogic encounter and an awakening of consciousness.",
+                        "Oppressed communities require stricter attendance rules to succeed."
+                    ],
+                    correctAnswer: 2,
+                    explanation: "Freire saw education as a 'dialogic encounter, an awakening of consciousness' where students 'name the world'."
+                },
+                {
+                    id: 14,
+                    question: "What inference can be drawn about the author's view on the \"Indian University\" system?",
+                    options: [
+                        "It is currently thriving due to strong centralized control and standardized curricula.",
+                        "It has become suffocated by bureaucratic rigidity and a focus on compliance over intellect.",
+                        "It is superior to Oxford and Cambridge because it enforces discipline more strictly.",
+                        "It has successfully integrated AI and digital tools into the classroom environment."
+                    ],
+                    correctAnswer: 1,
+                    explanation: "The text explicitly states the Indian university has been transformed into 'intellectual vassals' with 'mandatory attendance serving as a tool of pedagogical pacification'."
+                },
+                {
+                    id: 15,
+                    question: "The author suggests that removing compulsory attendance will:",
+                    options: [
+                        "Make teachers lazy as they no longer have to ensure students are present.",
+                        "Force teachers to innovate and craft intellectually compelling learning spaces to attract students.",
+                        "Lead to empty classrooms and the eventual closure of universities.",
+                        "Reduce the academic burden on students so they can focus on part-time jobs."
+                    ],
+                    correctAnswer: 1,
+                    explanation: "The text argues: 'educators will be compelled to innovate... An empty classroom can be a catalyst for introspection'."
+                }
+            ]
         }
     ],
     vocabulary: [
+        // Part 1: Administrative, Legal & Governance
         {
             word: "De Facto vs. De Jure",
             context: "...regularisation risks converting de facto possession into de jure ownership in ways that validate elite capture...",
@@ -367,6 +443,72 @@ The Supreme Court order linked the Hills to groundwater recharge and ecosystem s
             definition: "A process where public resources (like common land or government funds) intended for the larger community are usurped or directed to benefit a few socially or politically powerful individuals.",
             synonyms: ["Appropriation", "Usurpation", "Monopolization"],
             antonyms: ["Equitable distribution", "Inclusive governance"],
+            toneIndicator: 'negative'
+        },
+        {
+            word: "Anathema",
+            context: "...ex post facto clearances are alien to environmental jurisprudence and anathema to the environmental impact assessment...",
+            definition: "Something or someone that one vehemently dislikes; a formal curse or strong denunciation. In this context, it means 'fundamentally opposed to the core principles.'",
+            synonyms: ["Abhorrent", "Repugnant", "Offensive", "Disgrace"],
+            antonyms: ["Compatible", "Aligned", "Sacred", "Beloved"],
+            toneIndicator: 'negative'
+        },
+        {
+            word: "Ad Hoc",
+            context: "...climate action and economic growth will keep colliding through ad hoc decisions...",
+            definition: "Created or done for a particular purpose as necessary, often impromptu or without planning. It usually implies a lack of a systematic long-term strategy.",
+            synonyms: ["Impromptu", "Makeshift", "Provisional", "Unplanned"],
+            antonyms: ["Systematic", "Planned", "Permanent", "Standardized"],
+            toneIndicator: 'negative'
+        },
+        {
+            word: "Opaque",
+            context: "...resorts to executive discretion and opaque measures citing national defence...",
+            definition: "Not able to be seen through; not transparent. In governance, it refers to processes that are secretive and hard for the public to scrutinize.",
+            synonyms: ["Non-transparent", "Murky", "Obscure", "Secretive"],
+            antonyms: ["Transparent", "Clear", "Lucent", "Open"],
+            toneIndicator: 'negative'
+        },
+        {
+            word: "Restitution",
+            context: "In restitution-oriented frameworks, common... lands are treated as corrective instruments...",
+            definition: "The restoration of something lost or stolen to its proper owner; recompense for injury or loss.",
+            synonyms: ["Restoration", "Reparation", "Indemnification", "Return"],
+            antonyms: ["Seizure", "Confiscation", "Theft"],
+            toneIndicator: 'positive'
+        },
+        // Part 2: Academic, Philosophical & Critical Tone
+        {
+            word: "Paternalistic",
+            context: "Compulsory attendance belongs to a paternalistic era that believed that students must be prodded...",
+            definition: "Relating to a system of governing people in a fatherly manner—providing for needs but limiting freedom and autonomy. It is often used negatively to imply condescension.",
+            synonyms: ["Patronizing", "Condescending", "Overprotective", "Authoritarian"],
+            antonyms: ["Libertarian", "Egalitarian", "Empowering"],
+            toneIndicator: 'negative'
+        },
+        {
+            word: "Perfunctory",
+            context: "...classroom has been reduced to the perfunctory transfer of 'yellowing' notes...",
+            definition: "Carried out with a minimum of effort or reflection; done merely as a routine duty.",
+            synonyms: ["Mechanical", "Cursory", "Half-hearted", "Superficial"],
+            antonyms: ["Thorough", "Diligent", "Enthusiastic", "Meticulous"],
+            csatTip: "If an action is described as 'perfunctory,' the author is criticizing the lack of genuine intent or quality behind it.",
+            toneIndicator: 'negative'
+        },
+        {
+            word: "Incendiary",
+            context: "...Terry Eagleton's lectures... his ideas were intensely incendiary.",
+            definition: "Literally 'designed to cause fires.' Metaphorically, it means ideas that are very exciting, provocative, or likely to stir up conflict/debate.",
+            synonyms: ["Provocative", "Inflammatory", "Agitating", "Revolutionary"],
+            antonyms: ["Calming", "Soothing", "Dull", "Conventional"],
+            toneIndicator: 'positive'
+        },
+        {
+            word: "Vassal",
+            context: "...transformed campuses into intellectual vassals, where curricula are scrutinised...",
+            definition: "A person or country in a subordinate position to another (historical feudal term). Here, it implies universities have lost their independence and are subservient to the government.",
+            synonyms: ["Subordinate", "Dependent", "Servant", "Subject"],
+            antonyms: ["Sovereign", "Independent", "Master"],
             toneIndicator: 'negative'
         }
     ]

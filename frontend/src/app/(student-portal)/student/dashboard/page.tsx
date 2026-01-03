@@ -31,6 +31,7 @@ import {
     ResumePoint,
     StudentStats,
 } from "@/services/progressStorage";
+import { getStudySessionService, StudySessionStats } from "@/services/studySessionService";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
@@ -41,11 +42,12 @@ export default function StudentDashboard() {
 
     // RAS Data State
     const [rasDashboard, setRasDashboard] = useState<any | null>(null);
+    const [studyStats, setStudyStats] = useState<StudySessionStats | null>(null);
     const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
     const userEmail = user?.email || "";
 
     // Load stats from storage
-    const loadStats = useCallback(() => {
+    const loadStats = useCallback(async () => {
         setIsRefreshing(true);
 
         const studentStats = getStudentStats();
@@ -53,10 +55,19 @@ export default function StudentDashboard() {
 
         setStats(studentStats);
         setResumePoint(resume);
-        setLastUpdated(new Date());
 
-        setTimeout(() => setIsRefreshing(false), 300);
-    }, []);
+        if (userEmail) {
+            try {
+                const sStats = await getStudySessionService().getStats(userEmail);
+                setStudyStats(sStats);
+            } catch (e) {
+                console.error("Error loading study stats:", e);
+            }
+        }
+
+        setLastUpdated(new Date());
+        setIsRefreshing(false);
+    }, [userEmail]);
 
     // Fetch RAS Data
     useEffect(() => {
@@ -73,7 +84,7 @@ export default function StudentDashboard() {
             }
         }
         fetchRasData();
-    }, [userEmail]);
+    }, [userEmail, API_BASE]);
 
     // Initial load
     useEffect(() => {
@@ -186,11 +197,11 @@ export default function StudentDashboard() {
 
                 <div className="bg-white dark:bg-neutral-800 p-4 rounded-2xl shadow-sm border flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500">
-                        <GraduationCap className="w-5 h-5" />
+                        <Clock className="w-5 h-5" />
                     </div>
                     <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">RAS Avg</p>
-                        <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">{rasDashboard?.overall_progress?.percentage || 0}%</h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Total Study</p>
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">{studyStats?.overall?.total_hours || 0}h</h4>
                     </div>
                 </div>
 
@@ -273,6 +284,40 @@ export default function StudentDashboard() {
                             <Link href="/student/batch1">
                                 <Button className="w-full mt-2 bg-blue-600 hover:bg-blue-700">
                                     Go to Batch 1 <ArrowRight className="ml-2 h-4 w-4" />
+                                </Button>
+                            </Link>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                {/* Focused Study (Pomodoro) */}
+                <Card className="border-l-4 border-l-orange-500 bg-gradient-to-br from-orange-50 to-white dark:from-orange-900/20 dark:to-neutral-900 shadow-md">
+                    <CardHeader className="pb-2">
+                        <CardTitle className="flex items-center gap-2 text-lg">
+                            <Clock className="h-5 w-5 text-orange-600" />
+                            Focused Study
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="space-y-4">
+                            <div className="space-y-2">
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-500">Pomodoros</span>
+                                    <span className="font-semibold">{studyStats?.overall?.study_sessions || 0} complete</span>
+                                </div>
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-500">Explanations</span>
+                                    <span className="font-semibold">{studyStats?.overall?.explanations || 0}</span>
+                                </div>
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-500">Avg. Comprehension</span>
+                                    <span className="font-semibold text-orange-600">{studyStats?.overall?.average_comprehension || 0}%</span>
+                                </div>
+                            </div>
+
+                            <Link href="/student/study-session">
+                                <Button className="w-full mt-2 bg-orange-500 hover:bg-orange-600 text-white">
+                                    Start Session <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>
                         </div>

@@ -28,6 +28,8 @@ import BackgroundTimer from "./BackgroundTimer";
 import ExplanationRecorder from "./ExplanationRecorder";
 import TopicSelector from "./TopicSelector";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/auth-context";
+import { getStudySessionService } from "@/services/studySessionService";
 
 // Pomodoro Phase Configuration
 interface CycleStep {
@@ -100,6 +102,8 @@ export default function PomodoroSessionManager({
 
     const targetMs = targetHours * 60 * 60 * 1000;
 
+    const { user } = useAuth();
+
     // Get current cycle steps based on phase
     const getCurrentCycle = useCallback(() => {
         return currentPhase === 1 ? PHASE_1_CYCLE : PHASE_2_CYCLE;
@@ -116,7 +120,7 @@ export default function PomodoroSessionManager({
 
     // Handle timer completion
     const handleTimerComplete = useCallback(
-        (sessionType: SessionType) => {
+        async (sessionType: SessionType) => {
             const service = getPomodoroTimerService();
             const state = service.getState();
 
@@ -130,6 +134,27 @@ export default function PomodoroSessionManager({
                 startTime: state.startTime || Date.now(),
                 endTime: Date.now(),
             };
+
+            // Backend Recording (Study phase doesn't have audio)
+            if (user?.email && !sessionType.startsWith("explanation")) {
+                try {
+                    await getStudySessionService().recordSession({
+                        email: user.email,
+                        session_type: sessionType,
+                        topic_id: selectedTopic?.id,
+                        topic_name: selectedTopic?.name,
+                        subject_id: subjectId,
+                        subject_name: subjectName,
+                        start_time: new Date(sessionData.startTime).toISOString(),
+                        end_time: new Date(sessionData.endTime).toISOString(),
+                        duration_seconds: SESSION_DURATIONS[sessionType] / 1000,
+                        cycle_number: currentCycle,
+                        phase_number: currentPhase
+                    });
+                } catch (e) {
+                    console.error("Failed to sync session to backend", e);
+                }
+            }
 
             // Update total elapsed time
             const sessionDuration = SESSION_DURATIONS[sessionType];
@@ -238,8 +263,34 @@ export default function PomodoroSessionManager({
     };
 
     // Handle recording complete
-    const handleRecordingComplete = (audioBlob?: Blob) => {
+    const handleRecordingComplete = async (audioBlob?: Blob) => {
         setIsRecording(false);
+
+        // Backend Recording for Explanation
+        if (user?.email && audioBlob) {
+            const service = getPomodoroTimerService();
+            const state = service.getState();
+            const explanationType = currentPhase === 1 ? "explanation_5" : "explanation_10";
+
+            try {
+                await getStudySessionService().recordSession({
+                    email: user.email,
+                    session_type: explanationType,
+                    topic_id: selectedTopic?.id,
+                    topic_name: selectedTopic?.name,
+                    subject_id: subjectId,
+                    subject_name: subjectName,
+                    start_time: new Date(state.startTime || Date.now()).toISOString(),
+                    end_time: new Date().toISOString(),
+                    duration_seconds: SESSION_DURATIONS[explanationType] / 1000,
+                    cycle_number: currentCycle,
+                    phase_number: currentPhase,
+                    audio: audioBlob
+                });
+            } catch (e) {
+                console.error("Failed to sync recording to backend", e);
+            }
+        }
 
         // Update last session with audio
         if (audioBlob) {

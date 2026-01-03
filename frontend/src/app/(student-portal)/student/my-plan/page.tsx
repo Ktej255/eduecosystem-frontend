@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Textarea } from "@/components/ui/textarea";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
     BookOpen,
     Clock,
@@ -33,6 +35,7 @@ import {
     ChevronRight
 } from "lucide-react";
 import Link from "next/link";
+import { useAuth } from "@/contexts/auth-context";
 
 // Use environment variable for API base URL
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
@@ -134,6 +137,9 @@ export default function MyPlanPage() {
     const [timerTopicId, setTimerTopicId] = useState<string | null>(null);
     const [timerSeconds, setTimerSeconds] = useState(3600); // 1 hour default
     const [showRecallPrompt, setShowRecallPrompt] = useState(false);
+    const [recallText, setRecallText] = useState("");
+    const [isSubmittingRecall, setIsSubmittingRecall] = useState(false);
+    const [recallFeedback, setRecallFeedback] = useState<any | null>(null);
 
     // Test state
     const [testActive, setTestActive] = useState(false);
@@ -143,7 +149,8 @@ export default function MyPlanPage() {
     const [testScore, setTestScore] = useState<number | null>(null);
     const [testSubmitted, setTestSubmitted] = useState(false);
 
-    const userEmail = "chitrakumawat33@gmail.com";
+    const { user } = useAuth();
+    const userEmail = user?.email || "";
 
     // Fetch daily test
     const fetchDailyTest = async (date: string) => {
@@ -160,6 +167,8 @@ export default function MyPlanPage() {
 
     // Fetch initial data
     useEffect(() => {
+        if (!userEmail) return;
+
         async function fetchData() {
             try {
                 const accessRes = await fetch(`${API_BASE}/planner/check-access/${userEmail}`);
@@ -291,26 +300,34 @@ export default function MyPlanPage() {
     };
 
     const handleRecordRecall = async () => {
-        if (!timerTopicId) return;
+        if (!timerTopicId || !recallText.trim()) return;
 
+        setIsSubmittingRecall(true);
         try {
-            await fetch(`${API_BASE}/planner/record-and-submit`, {
+            const res = await fetch(`${API_BASE}/planner/record-and-submit`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     email: userEmail,
                     topic_id: timerTopicId,
-                    duration: 60,
-                    explanation_text: "Recorded recall submission"
+                    duration: 3600 - timerSeconds, // Actual time spent
+                    explanation_text: recallText
                 })
             });
 
-            setShowRecallPrompt(false);
-            setTimerTopicId(null);
+            if (res.ok) {
+                const data = await res.json();
+                setRecallFeedback(data.evaluation);
 
-            alert("Recall recorded successfully! Your response is being analyzed by AI.");
+                // Refresh data
+                const dashRes = await fetch(`${API_BASE}/planner/dashboard/${userEmail}`);
+                if (dashRes.ok) setDashboard(await dashRes.json());
+            }
+
         } catch (e) {
             console.error("Failed to record recall", e);
+        } finally {
+            setIsSubmittingRecall(false);
         }
     };
 
@@ -400,24 +417,91 @@ export default function MyPlanPage() {
                         <>
                             <CheckCircle2 className="h-20 w-20 mx-auto mb-6 text-green-400" />
                             <h2 className="text-4xl font-bold mb-4">Session Complete!</h2>
-                            <p className="text-xl text-indigo-200 mb-8">Time to record your recall</p>
-                            <div className="flex gap-4 justify-center">
-                                <Button
-                                    size="lg"
-                                    className="bg-green-500 hover:bg-green-600"
-                                    onClick={handleRecordRecall}
-                                >
-                                    <Mic className="mr-2" /> Record Recall
-                                </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="text-white border-white hover:bg-white/20"
-                                    onClick={() => { setShowRecallPrompt(false); setTimerTopicId(null); }}
-                                >
-                                    Skip for Now
-                                </Button>
-                            </div>
+                            <p className="text-xl text-indigo-200 mb-8">Type what you remember from this topic</p>
+
+                            {!recallFeedback ? (
+                                <div className="max-w-2xl mx-auto w-full space-y-4">
+                                    <Textarea
+                                        placeholder="Type your summary here..."
+                                        className="bg-white/10 border-white/20 text-white min-h-[150px] text-lg focus:bg-white/20 transition-all"
+                                        value={recallText}
+                                        onChange={(e) => setRecallText(e.target.value)}
+                                        disabled={isSubmittingRecall}
+                                    />
+                                    <div className="flex gap-4 justify-center">
+                                        <Button
+                                            size="lg"
+                                            className="bg-green-500 hover:bg-green-600 min-w-[200px]"
+                                            onClick={handleRecordRecall}
+                                            disabled={isSubmittingRecall || !recallText.trim()}
+                                        >
+                                            {isSubmittingRecall ? <Loader2 className="animate-spin mr-2" /> : <TrendingUp className="mr-2" />}
+                                            Submit for Evaluation
+                                        </Button>
+                                        <Button
+                                            size="lg"
+                                            variant="outline"
+                                            className="text-white border-white hover:bg-white/20"
+                                            onClick={() => {
+                                                setShowRecallPrompt(false);
+                                                setTimerTopicId(null);
+                                                setRecallText("");
+                                            }}
+                                            disabled={isSubmittingRecall}
+                                        >
+                                            Skip for Now
+                                        </Button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="max-w-2xl mx-auto w-full space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                    <div className="bg-white/10 p-6 rounded-2xl border border-white/20 text-left">
+                                        <div className="flex justify-between items-center mb-4">
+                                            <h3 className="text-2xl font-bold">Recall Assessment</h3>
+                                            <div className="text-4xl font-black text-green-400">{recallFeedback.score}%</div>
+                                        </div>
+
+                                        <div className="space-y-4">
+                                            <div>
+                                                <div className="text-sm font-bold text-indigo-200 uppercase tracking-wider mb-1">Feedback</div>
+                                                <p className="text-lg">{recallFeedback.feedback}</p>
+                                            </div>
+
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div>
+                                                    <div className="text-sm font-bold text-green-300 uppercase tracking-wider mb-1">Recalled Points</div>
+                                                    <ul className="text-sm space-y-1">
+                                                        {recallFeedback.recalled_points?.map((p: string, i: number) => (
+                                                            <li key={i} className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 mt-0.5 text-green-400 shrink-0" /> {p}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div className="text-sm font-bold text-rose-300 uppercase tracking-wider mb-1">Missing Points</div>
+                                                    <ul className="text-sm space-y-1">
+                                                        {recallFeedback.missing_points?.map((p: string, i: number) => (
+                                                            <li key={i} className="flex items-start gap-2"><AlertTriangle className="h-4 w-4 mt-0.5 text-rose-400 shrink-0" /> {p}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <Button
+                                        size="lg"
+                                        className="w-full bg-white text-indigo-900 hover:bg-indigo-50 font-bold"
+                                        onClick={() => {
+                                            setShowRecallPrompt(false);
+                                            setTimerTopicId(null);
+                                            setRecallText("");
+                                            setRecallFeedback(null);
+                                        }}
+                                    >
+                                        Finish Session
+                                    </Button>
+                                </div>
+                            )}
                         </>
                     )}
                 </div>
