@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { FileText, Upload, GripVertical, Trash2, Eye, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -31,6 +31,28 @@ export default function PDFUploadManager({ onFilesChange, existingPdfs = [] }: P
     const [isDragging, setIsDragging] = useState(false);
     const [draggedItem, setDraggedItem] = useState<number | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
+
+    // Update state when existingPdfs prop changes (e.g. after fetch)
+    useEffect(() => {
+        setPdfFiles(prev => {
+            // Keep new files that the user might have just added, but update existing ones?
+            // Actually, usually we just want to reset to the prop if it changes significantly.
+            // But let's just map the prop to state to be safe, assuming prop is the source of truth for "saved" files.
+            // We combine existing prop files with any *newly added* files currently in state (that satisfy !url).
+            const currentNewFiles = prev.filter(p => !p.url);
+
+            const newExistingFiles = existingPdfs.map((pdf, idx) => ({
+                id: `existing-${idx}`,
+                name: pdf.name,
+                order: pdf.order,
+                url: pdf.url,
+            }));
+
+            // Avoid infinite loops or unnecessary updates if deep equal
+            // For simplicity, we just replace.
+            return [...newExistingFiles, ...currentNewFiles];
+        });
+    }, [existingPdfs]);
 
     const handleFileSelect = useCallback((files: FileList | null) => {
         if (!files) return;
