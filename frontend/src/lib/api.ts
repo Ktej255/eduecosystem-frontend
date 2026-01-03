@@ -1,7 +1,9 @@
 import axios from "axios";
 
-// API Base URL - uses environment variable with AWS fallback
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+// API Base URL - ensure /api/v1 suffix is always present
+let baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+baseUrl = baseUrl.replace(/\/$/, ""); // Remove trailing slash
+const API_BASE = baseUrl.endsWith("/api/v1") ? baseUrl : `${baseUrl}/api/v1`;
 
 const api = axios.create({
   baseURL: API_BASE,
