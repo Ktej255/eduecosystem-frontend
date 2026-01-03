@@ -159,6 +159,7 @@ export default function CSATPage() {
     // Practice state
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
+    const [confidenceLevels, setConfidenceLevels] = useState<Record<number, number>>({}); // qId -> confidence (1-4)
     const [showResults, setShowResults] = useState(false);
     const [practiceStarted, setPracticeStarted] = useState(false);
     const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
@@ -201,6 +202,10 @@ export default function CSATPage() {
 
     const handleAnswerSelect = (questionId: number, answerIndex: number) => {
         setSelectedAnswers(prev => ({ ...prev, [questionId]: answerIndex }));
+    };
+
+    const handleConfidenceSelect = (questionId: number, confidence: number) => {
+        setConfidenceLevels(prev => ({ ...prev, [questionId]: confidence }));
     };
 
     const currentSessionDay = selectedMonth === 0 ? (selectedSession ?? 0) + 1 : 0;
@@ -631,6 +636,38 @@ export default function CSATPage() {
                                                         </div>
                                                     </button>
                                                 ))}
+                                            </div>
+
+                                            {/* Confidence Level Selector */}
+                                            <div className="mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-lg border-2 border-purple-200 dark:border-purple-800">
+                                                <p className="text-sm font-bold text-purple-700 dark:text-purple-300 mb-3">
+                                                    🎯 Rate Your Confidence
+                                                </p>
+                                                {selectedAnswers[currentQuestions[currentQuestion].id] === undefined && (
+                                                    <p className="text-xs text-gray-500 mb-2 italic">Select an answer above first, then rate your confidence</p>
+                                                )}
+                                                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                    {[
+                                                        { id: 1, label: "100% Sure", emoji: "✅", color: "bg-green-100 border-green-500 text-green-700" },
+                                                        { id: 2, label: "50-50", emoji: "🤔", color: "bg-yellow-100 border-yellow-500 text-yellow-700" },
+                                                        { id: 3, label: "One Known", emoji: "💡", color: "bg-orange-100 border-orange-500 text-orange-700" },
+                                                        { id: 4, label: "Blind Guess", emoji: "🎲", color: "bg-red-100 border-red-500 text-red-700" }
+                                                    ].map(conf => (
+                                                        <button
+                                                            key={conf.id}
+                                                            onClick={() => handleConfidenceSelect(currentQuestions[currentQuestion].id, conf.id)}
+                                                            disabled={selectedAnswers[currentQuestions[currentQuestion].id] === undefined}
+                                                            className={`p-3 rounded-lg border-2 text-sm font-semibold transition-all ${confidenceLevels[currentQuestions[currentQuestion].id] === conf.id
+                                                                    ? `${conf.color} ring-2 ring-offset-2 ring-purple-500 shadow-md`
+                                                                    : selectedAnswers[currentQuestions[currentQuestion].id] !== undefined
+                                                                        ? "bg-white dark:bg-gray-900 border-gray-300 hover:border-purple-400"
+                                                                        : "bg-gray-100 dark:bg-gray-800 border-gray-200 opacity-50 cursor-not-allowed"
+                                                                }`}
+                                                        >
+                                                            <span className="mr-1">{conf.emoji}</span> {conf.label}
+                                                        </button>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
 
