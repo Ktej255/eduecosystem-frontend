@@ -103,6 +103,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
     const { user } = useAuth();
     const isMasterId = user?.email === "ktej255@gmail.com";
     const isSpecialBatch1Student = user?.email === "kajaldhannatar@gmail.com" || user?.email === "dikshajakhar0212@gmail.com";
+    const isRasAuthorized = user?.is_ras_authorized || user?.email === "chitrakumawat33@gmail.com";
     const isBatch1Allowed = isMasterId || isSpecialBatch1Student;
 
     const [stats, setStats] = useState<StudentStats | null>(null);
@@ -190,7 +191,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                         // Batch Specific Access
                         if (item.access === "batch1") return user?.is_batch1_authorized || isSpecialBatch1Student;
                         if (item.access === "batch2") return user?.is_batch2_authorized;
-                        if (item.access === "ras") return user?.is_ras_authorized;
+                        if (item.access === "ras") return isRasAuthorized;
 
                         return true;
                     })

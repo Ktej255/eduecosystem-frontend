@@ -50,6 +50,7 @@ export default function StudentDashboard() {
     const userEmail = user?.email || "";
     const isMasterId = userEmail === "ktej255@gmail.com";
     const isSpecialBatch1Student = userEmail === "kajaldhannatar@gmail.com" || userEmail === "dikshajakhar0212@gmail.com";
+    const isRasAuthorized = user?.is_ras_authorized || userEmail === "chitrakumawat33@gmail.com";
 
     // Load stats from storage
     const loadStats = useCallback(async () => {
@@ -234,7 +235,7 @@ export default function StudentDashboard() {
             {/* Activity Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* RAS Revision Card */}
-                {(user?.is_ras_authorized || isMasterId) && (
+                {(isRasAuthorized || isMasterId) && (
                     <Card className="border-l-4 border-l-indigo-600 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-900/20 dark:to-neutral-900 shadow-md">
                         <CardHeader className="pb-2">
                             <CardTitle className="flex items-center gap-2 text-lg">
