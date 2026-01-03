@@ -17,6 +17,7 @@ import {
     Sparkles,
     Bot,
     Trophy,
+    Layers,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -47,6 +48,8 @@ export default function StudentDashboard() {
     _apiBase = _apiBase.replace(/\/$/, "");
     const API_BASE = _apiBase.endsWith("/api/v1") ? _apiBase : `${_apiBase}/api/v1`;
     const userEmail = user?.email || "";
+    const isMasterId = userEmail === "ktej255@gmail.com";
+    const isSpecialBatch1Student = userEmail === "kajaldhannatar@gmail.com" || userEmail === "dikshajakhar0212@gmail.com";
 
     // Load stats from storage
     const loadStats = useCallback(async () => {
@@ -230,67 +233,99 @@ export default function StudentDashboard() {
 
             {/* Activity Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* RAS Revision Card - Shown to all students */}
-                <Card className="border-l-4 border-l-indigo-600 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-900/20 dark:to-neutral-900 shadow-md">
-                    <CardHeader className="pb-2">
-                        <CardTitle className="flex items-center gap-2 text-lg">
-                            <Target className="h-5 w-5 text-indigo-600" />
-                            RAS Revision Mastery
-                            <span className="ml-auto px-2 py-0.5 text-xs bg-indigo-100 text-indigo-700 rounded-full flex items-center gap-1 animate-pulse">
-                                <Sparkles className="h-3 w-3" />
-                                Live
-                            </span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="space-y-4">
-                            <div className="flex justify-between text-sm">
-                                <span className="text-gray-500">Total Topics</span>
-                                <span className="font-semibold">{rasDashboard?.overall_progress?.completed_topics || 0} / {rasDashboard?.overall_progress?.total_topics || 350}</span>
-                            </div>
-
-                            <div className="space-y-1">
-                                <div className="flex justify-between text-xs text-gray-500 mb-1">
-                                    <span>Coverage</span>
-                                    <span>{rasDashboard?.overall_progress?.percentage || 0}%</span>
+                {/* RAS Revision Card */}
+                {(user?.is_ras_authorized || isMasterId) && (
+                    <Card className="border-l-4 border-l-indigo-600 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-900/20 dark:to-neutral-900 shadow-md">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="flex items-center gap-2 text-lg">
+                                <Target className="h-5 w-5 text-indigo-600" />
+                                RAS Revision Mastery
+                                <span className="ml-auto px-2 py-0.5 text-xs bg-indigo-100 text-indigo-700 rounded-full flex items-center gap-1 animate-pulse">
+                                    <Sparkles className="h-3 w-3" />
+                                    Live
+                                </span>
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-500">Total Topics</span>
+                                    <span className="font-semibold">{rasDashboard?.overall_progress?.completed_topics || 0} / {rasDashboard?.overall_progress?.total_topics || 350}</span>
                                 </div>
-                                <Progress value={dashboard_percentage(rasDashboard)} className="h-2" />
+
+                                <div className="space-y-1">
+                                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                                        <span>Coverage</span>
+                                        <span>{rasDashboard?.overall_progress?.percentage || 0}%</span>
+                                    </div>
+                                    <Progress value={dashboard_percentage(rasDashboard)} className="h-2" />
+                                </div>
+
+                                <Link href="/student/my-plan">
+                                    <Button className="w-full mt-2 bg-indigo-600 hover:bg-indigo-700">
+                                        Open Revision Plan <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </Link>
                             </div>
+                        </CardContent>
+                    </Card>
+                )}
 
-                            <Link href="/student/my-plan">
-                                <Button className="w-full mt-2 bg-indigo-600 hover:bg-indigo-700">
-                                    Open Revision Plan <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </Link>
-                        </div>
-                    </CardContent>
-                </Card>
+                {/* Batch 1 Card */}
+                {(user?.is_batch1_authorized || isSpecialBatch1Student || isMasterId) && (
+                    <Card className="border-l-4 border-l-blue-600 bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-neutral-900 shadow-md">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="flex items-center gap-2 text-lg">
+                                <BookOpen className="h-5 w-5 text-blue-600" />
+                                Batch 1: UPSC Prelims
+                                <span className="ml-auto px-2 py-0.5 text-xs bg-blue-100 text-blue-700 rounded-full flex items-center gap-1">
+                                    <Rocket className="h-3 w-3" />
+                                    Active
+                                </span>
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                    Continue your systematic 90-day coverage of the UPSC syllabus. 10-Day Polity & History Smart Modules active.
+                                </p>
+                                <Link href="/student/batch1">
+                                    <Button className="w-full mt-2 bg-blue-600 hover:bg-blue-700">
+                                        Go to Batch 1 <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </div>
+                        </CardContent>
+                    </Card>
+                )}
 
-                {/* Batch 1 Card - Now shown to all students */}
-                <Card className="border-l-4 border-l-blue-600 bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-neutral-900 shadow-md">
-                    <CardHeader className="pb-2">
-                        <CardTitle className="flex items-center gap-2 text-lg">
-                            <BookOpen className="h-5 w-5 text-blue-600" />
-                            Batch 1: UPSC Prelims
-                            <span className="ml-auto px-2 py-0.5 text-xs bg-blue-100 text-blue-700 rounded-full flex items-center gap-1">
-                                <Rocket className="h-3 w-3" />
-                                Active
-                            </span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="space-y-4">
-                            <p className="text-sm text-gray-600 dark:text-gray-400">
-                                Continue your systematic 90-day coverage of the UPSC syllabus. 10-Day Polity & History Smart Modules active.
-                            </p>
-                            <Link href="/student/batch1">
-                                <Button className="w-full mt-2 bg-blue-600 hover:bg-blue-700">
-                                    Go to Batch 1 <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </Link>
-                        </div>
-                    </CardContent>
-                </Card>
+                {/* Batch 2 Card */}
+                {(user?.is_batch2_authorized || isMasterId) && (
+                    <Card className="border-l-4 border-l-purple-600 bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-neutral-900 shadow-md">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="flex items-center gap-2 text-lg">
+                                <Layers className="h-5 w-5 text-purple-600" />
+                                Batch 2: Sanatana Dharma
+                                <span className="ml-auto px-2 py-0.5 text-xs bg-purple-100 text-purple-700 rounded-full flex items-center gap-1">
+                                    <Sparkles className="h-3 w-3" />
+                                    Active
+                                </span>
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                    Explore the complete hierarchy of Indian philosophical texts. Journey through Upanishads and Bhagavad Gita active.
+                                </p>
+                                <Link href="/student/batch2">
+                                    <Button className="w-full mt-2 bg-purple-600 hover:bg-purple-700">
+                                        Go to Batch 2 <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </div>
+                        </CardContent>
+                    </Card>
+                )}
 
                 {/* Focused Study (Pomodoro) */}
                 <Card className="border-l-4 border-l-orange-500 bg-gradient-to-br from-orange-50 to-white dark:from-orange-900/20 dark:to-neutral-900 shadow-md">

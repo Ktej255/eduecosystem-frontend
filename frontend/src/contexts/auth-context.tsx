@@ -18,6 +18,9 @@ interface User {
   coins: number;
   streak_days: number;
   role: string;
+  is_ras_authorized?: boolean;
+  is_batch1_authorized?: boolean;
+  is_batch2_authorized?: boolean;
 }
 
 interface AuthContextType {
