@@ -14,6 +14,22 @@ export interface StudySessionStats {
     }[];
 }
 
+export interface StudyExplanationAnalysis {
+    topic_name?: string;
+    transcript?: string;
+    error?: string;
+    analysis?: {
+        comprehension_score: number;
+        clarity_rating: number;
+        depth_rating: number;
+        summary: string;
+        key_concepts?: string[];
+        missing_concepts?: string[];
+        strengths?: string[];
+        improvements?: string[];
+    };
+}
+
 export interface SessionRecord {
     email: string;
     session_type: string;
