@@ -51,6 +51,7 @@ export default function StudentDashboard() {
     const isMasterId = userEmail === "ktej255@gmail.com";
     const isSpecialBatch1Student = userEmail === "kajaldhannatar@gmail.com" || userEmail === "dikshajakhar0212@gmail.com";
     const isRasAuthorized = user?.is_ras_authorized || userEmail === "chitrakumawat33@gmail.com";
+    const isBatch1Authorized = user?.is_batch1_authorized || isSpecialBatch1Student || isMasterId;
 
     // Load stats from storage
     const loadStats = useCallback(async () => {
@@ -155,22 +156,48 @@ export default function StudentDashboard() {
                         </div>
 
                         {/* Resume Learning Card */}
-                        {resumePoint && resumePoint.type && (
-                            <Link href={resumePoint.href}>
-                                <Card className="bg-white/10 border-white/20 hover:bg-white/20 transition-all cursor-pointer min-w-[280px]">
-                                    <CardContent className="p-4">
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <PlayCircle className="h-8 w-8 text-green-400" />
-                                            <div>
-                                                <p className="text-white font-semibold">Resume Learning</p>
-                                                <p className="text-blue-200 text-sm">{resumePoint.label}</p>
+                        {(() => {
+                            let displayResume = resumePoint;
+
+                            // Override for RAS if user is not in Batch 1 or has no Batch 1 progress
+                            if (isRasAuthorized && (!isBatch1Authorized || !resumePoint?.type || resumePoint.type === 'prelims')) {
+                                if (rasDashboard?.next_topic) {
+                                    displayResume = {
+                                        type: 'ras' as any,
+                                        label: rasDashboard.next_topic.name,
+                                        href: '/student/my-plan',
+                                        details: `Next: Day ${rasDashboard.next_topic.day} • ${rasDashboard.next_topic.subject}`
+                                    };
+                                } else if (!isBatch1Authorized) {
+                                    // If strictly RAS and no dashboard data yet, show link to plan
+                                    displayResume = {
+                                        type: 'ras' as any,
+                                        label: 'RAS Revision Plan',
+                                        href: '/student/my-plan',
+                                        details: 'Continue your RAS preparation'
+                                    };
+                                }
+                            }
+
+                            if (!displayResume) return null;
+
+                            return (
+                                <Link href={displayResume.href}>
+                                    <Card className="bg-white/10 border-white/20 hover:bg-white/20 transition-all cursor-pointer min-w-[280px]">
+                                        <CardContent className="p-4">
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <PlayCircle className="h-8 w-8 text-green-400" />
+                                                <div>
+                                                    <p className="text-white font-semibold">Resume Learning</p>
+                                                    <p className="text-blue-200 text-sm">{displayResume.label}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <p className="text-blue-300 text-xs">{resumePoint.details}</p>
-                                    </CardContent>
-                                </Card>
-                            </Link>
-                        )}
+                                            <p className="text-blue-300 text-xs">{displayResume.details}</p>
+                                        </CardContent>
+                                    </Card>
+                                </Link>
+                            );
+                        })()}
                     </div>
                 </div>
             </div>
