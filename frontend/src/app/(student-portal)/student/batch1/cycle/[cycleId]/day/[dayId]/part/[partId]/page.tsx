@@ -12,6 +12,7 @@ import api from "@/lib/api";
 import { useSessionProgress } from "@/hooks/useSessionProgress";
 import { markSegmentComplete, saveAnalysisReport, getAnalysisReport } from "@/services/progressStorage";
 import PDFStudySession from "@/components/batch1/PDFStudySession";
+import SimplePDFViewer from "@/components/batch1/SimplePDFViewer";
 
 // Segment interface
 interface Segment {
@@ -573,23 +574,44 @@ export default function PartLearningPage() {
 
             {/* PDF Study Mode */}
             {studyMode === "pdf" && (
-                <PDFStudySession
-                    segmentKey={`${cycleId}_${dayId}_${partId}_${currentSegment + 1}`}
-                    onComplete={() => {
-                        // Mark complete and move to next segment or part
-                        markSegmentComplete(cycleId, dayId, partId, currentSegment + 1);
-                        if (currentSegment < totalSegments - 1) {
-                            setCurrentSegment(currentSegment + 1);
-                        } else if (partId < 3) {
-                            toast.success(`Part ${partId} completed! Moving to Part ${partId + 1}`);
-                            router.push(`/student/batch1/cycle/${cycleId}/day/${dayId}/part/${partId + 1}`);
-                        } else {
-                            toast.success("Day completed! 🎉");
-                            router.push(`/student/batch1`);
-                        }
-                    }}
-                    onBack={() => setStudyMode("select")}
-                />
+                segment.pdf_files && segment.pdf_files.length > 0 ? (
+                    <SimplePDFViewer
+                        segmentTitle={segment.title}
+                        pdfFiles={segment.pdf_files}
+                        onBack={() => setStudyMode("select")}
+                        onComplete={() => {
+                            // Mark complete and move to next segment or part
+                            markSegmentComplete(cycleId, dayId, partId, currentSegment + 1);
+                            if (currentSegment < totalSegments - 1) {
+                                setCurrentSegment(currentSegment + 1);
+                            } else if (partId < 3) {
+                                toast.success(`Part ${partId} completed! Moving to Part ${partId + 1}`);
+                                router.push(`/student/batch1/cycle/${cycleId}/day/${dayId}/part/${partId + 1}`);
+                            } else {
+                                toast.success("Day completed! 🎉");
+                                router.push(`/student/batch1`);
+                            }
+                        }}
+                    />
+                ) : (
+                    /* Fallback to old PDFStudySession for compatibility */
+                    <PDFStudySession
+                        segmentKey={`${cycleId}_${dayId}_${partId}_${currentSegment + 1}`}
+                        onComplete={() => {
+                            markSegmentComplete(cycleId, dayId, partId, currentSegment + 1);
+                            if (currentSegment < totalSegments - 1) {
+                                setCurrentSegment(currentSegment + 1);
+                            } else if (partId < 3) {
+                                toast.success(`Part ${partId} completed! Moving to Part ${partId + 1}`);
+                                router.push(`/student/batch1/cycle/${cycleId}/day/${dayId}/part/${partId + 1}`);
+                            } else {
+                                toast.success("Day completed! 🎉");
+                                router.push(`/student/batch1`);
+                            }
+                        }}
+                        onBack={() => setStudyMode("select")}
+                    />
+                )
             )}
 
             {/* Video Mode - Original Flow */}
