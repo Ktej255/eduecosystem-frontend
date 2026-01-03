@@ -12,6 +12,8 @@ import os
 import uuid
 import json
 import asyncio
+import tempfile
+import urllib.request
 
 # Database imports for persistence
 from app.db.session import SessionLocal
@@ -115,11 +117,16 @@ class SegmentResponse(BaseModel):
     id: int
     title: str
     key_points: str
-    video_url: Optional[str]
+    video_url: Optional[str] = None
     youtube_url: Optional[str] = None
     content_type: str = "video"
     pdf_files: List[Dict[str, Any]] = []
-    duration: str
+    duration: str = "25:00"
+    
+    model_config = {
+        "from_attributes": True,
+        "populate_by_name": True
+    }
 
 
 class DayContentResponse(BaseModel):
@@ -351,10 +358,24 @@ async def save_segment(
                             local_pdf_path = dest_path
 
                         # Trigger PDF processing for first PDF
-                        if idx == 0 and local_pdf_path:
+                        if idx == 0:
                             print(f"Triggering PDF processing for {key}")
                             current_pdf_name = pdf_names[idx] if pdf_names and idx < len(pdf_names) else pdf.filename
-                            await process_pdf_document(key, local_pdf_path, current_pdf_name)
+                            
+                            if local_pdf_path:
+                                # Local file - process directly
+                                await process_pdf_document(key, local_pdf_path, current_pdf_name)
+                            elif pdf_url.startswith("https://"):
+                                # S3 file - download to temp and process
+                                try:
+                                    with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp_file:
+                                        print(f"Downloading S3 PDF to temp: {pdf_url}")
+                                        urllib.request.urlretrieve(pdf_url, tmp_file.name)
+                                        await process_pdf_document(key, tmp_file.name, current_pdf_name)
+                                        # Clean up temp file
+                                        os.unlink(tmp_file.name)
+                                except Exception as e:
+                                    print(f"Error processing S3 PDF: {e}")
 
                         new_pdfs_uploaded.append({
                             "name": pdf_names[idx] if pdf_names and idx < len(pdf_names) else pdf.filename,

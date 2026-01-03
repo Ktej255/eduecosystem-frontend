@@ -514,7 +514,15 @@ A university that prioritises attendance over engagement betrays its purpose. In
     ]
 };
 
+export const CSAT_DAY_3_DATA: SessionData = {
+    day: 3,
+    description: "UPSC CSAT Practice Set - Day 03: Land Rights & Governance (Replicated)",
+    passages: CSAT_DAY_2_DATA.passages, // Reusing Day 2 passages as requested
+    vocabulary: CSAT_DAY_2_DATA.vocabulary // Reusing Day 2 vocabulary
+};
+
 export const CSAT_DATA_MAP: Record<number, SessionData> = {
     1: CSAT_DAY_1_DATA,
-    2: CSAT_DAY_2_DATA
+    2: CSAT_DAY_2_DATA,
+    3: CSAT_DAY_3_DATA
 };

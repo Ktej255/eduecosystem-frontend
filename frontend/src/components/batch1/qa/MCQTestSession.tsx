@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { DAY1_MCQS, MCQ } from "../polity/data/day1-mcqs";
 import { DAY2_MCQS } from "../polity/data/day2-mcqs";
+import { DAY3_MCQS } from "../polity/data/day3-mcqs";
 
 interface MCQTestSessionProps {
     cycleId: number;
@@ -31,6 +32,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const mcqs = useMemo(() => {
         const d = typeof day === 'string' ? parseInt(day) : day;
         switch (d) {
+            case 3:
+                return DAY3_MCQS;
             case 2:
                 return DAY2_MCQS;
             case 1:
@@ -42,7 +45,10 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const { user } = useAuth();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState<{ [key: number]: number }>({}); // qId -> optionIndex
-    const [timeLeft, setTimeLeft] = useState(60 * 60); // 60 minutes in seconds
+    const [timeLeft, setTimeLeft] = useState(() => {
+        const d = typeof day === 'string' ? parseInt(day) : day;
+        return d === 3 ? 120 * 60 : 60 * 60; // 2 hours for Day 3, 1 hour otherwise
+    });
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [score, setScore] = useState(0);

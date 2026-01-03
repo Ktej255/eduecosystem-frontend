@@ -28,6 +28,9 @@ class Batch1Segment(Base):
     pdf_data = Column(String, nullable=True)  # JSON blob of processed PDF pages (text/images)
     key_points = Column(String, nullable=True) # JSON list or text
     
+    # Duration
+    duration = Column(String, default="25:00")
+    
     # Status
     is_processed = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)

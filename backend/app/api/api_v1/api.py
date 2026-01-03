@@ -16,7 +16,6 @@ from app.api.api_v1.endpoints import (
     ai_debug,
     ai,
 )
-print("DEBUG: Standard endpoints imported")
 
 
 api_router = APIRouter()
@@ -89,9 +88,7 @@ from app.api.api_v1.endpoints import retention
 api_router.include_router(retention.router, prefix="/retention", tags=["retention"])
 
 # AI Learning (MCQ Generator, Coaching)
-print("DEBUG: Importing ai_learning...")
 from app.api.api_v1.endpoints import ai_learning
-print("DEBUG: ai_learning imported")
 api_router.include_router(ai_learning.router, prefix="/ai-learning", tags=["ai-learning"])
 
 # RAS Revision Planner (40-Day Plan)
@@ -127,6 +124,9 @@ from app.api.api_v1.endpoints import knowledge_graph
 api_router.include_router(knowledge_graph.router, prefix="/knowledge-graph", tags=["knowledge-graph"])
 
 # PDF Study (Self-Study Mode for Batch 1)
-from app.api.api_v1.endpoints import pdf_study
 api_router.include_router(pdf_study.router, prefix="/pdf-study", tags=["pdf-study"])
+
+# Study Sessions (Pomodoro, Revision)
+from app.api.api_v1.endpoints import study
+api_router.include_router(study.router, prefix="/study", tags=["study"])
 

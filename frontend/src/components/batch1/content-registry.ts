@@ -5,7 +5,7 @@
  */
 
 // === CSAT DATA IMPORTS ===
-import { CSAT_DAY_1_DATA, CSAT_DAY_2_DATA } from "@/app/(student-portal)/student/batch1/csat/csat-data";
+import { CSAT_DAY_1_DATA, CSAT_DAY_2_DATA, CSAT_DAY_3_DATA } from "@/app/(student-portal)/student/batch1/csat/csat-data";
 import type { SessionData } from "@/app/(student-portal)/student/batch1/csat/csat-data";
 
 // === FLASHCARD DATA IMPORTS ===
@@ -23,8 +23,8 @@ import type { Flashcard } from "./flashcard/flashcard-utils";
 export const CSAT_CONTENT_REGISTRY: Record<number, SessionData | undefined> = {
     1: CSAT_DAY_1_DATA,
     2: CSAT_DAY_2_DATA,
+    3: CSAT_DAY_3_DATA,
     // Add more days as content is created:
-    // 3: CSAT_DAY_3_DATA,
     // 4: CSAT_DAY_4_DATA,
 };
 
