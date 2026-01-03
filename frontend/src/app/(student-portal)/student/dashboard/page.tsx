@@ -40,10 +40,12 @@ export default function StudentDashboard() {
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
     const [isRefreshing, setIsRefreshing] = useState(false);
 
-    // RAS Data State
+    // RAS Data State - ensure /api/v1 suffix
     const [rasDashboard, setRasDashboard] = useState<any | null>(null);
     const [studyStats, setStudyStats] = useState<StudySessionStats | null>(null);
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    let _apiBase = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+    _apiBase = _apiBase.replace(/\/$/, "");
+    const API_BASE = _apiBase.endsWith("/api/v1") ? _apiBase : `${_apiBase}/api/v1`;
     const userEmail = user?.email || "";
 
     // Load stats from storage

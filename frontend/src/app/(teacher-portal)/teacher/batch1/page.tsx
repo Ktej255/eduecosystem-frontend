@@ -186,7 +186,9 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
     color: string;
     onBack: () => void;
 }) {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+    let _apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+    _apiUrl = _apiUrl.replace(/\/$/, "");
+    const API_URL = _apiUrl.endsWith("/api/v1") ? _apiUrl : `${_apiUrl}/api/v1`;
     const { showToast } = useToast();
 
     // Content state for each segment: key = "part-segment"
@@ -229,7 +231,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                 // Fetch all 3 parts
                 for (const part of parts) {
                     const response = await fetch(
-                        `${API_URL}/api/v1/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}`
+                        `${API_URL}/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}`
                     );
                     if (response.ok) {
                         const data = await response.json();
@@ -357,7 +359,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
 
                         // Call backend API
                         const response = await fetch(
-                            `${API_URL}/api/v1/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/segment/${seg}`,
+                            `${API_URL}/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/segment/${seg}`,
                             {
                                 method: "POST",
                                 body: formData,

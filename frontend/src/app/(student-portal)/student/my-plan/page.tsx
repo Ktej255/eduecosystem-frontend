@@ -37,8 +37,10 @@ import {
 import Link from "next/link";
 import { useAuth } from "@/contexts/auth-context";
 
-// Use environment variable for API base URL
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+// Use environment variable for API base URL - ensure /api/v1 suffix
+let _baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+_baseUrl = _baseUrl.replace(/\/$/, "");
+const API_BASE = _baseUrl.endsWith("/api/v1") ? _baseUrl : `${_baseUrl}/api/v1`;
 
 interface SubjectProgress {
     name: string;

@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+let _baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+_baseUrl = _baseUrl.replace(/\/$/, "");
+const API_BASE = _baseUrl.endsWith("/api/v1") ? _baseUrl : `${_baseUrl}/api/v1`;
 
 export interface SegmentData {
     id: number;
