@@ -33,13 +33,18 @@ import {
     StudentStats,
 } from "@/services/progressStorage";
 import { getStudySessionService, StudySessionStats } from "@/services/studySessionService";
+import TestHistoryModal from "@/components/batch1/qa/TestHistoryModal";
+
 
 export default function StudentDashboard() {
     const { user } = useAuth();
     const [stats, setStats] = useState<StudentStats | null>(null);
     const [resumePoint, setResumePoint] = useState<ResumePoint | null>(null);
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
+
     const [isRefreshing, setIsRefreshing] = useState(false);
+    const [showHistoryModal, setShowHistoryModal] = useState(false);
+
 
     // RAS Data State - ensure /api/v1 suffix
     const [rasDashboard, setRasDashboard] = useState<any | null>(null);
@@ -358,15 +363,31 @@ export default function StudentDashboard() {
                                     </div>
                                 )}
 
-                                <Link href="/student/batch1">
-                                    <Button className="w-full mt-2 bg-blue-600 hover:bg-blue-700">
-                                        Go to Batch 1 <ArrowRight className="ml-2 h-4 w-4" />
+
+                                <div className="grid grid-cols-2 gap-2">
+                                    <Button
+                                        variant="outline"
+                                        className="w-full text-blue-600 border-blue-200 hover:bg-blue-50"
+                                        onClick={() => setShowHistoryModal(true)}
+                                    >
+                                        <Trophy className="mr-2 h-4 w-4" /> Reports
                                     </Button>
-                                </Link>
+                                    <Link href="/student/batch1" className="w-full">
+                                        <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                                            Enter Class <ArrowRight className="ml-2 h-4 w-4" />
+                                        </Button>
+                                    </Link>
+                                </div>
                             </div>
                         </CardContent>
                     </Card>
                 )}
+
+                <TestHistoryModal
+                    isOpen={showHistoryModal}
+                    onClose={() => setShowHistoryModal(false)}
+                />
+
 
                 {/* Batch 2 Card */}
                 {(user?.is_batch2_authorized || isMasterId) && (
@@ -504,7 +525,7 @@ export default function StudentDashboard() {
 
             {/* Test Analysis Section */}
             <TestAnalysisBoard />
-        </div>
+        </div >
     );
 }
 
