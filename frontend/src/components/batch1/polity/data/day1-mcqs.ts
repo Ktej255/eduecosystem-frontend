@@ -34,8 +34,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Lord Canning",
             "Lord Cornwallis"
         ],
-        correctAnswer: 1, // B
-        level: "Easy"
+        correctAnswer: 1,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Regulating Act 1773"
     },
     {
         id: 3,
@@ -46,8 +49,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Charter Act of 1853",
             "Government of India Act of 1858"
         ],
-        correctAnswer: 1, // B
-        level: "Easy"
+        correctAnswer: 1,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Charter Act 1833"
     },
     {
         id: 4,
@@ -70,8 +76,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Charter Act of 1853",
             "Government of India Act of 1858"
         ],
-        correctAnswer: 0, // A
-        level: "Easy"
+        correctAnswer: 0,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Charter Act 1813"
     },
     {
         id: 6,
@@ -82,8 +91,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Lord Bentinck",
             "Lord Mountbatten"
         ],
-        correctAnswer: 1, // B
-        level: "Easy"
+        correctAnswer: 1,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1858"
     },
     {
         id: 7,
@@ -94,8 +106,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Government of India Act of 1858",
             "Indian Councils Act of 1909"
         ],
-        correctAnswer: 0, // A
-        level: "Easy"
+        correctAnswer: 0,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Indian Councils Act 1861"
     },
     {
         id: 8,
@@ -106,8 +121,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Government of India Act of 1919",
             "Government of India Act of 1935"
         ],
-        correctAnswer: 1, // B
-        level: "Easy"
+        correctAnswer: 1,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Indian Councils Act 1909"
     },
     {
         id: 9,
@@ -118,8 +136,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Act of 1935",
             "Act of 1892"
         ],
-        correctAnswer: 0, // A
-        level: "Easy"
+        correctAnswer: 0,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Indian Councils Act 1909"
     },
     {
         id: 10,
@@ -130,8 +151,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Indian Independence Act, 1947",
             "Regulating Act, 1773"
         ],
-        correctAnswer: 1, // B
-        level: "Easy"
+        correctAnswer: 1,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1935"
     },
     {
         id: 11,
@@ -142,8 +166,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Act of 1919",
             "Act of 1935"
         ],
-        correctAnswer: 2, // C
-        level: "Easy"
+        correctAnswer: 2,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1919"
     },
     {
         id: 12,
@@ -154,8 +181,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Indian Councils Act of 1892",
             "Government of India Act of 1919"
         ],
-        correctAnswer: 0, // A
-        level: "Easy"
+        correctAnswer: 0,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1858"
     },
     {
         id: 13,
