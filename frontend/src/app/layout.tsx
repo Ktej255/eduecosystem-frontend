@@ -6,6 +6,7 @@ import { ToastProvider } from "@/components/ui/Toast";
 import ErrorBoundary from "@/components/ui/ErrorBoundary";
 import { ThemeProvider } from "@/components/theme-provider";
 import AIChatWidget from "@/components/chat/AIChatWidget";
+import BuildInfo from "@/components/BuildInfo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +45,7 @@ export default function RootLayout({
               <ToastProvider>
                 {children}
                 <AIChatWidget />
+                <BuildInfo />
               </ToastProvider>
             </AuthProvider>
           </ThemeProvider>
