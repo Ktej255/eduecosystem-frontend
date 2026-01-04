@@ -208,8 +208,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Act of 1935",
             "Act of 1858"
         ],
-        correctAnswer: 1, // B
-        level: "Easy"
+        correctAnswer: 1,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1919"
     },
     {
         id: 15,
@@ -220,8 +223,11 @@ export const DAY1_MCQS: MCQ[] = [
             "January 26, 1950",
             "February 20, 1947"
         ],
-        correctAnswer: 1, // B
-        level: "Easy"
+        correctAnswer: 1,
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Indian Independence Act 1947"
     },
     // LEVEL 2: MODERATE
     {
@@ -233,9 +239,12 @@ export const DAY1_MCQS: MCQ[] = [
             "Both 1 and 2",
             "Neither 1 nor 2"
         ],
-        correctAnswer: 1, // B
+        correctAnswer: 1,
         explanation: "Statement 1 is incorrect; they were made subordinate.",
-        level: "Moderate"
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Regulating Act 1773"
     },
     {
         id: 17,
@@ -246,9 +255,12 @@ export const DAY1_MCQS: MCQ[] = [
             "1 and 3 only",
             "1, 2, and 3"
         ],
-        correctAnswer: 0, // A
+        correctAnswer: 0,
         explanation: "Statement 3 is incorrect; the attempt was negated.",
-        level: "Moderate"
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Charter Act 1833"
     },
     {
         id: 18,
@@ -271,8 +283,11 @@ export const DAY1_MCQS: MCQ[] = [
             "2 and 3 only",
             "1, 2, and 3"
         ],
-        correctAnswer: 3, // D
-        level: "Moderate"
+        correctAnswer: 3,
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1858"
     },
     {
         id: 20,
@@ -283,8 +298,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Indian Councils Act, 1909",
             "Government of India Act, 1919"
         ],
-        correctAnswer: 0, // A
-        level: "Moderate"
+        correctAnswer: 0,
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Indian Councils Act 1861"
     },
     {
         id: 21,
@@ -295,8 +313,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Both 1 and 2",
             "Neither 1 nor 2"
         ],
-        correctAnswer: 2, // C
-        level: "Moderate"
+        correctAnswer: 2,
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Indian Councils Act 1892"
     },
     {
         id: 22,
@@ -307,8 +328,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Double rule by the British and Indian Rulers.",
             "Separation of Judiciary from Executive."
         ],
-        correctAnswer: 1, // B
-        level: "Moderate"
+        correctAnswer: 1,
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1919"
     },
     {
         id: 23,
@@ -319,9 +343,12 @@ export const DAY1_MCQS: MCQ[] = [
             "Establishment of a Federal Court.",
             "Establishment of a Board of Control."
         ],
-        correctAnswer: 3, // D
+        correctAnswer: 3,
         explanation: "Board of Control was abolished in 1858.",
-        level: "Moderate"
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1935"
     },
     {
         id: 24,
@@ -332,8 +359,11 @@ export const DAY1_MCQS: MCQ[] = [
             "2 and 3 only",
             "1, 2, and 3"
         ],
-        correctAnswer: 3, // D
-        level: "Moderate"
+        correctAnswer: 3,
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Multiple Acts"
     },
     {
         id: 25,
@@ -344,8 +374,11 @@ export const DAY1_MCQS: MCQ[] = [
             "1 only",
             "1, 2, 3, and 4"
         ],
-        correctAnswer: 3, // D
-        level: "Moderate"
+        correctAnswer: 3,
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1919"
     },
     {
         id: 26,
@@ -368,8 +401,11 @@ export const DAY1_MCQS: MCQ[] = [
             "Viceroy (Governor-General)",
             "Federal Court"
         ],
-        correctAnswer: 2, // C
-        level: "Moderate"
+        correctAnswer: 2,
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Constitutional History",
+        subtopic: "Government of India Act 1935"
     },
     {
         id: 28,
