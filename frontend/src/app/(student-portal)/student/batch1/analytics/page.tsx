@@ -263,7 +263,7 @@ export default function AnalyticsPage() {
                                                 <YAxis domain={[0, 100]} stroke="#6B7280" fontSize={12} />
                                                 <Tooltip
                                                     contentStyle={{ backgroundColor: '#fff', border: '1px solid #E5E7EB', borderRadius: '8px' }}
-                                                    formatter={(value: number) => [`${value}%`, 'Score']}
+                                                    formatter={(value: number | undefined) => [`${value}%`, 'Score']}
                                                 />
                                                 <Line
                                                     type="monotone"
@@ -304,7 +304,7 @@ export default function AnalyticsPage() {
                                                         <Cell key={`cell-${index}`} fill={entry.color} />
                                                     ))}
                                                 </Pie>
-                                                <Tooltip formatter={(value: number) => [value, 'Questions']} />
+                                                <Tooltip formatter={(value: number | undefined) => [value, 'Questions']} />
                                                 <Legend />
                                             </PieChart>
                                         </ResponsiveContainer>
