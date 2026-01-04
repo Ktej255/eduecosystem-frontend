@@ -59,6 +59,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [showHistory, setShowHistory] = useState(false);
     const [testHistory, setTestHistory] = useState<any[]>([]);
     const [loadingHistory, setLoadingHistory] = useState(false);
+    const [reviewingTest, setReviewingTest] = useState<any | null>(null); // For reviewing a past test
+    const [reviewAnswers, setReviewAnswers] = useState<any[]>([]); // Answers from past test
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -119,6 +121,23 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         }
     };
 
+    const fetchTestDetail = async (resultId: number) => {
+        setLoadingHistory(true);
+        try {
+            const AWS_API = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+            const token = localStorage.getItem('token');
+            const response = await axios.get(`${AWS_API}/batch1/test-results/${resultId}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            setReviewingTest(response.data);
+            setReviewAnswers(response.data.answers || []);
+        } catch (error) {
+            console.error("Failed to fetch test detail:", error);
+        } finally {
+            setLoadingHistory(false);
+        }
+    };
+
     const handleSubmit = async () => {
         if (timerRef.current) clearInterval(timerRef.current);
 
@@ -143,7 +162,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             return {
                 qId: q.id,
                 answer: userAnswer !== undefined ? userAnswer : -1,
-                isCorrect: isCorrect
+                isCorrect: isCorrect,
+                confidence: confidenceLevels[q.id] || null // Include confidence level
             };
         });
 
@@ -201,6 +221,42 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                                 <div className="flex items-center justify-center py-8">
                                     <Clock className="h-6 w-6 animate-spin text-blue-600" />
                                 </div>
+                            ) : reviewingTest ? (
+                                // Review Detail View
+                                <div className="space-y-4">
+                                    <div className="flex items-center justify-between bg-blue-50 p-3 rounded-lg">
+                                        <div>
+                                            <p className="font-bold text-blue-700">Cycle {reviewingTest.cycle_id}, Day {reviewingTest.day_number}</p>
+                                            <p className="text-xs text-gray-500">{new Date(reviewingTest.timestamp).toLocaleDateString()}</p>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className={`text-xl font-bold ${reviewingTest.score >= 0 ? 'text-green-600' : 'text-red-600'}`}>{reviewingTest.score}</p>
+                                            <p className="text-xs text-gray-500">{reviewingTest.correct_count}/{reviewingTest.total_questions}</p>
+                                        </div>
+                                    </div>
+                                    <Button variant="outline" size="sm" onClick={() => { setReviewingTest(null); setReviewAnswers([]); }}>
+                                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to History
+                                    </Button>
+                                    <div className="space-y-2 max-h-96 overflow-y-auto">
+                                        {reviewAnswers.map((ans, idx) => {
+                                            const q = mcqs.find(m => m.id === ans.qId);
+                                            if (!q) return null;
+                                            const confidenceLabels: Record<number, string> = { 1: '✅ 100% Sure', 2: '🤔 50-50', 3: '💡 One Known', 4: '🎲 Blind Guess' };
+                                            return (
+                                                <div key={idx} className={`p-3 rounded-lg border ${ans.isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+                                                    <p className="text-sm font-medium mb-1">Q{idx + 1}: {q.question.substring(0, 80)}...</p>
+                                                    <div className="flex items-center justify-between text-xs">
+                                                        <span>Your Answer: <strong>{ans.answer >= 0 ? q.options[ans.answer]?.substring(0, 30) + '...' : 'Skipped'}</strong></span>
+                                                        <span className={ans.isCorrect ? 'text-green-600' : 'text-red-600'}>{ans.isCorrect ? '✓ Correct' : '✗ Incorrect'}</span>
+                                                    </div>
+                                                    {ans.confidence && (
+                                                        <p className="text-xs text-purple-600 mt-1">Confidence: {confidenceLabels[ans.confidence] || 'N/A'}</p>
+                                                    )}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
                             ) : testHistory.length === 0 ? (
                                 <p className="text-center py-8 text-gray-500">No previous tests found. Complete a test to see your history!</p>
                             ) : (
@@ -213,9 +269,14 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                                                         <p className="font-semibold">Cycle {result.cycle_id}, Day {result.day_number}</p>
                                                         <p className="text-xs text-gray-500">{new Date(result.timestamp).toLocaleDateString()} at {new Date(result.timestamp).toLocaleTimeString()}</p>
                                                     </div>
-                                                    <div className="text-right">
-                                                        <p className={`text-2xl font-bold ${result.score >= 0 ? 'text-green-600' : 'text-red-600'}`}>{result.score}</p>
-                                                        <p className="text-xs text-gray-500">{result.correct_count}/{result.total_questions} correct</p>
+                                                    <div className="text-right flex items-center gap-3">
+                                                        <div>
+                                                            <p className={`text-2xl font-bold ${result.score >= 0 ? 'text-green-600' : 'text-red-600'}`}>{result.score}</p>
+                                                            <p className="text-xs text-gray-500">{result.correct_count}/{result.total_questions} correct</p>
+                                                        </div>
+                                                        <Button size="sm" variant="outline" onClick={() => fetchTestDetail(result.id)}>
+                                                            Review
+                                                        </Button>
                                                     </div>
                                                 </div>
                                             </CardContent>
@@ -376,10 +437,10 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                                         onClick={() => handleConfidenceSelect(conf.id)}
                                         disabled={!isAnswered}
                                         className={`p-3 rounded-lg border-2 text-sm font-semibold transition-all ${confidenceLevels[currentQuestion.id] === conf.id
-                                                ? `${conf.color} ring-2 ring-offset-2 ring-purple-500 shadow-md`
-                                                : isAnswered
-                                                    ? "bg-white dark:bg-gray-900 border-gray-300 hover:border-purple-400 hover:shadow-sm"
-                                                    : "bg-gray-100 dark:bg-gray-800 border-gray-200 opacity-50 cursor-not-allowed"
+                                            ? `${conf.color} ring-2 ring-offset-2 ring-purple-500 shadow-md`
+                                            : isAnswered
+                                                ? "bg-white dark:bg-gray-900 border-gray-300 hover:border-purple-400 hover:shadow-sm"
+                                                : "bg-gray-100 dark:bg-gray-800 border-gray-200 opacity-50 cursor-not-allowed"
                                             }`}
                                     >
                                         <span className="mr-1 text-base">{conf.emoji}</span> {conf.label}
