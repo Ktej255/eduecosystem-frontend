@@ -53,12 +53,18 @@ export default function AdminDashboard() {
 
   const fetchAllData = async () => {
     try {
-      // Fetch admin stats
+      // Fetch comprehensive admin overview (new cross-portal API)
       try {
-        const statsRes = await api.get("/admin/stats");
-        setStats(statsRes.data);
+        const overviewRes = await api.get("/admin/overview");
+        setStats(overviewRes.data);
       } catch (e) {
-        console.error("Stats fetch failed:", e);
+        // Fallback to old stats endpoint
+        try {
+          const statsRes = await api.get("/admin/stats");
+          setStats(statsRes.data);
+        } catch (e2) {
+          console.error("Stats fetch failed:", e2);
+        }
       }
 
       // Fetch all users
