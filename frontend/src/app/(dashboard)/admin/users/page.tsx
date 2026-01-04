@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Ban, ShieldCheck, Trash2, RefreshCw } from "lucide-react";
+import { Search, Ban, ShieldCheck, Trash2, RefreshCw, BookOpen } from "lucide-react";
 import api from "@/lib/api";
 
 export default function UsersPage() {
@@ -29,6 +29,16 @@ export default function UsersPage() {
       console.error("Failed to fetch users:", error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleToggleBatch1 = async (userId: number, newValue: boolean) => {
+    try {
+      await api.put(`/admin/users/${userId}/access?batch1=${newValue}`);
+      fetchUsers();
+    } catch (error) {
+      console.error("Failed to update batch access:", error);
+      alert("Failed to update access");
     }
   };
 
@@ -135,6 +145,7 @@ export default function UsersPage() {
                   <th className="p-4 text-gray-400 font-semibold">Coins</th>
                   <th className="p-4 text-gray-400 font-semibold">Streak</th>
                   <th className="p-4 text-gray-400 font-semibold">Status</th>
+                  <th className="p-4 text-gray-400 font-semibold">Batch 1</th>
                   <th className="p-4 text-gray-400 font-semibold">Actions</th>
                 </tr>
               </thead>
@@ -149,11 +160,10 @@ export default function UsersPage() {
                     <td className="p-4 text-white">{user.full_name || "-"}</td>
                     <td className="p-4">
                       <span
-                        className={`px-2 py-1 rounded text-xs font-semibold ${
-                          user.role === "admin"
-                            ? "bg-purple-600 text-white"
-                            : "bg-gray-700 text-gray-300"
-                        }`}
+                        className={`px-2 py-1 rounded text-xs font-semibold ${user.role === "admin"
+                          ? "bg-purple-600 text-white"
+                          : "bg-gray-700 text-gray-300"
+                          }`}
                       >
                         {user.role}
                       </span>
@@ -173,6 +183,13 @@ export default function UsersPage() {
                         <span className="px-2 py-1 rounded text-xs font-semibold bg-gray-600 text-white">
                           Inactive
                         </span>
+                      )}
+                    </td>
+                    <td className="p-4">
+                      {user.is_batch1_authorized ? (
+                        <span className="text-green-500 text-xs font-bold">Yes</span>
+                      ) : (
+                        <span className="text-gray-500 text-xs">No</span>
                       )}
                     </td>
                     <td className="p-4">
@@ -197,6 +214,16 @@ export default function UsersPage() {
 
                         {user.role !== "admin" && (
                           <>
+                            <button
+                              onClick={() => handleToggleBatch1(user.id, !user.is_batch1_authorized)}
+                              className={`p-2 rounded text-white ${user.is_batch1_authorized
+                                ? "bg-blue-600 hover:bg-blue-700"
+                                : "bg-gray-600 hover:bg-gray-700"
+                                }`}
+                              title={user.is_batch1_authorized ? "Revoke Batch 1 Access" : "Grant Batch 1 Access"}
+                            >
+                              <BookOpen className="h-4 w-4" />
+                            </button>
                             <button
                               onClick={() => handlePromote(user.id)}
                               className="p-2 bg-purple-600 hover:bg-purple-700 rounded text-white"
