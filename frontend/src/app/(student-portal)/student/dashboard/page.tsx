@@ -54,7 +54,7 @@ export default function StudentDashboard() {
     _apiBase = _apiBase.replace(/\/$/, "");
     const API_BASE = _apiBase.endsWith("/api/v1") ? _apiBase : `${_apiBase}/api/v1`;
     const userEmail = user?.email || "";
-    const isMasterId = userEmail === "ktej255@gmail.com";
+    const isMasterId = userEmail.toLowerCase() === "ktej255@gmail.com";
     const isSpecialBatch1Student = userEmail === "kajaldhannatar@gmail.com" || userEmail === "dikshajakhar0212@gmail.com";
     const isRasAuthorized = user?.is_ras_authorized || userEmail === "chitrakumawat33@gmail.com";
     const isBatch1Authorized = user?.is_batch1_authorized || isSpecialBatch1Student || isMasterId;
