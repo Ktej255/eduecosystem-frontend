@@ -5,6 +5,10 @@ export interface MCQ {
     correctAnswer: number; // 0 for A, 1 for B, 2 for C, 3 for D
     explanation?: string;
     level?: string;
+    // Topic metadata for detailed analytics
+    topic?: string;
+    chapter?: string;
+    subtopic?: string;
 }
 
 export const DAY2_MCQS: MCQ[] = [
@@ -17,9 +21,12 @@ export const DAY2_MCQS: MCQ[] = [
             "Sir B.N. Rau",
             "T.T. Krishnamachari"
         ],
-        correctAnswer: 2, // C
+        correctAnswer: 2,
         explanation: "Sir B.N. Rau was the Constitutional Advisor to the Constituent Assembly. He prepared the initial draft of the Constitution.",
-        level: "Easy"
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Making of the Constitution",
+        subtopic: "Constituent Assembly"
     },
     {
         id: 2,
@@ -30,9 +37,12 @@ export const DAY2_MCQS: MCQ[] = [
             "Directive Principles of State Policy",
             "Concurrent List"
         ],
-        correctAnswer: 1, // B
+        correctAnswer: 1,
         explanation: "Federation with a strong Centre and residuary powers with the Centre were borrowed from the Canadian Constitution.",
-        level: "Easy"
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Making of the Constitution",
+        subtopic: "Sources of Constitution"
     },
     {
         id: 3,
@@ -43,9 +53,12 @@ export const DAY2_MCQS: MCQ[] = [
             "Both 1 and 2",
             "Neither 1 nor 2"
         ],
-        correctAnswer: 0, // A
+        correctAnswer: 0,
         explanation: "Statement 1 is correct. Statement 2 is incorrect as the members were elected indirectly by the members of the provincial assemblies.",
-        level: "Moderate"
+        level: "Moderate",
+        topic: "Indian Polity",
+        chapter: "Making of the Constitution",
+        subtopic: "Constituent Assembly"
     },
     {
         id: 4,
@@ -56,9 +69,12 @@ export const DAY2_MCQS: MCQ[] = [
             "M.N. Roy",
             "Sardar Vallabhbhai Patel"
         ],
-        correctAnswer: 2, // C
+        correctAnswer: 2,
         explanation: "M.N. Roy was the first to propose the idea of a Constituent Assembly for India in 1934.",
-        level: "Easy"
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Making of the Constitution",
+        subtopic: "Constituent Assembly"
     },
     {
         id: 5,
@@ -69,9 +85,12 @@ export const DAY2_MCQS: MCQ[] = [
             "Ninth Schedule",
             "Tenth Schedule"
         ],
-        correctAnswer: 1, // B
+        correctAnswer: 1,
         explanation: "The Eighth Schedule contains the list of 22 recognized languages of India.",
-        level: "Easy"
+        level: "Easy",
+        topic: "Indian Polity",
+        chapter: "Making of the Constitution",
+        subtopic: "Schedules"
     },
     {
         id: 6,
