@@ -1,298 +1,237 @@
 "use client";
 
-import { useState } from "react";
-import {
-    FolderOpen,
-    Video,
-    FileText,
-    Image as ImageIcon,
-    Upload,
-    Search,
-    Filter,
-    MoreVertical,
-    Eye,
-    Pencil,
-    Trash2,
-    Download,
-    Clock,
-    HardDrive,
-} from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { useState, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+    ArrowLeft, Video, FileText, Clock, Eye, Search,
+    Upload, Trash2, Edit2, ExternalLink, Filter
+} from "lucide-react";
 
-// Sample content data
-const contentItems = [
-    {
-        id: 1,
-        name: "Indian Polity - Cycle 1 Day 1 Part 1",
-        type: "video",
-        size: "245 MB",
-        duration: "25:32",
-        uploadedAt: "2 hours ago",
-        cycle: "Cycle 1",
-        subject: "Indian Polity",
-    },
-    {
-        id: 2,
-        name: "Constitutional Development Notes",
-        type: "pdf",
-        size: "2.5 MB",
-        pages: 12,
-        uploadedAt: "5 hours ago",
-        cycle: "Cycle 1",
-        subject: "Indian Polity",
-    },
-    {
-        id: 3,
-        name: "Modern History - Timeline Infographic",
-        type: "image",
-        size: "1.2 MB",
-        dimensions: "1920x1080",
-        uploadedAt: "1 day ago",
-        cycle: "Cycle 2",
-        subject: "Modern History",
-    },
-    {
-        id: 4,
-        name: "Environment & Ecology - Segment 2",
-        type: "video",
-        size: "312 MB",
-        duration: "28:15",
-        uploadedAt: "2 days ago",
-        cycle: "Cycle 5",
-        subject: "Environment",
-    },
-    {
-        id: 5,
-        name: "Geography Maps Collection",
-        type: "pdf",
-        size: "8.7 MB",
-        pages: 45,
-        uploadedAt: "3 days ago",
-        cycle: "Cycle 3",
-        subject: "Geography",
-    },
-    {
-        id: 6,
-        name: "Science & Tech - Space Missions",
-        type: "video",
-        size: "198 MB",
-        duration: "22:40",
-        uploadedAt: "4 days ago",
-        cycle: "Cycle 6",
-        subject: "Science & Tech",
-    },
-];
+interface ContentItem {
+    id: number;
+    type: "video" | "pdf";
+    title: string;
+    cycle_id: number;
+    day_number: number;
+    uploaded_at: string;
+    views?: number;
+    url?: string;
+}
 
-// Stats data
-const contentStats = [
-    { label: "Total Videos", value: "48", icon: Video, color: "text-blue-600", bgColor: "bg-blue-100" },
-    { label: "Documents", value: "23", icon: FileText, color: "text-green-600", bgColor: "bg-green-100" },
-    { label: "Images", value: "15", icon: ImageIcon, color: "text-purple-600", bgColor: "bg-purple-100" },
-    { label: "Storage Used", value: "12.5 GB", icon: HardDrive, color: "text-amber-600", bgColor: "bg-amber-100" },
-];
-
-const getTypeIcon = (type: string) => {
-    switch (type) {
-        case "video":
-            return <Video className="h-5 w-5 text-blue-600" />;
-        case "pdf":
-            return <FileText className="h-5 w-5 text-red-600" />;
-        case "image":
-            return <ImageIcon className="h-5 w-5 text-purple-600" />;
-        default:
-            return <FileText className="h-5 w-5 text-gray-600" />;
-    }
-};
-
-const getTypeBadge = (type: string) => {
-    const badges: Record<string, { bg: string; text: string }> = {
-        video: { bg: "bg-blue-100", text: "text-blue-700" },
-        pdf: { bg: "bg-red-100", text: "text-red-700" },
-        image: { bg: "bg-purple-100", text: "text-purple-700" },
-    };
-    return badges[type] || { bg: "bg-gray-100", text: "text-gray-700" };
-};
-
-export default function ContentLibraryPage() {
+export default function TeacherContentPage() {
+    const [content, setContent] = useState<ContentItem[]>([]);
+    const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
-    const [filterType, setFilterType] = useState("all");
+    const [filterType, setFilterType] = useState<"all" | "video" | "pdf">("all");
 
-    const filteredContent = contentItems.filter((item) => {
-        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesType = filterType === "all" || item.type === filterType;
-        return matchesSearch && matchesType;
-    });
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+
+    useEffect(() => {
+        fetchContent();
+    }, []);
+
+    const fetchContent = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const res = await fetch(`${API_BASE}/batch1/segments`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                // Transform segments into content items
+                const items: ContentItem[] = [];
+                data.forEach((segment: any) => {
+                    if (segment.video_url || segment.video_link) {
+                        items.push({
+                            id: segment.id * 2,
+                            type: "video",
+                            title: `Cycle ${segment.cycle_id} Day ${segment.day_number} - Video`,
+                            cycle_id: segment.cycle_id,
+                            day_number: segment.day_number,
+                            uploaded_at: segment.updated_at || new Date().toISOString(),
+                            url: segment.video_url || segment.video_link
+                        });
+                    }
+                    if (segment.pdf_url || segment.pdf_data) {
+                        items.push({
+                            id: segment.id * 2 + 1,
+                            type: "pdf",
+                            title: `Cycle ${segment.cycle_id} Day ${segment.day_number} - PDF`,
+                            cycle_id: segment.cycle_id,
+                            day_number: segment.day_number,
+                            uploaded_at: segment.updated_at || new Date().toISOString(),
+                            url: segment.pdf_url
+                        });
+                    }
+                });
+                setContent(items);
+            }
+        } catch (error) {
+            console.error("Failed to fetch content:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Filter content
+    let filteredContent = content.filter(c =>
+        c.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    if (filterType !== "all") {
+        filteredContent = filteredContent.filter(c => c.type === filterType);
+    }
+
+    const videoCount = content.filter(c => c.type === "video").length;
+    const pdfCount = content.filter(c => c.type === "pdf").length;
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-96">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
+            </div>
+        );
+    }
 
     return (
-        <div className="p-6 space-y-6">
+        <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
             {/* Header */}
-            <div className="flex justify-between items-start">
-                <div>
-                    <h1 className="text-3xl font-bold text-gray-800 flex items-center gap-2">
-                        <FolderOpen className="h-8 w-8 text-emerald-600" />
-                        Content Library
-                    </h1>
-                    <p className="text-gray-600 mt-1">Manage all your uploaded content in one place</p>
+            <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                    <Link href="/teacher/dashboard">
+                        <Button variant="ghost" size="sm">
+                            <ArrowLeft className="mr-2 h-4 w-4" /> Back
+                        </Button>
+                    </Link>
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                            📚 Content Library
+                        </h1>
+                        <p className="text-gray-500 text-sm">View all uploaded videos and PDFs</p>
+                    </div>
                 </div>
-                <Button className="bg-emerald-600 hover:bg-emerald-700">
-                    <Upload className="mr-2 h-4 w-4" />
-                    Upload New
-                </Button>
+                <Link href="/teacher/batch1">
+                    <Button className="gap-2">
+                        <Upload className="h-4 w-4" /> Upload New
+                    </Button>
+                </Link>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {contentStats.map((stat) => (
-                    <Card key={stat.label}>
-                        <CardContent className="p-6">
-                            <div className="flex items-center gap-4">
-                                <div className={`p-3 rounded-lg ${stat.bgColor}`}>
-                                    <stat.icon className={`h-6 w-6 ${stat.color}`} />
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4">
+                <Card className="bg-gradient-to-br from-blue-500 to-blue-600 text-white border-0">
+                    <CardContent className="p-4">
+                        <FileText className="h-6 w-6 mb-2 opacity-80" />
+                        <p className="text-2xl font-bold">{content.length}</p>
+                        <p className="text-xs text-blue-100">Total Content</p>
+                    </CardContent>
+                </Card>
+                <Card className="bg-gradient-to-br from-purple-500 to-purple-600 text-white border-0">
+                    <CardContent className="p-4">
+                        <Video className="h-6 w-6 mb-2 opacity-80" />
+                        <p className="text-2xl font-bold">{videoCount}</p>
+                        <p className="text-xs text-purple-100">Videos</p>
+                    </CardContent>
+                </Card>
+                <Card className="bg-gradient-to-br from-orange-500 to-orange-600 text-white border-0">
+                    <CardContent className="p-4">
+                        <FileText className="h-6 w-6 mb-2 opacity-80" />
+                        <p className="text-2xl font-bold">{pdfCount}</p>
+                        <p className="text-xs text-orange-100">PDFs</p>
+                    </CardContent>
+                </Card>
+            </div>
+
+            {/* Filters */}
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <div className="relative w-full md:w-64">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                        placeholder="Search content..."
+                        className="pl-10"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                </div>
+                <div className="flex gap-2">
+                    <Button
+                        variant={filterType === "all" ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => setFilterType("all")}
+                    >
+                        All
+                    </Button>
+                    <Button
+                        variant={filterType === "video" ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => setFilterType("video")}
+                        className="gap-1"
+                    >
+                        <Video className="h-3 w-3" /> Videos
+                    </Button>
+                    <Button
+                        variant={filterType === "pdf" ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => setFilterType("pdf")}
+                        className="gap-1"
+                    >
+                        <FileText className="h-3 w-3" /> PDFs
+                    </Button>
+                </div>
+            </div>
+
+            {/* Content List */}
+            <Card>
+                <CardHeader>
+                    <CardTitle>Uploaded Content ({filteredContent.length})</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="space-y-2">
+                        {filteredContent.map((item) => (
+                            <div key={item.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:shadow-sm transition">
+                                <div className="flex items-center gap-3">
+                                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${item.type === "video" ? "bg-purple-100 text-purple-600" : "bg-orange-100 text-orange-600"}`}>
+                                        {item.type === "video" ? <Video className="h-5 w-5" /> : <FileText className="h-5 w-5" />}
+                                    </div>
+                                    <div>
+                                        <p className="font-medium text-gray-800 dark:text-gray-200">{item.title}</p>
+                                        <p className="text-xs text-gray-500 flex items-center gap-1">
+                                            <Clock className="h-3 w-3" />
+                                            {new Date(item.uploaded_at).toLocaleDateString()}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p className="text-2xl font-bold text-gray-800">{stat.value}</p>
-                                    <p className="text-sm text-gray-500">{stat.label}</p>
+                                <div className="flex items-center gap-2">
+                                    <Badge className={item.type === "video" ? "bg-purple-100 text-purple-700" : "bg-orange-100 text-orange-700"}>
+                                        {item.type.toUpperCase()}
+                                    </Badge>
+                                    {item.url && (
+                                        <a href={item.url} target="_blank" rel="noopener noreferrer">
+                                            <Button variant="outline" size="sm">
+                                                <ExternalLink className="h-4 w-4" />
+                                            </Button>
+                                        </a>
+                                    )}
                                 </div>
                             </div>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
-
-            {/* Search and Filters */}
-            <Card>
-                <CardContent className="p-4">
-                    <div className="flex flex-col md:flex-row gap-4">
-                        <div className="relative flex-1">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                            <Input
-                                placeholder="Search content..."
-                                className="pl-10"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                            />
-                        </div>
-                        <div className="flex gap-2">
-                            <Button
-                                variant={filterType === "all" ? "default" : "outline"}
-                                size="sm"
-                                onClick={() => setFilterType("all")}
-                            >
-                                All
-                            </Button>
-                            <Button
-                                variant={filterType === "video" ? "default" : "outline"}
-                                size="sm"
-                                onClick={() => setFilterType("video")}
-                            >
-                                <Video className="mr-1 h-4 w-4" />
-                                Videos
-                            </Button>
-                            <Button
-                                variant={filterType === "pdf" ? "default" : "outline"}
-                                size="sm"
-                                onClick={() => setFilterType("pdf")}
-                            >
-                                <FileText className="mr-1 h-4 w-4" />
-                                Documents
-                            </Button>
-                            <Button
-                                variant={filterType === "image" ? "default" : "outline"}
-                                size="sm"
-                                onClick={() => setFilterType("image")}
-                            >
-                                <ImageIcon className="mr-1 h-4 w-4" />
-                                Images
-                            </Button>
-                        </div>
+                        ))}
+                        {filteredContent.length === 0 && (
+                            <div className="text-center py-8 text-gray-500">
+                                <FileText className="h-12 w-12 mx-auto mb-3 opacity-50" />
+                                <p>No content found</p>
+                                <Link href="/teacher/batch1">
+                                    <Button className="mt-4" size="sm">
+                                        <Upload className="h-4 w-4 mr-2" /> Upload Content
+                                    </Button>
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </CardContent>
             </Card>
-
-            {/* Content Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredContent.map((item) => {
-                    const typeBadge = getTypeBadge(item.type);
-                    return (
-                        <Card key={item.id} className="hover:shadow-lg transition-shadow">
-                            <CardContent className="p-4">
-                                <div className="flex items-start justify-between">
-                                    <div className="flex items-start gap-3">
-                                        <div className={`p-3 rounded-lg ${typeBadge.bg}`}>
-                                            {getTypeIcon(item.type)}
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                            <h3 className="font-semibold text-gray-800 truncate" title={item.name}>
-                                                {item.name}
-                                            </h3>
-                                            <div className="flex items-center gap-2 mt-1">
-                                                <span className={`text-xs px-2 py-0.5 rounded ${typeBadge.bg} ${typeBadge.text}`}>
-                                                    {item.type.toUpperCase()}
-                                                </span>
-                                                <span className="text-xs text-gray-500">{item.size}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <DropdownMenu>
-                                        <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="sm">
-                                                <MoreVertical className="h-4 w-4" />
-                                            </Button>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end">
-                                            <DropdownMenuItem>
-                                                <Eye className="mr-2 h-4 w-4" />
-                                                Preview
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem>
-                                                <Pencil className="mr-2 h-4 w-4" />
-                                                Edit
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem>
-                                                <Download className="mr-2 h-4 w-4" />
-                                                Download
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem className="text-red-600">
-                                                <Trash2 className="mr-2 h-4 w-4" />
-                                                Delete
-                                            </DropdownMenuItem>
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
-                                </div>
-
-                                <div className="mt-4 pt-3 border-t flex items-center justify-between text-sm text-gray-500">
-                                    <span className="flex items-center gap-1">
-                                        <Clock className="h-3 w-3" />
-                                        {item.uploadedAt}
-                                    </span>
-                                    <span className="px-2 py-0.5 bg-gray-100 rounded text-xs">
-                                        {item.cycle}
-                                    </span>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    );
-                })}
-            </div>
-
-            {/* Empty State */}
-            {filteredContent.length === 0 && (
-                <Card>
-                    <CardContent className="p-12 text-center">
-                        <FolderOpen className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                        <h3 className="text-lg font-semibold text-gray-600 mb-2">No content found</h3>
-                        <p className="text-gray-400">Try adjusting your search or filters</p>
-                    </CardContent>
-                </Card>
-            )}
         </div>
     );
 }

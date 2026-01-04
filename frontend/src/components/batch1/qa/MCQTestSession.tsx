@@ -196,6 +196,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                 }
             });
             console.log("Test result saved to AWS database");
+            // Refresh test history after successful save
+            fetchTestHistory();
         } catch (error) {
             console.error("Failed to save test result:", error);
         } finally {
