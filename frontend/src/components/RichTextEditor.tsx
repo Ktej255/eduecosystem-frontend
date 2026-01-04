@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import DOMPurify from "dompurify";
 import {
   Bold,
   Italic,
@@ -190,7 +191,7 @@ export function RichTextEditor({
         {showPreview ? (
           <div
             className="p-4 overflow-y-auto h-full prose prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: renderMarkdown(value) }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(renderMarkdown(value)) }}
           />
         ) : (
           <textarea
