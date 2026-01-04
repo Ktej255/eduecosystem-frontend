@@ -5,6 +5,10 @@ export interface MCQ {
     correctAnswer: number; // 0 for A, 1 for B, 2 for C, 3 for D
     explanation?: string;
     level?: string;
+    // Topic metadata for detailed analytics
+    topic?: string;
+    chapter?: string;
+    subtopic?: string;
 }
 
 export const DAY3_MCQS: MCQ[] = [
