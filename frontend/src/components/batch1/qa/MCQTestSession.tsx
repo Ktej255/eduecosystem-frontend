@@ -20,6 +20,7 @@ import {
 import { DAY1_MCQS, MCQ } from "../polity/data/day1-mcqs";
 import { DAY2_MCQS } from "../polity/data/day2-mcqs";
 import { DAY3_MCQS } from "../polity/data/day3-mcqs";
+import DetailedTestReport from "./DetailedTestReport";
 
 interface MCQTestSessionProps {
     cycleId: number;
@@ -61,6 +62,12 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [loadingHistory, setLoadingHistory] = useState(false);
     const [reviewingTest, setReviewingTest] = useState<any | null>(null); // For reviewing a past test
     const [reviewAnswers, setReviewAnswers] = useState<any[]>([]); // Answers from past test
+    const [showDetailedReport, setShowDetailedReport] = useState(false); // Show detailed analytics report
+    const [submittedResultData, setSubmittedResultData] = useState<any>(null); // Store submitted result for report
+
+    // Time tracking per question
+    const [questionStartTimes, setQuestionStartTimes] = useState<{ [key: number]: number }>({}); // qId -> timestamp
+    const [timeSpentPerQuestion, setTimeSpentPerQuestion] = useState<{ [key: number]: number }>({}); // qId -> seconds
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -88,6 +95,31 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             if (timerRef.current) clearInterval(timerRef.current);
         };
     }, [isSubmitted]);
+
+    // Track time entering each question
+    useEffect(() => {
+        if (!isSubmitted) {
+            const qId = mcqs[currentIndex].id;
+            // Record start time for this question if not already set
+            if (!questionStartTimes[qId]) {
+                setQuestionStartTimes(prev => ({ ...prev, [qId]: Date.now() }));
+            }
+        }
+    }, [currentIndex, isSubmitted, mcqs]);
+
+    // When leaving a question, calculate time spent
+    const recordTimeForQuestion = (qId: number) => {
+        const startTime = questionStartTimes[qId];
+        if (startTime) {
+            const elapsed = Math.round((Date.now() - startTime) / 1000);
+            setTimeSpentPerQuestion(prev => ({
+                ...prev,
+                [qId]: (prev[qId] || 0) + elapsed
+            }));
+            // Reset start time for next visit
+            setQuestionStartTimes(prev => ({ ...prev, [qId]: Date.now() }));
+        }
+    };
 
     const handleOptionSelect = (optionIndex: number) => {
         if (isSubmitted) return;
@@ -163,7 +195,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                 qId: q.id,
                 answer: userAnswer !== undefined ? userAnswer : -1,
                 isCorrect: isCorrect,
-                confidence: confidenceLevels[q.id] || null // Include confidence level
+                confidence: confidenceLevels[q.id] || null, // Include confidence level
+                timeSpentSeconds: timeSpentPerQuestion[q.id] || 0 // Include time spent
             };
         });
 
@@ -196,6 +229,19 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                 }
             });
             console.log("Test result saved to AWS database");
+            // Store result data for detailed report
+            setSubmittedResultData({
+                id: 0,
+                cycle_id: cycleId,
+                day_number: day,
+                score: finalScore,
+                total_questions: mcqs.length,
+                correct_count: correct,
+                incorrect_count: incorrect,
+                unanswered_count: unanswered,
+                answers: resultsForApi,
+                timestamp: new Date().toISOString()
+            });
             // Refresh test history after successful save
             fetchTestHistory();
         } catch (error) {
@@ -359,6 +405,30 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                                 <div className="text-xs text-gray-600">Unattempted</div>
                             </CardContent>
                         </Card>
+                    </div>
+                    {/* View Detailed Report Button */}
+                    {submittedResultData && (
+                        <div className="flex justify-center mt-4">
+                            <Button
+                                onClick={() => setShowDetailedReport(true)}
+                                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 hover:from-purple-700 hover:to-blue-700"
+                            >
+                                📊 View Detailed Analytics Report
+                            </Button>
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* Detailed Report Modal */}
+            {showDetailedReport && submittedResultData && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 overflow-y-auto">
+                    <div className="bg-white dark:bg-gray-900 rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                        <DetailedTestReport
+                            testResult={submittedResultData}
+                            mcqs={mcqs}
+                            onClose={() => setShowDetailedReport(false)}
+                        />
                     </div>
                 </div>
             )}
