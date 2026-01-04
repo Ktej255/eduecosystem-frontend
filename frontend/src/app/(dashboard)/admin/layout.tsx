@@ -11,7 +11,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+      <div className="min-h-screen bg-gray-50 text-gray-900 light">
         <AdminHeader />
         <div className="flex">
           {/* Sidebar - Hidden on mobile, shown on md+ */}

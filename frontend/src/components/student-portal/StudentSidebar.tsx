@@ -292,7 +292,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
             {isMasterId && (
                 <div className={`p-4 border-t border-gray-200 dark:border-gray-800 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden p-0"}`}>
                     <Link
-                        href="/dashboard"
+                        href="/admin"
                         className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700 transition-all shadow-lg"
                     >
                         <Shield className="h-5 w-5" />

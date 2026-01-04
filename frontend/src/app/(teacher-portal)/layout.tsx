@@ -44,7 +44,7 @@ export default function TeacherLayout({
     }
 
     return (
-        <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
+        <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 text-gray-900 light">
             {/* Mobile Header - Only visible on mobile */}
             <header className="md:hidden fixed top-0 left-0 right-0 h-14 bg-gradient-to-r from-emerald-800 to-emerald-900 flex items-center justify-between px-4 z-50 border-b border-emerald-700/50">
                 <div className="flex items-center gap-3">
