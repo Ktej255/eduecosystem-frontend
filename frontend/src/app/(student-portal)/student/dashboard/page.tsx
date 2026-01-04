@@ -161,6 +161,16 @@ export default function StudentDashboard() {
 
     return (
         <div className="space-y-8 max-w-7xl mx-auto p-4 md:p-6">
+            {/* DEBUG BANNER FOR TEST001 */}
+            {userEmail.toLowerCase().includes("test") && (
+                <div className="bg-red-600 text-white p-4 rounded-lg font-bold text-lg text-center animate-pulse">
+                    DEBUG INFO: <br />
+                    Email: '{userEmail}' <br />
+                    Batch 1 Authorized: {isBatch1Authorized ? "YES" : "NO"} <br />
+                    Is Special Student: {isSpecialBatch1Student ? "YES" : "NO"}
+                </div>
+            )}
+
             {/* Hero Section with Resume Point */}
             <div className="relative overflow-hidden rounded-3xl bg-indigo-900 text-white shadow-2xl">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 -mr-16 -mt-16"></div>
