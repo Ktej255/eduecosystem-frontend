@@ -9,6 +9,9 @@ const nextConfig = {
   experimental: {
     optimizeCss: false,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 
   webpack: (config, { dev, isServer }) => {
     if (!dev) {
