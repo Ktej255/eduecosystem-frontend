@@ -354,8 +354,22 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                             });
 
                             // Send list of existing PDFs to preserve
-                            formData.append("preserved_pdf_data", JSON.stringify(existingPdfs));
+                            if (existingPdfs.length > 0) {
+                                formData.append("preserved_pdf_data", JSON.stringify(existingPdfs));
+                            }
                         }
+
+                        // CRITICAL FIX: Always preserve existing PDFs even if contentType changed
+                        // This prevents PDFs from disappearing when user switches to video/youtube tab
+                        if (content.contentType !== 'pdf' && content.pdfFiles?.length > 0) {
+                            const existingPdfsToKeep = content.pdfFiles
+                                .filter(p => p.url)
+                                .map(p => ({ name: p.name, url: p.url, order: p.order }));
+                            if (existingPdfsToKeep.length > 0) {
+                                formData.append("preserved_pdf_data", JSON.stringify(existingPdfsToKeep));
+                            }
+                        }
+
 
                         // Call backend API
                         const response = await fetch(
