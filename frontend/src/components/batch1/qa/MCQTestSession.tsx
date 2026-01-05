@@ -211,13 +211,31 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         setIsSubmitted(true);
         setCurrentIndex(0); // Go back to start for review
 
-        // Save to Database
+        // IMPORTANT: Set result data BEFORE API call so report works even if API fails
+        const resultData = {
+            id: 0,
+            cycle_id: cycleId,
+            day_number: day,
+            score: finalScore,
+            total_questions: mcqs.length,
+            correct_count: correct,
+            incorrect_count: incorrect,
+            unanswered_count: unanswered,
+            answers: resultsForApi,
+            timestamp: new Date().toISOString()
+        };
+        setSubmittedResultData(resultData);
+
+        // Auto-open the detailed report immediately after submission
+        setShowDetailedReport(true);
+
+        // Save to Database in background
         setIsSaving(true);
         try {
             const AWS_API = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
             const token = localStorage.getItem('token');
 
-            await axios.post(`${AWS_API}/batch1/test-results`, {
+            const response = await axios.post(`${AWS_API}/batch1/test-results`, {
                 cycle_id: cycleId,
                 day_number: day,
                 score: finalScore,
@@ -231,24 +249,19 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                     'Authorization': `Bearer ${token}`
                 }
             });
-            console.log("Test result saved to AWS database");
-            // Store result data for detailed report
-            setSubmittedResultData({
-                id: 0,
-                cycle_id: cycleId,
-                day_number: day,
-                score: finalScore,
-                total_questions: mcqs.length,
-                correct_count: correct,
-                incorrect_count: incorrect,
-                unanswered_count: unanswered,
-                answers: resultsForApi,
-                timestamp: new Date().toISOString()
-            });
+            console.log("Test result saved to AWS database", response.data);
+
+            // Update result with actual ID from database
+            if (response.data && response.data.id) {
+                setSubmittedResultData({ ...resultData, id: response.data.id });
+            }
+
             // Refresh test history after successful save
             fetchTestHistory();
         } catch (error) {
             console.error("Failed to save test result:", error);
+            // Show error message but keep the report visible
+            alert("Warning: Could not save to server. Your report is displayed but may not appear in history after refresh.");
         } finally {
             setIsSaving(false);
         }
