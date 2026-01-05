@@ -10,6 +10,7 @@ import type { SessionData } from "@/app/(student-portal)/student/batch1/csat/csa
 
 // === FLASHCARD DATA IMPORTS ===
 import { DAY2_FLASHCARDS } from "./polity/data/day2-flashcards";
+import { DAY5_FLASHCARDS } from "./polity/data/day5-flashcards";
 import type { Flashcard } from "./flashcard/flashcard-utils";
 
 // === CSAT CONTENT REGISTRY ===
@@ -64,6 +65,7 @@ export function getCSATAvailableDays(): number[] {
  */
 export const FLASHCARD_CONTENT_REGISTRY: Record<number, Flashcard[] | undefined> = {
     2: DAY2_FLASHCARDS,
+    5: DAY5_FLASHCARDS,
     // Add more days as content is created:
     // 3: DAY3_FLASHCARDS,
     // 4: DAY4_FLASHCARDS,
