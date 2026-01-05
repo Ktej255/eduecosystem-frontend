@@ -2,19 +2,30 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Mic, Square, Trash2, Play, Pause, RotateCcw } from "lucide-react";
+import { Mic, Square, Trash2, Play, Pause, RotateCcw, Send, CheckCircle2 } from "lucide-react";
 
 interface VoiceRecorderProps {
     onRecordingComplete: (base64Audio: string) => void;
     onReset?: () => void;
+    onRecordingStart?: () => void;
+    onRecordingStop?: () => void;
+    autoSubmit?: boolean; // If false, show Submit button after recording
 }
 
-export default function VoiceRecorder({ onRecordingComplete, onReset }: VoiceRecorderProps) {
+export default function VoiceRecorder({
+    onRecordingComplete,
+    onReset,
+    onRecordingStart,
+    onRecordingStop,
+    autoSubmit = false
+}: VoiceRecorderProps) {
     const [isRecording, setIsRecording] = useState(false);
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const [recordedBlob, setRecordedBlob] = useState<Blob | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [duration, setDuration] = useState(0);
+    const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
+    const [pendingAudioData, setPendingAudioData] = useState<string | null>(null);
 
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
@@ -47,20 +58,35 @@ export default function VoiceRecorder({ onRecordingComplete, onReset }: VoiceRec
                 setAudioUrl(url);
                 setRecordedBlob(audioBlob);
 
-                // Convert to base64 for backend
+                // Convert to base64
                 const reader = new FileReader();
                 reader.readAsDataURL(audioBlob);
                 reader.onloadend = () => {
                     const base64data = reader.result as string;
-                    // Remove prefix (data:audio/webm;base64,) if needed, 
-                    // but usually backend can handle it or expects just the data
-                    onRecordingComplete(base64data);
+
+                    if (autoSubmit) {
+                        // Old behavior: auto submit
+                        onRecordingComplete(base64data);
+                    } else {
+                        // New behavior: wait for explicit submit
+                        setPendingAudioData(base64data);
+                        setIsReadyToSubmit(true);
+                    }
                 };
+
+                // Call onRecordingStop callback
+                if (onRecordingStop) onRecordingStop();
             };
 
             mediaRecorder.start();
             setIsRecording(true);
             setDuration(0);
+            setIsReadyToSubmit(false);
+            setPendingAudioData(null);
+
+            // Call onRecordingStart callback
+            if (onRecordingStart) onRecordingStart();
+
             timerRef.current = setInterval(() => {
                 setDuration(prev => prev + 1);
             }, 1000);
@@ -79,10 +105,19 @@ export default function VoiceRecorder({ onRecordingComplete, onReset }: VoiceRec
         }
     };
 
+    const handleSubmit = () => {
+        if (pendingAudioData) {
+            onRecordingComplete(pendingAudioData);
+            setIsReadyToSubmit(false);
+        }
+    };
+
     const handleReset = () => {
         setAudioUrl(null);
         setRecordedBlob(null);
         setDuration(0);
+        setIsReadyToSubmit(false);
+        setPendingAudioData(null);
         if (onReset) onReset();
     };
 
@@ -104,39 +139,58 @@ export default function VoiceRecorder({ onRecordingComplete, onReset }: VoiceRec
     };
 
     return (
-        <div className="flex flex-col items-center gap-4 p-4 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50/50 dark:bg-gray-900/20">
+        <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-white dark:bg-gray-900">
             {!audioUrl ? (
-                <div className="text-center">
+                <div className="text-center w-full">
                     {isRecording ? (
-                        <div className="space-y-4">
+                        // RECORDING STATE - Prominent stop button
+                        <div className="space-y-6">
+                            {/* Timer with pulsing indicator */}
                             <div className="flex items-center gap-3 justify-center">
-                                <span className="relative flex h-3 w-3">
+                                <span className="relative flex h-4 w-4">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                                    <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500"></span>
                                 </span>
-                                <span className="text-xl font-mono font-bold text-red-600">
+                                <span className="text-3xl font-mono font-bold text-red-600">
                                     {formatTime(duration)}
                                 </span>
                             </div>
+
+                            {/* Recording indicator text */}
+                            <p className="text-sm text-red-600 font-medium animate-pulse">
+                                🎙️ Recording your explanation...
+                            </p>
+
+                            {/* Large prominent STOP button */}
                             <Button
                                 variant="destructive"
                                 size="lg"
-                                onClick={stopRecording}
-                                className="rounded-full w-16 h-16"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    stopRecording();
+                                }}
+                                className="rounded-full w-24 h-24 shadow-lg hover:scale-105 transition-transform bg-red-600 hover:bg-red-700"
                             >
-                                <Square className="h-6 w-6" />
+                                <Square className="h-10 w-10" fill="white" />
                             </Button>
-                            <p className="text-sm text-gray-500">Recording your explanation...</p>
+
+                            <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                                Tap to STOP Recording
+                            </p>
                         </div>
                     ) : (
+                        // IDLE STATE - Start recording button
                         <div className="space-y-4">
                             <Button
                                 variant="outline"
                                 size="lg"
-                                onClick={startRecording}
-                                className="rounded-full w-16 h-16 border-primary text-primary hover:bg-primary/10"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    startRecording();
+                                }}
+                                className="rounded-full w-20 h-20 border-2 border-primary text-primary hover:bg-primary/10 shadow-md"
                             >
-                                <Mic className="h-8 w-8" />
+                                <Mic className="h-10 w-10" />
                             </Button>
                             <div>
                                 <h4 className="font-semibold text-gray-700 dark:text-gray-300">Tap to start recording</h4>
@@ -146,31 +200,33 @@ export default function VoiceRecorder({ onRecordingComplete, onReset }: VoiceRec
                     )}
                 </div>
             ) : (
+                // RECORDED STATE - Playback and submit controls
                 <div className="w-full space-y-4">
-                    <div className="flex items-center gap-4 justify-between bg-white dark:bg-gray-800 p-3 rounded-lg shadow-sm">
+                    {/* Success indicator */}
+                    <div className="flex items-center justify-center gap-2 text-green-600">
+                        <CheckCircle2 className="h-5 w-5" />
+                        <span className="font-medium">Recording Complete!</span>
+                    </div>
+
+                    {/* Playback controls */}
+                    <div className="flex items-center gap-4 justify-between bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                         <Button
                             variant="ghost"
                             size="sm"
-                            onClick={togglePlayback}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                togglePlayback();
+                            }}
                             className="text-primary"
                         >
                             {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
                         </Button>
 
-                        <div className="flex-1 h-1 bg-gray-200 rounded-full overflow-hidden">
-                            <div className="h-full bg-primary w-0"></div>
+                        <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div className="h-full bg-primary w-full rounded-full"></div>
                         </div>
 
-                        <span className="text-xs font-mono text-gray-500">{formatTime(duration)}</span>
-
-                        <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={handleReset}
-                            className="text-red-500"
-                        >
-                            <Trash2 className="h-4 w-4" />
-                        </Button>
+                        <span className="text-sm font-mono text-gray-600 dark:text-gray-400">{formatTime(duration)}</span>
                     </div>
 
                     <audio
@@ -180,14 +236,37 @@ export default function VoiceRecorder({ onRecordingComplete, onReset }: VoiceRec
                         className="hidden"
                     />
 
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={handleReset}
-                        className="w-full gap-2 text-gray-500"
-                    >
-                        <RotateCcw className="h-4 w-4" /> Reset and re-record
-                    </Button>
+                    {/* Action buttons */}
+                    <div className="flex gap-3">
+                        {/* Re-record button */}
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleReset();
+                            }}
+                            className="flex-1 gap-2 text-gray-600"
+                        >
+                            <RotateCcw className="h-4 w-4" />
+                            Re-record
+                        </Button>
+
+                        {/* Submit button - only show if not autoSubmit */}
+                        {isReadyToSubmit && (
+                            <Button
+                                size="lg"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleSubmit();
+                                }}
+                                className="flex-1 gap-2 bg-green-600 hover:bg-green-700 text-white"
+                            >
+                                <Send className="h-4 w-4" />
+                                Submit Answer
+                            </Button>
+                        )}
+                    </div>
                 </div>
             )}
         </div>

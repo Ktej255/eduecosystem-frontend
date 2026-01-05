@@ -15,7 +15,12 @@ import {
     Lightbulb,
     ArrowLeft,
     Mic,
-    Loader2
+    Loader2,
+    AlertTriangle,
+    TrendingUp,
+    Target,
+    BarChart3,
+    Download
 } from "lucide-react";
 import { Flashcard, generateFlashcardsFromTopic, getFlashcardsForDay, shuffleArray } from "./flashcard-utils";
 import VoiceRecorder from "../../ui/VoiceRecorder";
@@ -29,6 +34,20 @@ const TOPIC_MAP: Record<number, any> = {};
 POLITY_TOPICS.forEach(topic => {
     TOPIC_MAP[topic.id] = topic;
 });
+
+// Result for each card
+interface CardResult {
+    cardId: string;
+    question: string;
+    expectedAnswer: string;
+    studentTranscript: string;
+    score: number;
+    feedback: string;
+    keyPointsMentioned: string[];
+    missingPoints: string[];
+    source: string; // Topic name for grouping
+    isCorrect: boolean;
+}
 
 interface FlashcardSessionProps {
     cycleId: number;
@@ -44,6 +63,8 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
     const [practiceCards, setPracticeCards] = useState<Set<string>>(new Set());
     const [sessionComplete, setSessionComplete] = useState(false);
     const [loading, setLoading] = useState(true);
+
+    // Recording states
     const [isRecordingMode, setIsRecordingMode] = useState(false);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [aiResult, setAiResult] = useState<{
@@ -54,6 +75,10 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         key_points_mentioned: string[];
         missing_points: string[];
     } | null>(null);
+
+    // Session tracking - store all results for comprehensive report
+    const [cardResults, setCardResults] = useState<CardResult[]>([]);
+    const [showDetailedReport, setShowDetailedReport] = useState(false);
 
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
@@ -116,7 +141,9 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         : 0;
 
     const handleFlip = () => {
-        setIsFlipped(!isFlipped);
+        if (!isRecordingMode && !isAnalyzing) {
+            setIsFlipped(!isFlipped);
+        }
     };
 
     const handleKnown = () => {
@@ -157,13 +184,15 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         setKnownCards(new Set());
         setPracticeCards(new Set());
         setSessionComplete(false);
+        setCardResults([]);
+        setShowDetailedReport(false);
         setFlashcards(shuffleArray(flashcards));
     };
 
     const handleAudioRecording = async (base64Audio: string) => {
         setIsAnalyzing(true);
         try {
-            const response = await fetch(`${API_URL}/api/v1/audio-analysis/analyze-flashcard`, {
+            const response = await fetch(`${API_URL}/audio-analysis/analyze-flashcard`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -178,14 +207,37 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
 
             const result = await response.json();
             setAiResult(result);
-            if (result.score >= 70) {
+
+            // Store result for session report
+            const isCorrect = result.score >= 70;
+            const cardResult: CardResult = {
+                cardId: currentCard.id,
+                question: currentCard.front,
+                expectedAnswer: currentCard.back,
+                studentTranscript: result.transcription || "",
+                score: result.score,
+                feedback: result.feedback || "",
+                keyPointsMentioned: result.key_points_mentioned || [],
+                missingPoints: result.missing_points || [],
+                source: currentCard.source,
+                isCorrect
+            };
+            setCardResults(prev => [...prev, cardResult]);
+
+            // Update known/practice cards
+            if (isCorrect) {
                 setKnownCards(prev => new Set(prev).add(currentCard.id));
             } else {
                 setPracticeCards(prev => new Set(prev).add(currentCard.id));
             }
+
+            // NOW flip to show answer
+            setIsFlipped(true);
+            setIsRecordingMode(false);
         } catch (error) {
             console.error("Audio analysis error:", error);
             toast.error("Failed to analyze audio. Please try again.");
+            setIsRecordingMode(false);
         } finally {
             setIsAnalyzing(false);
         }
@@ -207,6 +259,38 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
             case 'article': return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400';
             default: return 'bg-gray-100 text-gray-700';
         }
+    };
+
+    // Calculate topic-wise statistics for report
+    const getTopicStats = () => {
+        const topicMap: Record<string, { correct: number; total: number; avgScore: number; scores: number[] }> = {};
+
+        cardResults.forEach(result => {
+            if (!topicMap[result.source]) {
+                topicMap[result.source] = { correct: 0, total: 0, avgScore: 0, scores: [] };
+            }
+            topicMap[result.source].total++;
+            topicMap[result.source].scores.push(result.score);
+            if (result.isCorrect) {
+                topicMap[result.source].correct++;
+            }
+        });
+
+        // Calculate averages
+        Object.keys(topicMap).forEach(topic => {
+            const scores = topicMap[topic].scores;
+            topicMap[topic].avgScore = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+        });
+
+        return topicMap;
+    };
+
+    // Get weak topics (below 70% average)
+    const getWeakTopics = () => {
+        const stats = getTopicStats();
+        return Object.entries(stats)
+            .filter(([_, data]) => data.avgScore < 70)
+            .sort((a, b) => a[1].avgScore - b[1].avgScore);
     };
 
     if (loading) {
@@ -237,11 +321,120 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         );
     }
 
+    // SESSION COMPLETE VIEW with comprehensive report
     if (sessionComplete) {
-        const accuracy = flashcards.length > 0
-            ? Math.round((knownCards.size / flashcards.length) * 100)
+        const totalAnswered = cardResults.length;
+        const correctCount = cardResults.filter(r => r.isCorrect).length;
+        const accuracy = totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 0;
+        const topicStats = getTopicStats();
+        const weakTopics = getWeakTopics();
+        const avgScore = totalAnswered > 0
+            ? Math.round(cardResults.reduce((sum, r) => sum + r.score, 0) / totalAnswered)
             : 0;
 
+        if (showDetailedReport) {
+            // Detailed Report View
+            return (
+                <div className="space-y-6 max-h-[80vh] overflow-y-auto">
+                    <div className="flex items-center justify-between">
+                        <Button variant="ghost" onClick={() => setShowDetailedReport(false)}>
+                            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Summary
+                        </Button>
+                        <h2 className="text-xl font-bold">Detailed Performance Report</h2>
+                    </div>
+
+                    {/* Topic-wise Breakdown */}
+                    <Card>
+                        <CardContent className="p-6">
+                            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                                <BarChart3 className="h-5 w-5 text-primary" />
+                                Topic-wise Performance
+                            </h3>
+                            <div className="space-y-4">
+                                {Object.entries(topicStats).map(([topic, data]) => (
+                                    <div key={topic} className="space-y-2">
+                                        <div className="flex justify-between items-center">
+                                            <span className="font-medium text-gray-700 dark:text-gray-300">{topic}</span>
+                                            <span className={`text-sm font-bold ${data.avgScore >= 70 ? 'text-green-600' : 'text-amber-600'}`}>
+                                                {data.avgScore}% ({data.correct}/{data.total})
+                                            </span>
+                                        </div>
+                                        <Progress value={data.avgScore} className="h-2" />
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* Weak Areas */}
+                    {weakTopics.length > 0 && (
+                        <Card className="border-amber-200 bg-amber-50/50 dark:bg-amber-900/10">
+                            <CardContent className="p-6">
+                                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-amber-700">
+                                    <AlertTriangle className="h-5 w-5" />
+                                    Areas Needing Improvement
+                                </h3>
+                                <div className="space-y-3">
+                                    {weakTopics.map(([topic, data]) => (
+                                        <div key={topic} className="bg-white dark:bg-gray-800 p-3 rounded-lg">
+                                            <div className="font-medium">{topic}</div>
+                                            <div className="text-sm text-gray-500">
+                                                Average Score: {data.avgScore}% • {data.correct}/{data.total} correct
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </CardContent>
+                        </Card>
+                    )}
+
+                    {/* Individual Card Results */}
+                    <Card>
+                        <CardContent className="p-6">
+                            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                                <Target className="h-5 w-5 text-primary" />
+                                Individual Card Results
+                            </h3>
+                            <div className="space-y-4">
+                                {cardResults.map((result, idx) => (
+                                    <div key={result.cardId} className={`p-4 rounded-lg border ${result.isCorrect ? 'border-green-200 bg-green-50/50 dark:bg-green-900/10' : 'border-amber-200 bg-amber-50/50 dark:bg-amber-900/10'}`}>
+                                        <div className="flex justify-between items-start mb-2">
+                                            <span className="text-xs text-gray-500 uppercase">{result.source}</span>
+                                            <span className={`text-sm font-bold ${result.isCorrect ? 'text-green-600' : 'text-amber-600'}`}>
+                                                {result.score}%
+                                            </span>
+                                        </div>
+                                        <p className="font-medium text-gray-800 dark:text-gray-200 mb-2">{result.question}</p>
+                                        {result.studentTranscript && (
+                                            <p className="text-sm text-gray-600 italic mb-2">
+                                                Your answer: "{result.studentTranscript}"
+                                            </p>
+                                        )}
+                                        {result.missingPoints.length > 0 && (
+                                            <div className="text-xs">
+                                                <span className="text-amber-600 font-medium">Missing: </span>
+                                                {result.missingPoints.join(", ")}
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <div className="flex gap-4 justify-center">
+                        <Button variant="outline" onClick={restartSession}>
+                            <RotateCcw className="mr-2 h-4 w-4" /> Practice Again
+                        </Button>
+                        <Button className="bg-pink-600 hover:bg-pink-700" onClick={onClose}>
+                            Finish Session
+                        </Button>
+                    </div>
+                </div>
+            );
+        }
+
+        // Summary View
         return (
             <div className="text-center py-8 space-y-6">
                 <div className="w-24 h-24 mx-auto rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -253,15 +446,23 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                         Session Complete! 🎉
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400">
-                        You reviewed all {flashcards.length} flashcards
+                        You reviewed {flashcards.length} flashcards
+                        {totalAnswered > 0 && ` and answered ${totalAnswered} with voice`}
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                {/* Main Stats */}
+                <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
+                    <Card className="bg-blue-50 dark:bg-blue-900/20 border-blue-200">
+                        <CardContent className="p-4 text-center">
+                            <div className="text-3xl font-bold text-blue-600">{flashcards.length}</div>
+                            <div className="text-sm text-blue-700">Total Cards</div>
+                        </CardContent>
+                    </Card>
                     <Card className="bg-green-50 dark:bg-green-900/20 border-green-200">
                         <CardContent className="p-4 text-center">
                             <div className="text-3xl font-bold text-green-600">{knownCards.size}</div>
-                            <div className="text-sm text-green-700">I Know This</div>
+                            <div className="text-sm text-green-700">Mastered</div>
                         </CardContent>
                     </Card>
                     <Card className="bg-amber-50 dark:bg-amber-900/20 border-amber-200">
@@ -272,16 +473,44 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                     </Card>
                 </div>
 
-                <div className="text-4xl font-bold text-pink-600">
-                    {accuracy}% Confidence
-                </div>
+                {/* Voice Answer Stats (if any) */}
+                {totalAnswered > 0 && (
+                    <div className="space-y-4 max-w-lg mx-auto">
+                        <div className="text-4xl font-bold text-pink-600">
+                            {accuracy}% Voice Accuracy
+                        </div>
+                        <div className="text-sm text-gray-500">
+                            Average Score: {avgScore}% • {correctCount}/{totalAnswered} correct answers
+                        </div>
+
+                        {/* Weak Topics Alert */}
+                        {weakTopics.length > 0 && (
+                            <Card className="border-amber-300 bg-amber-50">
+                                <CardContent className="p-4">
+                                    <div className="flex items-center gap-2 text-amber-700 mb-2">
+                                        <AlertTriangle className="h-5 w-5" />
+                                        <span className="font-semibold">Topics to Review</span>
+                                    </div>
+                                    <div className="text-sm text-amber-800">
+                                        {weakTopics.map(([topic]) => topic).join(", ")}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        )}
+                    </div>
+                )}
 
                 <div className="flex gap-4 justify-center pt-4">
                     <Button variant="outline" onClick={restartSession}>
                         <RotateCcw className="mr-2 h-4 w-4" /> Review Again
                     </Button>
+                    {totalAnswered > 0 && (
+                        <Button variant="outline" onClick={() => setShowDetailedReport(true)}>
+                            <BarChart3 className="mr-2 h-4 w-4" /> View Detailed Report
+                        </Button>
+                    )}
                     <Button className="bg-pink-600 hover:bg-pink-700" onClick={onClose}>
-                        Continue to Q&A
+                        Continue
                     </Button>
                 </div>
             </div>
@@ -311,14 +540,63 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                 </span>
             </div>
 
+            {/* FULL SCREEN RECORDING OVERLAY */}
+            {isRecordingMode && (
+                <div className="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center p-6">
+                    {/* Close button */}
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        className="absolute top-4 left-4 text-gray-500"
+                        onClick={() => setIsRecordingMode(false)}
+                    >
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Cancel
+                    </Button>
+
+                    {/* Question at top */}
+                    <div className="max-w-2xl text-center mb-8">
+                        <div className={`inline-flex px-3 py-1 rounded-full text-xs font-medium mb-4 ${getCategoryColor(currentCard?.category || '')}`}>
+                            {getCategoryIcon(currentCard?.category || '')}
+                            <span className="ml-1">{currentCard?.category?.toUpperCase()}</span>
+                        </div>
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
+                            {currentCard?.front}
+                        </h2>
+                    </div>
+
+                    {/* Recording UI */}
+                    {isAnalyzing ? (
+                        <div className="text-center space-y-4">
+                            <Loader2 className="h-16 w-16 animate-spin text-primary mx-auto" />
+                            <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
+                                🤖 AI is analyzing your answer...
+                            </p>
+                            <p className="text-sm text-gray-500">
+                                Please wait while we evaluate your response
+                            </p>
+                        </div>
+                    ) : (
+                        <div className="w-full max-w-md">
+                            <VoiceRecorder
+                                autoSubmit={false}
+                                onRecordingComplete={handleAudioRecording}
+                            />
+                        </div>
+                    )}
+
+                    <p className="mt-6 text-sm text-gray-500 text-center max-w-md">
+                        💡 Explain the concept in your own words. AI will evaluate your understanding based on the chapter content.
+                    </p>
+                </div>
+            )}
+
             {/* Flashcard */}
             <div
                 className="perspective-1000 cursor-pointer mx-auto max-w-2xl"
                 onClick={handleFlip}
             >
                 <div
-                    className={`relative transition-transform duration-500 transform-style-preserve-3d ${isFlipped ? 'rotate-y-180' : ''
-                        }`}
+                    className={`relative transition-transform duration-500 transform-style-preserve-3d`}
                     style={{
                         transformStyle: 'preserve-3d',
                         transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
@@ -327,8 +605,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                 >
                     {/* Front of Card */}
                     <Card
-                        className={`min-h-[300px] ${isFlipped ? 'invisible' : 'visible'} ${currentCard?.highlight ? 'border-2 border-amber-400' : ''
-                            }`}
+                        className={`min-h-[300px] ${isFlipped ? 'invisible' : 'visible'} ${currentCard?.highlight ? 'border-2 border-amber-400' : ''}`}
                         style={{ backfaceVisibility: 'hidden' }}
                     >
                         <CardContent className="p-8 flex flex-col items-center justify-center min-h-[300px]">
@@ -344,44 +621,12 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                             <p className="text-gray-400 mt-6 text-sm">
                                 Tap to reveal answer
                             </p>
-
-
-                            {/* Voice Recorder Overlay on Front */}
-                            {isRecordingMode && !isFlipped && (
-                                <div className="absolute inset-0 bg-white/95 dark:bg-black/95 rounded-xl z-20 flex flex-col items-center justify-center p-6 animate-in fade-in zoom-in duration-300">
-                                    <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">
-                                        Explain this concept
-                                    </h3>
-                                    <div className="w-full max-w-sm bg-white dark:bg-gray-900 p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800">
-                                        <VoiceRecorder onRecordingComplete={async (audio) => {
-                                            // Handle recording, THEN flip
-                                            await handleAudioRecording(audio);
-                                            setIsFlipped(true); // Flip to show answer + feedback
-                                        }} />
-                                        <Button
-                                            variant="ghost"
-                                            size="sm"
-                                            className="mt-4 w-full text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setIsRecordingMode(false);
-                                            }}
-                                        >
-                                            Cancel
-                                        </Button>
-                                    </div>
-                                    <p className="mt-4 text-sm text-gray-500 text-center px-4">
-                                        Record your explanation. AI will analyze your recall accuracy.
-                                    </p>
-                                </div>
-                            )}
                         </CardContent>
                     </Card>
 
                     {/* Back of Card */}
                     <Card
-                        className={`min-h-[300px] absolute inset-0 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20 ${isFlipped ? 'visible' : 'invisible'
-                            }`}
+                        className={`min-h-[300px] absolute inset-0 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20 ${isFlipped ? 'visible' : 'invisible'}`}
                         style={{
                             backfaceVisibility: 'hidden',
                             transform: 'rotateY(180deg)'
@@ -396,15 +641,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                                 {currentCard?.back}
                             </p>
 
-                            {/* Removed Recorder from Back */}
-
-                            {isAnalyzing && (
-                                <div className="mt-6 flex flex-col items-center gap-2">
-                                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                                    <p className="text-sm text-gray-500 font-medium">AI Analyzing your recall...</p>
-                                </div>
-                            )}
-
+                            {/* AI Result Display */}
                             {aiResult && (
                                 <div className="mt-6 w-full space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
                                     <div className="flex items-center justify-between">
@@ -429,7 +666,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                                         <p className="text-sm text-gray-800 dark:text-gray-200 font-medium">{aiResult.feedback}</p>
                                     </div>
 
-                                    {aiResult.missing_points.length > 0 && (
+                                    {aiResult.missing_points && aiResult.missing_points.length > 0 && (
                                         <div className="text-xs">
                                             <span className="font-bold text-gray-500 uppercase tracking-wider">Missing Points:</span>
                                             <div className="flex flex-wrap gap-2 mt-2">
@@ -477,12 +714,11 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                             goToNext();
                         } else {
                             setIsRecordingMode(true);
-                            // Do not flip immediately. Wait for recording.
                         }
                     }}
                 >
                     {aiResult ? (
-                        <>Got it <ChevronRight className="ml-2 h-5 w-5" /></>
+                        <>Next <ChevronRight className="ml-2 h-5 w-5" /></>
                     ) : (
                         <><Mic className="mr-2 h-5 w-5" /> Audio Explain</>
                     )}
@@ -491,16 +727,16 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                 <Button
                     variant="outline"
                     size="lg"
-                    onClick={() => { setIsFlipped(false); goToNext(); }}
-                    disabled={currentIndex === flashcards.length - 1}
+                    className="border-green-500 text-green-600 hover:bg-green-50"
+                    onClick={handleKnown}
                 >
-                    <ChevronRight className="h-5 w-5" />
+                    <CheckCircle2 className="mr-2 h-5 w-5" /> I Know This
                 </Button>
             </div>
 
             {/* Tip */}
             <p className="text-center text-sm text-gray-500">
-                💡 Tip: Try to recall the answer before flipping the card
+                💡 Tip: Use "Audio Explain" to test your recall with AI feedback
             </p>
         </div >
     );
