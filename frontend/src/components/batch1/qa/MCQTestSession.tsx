@@ -258,10 +258,14 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
 
             // Refresh test history after successful save
             fetchTestHistory();
-        } catch (error) {
-            console.error("Failed to save test result:", error);
+        } catch (error: any) {
+            console.error(\"Failed to save test result:\", error);
+            // Log detailed error for debugging
+            const errorMessage = error.response?.data?.detail || error.response?.statusText || error.message || 'Unknown error';
+            const errorStatus = error.response?.status || 'No status';
+            console.error(`API Error: Status=${errorStatus}, Message=${errorMessage}`);
             // Show error message but keep the report visible
-            alert("Warning: Could not save to server. Your report is displayed but may not appear in history after refresh.");
+            alert(`Warning: Could not save to server (${errorStatus}: ${errorMessage}). Your report is displayed but may not appear in history after refresh.`);
         } finally {
             setIsSaving(false);
         }
