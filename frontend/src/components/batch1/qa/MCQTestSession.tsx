@@ -52,7 +52,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [confidenceLevels, setConfidenceLevels] = useState<{ [key: number]: number }>({}); // qId -> confidence (1-4)
     const [timeLeft, setTimeLeft] = useState(() => {
         const d = typeof day === 'string' ? parseInt(day) : day;
-        return (d === 3 || d === 5) ? 120 * 60 : 60 * 60; // 2 hours for Day 3 & Day 5, 1 hour otherwise
+        return d === 3 ? 120 * 60 : 60 * 60; // 2 hours for Day 3, 1 hour otherwise
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
