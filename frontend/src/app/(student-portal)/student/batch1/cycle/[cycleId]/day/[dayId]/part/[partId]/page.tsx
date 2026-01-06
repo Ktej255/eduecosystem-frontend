@@ -365,6 +365,12 @@ export default function PartLearningPage() {
 
     const totalSegments = segments.length;
 
+    return (
+        <div className="flex flex-col h-[calc(100vh-4rem)] bg-gray-50 dark:bg-black font-sans">
+             {/* DEBUG BANNER - TEMPORARY */}
+            <div className="bg-red-600 text-white text-xs p-1 text-center font-mono">
+                DEBUG: Cycle:{cycleId} Day:{dayId} Part:{partId} Segment:{currentSegment} | Override Active: {cycleId === 1 && dayId === 1 && partId === 1 && currentSegment === 0 ? "YES" : "NO"}
+            </div>
     // Recording timer
     useEffect(() => {
         if (isRecording) {
