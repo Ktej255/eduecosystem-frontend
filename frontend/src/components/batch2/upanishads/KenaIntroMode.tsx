@@ -5,10 +5,53 @@ import { motion } from "framer-motion";
 import { KENA_INTRO_DATA } from "@/components/batch2/upanishads/data/kena-intro-data";
 import { BookOpen, Sparkles, MapPin, Feather, Quote } from "lucide-react";
 
+// Define flexible section type to handle all possible properties
+interface KenaSection {
+    id: string;
+    title: string;
+    description?: string;
+    content?: Array<{
+        heading: string;
+        text?: string;
+        points?: string[];
+        list?: string[];
+    }>;
+    mantra?: {
+        sanskrit: string;
+        transliteration: string;
+    };
+    explanation?: Array<{
+        title: string;
+        quote?: string;
+        meaning?: string;
+        subPoints?: string[];
+    }>;
+    table?: {
+        headers: string[];
+        rows: string[][];
+    };
+    warning?: {
+        title: string;
+        text: string;
+    };
+    details?: Array<{
+        label: string;
+        value: string;
+    }>;
+    points?: Array<{
+        title: string;
+        content: string;
+        list?: string[];
+    }>;
+}
+
 export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
+    // Cast sections to our flexible type
+    const sections = KENA_INTRO_DATA.sections as KenaSection[];
+
     return (
         <div className="space-y-12 max-w-5xl mx-auto">
-            {KENA_INTRO_DATA.sections.map((section, idx) => (
+            {sections.map((section, idx) => (
                 <motion.section
                     key={section.id || idx}
                     initial={{ opacity: 0, y: 20 }}
