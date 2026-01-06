@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 
 export default function BuildInfo() {
     const [show, setShow] = useState(true);
-    const BUILD_VERSION = "v1.9-debug";
-    const COMMIT_HASH = "DEBUG-MODAL";
-    const TIMESTAMP = "Jan 6, 02:05 PM";
+    const BUILD_VERSION = "v1.10-KENA-FIX";
+    const COMMIT_HASH = "HOTFIX-LIVE";
+    const TIMESTAMP = "Jan 6, 04:10 PM";
 
     if (!show) return null;
 
