@@ -143,7 +143,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const fetchTestHistory = async () => {
         setLoadingHistory(true);
         try {
-            const AWS_API = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+            // FORCE AWS URL to avoid any Vercel env var issues
+            const AWS_API = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
             const token = localStorage.getItem('token');
             const response = await axios.get(`${AWS_API}/batch1/test-results`, {
                 headers: { 'Authorization': `Bearer ${token}` }
@@ -159,7 +160,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const fetchTestDetail = async (resultId: number) => {
         setLoadingHistory(true);
         try {
-            const AWS_API = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+            // FORCE AWS URL to avoid any Vercel env var issues
+            const AWS_API = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
             const token = localStorage.getItem('token');
             const response = await axios.get(`${AWS_API}/batch1/test-results/${resultId}`, {
                 headers: { 'Authorization': `Bearer ${token}` }

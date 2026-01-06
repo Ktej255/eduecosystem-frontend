@@ -186,7 +186,8 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
     color: string;
     onBack: () => void;
 }) {
-    let _apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+    // FORCE AWS URL to avoid any Vercel env var issues
+    let _apiUrl = "https://a7z4kjysmp.us-east-1.awsapprunner.com";
     _apiUrl = _apiUrl.replace(/\/$/, "");
     const API_URL = _apiUrl.endsWith("/api/v1") ? _apiUrl : `${_apiUrl}/api/v1`;
     const { showToast } = useToast();
