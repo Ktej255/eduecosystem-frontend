@@ -27,7 +27,7 @@ export const VEDA_COLORS = {
 // COMPLETE 108 UPANISHADS (MUKTIKA CANON)
 // ==========================================
 
-export const ALL_108_UPANISHADS: Upanishad108[] = [
+export const RAW_UPANISHADS_BY_VEDA: Upanishad108[] = [
     // ========== RIGVEDA (10 Upanishads) ==========
     { id: "aitareya", name: "Aitareya", nameSanskrit: "ऐतरेय", veda: "Rigveda", category: "Mukhya", studyOrder: 8, isPrincipal: true, shlokaCount: 33, description: "Creation of universe and nature of Atman" },
     { id: "kaushitaki", name: "Kaushitaki", nameSanskrit: "कौषीतकि", veda: "Rigveda", category: "Samanya", studyOrder: 15, isPrincipal: false, description: "Doctrine of Prana and transmigration" },
@@ -147,13 +147,15 @@ export const ALL_108_UPANISHADS: Upanishad108[] = [
     { id: "garuda", name: "Garuda", nameSanskrit: "गरुड", veda: "Atharvaveda", category: "Vaishnava", studyOrder: 102, isPrincipal: false, description: "Eagle vehicle" },
 ];
 
+export const ALL_108_UPANISHADS = [...RAW_UPANISHADS_BY_VEDA].sort((a, b) => a.studyOrder - b.studyOrder);
+
 // Get Upanishads by Veda for clustering
 export const getUpanishadsByVeda = () => ({
-    rigveda: ALL_108_UPANISHADS.filter(u => u.veda === "Rigveda"),
-    shuklaYajurveda: ALL_108_UPANISHADS.filter(u => u.veda === "Shukla Yajurveda"),
-    krishnaYajurveda: ALL_108_UPANISHADS.filter(u => u.veda === "Krishna Yajurveda"),
-    samaveda: ALL_108_UPANISHADS.filter(u => u.veda === "Samaveda"),
-    atharvaveda: ALL_108_UPANISHADS.filter(u => u.veda === "Atharvaveda"),
+    rigveda: RAW_UPANISHADS_BY_VEDA.filter(u => u.veda === "Rigveda"),
+    shuklaYajurveda: RAW_UPANISHADS_BY_VEDA.filter(u => u.veda === "Shukla Yajurveda"),
+    krishnaYajurveda: RAW_UPANISHADS_BY_VEDA.filter(u => u.veda === "Krishna Yajurveda"),
+    samaveda: RAW_UPANISHADS_BY_VEDA.filter(u => u.veda === "Samaveda"),
+    atharvaveda: RAW_UPANISHADS_BY_VEDA.filter(u => u.veda === "Atharvaveda"),
 });
 
 // Principal 10 only
