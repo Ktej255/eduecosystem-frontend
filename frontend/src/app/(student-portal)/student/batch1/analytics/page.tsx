@@ -74,7 +74,8 @@ export default function AnalyticsPage() {
     const [loading, setLoading] = useState(true);
     const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
 
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    // FORCE AWS URL
+    const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
     useEffect(() => {
         fetchTestResults();

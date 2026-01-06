@@ -45,7 +45,8 @@ export default function AdminDashboard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTab, setSelectedTab] = useState<"overview" | "teachers" | "students">("overview");
 
-  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+  // FORCE AWS URL
+  const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
   useEffect(() => {
     fetchAllData();

@@ -50,9 +50,8 @@ export default function StudentDashboard() {
     const [rasDashboard, setRasDashboard] = useState<any | null>(null);
     const [studyStats, setStudyStats] = useState<StudySessionStats | null>(null);
     const [testResults, setTestResults] = useState<any[]>([]);
-    let _apiBase = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
-    _apiBase = _apiBase.replace(/\/$/, "");
-    const API_BASE = _apiBase.endsWith("/api/v1") ? _apiBase : `${_apiBase}/api/v1`;
+    // FORCE AWS URL
+    const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
     const userEmail = user?.email || "";
     const isMasterId = userEmail.toLowerCase() === "ktej255@gmail.com";
     const isSpecialBatch1Student = ["kajaldhannatar@gmail.com", "dikshajakhar0212@gmail.com", "test001@gmail.com"].includes(userEmail.toLowerCase());
@@ -542,7 +541,7 @@ export default function StudentDashboard() {
 function TestAnalysisBoard() {
     const [reports, setReports] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+    const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
     useEffect(() => {
         async function fetchReports() {
