@@ -13,6 +13,9 @@ import { useSessionProgress } from "@/hooks/useSessionProgress";
 import { markSegmentComplete, saveAnalysisReport, getAnalysisReport } from "@/services/progressStorage";
 import PDFStudySession from "@/components/batch1/PDFStudySession";
 import SimplePDFViewer from "@/components/batch1/SimplePDFViewer";
+import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 // Segment interface
 interface Segment {
@@ -1204,11 +1207,56 @@ export default function PartLearningPage() {
                         </Card>
                     )}
 
-                    {/* Key Points Reference */}
-                    <Card className="bg-amber-50 border-amber-200">
-                        <CardContent className="p-4">
-                            <h4 className="font-semibold text-amber-700 text-sm">Key Points for This Segment</h4>
-                            <p className="text-amber-600 text-sm mt-1">{segment.key_points}</p>
+                    {/* Premium Article View for Kena Upanishad & Content */}
+                    <Card className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+                        <CardContent className="p-0">
+                            {/* Hero Banner for specific content types if needed, or just elegant padding */}
+                            <div className="p-6 md:p-10 max-w-none prose prose-lg dark:prose-invert prose-headings:font-serif prose-headings:font-bold 
+                                prose-h1:text-4xl prose-h1:bg-clip-text prose-h1:text-transparent prose-h1:bg-gradient-to-r prose-h1:from-slate-900 prose-h1:to-slate-600 dark:prose-h1:from-white dark:prose-h1:to-slate-400
+                                prose-h2:text-2xl prose-h2:text-slate-800 dark:prose-h2:text-slate-200 prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-b prose-h2:border-slate-100 dark:prose-h2:border-slate-800 prose-h2:pb-2
+                                prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-p:leading-relaxed prose-p:mb-6
+                                prose-blockquote:border-l-4 prose-blockquote:border-indigo-500 prose-blockquote:bg-indigo-50/50 dark:prose-blockquote:bg-indigo-900/20 prose-blockquote:pl-4 prose-blockquote:py-1 prose-blockquote:pr-2 prose-blockquote:rounded-r-lg prose-blockquote:italic
+                                prose-ul:list-none prose-ul:pl-0 prose-li:pl-0
+                                prose-strong:text-slate-900 dark:prose-strong:text-white prose-strong:font-bold
+                                ">
+
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={{
+                                        // Custom Table Rendering
+                                        table: ({ node, ...props }) => (
+                                            <div className="overflow-x-auto my-8 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
+                                                <table className="w-full text-sm text-left text-slate-600 dark:text-slate-300" {...props} />
+                                            </div>
+                                        ),
+                                        thead: ({ node, ...props }) => (
+                                            <thead className="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-800 dark:text-slate-300" {...props} />
+                                        ),
+                                        th: ({ node, ...props }) => (
+                                            <th scope="col" className="px-6 py-4 font-bold border-b border-slate-200 dark:border-slate-700" {...props} />
+                                        ),
+                                        tr: ({ node, ...props }) => (
+                                            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-800 hover:bg-slate-50 dark:hover:bg-gray-800/50 transition-colors" {...props} />
+                                        ),
+                                        td: ({ node, ...props }) => (
+                                            <td className="px-6 py-4" {...props} />
+                                        ),
+                                        // Custom Li with Icon
+                                        li: ({ node, ...props }) => (
+                                            <li className="flex items-start gap-3 mb-3 group" {...props}>
+                                                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-indigo-500 flex-shrink-0 group-hover:scale-125 transition-transform" />
+                                                <span className="flex-1">{props.children}</span>
+                                            </li>
+                                        ),
+                                        // Custom Blockquote
+                                        blockquote: ({ node, ...props }) => (
+                                            <blockquote className="border-l-4 border-indigo-500 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20 py-4 px-6 rounded-r-lg my-8 text-slate-700 dark:text-slate-300 italic shadow-sm" {...props} />
+                                        )
+                                    }}
+                                >
+                                    {segment.key_points || "*Content loading...*"}
+                                </ReactMarkdown>
+                            </div>
                         </CardContent>
                     </Card>
                 </>
