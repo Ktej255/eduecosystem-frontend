@@ -229,6 +229,7 @@ export default function PartLearningPage() {
     }, [sessionProgress]);
 
     const totalSegments = segments.length;
+    const segment = segments[currentSegment];
 
 
     // Recording timer
