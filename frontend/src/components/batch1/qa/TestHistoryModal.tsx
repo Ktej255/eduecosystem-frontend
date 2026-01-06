@@ -9,11 +9,9 @@ import { Clock, ArrowLeft } from "lucide-react";
 interface TestHistoryModalProps {
     isOpen: boolean;
     onClose: () => void;
-    // We can pass data or fetch it here. Better to fetch here to keep it self-contained.
 }
 
 // Reuse the questions data
-// Note: In a real app we might want to fetch questions from backend or pass them in
 import { DAY1_MCQS } from "@/components/batch1/polity/data/day1-mcqs";
 import { DAY2_MCQS } from "@/components/batch1/polity/data/day2-mcqs";
 import { DAY3_MCQS } from "@/components/batch1/polity/data/day3-mcqs";
@@ -24,6 +22,9 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
     const [reviewingTest, setReviewingTest] = useState<any | null>(null);
     const [reviewAnswers, setReviewAnswers] = useState<any[]>([]);
 
+    // FORCE AWS URL - Centralized
+    const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+
     useEffect(() => {
         if (isOpen) {
             fetchHistory();
@@ -33,8 +34,6 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
     const fetchHistory = async () => {
         setLoading(true);
         try {
-            // FORCE AWS URL
-            const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
             const token = localStorage.getItem('token');
             const res = await axios.get(`${API_BASE}/batch1/test-results`, {
                 headers: { 'Authorization': `Bearer ${token}` }
@@ -48,17 +47,28 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
     };
 
     const fetchDetail = async (id: number) => {
+        console.log("Fetching detail for ID:", id);
         setLoading(true);
         try {
-            const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
             const token = localStorage.getItem('token');
-            const res = await axios.get(`${API_BASE}/batch1/test-results/${id}`, {
+            if (!token) {
+                throw new Error("No authentication token found");
+            }
+
+            const url = `${API_BASE}/batch1/test-results/${id}`;
+            console.log("Requesting URL:", url);
+
+            const res = await axios.get(url, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
+
+            console.log("Detail Response:", res.data);
             setReviewingTest(res.data);
             setReviewAnswers(res.data.answers || []);
-        } catch (error) {
+        } catch (error: any) {
             console.error("Failed to fetch detail:", error);
+            const msg = error.response?.data?.detail || error.message;
+            alert(`Error loading report: ${msg}`);
         } finally {
             setLoading(false);
         }
