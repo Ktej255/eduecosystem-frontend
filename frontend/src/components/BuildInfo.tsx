@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 
 export default function BuildInfo() {
     const [show, setShow] = useState(true);
-    const BUILD_VERSION = "v1.7-full-fix";
-    const COMMIT_HASH = "FULL-FIX";
-    const TIMESTAMP = "Jan 6, 01:40 PM";
+    const BUILD_VERSION = "v1.8-final-fix";
+    const COMMIT_HASH = "FINAL";
+    const TIMESTAMP = "Jan 6, 01:50 PM";
 
     if (!show) return null;
 

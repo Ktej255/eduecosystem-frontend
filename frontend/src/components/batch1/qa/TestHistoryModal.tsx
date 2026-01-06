@@ -33,7 +33,8 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
     const fetchHistory = async () => {
         setLoading(true);
         try {
-            const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+            // FORCE AWS URL
+            const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
             const token = localStorage.getItem('token');
             const res = await axios.get(`${API_BASE}/batch1/test-results`, {
                 headers: { 'Authorization': `Bearer ${token}` }
