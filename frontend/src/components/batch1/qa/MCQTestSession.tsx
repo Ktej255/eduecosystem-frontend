@@ -234,7 +234,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         // Save to Database in background
         setIsSaving(true);
         try {
-            const AWS_API = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+            // FORCE AWS URL to avoid any Vercel env var issues
+            const AWS_API = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
             const token = localStorage.getItem('token');
 
             const response = await axios.post(`${AWS_API}/batch1/test-results`, {
