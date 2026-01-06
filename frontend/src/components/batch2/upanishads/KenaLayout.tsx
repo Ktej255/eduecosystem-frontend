@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, BookOpen, Drama, Volume2, VolumeX, ChevronRight, ChevronLeft } from "lucide-react";
 import { KENA_METADATA, kenaData } from "@/components/batch2/upanishads/data/kena-shlokas";
 import { getKenaShlokaImage } from "@/components/batch2/upanishads/data/kena-images";
+import KenaIntroMode from "@/components/batch2/upanishads/KenaIntroMode";
+import { Sparkles } from "lucide-react";
 
 // Split data
 const philosophyData = kenaData.filter(d => d.section === "Philosophy");
@@ -114,8 +116,8 @@ function PhilosophyStream({ lang }: { lang: "en" | "hi" }) {
                                 key={i}
                                 onClick={() => setCurrentIndex(i)}
                                 className={`w-8 h-8 rounded-full text-xs font-bold transition-all border ${i === currentIndex
-                                        ? "bg-teal-500 border-teal-400 text-white scale-110 shadow-lg shadow-teal-500/40"
-                                        : "bg-cyan-900/40 border-teal-500/20 text-teal-600 hover:border-teal-500"
+                                    ? "bg-teal-500 border-teal-400 text-white scale-110 shadow-lg shadow-teal-500/40"
+                                    : "bg-cyan-900/40 border-teal-500/20 text-teal-600 hover:border-teal-500"
                                     }`}
                             >
                                 {i + 1}
@@ -176,8 +178,8 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                         >
                             <div
                                 className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-black transition-all duration-300 border-2 ${i === currentIndex
-                                        ? "bg-teal-500 border-white text-white scale-125 shadow-xl shadow-teal-500/30"
-                                        : "bg-cyan-900 border-teal-500/30 text-teal-700 hover:border-teal-500"
+                                    ? "bg-teal-500 border-white text-white scale-125 shadow-xl shadow-teal-500/30"
+                                    : "bg-cyan-900 border-teal-500/30 text-teal-700 hover:border-teal-500"
                                     }`}
                             >
                                 {s.id}
@@ -307,7 +309,7 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
 export default function KenaLayout() {
     const router = useRouter();
     const [lang, setLang] = useState<"en" | "hi">("en");
-    const [activeTab, setActiveTab] = useState<"philosophy" | "story">("philosophy");
+    const [activeTab, setActiveTab] = useState<"introduction" | "philosophy" | "story">("introduction");
     const [isPlaying, setIsPlaying] = useState(false);
 
     return (
@@ -374,10 +376,21 @@ export default function KenaLayout() {
 
                     <div className="flex bg-black/40 rounded-2xl p-1 shadow-inner border border-white/5">
                         <button
+                            onClick={() => setActiveTab("introduction")}
+                            className={`flex items-center gap-3 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === "introduction"
+                                ? "bg-teal-600 text-white shadow-lg"
+                                : "text-teal-500 hover:text-teal-300"
+                                }`}
+                        >
+                            <Sparkles className="w-4 h-4" />
+                            <span className="hidden md:inline">{lang === "en" ? "Introduction" : "परिचय"}</span>
+                            <span className="md:hidden">Intro</span>
+                        </button>
+                        <button
                             onClick={() => setActiveTab("philosophy")}
                             className={`flex items-center gap-3 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === "philosophy"
-                                    ? "bg-teal-600 text-white shadow-lg"
-                                    : "text-teal-500 hover:text-teal-300"
+                                ? "bg-teal-600 text-white shadow-lg"
+                                : "text-teal-500 hover:text-teal-300"
                                 }`}
                         >
                             <BookOpen className="w-4 h-4" />
@@ -387,8 +400,8 @@ export default function KenaLayout() {
                         <button
                             onClick={() => setActiveTab("story")}
                             className={`flex items-center gap-3 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === "story"
-                                    ? "bg-teal-600 text-white shadow-lg"
-                                    : "text-teal-500 hover:text-teal-300"
+                                ? "bg-teal-600 text-white shadow-lg"
+                                : "text-teal-500 hover:text-teal-300"
                                 }`}
                         >
                             <Drama className="w-4 h-4" />
@@ -446,7 +459,9 @@ export default function KenaLayout() {
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.5 }}
                     >
-                        {activeTab === "philosophy" ? (
+                        {activeTab === "introduction" ? (
+                            <KenaIntroMode lang={lang} />
+                        ) : activeTab === "philosophy" ? (
                             <PhilosophyStream lang={lang} />
                         ) : (
                             <YakshaStoryMode lang={lang} />
