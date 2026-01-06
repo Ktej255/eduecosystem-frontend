@@ -230,8 +230,7 @@ export default function PartLearningPage() {
 
     const totalSegments = segments.length;
 
-    return (
-        <div className="flex flex-col h-[calc(100vh-4rem)] bg-gray-50 dark:bg-black font-sans">
+
     // Recording timer
     useEffect(() => {
         if (isRecording) {

@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 
 export default function BuildInfo() {
     const [show, setShow] = useState(true);
-    const BUILD_VERSION = "v1.10-KENA-FIX";
-    const COMMIT_HASH = "HOTFIX-LIVE";
-    const TIMESTAMP = "Jan 6, 04:10 PM";
+    const BUILD_VERSION = "v1.11-BATCH2-LIVE";
+    const COMMIT_HASH = "BATCH-2-MIGRATION";
+    const TIMESTAMP = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
     if (!show) return null;
 
