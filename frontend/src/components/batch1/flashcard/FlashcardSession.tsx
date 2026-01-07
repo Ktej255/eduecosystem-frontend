@@ -47,6 +47,7 @@ interface CardResult {
     missingPoints: string[];
     source: string; // Topic name for grouping
     isCorrect: boolean;
+    recordingDuration: number; // NEW: Duration in seconds
 }
 
 interface FlashcardSessionProps {
@@ -79,6 +80,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
     // Session tracking - store all results for comprehensive report
     const [cardResults, setCardResults] = useState<CardResult[]>([]);
     const [showDetailedReport, setShowDetailedReport] = useState(false);
+    const [currentRecordingDuration, setCurrentRecordingDuration] = useState(0); // NEW: Track current recording duration
 
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
@@ -191,6 +193,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
 
     const handleAudioRecording = async (base64Audio: string) => {
         setIsAnalyzing(true);
+        const recordedDuration = currentRecordingDuration; // Capture duration before reset
         try {
             const response = await fetch(`${API_URL}/audio-analysis/analyze-flashcard`, {
                 method: "POST",
@@ -220,7 +223,8 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                 keyPointsMentioned: result.key_points_mentioned || [],
                 missingPoints: result.missing_points || [],
                 source: currentCard.source,
-                isCorrect
+                isCorrect,
+                recordingDuration: recordedDuration // NEW: Include duration
             };
             setCardResults(prev => [...prev, cardResult]);
 
@@ -234,6 +238,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
             // NOW flip to show answer
             setIsFlipped(true);
             setIsRecordingMode(false);
+            setCurrentRecordingDuration(0); // Reset for next recording
         } catch (error) {
             console.error("Audio analysis error:", error);
             toast.error("Failed to analyze audio. Please try again.");
@@ -476,6 +481,27 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                 {/* Voice Answer Stats (if any) */}
                 {totalAnswered > 0 && (
                     <div className="space-y-4 max-w-lg mx-auto">
+                        {/* NEW: Audio Recording Stats */}
+                        <div className="grid grid-cols-2 gap-3">
+                            <Card className="bg-pink-50 dark:bg-pink-900/20 border-pink-200">
+                                <CardContent className="p-3 text-center">
+                                    <div className="flex items-center justify-center gap-1 text-pink-600">
+                                        <Mic className="h-4 w-4" />
+                                        <span className="text-2xl font-bold">{totalAnswered}</span>
+                                    </div>
+                                    <div className="text-xs text-pink-700">Audio Recordings</div>
+                                </CardContent>
+                            </Card>
+                            <Card className="bg-purple-50 dark:bg-purple-900/20 border-purple-200">
+                                <CardContent className="p-3 text-center">
+                                    <div className="text-2xl font-bold text-purple-600">
+                                        {Math.floor(cardResults.reduce((sum, r) => sum + r.recordingDuration, 0) / 60)}:{String(cardResults.reduce((sum, r) => sum + r.recordingDuration, 0) % 60).padStart(2, '0')}
+                                    </div>
+                                    <div className="text-xs text-purple-700">Total Time</div>
+                                </CardContent>
+                            </Card>
+                        </div>
+
                         <div className="text-4xl font-bold text-pink-600">
                             {accuracy}% Voice Accuracy
                         </div>
@@ -483,9 +509,28 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                             Average Score: {avgScore}% • {correctCount}/{totalAnswered} correct answers
                         </div>
 
+                        {/* NEW: Concepts Coverage */}
+                        {cardResults.some(r => r.keyPointsMentioned.length > 0) && (
+                            <Card className="border-green-200 bg-green-50/50 text-left">
+                                <CardContent className="p-4">
+                                    <div className="flex items-center gap-2 text-green-700 mb-2">
+                                        <CheckCircle2 className="h-4 w-4" />
+                                        <span className="font-semibold text-sm">Concepts You Covered</span>
+                                    </div>
+                                    <div className="flex flex-wrap gap-1">
+                                        {Array.from(new Set(cardResults.flatMap(r => r.keyPointsMentioned))).slice(0, 8).map((point, i) => (
+                                            <span key={i} className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full">
+                                                {point}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        )}
+
                         {/* Weak Topics Alert */}
                         {weakTopics.length > 0 && (
-                            <Card className="border-amber-300 bg-amber-50">
+                            <Card className="border-amber-300 bg-amber-50 text-left">
                                 <CardContent className="p-4">
                                     <div className="flex items-center gap-2 text-amber-700 mb-2">
                                         <AlertTriangle className="h-5 w-5" />
@@ -540,55 +585,8 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                 </span>
             </div>
 
-            {/* FULL SCREEN RECORDING OVERLAY */}
-            {isRecordingMode && (
-                <div className="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center p-6">
-                    {/* Close button */}
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        className="absolute top-4 left-4 text-gray-500"
-                        onClick={() => setIsRecordingMode(false)}
-                    >
-                        <ArrowLeft className="mr-2 h-4 w-4" /> Cancel
-                    </Button>
 
-                    {/* Question at top */}
-                    <div className="max-w-2xl text-center mb-8">
-                        <div className={`inline-flex px-3 py-1 rounded-full text-xs font-medium mb-4 ${getCategoryColor(currentCard?.category || '')}`}>
-                            {getCategoryIcon(currentCard?.category || '')}
-                            <span className="ml-1">{currentCard?.category?.toUpperCase()}</span>
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
-                            {currentCard?.front}
-                        </h2>
-                    </div>
-
-                    {/* Recording UI */}
-                    {isAnalyzing ? (
-                        <div className="text-center space-y-4">
-                            <Loader2 className="h-16 w-16 animate-spin text-primary mx-auto" />
-                            <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
-                                🤖 AI is analyzing your answer...
-                            </p>
-                            <p className="text-sm text-gray-500">
-                                Please wait while we evaluate your response
-                            </p>
-                        </div>
-                    ) : (
-                        <div className="w-full max-w-md">
-                            <VoiceRecorder
-                                autoSubmit={false}
-                                onRecordingComplete={handleAudioRecording}
-                            />
-                        </div>
-                    )}
-
-                    <p className="mt-6 text-sm text-gray-500 text-center max-w-md">
-                        💡 Explain the concept in your own words. AI will evaluate your understanding based on the chapter content.
-                    </p>
-                </div>
-            )}
+            {/* INLINE RECORDING - Recording mode now shows on card front below */}
 
             {/* Flashcard */}
             <div
@@ -618,9 +616,41 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                                 {currentCard?.front}
                             </h2>
 
-                            <p className="text-gray-400 mt-6 text-sm">
-                                Tap to reveal answer
-                            </p>
+                            {/* INLINE RECORDING UI */}
+                            {isRecordingMode ? (
+                                <div className="mt-6 w-full max-w-md" onClick={(e) => e.stopPropagation()}>
+                                    {isAnalyzing ? (
+                                        <div className="text-center space-y-3 py-4">
+                                            <Loader2 className="h-10 w-10 animate-spin text-primary mx-auto" />
+                                            <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                                                🤖 AI analyzing your answer...
+                                            </p>
+                                        </div>
+                                    ) : (
+                                        <VoiceRecorder
+                                            autoSubmit={false}
+                                            onRecordingComplete={handleAudioRecording}
+                                            onRecordingStart={() => setCurrentRecordingDuration(0)}
+                                            onRecordingStop={() => { }}
+                                        />
+                                    )}
+                                    <Button
+                                        variant="ghost"
+                                        size="sm"
+                                        className="mt-2 text-gray-500 w-full"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setIsRecordingMode(false);
+                                        }}
+                                    >
+                                        Cancel Recording
+                                    </Button>
+                                </div>
+                            ) : (
+                                <p className="text-gray-400 mt-6 text-sm">
+                                    Tap to reveal answer
+                                </p>
+                            )}
                         </CardContent>
                     </Card>
 
