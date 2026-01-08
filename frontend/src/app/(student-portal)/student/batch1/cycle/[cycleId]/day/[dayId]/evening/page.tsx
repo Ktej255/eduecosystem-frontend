@@ -14,7 +14,7 @@ export default function EveningSessionPage() {
     return (
         <div className="space-y-6 max-w-6xl mx-auto p-4 md:p-6">
             <div className="flex items-center justify-between">
-                <Button variant="ghost" onClick={() => router.back()} className="text-gray-700 dark:text-gray-300">
+                <Button variant="ghost" onClick={() => router.push(`/student/batch1/cycle/${cycleId}/day/${dayId}`)} className="text-gray-700 dark:text-gray-300">
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Back to Day {dayId}
                 </Button>
