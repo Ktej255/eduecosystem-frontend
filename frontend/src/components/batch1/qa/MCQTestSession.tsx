@@ -24,6 +24,8 @@ import { DAY5_MCQS } from "../polity/data/day5-mcqs";
 import { DAY6_MCQS } from "../polity/data/day6-mcqs";
 import { DAY7_MCQS } from "../polity/data/day7-mcqs";
 import { DAY8_MCQS } from "../polity/data/day8-mcqs";
+import { DAY9_DPSP_MCQS } from "../polity/data/day9-dpsp-mcqs";
+import { DAY9_FD_MCQS } from "../polity/data/day9-fd-mcqs";
 import DetailedTestReport from "./DetailedTestReport";
 
 interface MCQTestSessionProps {
@@ -33,10 +35,16 @@ interface MCQTestSessionProps {
 }
 
 export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSessionProps) {
+    // Sub-topic selection state for Day 9
+    const [subTopic, setSubTopic] = useState<'DPSP' | 'FD' | null>(null);
+
     // Dynamic MCQ loading based on day
     const mcqs = useMemo(() => {
         const d = typeof day === 'string' ? parseInt(day) : day;
         switch (d) {
+            case 9:
+                if (subTopic === 'FD') return DAY9_FD_MCQS;
+                return DAY9_DPSP_MCQS; // Default to DPSP if loaded, but we'll block render until selected
             case 8:
                 return DAY8_MCQS;
             case 7:
@@ -53,7 +61,63 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             default:
                 return DAY1_MCQS;
         }
-    }, [day]);
+    }, [day, subTopic]);
+
+    // Handle Day 9 Topic Selection View
+    const d = typeof day === 'string' ? parseInt(day) : day;
+    if (d === 9 && !subTopic) {
+        return (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 backdrop-blur-sm">
+                <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl p-6 relative animate-in fade-in zoom-in duration-300">
+                    <button
+                        onClick={onClose}
+                        className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    >
+                        <XCircle className="w-6 h-6" />
+                    </button>
+
+                    <div className="text-center mb-8">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-2">Select Topic</h2>
+                        <p className="text-gray-600">Choose a topic to start your test session</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <Card
+                            className="cursor-pointer hover:border-indigo-500 hover:shadow-lg transition-all transform hover:-translate-y-1 group"
+                            onClick={() => setSubTopic('DPSP')}
+                        >
+                            <CardContent className="p-6 text-center space-y-4">
+                                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto group-hover:bg-indigo-600 transition-colors">
+                                    <span className="text-2xl font-bold text-indigo-600 group-hover:text-white">D</span>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Directive Principles</h3>
+                                    <p className="text-sm text-gray-500">DPSP (Part IV)</p>
+                                    <p className="text-xs text-green-600 mt-2 font-medium">60 MCQs Available</p>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card
+                            className="cursor-pointer hover:border-indigo-500 hover:shadow-lg transition-all transform hover:-translate-y-1 group"
+                            onClick={() => setSubTopic('FD')}
+                        >
+                            <CardContent className="p-6 text-center space-y-4">
+                                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto group-hover:bg-indigo-600 transition-colors">
+                                    <span className="text-2xl font-bold text-indigo-600 group-hover:text-white">F</span>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Fundamental Duties</h3>
+                                    <p className="text-sm text-gray-500">Part IV-A</p>
+                                    <p className="text-xs text-orange-600 mt-2 font-medium">Coming Soon</p>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     const { user } = useAuth();
     const [currentIndex, setCurrentIndex] = useState(0);

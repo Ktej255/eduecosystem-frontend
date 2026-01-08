@@ -119,7 +119,31 @@ export function getFlashcardAvailableDays(): number[] {
 
 
 // === MCQ CONTENT REGISTRY ===
-// Future: Add MCQ registry when needed
+import { DAY8_MCQS } from "./polity/data/day8-mcqs";
+import { DAY9_DPSP_MCQS } from "./polity/data/day9-dpsp-mcqs";
+import { DAY9_FD_MCQS } from "./polity/data/day9-fd-mcqs";
+import type { Question } from "./qa/MCQTestSession";
+
+export const MCQ_CONTENT_REGISTRY: Record<number, Question[] | undefined> = {
+    8: DAY8_MCQS,
+    9: DAY9_DPSP_MCQS, // Default check
+};
+
+/**
+ * Get MCQ data for a specific day
+ */
+export function getMCQDataForDay(cycleId: number, dayNumber: number, subTopic?: string): Question[] | undefined {
+    // Special handling for Day 9 (split topic)
+    if (dayNumber === 9) {
+        if (subTopic === 'fundamental-duties') {
+            return DAY9_FD_MCQS;
+        }
+        return DAY9_DPSP_MCQS;
+    }
+
+    // Fallback/Standard registry
+    return MCQ_CONTENT_REGISTRY[dayNumber];
+}
 
 
 // === UTILITY FUNCTIONS ===
@@ -128,7 +152,7 @@ export function getFlashcardAvailableDays(): number[] {
  * Check if any content (CSAT, flashcards, or MCQ) exists for a day
  */
 export function hasAnyContentForDay(dayNumber: number): boolean {
-    return hasCSATContent(dayNumber) || hasFlashcardContent(dayNumber);
+    return hasCSATContent(dayNumber) || hasFlashcardContent(dayNumber) || (MCQ_CONTENT_REGISTRY[dayNumber] !== undefined);
 }
 
 /**
@@ -139,6 +163,7 @@ export function getDayContentSummary(dayNumber: number): {
     hasFlashcards: boolean;
     csatQuestionCount: number;
     flashcardCount: number;
+    mcqCount: number;
 } {
     const csatData = CSAT_CONTENT_REGISTRY[dayNumber];
     const flashcardData = FLASHCARD_CONTENT_REGISTRY[dayNumber];
@@ -148,5 +173,6 @@ export function getDayContentSummary(dayNumber: number): {
         hasFlashcards: flashcardData !== undefined && flashcardData.length > 0,
         csatQuestionCount: csatData?.passages.reduce((acc, p) => acc + p.questions.length, 0) || 0,
         flashcardCount: flashcardData?.length || 0,
+        mcqCount: MCQ_CONTENT_REGISTRY[dayNumber]?.length || 0
     };
 }
