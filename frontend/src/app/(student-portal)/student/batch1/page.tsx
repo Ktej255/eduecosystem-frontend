@@ -170,11 +170,18 @@ export default function Batch1Page() {
                                 </div>
                                 <div className="flex gap-2">
                                     {(selectedCycle === 1 || selectedCycle === 2) && (
-                                        <Link href={selectedCycle === 1 ? "/student/batch1/polity" : "/student/batch1/history"}>
-                                            <Button variant="outline" className="bg-white/50 backdrop-blur">
-                                                <Book className="mr-2 h-4 w-4" /> View Syllabus
-                                            </Button>
-                                        </Link>
+                                        <>
+                                            <Link href="/student/batch1/content-map">
+                                                <Button variant="outline" className="bg-white/50 backdrop-blur">
+                                                    <Target className="mr-2 h-4 w-4" /> Content Map
+                                                </Button>
+                                            </Link>
+                                            <Link href={selectedCycle === 1 ? "/student/batch1/polity" : "/student/batch1/history"}>
+                                                <Button variant="outline" className="bg-white/50 backdrop-blur">
+                                                    <Book className="mr-2 h-4 w-4" /> View Syllabus
+                                                </Button>
+                                            </Link>
+                                        </>
                                     )}
                                 </div>
                             </div>
