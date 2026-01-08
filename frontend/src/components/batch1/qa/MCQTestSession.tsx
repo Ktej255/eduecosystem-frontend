@@ -21,6 +21,8 @@ import { DAY1_MCQS, MCQ } from "../polity/data/day1-mcqs";
 import { DAY2_MCQS } from "../polity/data/day2-mcqs";
 import { DAY3_MCQS } from "../polity/data/day3-mcqs";
 import { DAY5_MCQS } from "../polity/data/day5-mcqs";
+import { DAY6_MCQS } from "../polity/data/day6-mcqs";
+import { DAY7_MCQS } from "../polity/data/day7-mcqs";
 import DetailedTestReport from "./DetailedTestReport";
 
 interface MCQTestSessionProps {
@@ -34,6 +36,10 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const mcqs = useMemo(() => {
         const d = typeof day === 'string' ? parseInt(day) : day;
         switch (d) {
+            case 7:
+                return DAY7_MCQS;
+            case 6:
+                return DAY6_MCQS;
             case 5:
                 return DAY5_MCQS;
             case 3:

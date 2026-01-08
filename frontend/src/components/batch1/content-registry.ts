@@ -11,6 +11,9 @@ import type { SessionData } from "@/app/(student-portal)/student/batch1/csat/csa
 // === FLASHCARD DATA IMPORTS ===
 import { DAY2_FLASHCARDS } from "./polity/data/day2-flashcards";
 import { DAY5_FLASHCARDS } from "./polity/data/day5-flashcards";
+import { DAY6_FLASHCARDS } from "./polity/data/day6-flashcards";
+import { DAY7_FLASHCARDS } from "./polity/data/day7-flashcards";
+import { DAY8_FLASHCARDS } from "./polity/data/day8-flashcards";
 import type { Flashcard } from "./flashcard/flashcard-utils";
 
 // === CSAT CONTENT REGISTRY ===
@@ -66,6 +69,9 @@ export function getCSATAvailableDays(): number[] {
 export const FLASHCARD_CONTENT_REGISTRY: Record<number, Flashcard[] | undefined> = {
     2: DAY2_FLASHCARDS,
     5: DAY5_FLASHCARDS,
+    6: DAY6_FLASHCARDS,  // Fundamental Rights Part 1 (Articles 12-21)
+    7: DAY7_FLASHCARDS,  // Fundamental Rights Part 2 (Articles 22-30)
+    8: DAY8_FLASHCARDS,  // Fundamental Rights Part 3 (Articles 31-35, Writs, Exceptions)
     // Add more days as content is created:
     // 3: DAY3_FLASHCARDS,
     // 4: DAY4_FLASHCARDS,
