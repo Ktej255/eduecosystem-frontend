@@ -20,7 +20,9 @@ import {
     TrendingUp,
     Target,
     BarChart3,
-    Download
+    Download,
+    Shield,
+    ScrollText
 } from "lucide-react";
 import { Flashcard, generateFlashcardsFromTopic, getFlashcardsForDay, shuffleArray } from "./flashcard-utils";
 import VoiceRecorder from "../../ui/VoiceRecorder";
@@ -58,6 +60,7 @@ interface FlashcardSessionProps {
 
 export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSessionProps) {
     const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
+    const [selectedSubTopic, setSelectedSubTopic] = useState<string | null>(null); // NEW: Sub-topic selection for Day 9
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [knownCards, setKnownCards] = useState<Set<string>>(new Set());
@@ -86,13 +89,19 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
 
     useEffect(() => {
         loadFlashcards();
-    }, [cycleId, day]);
+    }, [cycleId, day, selectedSubTopic]);
 
     const loadFlashcards = () => {
         const d = typeof day === 'string' ? parseInt(day) : day;
         const c = typeof cycleId === 'string' ? parseInt(cycleId) : cycleId;
 
-        console.log(`[FlashcardSession] Loading: cycleId=${c}, day=${d}`);
+        // Day 9 Special Handling: Requies sub-topic selection
+        if (d === 9 && !selectedSubTopic) {
+            setLoading(false);
+            return;
+        }
+
+        console.log(`[FlashcardSession] Loading: cycleId=${c}, day=${d}, subTopic=${selectedSubTopic}`);
         setLoading(true);
         try {
             let cardsToSet: Flashcard[] = [];
@@ -100,7 +109,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
             // Check content registry for pre-built flashcard sets
             if (hasFlashcardContent(d)) {
                 console.log(`[FlashcardSession] Loading flashcards from registry for Day ${d}`);
-                const registryCards = getFlashcardDataForDay(c, d);
+                const registryCards = getFlashcardDataForDay(c, d, selectedSubTopic || undefined);
                 if (registryCards && registryCards.length > 0) {
                     cardsToSet = [...registryCards];
                 } else {
@@ -297,6 +306,74 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
             .filter(([_, data]) => data.avgScore < 70)
             .sort((a, b) => a[1].avgScore - b[1].avgScore);
     };
+
+
+
+    // DAY 9 SELECTION SCREEN
+    if (day === 9 && !selectedSubTopic) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[600px] p-6 animate-in fade-in duration-500">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                        Day 9: Directive Principles & Fundamental Duties
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Please select a topic to begin your flashcard session.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
+                    {/* DPSP CARD */}
+                    <Card
+                        className="group relative overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-purple-500"
+                        onClick={() => setSelectedSubTopic('dpsp')}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                            <div className="w-20 h-20 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <ScrollText className="h-10 w-10" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                                Directive Principles
+                            </h3>
+                            <p className="text-gray-500 dark:text-gray-400 mb-6">
+                                Part IV (Articles 36-51). Socialistic, Gandhian, and Liberal-Intellectual principles guiding the State.
+                            </p>
+                            <Button className="mt-auto w-full bg-purple-600 hover:bg-purple-700">
+                                Start DPSP Session
+                            </Button>
+                        </CardContent>
+                    </Card>
+
+                    {/* FUNDAMENTAL DUTIES CARD */}
+                    <Card
+                        className="group relative overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-pink-500"
+                        onClick={() => setSelectedSubTopic('fundamental-duties')}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                            <div className="w-20 h-20 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <Shield className="h-10 w-10" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                                Fundamental Duties
+                            </h3>
+                            <p className="text-gray-500 dark:text-gray-400 mb-6">
+                                Part IV-A (Article 51A). The moral obligations of all citizens to help promote a spirit of patriotism and to uphold the unity of India.
+                            </p>
+                            <Button className="mt-auto w-full bg-pink-600 hover:bg-pink-700">
+                                Start Fundamental Duties Session
+                            </Button>
+                        </CardContent>
+                    </Card>
+                </div>
+
+                <Button variant="ghost" className="mt-12 text-gray-500" onClick={onClose}>
+                    <ArrowLeft className="mr-2 h-4 w-4" /> Go Back
+                </Button>
+            </div>
+        );
+    }
 
     if (loading) {
         return (

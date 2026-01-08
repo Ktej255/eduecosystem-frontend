@@ -14,6 +14,8 @@ import { DAY5_FLASHCARDS } from "./polity/data/day5-flashcards";
 import { DAY6_FLASHCARDS } from "./polity/data/day6-flashcards";
 import { DAY7_FLASHCARDS } from "./polity/data/day7-flashcards";
 import { DAY8_FLASHCARDS } from "./polity/data/day8-flashcards";
+import { DAY9_DPSP_FLASHCARDS } from "./polity/data/day9-dpsp-flashcards";
+import { DAY9_FD_FLASHCARDS } from "./polity/data/day9-fd-flashcards";
 import type { Flashcard } from "./flashcard/flashcard-utils";
 
 // === CSAT CONTENT REGISTRY ===
@@ -72,6 +74,7 @@ export const FLASHCARD_CONTENT_REGISTRY: Record<number, Flashcard[] | undefined>
     6: DAY6_FLASHCARDS,  // Fundamental Rights Part 1 (Articles 12-21)
     7: DAY7_FLASHCARDS,  // Fundamental Rights Part 2 (Articles 22-30)
     8: DAY8_FLASHCARDS,  // Fundamental Rights Part 3 (Articles 31-35, Writs, Exceptions)
+    9: DAY9_DPSP_FLASHCARDS, // Default to DPSP for checking existence
     // Add more days as content is created:
     // 3: DAY3_FLASHCARDS,
     // 4: DAY4_FLASHCARDS,
@@ -80,7 +83,16 @@ export const FLASHCARD_CONTENT_REGISTRY: Record<number, Flashcard[] | undefined>
 /**
  * Get flashcard data for a specific day
  */
-export function getFlashcardDataForDay(cycleId: number, dayNumber: number): Flashcard[] | undefined {
+export function getFlashcardDataForDay(cycleId: number, dayNumber: number, subTopic?: string): Flashcard[] | undefined {
+    // Special handling for Day 9 (split topic)
+    if (dayNumber === 9) {
+        if (subTopic === 'fundamental-duties') {
+            return DAY9_FD_FLASHCARDS;
+        }
+        // Default or 'dpsp'
+        return DAY9_DPSP_FLASHCARDS;
+    }
+
     // Currently all cycles share the same content structure
     return FLASHCARD_CONTENT_REGISTRY[dayNumber];
 }
