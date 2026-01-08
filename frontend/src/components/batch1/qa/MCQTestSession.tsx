@@ -487,6 +487,10 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                     <Trophy className="mr-2 h-4 w-4" /> History
                 </Button>
 
+                <div className="hidden md:block font-semibold text-gray-700 dark:text-gray-300">
+                    {day === 102 ? "Day 10 - Paper 2" : (day === 10 ? "Day 10 - Paper 1" : `Cycle ${cycleId} - Day ${day}`)}
+                </div>
+
                 {!isSubmitted && (
                     <div className={`flex items-center gap-2 font-mono font-bold text-lg ${timeLeft < 300 ? 'text-red-500 animate-pulse' : 'text-blue-600'}`}>
                         <Clock className="h-5 w-5" />

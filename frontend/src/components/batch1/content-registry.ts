@@ -122,11 +122,15 @@ export function getFlashcardAvailableDays(): number[] {
 import { DAY8_MCQS } from "./polity/data/day8-mcqs";
 import { DAY9_DPSP_MCQS } from "./polity/data/day9-dpsp-mcqs";
 import { DAY9_FD_MCQS } from "./polity/data/day9-fd-mcqs";
-import type { Question } from "./qa/MCQTestSession";
+import { DAY10_PAPER1_MCQS } from "./polity/data/day10-paper1-mcqs";
+import { DAY10_PAPER2_MCQS } from "./polity/data/day10-paper2-mcqs";
+import { MCQ as Question } from "./polity/data/day1-mcqs";
 
 export const MCQ_CONTENT_REGISTRY: Record<number, Question[] | undefined> = {
     8: DAY8_MCQS,
     9: DAY9_DPSP_MCQS, // Default check
+    10: DAY10_PAPER1_MCQS,
+    102: DAY10_PAPER2_MCQS,
 };
 
 /**
@@ -139,6 +143,14 @@ export function getMCQDataForDay(cycleId: number, dayNumber: number, subTopic?: 
             return DAY9_FD_MCQS;
         }
         return DAY9_DPSP_MCQS;
+    }
+
+    // Special handling for Day 10 (Paper 2 mapped to 102)
+    if (dayNumber === 102) {
+        return DAY10_PAPER2_MCQS;
+    }
+    if (dayNumber === 10) {
+        return DAY10_PAPER1_MCQS;
     }
 
     // Fallback/Standard registry
