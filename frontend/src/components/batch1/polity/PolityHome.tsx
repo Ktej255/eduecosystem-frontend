@@ -60,6 +60,15 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                                 <div className="text-blue-200 text-sm">High Priority</div>
                             </div>
                         </div>
+
+                        <div className="mt-8">
+                            <Link href="/student/batch1/content-map">
+                                <button className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all">
+                                    <TrendingUp className="w-5 h-5" />
+                                    View Syllabus Tracker & Content Map
+                                </button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             )}

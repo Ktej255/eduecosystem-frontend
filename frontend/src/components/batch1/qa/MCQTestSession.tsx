@@ -213,11 +213,14 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
 
     // Track time entering each question
     useEffect(() => {
-        if (!isSubmitted) {
-            const qId = questions[currentIndex].id;
-            // Record start time for this question if not already set
-            if (!questionStartTimes[qId]) {
-                setQuestionStartTimes(prev => ({ ...prev, [qId]: Date.now() }));
+        if (!isSubmitted && questions.length > 0) {
+            const currentQ = questions[currentIndex];
+            if (currentQ) {
+                const qId = currentQ.id;
+                // Record start time for this question if not already set
+                if (!questionStartTimes[qId]) {
+                    setQuestionStartTimes(prev => ({ ...prev, [qId]: Date.now() }));
+                }
             }
         }
     }, [currentIndex, isSubmitted, questions]);
@@ -237,7 +240,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     };
 
     const handleOptionSelect = (optionIndex: number) => {
-        if (isSubmitted) return;
+        if (isSubmitted || questions.length === 0) return;
         setAnswers(prev => ({
             ...prev,
             [questions[currentIndex].id]: optionIndex
@@ -245,7 +248,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     };
 
     const handleConfidenceSelect = (confidence: number) => {
-        if (isSubmitted) return;
+        if (isSubmitted || questions.length === 0) return;
         setConfidenceLevels(prev => ({
             ...prev,
             [questions[currentIndex].id]: confidence
@@ -385,6 +388,30 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             setIsSaving(false);
         }
     };
+
+    // Safety check for loading or empty questions
+    if (loading) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[400px] gap-4">
+                <Clock className="h-10 w-10 animate-spin text-blue-600" />
+                <p className="text-gray-500 font-medium">Loading test content...</p>
+            </div>
+        );
+    }
+
+    if (questions.length === 0) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[400px] gap-4 text-center">
+                <AlertCircle className="h-12 w-12 text-yellow-500" />
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">No Content Found</h3>
+                <p className="text-gray-500">
+                    We couldn't find any questions for Cycle {cycleId}, Day {day}.
+                    <br />Please try again later or contact support.
+                </p>
+                <Button onClick={onClose} variant="outline">Go Back</Button>
+            </div>
+        );
+    }
 
     const currentQuestion = questions[currentIndex];
     const isAnswered = answers[currentQuestion.id] !== undefined;
