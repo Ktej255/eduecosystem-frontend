@@ -15,7 +15,9 @@ import {
     AlertCircle,
     Trophy,
     RotateCcw,
-    Flag
+    Flag,
+    Shield,
+    ScrollText
 } from "lucide-react";
 import { DAY1_MCQS, MCQ } from "../polity/data/day1-mcqs";
 import { DAY2_MCQS } from "../polity/data/day2-mcqs";
@@ -23,7 +25,10 @@ import { DAY3_MCQS } from "../polity/data/day3-mcqs";
 import { DAY5_MCQS } from "../polity/data/day5-mcqs";
 import { DAY6_MCQS } from "../polity/data/day6-mcqs";
 import { DAY7_MCQS } from "../polity/data/day7-mcqs";
-import { DAY8_MCQS } from "../polity/data/day8-mcqs";
+
+// Import centrally registered data loader
+import { getMCQDataForDay } from "../content-registry";
+
 import { DAY9_DPSP_MCQS } from "../polity/data/day9-dpsp-mcqs";
 import { DAY9_FD_MCQS } from "../polity/data/day9-fd-mcqs";
 import DetailedTestReport from "./DetailedTestReport";
@@ -35,91 +40,8 @@ interface MCQTestSessionProps {
 }
 
 export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSessionProps) {
-    // Sub-topic selection state for Day 9
-    const [subTopic, setSubTopic] = useState<'DPSP' | 'FD' | null>(null);
-
-    // Dynamic MCQ loading based on day
-    const mcqs = useMemo(() => {
-        const d = typeof day === 'string' ? parseInt(day) : day;
-        switch (d) {
-            case 9:
-                if (subTopic === 'FD') return DAY9_FD_MCQS;
-                return DAY9_DPSP_MCQS; // Default to DPSP if loaded, but we'll block render until selected
-            case 8:
-                return DAY8_MCQS;
-            case 7:
-                return DAY7_MCQS;
-            case 6:
-                return DAY6_MCQS;
-            case 5:
-                return DAY5_MCQS;
-            case 3:
-                return DAY3_MCQS;
-            case 2:
-                return DAY2_MCQS;
-            case 1:
-            default:
-                return DAY1_MCQS;
-        }
-    }, [day, subTopic]);
-
-    // Handle Day 9 Topic Selection View
-    const d = typeof day === 'string' ? parseInt(day) : day;
-    if (d === 9 && !subTopic) {
-        return (
-            <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 backdrop-blur-sm">
-                <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl p-6 relative animate-in fade-in zoom-in duration-300">
-                    <button
-                        onClick={onClose}
-                        className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 p-2 hover:bg-gray-100 rounded-full transition-colors"
-                    >
-                        <XCircle className="w-6 h-6" />
-                    </button>
-
-                    <div className="text-center mb-8">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-2">Select Topic</h2>
-                        <p className="text-gray-600">Choose a topic to start your test session</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <Card
-                            className="cursor-pointer hover:border-indigo-500 hover:shadow-lg transition-all transform hover:-translate-y-1 group"
-                            onClick={() => setSubTopic('DPSP')}
-                        >
-                            <CardContent className="p-6 text-center space-y-4">
-                                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto group-hover:bg-indigo-600 transition-colors">
-                                    <span className="text-2xl font-bold text-indigo-600 group-hover:text-white">D</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Directive Principles</h3>
-                                    <p className="text-sm text-gray-500">DPSP (Part IV)</p>
-                                    <p className="text-xs text-green-600 mt-2 font-medium">60 MCQs Available</p>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        <Card
-                            className="cursor-pointer hover:border-indigo-500 hover:shadow-lg transition-all transform hover:-translate-y-1 group"
-                            onClick={() => setSubTopic('FD')}
-                        >
-                            <CardContent className="p-6 text-center space-y-4">
-                                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto group-hover:bg-indigo-600 transition-colors">
-                                    <span className="text-2xl font-bold text-indigo-600 group-hover:text-white">F</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Fundamental Duties</h3>
-                                    <p className="text-sm text-gray-500">Part IV-A</p>
-                                    <p className="text-xs text-orange-600 mt-2 font-medium">Coming Soon</p>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    const { user } = useAuth();
+    const [questions, setQuestions] = useState<MCQ[]>([]);
+    const [selectedSubTopic, setSelectedSubTopic] = useState<string | null>(null); // NEW: Sub-topic selection for Day 9
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState<{ [key: number]: number }>({}); // qId -> optionIndex
     const [confidenceLevels, setConfidenceLevels] = useState<{ [key: number]: number }>({}); // qId -> confidence (1-4)
@@ -140,6 +62,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [reviewAnswers, setReviewAnswers] = useState<any[]>([]); // Answers from past test
     const [showDetailedReport, setShowDetailedReport] = useState(false); // Show detailed analytics report
     const [submittedResultData, setSubmittedResultData] = useState<any>(null); // Store submitted result for report
+    const [loading, setLoading] = useState(true); // New loading state for questions
 
     // Time tracking per question
     const [questionStartTimes, setQuestionStartTimes] = useState<{ [key: number]: number }>({}); // qId -> timestamp
@@ -149,10 +72,78 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
 
     // Format timer
     const formatTime = (seconds: number) => {
-        const mins = Math.floor(seconds / 60);
+        const minutes = Math.floor(seconds / 60);
         const secs = seconds % 60;
-        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        return `${minutes}:${secs.toString().padStart(2, '0')}`;
     };
+
+    // DAY 9 SELECTION SCREEN
+    if (day === 9 && !selectedSubTopic) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[600px] p-6 animate-in fade-in duration-500">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                        Day 9: Directive Principles & Fundamental Duties
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Please select a topic to begin your MCQ test.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
+                    {/* DPSP CARD */}
+                    <Card
+                        className="group relative overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-purple-500"
+                        onClick={() => setSelectedSubTopic('dpsp')}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                            <div className="w-20 h-20 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <ScrollText className="h-10 w-10" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                                Directive Principles
+                            </h3>
+                            <p className="text-gray-500 dark:text-gray-400 mb-6">
+                                Test your knowledge on Articles 36-51, Classification of Principles, and Amendments.
+                            </p>
+                            <Button className="mt-auto w-full bg-purple-600 hover:bg-purple-700">
+                                Start DPSP Test
+                            </Button>
+                        </CardContent>
+                    </Card>
+
+                    {/* FUNDAMENTAL DUTIES CARD */}
+                    <Card
+                        className="group relative overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-pink-500"
+                        onClick={() => setSelectedSubTopic('fundamental-duties')}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                            <div className="w-20 h-20 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <Shield className="h-10 w-10" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                                Fundamental Duties
+                            </h3>
+                            <p className="text-gray-500 dark:text-gray-400 mb-6">
+                                Test your knowledge on Article 51A, Swaran Singh Committee, and Significance of Duties.
+                            </p>
+                            <Button className="mt-auto w-full bg-pink-600 hover:bg-pink-700">
+                                Start Fundamental Duties Test
+                            </Button>
+                        </CardContent>
+                    </Card>
+                </div>
+
+                <Button variant="ghost" className="mt-12 text-gray-500" onClick={onClose}>
+                    <ArrowLeft className="mr-2 h-4 w-4" /> Go Back
+                </Button>
+            </div>
+        );
+    }
+
+    const { user } = useAuth();
 
     // Timer logic
     useEffect(() => {
@@ -172,16 +163,64 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         };
     }, [isSubmitted]);
 
+    // Load questions based on day and selected sub-topic
+    useEffect(() => {
+        const loadQuestions = () => {
+            setLoading(true);
+            // Day 9 Special Handling: Requires sub-topic selection
+            if (day === 9 && !selectedSubTopic) {
+                setLoading(false);
+                return;
+            }
+
+            const loadedMCQs = getMCQDataForDay(cycleId, day, selectedSubTopic || undefined);
+            if (loadedMCQs) {
+                setQuestions(loadedMCQs);
+            } else {
+                // Fallback for days not yet in content-registry or specific cases
+                const d = typeof day === 'string' ? parseInt(day) : day;
+                switch (d) {
+                    case 9:
+                        if (selectedSubTopic === 'fundamental-duties') setQuestions(DAY9_FD_MCQS);
+                        else setQuestions(DAY9_DPSP_MCQS); // Default to DPSP
+                        break;
+                    case 7:
+                        setQuestions(DAY7_MCQS);
+                        break;
+                    case 6:
+                        setQuestions(DAY6_MCQS);
+                        break;
+                    case 5:
+                        setQuestions(DAY5_MCQS);
+                        break;
+                    case 3:
+                        setQuestions(DAY3_MCQS);
+                        break;
+                    case 2:
+                        setQuestions(DAY2_MCQS);
+                        break;
+                    case 1:
+                    default:
+                        setQuestions(DAY1_MCQS);
+                        break;
+                }
+            }
+            setLoading(false);
+        };
+        loadQuestions();
+    }, [day, selectedSubTopic, cycleId]); // Re-load when day or sub-topic changes
+
+
     // Track time entering each question
     useEffect(() => {
         if (!isSubmitted) {
-            const qId = mcqs[currentIndex].id;
+            const qId = questions[currentIndex].id;
             // Record start time for this question if not already set
             if (!questionStartTimes[qId]) {
                 setQuestionStartTimes(prev => ({ ...prev, [qId]: Date.now() }));
             }
         }
-    }, [currentIndex, isSubmitted, mcqs]);
+    }, [currentIndex, isSubmitted, questions]);
 
     // When leaving a question, calculate time spent
     const recordTimeForQuestion = (qId: number) => {
@@ -201,7 +240,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         if (isSubmitted) return;
         setAnswers(prev => ({
             ...prev,
-            [mcqs[currentIndex].id]: optionIndex
+            [questions[currentIndex].id]: optionIndex
         }));
     };
 
@@ -209,7 +248,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         if (isSubmitted) return;
         setConfidenceLevels(prev => ({
             ...prev,
-            [mcqs[currentIndex].id]: confidence
+            [questions[currentIndex].id]: confidence
         }));
     };
 
@@ -256,7 +295,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         let incorrect = 0;
         let unanswered = 0;
 
-        const resultsForApi = mcqs.map(q => {
+        const resultsForApi = questions.map(q => {
             const userAnswer = answers[q.id];
             let isCorrect = false;
             if (userAnswer === undefined) {
@@ -292,7 +331,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             cycle_id: cycleId,
             day_number: day,
             score: finalScore,
-            total_questions: mcqs.length,
+            total_questions: questions.length,
             correct_count: correct,
             incorrect_count: incorrect,
             unanswered_count: unanswered,
@@ -315,7 +354,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                 cycle_id: cycleId,
                 day_number: day,
                 score: finalScore,
-                total_questions: mcqs.length,
+                total_questions: questions.length,
                 correct_count: correct,
                 incorrect_count: incorrect,
                 unanswered_count: unanswered,
@@ -347,7 +386,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         }
     };
 
-    const currentQuestion = mcqs[currentIndex];
+    const currentQuestion = questions[currentIndex];
     const isAnswered = answers[currentQuestion.id] !== undefined;
 
     return (
@@ -383,7 +422,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                                     </Button>
                                     <div className="space-y-2 max-h-96 overflow-y-auto">
                                         {reviewAnswers.map((ans, idx) => {
-                                            const q = mcqs.find(m => m.id === ans.qId);
+                                            const q = questions.find(m => m.id === ans.qId);
                                             if (!q) return null;
                                             const confidenceLabels: Record<number, string> = { 1: '✅ 100% Sure', 2: '🤔 50-50', 3: '💡 One Known', 4: '🎲 Blind Guess' };
                                             return (
@@ -456,12 +495,12 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                 )}
 
                 <div className="text-sm font-medium">
-                    Question {currentIndex + 1} / {mcqs.length}
+                    Question {currentIndex + 1} / {questions.length}
                 </div>
             </div>
 
             {/* Progress Bar */}
-            <Progress value={((currentIndex + 1) / mcqs.length) * 100} className="h-2" />
+            <Progress value={((currentIndex + 1) / questions.length) * 100} className="h-2" />
 
             {/* Results View */}
             {isSubmitted && currentIndex === 0 && (
@@ -522,7 +561,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                     <div className="bg-white dark:bg-gray-900 rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
                         <DetailedTestReport
                             testResult={submittedResultData}
-                            mcqs={mcqs}
+                            mcqs={questions}
                             onClose={() => setShowDetailedReport(false)}
                         />
                     </div>
@@ -644,10 +683,10 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
 
                 {!isSubmitted && (
                     <div className="flex gap-2">
-                        {currentIndex < mcqs.length - 1 && (
+                        {currentIndex < questions.length - 1 && (
                             <Button
                                 variant="outline"
-                                onClick={() => setCurrentIndex(prev => Math.min(mcqs.length - 1, prev + 1))}
+                                onClick={() => setCurrentIndex(prev => Math.min(questions.length - 1, prev + 1))}
                             >
                                 Next <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
@@ -656,10 +695,10 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                             className="bg-green-600 hover:bg-green-700 text-white px-8"
                             onClick={() => {
                                 const answeredCount = Object.keys(answers).length;
-                                if (answeredCount < mcqs.length) {
-                                    const unattempted = mcqs.length - answeredCount;
+                                if (answeredCount < questions.length) {
+                                    const unattempted = questions.length - answeredCount;
                                     const confirmed = window.confirm(
-                                        `⚠️ Warning: You have ${unattempted} unattempted question(s) out of ${mcqs.length}.\n\nAre you sure you want to submit the test?`
+                                        `⚠️ Warning: You have ${unattempted} unattempted question(s) out of ${questions.length}.\n\nAre you sure you want to submit the test?`
                                     );
                                     if (confirmed) {
                                         handleSubmit();
@@ -688,8 +727,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                             <RotateCcw className="mr-2 h-4 w-4" /> Retake Test
                         </Button>
                         <Button
-                            onClick={() => setCurrentIndex(prev => Math.min(mcqs.length - 1, prev + 1))}
-                            disabled={currentIndex === mcqs.length - 1}
+                            onClick={() => setCurrentIndex(prev => Math.min(questions.length - 1, prev + 1))}
+                            disabled={currentIndex === questions.length - 1}
                         >
                             Next Review <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -700,7 +739,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             {/* Quick Navigation Sheet/Grid could be here, omitting for brevity */}
             {!isSubmitted && (
                 <div className="flex flex-wrap gap-2 justify-center mt-6">
-                    {mcqs.map((q, idx) => (
+                    {questions.map((q, idx) => (
                         <button
                             key={idx}
                             onClick={() => setCurrentIndex(idx)}
