@@ -24,6 +24,11 @@ import {
     generateFlashcardsFromTopic,
     shuffleArray
 } from '../../flashcard/flashcard-utils';
+import {
+    getChapterProgress,
+    updateFlashcardProgress,
+    updateStreak
+} from './progress-utils';
 import VoiceRecorder from '../../../ui/VoiceRecorder';
 import { toast } from 'sonner';
 
@@ -262,6 +267,50 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
     if (sessionComplete) {
         const avgScore = Math.round(results.reduce((a, b) => a + b.score, 0) / results.length || 0);
         const correctCount = results.filter(r => r.isCorrect).length;
+
+        // Save progress on mount of summary screen
+        useEffect(() => {
+            // Group results by chapter
+            const chapterUpdates = new Map<number, number>(); // chapterId -> correct count
+
+            results.forEach(r => {
+                // Parse chapter ID from card ID (format: "7-concept-0")
+                const parts = String(r.cardId).split('-');
+                if (parts.length > 0) {
+                    const chId = parseInt(parts[0]);
+                    if (!isNaN(chId)) {
+                        const current = chapterUpdates.get(chId) || 0;
+                        if (r.isCorrect) {
+                            chapterUpdates.set(chId, current + 1);
+                        } else {
+                            // Ensure chapter is at least in the map for timestamp update even if 0 correct
+                            if (!chapterUpdates.has(chId)) chapterUpdates.set(chId, 0);
+                        }
+                    }
+                }
+            });
+
+            // Update progress for each chapter
+            chapterUpdates.forEach((count, chId) => {
+                const chapterData = getRevisionDataById(chId);
+                if (chapterData) {
+                    // Import these dynamically or assume they are available in scope?
+                    // We need to import 'getChapterProgress' and 'updateFlashcardProgress' at the top.
+                    // But for this snippet we'll assume they are imported.
+                    const existing = getChapterProgress(chId);
+                    const currentCompleted = existing?.flashcardsCompleted || 0;
+                    // Add correct answers to current progress, capped at total
+                    const totalCards = chapterData.flashcards?.length || 20; // fallback
+                    const newTotal = Math.min(totalCards, currentCompleted + count);
+
+                    updateFlashcardProgress(chId, newTotal - 1, totalCards);
+                }
+            });
+
+            // Update Study Streak
+            updateStreak();
+
+        }, []); // Run once on mount
 
         return (
             <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-[#030303] dark:via-[#050505] dark:to-[#030303] flex items-center justify-center p-6">
