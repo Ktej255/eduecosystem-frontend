@@ -46,10 +46,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState<{ [key: number]: number }>({}); // qId -> optionIndex
     const [confidenceLevels, setConfidenceLevels] = useState<{ [key: number]: number }>({}); // qId -> confidence (1-4)
-    const [timeLeft, setTimeLeft] = useState(() => {
-        // All MCQ tests are now 2 hours (7200 seconds)
-        return 120 * 60; // 2 hours for all tests
-    });
+    const [timeLeft, setTimeLeft] = useState(60 * 60); // Default 60 min, will be updated based on question count
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [score, setScore] = useState(0);
@@ -98,6 +95,14 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             if (timerRef.current) clearInterval(timerRef.current);
         };
     }, [isSubmitted, day, selectedSubTopic]);
+
+    // Dynamic timer: 1 question = 1 minute
+    useEffect(() => {
+        if (questions.length > 0 && !isSubmitted) {
+            // Set timer based on question count: 1 question = 1 minute
+            setTimeLeft(questions.length * 60);
+        }
+    }, [questions.length, isSubmitted]);
 
     // Load questions based on day and selected sub-topic - always call this hook
     useEffect(() => {
