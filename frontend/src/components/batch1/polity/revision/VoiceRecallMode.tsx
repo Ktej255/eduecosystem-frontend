@@ -39,13 +39,41 @@ interface VoiceRecallModeProps {
     initialChapterIds?: number[];
 }
 
+// Helper to serialize deep chapter content into a string for AI context
+function serializeChapterContent(content: any): string {
+    if (!content) return "";
+    let text = `Title: ${content.title}\n\n`;
+    if (content.introduction) text += `Introduction: ${content.introduction}\n\n`;
+
+    if (content.sections) {
+        content.sections.forEach((section: any) => {
+            text += `Section: ${section.title}\n${section.content || ''}\n`;
+
+            if (section.features) {
+                text += "Key Features:\n" + section.features.map((f: string) => `- ${f}`).join('\n') + "\n";
+            }
+
+            if (section.subsections) {
+                section.subsections.forEach((sub: any) => {
+                    text += `\nSubsection: ${sub.title}\n${sub.content || ''}\n`;
+                    if (sub.features) {
+                        text += "Points:\n" + sub.features.map((f: string) => `- ${f}`).join('\n') + "\n";
+                    }
+                });
+            }
+            text += "\n";
+        });
+    }
+    return text;
+}
+
 export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallModeProps) {
     // Selection State
     const [selectedChapters, setSelectedChapters] = useState<number[]>(initialChapterIds);
     const [isSelectionMode, setIsSelectionMode] = useState(initialChapterIds.length === 0);
 
     // Session State
-    const [sessionCards, setSessionCards] = useState<Flashcard[]>([]);
+    const [sessionCards, setSessionCards] = useState<(Flashcard & { fullContext?: string })[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [sessionComplete, setSessionComplete] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -74,21 +102,24 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
         }
 
         setLoading(true);
-        const allCards: Flashcard[] = [];
+        const allCards: (Flashcard & { fullContext?: string })[] = [];
 
         try {
             selectedChapters.forEach(chapterId => {
                 const chapterData = getRevisionDataById(chapterId);
+                const fullContentStr = chapterData?.content ? serializeChapterContent(chapterData.content) : "";
+
                 // We need to convert revision data into Flashcards if possible
                 // OR we can use the flashcards directly if they exist in chapterData
                 if (chapterData && chapterData.flashcards) {
                     allCards.push(...chapterData.flashcards.map(fc => ({
-                        id: fc.id,
+                        id: String(fc.id),
                         front: fc.front,
                         back: fc.back,
                         category: (fc.tag?.toLowerCase() as any) || 'concept',
                         source: chapterData.title,
-                        highlight: false
+                        highlight: false,
+                        fullContext: fullContentStr // Attach full chapter context to each card
                     })));
                 }
             });
@@ -124,7 +155,8 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
                     audio_base64: base64Audio,
                     card_front: currentCard.front,
                     card_back: currentCard.back,
-                    topic: currentCard.source
+                    topic: currentCard.source,
+                    chapter_content: currentCard.fullContext // Send full context for enhanced validation
                 })
             });
 
@@ -197,8 +229,8 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
                                 key={chapter.id}
                                 onClick={() => toggleChapter(chapter.id)}
                                 className={`p-4 rounded-xl text-left transition-all border-2 ${selectedChapters.includes(chapter.id)
-                                        ? 'border-pink-500 bg-pink-50 dark:bg-pink-900/20'
-                                        : 'border-transparent bg-white dark:bg-[#111] hover:border-gray-200 dark:hover:border-gray-800'
+                                    ? 'border-pink-500 bg-pink-50 dark:bg-pink-900/20'
+                                    : 'border-transparent bg-white dark:bg-[#111] hover:border-gray-200 dark:hover:border-gray-800'
                                     }`}
                             >
                                 <div className="flex items-start justify-between mb-2">
@@ -343,8 +375,8 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
 
                                 {/* Score Banner */}
                                 <div className={`flex items-center gap-4 p-4 rounded-xl mb-6 ${aiResult.score >= 70
-                                        ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300'
-                                        : 'bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300'
+                                    ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300'
+                                    : 'bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300'
                                     }`}>
                                     <div className="text-3xl font-black">{aiResult.score}%</div>
                                     <div className="flex-1">
