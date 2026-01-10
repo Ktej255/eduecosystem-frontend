@@ -48,11 +48,18 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
             const startDateStr = localStorage.getItem('polity_start_calendar_date');
             let startDate: Date;
             if (!startDateStr) {
-                // Pin to Jan 12, 2026 as requested
-                startDate = new Date('2026-01-12T00:00:00');
+                // Pin to Jan 11, 2026 (Sunday) as requested to include the first revision day
+                startDate = new Date('2026-01-11T00:00:00');
                 localStorage.setItem('polity_start_calendar_date', startDate.toISOString());
             } else {
                 startDate = new Date(startDateStr);
+                // MIGRATION: If previously set to Jan 12 (Monday), shift back to Jan 11 (Sunday)
+                // to align with the new Sunday-start week structure
+                const jan12 = new Date('2026-01-12T00:00:00');
+                if (startDate.toDateString() === jan12.toDateString()) {
+                    startDate = new Date('2026-01-11T00:00:00');
+                    localStorage.setItem('polity_start_calendar_date', startDate.toISOString());
+                }
             }
 
             const diffTime = (new Date().getTime() - startDate.getTime());
@@ -78,11 +85,11 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
     const totalPages = LAXMIKANTH_CHAPTERS.reduce((sum, ch) => sum + ch.pages, 0);
     const progressPercent = Math.round((completedChapters.length / totalChapters) * 100);
 
-    const days: (keyof typeof currentWeek.days)[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+    const days: (keyof typeof currentWeek.days)[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
     const weekStartDates = useMemo(() => {
         const startDateStr = localStorage.getItem('polity_start_calendar_date');
-        const baseDate = startDateStr ? new Date(startDateStr) : new Date('2026-01-12T00:00:00');
+        const baseDate = startDateStr ? new Date(startDateStr) : new Date('2026-01-11T00:00:00');
         const weekStart = new Date(baseDate);
         weekStart.setDate(baseDate.getDate() + (selectedWeek * 7));
         return weekStart;
@@ -224,16 +231,16 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
                                             </span>
                                         </div>
                                         <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold shadow-sm ${isSunday ? 'bg-indigo-100 text-indigo-700' :
-                                                isSaturday ? 'bg-amber-100 text-amber-700' :
-                                                    'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                                            isSaturday ? 'bg-amber-100 text-amber-700' :
+                                                'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
                                             }`}>
                                             {daySlots} {isSaturday || isSunday ? 'Pomodoros' : 'Slots'}
                                         </span>
                                     </div>
 
                                     <div className={`flex-1 space-y-3 p-3 rounded-2xl border ${isSunday ? 'bg-indigo-50/30 border-indigo-200 shadow-[0_4px_20px_-4px_rgba(79,70,229,0.1)]' :
-                                            isSaturday ? 'bg-amber-50/30 border-amber-200 shadow-[0_4px_20px_-4px_rgba(245,158,11,0.1)]' :
-                                                'bg-white dark:bg-[#111] border-gray-100 dark:border-gray-800'
+                                        isSaturday ? 'bg-amber-50/30 border-amber-200 shadow-[0_4px_20px_-4px_rgba(245,158,11,0.1)]' :
+                                            'bg-white dark:bg-[#111] border-gray-100 dark:border-gray-800'
                                         }`}>
                                         {isSaturday ? (
                                             (contents as string[]).map((paper, idx) => (
