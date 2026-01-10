@@ -186,7 +186,21 @@ export default function RevisionDashboard() {
 
             {/* Quick Actions */}
             <div className="max-w-6xl mx-auto px-6 mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <Link
+                        href="/student/batch1/polity/revision/srs"
+                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
+                    >
+                        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <Brain className="w-6 h-6" />
+                        </div>
+                        <div className="text-left">
+                            <div className="font-bold text-lg">Smart Review</div>
+                            <div className="text-sm text-purple-200">SRS Algorithm</div>
+                        </div>
+                        <ChevronRight className="w-5 h-5 ml-auto" />
+                    </Link>
+
                     <button
                         onClick={() => setShowCustomSession(!showCustomSession)}
                         className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
