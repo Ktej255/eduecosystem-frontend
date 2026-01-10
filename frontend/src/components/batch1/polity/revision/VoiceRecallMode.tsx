@@ -119,9 +119,9 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
                 if (chapterData && chapterData.flashcards) {
                     allCards.push(...chapterData.flashcards.map(fc => ({
                         id: String(fc.id), // Ensure ID is string to match interface
-                        front: fc.front,
-                        back: fc.back,
-                        category: (fc.tag?.toLowerCase() as any) || 'concept',
+                        front: fc.question,
+                        back: fc.answer,
+                        category: (fc.category?.toLowerCase() as any) || 'concept',
                         source: chapterData.title,
                         highlight: false,
                         fullContext: fullContentStr // Attach full chapter context to each card
