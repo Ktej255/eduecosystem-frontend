@@ -258,6 +258,21 @@ export default function PolityHome95() {
                                             const isCompleted = topicProgress?.completed;
                                             const isNew = topic.id >= 85; // Part XI topics are new
 
+                                            // Toggle completion handler
+                                            const toggleComplete = (e: React.MouseEvent) => {
+                                                e.stopPropagation(); // Don't navigate when clicking checkbox
+                                                const newProgress = {
+                                                    ...progress,
+                                                    [topic.id]: {
+                                                        ...progress[topic.id],
+                                                        completed: !isCompleted,
+                                                        lastViewed: new Date().toISOString()
+                                                    }
+                                                };
+                                                setProgress(newProgress);
+                                                localStorage.setItem('polity_95_progress', JSON.stringify(newProgress));
+                                            };
+
                                             return (
                                                 <div
                                                     key={topic.id}
@@ -272,15 +287,21 @@ export default function PolityHome95() {
                                                 >
                                                     <div className="flex items-start justify-between gap-2">
                                                         <div className="flex items-start gap-3">
-                                                            <div className={`
-                                                                w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold
-                                                                ${isCompleted
-                                                                    ? 'bg-green-500 text-white'
-                                                                    : `${colors.light} ${colors.text}`
-                                                                }
-                                                            `}>
+                                                            {/* Clickable Checkbox */}
+                                                            <button
+                                                                onClick={toggleComplete}
+                                                                className={`
+                                                                    w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold
+                                                                    transition-all hover:scale-110
+                                                                    ${isCompleted
+                                                                        ? 'bg-green-500 text-white hover:bg-green-600'
+                                                                        : `${colors.light} ${colors.text} hover:ring-2 hover:ring-blue-400`
+                                                                    }
+                                                                `}
+                                                                title={isCompleted ? "Mark as incomplete" : "Mark as complete"}
+                                                            >
                                                                 {isCompleted ? <CheckCircle2 className="h-5 w-5" /> : topic.id}
-                                                            </div>
+                                                            </button>
                                                             <div>
                                                                 <div className="font-medium text-gray-800 dark:text-gray-200 flex items-center gap-2">
                                                                     {topic.title}

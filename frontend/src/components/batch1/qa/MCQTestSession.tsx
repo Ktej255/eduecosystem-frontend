@@ -40,14 +40,15 @@ interface MCQTestSessionProps {
 }
 
 export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSessionProps) {
+    const { user } = useAuth(); // MOVED TO TOP - hooks must be unconditional
     const [questions, setQuestions] = useState<MCQ[]>([]);
     const [selectedSubTopic, setSelectedSubTopic] = useState<string | null>(null); // NEW: Sub-topic selection for Day 9
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState<{ [key: number]: number }>({}); // qId -> optionIndex
     const [confidenceLevels, setConfidenceLevels] = useState<{ [key: number]: number }>({}); // qId -> confidence (1-4)
     const [timeLeft, setTimeLeft] = useState(() => {
-        const d = typeof day === 'string' ? parseInt(day) : day;
-        return d === 3 ? 120 * 60 : 60 * 60; // 2 hours for Day 3, 1 hour otherwise
+        // All MCQ tests are now 2 hours (7200 seconds)
+        return 120 * 60; // 2 hours for all tests
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
@@ -76,6 +77,93 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         const secs = seconds % 60;
         return `${minutes}:${secs.toString().padStart(2, '0')}`;
     };
+
+    // ===== ALL HOOKS MUST BE BEFORE ANY CONDITIONAL RETURNS =====
+
+    // Timer logic - always call this hook
+    useEffect(() => {
+        // Only run timer if not on Day 9 selection screen and not submitted
+        if ((day !== 9 || selectedSubTopic) && !isSubmitted) {
+            timerRef.current = setInterval(() => {
+                setTimeLeft((prev) => {
+                    if (prev <= 1) {
+                        handleSubmit();
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+        }
+        return () => {
+            if (timerRef.current) clearInterval(timerRef.current);
+        };
+    }, [isSubmitted, day, selectedSubTopic]);
+
+    // Load questions based on day and selected sub-topic - always call this hook
+    useEffect(() => {
+        const loadQuestions = () => {
+            setLoading(true);
+            // Day 9 Special Handling: Requires sub-topic selection
+            if (day === 9 && !selectedSubTopic) {
+                setLoading(false);
+                return;
+            }
+
+            const loadedMCQs = getMCQDataForDay(cycleId, day, selectedSubTopic || undefined);
+            if (loadedMCQs) {
+                setQuestions(loadedMCQs);
+            } else {
+                // Fallback for days not yet in content-registry or specific cases
+                const d = typeof day === 'string' ? parseInt(day) : day;
+                switch (d) {
+                    case 9:
+                        if (selectedSubTopic === 'fundamental-duties') setQuestions(DAY9_FD_MCQS);
+                        else setQuestions(DAY9_DPSP_MCQS); // Default to DPSP
+                        break;
+                    case 7:
+                        setQuestions(DAY7_MCQS);
+                        break;
+                    case 6:
+                        setQuestions(DAY6_MCQS);
+                        break;
+                    case 5:
+                        setQuestions(DAY5_MCQS);
+                        break;
+                    case 3:
+                        setQuestions(DAY3_MCQS);
+                        break;
+                    case 2:
+                        setQuestions(DAY2_MCQS);
+                        break;
+                    case 1:
+                    default:
+                        setQuestions(DAY1_MCQS);
+                        break;
+                }
+            }
+            setLoading(false);
+        };
+        loadQuestions();
+    }, [day, selectedSubTopic, cycleId]); // Re-load when day or sub-topic changes
+
+    // Track time entering each question - always call this hook
+    useEffect(() => {
+        // Skip if on Day 9 selection screen
+        if (day === 9 && !selectedSubTopic) return;
+
+        if (!isSubmitted && questions.length > 0) {
+            const currentQ = questions[currentIndex];
+            if (currentQ) {
+                const qId = currentQ.id;
+                // Record start time for this question if not already set
+                if (!questionStartTimes[qId]) {
+                    setQuestionStartTimes(prev => ({ ...prev, [qId]: Date.now() }));
+                }
+            }
+        }
+    }, [currentIndex, isSubmitted, questions, day, selectedSubTopic]);
+
+    // ===== NOW SAFE TO HAVE CONDITIONAL RETURNS =====
 
     // DAY 9 SELECTION SCREEN
     if (day === 9 && !selectedSubTopic) {
@@ -142,88 +230,6 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             </div>
         );
     }
-
-    const { user } = useAuth();
-
-    // Timer logic
-    useEffect(() => {
-        if (!isSubmitted) {
-            timerRef.current = setInterval(() => {
-                setTimeLeft((prev) => {
-                    if (prev <= 1) {
-                        handleSubmit();
-                        return 0;
-                    }
-                    return prev - 1;
-                });
-            }, 1000);
-        }
-        return () => {
-            if (timerRef.current) clearInterval(timerRef.current);
-        };
-    }, [isSubmitted]);
-
-    // Load questions based on day and selected sub-topic
-    useEffect(() => {
-        const loadQuestions = () => {
-            setLoading(true);
-            // Day 9 Special Handling: Requires sub-topic selection
-            if (day === 9 && !selectedSubTopic) {
-                setLoading(false);
-                return;
-            }
-
-            const loadedMCQs = getMCQDataForDay(cycleId, day, selectedSubTopic || undefined);
-            if (loadedMCQs) {
-                setQuestions(loadedMCQs);
-            } else {
-                // Fallback for days not yet in content-registry or specific cases
-                const d = typeof day === 'string' ? parseInt(day) : day;
-                switch (d) {
-                    case 9:
-                        if (selectedSubTopic === 'fundamental-duties') setQuestions(DAY9_FD_MCQS);
-                        else setQuestions(DAY9_DPSP_MCQS); // Default to DPSP
-                        break;
-                    case 7:
-                        setQuestions(DAY7_MCQS);
-                        break;
-                    case 6:
-                        setQuestions(DAY6_MCQS);
-                        break;
-                    case 5:
-                        setQuestions(DAY5_MCQS);
-                        break;
-                    case 3:
-                        setQuestions(DAY3_MCQS);
-                        break;
-                    case 2:
-                        setQuestions(DAY2_MCQS);
-                        break;
-                    case 1:
-                    default:
-                        setQuestions(DAY1_MCQS);
-                        break;
-                }
-            }
-            setLoading(false);
-        };
-        loadQuestions();
-    }, [day, selectedSubTopic, cycleId]); // Re-load when day or sub-topic changes
-
-
-    // Track time entering each question
-    useEffect(() => {
-        if (!isSubmitted && questions.length > 0) {
-            const currentQ = questions[currentIndex];
-            if (currentQ) {
-                const qId = currentQ.id;
-                // Record start time for this question if not already set
-                if (!questionStartTimes[qId]) {
-                    setQuestionStartTimes(prev => ({ ...prev, [qId]: Date.now() }));
-                }
-            }
-        }
-    }, [currentIndex, isSubmitted, questions]);
 
     // When leaving a question, calculate time spent
     const recordTimeForQuestion = (qId: number) => {

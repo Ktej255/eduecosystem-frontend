@@ -11,6 +11,7 @@ export interface Topic {
     chapter: string;
     estimatedMinutes: number;
     isCompleted: boolean;
+    polityTopicId?: number;  // Link to polity_95_progress for auto-tick
 }
 
 interface TopicQueueProps {
@@ -67,8 +68,8 @@ export default function TopicQueue({
                         <div
                             key={topic.id}
                             className={`flex items-center justify-between p-3 rounded-lg border transition-all ${index === 0
-                                    ? 'bg-orange-50 dark:bg-orange-900/20 border-orange-300 dark:border-orange-700'
-                                    : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'
+                                ? 'bg-orange-50 dark:bg-orange-900/20 border-orange-300 dark:border-orange-700'
+                                : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'
                                 }`}
                         >
                             <div className="flex items-center gap-3">
@@ -95,8 +96,8 @@ export default function TopicQueue({
                                 size="sm"
                                 onClick={() => handleComplete(topic.id)}
                                 className={`${index === 0
-                                        ? 'bg-orange-500 hover:bg-orange-600 text-white'
-                                        : 'bg-gray-200 hover:bg-gray-300 text-gray-700'
+                                    ? 'bg-orange-500 hover:bg-orange-600 text-white'
+                                    : 'bg-gray-200 hover:bg-gray-300 text-gray-700'
                                     }`}
                             >
                                 <CheckCircle2 className="h-4 w-4 mr-1" />

@@ -9,6 +9,8 @@ import Link from "next/link";
 import PomodoroTimer from "./PomodoroTimer";
 import TopicQueue, { Topic } from "./TopicQueue";
 import RecallSession, { RecallResult } from "./RecallSession";
+import { getModuleForWeek, getChaptersForWeek, ChapterPair } from "../data/polity-modules";
+import { TOPIC_TITLES } from "../polity/data/polity-types-95";
 
 // Session states
 type SessionState = 'ready' | 'pomodoro' | 'break' | 'recall' | 'complete';
@@ -18,25 +20,79 @@ interface PomodoroSessionViewProps {
     dayId: number;
 }
 
-// Placeholder topics - will be replaced with actual content
-const PLACEHOLDER_TOPICS: Topic[] = [
-    { id: "t1", name: "Amendment of Constitution", chapter: "Constitutional Framework", estimatedMinutes: 15, isCompleted: false },
-    { id: "t2", name: "Basic Structure Doctrine", chapter: "Constitutional Framework", estimatedMinutes: 20, isCompleted: false },
-    { id: "t3", name: "Types of Amendments", chapter: "Constitutional Framework", estimatedMinutes: 10, isCompleted: false },
-    { id: "t4", name: "Article 368", chapter: "Constitutional Framework", estimatedMinutes: 15, isCompleted: false },
-    { id: "t5", name: "Judicial Review of Amendments", chapter: "Constitutional Framework", estimatedMinutes: 15, isCompleted: false },
-    { id: "t6", name: "Kesavananda Bharati Case", chapter: "Landmark Cases", estimatedMinutes: 20, isCompleted: false },
-    { id: "t7", name: "Minerva Mills Case", chapter: "Landmark Cases", estimatedMinutes: 15, isCompleted: false },
-    { id: "t8", name: "Golaknath Case", chapter: "Landmark Cases", estimatedMinutes: 15, isCompleted: false },
-    { id: "t9", name: "Preamble Amendment", chapter: "Constitutional Framework", estimatedMinutes: 10, isCompleted: false },
-    { id: "t10", name: "Important Amendments List", chapter: "Constitutional Framework", estimatedMinutes: 25, isCompleted: false },
-];
+// Generate topics from module chapters based on week
+function generateTopicsFromModule(weekId: number, dayId: number): Topic[] {
+    const moduleChapters = getChaptersForWeek(weekId);
+
+    if (moduleChapters.length === 0) {
+        // Fallback for weeks without modules - use linear topic sequence
+        const startTopic = ((weekId - 1) * 20) + ((dayId - 1) * 4) + 1;
+        const topicsForDay = TOPIC_TITLES.slice(startTopic - 1, startTopic + 9);
+        return topicsForDay.map(t => ({
+            id: `topic_${t.id}`,
+            name: t.title,
+            chapter: `Part ${t.part}`,
+            estimatedMinutes: 15,
+            isCompleted: false,
+            polityTopicId: t.id  // Link to polity homepage
+        }));
+    }
+
+    // Distribute module chapters across the 5 weekdays
+    const topics: Topic[] = [];
+    const chaptersPerDay = Math.ceil(moduleChapters.length / 5);
+    const startIdx = (dayId - 1) * chaptersPerDay;
+    const endIdx = Math.min(startIdx + chaptersPerDay, moduleChapters.length);
+
+    const dayChapters = moduleChapters.slice(startIdx, endIdx);
+
+    dayChapters.forEach((chapter, idx) => {
+        // Add primary chapter topic
+        topics.push({
+            id: `topic_${chapter.primaryId}`,
+            name: chapter.primaryTitle,
+            chapter: chapter.mirrorTitle ? `Mirror: ${chapter.mirrorTitle}` : "Polity",
+            estimatedMinutes: Math.round(chapter.readingMinutes / 2),
+            isCompleted: false,
+            polityTopicId: chapter.primaryId
+        });
+
+        // If has mirror chapter, add it too
+        if (chapter.mirrorId && chapter.mirrorTitle) {
+            topics.push({
+                id: `topic_${chapter.mirrorId}`,
+                name: chapter.mirrorTitle,
+                chapter: `Mirror of: ${chapter.primaryTitle}`,
+                estimatedMinutes: Math.round(chapter.readingMinutes / 4), // Faster due to mirror studying
+                isCompleted: false,
+                polityTopicId: chapter.mirrorId
+            });
+        }
+    });
+
+    return topics.slice(0, 10); // Max 10 topics per day
+}
+
+// Sync completed topic with Polity homepage progress
+function syncTopicToPolityProgress(polityTopicId: number) {
+    const saved = localStorage.getItem('polity_95_progress');
+    const progress = saved ? JSON.parse(saved) : {};
+
+    if (!progress[polityTopicId]?.completed) {
+        progress[polityTopicId] = {
+            ...progress[polityTopicId],
+            completed: true,
+            lastViewed: new Date().toISOString()
+        };
+        localStorage.setItem('polity_95_progress', JSON.stringify(progress));
+    }
+}
 
 export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionViewProps) {
     const router = useRouter();
     const [sessionState, setSessionState] = useState<SessionState>('ready');
     const [currentPomodoro, setCurrentPomodoro] = useState(1);
-    const [topics, setTopics] = useState<Topic[]>(PLACEHOLDER_TOPICS);
+    const [topics, setTopics] = useState<Topic[]>([]);
     const [completedTopics, setCompletedTopics] = useState<string[]>([]);
     const [recallResults, setRecallResults] = useState<RecallResult[]>([]);
     const [breakTimeLeft, setBreakTimeLeft] = useState(300); // 5 min break
@@ -44,6 +100,12 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
     const TOTAL_POMODOROS = 12; // 3 mega-sessions × 4 Pomodoros
     const POMODORO_DURATION = 1500; // 25 minutes
     const BREAK_DURATION = 300; // 5 minutes
+
+    // Initialize topics from module
+    useEffect(() => {
+        const moduleTopics = generateTopicsFromModule(weekId, dayId);
+        setTopics(moduleTopics);
+    }, [weekId, dayId]);
 
     // Load saved progress
     useEffect(() => {
@@ -93,6 +155,12 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
 
     const handleTopicComplete = (topicId: string) => {
         setCompletedTopics(prev => [...prev, topicId]);
+
+        // Sync to polity homepage progress (auto-tick checkboxes)
+        const topic = topics.find(t => t.id === topicId);
+        if (topic?.polityTopicId) {
+            syncTopicToPolityProgress(topic.polityTopicId);
+        }
     };
 
     const handleRecallComplete = (result: RecallResult) => {
@@ -314,10 +382,10 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                                 {[1, 2, 3].map(megaSession => (
                                     <div key={megaSession} className="flex items-center gap-2">
                                         <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${currentPomodoro > megaSession * 4
-                                                ? 'bg-green-100 text-green-600'
-                                                : currentPomodoro > (megaSession - 1) * 4
-                                                    ? 'bg-orange-100 text-orange-600'
-                                                    : 'bg-gray-100 text-gray-400'
+                                            ? 'bg-green-100 text-green-600'
+                                            : currentPomodoro > (megaSession - 1) * 4
+                                                ? 'bg-orange-100 text-orange-600'
+                                                : 'bg-gray-100 text-gray-400'
                                             }`}>
                                             {currentPomodoro > megaSession * 4 ? (
                                                 <CheckCircle2 className="h-4 w-4" />
