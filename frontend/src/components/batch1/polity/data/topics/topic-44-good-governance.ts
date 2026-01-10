@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic44GoodGovernance: PolityTopic = {
     id: 44,
-    module: 'I',
+    module: 'IX',
     title: 'Good Governance & Transparency',
-    syllabusTag: 'Module I: Governance',
+    syllabusTag: 'Module IX: Governance',
 
     staticFocus: 'Citizens\' Charter, E-Governance, RTI, & Administrative Reforms',
 

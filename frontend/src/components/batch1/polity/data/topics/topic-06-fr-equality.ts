@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic06FREquality: PolityTopic = {
     id: 6,
-    module: 'A',
+    module: 'I',
     title: 'Fundamental Rights - I: Equality',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Definition of State (Art 12), Law (Art 13), & Right to Equality (Art 14-18)',
 

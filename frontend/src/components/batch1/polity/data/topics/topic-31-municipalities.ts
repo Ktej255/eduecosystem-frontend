@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic31Municipalities: PolityTopic = {
     id: 31,
-    module: 'F',
+    module: 'VI',
     title: 'Municipalities & Cooperatives',
-    syllabusTag: 'Module F: Grassroots Democracy',
+    syllabusTag: 'Module VI: Grassroots Democracy',
 
     staticFocus: '74th Amendment (Municipalities) & 97th Amendment (Cooperatives)',
 

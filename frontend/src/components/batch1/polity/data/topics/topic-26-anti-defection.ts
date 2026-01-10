@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic26AntiDefection: PolityTopic = {
     id: 26,
-    module: 'D',
+    module: 'IV',
     title: 'Anti-Defection Law',
-    syllabusTag: 'Module D: The Legislature',
+    syllabusTag: 'Module IV: The Legislature',
 
     staticFocus: '10th Schedule, Exceptions, Kihoto Hollohan case, & Recent controversies',
 

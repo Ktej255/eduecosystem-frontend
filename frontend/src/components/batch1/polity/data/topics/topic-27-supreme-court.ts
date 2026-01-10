@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic27SupremeCourt: PolityTopic = {
     id: 27,
-    module: 'E',
+    module: 'V',
     title: 'Supreme Court of India',
-    syllabusTag: 'Module E: The Judiciary',
+    syllabusTag: 'Module V: The Judiciary',
 
     staticFocus: 'Composition, Jurisdiction, Collegium System, & Independence',
 

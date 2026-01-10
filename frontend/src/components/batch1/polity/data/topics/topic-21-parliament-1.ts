@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic21Parliament1: PolityTopic = {
     id: 21,
-    module: 'D',
+    module: 'IV',
     title: 'Parliament - I: Composition & Officers',
-    syllabusTag: 'Module D: The Legislature',
+    syllabusTag: 'Module IV: The Legislature',
 
     staticFocus: 'Composition (LS/RS), Sessions, Speaker, & Deputy Speaker',
 

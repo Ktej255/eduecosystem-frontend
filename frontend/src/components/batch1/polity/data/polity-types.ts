@@ -1,6 +1,7 @@
 // UPSC Polity Module - Type Definitions
 
-export type ModuleId = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I';
+export type ModuleId = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII' | 'VIII' | 'IX' | 'X' | 'XI';
+export type PartId = ModuleId;
 export type Priority = 'High' | 'Medium' | 'Low';
 export type PointerCategory = 'Article' | 'Amendment' | 'Case' | 'Year' | 'Commission' | 'Act' | 'Person' | 'Body' | 'Fact' | 'Committee';
 
@@ -65,6 +66,10 @@ export interface PolityTopic {
     // Optional
     comparisonTable?: ComparisonTable;
 
+    // Study Schedule Data
+    pageCount?: number;
+    studySlots?: number;
+
     // Metadata
     priority: Priority;
     lastUpdated: string;
@@ -79,17 +84,19 @@ export interface PolityModule {
     icon: string;
 }
 
-// Module definitions
+// Module definitions (based on Laxmikanth Parts)
 export const POLITY_MODULES: PolityModule[] = [
-    { id: 'A', title: 'Constitutional Framework', description: 'The Base', color: 'blue', topicRange: [1, 11], icon: '📜' },
-    { id: 'B', title: 'System of Government', description: 'The Mechanics', color: 'indigo', topicRange: [12, 16], icon: '⚙️' },
-    { id: 'C', title: 'The Executive', description: 'Union & State', color: 'purple', topicRange: [17, 20], icon: '🏛️' },
-    { id: 'D', title: 'The Legislature', description: 'Parliament & State', color: 'violet', topicRange: [21, 26], icon: '🏦' },
-    { id: 'E', title: 'The Judiciary', description: 'Courts & Doctrines', color: 'rose', topicRange: [27, 29], icon: '⚖️' },
-    { id: 'F', title: 'Grassroots Democracy', description: 'Local Govt', color: 'green', topicRange: [30, 31], icon: '🏘️' },
-    { id: 'G', title: 'Constitutional Bodies', description: 'Watchdogs', color: 'amber', topicRange: [32, 38], icon: '🔰' },
-    { id: 'H', title: 'Special Areas', description: 'Tribunals & Tribes', color: 'orange', topicRange: [39, 40], icon: '🗺️' },
-    { id: 'I', title: 'Governance', description: 'The 360° Shield', color: 'teal', topicRange: [41, 50], icon: '🛡️' },
+    { id: 'I', title: 'Constitutional Framework', description: 'The Base', color: 'blue', topicRange: [1, 12], icon: '📜' },
+    { id: 'II', title: 'System of Government', description: 'The Mechanics', color: 'indigo', topicRange: [13, 17], icon: '⚙️' },
+    { id: 'III', title: 'Central Government', description: 'The Core', color: 'purple', topicRange: [18, 30], icon: '🏛️' },
+    { id: 'IV', title: 'State Government', description: 'Regional Governance', color: 'violet', topicRange: [31, 38], icon: '🏦' },
+    { id: 'V', title: 'Local Government', description: 'Grassroots Democracy', color: 'green', topicRange: [39, 40], icon: '🏘️' },
+    { id: 'VI', title: 'UTs and Special Areas', description: 'Specific Regions', color: 'rose', topicRange: [41, 42], icon: '🗺️' },
+    { id: 'VII', title: 'Constitutional Bodies', description: 'Watchdogs', color: 'amber', topicRange: [43, 54], icon: '🔰' },
+    { id: 'VIII', title: 'Non-Constitutional Bodies', description: 'Statutory/Executive', color: 'orange', topicRange: [55, 71], icon: '🛡️' },
+    { id: 'IX', title: 'Other Dimensions', description: 'Specific Aspects', color: 'teal', topicRange: [72, 77], icon: '📦' },
+    { id: 'X', title: 'Political Dynamics', description: 'Elections & Parties', color: 'pink', topicRange: [78, 88], icon: '🗳️' },
+    { id: 'XI', title: 'Working of the Constitution', description: 'Latest Updates', color: 'cyan', topicRange: [89, 95], icon: '🔄' },
 ];
 
 // Get module by ID
@@ -109,6 +116,8 @@ export function getModuleColors(color: string) {
         amber: { bg: 'bg-amber-600', text: 'text-amber-600', border: 'border-amber-500', light: 'bg-amber-50' },
         orange: { bg: 'bg-orange-600', text: 'text-orange-600', border: 'border-orange-500', light: 'bg-orange-50' },
         teal: { bg: 'bg-teal-600', text: 'text-teal-600', border: 'border-teal-500', light: 'bg-teal-50' },
+        pink: { bg: 'bg-pink-600', text: 'text-pink-600', border: 'border-pink-500', light: 'bg-pink-50' },
+        cyan: { bg: 'bg-cyan-600', text: 'text-cyan-600', border: 'border-cyan-500', light: 'bg-cyan-50' },
     };
     return colors[color] || colors.blue;
 }

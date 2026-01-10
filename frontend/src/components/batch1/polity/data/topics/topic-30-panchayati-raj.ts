@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic30PanchayatiRaj: PolityTopic = {
     id: 30,
-    module: 'F',
+    module: 'VI',
     title: 'Panchayati Raj',
-    syllabusTag: 'Module F: Grassroots Democracy',
+    syllabusTag: 'Module VI: Grassroots Democracy',
 
     staticFocus: '73rd Amendment (1992), PESA (1996), & Three-tier Structure',
 

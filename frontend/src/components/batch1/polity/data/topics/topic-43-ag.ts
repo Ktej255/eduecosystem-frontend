@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic43AGAG: PolityTopic = {
     id: 43,
-    module: 'I',
+    module: 'IX',
     title: 'Attorney General & Advocate General',
-    syllabusTag: 'Module I: Governance',
+    syllabusTag: 'Module IX: Governance',
 
     staticFocus: 'Attorney General of India (Art 76) & Advocate General of State (Art 165)',
 

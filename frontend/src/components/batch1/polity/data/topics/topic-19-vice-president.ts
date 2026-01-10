@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic19VicePresident: PolityTopic = {
     id: 19,
-    module: 'C',
+    module: 'III',
     title: 'Vice-President',
-    syllabusTag: 'Module C: The Executive',
+    syllabusTag: 'Module III: The Executive',
 
     staticFocus: 'Election, Removal, & Role as Rajya Sabha Chairman',
 

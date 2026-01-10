@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic12ParliamentarySystem: PolityTopic = {
     id: 12,
-    module: 'B',
+    module: 'II',
     title: 'Parliamentary vs Presidential System',
-    syllabusTag: 'Module B: System of Government',
+    syllabusTag: 'Module II: System of Government',
 
     staticFocus: 'Features, Merits/Demerits, & Westminster Model - Why India chose Parliamentary System',
 

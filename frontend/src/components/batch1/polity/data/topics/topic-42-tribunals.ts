@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic42Tribunals: PolityTopic = {
     id: 42,
-    module: 'H',
+    module: 'VIII',
     title: 'Tribunals',
-    syllabusTag: 'Module H: Special Provisions',
+    syllabusTag: 'Module VIII: Special Provisions',
 
     staticFocus: 'Art 323A (Administrative), Art 323B (Other Tribunals), Key Tribunals',
 

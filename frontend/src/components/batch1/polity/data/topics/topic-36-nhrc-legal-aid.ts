@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic36NHRCLegalAid: PolityTopic = {
     id: 36,
-    module: 'G',
+    module: 'VII',
     title: 'NHRC & Legal Aid (NALSA)',
-    syllabusTag: 'Module G: Constitutional Bodies',
+    syllabusTag: 'Module VII: Constitutional Bodies',
 
     staticFocus: 'NHRC (PHR Act 1993) & NALSA (LSA Act 1987)',
 

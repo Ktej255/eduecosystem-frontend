@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic23Parliament3: PolityTopic = {
     id: 23,
-    module: 'D',
+    module: 'IV',
     title: 'Parliament - III: Legislative Process',
-    syllabusTag: 'Module D: The Legislature',
+    syllabusTag: 'Module IV: The Legislature',
 
     staticFocus: 'Types of Bills (Ordinary, Money, Financial) & Joint Sitting',
 

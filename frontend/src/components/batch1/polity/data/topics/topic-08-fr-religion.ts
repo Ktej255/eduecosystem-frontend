@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic08FRReligion: PolityTopic = {
     id: 8,
-    module: 'A',
+    module: 'I',
     title: 'Fundamental Rights - III: Religion & Minorities',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Exploitation (Art 23-24), Religion (Art 25-28), Minorities (Art 29-30), Constitutional Remedies (Art 32)',
 

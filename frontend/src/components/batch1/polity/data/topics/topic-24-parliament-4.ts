@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic24Parliament4: PolityTopic = {
     id: 24,
-    module: 'D',
+    module: 'IV',
     title: 'Parliament - IV: Budget & Finance',
-    syllabusTag: 'Module D: The Legislature',
+    syllabusTag: 'Module IV: The Legislature',
 
     staticFocus: 'Budget, Consolidated Fund, Contingency Fund, & Public Account',
 

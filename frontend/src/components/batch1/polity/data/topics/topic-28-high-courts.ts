@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic28HighCourts: PolityTopic = {
     id: 28,
-    module: 'E',
+    module: 'V',
     title: 'High Courts',
-    syllabusTag: 'Module E: The Judiciary',
+    syllabusTag: 'Module V: The Judiciary',
 
     staticFocus: 'Composition, Jurisdiction, & Relationship with Subordinate Courts',
 

@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic37CICLokpal: PolityTopic = {
     id: 37,
-    module: 'G',
+    module: 'VII',
     title: 'CIC, Lokpal & Lokayuktas',
-    syllabusTag: 'Module G: Constitutional Bodies',
+    syllabusTag: 'Module VII: Constitutional Bodies',
 
     staticFocus: 'RTI Act 2005 (CIC) & Lokpal and Lokayuktas Act 2013',
 

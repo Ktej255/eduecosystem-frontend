@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic13FederalSystem: PolityTopic = {
     id: 13,
-    module: 'B',
+    module: 'II',
     title: 'Federal System',
-    syllabusTag: 'Module B: System of Government',
+    syllabusTag: 'Module II: System of Government',
 
     staticFocus: 'Unitary vs Federal features, & Asymmetric Federalism',
 

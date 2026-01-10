@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic09DPSP: PolityTopic = {
     id: 9,
-    module: 'A',
+    module: 'I',
     title: 'Directive Principles of State Policy',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Classification (Gandhian/Socialist/Liberal), New DPSPs, UCC (Art 44), & Conflict with FRs',
 

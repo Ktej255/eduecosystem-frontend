@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic46IssuesI: PolityTopic = {
     id: 46,
-    module: 'I',
+    module: 'IX',
     title: 'Issues in Indian Polity - I',
-    syllabusTag: 'Module I: Governance',
+    syllabusTag: 'Module IX: Governance',
 
     staticFocus: 'Criminalization of Politics, Corruption, & Communalism',
 

@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic10DutiesBasicStructure: PolityTopic = {
     id: 10,
-    module: 'A',
+    module: 'I',
     title: 'Fundamental Duties & Basic Structure',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Art 51A (Swaran Singh Committee) + Kesavananda Bharati Doctrine',
 

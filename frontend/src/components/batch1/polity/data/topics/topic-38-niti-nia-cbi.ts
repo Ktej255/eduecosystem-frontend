@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic38NITINIACBl: PolityTopic = {
     id: 38,
-    module: 'G',
+    module: 'VII',
     title: 'NITI Aayog, NIA, CBI',
-    syllabusTag: 'Module G: Constitutional Bodies',
+    syllabusTag: 'Module VII: Constitutional Bodies',
 
     staticFocus: 'NITI Aayog (Planning), NIA (Counter-Terrorism), CBI (Investigation)',
 

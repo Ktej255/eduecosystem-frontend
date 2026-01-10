@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic14CentreStateRelations: PolityTopic = {
     id: 14,
-    module: 'B',
+    module: 'II',
     title: 'Centre-State Relations',
-    syllabusTag: 'Module B: System of Government',
+    syllabusTag: 'Module II: System of Government',
 
     staticFocus: 'Legislative (Art 245-255), Administrative, & Financial Relations',
 

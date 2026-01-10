@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic32Elections: PolityTopic = {
     id: 32,
-    module: 'G',
+    module: 'VII',
     title: 'Elections & Political Parties',
-    syllabusTag: 'Module G: Constitutional Bodies',
+    syllabusTag: 'Module VII: Constitutional Bodies',
 
     staticFocus: 'Election Commission (Art 324), RPA Acts, Party Registration & Recognition',
 

@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic48ElectoralReforms: PolityTopic = {
     id: 48,
-    module: 'I',
+    module: 'IX',
     title: 'Electoral Reforms',
-    syllabusTag: 'Module I: Governance',
+    syllabusTag: 'Module IX: Governance',
 
     staticFocus: 'NOTA, EVM/VVPAT, Electoral Bonds, State Funding of Elections',
 

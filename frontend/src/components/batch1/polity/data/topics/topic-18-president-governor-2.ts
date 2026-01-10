@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic18PresidentGovernor2: PolityTopic = {
     id: 18,
-    module: 'C',
+    module: 'III',
     title: 'President & Governor - II',
-    syllabusTag: 'Module C: The Executive',
+    syllabusTag: 'Module III: The Executive',
 
     staticFocus: 'Powers (Executive, Legislative, Veto, Ordinance, Pardon) & Comparison',
 

@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic47IssuesII: PolityTopic = {
     id: 47,
-    module: 'I',
+    module: 'IX',
     title: 'Issues in Indian Polity - II',
-    syllabusTag: 'Module I: Governance',
+    syllabusTag: 'Module IX: Governance',
 
     staticFocus: 'Regionalism, Casteism, & Secularism in Practice',
 

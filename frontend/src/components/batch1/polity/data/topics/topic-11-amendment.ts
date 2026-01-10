@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic11Amendment: PolityTopic = {
     id: 11,
-    module: 'A',
+    module: 'I',
     title: 'Amendment of Constitution',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Procedure (Art 368) & Types of Majorities (Simple, Special, Ratification)',
 

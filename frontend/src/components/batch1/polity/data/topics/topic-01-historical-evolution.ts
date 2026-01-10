@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic01HistoricalEvolution: PolityTopic = {
     id: 1,
-    module: 'A',
+    module: 'I',
     title: 'Historical Evolution',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Regulating Act 1773 to Independence Act 1947 (Focus: 1919 & 1935 Acts)',
 

@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic41OfficialLanguage: PolityTopic = {
     id: 41,
-    module: 'H',
+    module: 'VIII',
     title: 'Official Language',
-    syllabusTag: 'Module H: Special Provisions',
+    syllabusTag: 'Module VIII: Special Provisions',
 
     staticFocus: 'Language of Union & States (Art 343-351) & Three-Language Formula',
 

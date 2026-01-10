@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic05Citizenship: PolityTopic = {
     id: 5,
-    module: 'A',
+    module: 'I',
     title: 'Citizenship',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Constitutional Provisions (Art 5-11), Citizenship Act 1955, & CAA/NRC Concepts',
 

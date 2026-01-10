@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic40Schedules: PolityTopic = {
     id: 40,
-    module: 'H',
+    module: 'VIII',
     title: 'Schedules of Constitution',
-    syllabusTag: 'Module H: Special Provisions',
+    syllabusTag: 'Module VIII: Special Provisions',
 
     staticFocus: 'All 12 Schedules - Overview and Key Provisions',
 

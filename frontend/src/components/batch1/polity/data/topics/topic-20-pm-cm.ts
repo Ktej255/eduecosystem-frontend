@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic20PMCM: PolityTopic = {
     id: 20,
-    module: 'C',
+    module: 'III',
     title: 'PM & CM + Council of Ministers',
-    syllabusTag: 'Module C: The Executive',
+    syllabusTag: 'Module III: The Executive',
 
     staticFocus: 'Roles, Cabinet Committees, & Kitchen Cabinet',
 

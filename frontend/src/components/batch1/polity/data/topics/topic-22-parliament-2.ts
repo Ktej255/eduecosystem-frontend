@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic22Parliament2: PolityTopic = {
     id: 22,
-    module: 'D',
+    module: 'IV',
     title: 'Parliament - II: Sessions & Motions',
-    syllabusTag: 'Module D: The Legislature',
+    syllabusTag: 'Module IV: The Legislature',
 
     staticFocus: 'Sessions, Quorum, Voting, & Motions (No-Confidence, Censure, Adjournment)',
 

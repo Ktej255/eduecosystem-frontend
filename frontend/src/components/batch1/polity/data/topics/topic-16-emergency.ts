@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic16Emergency: PolityTopic = {
     id: 16,
-    module: 'B',
+    module: 'II',
     title: 'Emergency Provisions',
-    syllabusTag: 'Module B: System of Government',
+    syllabusTag: 'Module II: System of Government',
 
     staticFocus: 'National Emergency (Art 352), State Emergency/President\'s Rule (Art 356), & Financial Emergency (Art 360)',
 

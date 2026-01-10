@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic39SpecialProvisions: PolityTopic = {
     id: 39,
-    module: 'H',
+    module: 'VIII',
     title: 'Special Provisions for States',
-    syllabusTag: 'Module H: Special Provisions',
+    syllabusTag: 'Module VIII: Special Provisions',
 
     staticFocus: 'Art 371 Series (Special Provisions for NE, Maharashtra, Gujarat, etc.)',
 

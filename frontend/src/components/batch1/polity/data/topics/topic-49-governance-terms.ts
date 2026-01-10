@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic49GovernanceTerms: PolityTopic = {
     id: 49,
-    module: 'I',
+    module: 'IX',
     title: 'Important Governance Terms',
-    syllabusTag: 'Module I: Governance',
+    syllabusTag: 'Module IX: Governance',
 
     staticFocus: 'Key Terms: Coalition, Hung Parliament, Floor Test, Rule of Law, Separation of Powers',
 

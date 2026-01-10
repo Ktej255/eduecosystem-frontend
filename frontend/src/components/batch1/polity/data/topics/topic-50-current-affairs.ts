@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic50CurrentAffairs: PolityTopic = {
     id: 50,
-    module: 'I',
+    module: 'IX',
     title: 'Constitutional CA Compilation 2024-25',
-    syllabusTag: 'Module I: Governance',
+    syllabusTag: 'Module IX: Governance',
 
     staticFocus: 'Major Constitutional & Polity Developments (Jan 2024 - May 2025)',
 

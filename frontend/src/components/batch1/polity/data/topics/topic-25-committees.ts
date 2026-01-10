@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic25Committees: PolityTopic = {
     id: 25,
-    module: 'D',
+    module: 'IV',
     title: 'Parliamentary Committees',
-    syllabusTag: 'Module D: The Legislature',
+    syllabusTag: 'Module IV: The Legislature',
 
     staticFocus: 'Standing Committees, PAC, Estimates, DRSC, Ethics Committee',
 

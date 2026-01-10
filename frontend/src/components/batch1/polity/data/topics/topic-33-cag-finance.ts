@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic33CAGFinance: PolityTopic = {
     id: 33,
-    module: 'G',
+    module: 'VII',
     title: 'CAG & Finance Commission',
-    syllabusTag: 'Module G: Constitutional Bodies',
+    syllabusTag: 'Module VII: Constitutional Bodies',
 
     staticFocus: 'CAG (Art 148-151) & Finance Commission (Art 280)',
 

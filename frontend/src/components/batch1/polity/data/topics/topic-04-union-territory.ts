@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic04UnionTerritory: PolityTopic = {
     id: 4,
-    module: 'A',
+    module: 'I',
     title: 'Union & Its Territory',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Articles 1-4, State Reorganization, & Article 371 Series (Special Provisions)',
 

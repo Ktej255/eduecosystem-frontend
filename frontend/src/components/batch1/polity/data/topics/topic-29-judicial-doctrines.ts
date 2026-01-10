@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic29JudicialDoctrines: PolityTopic = {
     id: 29,
-    module: 'E',
+    module: 'V',
     title: 'Judicial Doctrines',
-    syllabusTag: 'Module E: The Judiciary',
+    syllabusTag: 'Module V: The Judiciary',
 
     staticFocus: 'PIL, Judicial Activism, Judicial Review, Curative Petition',
 

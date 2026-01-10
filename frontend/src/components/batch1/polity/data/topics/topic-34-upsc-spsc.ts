@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic34UPSCSPSC: PolityTopic = {
     id: 34,
-    module: 'G',
+    module: 'VII',
     title: 'UPSC & State PSCs',
-    syllabusTag: 'Module G: Constitutional Bodies',
+    syllabusTag: 'Module VII: Constitutional Bodies',
 
     staticFocus: 'UPSC (Art 315-323), SPSCs, & Independence of Civil Services',
 

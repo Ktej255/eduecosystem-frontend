@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic45PressureGroups: PolityTopic = {
     id: 45,
-    module: 'I',
+    module: 'IX',
     title: 'Pressure Groups & Civil Society',
-    syllabusTag: 'Module I: Governance',
+    syllabusTag: 'Module IX: Governance',
 
     staticFocus: 'Role in Democracy, Types of Pressure Groups, & Civil Society',
 

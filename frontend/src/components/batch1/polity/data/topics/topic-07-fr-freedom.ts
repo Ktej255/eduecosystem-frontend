@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic07FRFreedom: PolityTopic = {
     id: 7,
-    module: 'A',
+    module: 'I',
     title: 'Fundamental Rights - II: Freedom',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Freedoms (Art 19), Protection in Conviction (Art 20), Right to Life (Art 21/21A), Detention (Art 22)',
 

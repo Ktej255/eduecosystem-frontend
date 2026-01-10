@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic02MakingConstitution: PolityTopic = {
     id: 2,
-    module: 'A',
+    module: 'I',
     title: 'Making of the Constitution',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Constituent Assembly, Committees, Sources, & National Symbols',
 

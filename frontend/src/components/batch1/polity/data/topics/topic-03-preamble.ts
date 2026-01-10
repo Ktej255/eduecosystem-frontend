@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic03Preamble: PolityTopic = {
     id: 3,
-    module: 'A',
+    module: 'I',
     title: 'The Preamble',
-    syllabusTag: 'Module A: Constitutional Framework',
+    syllabusTag: 'Module I: Constitutional Framework',
 
     staticFocus: 'Keywords (Sovereign, Socialist, Secular, Democratic, Republic), 42nd Amendment, & Significance',
 

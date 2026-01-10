@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic15InterStateRelations: PolityTopic = {
     id: 15,
-    module: 'B',
+    module: 'II',
     title: 'Inter-State Relations',
-    syllabusTag: 'Module B: System of Government',
+    syllabusTag: 'Module II: System of Government',
 
     staticFocus: 'Water Disputes, Zonal Councils, Inter-State Council, & Full Faith and Credit Clause',
 

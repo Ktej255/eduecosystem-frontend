@@ -5,9 +5,9 @@ import { PolityTopic } from '../polity-types';
 
 export const topic35VulnerableCommissions: PolityTopic = {
     id: 35,
-    module: 'G',
+    module: 'VII',
     title: 'Commissions for Vulnerable Sections',
-    syllabusTag: 'Module G: Constitutional Bodies',
+    syllabusTag: 'Module VII: Constitutional Bodies',
 
     staticFocus: 'NCSC (Art 338), NCST (Art 338A), NCBC (Art 338B), NCM, NCW',
 
