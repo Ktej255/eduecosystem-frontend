@@ -18,7 +18,8 @@ import {
     Filter,
     Play,
     Settings,
-    TrendingDown
+    TrendingDown,
+    Mic
 } from 'lucide-react';
 import Link from 'next/link';
 import { POLITY_REVISION_CHAPTERS } from '../data/RevisionRegistry';
@@ -257,46 +258,62 @@ export default function RevisionDashboard() {
                         </div>
                         <ChevronRight className="w-5 h-5 ml-auto" />
                     </Link>
+
+                    <Link
+                        href="/student/batch1/polity/revision/voice"
+                        className="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
+                    >
+                        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <Mic className="w-6 h-6" />
+                        </div>
+                        <div className="text-left">
+                            <div className="font-bold text-lg">Voice Recall</div>
+                            <div className="text-sm text-pink-200">Speak your answers</div>
+                        </div>
+                        <ChevronRight className="w-5 h-5 ml-auto" />
+                    </Link>
                 </div>
             </div>
 
             {/* Custom Session Panel */}
-            {showCustomSession && (
-                <div className="max-w-6xl mx-auto px-6 mt-6">
-                    <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 shadow-lg">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-lg font-bold">Select Chapters for Custom Session</h3>
-                            <div className="flex items-center gap-2">
-                                <span className="text-sm text-gray-500">{selectedChapters.length} selected</span>
-                                {selectedChapters.length > 0 && (
+            {
+                showCustomSession && (
+                    <div className="max-w-6xl mx-auto px-6 mt-6">
+                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 shadow-lg">
+                            <div className="flex items-center justify-between mb-4">
+                                <h3 className="text-lg font-bold">Select Chapters for Custom Session</h3>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-sm text-gray-500">{selectedChapters.length} selected</span>
+                                    {selectedChapters.length > 0 && (
+                                        <button
+                                            onClick={startCustomSession}
+                                            className="bg-indigo-600 text-white px-4 py-2 rounded-xl font-medium hover:bg-indigo-700 transition-colors flex items-center gap-2"
+                                        >
+                                            <Play className="w-4 h-4" />
+                                            Start Session
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 max-h-64 overflow-y-auto">
+                                {POLITY_REVISION_CHAPTERS.map(ch => (
                                     <button
-                                        onClick={startCustomSession}
-                                        className="bg-indigo-600 text-white px-4 py-2 rounded-xl font-medium hover:bg-indigo-700 transition-colors flex items-center gap-2"
+                                        key={ch.id}
+                                        onClick={() => toggleChapter(ch.id)}
+                                        className={`p-3 rounded-xl text-left transition-all text-sm ${selectedChapters.includes(ch.id)
+                                            ? 'bg-indigo-600 text-white'
+                                            : 'bg-gray-50 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1a1a1a]'
+                                            }`}
                                     >
-                                        <Play className="w-4 h-4" />
-                                        Start Session
+                                        <div className="font-bold">Ch {ch.id}</div>
+                                        <div className="text-xs truncate opacity-80">{ch.title}</div>
                                     </button>
-                                )}
+                                ))}
                             </div>
                         </div>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 max-h-64 overflow-y-auto">
-                            {POLITY_REVISION_CHAPTERS.map(ch => (
-                                <button
-                                    key={ch.id}
-                                    onClick={() => toggleChapter(ch.id)}
-                                    className={`p-3 rounded-xl text-left transition-all text-sm ${selectedChapters.includes(ch.id)
-                                        ? 'bg-indigo-600 text-white'
-                                        : 'bg-gray-50 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1a1a1a]'
-                                        }`}
-                                >
-                                    <div className="font-bold">Ch {ch.id}</div>
-                                    <div className="text-xs truncate opacity-80">{ch.title}</div>
-                                </button>
-                            ))}
-                        </div>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             {/* Filter Bar */}
             <div className="max-w-6xl mx-auto px-6 mt-8">
@@ -383,6 +400,6 @@ export default function RevisionDashboard() {
                     })}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
