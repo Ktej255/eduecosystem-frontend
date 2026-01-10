@@ -17,7 +17,8 @@ import {
     Brain,
     Filter,
     Play,
-    Settings
+    Settings,
+    TrendingDown
 } from 'lucide-react';
 import Link from 'next/link';
 import { POLITY_REVISION_CHAPTERS } from '../data/RevisionRegistry';
@@ -239,6 +240,20 @@ export default function RevisionDashboard() {
                         <div className="text-left">
                             <div className="font-bold text-lg">Facts Master-Sheet</div>
                             <div className="text-sm text-emerald-200">Key dates, persons, acts</div>
+                        </div>
+                        <ChevronRight className="w-5 h-5 ml-auto" />
+                    </Link>
+
+                    <Link
+                        href="/student/batch1/polity/revision/weak"
+                        className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center gap-4 group"
+                    >
+                        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <TrendingDown className="w-6 h-6" />
+                        </div>
+                        <div className="text-left">
+                            <div className="font-bold text-lg">Weak Topics</div>
+                            <div className="text-sm text-red-200">Focus on struggles</div>
                         </div>
                         <ChevronRight className="w-5 h-5 ml-auto" />
                     </Link>
