@@ -15,7 +15,7 @@ import Link from "next/link";
 const WEEKS = Array.from({ length: 20 }, (_, i) => ({
     id: i + 1,
     name: `Week ${i + 1}`,
-    startDate: new Date(2026, 0, 13 + (i * 7)), // Starting Jan 13, 2026
+    startDate: new Date(2026, 0, 12 + (i * 7)), // Starting Jan 12, 2026 (Monday)
 }));
 
 // Days of the week (Mon-Sat)

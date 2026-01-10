@@ -249,7 +249,7 @@ export const POLITY_STUDY_MODULES: StudyModule[] = [
         name: "Mirror Executives",
         description: "President ↔ Governor, PM ↔ CM, Ministers",
         color: "blue",
-        weekNumber: 1,
+        weekNumber: 2,
         chapters: MODULE_1_CHAPTERS,
         totalMinutes: calcModuleTotal(MODULE_1_CHAPTERS)
     },
@@ -258,7 +258,7 @@ export const POLITY_STUDY_MODULES: StudyModule[] = [
         name: "Legislative Machinery",
         description: "Parliament ↔ State Legislature, Committees",
         color: "indigo",
-        weekNumber: 2,
+        weekNumber: 3,
         chapters: MODULE_2_CHAPTERS,
         totalMinutes: calcModuleTotal(MODULE_2_CHAPTERS)
     },
@@ -267,7 +267,7 @@ export const POLITY_STUDY_MODULES: StudyModule[] = [
         name: "Integrated Judiciary",
         description: "SC ↔ HC, Tribunals, Judicial Review & Activism",
         color: "purple",
-        weekNumber: 3,
+        weekNumber: 4,
         chapters: MODULE_3_CHAPTERS,
         totalMinutes: calcModuleTotal(MODULE_3_CHAPTERS)
     },
@@ -276,7 +276,7 @@ export const POLITY_STUDY_MODULES: StudyModule[] = [
         name: "Federal Axis",
         description: "Federal System, Centre-State, Emergency",
         color: "violet",
-        weekNumber: 4,
+        weekNumber: 5,
         chapters: MODULE_4_CHAPTERS,
         totalMinutes: calcModuleTotal(MODULE_4_CHAPTERS)
     },
@@ -285,7 +285,7 @@ export const POLITY_STUDY_MODULES: StudyModule[] = [
         name: "Philosophy",
         description: "Preamble, Rights, DPSP, Duties, Amendment",
         color: "amber",
-        weekNumber: 5,
+        weekNumber: 1,  // Week 1 = Revision starts with Citizenship, FR, DPSP, FD
         chapters: MODULE_5_CHAPTERS,
         totalMinutes: calcModuleTotal(MODULE_5_CHAPTERS)
     },
