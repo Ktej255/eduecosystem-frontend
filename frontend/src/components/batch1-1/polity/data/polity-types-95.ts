@@ -1,0 +1,344 @@
+// UPSC Polity 95 Topics - Type Definitions
+// For Batch 1.1 Revision Platform
+
+export type PartId = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII' | 'VIII' | 'IX' | 'X' | 'XI';
+export type Priority = 'High' | 'Medium' | 'Low';
+export type PointerCategory = 'Article' | 'Amendment' | 'Case' | 'Year' | 'Commission' | 'Act' | 'Person' | 'Body' | 'Fact' | 'Committee';
+
+export interface Article {
+    number: string;
+    title: string;
+    description: string;
+}
+
+export interface Concept {
+    term: string;
+    definition: string;
+    example?: string;
+}
+
+export interface CurrentAffairsItem {
+    id: string;
+    headline: string;
+    date: string;
+    source: string;
+    teachingHook: string;
+    relatedArticles?: string[];
+    caseReference?: string;
+}
+
+export interface PrelimsPointer {
+    fact: string;
+    category: PointerCategory;
+    highlight?: boolean;
+}
+
+export interface ComparisonRow {
+    aspect: string;
+    columnA: string;
+    columnB: string;
+}
+
+export interface ComparisonTable {
+    title: string;
+    columnAHeader: string;
+    columnBHeader: string;
+    rows: ComparisonRow[];
+}
+
+export interface PolityTopic95 {
+    id: number;
+    part: PartId;
+    title: string;
+    syllabusTag: string;
+
+    // Static Content
+    staticFocus: string;
+    coreArticles: Article[];
+    keyConcepts: Concept[];
+
+    // Current Affairs
+    currentAffairs: CurrentAffairsItem[];
+
+    // Prelims Pointers
+    prelimsPointers: PrelimsPointer[];
+
+    // Optional
+    comparisonTable?: ComparisonTable;
+
+    // Metadata
+    priority: Priority;
+    lastUpdated: string;
+    isNew?: boolean; // For newly added topics
+}
+
+export interface PolityPart {
+    id: PartId;
+    number: number;
+    title: string;
+    description: string;
+    color: string;
+    topicRange: [number, number];
+    icon: string;
+    topicCount: number;
+}
+
+// 11 Parts as per UPSC Syllabus
+export const POLITY_PARTS: PolityPart[] = [
+    {
+        id: 'I',
+        number: 1,
+        title: 'Constitutional Framework',
+        description: 'Historical Background to Basic Structure',
+        color: 'blue',
+        topicRange: [1, 12],
+        icon: '📜',
+        topicCount: 12
+    },
+    {
+        id: 'II',
+        number: 2,
+        title: 'System of Government',
+        description: 'Parliamentary, Federal & Emergency',
+        color: 'indigo',
+        topicRange: [13, 17],
+        icon: '⚙️',
+        topicCount: 5
+    },
+    {
+        id: 'III',
+        number: 3,
+        title: 'Central Government',
+        description: 'President to Supreme Court',
+        color: 'purple',
+        topicRange: [18, 29],
+        icon: '🏛️',
+        topicCount: 12
+    },
+    {
+        id: 'IV',
+        number: 4,
+        title: 'State Government',
+        description: 'Governor to Subordinate Courts',
+        color: 'violet',
+        topicRange: [30, 38],
+        icon: '🏢',
+        topicCount: 9
+    },
+    {
+        id: 'V',
+        number: 5,
+        title: 'Local Government',
+        description: 'Panchayati Raj & Municipalities',
+        color: 'green',
+        topicRange: [39, 40],
+        icon: '🏘️',
+        topicCount: 2
+    },
+    {
+        id: 'VI',
+        number: 6,
+        title: 'Union Territories and Special Areas',
+        description: 'UTs, Scheduled & Tribal Areas',
+        color: 'teal',
+        topicRange: [41, 42],
+        icon: '🗺️',
+        topicCount: 2
+    },
+    {
+        id: 'VII',
+        number: 7,
+        title: 'Constitutional Bodies',
+        description: 'Election Commission to CAG',
+        color: 'amber',
+        topicRange: [43, 54],
+        icon: '🔰',
+        topicCount: 12
+    },
+    {
+        id: 'VIII',
+        number: 8,
+        title: 'Non-Constitutional Bodies',
+        description: 'NITI Aayog to Law Commission',
+        color: 'orange',
+        topicRange: [55, 67],
+        icon: '🏗️',
+        topicCount: 13
+    },
+    {
+        id: 'IX',
+        number: 9,
+        title: 'Other Constitutional Dimensions',
+        description: 'Co-operatives, Language, Services',
+        color: 'rose',
+        topicRange: [68, 73],
+        icon: '📋',
+        topicCount: 6
+    },
+    {
+        id: 'X',
+        number: 10,
+        title: 'Political Dynamics',
+        description: 'Parties, Elections & Foreign Policy',
+        color: 'cyan',
+        topicRange: [74, 84],
+        icon: '🗳️',
+        topicCount: 11
+    },
+    {
+        id: 'XI',
+        number: 11,
+        title: 'Working of the Constitution',
+        description: 'Judgements, Reforms & New Developments',
+        color: 'emerald',
+        topicRange: [85, 95],
+        icon: '⚖️',
+        topicCount: 11
+    },
+];
+
+// All 95 topic titles organized by Part
+export const TOPIC_TITLES: { id: number; title: string; part: PartId }[] = [
+    // Part I: Constitutional Framework (1-12)
+    { id: 1, title: 'Historical Background', part: 'I' },
+    { id: 2, title: 'Making of the Constitution', part: 'I' },
+    { id: 3, title: 'Concept of the Constitution', part: 'I' },
+    { id: 4, title: 'Salient Features of the Constitution', part: 'I' },
+    { id: 5, title: 'Preamble of the Constitution', part: 'I' },
+    { id: 6, title: 'Union and its Territory', part: 'I' },
+    { id: 7, title: 'Citizenship', part: 'I' },
+    { id: 8, title: 'Fundamental Rights', part: 'I' },
+    { id: 9, title: 'Directive Principles of State Policy', part: 'I' },
+    { id: 10, title: 'Fundamental Duties', part: 'I' },
+    { id: 11, title: 'Amendment of the Constitution', part: 'I' },
+    { id: 12, title: 'Basic Structure of the Constitution', part: 'I' },
+
+    // Part II: System of Government (13-17)
+    { id: 13, title: 'Parliamentary System', part: 'II' },
+    { id: 14, title: 'Federal System', part: 'II' },
+    { id: 15, title: 'Centre–State Relations', part: 'II' },
+    { id: 16, title: 'Inter-State Relations', part: 'II' },
+    { id: 17, title: 'Emergency Provisions', part: 'II' },
+
+    // Part III: Central Government (18-29)
+    { id: 18, title: 'President', part: 'III' },
+    { id: 19, title: 'Vice-President', part: 'III' },
+    { id: 20, title: 'Prime Minister', part: 'III' },
+    { id: 21, title: 'Central Council of Ministers', part: 'III' },
+    { id: 22, title: 'Cabinet Committees', part: 'III' },
+    { id: 23, title: 'Parliament', part: 'III' },
+    { id: 24, title: 'Parliamentary Committees', part: 'III' },
+    { id: 25, title: 'Parliamentary Forums', part: 'III' },
+    { id: 26, title: 'Parliamentary Group', part: 'III' },
+    { id: 27, title: 'Supreme Court', part: 'III' },
+    { id: 28, title: 'Judicial Review', part: 'III' },
+    { id: 29, title: 'Judicial Activism', part: 'III' },
+
+    // Part IV: State Government (30-38)
+    { id: 30, title: 'Public Interest Litigation', part: 'IV' },
+    { id: 31, title: 'Governor', part: 'IV' },
+    { id: 32, title: 'Chief Minister', part: 'IV' },
+    { id: 33, title: 'State Council of Ministers', part: 'IV' },
+    { id: 34, title: 'State Legislature', part: 'IV' },
+    { id: 35, title: 'High Court', part: 'IV' },
+    { id: 36, title: 'Tribunals', part: 'IV' },
+    { id: 37, title: 'Subordinate Courts', part: 'IV' },
+    { id: 38, title: 'Special Provisions for Some States', part: 'IV' },
+
+    // Part V: Local Government (39-40)
+    { id: 39, title: 'Panchayati Raj', part: 'V' },
+    { id: 40, title: 'Municipalities', part: 'V' },
+
+    // Part VI: Union Territories and Special Areas (41-42)
+    { id: 41, title: 'Union Territories', part: 'VI' },
+    { id: 42, title: 'Scheduled and Tribal Areas', part: 'VI' },
+
+    // Part VII: Constitutional Bodies (43-54)
+    { id: 43, title: 'Election Commission', part: 'VII' },
+    { id: 44, title: 'Union Public Service Commission (UPSC)', part: 'VII' },
+    { id: 45, title: 'State Public Service Commission (SPSC)', part: 'VII' },
+    { id: 46, title: 'Finance Commission', part: 'VII' },
+    { id: 47, title: 'Goods and Services Tax (GST) Council', part: 'VII' },
+    { id: 48, title: 'National Commission for SCs', part: 'VII' },
+    { id: 49, title: 'National Commission for STs', part: 'VII' },
+    { id: 50, title: 'National Commission for Backward Classes (NCBC)', part: 'VII' },
+    { id: 51, title: 'Special Officer for Linguistic Minorities', part: 'VII' },
+    { id: 52, title: 'Comptroller and Auditor General of India (CAG)', part: 'VII' },
+    { id: 53, title: 'Attorney General of India', part: 'VII' },
+    { id: 54, title: 'Advocate General of the State', part: 'VII' },
+
+    // Part VIII: Non-Constitutional Bodies (55-67)
+    { id: 55, title: 'NITI Aayog', part: 'VIII' },
+    { id: 56, title: 'National Human Rights Commission (NHRC)', part: 'VIII' },
+    { id: 57, title: 'State Human Rights Commission (SHRC)', part: 'VIII' },
+    { id: 58, title: 'Central Information Commission (CIC)', part: 'VIII' },
+    { id: 59, title: 'State Information Commission (SIC)', part: 'VIII' },
+    { id: 60, title: 'Central Vigilance Commission (CVC)', part: 'VIII' },
+    { id: 61, title: 'Central Bureau of Investigation (CBI)', part: 'VIII' },
+    { id: 62, title: 'Lokpal and Lokayuktas', part: 'VIII' },
+    { id: 63, title: 'National Investigation Agency (NIA)', part: 'VIII' },
+    { id: 64, title: 'National Disaster Management Authority (NDMA)', part: 'VIII' },
+    { id: 65, title: 'National Commission for Women (NCW)', part: 'VIII' },
+    { id: 66, title: 'National Commission for Protection of Child Rights (NCPCR)', part: 'VIII' },
+    { id: 67, title: 'National Commission for Minorities', part: 'VIII' },
+
+    // Part IX: Other Constitutional Dimensions (68-73)
+    { id: 68, title: 'Bar Council of India', part: 'IX' },
+    { id: 69, title: 'Law Commission of India', part: 'IX' },
+    { id: 70, title: 'Delimitation Commission of India', part: 'IX' },
+    { id: 71, title: 'Consumer Commissions', part: 'IX' },
+    { id: 72, title: 'Co-operative Societies', part: 'IX' },
+    { id: 73, title: 'Official Language', part: 'IX' },
+
+    // Part X: Political Dynamics (74-84)
+    { id: 74, title: 'Public Services', part: 'X' },
+    { id: 75, title: 'Rights and Liabilities of the Government', part: 'X' },
+    { id: 76, title: 'Special Provisions Relating to Certain Classes', part: 'X' },
+    { id: 77, title: 'Constitutional Prescriptions', part: 'X' },
+    { id: 78, title: 'Political Parties', part: 'X' },
+    { id: 79, title: 'Role of Regional Parties', part: 'X' },
+    { id: 80, title: 'Elections', part: 'X' },
+    { id: 81, title: 'Election Laws', part: 'X' },
+    { id: 82, title: 'Electoral Reforms', part: 'X' },
+    { id: 83, title: 'Voting Behaviour', part: 'X' },
+    { id: 84, title: 'Coalition Government', part: 'X' },
+
+    // Part XI: Working of the Constitution (85-95)
+    { id: 85, title: 'Anti-Defection Law', part: 'XI' },
+    { id: 86, title: 'Pressure Groups', part: 'XI' },
+    { id: 87, title: 'National Integration', part: 'XI' },
+    { id: 88, title: 'Foreign Policy', part: 'XI' },
+    { id: 89, title: 'Landmark Judgements and their Impact', part: 'XI' },
+    { id: 90, title: 'Important Doctrines of Constitutional Interpretation', part: 'XI' },
+    { id: 91, title: 'World Constitutions', part: 'XI' },
+    { id: 92, title: 'National Commission for Persons with Disabilities', part: 'XI' },
+    { id: 93, title: 'Model Code of Conduct', part: 'XI' },
+    { id: 94, title: 'Bharatiya Nyaya Sanhita (Criminal Law Reforms)', part: 'XI' },
+    { id: 95, title: 'One Nation One Election', part: 'XI' },
+];
+
+// Helper functions
+export function getPartById(partId: PartId): PolityPart | undefined {
+    return POLITY_PARTS.find(p => p.id === partId);
+}
+
+export function getTopicsByPart(partId: PartId): { id: number; title: string; part: PartId }[] {
+    return TOPIC_TITLES.filter(t => t.part === partId);
+}
+
+export function getPartColors(color: string) {
+    const colors: Record<string, { bg: string; text: string; border: string; light: string; gradient: string }> = {
+        blue: { bg: 'bg-blue-600', text: 'text-blue-600', border: 'border-blue-500', light: 'bg-blue-50', gradient: 'from-blue-500 to-blue-600' },
+        indigo: { bg: 'bg-indigo-600', text: 'text-indigo-600', border: 'border-indigo-500', light: 'bg-indigo-50', gradient: 'from-indigo-500 to-indigo-600' },
+        purple: { bg: 'bg-purple-600', text: 'text-purple-600', border: 'border-purple-500', light: 'bg-purple-50', gradient: 'from-purple-500 to-purple-600' },
+        violet: { bg: 'bg-violet-600', text: 'text-violet-600', border: 'border-violet-500', light: 'bg-violet-50', gradient: 'from-violet-500 to-violet-600' },
+        green: { bg: 'bg-green-600', text: 'text-green-600', border: 'border-green-500', light: 'bg-green-50', gradient: 'from-green-500 to-green-600' },
+        teal: { bg: 'bg-teal-600', text: 'text-teal-600', border: 'border-teal-500', light: 'bg-teal-50', gradient: 'from-teal-500 to-teal-600' },
+        amber: { bg: 'bg-amber-600', text: 'text-amber-600', border: 'border-amber-500', light: 'bg-amber-50', gradient: 'from-amber-500 to-amber-600' },
+        orange: { bg: 'bg-orange-600', text: 'text-orange-600', border: 'border-orange-500', light: 'bg-orange-50', gradient: 'from-orange-500 to-orange-600' },
+        rose: { bg: 'bg-rose-600', text: 'text-rose-600', border: 'border-rose-500', light: 'bg-rose-50', gradient: 'from-rose-500 to-rose-600' },
+        cyan: { bg: 'bg-cyan-600', text: 'text-cyan-600', border: 'border-cyan-500', light: 'bg-cyan-50', gradient: 'from-cyan-500 to-cyan-600' },
+        emerald: { bg: 'bg-emerald-600', text: 'text-emerald-600', border: 'border-emerald-500', light: 'bg-emerald-50', gradient: 'from-emerald-500 to-emerald-600' },
+    };
+    return colors[color] || colors.blue;
+}

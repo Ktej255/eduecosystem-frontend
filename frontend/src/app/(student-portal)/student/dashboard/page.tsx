@@ -397,6 +397,46 @@ export default function StudentDashboard() {
                     onClose={() => setShowHistoryModal(false)}
                 />
 
+                {/* Batch 1.1: Pomodoro Revision */}
+                {(user?.is_batch1_authorized || isSpecialBatch1Student || isMasterId) && (
+                    <Card className="border-l-4 border-l-orange-500 bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 shadow-md">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="flex items-center gap-2 text-lg">
+                                <Clock className="h-5 w-5 text-orange-600" />
+                                Batch 1.1: Pomodoro Revision
+                                <span className="ml-auto px-2 py-0.5 text-xs bg-orange-100 text-orange-700 rounded-full flex items-center gap-1 animate-pulse">
+                                    <Sparkles className="h-3 w-3" />
+                                    New
+                                </span>
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                    6-hour daily Pomodoro sessions. 25-min focus + 5-min breaks. Voice recall after every 2 sessions.
+                                </p>
+
+                                <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg">
+                                    <div className="flex items-center gap-2 text-orange-700 dark:text-orange-300 text-sm font-medium mb-2">
+                                        <Target className="h-4 w-4" />
+                                        Daily Schedule
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-2 text-xs text-orange-600 dark:text-orange-400">
+                                        <div>🌅 Morning: 8 AM - 2 PM</div>
+                                        <div>🌙 Evening: Flashcards & MCQs</div>
+                                    </div>
+                                </div>
+
+                                <Link href="/student/batch1-1">
+                                    <Button className="w-full mt-2 bg-orange-500 hover:bg-orange-600">
+                                        Enter Pomodoro Mode <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </Link>
+                            </div>
+                        </CardContent>
+                    </Card>
+                )}
+
 
                 {/* Batch 2 Card */}
                 {(user?.is_batch2_authorized || isMasterId) && (

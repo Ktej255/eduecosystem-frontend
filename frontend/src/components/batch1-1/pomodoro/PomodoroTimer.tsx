@@ -1,0 +1,219 @@
+"use client";
+
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import {
+    Play, Pause, RotateCcw, Volume2, VolumeX, CheckCircle2,
+    Timer, Flame, ChevronRight, Mic, ArrowLeft
+} from "lucide-react";
+
+interface PomodoroTimerProps {
+    duration?: number; // Duration in seconds (default 25 min = 1500)
+    onComplete: () => void;
+    onStart?: () => void;
+    isStrict?: boolean; // If true, cannot pause or skip
+    sessionNumber: number;
+    totalSessions: number;
+}
+
+export default function PomodoroTimer({
+    duration = 1500, // 25 minutes
+    onComplete,
+    onStart,
+    isStrict = true,
+    sessionNumber,
+    totalSessions
+}: PomodoroTimerProps) {
+    const [timeLeft, setTimeLeft] = useState(duration);
+    const [isRunning, setIsRunning] = useState(false);
+    const [hasStarted, setHasStarted] = useState(false);
+    const [soundEnabled, setSoundEnabled] = useState(true);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    // Initialize audio
+    useEffect(() => {
+        audioRef.current = new Audio('/sounds/bell.mp3');
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        };
+    }, []);
+
+    // Timer logic
+    useEffect(() => {
+        if (isRunning && timeLeft > 0) {
+            intervalRef.current = setInterval(() => {
+                setTimeLeft(prev => {
+                    if (prev <= 1) {
+                        clearInterval(intervalRef.current!);
+                        setIsRunning(false);
+                        // Play completion sound
+                        if (soundEnabled && audioRef.current) {
+                            audioRef.current.play().catch(() => { });
+                        }
+                        // Trigger completion callback
+                        setTimeout(onComplete, 500);
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+        }
+
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        };
+    }, [isRunning, timeLeft, onComplete, soundEnabled]);
+
+    const handleStart = useCallback(() => {
+        if (!hasStarted) {
+            setHasStarted(true);
+            onStart?.();
+        }
+        setIsRunning(true);
+    }, [hasStarted, onStart]);
+
+    const handlePause = useCallback(() => {
+        if (!isStrict) {
+            setIsRunning(false);
+        }
+    }, [isStrict]);
+
+    const handleReset = useCallback(() => {
+        if (!isStrict || !hasStarted) {
+            setIsRunning(false);
+            setTimeLeft(duration);
+            setHasStarted(false);
+        }
+    }, [isStrict, hasStarted, duration]);
+
+    // Format time
+    const formatTime = (seconds: number) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    // Progress percentage
+    const progress = ((duration - timeLeft) / duration) * 100;
+
+    // Color based on time remaining
+    const getTimerColor = () => {
+        if (timeLeft <= 60) return 'text-red-500'; // Last minute
+        if (timeLeft <= 300) return 'text-amber-500'; // Last 5 minutes
+        return 'text-orange-600';
+    };
+
+    return (
+        <Card className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 border-orange-200 dark:border-orange-800 shadow-xl">
+            <CardContent className="p-8">
+                {/* Session Indicator */}
+                <div className="flex justify-between items-center mb-6">
+                    <div className="flex items-center gap-2 text-orange-600">
+                        <Flame className="h-5 w-5" />
+                        <span className="font-semibold">Pomodoro {sessionNumber} of {totalSessions}</span>
+                    </div>
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setSoundEnabled(!soundEnabled)}
+                        className="text-gray-500"
+                    >
+                        {soundEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
+                    </Button>
+                </div>
+
+                {/* Timer Circle */}
+                <div className="relative w-64 h-64 mx-auto mb-8">
+                    {/* Background Circle */}
+                    <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="8"
+                            className="text-orange-100 dark:text-orange-900/30"
+                        />
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="8"
+                            strokeLinecap="round"
+                            strokeDasharray={`${progress * 2.83} 283`}
+                            className="text-orange-500 transition-all duration-1000"
+                        />
+                    </svg>
+
+                    {/* Time Display */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <span className={`text-5xl font-bold font-mono ${getTimerColor()}`}>
+                            {formatTime(timeLeft)}
+                        </span>
+                        <span className="text-sm text-gray-500 mt-2">
+                            {isRunning ? 'Focus Time' : hasStarted ? 'Paused' : 'Ready'}
+                        </span>
+                    </div>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="mb-6">
+                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                        <span>Progress</span>
+                        <span>{Math.round(progress)}%</span>
+                    </div>
+                    <Progress value={progress} className="h-2 bg-orange-100" />
+                </div>
+
+                {/* Controls */}
+                <div className="flex justify-center gap-4">
+                    {!isRunning ? (
+                        <Button
+                            size="lg"
+                            onClick={handleStart}
+                            className="bg-orange-500 hover:bg-orange-600 text-white px-8"
+                        >
+                            <Play className="mr-2 h-5 w-5" />
+                            {hasStarted ? 'Resume' : 'Start Focus'}
+                        </Button>
+                    ) : (
+                        <Button
+                            size="lg"
+                            onClick={handlePause}
+                            disabled={isStrict}
+                            className={`px-8 ${isStrict ? 'bg-gray-300 cursor-not-allowed' : 'bg-amber-500 hover:bg-amber-600'}`}
+                        >
+                            <Pause className="mr-2 h-5 w-5" />
+                            {isStrict ? 'Strict Mode' : 'Pause'}
+                        </Button>
+                    )}
+
+                    {!isStrict && (
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            onClick={handleReset}
+                            disabled={isStrict && hasStarted}
+                        >
+                            <RotateCcw className="mr-2 h-4 w-4" />
+                            Reset
+                        </Button>
+                    )}
+                </div>
+
+                {/* Strict Mode Notice */}
+                {isStrict && hasStarted && isRunning && (
+                    <div className="mt-4 text-center text-sm text-amber-600 dark:text-amber-400 animate-pulse">
+                        🔒 Strict Mode: Timer cannot be paused. Stay focused!
+                    </div>
+                )}
+            </CardContent>
+        </Card>
+    );
+}
