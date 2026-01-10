@@ -11,10 +11,12 @@ import {
     ArrowRight,
     RefreshCcw,
     Sparkles,
-    Target
+    Target,
+    Flame
 } from 'lucide-react';
 import Link from 'next/link';
 import { getRevisionDataById } from '../data/RevisionRegistry';
+import { updateFlashcardProgress, updateMcqProgress, getChapterProgress, getStreak } from './progress-utils';
 import { toast } from 'sonner';
 
 interface Props {
@@ -52,8 +54,11 @@ export default function ChapterRevisionView({ chapterId }: Props) {
     // Flashcard Helpers
     const nextFlashcard = () => {
         if (currentFlashIdx < flashcards.length - 1) {
-            setCurrentFlashIdx(curr => curr + 1);
+            const newIdx = currentFlashIdx + 1;
+            setCurrentFlashIdx(newIdx);
             setShowAnswer(false);
+            // Save progress
+            updateFlashcardProgress(chapterId, newIdx, flashcards.length);
         }
     };
 
@@ -77,6 +82,8 @@ export default function ChapterRevisionView({ chapterId }: Props) {
         });
         setScore(finalScore);
         setSubmitted(true);
+        // Save MCQ progress
+        updateMcqProgress(chapterId, finalScore, mcqs.length);
         toast.success(`Test Completed! Score: ${finalScore}/${mcqs.length}`);
     };
 
@@ -92,9 +99,9 @@ export default function ChapterRevisionView({ chapterId }: Props) {
             {/* Header */}
             <div className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10">
                 <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-                    <Link href="/student/batch1/polity" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
+                    <Link href="/student/batch1/polity/revision" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
                         <ChevronLeft className="w-5 h-4" />
-                        <span className="text-sm font-medium">Back to Module</span>
+                        <span className="text-sm font-medium">Back to Revision Hub</span>
                     </Link>
                     <div className="text-center">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600">Chapter {chapterId} Revision</span>
@@ -115,8 +122,8 @@ export default function ChapterRevisionView({ chapterId }: Props) {
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id as any)}
                                 className={`py-4 px-1 border-b-2 transition-all flex items-center gap-2 text-sm font-medium ${activeTab === tab.id
-                                        ? 'border-blue-600 text-blue-600'
-                                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                                    ? 'border-blue-600 text-blue-600'
+                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                                     }`}
                             >
                                 <tab.icon className="w-4 h-4" />
@@ -188,8 +195,8 @@ export default function ChapterRevisionView({ chapterId }: Props) {
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold ${flashcards[currentFlashIdx].difficulty === 'easy' ? 'bg-green-100 text-green-700' :
-                                        flashcards[currentFlashIdx].difficulty === 'medium' ? 'bg-amber-100 text-amber-700' :
-                                            'bg-red-100 text-red-700'
+                                    flashcards[currentFlashIdx].difficulty === 'medium' ? 'bg-amber-100 text-amber-700' :
+                                        'bg-red-100 text-red-700'
                                     }`}>
                                     {flashcards[currentFlashIdx].difficulty}
                                 </span>
@@ -283,8 +290,8 @@ export default function ChapterRevisionView({ chapterId }: Props) {
                                                 key={oIdx}
                                                 onClick={() => handleOptionSelect(oIdx)}
                                                 className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${answers[currentMcqIdx] === oIdx
-                                                        ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300'
-                                                        : 'border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700'
+                                                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300'
+                                                    : 'border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700'
                                                     }`}
                                             >
                                                 <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold ${answers[currentMcqIdx] === oIdx ? 'bg-blue-600 border-blue-600 text-white' : 'border-gray-300 text-gray-400'

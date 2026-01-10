@@ -21,83 +21,14 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { POLITY_REVISION_CHAPTERS } from '../data/RevisionRegistry';
+import {
+    getAllProgress,
+    getStreak,
+    updateStreak,
+    RevisionProgress,
+    StudyStreak
+} from './progress-utils';
 
-// Types
-interface RevisionProgress {
-    chapterId: number;
-    flashcardsCompleted: number;
-    flashcardsTotal: number;
-    mcqsCompleted: number;
-    mcqsTotal: number;
-    lastRevisedAt: string | null;
-    mastered: boolean;
-}
-
-interface StudyStreak {
-    currentStreak: number;
-    longestStreak: number;
-    lastStudyDate: string | null;
-    totalDaysStudied: number;
-}
-
-// Storage keys
-const PROGRESS_KEY = 'polity_revision_progress';
-const STREAK_KEY = 'polity_study_streak';
-
-// Get progress from localStorage
-function getProgress(): Record<number, RevisionProgress> {
-    if (typeof window === 'undefined') return {};
-    try {
-        const stored = localStorage.getItem(PROGRESS_KEY);
-        return stored ? JSON.parse(stored) : {};
-    } catch {
-        return {};
-    }
-}
-
-// Save progress to localStorage
-function saveProgress(progress: Record<number, RevisionProgress>) {
-    if (typeof window === 'undefined') return;
-    localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
-}
-
-// Get streak data
-function getStreak(): StudyStreak {
-    if (typeof window === 'undefined') return { currentStreak: 0, longestStreak: 0, lastStudyDate: null, totalDaysStudied: 0 };
-    try {
-        const stored = localStorage.getItem(STREAK_KEY);
-        return stored ? JSON.parse(stored) : { currentStreak: 0, longestStreak: 0, lastStudyDate: null, totalDaysStudied: 0 };
-    } catch {
-        return { currentStreak: 0, longestStreak: 0, lastStudyDate: null, totalDaysStudied: 0 };
-    }
-}
-
-// Update streak on study
-function updateStreak(): StudyStreak {
-    const streak = getStreak();
-    const today = new Date().toISOString().split('T')[0];
-
-    if (streak.lastStudyDate === today) {
-        return streak; // Already studied today
-    }
-
-    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-
-    if (streak.lastStudyDate === yesterday) {
-        // Continuing streak
-        streak.currentStreak += 1;
-        streak.longestStreak = Math.max(streak.currentStreak, streak.longestStreak);
-    } else if (streak.lastStudyDate !== today) {
-        // Streak broken
-        streak.currentStreak = 1;
-    }
-
-    streak.lastStudyDate = today;
-    streak.totalDaysStudied += 1;
-
-    localStorage.setItem(STREAK_KEY, JSON.stringify(streak));
-    return streak;
-}
 
 export default function RevisionDashboard() {
     const [progress, setProgress] = useState<Record<number, RevisionProgress>>({});
@@ -108,7 +39,7 @@ export default function RevisionDashboard() {
 
     // Load data on mount
     useEffect(() => {
-        setProgress(getProgress());
+        setProgress(getAllProgress());
         setStreak(getStreak());
     }, []);
 
@@ -325,8 +256,8 @@ export default function RevisionDashboard() {
                                     key={ch.id}
                                     onClick={() => toggleChapter(ch.id)}
                                     className={`p-3 rounded-xl text-left transition-all text-sm ${selectedChapters.includes(ch.id)
-                                            ? 'bg-indigo-600 text-white'
-                                            : 'bg-gray-50 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1a1a1a]'
+                                        ? 'bg-indigo-600 text-white'
+                                        : 'bg-gray-50 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1a1a1a]'
                                         }`}
                                 >
                                     <div className="font-bold">Ch {ch.id}</div>
