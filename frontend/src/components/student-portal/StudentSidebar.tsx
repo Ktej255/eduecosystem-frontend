@@ -71,6 +71,12 @@ const menuItems = [
         icon: Brain,
         access: "all",
     },
+    {
+        name: "Revision Portal",
+        href: "/student/revision",
+        icon: Layers,
+        access: "revision", // visible to Master ID and authorized users
+    },
 ];
 
 const bottomMenuItems = [

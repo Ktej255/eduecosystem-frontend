@@ -48,16 +48,16 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
             const startDateStr = localStorage.getItem('polity_start_calendar_date');
             let startDate: Date;
             if (!startDateStr) {
-                // Pin to Jan 11, 2026 (Sunday) as requested to include the first revision day
-                startDate = new Date('2026-01-11T00:00:00');
+                // Pin to Jan 12, 2026 (Monday) - Batch 1.1 start date
+                startDate = new Date('2026-01-12T00:00:00');
                 localStorage.setItem('polity_start_calendar_date', startDate.toISOString());
             } else {
                 startDate = new Date(startDateStr);
                 // MIGRATION: If previously set to Jan 12 (Monday), shift back to Jan 11 (Sunday)
                 // to align with the new Sunday-start week structure
-                const jan12 = new Date('2026-01-12T00:00:00');
-                if (startDate.toDateString() === jan12.toDateString()) {
-                    startDate = new Date('2026-01-11T00:00:00');
+                const jan11 = new Date('2026-01-11T00:00:00');
+                if (startDate.toDateString() === jan11.toDateString()) {
+                    startDate = new Date('2026-01-12T00:00:00');
                     localStorage.setItem('polity_start_calendar_date', startDate.toISOString());
                 }
             }
@@ -85,11 +85,11 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
     const totalPages = LAXMIKANTH_CHAPTERS.reduce((sum, ch) => sum + ch.pages, 0);
     const progressPercent = Math.round((completedChapters.length / totalChapters) * 100);
 
-    const days: (keyof typeof currentWeek.days)[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const days: (keyof typeof currentWeek.days)[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
     const weekStartDates = useMemo(() => {
         const startDateStr = localStorage.getItem('polity_start_calendar_date');
-        const baseDate = startDateStr ? new Date(startDateStr) : new Date('2026-01-11T00:00:00');
+        const baseDate = startDateStr ? new Date(startDateStr) : new Date('2026-01-12T00:00:00');
         const weekStart = new Date(baseDate);
         weekStart.setDate(baseDate.getDate() + (selectedWeek * 7));
         return weekStart;
