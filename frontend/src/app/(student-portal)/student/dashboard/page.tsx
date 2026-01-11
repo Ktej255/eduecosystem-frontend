@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useAuth } from "@/contexts/auth-context";
-import { JourneyEngine, DayPlan, UserProgressContext } from "@/lib/journey/journey-engine";
+import { JourneyEngine, DayPlan, UserProgressContext, JourneyStep } from "@/lib/journey/journey-engine";
 import JourneyTimeline from "@/components/journey/JourneyTimeline";
 import {
     getStudentStats,
     getResumePoint,
     StudentStats,
 } from "@/services/progressStorage";
+import { getCompletedStepsForDay } from "@/lib/journey/completion-tracker";
 import { RefreshCw, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -19,6 +20,7 @@ export default function StudentDashboard() {
     const [stats, setStats] = useState<StudentStats | null>(null);
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
     const [isRefreshing, setIsRefreshing] = useState(false);
+    const [completedSteps, setCompletedSteps] = useState<string[]>([]);
 
     // Load stats from storage
     const loadStats = useCallback(async () => {
@@ -29,27 +31,63 @@ export default function StudentDashboard() {
         setIsRefreshing(false);
     }, []);
 
+    // Load completed steps from localStorage
+    const loadCompletedSteps = useCallback(() => {
+        const basePlan = JourneyEngine.generateDailyPlan(new Date(), {
+            lastCompletedDate: null,
+            streakDays: 0,
+            completedChapters: [],
+            masteredChapters: [],
+            weakTopics: []
+        });
+        const completed = getCompletedStepsForDay(basePlan.dayNumber);
+        setCompletedSteps(completed);
+    }, []);
+
     // Initial load
     useEffect(() => {
         loadStats();
-    }, [loadStats]);
+        loadCompletedSteps();
 
-    // Generate Dynamic Journey Plan
+        // Listen for storage changes
+        const handleStorage = () => loadCompletedSteps();
+        window.addEventListener('storage', handleStorage);
+        return () => window.removeEventListener('storage', handleStorage);
+    }, [loadStats, loadCompletedSteps]);
+
+    // Generate Dynamic Journey Plan with completion status
     const dayPlan: DayPlan | null = useMemo(() => {
         if (!stats) return null;
 
         // Construct Progress Context from stats
         const progressContext: UserProgressContext = {
-            lastCompletedDate: null, // Not tracked in current StudentStats
+            lastCompletedDate: null,
             streakDays: stats.overallStreak ?? 0,
-            completedChapters: [], // TODO: Fetch actual completed chapters from localStorage
+            completedChapters: [],
             masteredChapters: [],
             weakTopics: []
         };
 
         // Pass 'now' as the target date
-        return JourneyEngine.generateDailyPlan(new Date(), progressContext);
-    }, [stats]);
+        const plan = JourneyEngine.generateDailyPlan(new Date(), progressContext);
+
+        // Update step statuses based on completion data
+        const updatedSteps: JourneyStep[] = plan.steps.map(step => {
+            // Check if this step's base ID (without day number) is completed
+            const stepBaseId = step.id.split('-')[0]; // e.g., "meditation" from "meditation-1"
+            const isCompleted = completedSteps.includes(step.id) || completedSteps.includes(stepBaseId);
+
+            return {
+                ...step,
+                status: isCompleted ? 'completed' : step.status
+            };
+        });
+
+        return {
+            ...plan,
+            steps: updatedSteps
+        };
+    }, [stats, completedSteps]);
 
 
     if (!stats || !dayPlan) {
@@ -62,6 +100,7 @@ export default function StudentDashboard() {
             </div>
         );
     }
+
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-[#000] pb-20">

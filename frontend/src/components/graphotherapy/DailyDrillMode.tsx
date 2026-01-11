@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { GraphoDrill } from '@/lib/graphotherapy/grapho-engine';
 import { CLASS_CONFIG } from '@/lib/journey/class-config';
+import { markStepComplete } from '@/lib/journey/completion-tracker';
 import {
     ChevronLeft,
     Camera,
@@ -193,7 +194,11 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
                     </Button>
                     <Button
                         className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4"
-                        onClick={() => setStep('complete')}
+                        onClick={() => {
+                            // Mark graphotherapy as complete in localStorage
+                            markStepComplete(drill.day, `grapho-${drill.day}`);
+                            setStep('complete');
+                        }}
                     >
                         Yes, Done ✓
                     </Button>

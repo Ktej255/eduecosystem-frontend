@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { CLASS_CONFIG, isWithinLiveWindow, formatTimeWindow } from '@/lib/journey/class-config';
+import { markStepComplete } from '@/lib/journey/completion-tracker';
+import { JourneyEngine } from '@/lib/journey/journey-engine';
 import { Video, ExternalLink, Play, CheckCircle, ChevronLeft, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -29,6 +31,14 @@ export default function MeditationSession({ onComplete, redirectAfterComplete = 
     }, []);
 
     const handleComplete = () => {
+        // Calculate current day number
+        const plan = JourneyEngine.generateDailyPlan(new Date(), {
+            lastCompletedDate: null, streakDays: 0, completedChapters: [], masteredChapters: [], weakTopics: []
+        });
+
+        // Mark meditation as complete in localStorage
+        markStepComplete(plan.dayNumber, `meditation-${plan.dayNumber}`);
+
         setIsCompleted(true);
         if (onComplete) onComplete();
     };
