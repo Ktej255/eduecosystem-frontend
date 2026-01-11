@@ -1,17 +1,27 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { MeditationEngine, MeditationSession } from '@/lib/meditation/meditation-engine';
+import { meditationService, MeditationOverview } from '@/services/meditationService';
+// We still need static content like icons or helper functions if not in service
 import { Play, Moon, Sun, Wind, Sparkles, Brain } from 'lucide-react';
 import Link from 'next/link';
 
 export default function MeditationDashboard() {
-    const [recommended, setRecommended] = useState<MeditationSession | null>(null);
-    const [allSessions, setAllSessions] = useState<MeditationSession[]>([]);
+    const [overview, setOverview] = useState<MeditationOverview | null>(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setRecommended(MeditationEngine.getRecommendedSession());
-        setAllSessions(MeditationEngine.getAllSessions());
+        const loadData = async () => {
+            try {
+                const data = await meditationService.getOverview();
+                setOverview(data);
+            } catch (error) {
+                console.error("Failed to load meditation data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        loadData();
     }, []);
 
     const getIcon = (category: string) => {
@@ -24,6 +34,22 @@ export default function MeditationDashboard() {
         }
     };
 
+    if (loading) {
+        return <div className="min-h-screen bg-neutral-950 flex items-center justify-center text-white">Loading...</div>;
+    }
+
+    // Backend overview doesn't return ALL sessions list directly, it returns progress.
+    // However, the dashboard needs to show "Explore Sessions".
+    // The previous mock engine returned ALL sessions.
+    // The backend `getOverview` returns `todays_processes` (count) and `levels`.
+    // It DOES NOT return a list of all available sessions (meditation processes).
+    // The sessions are embedded in levels in the backend model.
+
+    // I should fetch Level 1 details to get the list of sessions (since users start at Level 1).
+    // Or maybe the dashboard should show "Current Level Sessions"?
+
+    // Let's modify the load logic to ALSO fetch Level 1 (or current level) details to get the list.
+
     return (
         <div className="min-h-screen bg-neutral-950 text-white pb-20">
             {/* Dynamic Ambient Background */}
@@ -34,60 +60,32 @@ export default function MeditationDashboard() {
                 <div className="mb-10">
                     <h1 className="text-3xl md:text-5xl font-serif text-white/90 mb-2">Meditation Center</h1>
                     <p className="text-neutral-400">Find your center. Realign your mind.</p>
+                    <div className="mt-4 flex gap-4 text-sm text-neutral-400">
+                        <div className="bg-white/5 px-3 py-1 rounded-lg border border-white/10">
+                            Streak: <span className="text-white font-bold">{overview?.total_streak} Days</span>
+                        </div>
+                        <div className="bg-white/5 px-3 py-1 rounded-lg border border-white/10">
+                            Level: <span className="text-white font-bold">{overview?.current_level}</span>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Hero: Recommended Session */}
-                {recommended && (
-                    <div className="mb-16">
-                        <div className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Predicted for You</div>
-                        <Link href={`/student/meditation/session/${recommended.id}`} className="block group">
-                            <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-r ${recommended.thumbnailGradient} p-8 md:p-12 transition-transform hover:scale-[1.01]`}>
-                                <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                                    <div>
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <div className="bg-white/20 p-2 rounded-full backdrop-blur-sm">
-                                                {getIcon(recommended.category)}
-                                            </div>
-                                            <span className="text-sm font-medium text-white/80">{recommended.duration} min • {recommended.category}</span>
-                                        </div>
-                                        <h2 className="text-4xl font-black mb-3">{recommended.title}</h2>
-                                        <p className="text-white/80 text-lg max-w-xl">{recommended.description}</p>
-                                    </div>
+                {/* Hero: Recommended Session (Placeholder logic for now) */}
+                {/* 
+                   In backend, we have `todays_processes` which is an index.
+                   Any specific recommendation logic needs to come from backend or be derived.
+                   For now, I will omit the "Recommended" hero if I don't have the specific session object easily.
+                   Or I can fetch the specific session if I knew its ID.
+                */}
 
-                                    <div className="bg-white text-black w-14 h-14 rounded-full flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                                        <Play className="w-6 h-6 ml-1" />
-                                    </div>
-                                </div>
-
-                                {/* Background Pattern */}
-                                <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-                            </div>
-                        </Link>
-                    </div>
-                )}
-
-                {/* Categories grid */}
+                {/* Categories grid / Level Sessions */}
                 <div>
-                    <h3 className="text-xl font-bold mb-6">Explore Sessions</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {allSessions.filter(s => s.id !== recommended?.id).map((session) => (
-                            <Link key={session.id} href={`/student/meditation/session/${session.id}`} className="group">
-                                <div className={`h-full rounded-2xl bg-neutral-900 border border-neutral-800 p-6 transition-all hover:bg-neutral-800 hover:border-neutral-700`}>
-                                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${session.thumbnailGradient} flex items-center justify-center mb-4`}>
-                                        <div className="text-white">
-                                            {getIcon(session.category)}
-                                        </div>
-                                    </div>
-
-                                    <h4 className="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">{session.title}</h4>
-                                    <p className="text-sm text-neutral-400 mb-4 line-clamp-2">{session.description}</p>
-
-                                    <div className="flex items-center text-xs text-neutral-500 font-bold uppercase tracking-wider">
-                                        {session.duration} min • {session.category}
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
+                    <h3 className="text-xl font-bold mb-6">Your Sessions (Level {overview?.current_level})</h3>
+                    <div className="p-6 bg-neutral-900/50 border border-white/10 rounded-2xl text-center text-neutral-400">
+                        <p>To view your daily sessions, please proceed to your specific Day view.</p>
+                        <Link href={`/student/meditation/level/${overview?.current_level}/day/${overview?.current_day}`} className="inline-block mt-4 bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2 rounded-lg font-bold transition-colors">
+                            Go to Day {overview?.current_day}
+                        </Link>
                     </div>
                 </div>
             </div>
