@@ -10,7 +10,8 @@ export const CLASS_CONFIG = {
         liveStart: { hour: 5, minute: 50 },
         liveEnd: { hour: 6, minute: 30 },
         meetLink: 'https://meet.google.com/xxx-xxxx-xxx', // TODO: Update with actual link
-        recordedVideo: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&modestbranding=1&rel=0', // TODO: Update with actual video
+        // YouTube embed with all controls hidden: autoplay, no controls, no annotations, no logo, fullscreen
+        recordedVideo: 'https://www.youtube.com/embed/-kv1TaiCf14?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&loop=1&playlist=-kv1TaiCf14',
         title: 'Morning Meditation',
         description: 'Start your day with guided meditation and clarity.',
     },
@@ -18,7 +19,8 @@ export const CLASS_CONFIG = {
         liveStart: { hour: 21, minute: 0 },  // 9 PM
         liveEnd: { hour: 22, minute: 0 },    // 10 PM
         meetLink: 'https://meet.google.com/yyy-yyyy-yyy', // TODO: Update with actual link
-        recordedVideo: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&modestbranding=1&rel=0', // TODO: Update with actual video
+        // YouTube embed with all controls hidden
+        recordedVideo: 'https://www.youtube.com/embed/hzNKZN4YQXs?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&loop=1&playlist=hzNKZN4YQXs',
         title: 'Night Class',
         description: 'End your day with reflection and learning.',
     },

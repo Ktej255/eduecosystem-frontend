@@ -30,6 +30,12 @@ const menuItems = [
         access: "all", // visible to all
     },
     {
+        name: "Study Planner",
+        href: "/student/batch1-1/polity?tab=schedule",
+        icon: CalendarDays,
+        access: "batch1", // Study Planner for Batch 1.1 students
+    },
+    {
         name: "Batch 1",
         href: "/student/batch1",
         icon: BookOpen,
@@ -102,7 +108,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
     const pathname = usePathname();
     const { user } = useAuth();
     const isMasterId = user?.email === "ktej255@gmail.com";
-    
+
     // Updated Batch 1 Access List
     const batch1AllowedEmails = [
         "ktej255@gmail.com",
@@ -111,7 +117,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
         "kajaldhannatar@gmail.com",
         "dikshajakhar0212@gmail.com"
     ];
-    
+
     const isSpecialBatch1Student = user?.email && batch1AllowedEmails.includes(user.email);
     const isRasAuthorized = user?.is_ras_authorized || user?.email === "chitrakumawat33@gmail.com";
     const isBatch1Allowed = isMasterId || isSpecialBatch1Student || user?.is_batch1_authorized;
