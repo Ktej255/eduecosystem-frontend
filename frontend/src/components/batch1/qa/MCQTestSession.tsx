@@ -67,6 +67,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [timeSpentPerQuestion, setTimeSpentPerQuestion] = useState<{ [key: number]: number }>({}); // qId -> seconds
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const handleSubmitRef = useRef<() => void>(() => { }); // Ref to hold latest handleSubmit
 
     // Format timer
     const formatTime = (seconds: number) => {
@@ -84,7 +85,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             timerRef.current = setInterval(() => {
                 setTimeLeft((prev) => {
                     if (prev <= 1) {
-                        handleSubmit();
+                        // Use ref to call latest handleSubmit to avoid closure issues
+                        handleSubmitRef.current();
                         return 0;
                     }
                     return prev - 1;
@@ -304,6 +306,9 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const handleSubmit = async () => {
         if (timerRef.current) clearInterval(timerRef.current);
 
+        // Prevent double submission
+        if (isSubmitted) return;
+
         let calculatedScore = 0;
         let correct = 0;
         let incorrect = 0;
@@ -399,6 +404,11 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             setIsSaving(false);
         }
     };
+
+    // Keep the ref updated with latest handleSubmit
+    useEffect(() => {
+        handleSubmitRef.current = handleSubmit;
+    });
 
     // Safety check for loading or empty questions
     if (loading) {
