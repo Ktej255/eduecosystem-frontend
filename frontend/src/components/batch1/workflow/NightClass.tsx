@@ -5,6 +5,7 @@ import { ArrowLeft, Video, Play, BookHeart, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea"; // Assuming generic Textarea exists
+import { MEET_CONFIG } from "@/config/meet-config";
 
 export default function NightClass({ onComplete, onBack }: { onComplete: () => void, onBack: () => void }) {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -28,9 +29,6 @@ export default function NightClass({ onComplete, onBack }: { onComplete: () => v
         return () => clearInterval(timer);
     }, []);
 
-    import { MEET_CONFIG } from "@/config/meet-config";
-
-    // ... inside component
     const handleJoinLive = () => {
         window.open(MEET_CONFIG.NIGHT_CLASS_LINK, "_blank");
     };
