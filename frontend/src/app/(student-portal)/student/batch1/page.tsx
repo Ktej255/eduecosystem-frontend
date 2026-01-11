@@ -13,8 +13,6 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import Batch1ContentMap from "@/components/batch1/polity/Batch1ContentMap";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
 
 type WorkflowStep = 'timeline' | 'plan' | 'map' | 'morning' | 'graphotherapy' | 'pomodoro' | 'evening' | 'night';
 
