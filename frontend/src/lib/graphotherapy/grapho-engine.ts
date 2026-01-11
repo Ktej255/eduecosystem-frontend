@@ -88,7 +88,22 @@ export class GraphotherapyEngine {
     }
 
     static getDrillForDay(day: number): GraphoDrill | null {
-        return GRAPHO_PROGRAM.find(d => d.day === day) || null;
+        const directMatch = GRAPHO_PROGRAM.find(d => d.day === day);
+        if (directMatch) return directMatch;
+
+        // Fallback for days > length of program: Cycle through the content
+        // e.g., Day 6 uses Day 1's content, Day 7 uses Day 2, etc.
+        if (day > 0 && GRAPHO_PROGRAM.length > 0) {
+            const cycleIndex = (day - 1) % GRAPHO_PROGRAM.length;
+            const template = GRAPHO_PROGRAM[cycleIndex];
+            return {
+                ...template,
+                day: day, // Override day
+                title: `${template.title} (Day ${day} Practice)`, // Custom title
+            };
+        }
+
+        return null;
     }
 
     static getAllDrills(): GraphoDrill[] {

@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { meditationService, MeditationOverview } from '@/services/meditationService';
-// We still need static content like icons or helper functions if not in service
-import { Play, Moon, Sun, Wind, Sparkles, Brain } from 'lucide-react';
+import { Moon, Sun, Wind, Sparkles, Brain } from 'lucide-react';
 import Link from 'next/link';
 
 export default function MeditationDashboard() {
