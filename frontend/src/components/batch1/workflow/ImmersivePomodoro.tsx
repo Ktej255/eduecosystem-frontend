@@ -18,39 +18,69 @@ export default function ImmersivePomodoro({ onComplete, onBack }: { onComplete: 
     const [isFullscreen, setIsFullscreen] = useState(false);
 
     // Resilience: Start Time Tracking
-    // In a real app, this should be in localStorage or DB to survive refresh
-    const startTimeRef = useRef<number | null>(null);
+    useEffect(() => {
+        // Load state from local storage on mount
+        const savedStatus = localStorage.getItem('pomodoro_status');
+        const savedStartTime = localStorage.getItem('pomodoro_start_time');
+
+        if (savedStatus === 'running' && savedStartTime) {
+            const start = parseInt(savedStartTime, 10);
+            const now = Date.now();
+            const elapsed = Math.floor((now - start) / 1000);
+            const remaining = TOTAL_SESSION_TIME - elapsed;
+
+            if (remaining > 0) {
+                setStatus('running');
+                setTimeLeft(remaining);
+            } else {
+                setStatus('paused'); // Or finished
+                setTimeLeft(0);
+                localStorage.removeItem('pomodoro_status');
+                localStorage.removeItem('pomodoro_start_time');
+            }
+        }
+    }, []);
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
 
         if (status === 'running') {
-            if (!startTimeRef.current) {
-                startTimeRef.current = Date.now();
+            // Save start time if not already saved
+            if (!localStorage.getItem('pomodoro_start_time')) {
+                localStorage.setItem('pomodoro_start_time', Date.now().toString());
             }
+            localStorage.setItem('pomodoro_status', 'running');
 
             interval = setInterval(() => {
+                const startTime = parseInt(localStorage.getItem('pomodoro_start_time') || Date.now().toString(), 10);
                 const now = Date.now();
-                const elapsedSeconds = Math.floor((now - startTimeRef.current!) / 1000);
+                const elapsedSeconds = Math.floor((now - startTime) / 1000);
                 const remaining = TOTAL_SESSION_TIME - elapsedSeconds;
 
                 if (remaining <= 0) {
                     setTimeLeft(0);
-                    setStatus('paused'); // or complete
+                    setStatus('paused');
+                    localStorage.removeItem('pomodoro_status');
+                    localStorage.removeItem('pomodoro_start_time');
                     clearInterval(interval);
                 } else {
                     setTimeLeft(remaining);
                 }
             }, 1000);
-        } else {
-            // Logic to handle pause could be complex with "Wall Clock Time" vs "Active Time"
-            // For this MVP, we pause the timer visual but wall clock keeps ticking? 
-            // Requirement says "Not to be start from zero". 
-            // If we want to support "Stop", we might need to subtract paused time from the start ref.
+        } else if (status === 'paused') {
+            // If manually paused, we might want to clear the persistence or handle "pause" differently.
         }
 
         return () => clearInterval(interval);
     }, [status]);
+
+    const handleCompleteOrStop = () => {
+        localStorage.removeItem('pomodoro_status');
+        localStorage.removeItem('pomodoro_start_time');
+        setStatus('planning');
+        setTimeLeft(TOTAL_SESSION_TIME);
+        onComplete();
+    };
 
     const toggleFullscreen = () => {
         if (!document.fullscreenElement) {
