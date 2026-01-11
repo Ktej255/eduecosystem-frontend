@@ -5,9 +5,11 @@ import DailyTimeline from "@/components/batch1/workflow/DailyTimeline";
 import MorningMeditation from "@/components/batch1/workflow/MorningMeditation";
 import GraphotherapySession from "@/components/batch1/workflow/GraphotherapySession";
 import ImmersivePomodoro from "@/components/batch1/workflow/ImmersivePomodoro";
+import EveningSection from "@/components/batch1/workflow/EveningSection";
+import NightClass from "@/components/batch1/workflow/NightClass";
 import { useRouter } from "next/navigation";
 
-type WorkflowStep = 'timeline' | 'morning' | 'graphotherapy' | 'pomodoro';
+type WorkflowStep = 'timeline' | 'morning' | 'graphotherapy' | 'pomodoro' | 'evening' | 'night';
 
 export default function Batch1Page() {
     const router = useRouter();
@@ -25,17 +27,10 @@ export default function Batch1Page() {
                 setCurrentView('pomodoro');
                 break;
             case 'evening':
-                // Redirect to specialized evening revision blocks
-                // For now, let's assume we have a way to toggle or just scroll there
-                // But per requirements: "redirect to evening section"
-                // Ideally this could be a query param or anchor, but simpler is just a dedicated page section or toggle
-                // Since this page might be the ALL-IN-ONE dashboard, we might show the evening cards here in the future.
-                // For now, let's keep it simple.
-                alert("Evening Section: This would engage Flashcards/MCQs components.");
+                setCurrentView('evening');
                 break;
             case 'night':
-                // Live class logic
-                alert("Night Class: Redirecting to Live Class Link if time is 9:00 PM.");
+                setCurrentView('night');
                 break;
             default:
                 break;
@@ -70,6 +65,19 @@ export default function Batch1Page() {
 
             {currentView === 'pomodoro' && (
                 <ImmersivePomodoro
+                    onComplete={handleBackToTimeline}
+                    onBack={handleBackToTimeline}
+                />
+            )}
+
+            {currentView === 'evening' && (
+                <EveningSection
+                    onBack={handleBackToTimeline}
+                />
+            )}
+
+            {currentView === 'night' && (
+                <NightClass
                     onComplete={handleBackToTimeline}
                     onBack={handleBackToTimeline}
                 />
