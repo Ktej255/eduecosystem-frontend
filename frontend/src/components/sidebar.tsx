@@ -95,6 +95,14 @@ const routes: Route[] = [
     children: [],
   },
   {
+    label: "Polity Shield",
+    icon: Shield,
+    href: "/teacher/polity-tracker",
+    color: "text-blue-500",
+    badge: "95",
+    children: [],
+  },
+  {
     label: "Create Course",
     icon: PlusCircle,
     href: "/lms/courses/create",

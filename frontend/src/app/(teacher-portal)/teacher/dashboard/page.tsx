@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { BookOpen, Video, Upload, Users, BarChart3, Clock, CheckCircle2, AlertCircle, Eye, TrendingUp, Target, FileText } from "lucide-react";
+import { BookOpen, Video, Upload, Users, BarChart3, Clock, CheckCircle2, AlertCircle, Eye, TrendingUp, Target, FileText, Shield } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -30,6 +30,7 @@ export default function TeacherDashboard() {
     const [students, setStudents] = useState<StudentData[]>([]);
     const [loading, setLoading] = useState(true);
     const [stats, setStats] = useState({ totalStudents: 0, batch1: 0, ras: 0, activeToday: 0 });
+    const [polityTask, setPolityTask] = useState<any>(null);
 
     const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
@@ -58,6 +59,16 @@ export default function TeacherDashboard() {
                     ras: rasCount,
                     activeToday: Math.ceil(studentList.length * 0.3) // Placeholder
                 });
+            }
+
+            // Fetch Polity Task
+            const polityRes = await fetch(`${API_BASE}/polity/tasks`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (polityRes.ok) {
+                const tasks = await polityRes.json();
+                const nextTask = tasks.find((t: any) => t.status !== 'completed');
+                setPolityTask(nextTask || { title: "All Chapters Completed!", status: 'completed' });
             }
         } catch (error) {
             console.error("Failed to fetch dashboard data:", error);
@@ -152,6 +163,49 @@ export default function TeacherDashboard() {
                     </Card>
                 ))}
             </div>
+
+            {/* Today's Priority Task */}
+            {polityTask && (
+                <Card className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white border-0 overflow-hidden relative">
+                    <div className="absolute top-0 right-0 p-4 opacity-10">
+                        <Target className="h-32 w-32" />
+                    </div>
+                    <CardContent className="p-6 relative z-10">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div>
+                                <h2 className="text-xl font-bold flex items-center gap-2">
+                                    <Shield className="h-6 w-6 text-blue-400" />
+                                    Operation Lakshmikant: Today's Focus
+                                </h2>
+                                <p className="text-blue-100 mt-1">
+                                    {polityTask.status === 'completed'
+                                        ? "Mission Accomplished! All 95 chapters processed."
+                                        : `Chapter ${polityTask.chapter_number}: ${polityTask.chapter_title}`
+                                    }
+                                </p>
+                            </div>
+                            <div className="flex gap-3">
+                                {polityTask.status !== 'completed' && (
+                                    <div className="flex gap-2 text-sm bg-white/10 p-2 rounded-lg backdrop-blur-sm">
+                                        <div className="opacity-70">Next Step:</div>
+                                        <div className="font-bold text-yellow-300">
+                                            {!polityTask.research_done ? "Research" :
+                                                !polityTask.report_generated ? "Generate Report" :
+                                                    !polityTask.report_saved ? "Save to DB" :
+                                                        !polityTask.video_generated ? "Video" : "Podcast"}
+                                        </div>
+                                    </div>
+                                )}
+                                <Link href="/teacher/polity-tracker">
+                                    <Button variant="secondary" className="shadow-lg hover:shadow-xl transition-all">
+                                        {polityTask.status === 'completed' ? "View Report" : "Execute Task"}
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            )}
 
             {/* Quick Actions */}
             <div>

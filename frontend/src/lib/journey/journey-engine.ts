@@ -65,7 +65,7 @@ export class JourneyEngine {
             description: 'Start your day with focus and intention.',
             durationMinutes: 10,
             status: 'ready', // Always ready at start of day
-            actionUrl: '/student/meditation/daily',
+            actionUrl: '/student/meditation',
             icon: 'Sun'
         };
 
@@ -79,7 +79,7 @@ export class JourneyEngine {
             description: 'Align your subconscious with writing exercises.',
             durationMinutes: 15,
             status: 'locked', // Unlock after meditation in full version, 'ready' for MVP
-            actionUrl: '/student/graphotherapy/daily',
+            actionUrl: '/student/graphotherapy',
             icon: 'PenTool'
         };
 
@@ -106,7 +106,7 @@ export class JourneyEngine {
             description: 'Solidify retention with active testing.',
             durationMinutes: 30,
             status: 'locked',
-            actionUrl: '/student/batch1/polity/revision',
+            actionUrl: '/student/revision',
             icon: 'Mic'
         };
 
