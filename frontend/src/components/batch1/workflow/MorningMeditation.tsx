@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Play, Video, CheckCircle, ArrowLeft } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { MEET_CONFIG } from "@/config/meet-config";
 
 export default function MorningMeditation({ onComplete, onBack }: { onComplete: () => void, onBack: () => void }) {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -20,7 +21,7 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
     }, []);
 
     const handleJoinLive = () => {
-        window.open("https://meet.google.com/your-live-link-here", "_blank");
+        window.open(MEET_CONFIG.MORNING_SESSION_LINK, "_blank");
     };
 
     return (

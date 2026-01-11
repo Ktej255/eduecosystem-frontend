@@ -28,8 +28,11 @@ export default function NightClass({ onComplete, onBack }: { onComplete: () => v
         return () => clearInterval(timer);
     }, []);
 
+    import { MEET_CONFIG } from "@/config/meet-config";
+
+    // ... inside component
     const handleJoinLive = () => {
-        window.open("https://meet.google.com/your-night-class-link", "_blank");
+        window.open(MEET_CONFIG.NIGHT_CLASS_LINK, "_blank");
     };
 
     return (
