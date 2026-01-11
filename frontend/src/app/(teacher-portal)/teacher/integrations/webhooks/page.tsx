@@ -59,7 +59,7 @@ export default function WebhooksPage() {
                 </div>
                 <div className="flex gap-2">
                     <Button variant="outline" asChild>
-                        <Link href="/teacher/integrations/logs">
+                        <Link href="/teacher/integrations/activity-logs">
                             <History className="h-4 w-4 mr-2" />
                             View Full Log
                         </Link>
