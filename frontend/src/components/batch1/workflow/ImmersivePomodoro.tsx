@@ -137,7 +137,7 @@ export default function ImmersivePomodoro({ onComplete, onBack }: { onComplete: 
                         </Button>
                     )}
 
-                    <Button variant="destructive" size="lg" onClick={onComplete}>
+                    <Button variant="destructive" size="lg" onClick={handleCompleteOrStop}>
                         <StopCircle className="w-6 h-6 mr-2" /> End Session
                     </Button>
                 </div>

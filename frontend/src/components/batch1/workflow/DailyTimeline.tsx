@@ -82,7 +82,7 @@ const TimelineNode = ({ title, description, time, icon, status, onClick, isLast 
     );
 };
 
-export default function DailyTimeline({ onSelectStep }: { onSelectStep: (step: string) => void }) {
+export default function DailyTimeline({ onSelectStep, onOpenPlan }: { onSelectStep: (step: string) => void, onOpenPlan: () => void }) {
     const [activeStep] = useState('morning'); // Could be derived from time or progress
 
     const steps = [
@@ -139,7 +139,7 @@ export default function DailyTimeline({ onSelectStep }: { onSelectStep: (step: s
                     <Button variant="outline" className="gap-2">
                         <LayoutDashboard className="w-4 h-4" /> Dashboard
                     </Button>
-                    <Button variant="outline" className="gap-2">
+                    <Button variant="outline" className="gap-2" onClick={onOpenPlan}>
                         <CalendarRange className="w-4 h-4" /> Weekly Plan
                     </Button>
                 </div>

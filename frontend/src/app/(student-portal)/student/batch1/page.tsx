@@ -7,9 +7,10 @@ import GraphotherapySession from "@/components/batch1/workflow/GraphotherapySess
 import ImmersivePomodoro from "@/components/batch1/workflow/ImmersivePomodoro";
 import EveningSection from "@/components/batch1/workflow/EveningSection";
 import NightClass from "@/components/batch1/workflow/NightClass";
+import WeeklyPlan from "@/components/batch1/workflow/WeeklyPlan";
 import { useRouter } from "next/navigation";
 
-type WorkflowStep = 'timeline' | 'morning' | 'graphotherapy' | 'pomodoro' | 'evening' | 'night';
+type WorkflowStep = 'timeline' | 'plan' | 'morning' | 'graphotherapy' | 'pomodoro' | 'evening' | 'night';
 
 export default function Batch1Page() {
     const router = useRouter();
@@ -45,7 +46,16 @@ export default function Batch1Page() {
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             {currentView === 'timeline' && (
                 <div className="p-4 md:p-8">
-                    <DailyTimeline onSelectStep={handleStepSelect} />
+                    <DailyTimeline
+                        onSelectStep={handleStepSelect}
+                        onOpenPlan={() => setCurrentView('plan')}
+                    />
+                </div>
+            )}
+
+            {currentView === 'plan' && (
+                <div className="p-4 md:p-8">
+                    <WeeklyPlan onBack={handleBackToTimeline} />
                 </div>
             )}
 
