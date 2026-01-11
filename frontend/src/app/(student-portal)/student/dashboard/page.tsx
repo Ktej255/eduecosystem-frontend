@@ -40,9 +40,9 @@ export default function StudentDashboard() {
 
         // Construct Progress Context from stats
         const progressContext: UserProgressContext = {
-            lastCompletedDate: stats.lastStudyDate,
-            streakDays: stats.overallStreak,
-            completedChapters: [], // TODO: Fetch actal completed chapters from localStorage
+            lastCompletedDate: null, // Not tracked in current StudentStats
+            streakDays: stats.overallStreak ?? 0,
+            completedChapters: [], // TODO: Fetch actual completed chapters from localStorage
             masteredChapters: [],
             weakTopics: []
         };
