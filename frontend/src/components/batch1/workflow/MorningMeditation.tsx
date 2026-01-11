@@ -11,16 +11,45 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
     const [isLive, setIsLive] = useState(false);
 
     useEffect(() => {
-        const timer = setInterval(() => setCurrentTime(new Date()), 60000); // Update every minute
+        const checkTime = () => {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
 
-        const hour = currentTime.getHours();
-        // Live logic: 6 AM to 7 AM
-        setIsLive(hour >= 6 && hour < 7);
+            // Logic: Live between 05:30 AM and 07:00 AM
+            // 5:30 - 5:59 OR 6:00 - 6:59 OR 7:00 sharp (handled by < 7 check usually, but let's be precise)
+            // Ideally: >= 5:30 AND < 7:00
+            const isMorningSession = (hour === 5 && minute >= 30) || (hour === 6);
 
+            setIsLive(isMorningSession);
+        };
+
+        checkTime();
+        const timer = setInterval(checkTime, 60000); // Check every minute
         return () => clearInterval(timer);
     }, []);
 
+    const recordAttendance = async () => {
+        try {
+            // Simple fire-and-forget logging
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/attendance`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                    session_type: 'morning_meditation',
+                    timestamp: new Date().toISOString()
+                })
+            });
+        } catch (error) {
+            console.error("Failed to record attendance", error);
+        }
+    };
+
     const handleJoinLive = () => {
+        recordAttendance();
         window.open(MEET_CONFIG.MORNING_SESSION_LINK, "_blank");
     };
 

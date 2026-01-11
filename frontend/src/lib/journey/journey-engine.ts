@@ -1,5 +1,5 @@
 
-export type JourneyPhase = 'priming' | 'activation' | 'core' | 'review';
+export type JourneyPhase = 'priming' | 'activation' | 'core' | 'review' | 'evening' | 'night';
 
 export interface JourneyStep {
     id: string;
@@ -11,11 +11,14 @@ export interface JourneyStep {
     status: 'locked' | 'ready' | 'in-progress' | 'completed';
     actionUrl: string;
     icon?: string; // Lucide icon name
+    timeWindow?: string; // e.g., "5:50 AM - 6:30 AM"
 }
 
 export interface DayPlan {
     date: string;
     dayNumber: number;
+    weekId: number;
+    dayOfWeek: number; // 1-6 (Mon-Sat)
     totalDurationMinutes: number;
     completionPercentage: number;
     steps: JourneyStep[];
@@ -23,6 +26,7 @@ export interface DayPlan {
         text: string;
         author: string;
     };
+    dateDisplay: string; // e.g., "January 12"
 }
 
 export interface UserProgressContext {
@@ -34,12 +38,18 @@ export interface UserProgressContext {
 }
 
 /**
+ * Batch 1.1 starts on January 12, 2026 (Monday)
+ */
+const BATCH_START_DATE = new Date(2026, 0, 12); // January 12, 2026
+
+/**
  * MOCK: Sample Quotes for the journey
  */
 const MOTIVATIONAL_QUOTES = [
     { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
     { text: "It always seems impossible until it's done.", author: "Nelson Mandela" },
-    { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" }
+    { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+    { text: "Success is the sum of small efforts, repeated day in and day out.", author: "Robert Collier" }
 ];
 
 /**
@@ -48,78 +58,149 @@ const MOTIVATIONAL_QUOTES = [
 export class JourneyEngine {
 
     /**
-     * Generate the plan for a specific date based on user progress.
+     * Calculate week ID (1-20) and day of week (1-6) from a date
+     * Week starts Monday, ends Saturday (Sunday is rest day)
+     */
+    static calculateWeekAndDay(targetDate: Date): { weekId: number; dayOfWeek: number; isStudyDay: boolean } {
+        // Get day of week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+        const jsDay = targetDate.getDay();
+
+        // Sunday (0) is a rest day
+        if (jsDay === 0) {
+            return { weekId: 1, dayOfWeek: 0, isStudyDay: false };
+        }
+
+        // Map JS day to our system: Mon=1, Tue=2, Wed=3, Thu=4, Fri=5, Sat=6
+        const dayOfWeek = jsDay; // 1-6 for Mon-Sat
+
+        // Calculate days since batch start
+        const diffTime = targetDate.getTime() - BATCH_START_DATE.getTime();
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        // If before start date, default to week 1, day 1
+        if (diffDays < 0) {
+            return { weekId: 1, dayOfWeek: 1, isStudyDay: true };
+        }
+
+        // Calculate week number (0-indexed initially, then add 1)
+        // Week 1 is Jan 12-17 (Mon-Sat)
+        // Week 2 is Jan 19-24 (Mon-Sat), etc.
+        const weekId = Math.floor(diffDays / 7) + 1;
+
+        return {
+            weekId: Math.min(weekId, 20), // Cap at week 20
+            dayOfWeek,
+            isStudyDay: true
+        };
+    }
+
+    /**
+     * Generate the complete daily plan based on user progress.
      */
     static generateDailyPlan(
         targetDate: Date,
         progress: UserProgressContext
     ): DayPlan {
+        const { weekId, dayOfWeek, isStudyDay } = this.calculateWeekAndDay(targetDate);
         const dayNumber = this.calculateDayNumber(targetDate, progress);
+        const currentHour = targetDate.getHours();
 
-        // 1. Priming Phase (Meditation)
-        const primingStep: JourneyStep = {
-            id: `priming-${dayNumber}`,
+        // Date display
+        const dateDisplay = targetDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+
+        // Determine current time period
+        const isMorning = currentHour < 14; // Before 2 PM
+        const isEvening = currentHour >= 17; // After 5 PM
+        const isNight = currentHour >= 21; // After 9 PM
+
+        // Determine if it's Saturday (test day)
+        const isSaturday = dayOfWeek === 6;
+
+        // 1. Morning Meditation (5:50 AM - 6:30 AM)
+        const meditationStep: JourneyStep = {
+            id: `meditation-${dayNumber}`,
             phase: 'priming',
-            title: 'Morning Clarity',
-            subtitle: 'Meditation Session',
-            description: 'Start your day with focus and intention.',
-            durationMinutes: 10,
-            status: 'ready', // Always ready at start of day
-            actionUrl: '/student/meditation',
-            icon: 'Sun'
+            title: 'Morning Meditation',
+            subtitle: currentHour >= 5 && currentHour < 7 ? '🔴 Live Session' : 'Watch Recording',
+            description: 'Start your day with clarity and focus.',
+            durationMinutes: 40,
+            status: 'ready',
+            actionUrl: '/student/journey/meditation',
+            icon: 'Sun',
+            timeWindow: '5:50 AM - 6:30 AM'
         };
 
-        // 2. Activation Phase (Graphotherapy)
-        // Dependent on priming? For MVP, let's make it ready but typically done after.
-        const activationStep: JourneyStep = {
-            id: `activation-${dayNumber}`,
+        // 2. Graphotherapy (After Meditation)
+        const graphoStep: JourneyStep = {
+            id: `grapho-${dayNumber}`,
             phase: 'activation',
-            title: 'Neuro-Wiring',
-            subtitle: 'Graphotherapy Practice',
-            description: 'Align your subconscious with writing exercises.',
-            durationMinutes: 15,
-            status: 'ready', // Made accessible for demo
-            actionUrl: '/student/graphotherapy',
-            icon: 'PenTool'
-        };
-
-        // 3. Core Study Phase (Batch Content)
-        // This should come from the Syllabus Schedule
-        const coreStep: JourneyStep = {
-            id: `core-${dayNumber}`,
-            phase: 'core',
-            title: 'Core Concept Mastery',
-            subtitle: `Day ${dayNumber} Syllabus`,
-            description: 'Deep dive into today\'s scheduled chapters.',
-            durationMinutes: 120, // 2 hours standard
-            status: 'ready', // Made accessible for demo
-            actionUrl: `/student/batch1/cycle/1/day/${dayNumber}/morning`, // Deep link to specific day
-            icon: 'BookOpen'
-        };
-
-        // 4. Review Phase (Voice Recall / Flashcards)
-        const reviewStep: JourneyStep = {
-            id: `review-${dayNumber}`,
-            phase: 'review',
-            title: 'Active Recall',
-            subtitle: 'Voice & Flashcards',
-            description: 'Solidify retention with active testing.',
+            title: 'Graphotherapy',
+            subtitle: `Level 2 • Day ${dayNumber}`,
+            description: 'Rewire your subconscious with writing exercises.',
             durationMinutes: 30,
-            status: 'ready', // Made accessible for demo
-            actionUrl: '/student/revision',
-            icon: 'Mic'
+            status: 'ready',
+            actionUrl: `/student/graphotherapy/drill/${dayNumber}`,
+            icon: 'PenTool',
+            timeWindow: 'After Meditation'
         };
 
-        // Adjust statuses for MVP demo (assume sequential unlock logic happens in UI)
-        // For now, let's make the first step ready and others locked, 
-        // OR rely on the frontend to manage 'unlocked' state based on completion.
+        // 3. Pomodoro Study Session (Until 2 PM) - Link to specific week/day
+        const pomodoroStep: JourneyStep = {
+            id: `pomodoro-${dayNumber}`,
+            phase: 'core',
+            title: isSaturday ? 'Weekly Test' : 'Deep Study Session',
+            subtitle: isSaturday ? `Week ${weekId} Assessment` : `Week ${weekId} • Day ${dayOfWeek}`,
+            description: isSaturday
+                ? 'Full assessment of this week\'s learning.'
+                : '6-hour focused study with structured breaks.',
+            durationMinutes: isSaturday ? 180 : 360,
+            status: isMorning ? 'ready' : 'completed',
+            actionUrl: isSaturday
+                ? `/student/batch1-1/${weekId}/saturday-test`
+                : `/student/batch1-1/${weekId}/${dayOfWeek}/pomodoro`,
+            icon: 'BookOpen',
+            timeWindow: isSaturday ? '8:00 AM - 11:00 AM' : '8:00 AM - 2:00 PM'
+        };
+
+        // 4. Evening Revision (5 PM onwards) - Link to week/day evening session
+        const eveningStep: JourneyStep = {
+            id: `evening-${dayNumber}`,
+            phase: 'evening',
+            title: 'Evening Revision',
+            subtitle: 'Flashcards + MCQs + CSAT',
+            description: 'Consolidate learning with active recall and practice.',
+            durationMinutes: 180,
+            status: isEvening ? 'ready' : 'locked',
+            actionUrl: `/student/batch1-1/${weekId}/${dayOfWeek}/evening`,
+            icon: 'Brain',
+            timeWindow: '5:00 PM - 8:00 PM'
+        };
+
+        // 5. Night Class (9 PM onwards)
+        const nightStep: JourneyStep = {
+            id: `night-${dayNumber}`,
+            phase: 'night',
+            title: 'Night Class',
+            subtitle: isNight ? '🔴 Live Session' : 'Watch Recording',
+            description: 'End your day with reflection and new learning.',
+            durationMinutes: 60,
+            status: isNight || isEvening ? 'ready' : 'locked',
+            actionUrl: '/student/journey/night-class',
+            icon: 'Moon',
+            timeWindow: '9:00 PM - 10:00 PM'
+        };
+
+        const steps = [meditationStep, graphoStep, pomodoroStep, eveningStep, nightStep];
 
         return {
             date: targetDate.toISOString(),
             dayNumber: dayNumber,
-            totalDurationMinutes: 10 + 15 + 120 + 30, // Sum of steps
-            completionPercentage: 0, // Fresh plan
-            steps: [primingStep, activationStep, coreStep, reviewStep],
+            weekId: weekId,
+            dayOfWeek: dayOfWeek,
+            dateDisplay: dateDisplay,
+            totalDurationMinutes: steps.reduce((sum, s) => sum + s.durationMinutes, 0),
+            completionPercentage: 0,
+            steps: steps,
             quote: MOTIVATIONAL_QUOTES[dayNumber % MOTIVATIONAL_QUOTES.length]
         };
     }
@@ -128,15 +209,8 @@ export class JourneyEngine {
      * Calculate effective Day Number relative to start date
      */
     private static calculateDayNumber(now: Date, progress: UserProgressContext): number {
-        // Fallback start date if not stored
-        const startDateStr = typeof localStorage !== 'undefined'
-            ? localStorage.getItem('batch1_start_date')
-            : '2026-01-01T00:00:00';
-
-        const startDate = new Date(startDateStr || '2026-01-01');
-        const diffTime = Math.abs(now.getTime() - startDate.getTime());
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-        return diffDays || 1;
+        const diffTime = now.getTime() - BATCH_START_DATE.getTime();
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        return Math.max(diffDays + 1, 1); // 1-indexed
     }
 }

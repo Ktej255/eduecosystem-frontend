@@ -13,7 +13,9 @@ import {
     BookOpen,
     Mic,
     Clock,
-    ChevronRight
+    ChevronRight,
+    Brain,
+    Moon
 } from 'lucide-react';
 import Link from 'next/link';
 import { DayPlan, JourneyStep } from '../../lib/journey/journey-engine';
@@ -22,7 +24,9 @@ const iconMap: Record<string, React.ReactNode> = {
     'Sun': <Sun className="w-6 h-6" />,
     'PenTool': <PenTool className="w-6 h-6" />,
     'BookOpen': <BookOpen className="w-6 h-6" />,
-    'Mic': <Mic className="w-6 h-6" />
+    'Mic': <Mic className="w-6 h-6" />,
+    'Brain': <Brain className="w-6 h-6" />,
+    'Moon': <Moon className="w-6 h-6" />
 };
 
 export default function JourneyTimeline({ plan }: { plan: DayPlan }) {
@@ -104,8 +108,8 @@ function JourneyStepCard({ step, index, isLast }: { step: JourneyStep, index: nu
         >
             {/* Timeline Node */}
             <div className={`absolute left-2 md:left-4 top-0 w-10 h-10 md:w-12 md:h-12 rounded-full border-4 flex items-center justify-center bg-white dark:bg-[#111] transition-colors duration-300 ${isCompleted ? 'border-green-500 text-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]' :
-                    isActive ? 'border-blue-500 text-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.4)] scale-110' :
-                        'border-gray-200 dark:border-gray-800 text-gray-300 dark:text-gray-700'
+                isActive ? 'border-blue-500 text-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.4)] scale-110' :
+                    'border-gray-200 dark:border-gray-800 text-gray-300 dark:text-gray-700'
                 }`}>
                 {isCompleted ? <CheckCircle className="w-5 h-5 md:w-6 md:h-6" /> :
                     isLocked ? <Lock className="w-4 h-4 md:w-5 md:h-5" /> :
@@ -114,8 +118,8 @@ function JourneyStepCard({ step, index, isLast }: { step: JourneyStep, index: nu
 
             {/* Card Content */}
             <div className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 ${isActive
-                    ? 'bg-white dark:bg-[#111] border-blue-200 dark:border-blue-900 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1'
-                    : 'bg-gray-50 dark:bg-gray-900/50 border-gray-100 dark:border-gray-800 opacity-60 grayscale-[0.8] hover:opacity-100 hover:grayscale-0'
+                ? 'bg-white dark:bg-[#111] border-blue-200 dark:border-blue-900 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1'
+                : 'bg-gray-50 dark:bg-gray-900/50 border-gray-100 dark:border-gray-800 opacity-60 grayscale-[0.8] hover:opacity-100 hover:grayscale-0'
                 }`}>
                 {/* Featured Gradient for Active Card */}
                 {isActive && (
@@ -125,9 +129,9 @@ function JourneyStepCard({ step, index, isLast }: { step: JourneyStep, index: nu
                 <div className="p-6 flex flex-col md:flex-row md:items-center gap-6">
                     {/* Icon Box */}
                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 text-white shadow-lg ${step.phase === 'priming' ? 'bg-gradient-to-br from-amber-400 to-orange-500' :
-                            step.phase === 'activation' ? 'bg-gradient-to-br from-purple-500 to-pink-600' :
-                                step.phase === 'core' ? 'bg-gradient-to-br from-blue-500 to-indigo-600' :
-                                    'bg-gradient-to-br from-emerald-500 to-teal-600'
+                        step.phase === 'activation' ? 'bg-gradient-to-br from-purple-500 to-pink-600' :
+                            step.phase === 'core' ? 'bg-gradient-to-br from-blue-500 to-indigo-600' :
+                                'bg-gradient-to-br from-emerald-500 to-teal-600'
                         }`}>
                         {step.icon && iconMap[step.icon] ? iconMap[step.icon] : <Circle />}
                     </div>

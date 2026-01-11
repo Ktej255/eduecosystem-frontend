@@ -102,9 +102,19 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
     const pathname = usePathname();
     const { user } = useAuth();
     const isMasterId = user?.email === "ktej255@gmail.com";
-    const isSpecialBatch1Student = user?.email === "kajaldhannatar@gmail.com" || user?.email === "dikshajakhar0212@gmail.com";
+    
+    // Updated Batch 1 Access List
+    const batch1AllowedEmails = [
+        "ktej255@gmail.com",
+        "test001@gmail.com",
+        "Test001@gmail.com", // Handle case sensitivity
+        "kajaldhannatar@gmail.com",
+        "dikshajakhar0212@gmail.com"
+    ];
+    
+    const isSpecialBatch1Student = user?.email && batch1AllowedEmails.includes(user.email);
     const isRasAuthorized = user?.is_ras_authorized || user?.email === "chitrakumawat33@gmail.com";
-    const isBatch1Allowed = isMasterId || isSpecialBatch1Student;
+    const isBatch1Allowed = isMasterId || isSpecialBatch1Student || user?.is_batch1_authorized;
 
     const [stats, setStats] = useState<StudentStats | null>(null);
     const [isHovered, setIsHovered] = useState(false);
