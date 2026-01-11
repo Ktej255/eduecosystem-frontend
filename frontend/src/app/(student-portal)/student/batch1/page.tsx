@@ -9,8 +9,14 @@ import EveningSection from "@/components/batch1/workflow/EveningSection";
 import NightClass from "@/components/batch1/workflow/NightClass";
 import WeeklyPlan from "@/components/batch1/workflow/WeeklyPlan";
 import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-type WorkflowStep = 'timeline' | 'plan' | 'morning' | 'graphotherapy' | 'pomodoro' | 'evening' | 'night';
+import Batch1ContentMap from "@/components/batch1/polity/Batch1ContentMap";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+
+type WorkflowStep = 'timeline' | 'plan' | 'map' | 'morning' | 'graphotherapy' | 'pomodoro' | 'evening' | 'night';
 
 export default function Batch1Page() {
     const router = useRouter();
@@ -49,6 +55,7 @@ export default function Batch1Page() {
                     <DailyTimeline
                         onSelectStep={handleStepSelect}
                         onOpenPlan={() => setCurrentView('plan')}
+                        onOpenMap={() => setCurrentView('map')}
                     />
                 </div>
             )}
@@ -56,6 +63,15 @@ export default function Batch1Page() {
             {currentView === 'plan' && (
                 <div className="p-4 md:p-8">
                     <WeeklyPlan onBack={handleBackToTimeline} />
+                </div>
+            )}
+
+            {currentView === 'map' && (
+                <div className="p-4 md:p-8">
+                    <Button variant="ghost" onClick={handleBackToTimeline} className="mb-4">
+                        <ArrowLeft className="w-4 h-4 mr-2" /> Back to Timeline
+                    </Button>
+                    <Batch1ContentMap />
                 </div>
             )}
 

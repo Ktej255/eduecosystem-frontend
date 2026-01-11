@@ -3,8 +3,8 @@
 
 export const MEET_CONFIG = {
     // Start with a placeholder. The user should be able to update this easily.
-    MORNING_SESSION_LINK: "https://meet.google.com/placeholder-link",
-    NIGHT_CLASS_LINK: "https://meet.google.com/placeholder-link",
+    MORNING_SESSION_LINK: "https://meet.google.com/INSERT-MORNING-LINK-HERE",
+    NIGHT_CLASS_LINK: "https://meet.google.com/INSERT-NIGHT-LINK-HERE",
 
     // Fallback recording links
     DEFAULT_MORNING_RECORDING: "https://youtube.com/placeholder-morning",

@@ -82,7 +82,7 @@ const TimelineNode = ({ title, description, time, icon, status, onClick, isLast 
     );
 };
 
-export default function DailyTimeline({ onSelectStep, onOpenPlan }: { onSelectStep: (step: string) => void, onOpenPlan: () => void }) {
+export default function DailyTimeline({ onSelectStep, onOpenPlan, onOpenMap }: { onSelectStep: (step: string) => void, onOpenPlan: () => void, onOpenMap: () => void }) {
     const [activeStep] = useState('morning'); // Could be derived from time or progress
 
     const steps = [
@@ -130,14 +130,14 @@ export default function DailyTimeline({ onSelectStep, onOpenPlan }: { onSelectSt
 
     return (
         <div className="max-w-3xl mx-auto py-8">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
                 <div>
                     <h2 className="text-2xl font-bold">Today's Journey</h2>
                     <p className="text-gray-500">Follow the path to complete your daily goals.</p>
                 </div>
                 <div className="flex gap-2">
-                    <Button variant="outline" className="gap-2">
-                        <LayoutDashboard className="w-4 h-4" /> Dashboard
+                    <Button variant="outline" className="gap-2" onClick={onOpenMap}>
+                        <BookOpen className="w-4 h-4" /> Syllabus Map
                     </Button>
                     <Button variant="outline" className="gap-2" onClick={onOpenPlan}>
                         <CalendarRange className="w-4 h-4" /> Weekly Plan
