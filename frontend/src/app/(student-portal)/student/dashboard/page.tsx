@@ -100,6 +100,33 @@ export default function StudentDashboard() {
             <div className="pt-8">
                 <JourneyTimeline plan={dayPlan} />
             </div>
+
+            {/* Quick Access Modules */}
+            <div className="max-w-4xl mx-auto px-4 md:px-8 mt-12">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    Jump to Module
+                </h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {[
+                        { name: 'Meditation', href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600' },
+                        { name: 'Graphotherapy', href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600' },
+                        { name: 'Revision', href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600' },
+                        { name: 'Polity Study', href: '/student/batch1/polity', emoji: '📚', color: 'from-blue-500 to-cyan-600' },
+                    ].map((module) => (
+                        <a
+                            key={module.name}
+                            href={module.href}
+                            className="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
+                            <div className="text-3xl mb-3">{module.emoji}</div>
+                            <div className="font-bold text-gray-900 dark:text-white">{module.name}</div>
+                            <div className="text-xs text-gray-500 mt-1">Explore →</div>
+                        </a>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }

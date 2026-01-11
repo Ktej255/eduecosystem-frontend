@@ -78,7 +78,7 @@ export class JourneyEngine {
             subtitle: 'Graphotherapy Practice',
             description: 'Align your subconscious with writing exercises.',
             durationMinutes: 15,
-            status: 'locked', // Unlock after meditation in full version, 'ready' for MVP
+            status: 'ready', // Made accessible for demo
             actionUrl: '/student/graphotherapy',
             icon: 'PenTool'
         };
@@ -92,7 +92,7 @@ export class JourneyEngine {
             subtitle: `Day ${dayNumber} Syllabus`,
             description: 'Deep dive into today\'s scheduled chapters.',
             durationMinutes: 120, // 2 hours standard
-            status: 'locked',
+            status: 'ready', // Made accessible for demo
             actionUrl: `/student/batch1/cycle/1/day/${dayNumber}/morning`, // Deep link to specific day
             icon: 'BookOpen'
         };
@@ -105,7 +105,7 @@ export class JourneyEngine {
             subtitle: 'Voice & Flashcards',
             description: 'Solidify retention with active testing.',
             durationMinutes: 30,
-            status: 'locked',
+            status: 'ready', // Made accessible for demo
             actionUrl: '/student/revision',
             icon: 'Mic'
         };
