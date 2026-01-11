@@ -99,13 +99,11 @@ export default function Batch1ContentMap() {
                                         <Badge variant={status.hasContent ? "default" : "secondary"} className="mb-2">
                                             Day {day}
                                         </Badge>
-                                        {status.hasContent && (
-                                            <Link href={`/student/batch1/cycle/1/day/${day}/evening`}>
-                                                <Button size="sm" variant="ghost" className="h-6 px-2 text-xs text-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                                                    Open <ChevronRight className="h-3 w-3 ml-1" />
-                                                </Button>
-                                            </Link>
-                                        )}
+                                        <Link href={`/student/batch1/cycle/1/day/${day}`}>
+                                            <Button size="sm" variant="ghost" className="h-6 px-2 text-xs text-blue-600 hover:text-blue-700 hover:bg-blue-50">
+                                                Open <ChevronRight className="h-3 w-3 ml-1" />
+                                            </Button>
+                                        </Link>
                                     </div>
                                     <CardTitle className="text-lg font-bold text-gray-800 dark:text-gray-200 line-clamp-1">
                                         {status.topic}
