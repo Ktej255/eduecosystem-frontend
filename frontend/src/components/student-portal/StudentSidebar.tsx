@@ -83,7 +83,7 @@ const bottomMenuItems = [
 const batchItems = [
     {
         name: "Batch 1",
-        href: "/student/planner", // Or dashboard? User specifically said batch options should be there
+        href: "/student/batch1",
         icon: BookOpen,
     },
     {
