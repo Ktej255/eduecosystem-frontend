@@ -131,9 +131,11 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                 if (Array.isArray(chapters)) { // It might be string[] for Saturday
                     // Get subtopics for these chapters
                     chapters.forEach(ch => {
-                        const subtopics = CHAPTER_SUBTOPICS[ch.chapter];
-                        if (subtopics) {
-                            morningSubtopics.push(...subtopics);
+                        if (typeof ch !== 'string') {
+                            const subtopics = CHAPTER_SUBTOPICS[ch.chapter];
+                            if (subtopics) {
+                                morningSubtopics.push(...subtopics);
+                            }
                         }
                     });
                     uniqueMorningIds = morningSubtopics.map(s => s.id);
@@ -235,7 +237,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                     Evening Revision Session
                 </h1>
                 <p className="text-gray-600 dark:text-gray-400">
-                    Week {weekId}, Day {dayId} • Consolidate today's learning
+                    Week {weekId}, Day {dayId} • Consolidate today&apos;s learning
                 </p>
             </div>
 

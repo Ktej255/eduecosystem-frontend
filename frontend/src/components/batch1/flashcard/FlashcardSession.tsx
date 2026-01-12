@@ -570,7 +570,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                                         <p className="font-medium text-gray-800 dark:text-gray-200 mb-2">{result.question}</p>
                                         {result.studentTranscript && (
                                             <p className="text-sm text-gray-600 italic mb-2">
-                                                Your answer: "{result.studentTranscript}"
+                                                Your answer: &quot;{result.studentTranscript}&quot;
                                             </p>
                                         )}
                                         {result.missingPoints.length > 0 && (
@@ -863,7 +863,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                                     </div>
 
                                     <div className="bg-white/50 dark:bg-black/20 p-4 rounded-lg border border-gray-100 dark:border-gray-800">
-                                        <p className="text-sm italic text-gray-600 dark:text-gray-400 mb-2">"{aiResult.transcription}"</p>
+                                        <p className="text-sm italic text-gray-600 dark:text-gray-400 mb-2">&quot;{aiResult.transcription}&quot;</p>
                                         <p className="text-sm text-gray-800 dark:text-gray-200 font-medium">{aiResult.feedback}</p>
                                     </div>
 
@@ -937,7 +937,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
 
             {/* Tip */}
             <p className="text-center text-sm text-gray-500">
-                💡 Tip: Use "Audio Explain" to test your recall with AI feedback
+                💡 Tip: Use &quot;Audio Explain&quot; to test your recall with AI feedback
             </p>
         </div >
     );
