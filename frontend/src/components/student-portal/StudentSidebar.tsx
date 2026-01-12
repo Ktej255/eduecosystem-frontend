@@ -75,7 +75,7 @@ const menuItems = [
         name: "Revision Portal",
         href: "/student/revision",
         icon: Layers,
-        access: "revision", // visible to Master ID and authorized users
+        access: "master_only", // Only visible to Master ID for testing
     },
 ];
 
@@ -214,6 +214,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                         if (item.access === "batch1") return user?.is_batch1_authorized || isSpecialBatch1Student;
                         if (item.access === "batch2") return user?.is_batch2_authorized;
                         if (item.access === "ras") return isRasAuthorized;
+                        if (item.access === "master_only") return false; // Only Master ID sees this (handled above)
 
                         return true;
                     })

@@ -45,21 +45,22 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
         if (stored) setCompletedChapters(JSON.parse(stored));
 
         if (!isAdmin) {
-            const startDateStr = localStorage.getItem('polity_start_calendar_date');
+            // BATCH 1.1 START DATE: January 12, 2026 (Monday)
+            // Force this date for all students to ensure consistency
+            const BATCH_START_DATE = '2026-01-12T00:00:00';
+            const CALENDAR_VERSION = 'v2'; // Increment this to force reset for all users
+
+            const storedVersion = localStorage.getItem('polity_calendar_version');
             let startDate: Date;
-            if (!startDateStr) {
-                // Pin to Jan 12, 2026 (Monday) - Batch 1.1 start date
-                startDate = new Date('2026-01-12T00:00:00');
+
+            if (storedVersion !== CALENDAR_VERSION) {
+                // New version - reset to correct date
+                startDate = new Date(BATCH_START_DATE);
                 localStorage.setItem('polity_start_calendar_date', startDate.toISOString());
+                localStorage.setItem('polity_calendar_version', CALENDAR_VERSION);
             } else {
-                startDate = new Date(startDateStr);
-                // MIGRATION: If previously set to Jan 12 (Monday), shift back to Jan 11 (Sunday)
-                // to align with the new Sunday-start week structure
-                const jan11 = new Date('2026-01-11T00:00:00');
-                if (startDate.toDateString() === jan11.toDateString()) {
-                    startDate = new Date('2026-01-12T00:00:00');
-                    localStorage.setItem('polity_start_calendar_date', startDate.toISOString());
-                }
+                const startDateStr = localStorage.getItem('polity_start_calendar_date');
+                startDate = startDateStr ? new Date(startDateStr) : new Date(BATCH_START_DATE);
             }
 
             const diffTime = (new Date().getTime() - startDate.getTime());
