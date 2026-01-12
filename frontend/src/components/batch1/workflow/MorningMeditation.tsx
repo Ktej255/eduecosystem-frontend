@@ -5,8 +5,11 @@ import { Play, Video, CheckCircle, ArrowLeft } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MEET_CONFIG } from "@/config/meet-config";
+import { useAuth } from "@/contexts/auth-context";
 
 export default function MorningMeditation({ onComplete, onBack }: { onComplete: () => void, onBack: () => void }) {
+    const { user } = useAuth();
+    const isMasterId = user?.email === "ktej255@gmail.com";
     const [currentTime, setCurrentTime] = useState(new Date());
     const [isLive, setIsLive] = useState(false);
 
@@ -66,7 +69,17 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center py-10 space-y-8">
 
-                    {isLive ? (
+                    {/* Master ID Testing Mode - Show Both Options */}
+                    {isMasterId && (
+                        <div className="bg-purple-100 dark:bg-purple-900/30 border border-purple-300 dark:border-purple-700 rounded-lg p-4 w-full max-w-2xl text-center mb-4">
+                            <p className="text-sm text-purple-700 dark:text-purple-300 font-medium">
+                                🔧 Master ID Testing Mode: Both options are visible
+                            </p>
+                        </div>
+                    )}
+
+                    {/* Live Session Section - Show if live OR if Master ID */}
+                    {(isLive || isMasterId) && (
                         <div className="text-center space-y-4 animate-in fade-in zoom-in duration-500">
                             <div className="relative inline-block">
                                 <span className="absolute -top-1 -right-1 flex h-3 w-3">
@@ -79,10 +92,13 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
                                 </Button>
                             </div>
                             <p className="text-sm text-gray-500 max-w-xs mx-auto">
-                                Live session is active (06:00 - 07:00 AM). Click to join the Google Meet.
+                                {isLive ? "Live session is active (05:30 - 07:00 AM). Click to join Google Meet." : "Test the live session join functionality."}
                             </p>
                         </div>
-                    ) : (
+                    )}
+
+                    {/* Recording Section - Show if not live OR if Master ID */}
+                    {(!isLive || isMasterId) && (
                         <div className="text-center space-y-4 animate-in fade-in zoom-in duration-500">
                             <div className="aspect-video w-full max-w-2xl bg-black rounded-lg overflow-hidden shadow-2xl mx-auto relative group cursor-pointer">
                                 {/* Placeholder for YouTube/Video Player */}
@@ -95,7 +111,7 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
                                 <Play className="w-4 h-4 mr-2" /> Watch Recording
                             </Button>
                             <p className="text-sm text-gray-500 max-w-xs mx-auto">
-                                You missed the live session. Please follow the recorded guidance.
+                                {!isLive ? "You missed the live session. Please follow the recorded guidance." : "Test the recording functionality."}
                             </p>
                         </div>
                     )}
