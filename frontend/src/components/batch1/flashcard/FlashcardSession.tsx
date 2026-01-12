@@ -341,6 +341,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
             case 'concept': return <Lightbulb className="h-4 w-4" />;
             case 'fact': return <Sparkles className="h-4 w-4" />;
             case 'article': return <BookOpen className="h-4 w-4" />;
+            case 'comparison': return <TrendingUp className="h-4 w-4" />;
             default: return <BookOpen className="h-4 w-4" />;
         }
     };
@@ -350,6 +351,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
             case 'concept': return 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400';
             case 'fact': return 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400';
             case 'article': return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400';
+            case 'comparison': return 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400';
             default: return 'bg-gray-100 text-gray-700';
         }
     };

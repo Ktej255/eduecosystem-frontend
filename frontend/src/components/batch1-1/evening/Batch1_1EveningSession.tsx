@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { CHAPTER_SUBTOPICS, SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
+import { generateWeeklySchedule } from '@/components/batch1/polity/data/polity-schedule-data';
 import CycleFlashcards from '../pomodoro/CycleFlashcards';
 import CycleMCQs from '../pomodoro/CycleMCQs';
 import { getFlashcardsForSubtopics } from '@/components/batch1/polity/data/polity-flashcards-data';
@@ -94,24 +95,55 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
     const eveningContent = useMemo(() => generateEveningContent(morningProgress), [morningProgress]);
 
-    // BYPASS LOGIC: Unlock Day 1 Evening even without Morning Progress
-    const isDay1Bypass = weekId === 1 && dayId === 1;
-    const hasMorningProgress = isDay1Bypass || (morningProgress && morningProgress.cycleHistory.length > 0);
+    // UNBLOCK: Always allow evening session
+    const hasMorningProgress = true; // Was: isDay1Bypass || (morningProgress && morningProgress.cycleHistory.length > 0);
 
     // Content Generation Logic
     const sessionContent = useMemo(() => {
-        if (!hasMorningProgress) return null;
-
         let morningSubtopics: SubTopic[] = [];
         let uniqueMorningIds: string[] = [];
 
-        if (morningProgress?.cycleHistory) {
+        if (morningProgress?.cycleHistory && morningProgress.cycleHistory.length > 0) {
             morningSubtopics = morningProgress.cycleHistory.flatMap(c => c.selectedSubtopics);
             uniqueMorningIds = Array.from(new Set(morningSubtopics.map(s => s.id)));
-        } else if (isDay1Bypass) {
-            // Fallback for Day 1 Bypass: Default to Ch 11-14 subtopics
-            // Simulating "Morning done" with key Week 1 topics
-            uniqueMorningIds = ['11.1', '11.2', '12.1', '12.2', '13.1', '13.2', '14.1'];
+        } else {
+            // FALLBACK: If morning session skipped, use scheduled chapters for this day
+            // This ensures evening Revision is always functional
+            const schedule = generateWeeklySchedule();
+            const weekSchedule = schedule.find(w => w.week === weekId);
+
+            if (weekSchedule) {
+                // Map dayId (1-7) to schedule keys
+                // Assuming Day 1 = Monday
+                const dayKeys: (keyof typeof weekSchedule.days)[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                // Adjust index: Day 1->Monday (index 1?), Day 7->Sunday (index 0?)
+                // If week starts on Monday: 
+                // Day 1 (Mon) -> 'monday'
+                // Day 7 (Sun) -> 'sunday'
+                // Let's use a simple map based on standard 1-7 (Mon-Sun)
+                const dayKeyMap: Record<number, keyof typeof weekSchedule.days> = {
+                    1: 'monday', 2: 'tuesday', 3: 'wednesday', 4: 'thursday', 5: 'friday', 6: 'saturday', 7: 'sunday'
+                };
+
+                const dayKey = dayKeyMap[dayId] || 'monday';
+                const chapters = weekSchedule.days[dayKey];
+
+                if (Array.isArray(chapters)) { // It might be string[] for Saturday
+                    // Get subtopics for these chapters
+                    chapters.forEach(ch => {
+                        const subtopics = CHAPTER_SUBTOPICS[ch.chapter];
+                        if (subtopics) {
+                            morningSubtopics.push(...subtopics);
+                        }
+                    });
+                    uniqueMorningIds = morningSubtopics.map(s => s.id);
+                }
+            }
+
+            // If still empty (e.g. Saturday or no data), fall back to defaults (Day 1 topics as safe bet)
+            if (uniqueMorningIds.length === 0) {
+                uniqueMorningIds = ['11.1', '11.2', '12.1', '12.2', '13.1', '13.2', '14.1'];
+            }
         }
 
         // REPEATS: 20% of session (approx 4-5 cards)
@@ -149,7 +181,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
             mcqs: finalMCQs,
             subtopics: morningSubtopics // Just for header context
         };
-    }, [morningProgress, hasMorningProgress, isDay1Bypass]);
+    }, [morningProgress, weekId, dayId]);
 
     if (activeSection === 'flashcards' && sessionContent) {
         return (
@@ -214,25 +246,25 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                         <div className="flex items-center gap-3 mb-3">
                             <CheckCircle2 className="h-5 w-5 text-green-600" />
                             <span className="font-bold text-green-700 dark:text-green-300">
-                                Morning Session Complete
+                                {morningProgress ? "Morning Session Complete" : "Ready for Revision"}
                             </span>
                         </div>
                         <div className="grid grid-cols-3 gap-4">
                             <div className="text-center">
                                 <div className="text-2xl font-bold text-green-600">
-                                    {eveningContent.cyclesCompleted}
+                                    {morningProgress?.cycleHistory?.length || 0}
                                 </div>
                                 <div className="text-xs text-green-700">Cycles Done</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-2xl font-bold text-green-600">
-                                    {eveningContent.totalSubtopics}
+                                    {sessionContent?.subtopics.length || 0}
                                 </div>
                                 <div className="text-xs text-green-700">Subtopics</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-2xl font-bold text-green-600">
-                                    {eveningContent.repeatFlashcards + eveningContent.newFlashcards}
+                                    {sessionContent?.flashcards.length || 0}
                                 </div>
                                 <div className="text-xs text-green-700">Flashcards Ready</div>
                             </div>
