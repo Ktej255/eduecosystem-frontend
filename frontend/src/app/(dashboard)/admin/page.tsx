@@ -44,7 +44,7 @@ export default function AdminDashboard() {
   const [testResults, setTestResults] = useState<TestResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+
   const [selectedTab, setSelectedTab] = useState<"overview" | "teachers" | "students" | "timeline">("overview");
 
   // FORCE AWS URL
