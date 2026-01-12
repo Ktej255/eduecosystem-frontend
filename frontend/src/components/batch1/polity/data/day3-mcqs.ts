@@ -385,14 +385,7 @@ export const DAY3_MCQS: MCQ[] = [
         explanation: "There is no maximum limit prescribed. It continues indefinitely until revoked.",
         subtopic: "17.3"
     },
-    {
-        id: 43,
-        question: "During Financial Emergency, the President can suspend the distribution of financial resources between Union and States.",
-        options: ["True", "False, only reduce", "Only for Schedule VI states", "Only grants"],
-        correctAnswer: 0,
-        explanation: "Technically, he can issue directions to observe canons of financial propriety. The allocation of revenues can be modified? Actually Art 354 is for National Emergency. Art 360 allows 'reduction of salaries'. The exact text says he can give directions. Modification of revenue distribution usually links to Art 354 (Proclamation of Emergency - 352). Let's check.",
-        text_check: "Wait. Art 354 applies to Art 352. For Financial Emergency (360), the Union can give directions to State to observe financial propriety and reduce salaries. The President can reserve all money bills. It doesn't explicitly say 'Suspend distribution'. So True might be false."
-    },
+
     {
         id: 43, // Rephrase for clarity
         question: "During Financial Emergency, the President can issue directions for the reduction of salaries and allowances of:",
