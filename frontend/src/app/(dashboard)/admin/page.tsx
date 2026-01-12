@@ -10,10 +10,11 @@ import {
   Users, FileText, TrendingUp, Shield, BookOpen, BarChart3, Brain,
   GraduationCap, ExternalLink, Zap, Activity, ArrowRight, Search,
   Clock, CheckCircle2, Upload, AlertCircle, Eye, ChevronRight,
-  Bell, Send, UserCheck, BookMarked, Target, Award
+  Bell, Send, UserCheck, BookMarked, Target, Award, Calendar
 } from "lucide-react";
 import Link from "next/link";
 import api from "@/lib/api";
+import ProjectTimeline from "@/components/admin/ProjectTimeline";
 
 interface UserData {
   id: number;
@@ -43,7 +44,8 @@ export default function AdminDashboard() {
   const [testResults, setTestResults] = useState<TestResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTab, setSelectedTab] = useState<"overview" | "teachers" | "students">("overview");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTab, setSelectedTab] = useState<"overview" | "teachers" | "students" | "timeline">("overview");
 
   // FORCE AWS URL
   const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
@@ -191,7 +193,7 @@ export default function AdminDashboard() {
 
       {/* Tab Navigation */}
       <div className="flex gap-2 border-b pb-2">
-        {["overview", "teachers", "students"].map((tab) => (
+        {["overview", "teachers", "students", "timeline"].map((tab) => (
           <Button
             key={tab}
             variant={selectedTab === tab ? "default" : "ghost"}
@@ -199,7 +201,7 @@ export default function AdminDashboard() {
             onClick={() => setSelectedTab(tab as any)}
             className="capitalize"
           >
-            {tab}
+            {tab === 'timeline' ? <><Calendar className="h-4 w-4 mr-2" /> Timeline</> : tab}
           </Button>
         ))}
       </div>
@@ -453,7 +455,15 @@ export default function AdminDashboard() {
             </div>
           </CardContent>
         </Card>
-      )}
-    </div>
+      )
+      }
+
+      {/* Timeline Tab */}
+      {
+        selectedTab === "timeline" && (
+          <ProjectTimeline />
+        )
+      }
+    </div >
   );
 }

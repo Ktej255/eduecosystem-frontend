@@ -170,7 +170,7 @@ export class JourneyEngine {
             subtitle: 'Flashcards + MCQs + CSAT',
             description: 'Consolidate learning with active recall and practice.',
             durationMinutes: 180,
-            status: isEvening ? 'ready' : 'locked',
+            status: (dayNumber === 1 || isEvening) ? 'ready' : 'locked', // BYPASS: Unlocked for Day 1 (Launch Day) testing
             actionUrl: `/student/batch1-1/${weekId}/${dayOfWeek}/evening`,
             icon: 'Brain',
             timeWindow: '5:00 PM - 8:00 PM'

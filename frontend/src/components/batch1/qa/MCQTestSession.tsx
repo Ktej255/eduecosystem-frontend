@@ -19,18 +19,9 @@ import {
     Shield,
     ScrollText
 } from "lucide-react";
-import { DAY1_MCQS, MCQ } from "../polity/data/day1-mcqs";
-import { DAY2_MCQS } from "../polity/data/day2-mcqs";
-import { DAY3_MCQS } from "../polity/data/day3-mcqs";
-import { DAY5_MCQS } from "../polity/data/day5-mcqs";
-import { DAY6_MCQS } from "../polity/data/day6-mcqs";
-import { DAY7_MCQS } from "../polity/data/day7-mcqs";
-
 // Import centrally registered data loader
 import { getMCQDataForDay } from "../content-registry";
-
-import { DAY9_DPSP_MCQS } from "../polity/data/day9-dpsp-mcqs";
-import { DAY9_FD_MCQS } from "../polity/data/day9-fd-mcqs";
+import { MCQ } from "../polity/data/day1-mcqs"; // Retain Type Import
 import DetailedTestReport from "./DetailedTestReport";
 
 interface MCQTestSessionProps {
@@ -78,15 +69,15 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
 
     // ===== ALL HOOKS MUST BE BEFORE ANY CONDITIONAL RETURNS =====
 
-    // Timer logic - always call this hook
+    // Timer logic - PER QUESTION
     useEffect(() => {
         // Only run timer if not on Day 9 selection screen and not submitted
         if ((day !== 9 || selectedSubTopic) && !isSubmitted) {
             timerRef.current = setInterval(() => {
                 setTimeLeft((prev) => {
                     if (prev <= 1) {
-                        // Use ref to call latest handleSubmit to avoid closure issues
-                        handleSubmitRef.current();
+                        // Time's Up for THIS Question
+                        handleQuestionTimeout();
                         return 0;
                     }
                     return prev - 1;
@@ -96,15 +87,26 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [isSubmitted, day, selectedSubTopic]);
+    }, [isSubmitted, day, selectedSubTopic, currentIndex]); // Added currentIndex dependency
+
+    const handleQuestionTimeout = () => {
+        // Auto-advance or Submit if last
+        if (currentIndex < questions.length - 1) {
+            setCurrentIndex(prev => prev + 1);
+        } else {
+            // Last question timed out - Submit
+            handleSubmitRef.current();
+        }
+    };
 
     // Dynamic timer: 1 question = 1 minute
+    // Dynamic timer: 1 question = 1 minute (PER QUESTION NOW)
     useEffect(() => {
         if (questions.length > 0 && !isSubmitted) {
-            // Set timer based on question count: 1 question = 1 minute
-            setTimeLeft(questions.length * 60);
+            // Reset to 60s whenever question changes
+            setTimeLeft(60);
         }
-    }, [questions.length, isSubmitted]);
+    }, [currentIndex, questions.length, isSubmitted]);
 
     // Load questions based on day and selected sub-topic - always call this hook
     useEffect(() => {
@@ -120,33 +122,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             if (loadedMCQs) {
                 setQuestions(loadedMCQs);
             } else {
-                // Fallback for days not yet in content-registry or specific cases
-                const d = typeof day === 'string' ? parseInt(day) : day;
-                switch (d) {
-                    case 9:
-                        if (selectedSubTopic === 'fundamental-duties') setQuestions(DAY9_FD_MCQS);
-                        else setQuestions(DAY9_DPSP_MCQS); // Default to DPSP
-                        break;
-                    case 7:
-                        setQuestions(DAY7_MCQS);
-                        break;
-                    case 6:
-                        setQuestions(DAY6_MCQS);
-                        break;
-                    case 5:
-                        setQuestions(DAY5_MCQS);
-                        break;
-                    case 3:
-                        setQuestions(DAY3_MCQS);
-                        break;
-                    case 2:
-                        setQuestions(DAY2_MCQS);
-                        break;
-                    case 1:
-                    default:
-                        setQuestions(DAY1_MCQS);
-                        break;
-                }
+                // If registry returns undefined, questions remains empty -> triggers "No Content Found" UI
+                console.log(`No MCQs found in registry for Cycle ${cycleId}, Day ${day}`);
             }
             setLoading(false);
         };

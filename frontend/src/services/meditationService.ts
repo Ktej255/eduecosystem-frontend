@@ -88,10 +88,10 @@ export interface DayCompleteResponse {
 
 // Level configuration
 export const MEDITATION_LEVELS = {
-    1: { days: 60, name: "Foundation", description: "Building daily meditation habit", color: "blue" },
-    2: { days: 60, name: "Intermediate", description: "Deepening your practice", color: "purple" },
-    3: { days: 60, name: "Advanced", description: "Advanced meditation techniques", color: "orange" },
-    4: { days: 60, name: "Mastery", description: "Complete mastery of meditation", color: "green" }
+    1: { days: 60, name: "Foundation: Breath Awareness", description: "Building daily meditation habit", color: "blue" },
+    2: { days: 60, name: "Intermediate: Visualization", description: "Deepening your practice", color: "purple" },
+    3: { days: 60, name: "Advanced: Mantra & Sound", description: "Advanced meditation techniques", color: "orange" },
+    4: { days: 60, name: "Mastery: Transcendence", description: "Complete mastery of meditation", color: "green" }
 };
 
 // Session time slots

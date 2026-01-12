@@ -10,6 +10,7 @@ export interface Flashcard {
     category: 'concept' | 'fact' | 'article';
     source: string;     // Topic reference
     highlight?: boolean; // For priority facts
+    subtopicId?: string; // Links to SubTopic ID for granular filtering
 }
 
 /**

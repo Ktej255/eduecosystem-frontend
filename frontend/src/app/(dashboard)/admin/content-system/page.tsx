@@ -12,17 +12,53 @@ import {
     CheckCircle2,
     Plus
 } from 'lucide-react';
-import { LAXMIKANTH_CHAPTERS } from '@/components/batch1/polity/data/polity-schedule-data';
 import Link from 'next/link';
+import { LAXMIKANTH_CHAPTERS, ChapterSchedule } from '@/components/batch1/polity/data/polity-schedule-data';
+import { POLITY_FLASHCARDS_DATA } from '@/components/batch1/polity/data/polity-flashcards-data';
+import { POLITY_MCQS_DATA } from '@/components/batch1/polity/data/polity-mcqs-data';
 
-// Mock data for content status (simulated)
-const CONTENT_STATUS = [
-    { week: 1, status: 'complete', missing: [] },
-    { week: 2, status: 'partial', missing: ['Flashcards: Week 2 Day 3', 'MCQs: Week 2 Day 4'] },
-    { week: 3, status: 'missing', missing: ['All Content'] }
-];
+// Helper to check status of a set of chapters
+function getWeekStatus(chapters: ChapterSchedule[]) {
+    const totalChapters = chapters.length;
+    let readyChapters = 0;
+    let partialChapters = 0;
+    const missingDetails: string[] = [];
+
+    chapters.forEach(ch => {
+        // Check if any flashcards exist for this chapter ID
+        const hasFlashcards = POLITY_FLASHCARDS_DATA.some(fc => fc.subtopicId.startsWith(`${ch.chapter}.`));
+        const hasMCQs = POLITY_MCQS_DATA.some(mcq => mcq.subtopicId.startsWith(`${ch.chapter}.`));
+
+        if (hasFlashcards && hasMCQs) {
+            readyChapters++;
+        } else if (hasFlashcards || hasMCQs) {
+            partialChapters++;
+            if (!hasFlashcards) missingDetails.push(`Ex Ch ${ch.chapter}: Flashcards`);
+            if (!hasMCQs) missingDetails.push(`Ex Ch ${ch.chapter}: MCQs`);
+        } else {
+            // Check if it's the very first chapter of the week to show specific info
+            if (missingDetails.length < 3) missingDetails.push(`Ch ${ch.chapter}: All Content`);
+        }
+    });
+
+    if (readyChapters === totalChapters && totalChapters > 0) return { status: 'complete', color: 'green', missing: [] };
+    if (readyChapters > 0 || partialChapters > 0) return { status: 'partial', color: 'yellow', missing: missingDetails };
+    return { status: 'missing', color: 'red', missing: ['All Content Missing'] };
+}
 
 export default function ContentSystemDashboard() {
+    // Week 1: Indexes 0-6 (Intro Block)
+    const week1Chapters = LAXMIKANTH_CHAPTERS.slice(0, 7);
+    const week1Status = getWeekStatus(week1Chapters);
+
+    // Week 2: Indexes 7-13 (Module 1)
+    const week2Chapters = LAXMIKANTH_CHAPTERS.slice(7, 14);
+    const week2Status = getWeekStatus(week2Chapters);
+
+    // Week 3: Indexes 14-20 (Module 2 approx)
+    const week3Chapters = LAXMIKANTH_CHAPTERS.slice(14, 21);
+    const week3Status = getWeekStatus(week3Chapters);
+
     return (
         <div className="p-6 max-w-7xl mx-auto space-y-8">
             <div className="flex items-center justify-between">
@@ -43,50 +79,60 @@ export default function ContentSystemDashboard() {
 
             {/* Status Overview */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <Card className="border-l-4 border-l-green-500">
+                {/* Week 1 */}
+                <Card className={`border-l-4 border-l-${week1Status.color}-500`}>
                     <CardHeader className="pb-2">
                         <CardTitle className="text-lg flex items-center gap-2">
-                            <CheckCircle2 className="w-5 h-5 text-green-500" />
+                            <CheckCircle2 className={`w-5 h-5 text-${week1Status.color}-500`} />
                             Week 1 Content
                         </CardTitle>
                         <CardDescription>Current Week</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-sm text-green-700 font-medium bg-green-50 p-2 rounded">
-                            Status: Ready for Students
+                        <div className={`text-sm text-${week1Status.color}-700 font-medium bg-${week1Status.color}-50 p-2 rounded mb-2`}>
+                            Status: {week1Status.status === 'complete' ? 'Ready' : week1Status.status === 'partial' ? 'In Progress' : 'Not Started'}
                         </div>
+                        {week1Status.missing.length > 0 && (
+                            <p className="text-xs text-gray-500">Missing: {week1Status.missing.join(', ')}</p>
+                        )}
                     </CardContent>
                 </Card>
 
-                <Card className="border-l-4 border-l-yellow-500">
+                {/* Week 2 */}
+                <Card className={`border-l-4 border-l-${week2Status.color}-500`}>
                     <CardHeader className="pb-2">
                         <CardTitle className="text-lg flex items-center gap-2">
-                            <AlertTriangle className="w-5 h-5 text-yellow-500" />
+                            <AlertTriangle className={`w-5 h-5 text-${week2Status.color}-500`} />
                             Week 2 Content
                         </CardTitle>
                         <CardDescription>Upcoming (Starts Jan 19)</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-sm text-yellow-700 font-medium bg-yellow-50 p-2 rounded mb-2">
-                            Status: Partially Complete
+                        <div className={`text-sm text-${week2Status.color}-700 font-medium bg-${week2Status.color}-50 p-2 rounded mb-2`}>
+                            Status: {week2Status.status === 'complete' ? 'Ready' : week2Status.status === 'partial' ? 'In Progress' : 'Not Started'}
                         </div>
-                        <p className="text-xs text-gray-500">Missing: Flashcards (W2D3), MCQs (W2D4)</p>
+                        {week2Status.missing.length > 0 && (
+                            <p className="text-xs text-gray-500">Missing: {week2Status.missing.join(', ') + (week2Status.missing.length >= 3 ? '...' : '')}</p>
+                        )}
                     </CardContent>
                 </Card>
 
-                <Card className="border-l-4 border-l-red-500">
+                {/* Week 3 */}
+                <Card className={`border-l-4 border-l-${week3Status.color}-500`}>
                     <CardHeader className="pb-2">
                         <CardTitle className="text-lg flex items-center gap-2">
-                            <Calendar className="w-5 h-5 text-red-500" />
+                            <Calendar className={`w-5 h-5 text-${week3Status.color}-500`} />
                             Week 3 Content
                         </CardTitle>
                         <CardDescription>Future (Starts Jan 26)</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-sm text-red-700 font-medium bg-red-50 p-2 rounded mb-2">
-                            Status: Not Started
+                        <div className={`text-sm text-${week3Status.color}-700 font-medium bg-${week3Status.color}-50 p-2 rounded mb-2`}>
+                            Status: {week3Status.status === 'complete' ? 'Ready' : week3Status.status === 'partial' ? 'In Progress' : 'Not Started'}
                         </div>
-                        <p className="text-xs text-gray-500">Action: Plan topics & subtopics</p>
+                        {week3Status.missing.length > 0 && (
+                            <p className="text-xs text-gray-500">Missing: {week3Status.missing.join(', ').slice(0, 50) + '...'}</p>
+                        )}
                     </CardContent>
                 </Card>
             </div>

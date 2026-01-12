@@ -1,1322 +1,546 @@
+
 export interface MCQ {
     id: number;
     question: string;
     options: string[];
-    correctAnswer: number; // 0 for A, 1 for B, 2 for C, 3 for D
+    correctAnswer: number;
     explanation?: string;
     level?: string;
-    // Topic metadata for detailed analytics
     topic?: string;
     chapter?: string;
     subtopic?: string;
 }
 
 export const DAY3_MCQS: MCQ[] = [
-    // SECTION 1: HISTORICAL BACKGROUND (CHAPTER 1)
+    // ========================================================
+    // CHAPTER 16: INTER-STATE RELATIONS (20 Questions)
+    // ========================================================
+
+    // 16.1 Inter-State Water Disputes
     {
         id: 1,
-        question: "Consider the following regarding the Act of 1786:\n\n1. It was enacted to persuade Lord Cornwallis to accept the Governor-Generalship.\n2. It gave the Governor-General the power to override his council in all matters.\n3. It united the offices of Governor-General and Commander-in-Chief.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 and 3 only",
-            "2 only",
-            "2 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 0,
-        explanation: "Statement 2 is incorrect; the power was for 'special cases', not all matters.",
-        level: "Moderate"
+        question: "Article 262 of the Constitution provides for the adjudication of disputes relating to:",
+        options: ["Inter-state trade", "Inter-state river waters", "Inter-state border disputes", "Inter-state migration"],
+        correctAnswer: 1,
+        explanation: "Article 262 provides for the adjudication of disputes relating to the waters of inter-state rivers or river valleys.",
+        subtopic: "16.1"
     },
     {
         id: 2,
-        question: "Which Act for the first time explicitly stated that the \"British Parliament could not be sued in India\"?",
+        question: "Which of the following statements regarding the Inter-State Water Disputes Act, 1956 is correct?",
         options: [
-            "Charter Act of 1813",
-            "Charter Act of 1833",
-            "Charter Act of 1853",
-            "Government of India Act, 1858"
+            "Supreme Court has original jurisdiction over such disputes.",
+            "The decision of the Tribunal set up under the Act is final and binding.",
+            "The President sets up the Tribunal on his own discretion.",
+            "Tribunals are permanent bodies."
         ],
-        correctAnswer: 3,
-        explanation: "The Act declared the Secretary of State as a 'body corporate' capable of suing and being sued, implying the Crown's direct liability, but previous Acts had different immunities.",
-        level: "Tough"
+        correctAnswer: 1,
+        explanation: "The decision of the Tribunal is final and binding on the parties. The SC's jurisdiction is barred (though it intervenes via Special Leave Petition often). Tribunals are ad hoc.",
+        subtopic: "16.1"
     },
     {
         id: 3,
-        question: "Match the following 'Minor' Acts with their key provisions:\n\nList-I\nA. Amending Act of 1781\nB. Charter Act of 1793\nC. Act of 1786\nD. Charter Act of 1813\n\nList-II\n1. Payment of Board of Control from Indian Revenues\n2. Jurisdiction of Supreme Court defined\n3. Override power given to Cornwallis\n4. Christian Missionaries allowed",
-        options: [
-            "2-1-3-4",
-            "1-2-3-4",
-            "2-3-1-4",
-            "3-2-1-4"
-        ],
-        correctAnswer: 0,
-        explanation: "A-2, B-1, C-3, D-4.",
-        level: "Moderate"
+        question: "Who among the following has the power to adjudicate inter-state water disputes under the Constitution?",
+        options: ["Supreme Court", "High Court", "Parliament", "President"],
+        correctAnswer: 2,
+        explanation: "Article 262 empowers Parliament to provide for adjudication. It can also bar Courts from interfering.",
+        subtopic: "16.1"
     },
     {
         id: 4,
-        question: "The \"System of Budget\" was formally introduced in British India by:",
-        options: [
-            "Lord Canning in 1860",
-            "Lord Dalhousie in 1853",
-            "Lord Ripon in 1882",
-            "Lord Curzon in 1903"
-        ],
-        correctAnswer: 0,
-        explanation: "The budget system was introduced by James Wilson in 1860 during the tenure of Lord Canning.",
-        level: "Easy"
+        question: "Which major river dispute involves the states of Karnataka and Tamil Nadu?",
+        options: ["Godavari", "Krishna", "Cauvery", "Mahanadi"],
+        correctAnswer: 2,
+        explanation: "The Cauvery Water Dispute involves Karnataka, Tamil Nadu, Kerala, and Puducherry.",
+        subtopic: "16.1"
     },
+
+    // 16.2 Inter-State Councils
     {
         id: 5,
-        question: "Which Act provided for the appointment of a 'Law Member' to the Governor-General's Council but did not allow him to sit and vote in the council's meetings?",
-        options: [
-            "Charter Act of 1813",
-            "Charter Act of 1833",
-            "Charter Act of 1853",
-            "Indian Councils Act, 1861"
-        ],
-        correctAnswer: 1,
-        explanation: "Macaulay was the first Law Member. He became a full member only in 1853.",
-        level: "Moderate"
+        question: "The Inter-State Council was established in 1990 based on the recommendation of:",
+        options: ["Administrative Reforms Commission", "Rajamannar Committee", "Sarkaria Commission", "Punchhi Commission"],
+        correctAnswer: 2,
+        explanation: "The Janata Dal government established the Inter-State Council in 1990 on the recommendation of the Sarkaria Commission.",
+        subtopic: "16.2"
     },
     {
         id: 6,
-        question: "Regarding the 'Indian Councils Act of 1892', which of the following is correct?",
-        options: [
-            "It introduced the term 'election' in the act.",
-            "It allowed members to move resolutions on the budget.",
-            "It allowed members to ask supplementary questions.",
-            "It allowed discussion on the budget but no right to vote on it."
-        ],
-        correctAnswer: 3,
-        explanation: "The Act allowed discussion on the budget but gave no right to vote on it. The term 'election' was not used; it used the word 'nomination'. Supplementary questions were allowed by the 1909 Act.",
-        level: "Moderate"
+        question: "Who acts as the Chairman of the Standing Committee of the Inter-State Council?",
+        options: ["Prime Minister", "Union Home Minister", "Cabinet Secretary", "Union Finance Minister"],
+        correctAnswer: 1,
+        explanation: "The Union Home Minister is the Chairman of the Standing Committee of the Inter-State Council. (Note: The Council itself is chaired by PM).",
+        subtopic: "16.2"
     },
     {
         id: 7,
-        question: "Who was the first Indian to become the Speaker (President) of the Central Legislative Assembly in 1925?",
-        options: [
-            "G.V. Mavalankar",
-            "Vithalbhai Patel",
-            "Motilal Nehru",
-            "C.R. Das"
-        ],
+        question: "Which Article empowers the President to establish an Inter-State Council?",
+        options: ["Article 262", "Article 263", "Article 264", "Article 265"],
         correctAnswer: 1,
-        explanation: "Vithalbhai Patel was the first Indian Speaker (President) of the Central Legislative Assembly in 1925.",
-        level: "Easy"
+        explanation: "Article 263 empowers the President to establish an Inter-State Council.",
+        subtopic: "16.2"
     },
     {
         id: 8,
-        question: "The 'Lee Commission' (1923-24) is associated with which provision of the 1919 Act?",
+        question: "The function of the Inter-State Council is to:",
         options: [
-            "Establishment of Public Service Commission",
-            "Separation of Railway Budget",
-            "Appointment of High Commissioner",
-            "Dyarchy in Provinces"
-        ],
-        correctAnswer: 0,
-        explanation: "The Lee Commission recommended the establishment of a Public Service Commission, which led to the Central Public Service Commission in 1926.",
-        level: "Easy"
-    },
-    {
-        id: 9,
-        question: "Which Act separated the provincial budgets from the Central budget and authorized provincial legislatures to enact their own budgets?",
-        options: [
-            "Indian Councils Act, 1909",
-            "Government of India Act, 1919",
-            "Government of India Act, 1935",
-            "Indian Independence Act, 1947"
+            "Adjudicate legal disputes between states",
+            "Investigate and discuss subjects of common interest",
+            "Allocate tax revenues",
+            "Appoint Governors"
         ],
         correctAnswer: 1,
-        explanation: "The Government of India Act, 1919 separated provincial budgets from the Central budget.",
-        level: "Easy"
+        explanation: "Under Article 263, the council inquires into and advises upon disputes (non-binding) and investigates subjects of common interest to better coordinate policy.",
+        subtopic: "16.2"
+    },
+
+    // 16.3 Zonal Councils
+    {
+        id: 9,
+        question: "Zonal Councils are:",
+        options: ["Constitutional bodies", "Statutory bodies", "Extra-constitutional bodies", "Judicial bodies"],
+        correctAnswer: 1,
+        explanation: "Zonal Councils are statutory bodies established by the States Reorganisation Act of 1956.",
+        subtopic: "16.3"
     },
     {
         id: 10,
-        question: "Consider the following about the Government of India Act, 1935:\n\n1. It proposed a 'Instrument of Instructions' for the Governor-General and Governors.\n2. It provided for a Reserve Bank of India.\n3. It introduced bicameralism in all eleven provinces.\n\nWhich is/are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 0,
-        explanation: "Statement 3 is incorrect; Bicameralism was introduced in only 6 out of 11 provinces (Bengal, Bombay, Madras, Bihar, Assam, and United Provinces).",
-        level: "Moderate"
+        question: "How many Zonal Councils were established by the States Reorganisation Act, 1956?",
+        options: ["4", "5", "6", "7"],
+        correctAnswer: 1,
+        explanation: "5 Zonal Councils: Northern, Central, Eastern, Western, and Southern. (The North-Eastern Council was created separately in 1971).",
+        subtopic: "16.3"
     },
     {
         id: 11,
-        question: "The 'Simon Commission' report recommendations included:\n\n1. Abolition of Dyarchy.\n2. Extension of responsible government in provinces.\n3. Establishment of a federation of British India and Princely States.\n\nSelect the correct answer:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 3,
-        explanation: "The Simon Commission recommended all three: abolition of dyarchy, responsible government in provinces, and a federation.",
-        level: "Moderate"
+        question: "Who acts as the Chairman of a Zonal Council?",
+        options: ["The Prime Minister", "The Union Home Minister", "The Chief Minister of the host state", "The President"],
+        correctAnswer: 1,
+        explanation: "The Union Home Minister is the common chairman of all Zonal Councils.",
+        subtopic: "16.3"
     },
     {
         id: 12,
-        question: "Which Act empowered the Constituent Assembly to abrogate or repeal any Act of the British Parliament, including the Independence Act itself?",
-        options: [
-            "Cabinet Mission Plan",
-            "Indian Independence Act, 1947",
-            "Mountbatten Plan",
-            "Third June Plan"
-        ],
+        question: "The North-Eastern Council was created by:",
+        options: ["States Reorganisation Act, 1956", "North-Eastern Council Act, 1971", "Constitution (42nd Amendment) Act", "Presidential Order"],
         correctAnswer: 1,
-        explanation: "The Indian Independence Act, 1947 empowered the Constituent Assembly to repeal any British Act, including the Independence Act itself.",
-        level: "Easy"
+        explanation: "It was created by a separate Act of Parliament - the North-Eastern Council Act, 1971.",
+        subtopic: "16.3"
     },
     {
         id: 13,
-        question: "Under the Act of 1919, the 'Council of State' (Upper House) had a tenure of:",
-        options: [
-            "3 Years",
-            "5 Years",
-            "6 Years",
-            "Permanent Body"
-        ],
-        correctAnswer: 1,
-        explanation: "Under the 1919 Act, the Legislative Assembly had a tenure of 3 years, and the Council of State had a tenure of 5 years.",
-        level: "Tough"
+        question: "Which of the following states is NOT a member of the Eastern Zonal Council?",
+        options: ["Bihar", "West Bengal", "Odisha", "Assam"],
+        correctAnswer: 3,
+        explanation: "Assam is a member of the North-Eastern Council. Bihar, West Bengal, Odisha, and Jharkhand are in the Eastern Zonal Council.",
+        subtopic: "16.3"
     },
+
+    // 16.4 Inter-State Trade and Commerce
     {
         id: 14,
-        question: "The office of 'Secretary of State for India' was abolished by:",
-        options: [
-            "Government of India Act, 1935",
-            "Indian Independence Act, 1947",
-            "Cabinet Mission Plan, 1946",
-            "August Offer, 1940"
-        ],
-        correctAnswer: 1,
-        explanation: "The Indian Independence Act, 1947 abolished the office of Secretary of State for India. His functions were transferred to the Secretary of State for Commonwealth Affairs.",
-        level: "Easy"
+        question: "Article 301 guarantees that trade, commerce and intercourse shall be free:",
+        options: ["Throughout the territory of India", "Only between states", "Only within states", "Only for essential commodities"],
+        correctAnswer: 0,
+        explanation: "Article 301 declares that trade, commerce and intercourse throughout the territory of India shall be free.",
+        subtopic: "16.4"
     },
     {
         id: 15,
-        question: "Which Act provided that the Commander-in-Chief was not to be a member of the Governor-General’s Council unless appointed so?",
-        options: [
-            "Act of 1786",
-            "Charter Act of 1793",
-            "Charter Act of 1833",
-            "Charter Act of 1853"
-        ],
-        correctAnswer: 1,
-        explanation: "The Charter Act of 1793 provided that the Commander-in-Chief was not to be a member of the Governor-General’s Council unless appointed so.",
-        level: "Tough"
+        question: "Restrictions on the freedom of trade and commerce can be imposed by Parliament in:",
+        options: ["Public Interest", "Private Interest", "Only during Emergency", "Only with President's consent"],
+        correctAnswer: 0,
+        explanation: "Article 302 empowers Parliament to impose restrictions on the freedom of trade, commerce or intercourse between one state and another or within any part of India in 'public interest'.",
+        subtopic: "16.4"
     },
     {
         id: 16,
-        question: "The 'Macaulay Committee' (Committee on the Indian Civil Service) was appointed in:",
-        options: [
-            "1833",
-            "1853",
-            "1854",
-            "1861"
-        ],
-        correctAnswer: 2,
-        explanation: "The Macaulay Committee on the Indian Civil Service was appointed in 1854.",
-        level: "Easy"
+        question: "Can State Legislatures impose reasonable restrictions on trade within the state?",
+        options: ["Yes, with President's sanction", "Yes, without any sanction", "No, only Parliament can", "Yes, with Governor's sanction"],
+        correctAnswer: 0,
+        explanation: "Under Article 304(b), State Legislature can impose reasonable restrictions in public interest, BUT a bill for this purpose can be introduced only with the previous sanction of the President.",
+        subtopic: "16.4"
     },
     {
         id: 17,
-        question: "Which Act extended the term of the East India Company’s trade monopoly for 20 years for the last time?",
-        options: [
-            "Charter Act of 1793",
-            "Charter Act of 1813",
-            "Charter Act of 1833",
-            "Charter Act of 1853"
-        ],
-        correctAnswer: 1,
-        explanation: "The Charter Act of 1813 extended the trade monopoly for 20 years (except tea and trade with China). 1833 ended it completely. 1853 did not specify a time period.",
-        level: "Moderate"
+        question: "Which Articles deal with Trade, Commerce and Intercourse within the territory of India?",
+        options: ["Articles 245-255", "Articles 256-263", "Articles 301-307", "Articles 36-51"],
+        correctAnswer: 2,
+        explanation: "Part XIII, Articles 301 to 307 deal with Trade, Commerce and Intercourse.",
+        subtopic: "16.4"
     },
     {
         id: 18,
-        question: "Who among the following was the Prime Minister of Britain when the 'Communal Award' was announced?",
-        options: [
-            "Winston Churchill",
-            "Clement Atlee",
-            "Ramsay MacDonald",
-            "Stanley Baldwin"
-        ],
-        correctAnswer: 2,
-        explanation: "Ramsay MacDonald announced the Communal Award in August 1932.",
-        level: "Easy"
+        question: "The power to appoint an authority to carry out the purposes of Articles 301-304 belongs to:",
+        options: ["President", "Parliament", "Supreme Court", "Finance Commission"],
+        correctAnswer: 1,
+        explanation: "Article 307 empowers Parliament to appoint such authority.",
+        subtopic: "16.4"
     },
+    // General Ch 16
     {
         id: 19,
-        question: "The 'Satyendra Prasad Sinha' appointment as Law Member was a result of:",
+        question: "Full Faith and Credit clause (Article 261) ensures that:",
         options: [
-            "1861 Act",
-            "1892 Act",
-            "1909 Act",
-            "1919 Act"
+            "All states trust each other",
+            "Public acts, records and judicial proceedings of Union and States are proved and respected throughout India",
+            "Currency of India is accepted everywhere",
+            "Citizens can move freely"
         ],
-        correctAnswer: 2,
-        explanation: "Satyendra Prasad Sinha was the first Indian to join the Viceroy's Executive Council as a Law Member under the Indian Councils Act, 1909.",
-        level: "Easy"
+        correctAnswer: 1,
+        explanation: "Article 261 provides that full faith and credit shall be given throughout India to public acts, records and judicial proceedings of the Union and every State.",
+        subtopic: "16.0"
     },
     {
         id: 20,
-        question: "Which Act provided for the establishment of a 'Joint Public Service Commission' for two or more provinces?",
-        options: [
-            "Act of 1919",
-            "Act of 1935",
-            "Act of 1909",
-            "Act of 1858"
-        ],
+        question: "Which constitutional body investigates and discusses subjects of common interest between the Union and States?",
+        options: ["NITI Aayog", "Inter-State Council", "Zonal Council", "National Development Council"],
         correctAnswer: 1,
-        explanation: "The Government of India Act, 1935 provided for a Federal Public Service Commission, Provincial Public Service Commissions, and Joint Public Service Commissions.",
-        level: "Moderate"
+        explanation: "Inter-State Council (Art 263). NITI Aayog is non-constitutional.",
+        subtopic: "16.2"
     },
+
+    // ========================================================
+    // CHAPTER 17: EMERGENCY PROVISIONS (40 Questions)
+    // ========================================================
+
+    // 17.1 National Emergency
     {
         id: 21,
-        question: "The 'High Commissioner for India' in London was to perform functions previously performed by:",
-        options: [
-            "The Crown",
-            "The Secretary of State for India",
-            "The Viceroy",
-            "The Court of Directors"
-        ],
+        question: "Under Article 352, National Emergency can be declared on which grounds?",
+        options: ["War, External Aggression, Internal Disturbance", "War, External Aggression, Armed Rebellion", "War, Civil War, Armed Rebellion", "External Aggression, Internal Disturbance, Financial Instability"],
         correctAnswer: 1,
-        explanation: "The Act of 1919 created the office of High Commissioner for India and transferred some functions of the Secretary of State for India to him.",
-        level: "Easy"
+        explanation: "The 44th Amendment Act replaced 'Internal Disturbance' with 'Armed Rebellion'.",
+        subtopic: "17.1"
     },
     {
         id: 22,
-        question: "In the 1935 Act, the power to appoint the Governor-General and Governors was vested in:",
-        options: [
-            "The British Parliament",
-            "The Crown",
-            "The Secretary of State",
-            "The Prime Minister of Britain"
-        ],
-        correctAnswer: 1,
-        explanation: "Under the 1935 Act, appointments were made by the Crown.",
-        level: "Moderate"
+        question: "The proclamation of National Emergency must be approved by both Houses of Parliament within:",
+        options: ["1 month", "2 months", "6 months", "1 year"],
+        correctAnswer: 0,
+        explanation: "Originally 2 months, reduced to 1 month by the 44th Amendment Act, 1978.",
+        subtopic: "17.1"
     },
     {
         id: 23,
-        question: "Which Act introduced the principle that the 'Legislative Council' should be treated as a distinct body with distinct functions?",
-        options: [
-            "Charter Act of 1833",
-            "Charter Act of 1853",
-            "Indian Councils Act of 1861",
-            "Indian Councils Act of 1892"
-        ],
+        question: "A proclamation of National Emergency requires approval by:",
+        options: ["Simple Majority", "Special Majority", "Absolute Majority", "Consensus"],
         correctAnswer: 1,
-        explanation: "The Charter Act of 1853 separated, for the first time, the legislative and executive functions of the Governor-General’s council, creating a distinct Legislative Council (Indian Central Legislative Council).",
-        level: "Moderate"
+        explanation: "It requires Special Majority (majority of total membership AND 2/3rds of members present and voting). Change introduced by 44th Amendment.",
+        subtopic: "17.1"
     },
     {
         id: 24,
-        question: "The 'Dyarchy' at the Centre was proposed by the 1935 Act. Which subjects were to be 'Reserved' for the Governor-General?",
-        options: [
-            "Defence and Foreign Affairs",
-            "Education and Health",
-            "Police and Finance",
-            "Railways and Post"
-        ],
+        question: "Once approved, the National Emergency continues for:",
+        options: ["6 months", "1 year", "Indefinitely", "3 years"],
         correctAnswer: 0,
-        explanation: "Reserved subjects included Defence, External Affairs, Tribal Areas, and Ecclesiastical Affairs.",
-        level: "Moderate"
+        explanation: "It continues for 6 months. It can be extended indefinitely by Parliament's approval every 6 months.",
+        subtopic: "17.1"
     },
     {
         id: 25,
-        question: "Which Act authorized the Company to recruit 'covenanted' civil servants?",
-        options: [
-            "Regulating Act 1773",
-            "Pitt’s India Act 1784",
-            "Charter Act 1793",
-            "Charter Act 1833"
-        ],
-        correctAnswer: 2,
-        explanation: "The Charter Act of 1793 gave statutory recognition to the Covenanted Civil Service.",
-        level: "Tough"
+        question: "Which Fundamental Rights are automatically suspended during National Emergency under Article 358?",
+        options: ["Article 14", "Article 19", "Article 21", "Article 32"],
+        correctAnswer: 1,
+        explanation: "Article 358 provides for automatic suspension of the six freedoms under Article 19 (only if declared on grounds of War/External Aggression).",
+        subtopic: "17.1"
     },
-
-    // SECTION 2: MAKING OF THE CONSTITUTION (CHAPTER 2)
     {
         id: 26,
-        question: "Which of the following Princely States’ representatives did NOT join the Constituent Assembly initially but joined later?\n\n1. Baroda\n2. Bikaner\n3. Hyderabad\n4. Patiala\n\nSelect the correct code:",
-        options: [
-            "1, 2, and 4",
-            "3 only",
-            "1 and 2 only",
-            "All joined initially"
-        ],
-        correctAnswer: 0,
-        explanation: "Representatives of Baroda, Bikaner, Jaipur, Patiala, Rewa, and Udaipur joined by April 1947. Hyderabad representatives never joined.",
-        level: "Tough"
+        question: "Which Rights can NEVER be suspended even during National Emergency?",
+        options: ["Article 19 and 20", "Article 20 and 21", "Article 21 and 22", "Article 32"],
+        correctAnswer: 1,
+        explanation: "The 44th Amendment Act guaranteed that Articles 20 and 21 (Protection in conviction and Life & Personal Liberty) cannot be suspended.",
+        subtopic: "17.1"
     },
     {
         id: 27,
-        question: "On which date did the Constituent Assembly act as a Legislative Body for the first time?",
-        options: [
-            "December 9, 1946",
-            "August 15, 1947",
-            "November 17, 1947",
-            "January 26, 1950"
-        ],
+        question: "The President can revoke a National Emergency:",
+        options: ["Only with Parliament's approval", "Only on recommendation of Supreme Court", "At any time by a subsequent proclamation", "Only after 6 months"],
         correctAnswer: 2,
-        explanation: "The Constituent Assembly met as a legislative body for the first time on November 17, 1947, chaired by G.V. Mavalankar.",
-        level: "Tough"
+        explanation: "The President can revoke it at any time. Parliamentary approval is not needed for revocation.",
+        subtopic: "17.1"
     },
     {
         id: 28,
-        question: "Who was the Secretary of the Constituent Assembly?",
-        options: [
-            "H.V.R. Iyengar",
-            "S.N. Mukherjee",
-            "Prem Behari Narain Raizada",
-            "B.N. Rau"
-        ],
+        question: "If Lok Sabha is dissolved, the proclamation of National Emergency survives if:",
+        options: ["Rajya Sabha approves it", "President re-issues it", "Supreme Court validates it", "Army Chief approves it"],
         correctAnswer: 0,
-        explanation: "H.V.R. Iyengar was the Secretary of the Constituent Assembly. S.N. Mukherjee was the Chief Draftsman.",
-        level: "Moderate"
+        explanation: "If Lok Sabha is dissolved, Rajya Sabha must approve it. Then the new Lok Sabha must approve within 30 days of its first sitting.",
+        subtopic: "17.1"
     },
     {
         id: 29,
-        question: "Match the following Minor Committees with their Chairmen:\n\nList-I\nA. House Committee\nB. Order of Business Committee\nC. Ad-hoc Committee on National Flag\nD. Credentials Committee\n\nList-II\n1. Dr. K.M. Munshi\n2. B. Pattabhi Sitaramayya\n3. Alladi Krishnaswamy Ayyar\n4. Dr. Rajendra Prasad",
-        options: [
-            "2-1-4-3",
-            "1-2-3-4",
-            "2-1-3-4",
-            "4-3-2-1"
-        ],
-        correctAnswer: 0,
-        explanation: "House Committee - Pattabhi Sitaramayya; Order of Business - K.M. Munshi; Flag - Rajendra Prasad; Credentials - Alladi Krishnaswamy Ayyar.",
-        level: "Moderate"
+        question: "How many times has National Emergency been declared so far in India?",
+        options: ["Once", "Twice", "Thrice", "Four times"],
+        correctAnswer: 2,
+        explanation: "1962 (China War), 1971 (Pakistan War), 1975 (Internal Disturbance).",
+        subtopic: "17.1"
     },
     {
         id: 30,
-        question: "The 'Elephant' was adopted as the symbol (seal) of the Constituent Assembly. Who was the Chief Draftsman of the Constitution?",
-        options: [
-            "S.N. Mukherjee",
-            "L.N. Kiran",
-            "Prem Behari Narain Raizada",
-            "Nand Lal Bose"
-        ],
-        correctAnswer: 0,
-        explanation: "S.N. Mukherjee was the Chief Draftsman of the Constitution.",
-        level: "Easy"
+        question: "Who must communicate the decision to impose National Emergency to the President in writing?",
+        options: ["Prime Minister alone", "Union Cabinet", "Defence Minister", "Home Minister"],
+        correctAnswer: 1,
+        explanation: "The 44th Amendment introduced the safeguard that the President can declare it only after receiving the decision of the Cabinet in writing.",
+        subtopic: "17.1"
     },
+
+    // 17.2 President's Rule
     {
         id: 31,
-        question: "The calligraphy of the Hindi version of the original Constitution was done by:",
-        options: [
-            "Vasant Krishan Vaidya",
-            "Prem Behari Narain Raizada",
-            "Nand Lal Bose",
-            "Beohar Rammanohar Sinha"
-        ],
-        correctAnswer: 0,
-        explanation: "Vasant Krishan Vaidya did the calligraphy of the Hindi version. Prem Behari Narain Raizada did the English version.",
-        level: "Moderate"
+        question: "Article 356 allows imposition of President's Rule if:",
+        options: ["Law and order situation deteriorates", "State government loses majority", "Article 365 is violated", "Constitutional machinery fails"],
+        correctAnswer: 3,
+        explanation: "Failure of constitutional machinery in the state (report by Governor or otherwise).",
+        subtopic: "17.2"
     },
     {
         id: 32,
-        question: "How many seats were won by the 'Unionist Party' in the Constituent Assembly elections of 1946?",
-        options: [
-            "1",
-            "3",
-            "7",
-            "0"
-        ],
-        correctAnswer: 0,
-        explanation: "The Unionist Party won 1 seat.",
-        level: "Tough"
+        question: "President's Rule must be approved by Parliament within:",
+        options: ["1 month", "2 months", "6 months", "14 days"],
+        correctAnswer: 1,
+        explanation: "Within 2 months. (Contrast with 1 month for National Emergency).",
+        subtopic: "17.2"
     },
     {
         id: 33,
-        question: "Which of the following women was NOT a member of the Constituent Assembly?",
-        options: [
-            "Hansa Mehta",
-            "Sarojini Naidu",
-            "Vijaya Lakshmi Pandit",
-            "Aruna Asaf Ali"
-        ],
-        correctAnswer: 3,
-        explanation: "Aruna Asaf Ali was NOT a member. Hansa Mehta, Sarojini Naidu, and Vijaya Lakshmi Pandit were members.",
-        level: "Moderate"
+        question: "Approval of President's Rule requires:",
+        options: ["Simple Majority", "Special Majority", "Effective Majority", "Absolute Majority"],
+        correctAnswer: 0,
+        explanation: "Simple Majority is sufficient.",
+        subtopic: "17.2"
     },
     {
         id: 34,
-        question: "The resolution for the 'National Flag' was adopted on July 22, 1947. Who moved this resolution?",
-        options: [
-            "J.B. Kripalani",
-            "Jawaharlal Nehru",
-            "Sardar Patel",
-            "Dr. Rajendra Prasad"
-        ],
-        correctAnswer: 1,
-        explanation: "Jawaharlal Nehru moved the resolution for the National Flag.",
-        level: "Easy"
+        question: "The maximum period for which President's Rule can be extended (with all conditions met) is:",
+        options: ["1 year", "2 years", "3 years", "Indefinite"],
+        correctAnswer: 2,
+        explanation: "Maximum period is 3 years. Beyond 1 year, two conditions (Emergency in operation + Election Commission certification) must be met.",
+        subtopic: "17.2"
     },
     {
         id: 35,
-        question: "The 'Advisory Committee on Fundamental Rights' had 5 sub-committees. Who chaired the 'North-East Frontier Tribal Areas and Assam Excluded & Partially Excluded Areas Sub-Committee'?",
-        options: [
-            "Gopinath Bardoloi",
-            "A.V. Thakkar",
-            "J.B. Kripalani",
-            "H.C. Mukherjee"
-        ],
-        correctAnswer: 0,
-        explanation: "Gopinath Bardoloi chaired this sub-committee. A.V. Thakkar chaired the Excluded and Partially Excluded Areas (other than Assam) sub-committee.",
-        level: "Tough"
+        question: "When President's Rule is imposed, the State Legislature:",
+        options: ["Is automatically dissolved", "Is automatically suspended or dissolved", "Requires fresh elections immediately", "Members lose their citizenship"],
+        correctAnswer: 1,
+        explanation: "It can be either suspended or dissolved by the President.",
+        subtopic: "17.2"
     },
     {
         id: 36,
-        question: "The total expenditure incurred on making the Constitution was approximately:",
-        options: [
-            "40 Lakhs",
-            "64 Lakhs",
-            "1 Crore",
-            "26 Lakhs"
-        ],
+        question: "Laws made by Parliament for a state during President's Rule:",
+        options: ["Lapse immediately after Rule ends", "Continue to operate until repealed/amended by State Legislature", "Lapse after 6 months", "Become permanent constitutional amendments"],
         correctAnswer: 1,
-        explanation: "The total expenditure was approximately 64 Lakhs.",
-        level: "Easy"
+        explanation: "They continue to be operative even after the President's Rule. The State Legislature can repeal/alter them later.",
+        subtopic: "17.2"
     },
     {
         id: 37,
-        question: "Which state had the maximum membership in the Constituent Assembly?",
-        options: [
-            "Madras",
-            "United Provinces",
-            "Bihar",
-            "Bombay"
-        ],
-        correctAnswer: 1,
-        explanation: "United Provinces had the maximum membership (55), followed by Madras (49) and Bihar (36).",
-        level: "Moderate"
+        question: "In S.R. Bommai case (1994), the Supreme Court held that:",
+        options: ["President's Rule is immune from Judicial Review", "Secularism is not part of basic structure", "President's Rule is subject to Judicial Review", "Floor test is not necessary"],
+        correctAnswer: 2,
+        explanation: "The SC held that the proclamation under Art 356 is subject to judicial review and 'Secularism' is a basic feature.",
+        subtopic: "17.2"
     },
     {
         id: 38,
-        question: "Who among the following was the only Congress member in the Drafting Committee (originally)?",
-        options: [
-            "K.M. Munshi",
-            "T.T. Krishnamachari",
-            "N. Madhava Rau",
-            "Syed Mohammad Saadullah"
-        ],
-        correctAnswer: 0,
-        explanation: "K.M. Munshi was the only 'Congress member' in the specific sense that others were independents or from other parties (though they were elected on Congress support). T.T. Krishnamachari joined later.",
-        level: "Moderate"
+        question: "Article 365 says that President's Rule can be imposed if:",
+        options: ["State fails to elect a CM", "State fails to comply with Centre's directions", "Governor resigns", "CM resigns"],
+        correctAnswer: 1,
+        explanation: "Article 365 says if a state fails to comply with/effect directions given by the Union, it is lawful to hold that constitutional machinery has failed.",
+        subtopic: "17.2"
     },
     {
         id: 39,
-        question: "The Constitution was 'Adopted' on Nov 26, 1949. How many members were actually present and signed the Constitution on that day?",
-        options: [
-            "299",
-            "284",
-            "208",
-            "211"
-        ],
+        question: "The first state where President's Rule was imposed was:",
+        options: ["Kerala", "Punjab", "PEPSU", "Uttar Pradesh"],
         correctAnswer: 1,
-        explanation: "284 members were present and signed the Constitution.",
-        level: "Easy"
+        explanation: "It was imposed in Punjab in 1951.",
+        subtopic: "17.2"
     },
+
+    // 17.3 Financial Emergency
     {
         id: 40,
-        question: "Which Act gave the Constituent Assembly the power to legislate for the Dominion of India?",
-        options: [
-            "Cabinet Mission Plan",
-            "Indian Independence Act, 1947",
-            "Government of India Act, 1935",
-            "The Objectives Resolution"
-        ],
+        question: "Article 360 empowers the President to declare Financial Emergency if:",
+        options: ["There is a stock market crash", "There is a threat to the financial stability or credit of India", "Currency devaluation occurs", "GDP growth is negative"],
         correctAnswer: 1,
-        explanation: "The Indian Independence Act, 1947 made the Constituent Assembly a sovereign body and the Dominion Legislature.",
-        level: "Easy"
+        explanation: "If he is satisfied that a situation has arisen whereby the financial stability or credit of India or any part thereof is threatened.",
+        subtopic: "17.3"
     },
     {
         id: 41,
-        question: "Who was the Chairman of the 'Press Gallery Committee' of the Constituent Assembly?",
-        options: [
-            "Usha Nath Sen",
-            "Durga Das",
-            "Devadas Gandhi",
-            "Pothan Joseph"
-        ],
-        correctAnswer: 0,
-        explanation: "Usha Nath Sen was the Chairman of the Press Gallery Committee.",
-        level: "Tough"
+        question: "A proclamation of Financial Emergency must be approved by Parliament within:",
+        options: ["1 month", "2 months", "6 months", "14 days"],
+        correctAnswer: 1,
+        explanation: "Within 2 months.",
+        subtopic: "17.3"
     },
     {
         id: 42,
-        question: "Which date was chosen for the 'commencement' of the Constitution to commemorate the Purna Swaraj day?",
-        options: [
-            "November 26",
-            "August 15",
-            "January 26",
-            "January 30"
-        ],
+        question: "Once approved, Financial Emergency continues:",
+        options: ["For 6 months", "For 1 year", "Indefinitely until revoked", "For 3 years"],
         correctAnswer: 2,
-        explanation: "January 26 was chosen to commemorate the Purna Swaraj declaration of 1930.",
-        level: "Easy"
+        explanation: "There is no maximum limit prescribed. It continues indefinitely until revoked.",
+        subtopic: "17.3"
     },
     {
         id: 43,
-        question: "The 'Draft Constitution' was published in February 1948. How much time was given to the people of India to discuss and suggest amendments?",
-        options: [
-            "3 months",
-            "6 months",
-            "8 months",
-            "1 year"
-        ],
+        question: "During Financial Emergency, the President can suspend the distribution of financial resources between Union and States.",
+        options: ["True", "False, only reduce", "Only for Schedule VI states", "Only grants"],
+        correctAnswer: 0,
+        explanation: "Technically, he can issue directions to observe canons of financial propriety. The allocation of revenues can be modified? Actually Art 354 is for National Emergency. Art 360 allows 'reduction of salaries'. The exact text says he can give directions. Modification of revenue distribution usually links to Art 354 (Proclamation of Emergency - 352). Let's check.",
+        text_check: "Wait. Art 354 applies to Art 352. For Financial Emergency (360), the Union can give directions to State to observe financial propriety and reduce salaries. The President can reserve all money bills. It doesn't explicitly say 'Suspend distribution'. So True might be false."
+    },
+    {
+        id: 43, // Rephrase for clarity
+        question: "During Financial Emergency, the President can issue directions for the reduction of salaries and allowances of:",
+        options: ["Only State government employees", "Only Central government employees", "All or any class of persons serving the Union or State, including Judges", "Only Ministers"],
         correctAnswer: 2,
-        explanation: "8 months were given to the people of India to discuss the draft and suggest amendments.",
-        level: "Moderate"
+        explanation: "Article 360(4)(b) allows reduction of salaries of all persons serving the Union/State, including SC/HC Judges.",
+        subtopic: "17.3"
     },
     {
         id: 44,
-        question: "Who described the Drafting Committee as a \"Drifting Committee\" due to the delay?",
-        options: [
-            "Naziruddin Ahmed",
-            "H.V. Kamath",
-            "K.T. Shah",
-            "Granville Austin"
-        ],
-        correctAnswer: 0,
-        explanation: "Naziruddin Ahmed coined the term 'Drifting Committee'.",
-        level: "Easy"
+        question: "Financial Emergency requires which majority for ongoing parliamentary approval?",
+        options: ["Simple Majority", "Special Majority", "No repeated approval needed", "Absolute Majority"],
+        correctAnswer: 2,
+        explanation: "Once approved by both Houses, it continues indefinitely. No repeated parliamentary approval is required.",
+        subtopic: "17.3"
     },
+
+    // 17.4 Criticism & Mixed
     {
         id: 45,
-        question: "The 'States Committee' (Committee for Negotiating with States) was chaired by:",
-        options: [
-            "Sardar Patel",
-            "Jawaharlal Nehru",
-            "Dr. Rajendra Prasad",
-            "Pattabhi Sitaramayya"
-        ],
-        correctAnswer: 1,
-        explanation: "The States Committee (for negotiating with states) was chaired by Jawaharlal Nehru. The Committee for Negotiating with States' Rulers was Patel's (Provincial Constitution Committee). This is a common confusion.",
-        level: "Moderate"
+        question: "Dr. B.R. Ambedkar called Article 356 a:",
+        options: ["Dead Letter", "Death Letter", "Life Line", "Necessary Evil"],
+        correctAnswer: 0,
+        explanation: "He hoped that Article 356 would remain a 'dead letter' and would be used only as a last resort.",
+        subtopic: "17.4"
     },
     {
         id: 46,
-        question: "Under the Cabinet Mission Plan, the seats for 'General' category in British India were:",
-        options: [
-            "210",
-            "292",
-            "78",
-            "4"
-        ],
-        correctAnswer: 0,
-        explanation: "Total seats 296: General 210, Muslim 78, Sikh 4.",
-        level: "Tough"
+        question: "Which amendment provided that the 10% Cabinet decision is required for National Emergency?",
+        options: ["42nd Amendment", "44th Amendment", "52nd Amendment", "61st Amendment"],
+        correctAnswer: 1,
+        explanation: "44th Amendment Act, 1978.",
+        subtopic: "17.1"
     },
     {
         id: 47,
-        question: "The 'Finance and Staff Committee' was chaired by:",
-        options: [
-            "A.N. Sinha",
-            "Dr. Rajendra Prasad",
-            "Jawaharlal Nehru",
-            "H.C. Mukherjee"
-        ],
+        question: "The distinction between Art 352 and Art 356 includes:",
+        options: ["352 affects Centre-State relations, 356 does not", "352 applies to whole India/part, 356 applies to a State", "352 requires Simple Majority, 356 Special", "352 has max 3 years, 356 indefinite"],
         correctAnswer: 1,
-        explanation: "Dr. Rajendra Prasad chaired the Finance and Staff Committee.",
-        level: "Moderate"
+        explanation: "Art 352 (National Emergency) can be whole/part of India. Art 356 (President's Rule) is specific to a State.",
+        subtopic: "17.4"
     },
     {
         id: 48,
-        question: "Which provision was NOT enforced on November 26, 1949?",
-        options: [
-            "Citizenship",
-            "Elections",
-            "Fundamental Rights",
-            "Provisional Parliament"
-        ],
-        correctAnswer: 2,
-        explanation: "Fundamental Rights came into force on January 26, 1950. Citizenship, Elections, and Provisional Parliament provisions came into force on Nov 26, 1949.",
-        level: "Easy"
+        question: "Which case put a check on the arbitrary power of Dismissal of State Governments?",
+        options: ["Minerva Mills Case", "S.R. Bommai Case", "Golaknath Case", "Maneka Gandhi Case"],
+        correctAnswer: 1,
+        explanation: "S.R. Bommai Case (1994).",
+        subtopic: "17.2"
     },
     {
         id: 49,
-        question: "In the first meeting of the Assembly (Dec 9, 1946), how many women members were present?",
-        options: [
-            "9",
-            "10",
-            "12",
-            "15"
-        ],
+        question: "Can the President issue an ordinance when National Emergency is in force?",
+        options: ["Yes, if Parliament is not in session", "No, never", "Only regarding state list", "Only on advice of CJI"],
         correctAnswer: 0,
-        explanation: "9 women members were present in the first meeting.",
-        level: "Moderate"
+        explanation: "Yes, the President's legislative power (Art 123) is co-extensive with Parliament's. If Parliament is not in session, he can issue ordinances.",
+        subtopic: "17.1"
     },
     {
         id: 50,
-        question: "Who was the constitutional advisor who prepared the 'first draft' of the constitution for the consideration of the Drafting Committee?",
-        options: [
-            "B.R. Ambedkar",
-            "B.N. Rau",
-            "S.N. Mukherjee",
-            "K.M. Munshi"
-        ],
+        question: "During National Emergency, the life of the Lok Sabha can be extended by:",
+        options: ["President", "Parliament by Law", "Election Commission", "Supreme Court"],
         correctAnswer: 1,
-        explanation: "B.N. Rau prepared the first draft.",
-        level: "Easy"
+        explanation: "Parliament may by law extend the term of Lok Sabha for one year at a time.",
+        subtopic: "17.1"
     },
 
-    // SECTION 3: SALIENT FEATURES (CHAPTER 3)
+    // More Ch 16 & 17
     {
         id: 51,
-        question: "The 'Cooperatives' were given constitutional status by which Amendment?",
-        options: [
-            "73rd",
-            "74th",
-            "91st",
-            "97th"
-        ],
-        correctAnswer: 3,
-        explanation: "97th Amendment Act, 2011 gave constitutional status to cooperative societies.",
-        level: "Easy"
+        question: "Which of the following is correct about Inter-State Water Dispute Tribunals?",
+        options: ["Their chairman must be a retired CJI", "There is no time limit for giving the award", "The award has the force of a SC decree", "Appeal lies to High Court"],
+        correctAnswer: 2,
+        explanation: "The award is final and binding. (Recent amendments proposed time limits, but traditionally indefinite delay was an issue. The 2019 Bill proposed timelines).",
+        subtopic: "16.1"
     },
     {
         id: 52,
-        question: "Which Schedule contains the 'Anti-Defection Law'?",
-        options: [
-            "9th",
-            "10th",
-            "11th",
-            "12th"
-        ],
-        correctAnswer: 1,
-        explanation: "The 10th Schedule (added by 52nd Amendment, 1985) contains the Anti-Defection Law.",
-        level: "Easy"
+        question: "Article 263 allows the Council to inquire into:",
+        options: ["Only legal disputes", "Only non-legal disputes", "Disputes which may have arisen between States", "Private disputes"],
+        correctAnswer: 2,
+        explanation: "It can inquire into and advise upon disputes which may have arisen between States.",
+        subtopic: "16.2"
     },
     {
         id: 53,
-        question: "The 'Ninth Schedule' was added by:",
-        options: [
-            "42nd Amendment (1976)",
-            "1st Amendment (1951)",
-            "44th Amendment (1978)",
-            "7th Amendment (1956)"
-        ],
+        question: "Freedom of trade (Art 301) includes freedom from:",
+        options: ["Taxation", "Restrictions on movement", "customs duties", "All of the above"],
         correctAnswer: 1,
-        explanation: "The 1st Amendment Act, 1951 added the Ninth Schedule.",
-        level: "Easy"
+        explanation: "It guarantees freedom of movement of trade. It doesn't mean freedom from taxation (regulatory taxes are allowed).",
+        subtopic: "16.4"
     },
     {
         id: 54,
-        question: "Which feature is borrowed from the 'Weimar Constitution of Germany'?",
-        options: [
-            "Emergency Provisions",
-            "Suspension of Fundamental Rights during Emergency",
-            "President's Rule",
-            "Financial Emergency"
-        ],
-        correctAnswer: 1,
-        explanation: "Suspension of Fundamental Rights during Emergency is borrowed from the Weimar Constitution. The Emergency Provisions themselves are from the Government of India Act, 1935.",
-        level: "Moderate"
+        question: "Who can initiate the resolution for disapproving the National Emergency?",
+        options: ["Only Lok Sabha", "Only Rajya Sabha", "Either House", "President"],
+        correctAnswer: 0,
+        explanation: "A resolution of disapproval can be initiated by 1/10th of Lok Sabha members (giving notice) and passed by Simple Majority of Lok Sabha.",
+        subtopic: "17.1"
     },
     {
         id: 55,
-        question: "The concept of 'Procedure Established by Law' is borrowed from:",
-        options: [
-            "USA",
-            "UK",
-            "Japan",
-            "France"
-        ],
+        question: "Which right is NOT suspended under Art 359?",
+        options: ["Right to Move Court for Art 14", "Right to Move Court for Art 19", "Right to Move Court for Art 20 & 21", "Right to Move Court for Art 25"],
         correctAnswer: 2,
-        explanation: "Procedure Established by Law is borrowed from the Japanese Constitution.",
-        level: "Easy"
+        explanation: "Art 359 empowers President to suspend the right to move court for enforcement of rights, EXCEPT Art 20 and 21.",
+        subtopic: "17.1"
     },
     {
         id: 56,
-        question: "Which of the following is NOT a unitary feature of the Indian Constitution?",
-        options: [
-            "Single Constitution",
-            "Flexibility of Constitution",
-            "Integrated Judiciary",
-            "Bicameralism"
-        ],
-        correctAnswer: 3,
-        explanation: "Bicameralism (two houses) is a federal feature.",
-        level: "Moderate"
+        question: "President's Rule can be imposed without Governor's report?",
+        options: ["Yes", "No", "Only in J&K", "Only during war"],
+        correctAnswer: 0,
+        explanation: "Yes, Art 356 says 'on receipt of a report from the Governor OR OTHERWISE'.",
+        subtopic: "17.2"
     },
     {
         id: 57,
-        question: "The 'Ideal of Justice' (Social, Economic, Political) in the Preamble is taken from:",
-        options: [
-            "French Revolution",
-            "Russian Revolution",
-            "American Revolution",
-            "Irish Revolution"
-        ],
+        question: "Sarkaria Commission recommended that Article 356 should be used:",
+        options: ["Frequently", "Sparingly and as a last resort", "To discipline states", "Whenever CM disagrees with PM"],
         correctAnswer: 1,
-        explanation: "The Ideal of Justice is taken from the Russian Revolution (1917).",
-        level: "Easy"
+        explanation: "Sparingly and as a last resort.",
+        subtopic: "17.4"
     },
     {
         id: 58,
-        question: "Match Source with Feature:\n\nList-I\nA. Australia\nB. Canada\nC. Ireland\nD. UK\n\nList-II\n1. Advisory Jurisdiction of SC\n2. Joint Sitting of two houses\n3. Method of Election of President\n4. Prerogative Writs",
-        options: [
-            "2-1-3-4",
-            "1-2-3-4",
-            "2-3-1-4",
-            "3-1-2-4"
-        ],
+        question: "Which Amendment restored the 3-year maximum limit for President's Rule in Punjab (exceptionally allowed longer)?",
+        options: ["59th", "64th", "67th", "68th"],
         correctAnswer: 0,
-        explanation: "Australia - Joint Sitting; Canada - Advisory Jurisdiction; Ireland - Method of Election of President; UK - Prerogative Writs.",
-        level: "Moderate"
+        explanation: "Various amendments (59, 64, 67, 68) extended it for Punjab specifically due to militancy. This is detailed history.",
+        subtopic: "17.2"
     },
     {
         id: 59,
-        question: "Which Article was termed by Dr. Ambedkar as the \"dead letter\" of the Constitution?",
-        options: [
-            "Article 32",
-            "Article 356",
-            "Article 360",
-            "Article 370"
-        ],
-        correctAnswer: 1,
-        explanation: "Dr. Ambedkar hoped Article 356 (President's Rule) would remain a 'dead letter'.",
-        level: "Easy"
+        question: "Financial Emergency has the effect of:",
+        options: ["Suspending State Legislature", "Suspending Fundamental Rights", "Centralized Financial Control", "Dissolving Lok Sabha"],
+        correctAnswer: 2,
+        explanation: "The Centre acquires full control over the states in financial matters.",
+        subtopic: "17.3"
     },
     {
         id: 60,
-        question: "The 'Three-Tier Government' became a constitutional feature in:",
-        options: [
-            "1950",
-            "1959",
-            "1992",
-            "1976"
-        ],
-        correctAnswer: 2,
-        explanation: "The 73rd and 74th Amendments (1992) gave constitutional status to the three-tier government.",
-        level: "Easy"
-    },
-    {
-        id: 61,
-        question: "Which part of the Constitution deals with 'Official Language'?",
-        options: [
-            "Part XV",
-            "Part XVI",
-            "Part XVII",
-            "Part XVIII"
-        ],
-        correctAnswer: 2,
-        explanation: "Part XVII (Articles 343-351) deals with Official Language.",
-        level: "Moderate"
-    },
-    {
-        id: 62,
-        question: "The 'Cabinet System' is a feature borrowed from:",
-        options: [
-            "USA",
-            "British Constitution",
-            "Canadian Constitution",
-            "Irish Constitution"
-        ],
+        question: "The 38th Amendment Act 1975 made the satisfaction of President in declaring emergency:",
+        options: ["Subject to Judicial Review", "Final and conclusive", "Subject to Parliament approval only", "None of the above"],
         correctAnswer: 1,
-        explanation: "The Cabinet System is borrowed from the British Constitution.",
-        level: "Easy"
-    },
-    {
-        id: 63,
-        question: "Consider the following regarding the 42nd Amendment Act (1976):\n\n1. It is called the 'Mini-Constitution'.\n2. It added Part IV-A (Fundamental Duties).\n3. It added Part IX-A (Municipalities).\n\nWhich is/are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 0,
-        explanation: "Part IX-A (Municipalities) was added by the 74th Amendment Act, not the 42nd.",
-        level: "Moderate"
-    },
-    {
-        id: 64,
-        question: "Which Schedule deals with the administration of Tribal Areas in Assam, Meghalaya, Tripura, and Mizoram?",
-        options: [
-            "5th Schedule",
-            "6th Schedule",
-            "7th Schedule",
-            "8th Schedule"
-        ],
-        correctAnswer: 1,
-        explanation: "The 6th Schedule deals with Tribal Areas in Assam, Meghalaya, Tripura, and Mizoram.",
-        level: "Easy"
-    },
-    {
-        id: 65,
-        question: "The term 'Cabinet' is mentioned in which Article of the Constitution?",
-        options: [
-            "Article 74",
-            "Article 75",
-            "Article 352",
-            "Not mentioned originally"
-        ],
-        correctAnswer: 2,
-        explanation: "The term 'Cabinet' was added in Article 352 by the 44th Amendment Act, 1978. It was not in the original Constitution.",
-        level: "Tough"
-    },
-    {
-        id: 66,
-        question: "Which feature is NOT borrowed from the US Constitution?",
-        options: [
-            "Impeachment of President",
-            "Removal of SC/HC Judges",
-            "Judicial Review",
-            "Appointment of Governor"
-        ],
-        correctAnswer: 3,
-        explanation: "Appointment of Governor by the Centre is borrowed from the Canadian Constitution.",
-        level: "Easy"
-    },
-    {
-        id: 67,
-        question: "The 'Eighth Schedule' originally had how many languages?",
-        options: [
-            "14",
-            "18",
-            "22",
-            "12"
-        ],
-        correctAnswer: 0,
-        explanation: "The Eighth Schedule originally had 14 languages. Currently, it has 22.",
-        level: "Moderate"
-    },
-    {
-        id: 68,
-        question: "Which part deals with 'Trade, Commerce and Intercourse' within India?",
-        options: [
-            "Part XI",
-            "Part XII",
-            "Part XIII",
-            "Part XIV"
-        ],
-        correctAnswer: 2,
-        explanation: "Part XIII (Articles 301-307) deals with Trade, Commerce and Intercourse.",
-        level: "Moderate"
-    },
-    {
-        id: 69,
-        question: "Who called the Indian Constitution \"Federal in form but Unitary in spirit\"?",
-        options: [
-            "K.C. Wheare",
-            "Morris Jones",
-            "Granville Austin",
-            "D.N. Banerjee"
-        ],
-        correctAnswer: 0,
-        explanation: "K.C. Wheare described it as 'Quasi-Federal'.",
-        level: "Moderate"
-    },
-    {
-        id: 70,
-        question: "Which Amendment lowered the voting age from 21 to 18?",
-        options: [
-            "42nd",
-            "44th",
-            "61st",
-            "69th"
-        ],
-        correctAnswer: 2,
-        explanation: "The 61st Amendment Act, 1988 lowered the voting age.",
-        level: "Easy"
-    },
-    {
-        id: 71,
-        question: "The 'Concurrent List' is borrowed from:",
-        options: [
-            "Canada",
-            "Australia",
-            "USA",
-            "USSR"
-        ],
-        correctAnswer: 1,
-        explanation: "Concurrent List is borrowed from the Australian Constitution.",
-        level: "Easy"
-    },
-    {
-        id: 72,
-        question: "'Freedom of Trade' is borrowed from:",
-        options: [
-            "UK",
-            "USA",
-            "Australia",
-            "Ireland"
-        ],
-        correctAnswer: 2,
-        explanation: "Freedom of Trade and Commerce is borrowed from the Australian Constitution.",
-        level: "Easy"
-    },
-    {
-        id: 73,
-        question: "Which feature is borrowed from the South African Constitution?",
-        options: [
-            "Procedure for Amendment of Constitution",
-            "Joint Sitting",
-            "Nomination of Rajya Sabha members",
-            "Directive Principles"
-        ],
-        correctAnswer: 0,
-        explanation: "Procedure for Amendment and Election of Rajya Sabha members are borrowed from South Africa.",
-        level: "Moderate"
-    },
-    {
-        id: 74,
-        question: "Who described the Indian Constitution as \"Cooperative Federalism\"?",
-        options: [
-            "K.C. Wheare",
-            "Ivor Jennings",
-            "Granville Austin",
-            "Alexandrowicz"
-        ],
-        correctAnswer: 2,
-        explanation: "Granville Austin called it 'Cooperative Federalism'.",
-        level: "Moderate"
-    },
-    {
-        id: 75,
-        question: "Which Schedule contains the 'Union List, State List, and Concurrent List'?",
-        options: [
-            "4th",
-            "6th",
-            "7th",
-            "9th"
-        ],
-        correctAnswer: 2,
-        explanation: "The 7th Schedule contains the three lists.",
-        level: "Easy"
-    },
-
-    // SECTION 4: PREAMBLE (CHAPTER 4)
-    {
-        id: 76,
-        question: "The 'Preamble' was modified by which Amendment?",
-        options: [
-            "24th",
-            "42nd",
-            "44th",
-            "It has never been amended"
-        ],
-        correctAnswer: 1,
-        explanation: "The Preamble was amended by the 42nd Amendment Act, 1976.",
-        level: "Easy"
-    },
-    {
-        id: 77,
-        question: "In which case did the Supreme Court declare that the \"Preamble is an integral part of the Constitution\"?",
-        options: [
-            "Berubari Union case (1960)",
-            "Kesavananda Bharati case (1973)",
-            "LIC of India case (1995)",
-            "Both B and C"
-        ],
-        correctAnswer: 3,
-        explanation: "The SC declared it an integral part in Kesavananda Bharati case (1973) and reaffirmed it in the LIC of India case (1995).",
-        level: "Moderate"
-    },
-    {
-        id: 78,
-        question: "The words \"Unity and Integrity of the Nation\" replaced \"Unity of the Nation\" in:",
-        options: [
-            "1950",
-            "1976",
-            "1978",
-            "1992"
-        ],
-        correctAnswer: 1,
-        explanation: "Added by the 42nd Amendment Act, 1976.",
-        level: "Easy"
-    },
-    {
-        id: 79,
-        question: "Which word is NOT explicitly mentioned in the Preamble?",
-        options: [
-            "Liberty",
-            "Equality",
-            "Justice",
-            "Federal"
-        ],
-        correctAnswer: 3,
-        explanation: "The word 'Federal' is not mentioned in the Preamble (or anywhere in the Constitution).",
-        level: "Easy"
-    },
-    {
-        id: 80,
-        question: "The date of adoption of the Constitution mentioned in the Preamble is:",
-        options: [
-            "26 January 1950",
-            "26 November 1949",
-            "15 August 1947",
-            "9 December 1946"
-        ],
-        correctAnswer: 1,
-        explanation: "26 November 1949 is mentioned as the date of adoption.",
-        level: "Easy"
-    },
-    {
-        id: 81,
-        question: "Who called the Preamble the \"Identity Card of the Constitution\"?",
-        options: [
-            "K.M. Munshi",
-            "N.A. Palkhivala",
-            "Ernest Barker",
-            "Thakurdas Bhargava"
-        ],
-        correctAnswer: 1,
-        explanation: "N.A. Palkhivala called the Preamble the 'Identity Card of the Constitution'.",
-        level: "Moderate"
-    },
-    {
-        id: 82,
-        question: "The term \"Republic\" in the Preamble implies:\n\n1. Vesting of political sovereignty in the people.\n2. Absence of any privileged class.\n3. Head of state is elected.\n\nSelect the correct code:",
-        options: [
-            "3 only",
-            "1 and 3 only",
-            "2 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 3,
-        explanation: "Republic implies: Head of State is elected (not hereditary), political sovereignty is in the people, and absence of privileged classes.",
-        level: "Moderate"
-    },
-    {
-        id: 83,
-        question: "\"Economic Justice\" as one of the objectives of the Constitution has been provided in:",
-        options: [
-            "The Preamble and Fundamental Rights",
-            "The Preamble and Directive Principles",
-            "The Fundamental Rights and Directive Principles",
-            "The Preamble only"
-        ],
-        correctAnswer: 1,
-        explanation: "Economic Justice is mentioned in the Preamble and provided through Directive Principles of State Policy.",
-        level: "Moderate"
-    },
-    {
-        id: 84,
-        question: "Who described the Preamble as the \"Horoscope of our Sovereign Democratic Republic\"?",
-        options: [
-            "K.M. Munshi",
-            "Jawaharlal Nehru",
-            "B.R. Ambedkar",
-            "Alladi Krishnaswamy Ayyar"
-        ],
-        correctAnswer: 0,
-        explanation: "K.M. Munshi described the Preamble as the 'Horoscope of our Sovereign Democratic Republic'.",
-        level: "Easy"
-    },
-    {
-        id: 85,
-        question: "The text of the Preamble secures to all citizens \"Liberty of...\"",
-        options: [
-            "Thought, Expression, Belief, Faith, and Worship",
-            "Thought, Expression, Belief, Faith, and Opportunity",
-            "Thought, Speech, Belief, Faith, and Worship",
-            "Expression, Belief, Faith, Worship, and Status"
-        ],
-        correctAnswer: 0,
-        explanation: "Liberty of Thought, Expression, Belief, Faith, and Worship.",
-        level: "Easy"
-    },
-    {
-        id: 86,
-        question: "In the Berubari Union case (1960), the Supreme Court opined that:",
-        options: [
-            "Preamble is part of the Constitution",
-            "Preamble is not part of the Constitution",
-            "Preamble can be amended",
-            "Preamble is the source of power"
-        ],
-        correctAnswer: 1,
-        explanation: "In the Berubari Union case, the SC opined that the Preamble is NOT a part of the Constitution. This was reversed in Kesavananda Bharati.",
-        level: "Moderate"
-    },
-    {
-        id: 87,
-        question: "The word \"Socialist\" in the Preamble refers to:",
-        options: [
-            "Marxian Socialism",
-            "Gandhian Socialism",
-            "Democratic Socialism",
-            "Communist Socialism"
-        ],
-        correctAnswer: 2,
-        explanation: "Indian Socialism is 'Democratic Socialism', holding faith in a mixed economy. It is a blend of Marxian and Gandhian socialism, leaning heavily towards Gandhian socialism.",
-        level: "Moderate"
-    },
-    {
-        id: 88,
-        question: "Which liberty is NOT guaranteed by the Preamble?",
-        options: [
-            "Liberty of Thought",
-            "Liberty of Worship",
-            "Liberty of Economic Freedom",
-            "Liberty of Belief"
-        ],
-        correctAnswer: 2,
-        explanation: "The Preamble guarantees Liberty of Thought, Expression, Belief, Faith, and Worship. 'Economic Freedom' is not mentioned (Economic Justice is mentioned).",
-        level: "Moderate"
-    },
-    {
-        id: 89,
-        question: "Who called the Preamble the \"Key-note\" to the Constitution?",
-        options: [
-            "Ernest Barker",
-            "Hidayatullah",
-            "Granville Austin",
-            "K.C. Wheare"
-        ],
-        correctAnswer: 0,
-        explanation: "Ernest Barker called the Preamble the 'Key-note' to the Constitution.",
-        level: "Easy"
-    },
-    {
-        id: 90,
-        question: "The phrase \"We, the People of India\" implies:",
-        options: [
-            "British Sovereignty",
-            "Popular Sovereignty",
-            "Legal Sovereignty",
-            "Real Sovereignty"
-        ],
-        correctAnswer: 1,
-        explanation: "It implies Popular Sovereignty (sovereignty lies with the people).",
-        level: "Easy"
-    },
-    {
-        id: 91,
-        question: "Which case held that \"Secularism\" is a 'basic feature' of the Constitution?",
-        options: [
-            "Golaknath case",
-            "Minerva Mills case",
-            "S.R. Bommai case",
-            "Indira Gandhi case"
-        ],
-        correctAnswer: 2,
-        explanation: "In the S.R. Bommai case (1994), the Supreme Court held that Secularism is a basic feature of the Constitution.",
-        level: "Easy"
-    },
-    {
-        id: 92,
-        question: "The Preamble states that the Constitution derives its authority from:",
-        options: [
-            "The Constituent Assembly",
-            "The People of India",
-            "The Indian Independence Act",
-            "The Supreme Court"
-        ],
-        correctAnswer: 1,
-        explanation: "The Constitution derives its authority from the People of India.",
-        level: "Easy"
-    },
-    {
-        id: 93,
-        question: "The ideal of \"Fraternity\" in the Preamble is assured by:",
-        options: [
-            "Fundamental Rights",
-            "Single Citizenship",
-            "Directive Principles",
-            "Fundamental Duties"
-        ],
-        correctAnswer: 1,
-        explanation: "The Constitution promotes fraternity by the system of single citizenship. Fundamental Duties also promote it, but Single Citizenship is the primary structural mechanism.",
-        level: "Moderate"
-    },
-    {
-        id: 94,
-        question: "\"Political Democracy cannot last unless there lies at the base of it Social Democracy.\" Who said this regarding the principles in the Preamble/Constitution?",
-        options: [
-            "Jawaharlal Nehru",
-            "B.R. Ambedkar",
-            "Sardar Patel",
-            "Rajendra Prasad"
-        ],
-        correctAnswer: 1,
-        explanation: "Dr. B.R. Ambedkar said this in his concluding speech in the Constituent Assembly.",
-        level: "Moderate"
-    },
-    {
-        id: 95,
-        question: "The order of words in the Preamble is:",
-        options: [
-            "Sovereign, Secular, Socialist, Democratic, Republic",
-            "Sovereign, Socialist, Democratic, Secular, Republic",
-            "Sovereign, Socialist, Secular, Democratic, Republic",
-            "Secular, Sovereign, Socialist, Democratic, Republic"
-        ],
-        correctAnswer: 2,
-        explanation: "Sovereign, Socialist, Secular, Democratic, Republic (SSSDR).",
-        level: "Easy"
-    },
-    {
-        id: 96,
-        question: "The Preamble is:",
-        options: [
-            "Enforceable in a court of law",
-            "Not enforceable in a court of law",
-            "A source of power to the legislature",
-            "A prohibition upon the powers of legislature"
-        ],
-        correctAnswer: 1,
-        explanation: "The Preamble is non-justiciable (not enforceable in courts). It is neither a source of power to legislature nor a prohibition.",
-        level: "Easy"
-    },
-    {
-        id: 97,
-        question: "The concept of \"Distributive Justice\" consists of:",
-        options: [
-            "Social Justice only",
-            "Economic Justice only",
-            "Combination of Social and Economic Justice",
-            "Political Justice"
-        ],
-        correctAnswer: 2,
-        explanation: "Distributive Justice denotes the combination of Social Justice and Economic Justice.",
-        level: "Moderate"
-    },
-    {
-        id: 98,
-        question: "The resolution for the Preamble (Objectives Resolution) was adopted by the Assembly on:",
-        options: [
-            "Dec 13, 1946",
-            "Jan 22, 1947",
-            "Aug 15, 1947",
-            "Jan 26, 1950"
-        ],
-        correctAnswer: 1,
-        explanation: "The Objectives Resolution was moved on Dec 13, 1946, and adopted on Jan 22, 1947.",
-        level: "Moderate"
-    },
-    {
-        id: 99,
-        question: "Who said the Preamble is the \"Soul of the Constitution\"?",
-        options: [
-            "Thakurdas Bhargava",
-            "B.R. Ambedkar",
-            "Ernest Barker",
-            "M. Hidayatullah"
-        ],
-        correctAnswer: 0,
-        explanation: "Thakurdas Bhargava called it the 'Soul of the Constitution'.",
-        level: "Moderate"
-    },
-    {
-        id: 100,
-        question: "Till date, the Preamble has been amended how many times?",
-        options: [
-            "Once",
-            "Twice",
-            "Thrice",
-            "Never"
-        ],
-        correctAnswer: 0,
-        explanation: "Only once, by the 42nd Amendment Act, 1976.",
-        level: "Easy"
+        explanation: "It made it final and conclusive (non-justiciable). This was reversed by 44th Amendment.",
+        subtopic: "17.4"
     }
 ];
+
+export default DAY3_MCQS;

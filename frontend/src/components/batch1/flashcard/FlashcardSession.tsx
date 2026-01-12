@@ -12,6 +12,7 @@ import {
     XCircle,
     Sparkles,
     BookOpen,
+    Clock, // Added Clock Import
     Lightbulb,
     ArrowLeft,
     Mic,
@@ -80,16 +81,94 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         missing_points: string[];
     } | null>(null);
 
+    // Timer states
+    const [timeLeft, setTimeLeft] = useState(15);
+    const [isTimerActive, setIsTimerActive] = useState(true);
+
     // Session tracking - store all results for comprehensive report
     const [cardResults, setCardResults] = useState<CardResult[]>([]);
     const [showDetailedReport, setShowDetailedReport] = useState(false);
     const [currentRecordingDuration, setCurrentRecordingDuration] = useState(0); // NEW: Track current recording duration
+
+    // TIMER STATE
+
+    // TIMER CONSTANTS
+    const TOTAL_TIME = 15;
 
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
     useEffect(() => {
         loadFlashcards();
     }, [cycleId, day, selectedSubTopic]);
+
+    // TIMER LOGIC
+    useEffect(() => {
+        // Reset timer when card changes or flipped state changes
+        if (!sessionComplete) {
+            if (!isFlipped) {
+                // Front: 15s Countdown
+                setTimeLeft(TOTAL_TIME);
+                setIsTimerActive(true);
+            } else {
+                // Back: User takes their time or we could auto-advance. 
+                // User said "flash card is going to move in...". 
+                // But usually we need time to read the answer. 
+                // Let's pause timer on flip.
+                setIsTimerActive(false);
+            }
+        }
+    }, [currentIndex, isFlipped, sessionComplete]);
+
+    useEffect(() => {
+        let interval: NodeJS.Timeout;
+        if (isTimerActive && timeLeft > 0 && !isRecordingMode && !isAnalyzing && !sessionComplete && !isFlipped) {
+            interval = setInterval(() => {
+                setTimeLeft((prev) => {
+                    if (prev <= 1) {
+                        handleTimerExpired();
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+        }
+        return () => clearInterval(interval);
+    }, [isTimerActive, timeLeft, isRecordingMode, isAnalyzing, sessionComplete, isFlipped]);
+
+    const handleTimerExpired = () => {
+        if (currentCard) {
+            // Auto-Flip and Mark as Practice
+            setPracticeCards(prev => new Set(prev).add(currentCard.id));
+            setIsFlipped(true);
+            // Optional: Auto-advance after viewing back? 
+            // The prompt says "flash card is going to move in". 
+            // Let's add a small delay then auto-advance if they don't click anything.
+            // Actually, let's leave it Flipped so they can read, but maybe show a "Time's Up!" toast?
+            // "next flash card is going to be there" implies auto-move.
+            // I'll set a timeout to Next.
+            setTimeout(() => {
+                // Check if still on same card (user might have clicked manual next)
+                // This is tricky with closures. 
+                // Simplest strict flow:
+                // Time Up -> Flip -> Wait 4s -> Next.
+                // But I need access to current state in timeout. Use ref? 
+                // For now, simpler: Just Flip. Let user click Continue.
+                // User requirement: "flash card is going to move in". I MUST Auto-Advance.
+                // But I can't easily do it inside this closure without ref. 
+                // I will add an Auto-Advance effect on FLIPPED state if it was triggered by timeout.
+            }, 0);
+        }
+    };
+
+    // Auto-advance effect after timeout flip
+    useEffect(() => {
+        if (isFlipped && timeLeft === 0 && !sessionComplete) {
+            const timer = setTimeout(() => {
+                goToNext();
+            }, 5000); // 5 seconds to read answer then move
+            return () => clearTimeout(timer);
+        }
+    }, [isFlipped, timeLeft, sessionComplete]);
 
     const loadFlashcards = () => {
         const d = typeof day === 'string' ? parseInt(day) : day;
@@ -646,6 +725,19 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                 <Button variant="ghost" size="sm" onClick={onClose}>
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back
                 </Button>
+
+                {/* TIMER INDICATOR */}
+                <div className="flex flex-col items-center flex-1 px-4">
+                    <div className="text-xs font-bold text-gray-500 mb-1">
+                        {!isFlipped ? `⏱️ ${timeLeft}s` : 'Reviewing...'}
+                    </div>
+                    <Progress
+                        value={(!isFlipped ? (timeLeft / TOTAL_TIME) * 100 : 0)}
+                        className="h-2 w-full max-w-xs transition-all duration-1000"
+                    // Note: Shadcn Progress doesn't support color props natively usually, controlled via class
+                    />
+                </div>
+
                 <div className="text-sm text-gray-500">
                     Card {currentIndex + 1} of {flashcards.length}
                 </div>

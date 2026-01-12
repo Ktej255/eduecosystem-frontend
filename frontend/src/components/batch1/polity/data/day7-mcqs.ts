@@ -1,1031 +1,505 @@
-import { MCQ } from "./day1-mcqs";
 
-/**
- * Indian Polity - Chapter 8: Fundamental Rights (Part 2)
- * Topics: Article 22 (Preventive Detention), Articles 23-24 (Rights Against Exploitation),
- * Articles 25-28 (Right to Freedom of Religion), Articles 29-30 (Cultural & Educational Rights)
- * 60 MCQs for Day 7 Evening Session (6-7 PM)
- * Topic metadata included for detailed analytics
- */
+export interface MCQ {
+    id: number;
+    question: string;
+    options: string[];
+    correctAnswer: number;
+    explanation?: string;
+    level?: string;
+    topic?: string;
+    chapter?: string;
+    subtopic?: string;
+}
+
 export const DAY7_MCQS: MCQ[] = [
-    // Q1
+    // ==========================================
+    // SUNDAY REVISION CHALLENGE (60 Questions)
+    // Focus: Conceptual clarity and comparative analysis
+    // ==========================================
+
     {
         id: 1,
-        question: "Consider the following statements regarding Article 22 of the Constitution:\n\n1. The right to be informed of the grounds of arrest is available to both citizens and enemy aliens detained under ordinary laws.\n2. The protection under the first part of Article 22 covers arrest on failure to pay income tax and deportation of an alien.\n3. Preventive detention is a precautionary measure based on suspicion and not a punishment for a past offense.\n\nHow many of the statements given above are correct?",
-        options: [
-            "Only one",
-            "Only two",
-            "All three",
-            "None"
-        ],
-        correctAnswer: 0,
-        explanation: "Only statement 3 is correct. Statement 1 is incorrect (Not available to enemy aliens). Statement 2 is incorrect (Part 1 covers criminal/quasi-criminal, not tax failure or deportation).",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 22 - Preventive Detention"
+        question: "Which of the following is NOT a feature of the Parliamentary System in India?",
+        options: ["Presence of nominal and real executives", "Majority party rule", "Dissolution of the Lower House", "Strict separation of powers"],
+        correctAnswer: 3,
+        explanation: "India has a 'fusion of powers' (Executive is part of Legislature), not a strict separation like the USA.",
+        subtopic: "13.1"
     },
-    // Q2
     {
         id: 2,
-        question: "Under the first part of Article 22, a person arrested under an ordinary law has the right to be produced before a magistrate within 24 hours. This duration excludes:",
-        options: [
-            "Public holidays.",
-            "The time necessary for the journey from the place of arrest to the court of the magistrate.",
-            "The time taken for interrogation by the police.",
-            "Both (a) and (b)."
-        ],
+        question: "The power to declare an area as a 'Scheduled Area' lies with:",
+        options: ["The Parliament", "The President", "The Governor", "The State Legislature"],
         correctAnswer: 1,
-        explanation: "The text specifically mentions 'excluding the journey time' from the place of arrest to the court.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 22 - Rights of Arrested Persons"
+        explanation: "The President is empowered to declare an area as a Scheduled Area.",
+        subtopic: "14.2"
     },
-    // Q3
     {
         id: 3,
-        question: "With reference to the legislative power regarding preventive detention, consider the following:\n\n1. The Parliament has exclusive authority to make laws for preventive detention for reasons connected with the security of a State.\n2. Both Parliament and State Legislatures can concurrently make laws for preventive detention regarding the maintenance of public order.\n3. The Parliament has exclusive authority regarding preventive detention for reasons connected with defense and foreign affairs.\n\nWhich of the statements given above are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
+        question: "Under Article 356, President's Rule is imposed if:",
+        options: ["There is a financial crisis", "There is failure of constitutional machinery in the state", "There is internal rebellion", "The Governor resigns"],
         correctAnswer: 1,
-        explanation: "Statements 2 and 3 are correct. Statement 1 is incorrect (Security of State is Concurrent, not exclusive to Parliament).",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Preventive Detention - Legislative Power"
+        explanation: "Article 356: Failure of constitutional machinery.",
+        subtopic: "17.2"
     },
-    // Q4
     {
         id: 4,
-        question: "Statement I: The 44th Constitutional Amendment Act of 1978 reduced the maximum period of preventive detention without an advisory board's opinion from three months to two months.\n\nStatement II: At present, the maximum period for which a person can be detained without the opinion of an advisory board is two months.\n\nWhich one of the following is correct in respect of the above statements?",
-        options: [
-            "Both Statement I and Statement II are correct and Statement II is the correct explanation for Statement I",
-            "Both Statement I and Statement II are correct and Statement II is not the correct explanation for Statement I",
-            "Statement I is correct but Statement II is incorrect",
-            "Statement I is incorrect but Statement II is correct"
-        ],
-        correctAnswer: 2,
-        explanation: "Statement I is correct (44th Amendment reduced it). Statement II is incorrect (The provision was not brought into force, so 3 months continues).",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "44th Amendment - Preventive Detention"
+        question: "Which writ is issued by the court to a public official asking him to perform his official duties?",
+        options: ["Habeas Corpus", "Mandamus", "Prohibition", "Quo-Warranto"],
+        correctAnswer: 1,
+        explanation: "Mandamus (We Command).",
+        subtopic: "11.0"
     },
-    // Q5
     {
         id: 5,
-        question: "Which of the following preventive detention laws is/are currently in force in India?\n\n1. Maintenance of Internal Security Act (MISA)\n2. Conservation of Foreign Exchange and Prevention of Smuggling Activities Act (COFEPOSA)\n3. Prevention of Terrorism Act (POTA)\n4. Unlawful Activities (Prevention) Act (UAPA)\n\nSelect the correct answer using the code given below:",
-        options: [
-            "2 and 4 only",
-            "1, 2 and 4 only",
-            "2, 3 and 4 only",
-            "1, 3 and 4 only"
-        ],
-        correctAnswer: 0,
-        explanation: "MISA and POTA are repealed. COFEPOSA and UAPA are currently active preventive detention laws.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Preventive Detention Laws"
+        question: "The concept of 'Procedure Established by Law' in Article 21 is borrowed from:",
+        options: ["American Constitution", "British Constitution", "Japanese Constitution", "Canadian Constitution"],
+        correctAnswer: 2,
+        explanation: "Japanese Constitution.",
+        subtopic: "11.1"
     },
-    // Q6
     {
         id: 6,
-        question: "Consider the following statements regarding the rights of a 'detenu' under the second part of Article 22:\n\n1. The detenu has a mandatory right to know all facts and grounds of detention without exception.\n2. The detenu should be afforded an opportunity to make a representation against the detention order.\n3. The Advisory Board constituted to review detention must consist of judges of a High Court.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 and 2 only",
-            "2 only",
-            "2 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 2,
-        explanation: "Statement 1 is incorrect (Public interest facts need not be disclosed). Statements 2 and 3 are correct.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 22 - Rights of Detenu"
+        question: "The 'Sovereignty' of the Indian Parliament is restricted by:",
+        options: ["Powers of the President", "Judicial Review", "Leader of the Opposition", "Powers of the PM"],
+        correctAnswer: 1,
+        explanation: "Judicial Review and Written Constitution limit the sovereignty of Parliament (unlike the British Parliament which is sovereign).",
+        subtopic: "12.2"
     },
-    // Q7
     {
         id: 7,
-        question: "Article 22 authorizes the Parliament to prescribe which of the following?\n\n1. The maximum period for which a person can be detained in any classes of cases under a preventive detention law.\n2. The procedure to be followed by an advisory board in an inquiry.\n3. The circumstances in which a person can be detained for more than three months without obtaining the opinion of an advisory board.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 3,
-        explanation: "All three are correct provisions that Parliament is authorized to prescribe under Article 22.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 22 - Parliament's Power"
+        question: "In the interim government formed in 1946, who held the portfolio of External Affairs?",
+        options: ["Sardar Patel", "Jawaharlal Nehru", "Liaquat Ali Khan", "Baldev Singh"],
+        correctAnswer: 1,
+        explanation: "Jawaharlal Nehru.",
+        subtopic: "11.0"
     },
-    // Q8
     {
         id: 8,
-        question: "Which of the following statements is correct regarding the history of preventive detention?",
-        options: [
-            "Preventive detention is a unique feature of the Indian Constitution and is unknown in the USA and Britain.",
-            "In Britain, preventive detention was resorted to only during the First and Second World Wars.",
-            "Preventive detention was introduced in India for the first time after Independence in 1950.",
-            "No other democratic country except India has a preventive detention law."
-        ],
+        question: "The resolution for removing the Vice-President of India can be moved in:",
+        options: ["Lok Sabha only", "Rajya Sabha only", "Either House", "Joint Sitting"],
         correctAnswer: 1,
-        explanation: "In Britain, preventive detention was used only during World Wars. India is unique in making it part of the Constitution.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Preventive Detention - History"
+        explanation: "Rajya Sabha only. (It must be passed by RS by effective majority and agreed to by LS).",
+        subtopic: "19.2"
     },
-    // Q9
     {
         id: 9,
-        question: "Consider the following statements regarding Article 23 (Prohibition of Traffic in Human Beings and Forced Labour):\n\n1. It protects the individual against the State but not against private persons.\n2. The term 'force' in 'forced labour' includes force arising from the compulsion of economic circumstances.\n3. It prohibits 'begar', which refers to the Devadasi system.\n\nHow many of the statements given above are correct?",
-        options: [
-            "Only one",
-            "Only two",
-            "All three",
-            "None"
-        ],
-        correctAnswer: 0,
-        explanation: "Only statement 2 is correct (Supreme Court interpretation). Statement 1 is incorrect (available against private persons). Statement 3 is incorrect (Begar is work without pay; Devadasi is different, though both prohibited).",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 23 - Traffic and Forced Labour"
+        question: "Which of the following expenditures is NOT 'charged' on the Consolidated Fund of India?",
+        options: ["Salary of President", "Salary of Supreme Court Judges", "Salary of High Court Judges", "Pensions of High Court Judges"],
+        correctAnswer: 2,
+        explanation: "Salary of High Court Judges is charged on the Consolidated Fund of the STATE. (Their PENSIONS are charged on CF of INDIA). This is a common trap.",
+        subtopic: "15.3"
     },
-    // Q10
     {
         id: 10,
-        question: "Article 23 permits the State to impose compulsory service for public purposes. In imposing such service, the State is NOT permitted to make any discrimination on grounds only of:",
-        options: [
-            "Religion, Race, Caste, Sex.",
-            "Religion, Race, Caste, Class.",
-            "Religion, Race, Sex, Place of Birth.",
-            "Religion, Race, Caste, Residence."
-        ],
+        question: "If a Minister loses the confidence of the Lok Sabha, what happens?",
+        options: ["He resigns alone", "The Whole Council resigns", "President decides", "PM decides"],
         correctAnswer: 1,
-        explanation: "Religion, Race, Caste, Class are the grounds. Note: Sex is NOT a ground in this specific exception.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 23 - Compulsory Service Exception"
+        explanation: "The defeat of a minister on the floor of the house usually leads to the resignation of the entire Council (Collective Responsibility).",
+        subtopic: "21.2"
     },
-    // Q11
     {
         id: 11,
-        question: "The expression 'traffic in human beings' under Article 23 includes which of the following?\n\n1. Selling and buying of men, women, and children.\n2. Immoral traffic in women and children.\n3. Slavery.\n4. Devadasis.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "1, 2 and 3 only",
-            "2, 3 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 3,
-        explanation: "All four are included in the expression 'traffic in human beings' under Article 23.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 23 - Traffic in Human Beings"
+        question: "Who can attend the meetings of Parliament without being a member?",
+        options: ["Chief Justice of India", "Attorney General of India", "Chief Election Commissioner", "Solicitor General"],
+        correctAnswer: 1,
+        explanation: "Attorney General of India (Article 76).",
+        subtopic: "21.0"
     },
-    // Q12
     {
         id: 12,
-        question: "Which of the following Acts were enacted to implement the provisions of Article 23?\n\n1. Bonded Labour System (Abolition) Act, 1976\n2. Minimum Wages Act, 1948\n3. Equal Remuneration Act, 1976\n4. Immoral Traffic (Prevention) Act, 1956\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 4 only",
-            "1, 2 and 4 only",
-            "2, 3 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 3,
-        explanation: "All four Acts are mentioned in the context of implementing Article 23 provisions.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 23 - Implementing Acts"
+        question: "The 'Electoral College' for the President does NOT include:",
+        options: ["Elected members of Lok Sabha", "Elected members of Rajya Sabha", "Nominated members of Rajya Sabha", "Elected members of State Assemblies"],
+        correctAnswer: 2,
+        explanation: "Nominated members do not participate in the election of the President.",
+        subtopic: "18.1"
     },
-    // Q13
     {
         id: 13,
-        question: "Consider the following statements regarding Article 24:\n\n1. It prohibits the employment of children below the age of 18 years in hazardous activities.\n2. It does not prohibit the employment of children in harmless or innocent work.\n3. The Child Labour (Prohibition and Regulation) Amendment Act, 2016 renamed the Principal Act to include \"Adolescent\".\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 1,
-        explanation: "Statement 1 is incorrect (14 years, not 18 for hazardous employment under Article 24). Statements 2 and 3 are correct.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 24 - Child Labour"
+        question: "Which Amendment restored the power of judicial review curtailed by the 42nd Amendment?",
+        options: ["43rd Amendment", "44th Amendment", "45th Amendment", "46th Amendment"],
+        correctAnswer: 0,
+        explanation: "43rd Amendment Act, 1977.",
+        subtopic: "11.1"
     },
-    // Q14
     {
         id: 14,
-        question: "In 2006, the Government of India banned the employment of children as domestic servants or workers in business establishments. This ban applies to children below the age of:",
-        options: [
-            "12 years",
-            "14 years",
-            "16 years",
-            "18 years"
-        ],
-        correctAnswer: 1,
-        explanation: "The ban applies to children below 14 years of age.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 24 - Child Labour Ban"
+        question: "The joint sitting of Parliament is borrowed from:",
+        options: ["USA", "UK", "Australia", "Canada"],
+        correctAnswer: 2,
+        explanation: "Australia.",
+        subtopic: "11.1"
     },
-    // Q15
     {
         id: 15,
-        question: "The Supreme Court in 1996 directed the establishment of the 'Child Labour Rehabilitation Welfare Fund'. According to this direction, the offending employer should deposit a fine of:",
-        options: [
-            "₹10,000 for each child employed.",
-            "₹20,000 for each child employed.",
-            "₹25,000 for each child employed.",
-            "₹50,000 for each child employed."
-        ],
-        correctAnswer: 1,
-        explanation: "The Supreme Court directed a fine of ₹20,000 per child to be deposited in the Child Labour Rehabilitation Welfare Fund.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Child Labour - SC Directions"
+        question: "Who determines the salaries and allowances of Ministers?",
+        options: ["President", "Prime Minister", "Parliament", "Cabinet Secretary"],
+        correctAnswer: 2,
+        explanation: "Parliament.",
+        subtopic: "21.1"
     },
-    // Q16
     {
         id: 16,
-        question: "Article 25 guarantees which of the following rights?\n\n1. Freedom of conscience.\n2. Right to profess religion.\n3. Right to practice religion.\n4. Right to convert another person to one's own religion.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1, 2 and 3 only",
-            "1, 3 and 4 only",
-            "2, 3 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 0,
-        explanation: "Article 25 guarantees freedom of conscience, right to profess, practice, and propagate. However, the right to CONVERT others is NOT a Fundamental Right.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 25 - Freedom of Religion"
+        question: "Which case ruled that Preamble is an integral part of the Constitution?",
+        options: ["Berubari Union case", "Kesavananda Bharati case", "LIC of India case", "Both B and C"],
+        correctAnswer: 3,
+        explanation: "Kesavananda Bharati (1973) and LIC of India (1995) both held Preamble is an integral part.",
+        subtopic: "11.0"
     },
-    // Q17
     {
         id: 17,
-        question: "The \"Right to Propagate\" religion under Article 25 includes:",
-        options: [
-            "The right to forcibly convert others to one's own religion.",
-            "The right to transmission and dissemination of one's religious beliefs.",
-            "The right to use loudspeakers for prayer at any time.",
-            "The right to exempt religious practices from all state regulations."
-        ],
+        question: "The Directive Principles of State Policy (DPSP) are:",
+        options: ["Justiciable", "Non-justiciable", "Mandatory", "Enforceable by SC"],
         correctAnswer: 1,
-        explanation: "Right to propagate means transmission and dissemination of one's religious beliefs, not forcible conversion.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 25 - Right to Propagate"
+        explanation: "They are non-justiciable (Article 37).",
+        subtopic: "12.1"
     },
-    // Q18
     {
         id: 18,
-        question: "Consider the following statements regarding the restrictions on Article 25:\n\n1. The rights are subject to public order, morality, and health.\n2. The rights are subject to other provisions relating to Fundamental Rights.\n3. The State cannot regulate any economic or financial activity associated with religious practice.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 1,
-        explanation: "Statements 1 and 2 are correct. Statement 3 is incorrect (State CAN regulate economic/financial activity associated with religious practice).",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 25 - Restrictions"
+        question: "Which part of the Constitution is called the 'Magna Carta of India'?",
+        options: ["Part III", "Part IV", "Part II", "Part V"],
+        correctAnswer: 0,
+        explanation: "Part III (Fundamental Rights).",
+        subtopic: "11.0"
     },
-    // Q19
     {
         id: 19,
-        question: "Under the explanations provided in Article 25, the reference to \"Hindus\" shall be construed as including a reference to persons professing:\n\n1. The Sikh religion.\n2. The Jaina religion.\n3. The Buddhist religion.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 3,
-        explanation: "Under Article 25, 'Hindus' includes Sikhs, Jains, and Buddhists for the purposes of that article.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 25 - Definition of Hindus"
+        question: "The President can declare National Emergency ON WRITTEN RECOMMENDATION of:",
+        options: ["Prime Minister", "Cabinet", "Speaker", "Parliament"],
+        correctAnswer: 1,
+        explanation: "The Cabinet (Union Cabinet). Added by 44th Amendment to prevent arbitrary declaration by PM alone (like 1975).",
+        subtopic: "17.1"
     },
-    // Q20
     {
         id: 20,
-        question: "Comparison of Article 25 and Article 26 reveals that:",
-        options: [
-            "Article 25 guarantees rights of religious denominations, while Article 26 guarantees rights of individuals.",
-            "Rights under Article 26 are subject to \"other provisions relating to Fundamental Rights,\" but Article 25 is not.",
-            "Rights under Article 26 are subject only to public order, morality, and health, whereas Article 25 is also subject to other Fundamental Rights provisions.",
-            "Both Articles are absolute and not subject to any restrictions."
-        ],
-        correctAnswer: 2,
-        explanation: "Article 26 is subject to public order, morality, and health only. Article 25 is also subject to 'other provisions of Fundamental Rights'.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 25 vs Article 26"
+        question: "Who appoints the District Judges?",
+        options: ["Governor", "Chief Justice of HC", "President", "CM"],
+        correctAnswer: 0,
+        explanation: "Governor (in consultation with the High Court).",
+        subtopic: "31.2"
     },
-    // Q21
+    // Comparative Politics (President vs Governor)
     {
         id: 21,
-        question: "To be recognized as a \"Religious Denomination\" under Article 26, the Supreme Court held that a group must satisfy which conditions?\n\n1. It should have a collection of individuals with a system of beliefs conducive to their spiritual well-being.\n2. It should have a common organization.\n3. It should be designated by a distinctive name.\n4. It should have a written constitution.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "1, 2 and 3 only",
-            "2, 3 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 1,
-        explanation: "Conditions 1, 2, and 3 are required. A written constitution (4) is NOT a condition mentioned.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 26 - Religious Denomination"
+        question: "In which matter does the Governor have a power that the President does NOT have?",
+        options: ["Pardoning death sentence", "Appointing Ambassadors", "Reserving bills for President's consideration", "Declaring Emergency"],
+        correctAnswer: 2,
+        explanation: "Reserving state bills for the President is a special power of the Governor.",
+        subtopic: "31.6"
     },
-    // Q22
     {
         id: 22,
-        question: "Which of the following has/have been held to be a \"Religious Denomination\" by the Supreme Court?\n\n1. Ramakrishna Mission\n2. Ananda Marga\n3. Aurobindo Society\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2 and 3"
-        ],
+        question: "Who administers oath to the Vice-President?",
+        options: ["Chief Justice of India", "President", "Speaker", "Prime Minister"],
         correctAnswer: 1,
-        explanation: "Ramakrishna Mission and Ananda Marga were held to be religious denominations. Aurobindo Society was NOT.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Religious Denominations - SC Rulings"
+        explanation: "The President.",
+        subtopic: "19.1"
     },
-    // Q23
     {
         id: 23,
-        question: "Article 27 prohibits the State from:",
-        options: [
-            "Levying any tax or fee on religious institutions.",
-            "Compelling any person to pay any tax for the promotion of a particular religion.",
-            "Providing any financial aid to religious institutions.",
-            "Regulating the secular administration of religious endowments."
-        ],
-        correctAnswer: 1,
-        explanation: "Article 27 prohibits compelling payment of taxes for promotion or maintenance of any particular religion.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 27 - No Tax for Religion"
+        question: "The maximum life of an ordinance issued by the President is:",
+        options: ["6 months", "6 weeks", "6 months + 6 weeks", "1 year"],
+        correctAnswer: 2,
+        explanation: "6 months (max gap between sessions) + 6 weeks (time to pass after reassembly).",
+        subtopic: "18.4"
     },
-    // Q24
     {
         id: 24,
-        question: "Statement I: A fee can be levied on pilgrims to provide them special service or safety measures.\n\nStatement II: Article 27 prohibits only the levy of a tax and not a fee.\n\nWhich one of the following is correct in respect of the above statements?",
-        options: [
-            "Both Statement I and Statement II are correct and Statement II is the correct explanation for Statement I",
-            "Both Statement I and Statement II are correct and Statement II is not the correct explanation for Statement I",
-            "Statement I is correct but Statement II is incorrect",
-            "Statement I is incorrect but Statement II is correct"
-        ],
-        correctAnswer: 0,
-        explanation: "Both statements are correct and Statement II (fee vs tax distinction) explains why fees can be levied on pilgrims.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 27 - Tax vs Fee"
+        question: "Which of the following is NOT a constitutional body?",
+        options: ["Finance Commission", "UPSC", "NITI Aayog", "Election Commission"],
+        correctAnswer: 2,
+        explanation: "NITI Aayog is an executive body (non-constitutional, non-statutory).",
+        subtopic: "11.0"
     },
-    // Q25
     {
         id: 25,
-        question: "In an educational institution \"recognised by the State\" but not receiving aid, religious instruction:",
-        options: [
-            "Is completely prohibited.",
-            "Is permitted, but student attendance is voluntary (requires consent).",
-            "Is compulsory for all students.",
-            "Is permitted only if it is the majority religion of the State."
-        ],
-        correctAnswer: 1,
-        explanation: "In recognised but unaided institutions, religious instruction is permitted on a voluntary basis (consent needed).",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 28 - Religious Instruction"
+        question: "The Chairman of Zonal Councils is:",
+        options: ["President", "Prime Minister", "Union Home Minister", "Chief Minister by rotation"],
+        correctAnswer: 2,
+        explanation: "Union Home Minister.",
+        subtopic: "16.3"
     },
-    // Q26
     {
         id: 26,
-        question: "Match the type of Educational Institution (under Article 28) with the rule regarding Religious Instruction:\n\nList-I (Institution Type)\nA. Wholly maintained by the State\nB. Administered by State but established under trust\nC. Receiving aid from the State\n\nList-II (Religious Instruction)\n1. Permitted\n2. Prohibited\n3. Voluntary basis\n\nSelect the correct answer using the code given below:",
-        options: [
-            "A-2, B-1, C-3",
-            "A-2, B-3, C-1",
-            "A-1, B-2, C-3",
-            "A-3, B-1, C-2"
-        ],
-        correctAnswer: 0,
-        explanation: "A (State maintained) - Prohibited; B (Trust established) - Permitted; C (Receiving aid) - Voluntary basis.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 28 - Institution Types"
+        question: "The breakdown of Constitutional machinery in a State is popularly known as:",
+        options: ["National Emergency", "State Emergency", "Financial Emergency", "Judicial Emergency"],
+        correctAnswer: 1,
+        explanation: "State Emergency or President's Rule.",
+        subtopic: "17.2"
     },
-    // Q27
     {
         id: 27,
-        question: "Consider the following statements regarding Article 29 (Protection of Interests of Minorities):\n\n1. It protects the rights of only religious and linguistic minorities.\n2. The scope of this article includes the \"majority\" community as well.\n3. It guarantees the right of a section of citizens to conserve their distinct language, script, or culture.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "1 and 3 only",
-            "2 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 2,
-        explanation: "Statement 1 is incorrect (Article 29 says 'any section of citizens', so includes majority too). Statements 2 and 3 are correct.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 29 - Cultural Rights"
+        question: "Are the Fundamental Duties applicable to foreigners?",
+        options: ["Yes", "No", "Some of them", "Only if they reside for 5 years"],
+        correctAnswer: 1,
+        explanation: "Fundamental Duties are confined to citizens only.",
+        subtopic: "11.0"
     },
-    // Q28
     {
         id: 28,
-        question: "Under Article 29(2), no citizen shall be denied admission into any educational institution maintained by the State or receiving aid out of State funds on grounds only of:",
-        options: [
-            "Religion, Race, Caste, Sex.",
-            "Religion, Race, Caste, Language.",
-            "Religion, Race, Place of Birth, Language.",
-            "Religion, Caste, Sex, Place of Birth."
-        ],
-        correctAnswer: 1,
-        explanation: "Article 29(2) prohibits denial on grounds of Religion, Race, Caste, or Language. Note: Sex and Place of Birth are NOT mentioned.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 29(2) - Admission Rights"
+        question: "The 86th Amendment Act dealt with:",
+        options: ["Panchayati Raj", "Anti-Defection", "Right to Education", "GST"],
+        correctAnswer: 2,
+        explanation: "Right to Education (Article 21A).",
+        subtopic: "11.1"
     },
-    // Q29
     {
         id: 29,
-        question: "Regarding the \"Right to Conserve Language\" under Article 29, the Supreme Court has ruled that:",
-        options: [
-            "It does not include the right to agitate for the protection of the language.",
-            "Political speeches for the conservation of language amount to a corrupt practice under the Representation of the People Act, 1951.",
-            "It includes the right to agitate for the protection of the language.",
-            "It is available only to linguistic minorities and not the majority."
-        ],
-        correctAnswer: 2,
-        explanation: "The Supreme Court ruled that the right to conserve language includes the right to agitate for its protection.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 29 - Right to Agitate"
+        question: "Which state was the first to establish Panchayati Raj?",
+        options: ["Andhra Pradesh", "Rajasthan", "Bihar", "Gujarat"],
+        correctAnswer: 1,
+        explanation: "Rajasthan (Nagaur district, 1959).",
+        subtopic: "33.0"
     },
-    // Q30
     {
         id: 30,
-        question: "Consider the following statements regarding Article 30:\n\n1. It grants rights to all minorities, whether based on religion or language.\n2. The term 'minority' is defined in Article 366 of the Constitution.\n3. It extends the right to establish educational institutions to any section of citizens having a distinct language.\n\nHow many of the statements given above are correct?",
-        options: [
-            "Only one",
-            "Only two",
-            "All three",
-            "None"
-        ],
-        correctAnswer: 0,
-        explanation: "Only statement 1 is correct. Statement 2 is incorrect (Minority not defined in Constitution). Statement 3 is incorrect (Art 30 is for Minorities only, Art 29 is for 'any section').",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 30 - Minority Educational Rights"
+        question: "Who is known as the 'Father of Local Self-Government' in India?",
+        options: ["Lord Mayo", "Lord Ripon", "Lord Curzon", "Lord Dalhousie"],
+        correctAnswer: 1,
+        explanation: "Lord Ripon.",
+        subtopic: "33.0"
     },
-    // Q31
+    // True/False variants
     {
         id: 31,
-        question: "The 44th Amendment Act of 1978 added a provision to Article 30 to:",
-        options: [
-            "Abolish the right of minorities to establish educational institutions.",
-            "Ensure that the compensation amount for acquiring minority institution property does not abrogate their guaranteed right.",
-            "Introduce the concept of the 'Creamy Layer' in minority institutions.",
-            "Prohibit minority institutions from receiving state aid."
-        ],
+        question: "The advice of the Council of Ministers is binding on the President.",
+        options: ["Always true", "True after 42nd/44th Amendments", "False", "Only in financial matters"],
         correctAnswer: 1,
-        explanation: "The 44th Amendment ensured that compensation for acquiring property of minority institutions should not abrogate their rights under Article 30.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "44th Amendment - Article 30"
+        explanation: "The 42nd and 44th Amendments made the advice binding (President can return once, but must accept if sent back).",
+        subtopic: "21.2"
     },
-    // Q32
     {
         id: 32,
-        question: "In the Secretary of Malankara Syrian Catholic College case (2006), the Supreme Court ruled that:\n\n1. The right under Article 30 is intended to place minorities in a more advantageous position vis-à-vis the majority.\n2. There is no reverse discrimination in favor of minorities.\n3. The State can impose regulations for ensuring educational standards and maintaining academic excellence.\n\nWhich of the statements given above are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
+        question: "The Preamble is justiciable.",
+        options: ["True", "False", "Partially", "Only in SC"],
         correctAnswer: 1,
-        explanation: "Statement 1 is incorrect (The right is for equality, not advantage). Statements 2 and 3 are correct.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 30 - SC Rulings"
+        explanation: "False. Its provisions are not enforceable in courts.",
+        subtopic: "11.0"
     },
-    // Q33
     {
         id: 33,
-        question: "Which of the following rights are included in the right of minorities to establish and administer educational institutions?\n\n1. To choose its governing body.\n2. To appoint teaching and non-teaching staff.\n3. To admit eligible students of their choice.\n4. To maladminister the institution if they choose to.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1, 2 and 3 only",
-            "2, 3 and 4 only",
-            "1, 3 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 0,
-        explanation: "Rights 1, 2, and 3 are correct. There is NO right to maladminister (4).",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 30 - Administration Rights"
+        question: "India is a 'Coming Together' Federation.",
+        options: ["True", "False", "It is Holding Together", "Neither"],
+        correctAnswer: 1,
+        explanation: "False. India is a 'Holding Together' Federation (like Belgium/Spain), not 'Coming Together' (like USA).",
+        subtopic: "14.1"
     },
-    // Q34
     {
         id: 34,
-        question: "Regarding \"Unaided Minority Educational Institutions,\" the Supreme Court held that:",
-        options: [
-            "The State cannot regulate them in any manner.",
-            "They have the freedom to appoint teachers by adopting any rational procedure of selection, subject to eligibility conditions prescribed by the State.",
-            "They must follow the reservation policy of the State in appointment of teachers.",
-            "They cannot set up their own fee structure."
-        ],
-        correctAnswer: 1,
-        explanation: "Unaided minority institutions have freedom to appoint with rational procedure but subject to eligibility conditions.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Unaided Minority Institutions"
+        question: "The Rajya Sabha has equal power with Lok Sabha in ammending the Constitution.",
+        options: ["True", "False", "Only regarding States", "No power at all"],
+        correctAnswer: 0,
+        explanation: "True. A Constitutional Amendment Bill can be introduced in either House and must be passed by both separately. No joint sitting.",
+        subtopic: "13.0"
     },
-    // Q35
     {
         id: 35,
-        question: "Consider the following statements regarding the \"Extension of Aid\" by the State to minority institutions:\n\n1. Extending aid alters the nature and character of the minority educational institution.\n2. The State cannot discriminate against any educational institution managed by a minority while granting aid.\n3. Conditions can be imposed by the State to ensure proper utilization of aid.\n\nWhich of the statements given above are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 1,
-        explanation: "Statement 1 is incorrect (Aid does not alter character). Statements 2 and 3 are correct.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Minority Institutions - State Aid"
+        question: "The Governor has no diplomatic or military powers.",
+        options: ["True", "False", "Has military but not diplomatic", "Has diplomatic only"],
+        correctAnswer: 0,
+        explanation: "True. Only President has diplomatic and military powers.",
+        subtopic: "31.2"
     },
-    // Q36
+    // Final 25 Concept mix
     {
         id: 36,
-        question: "Distinction between Article 29 and Article 30:\n\n1. Article 29 grants protection to \"any section of citizens\", whereas Article 30 grants protection only to \"minorities\".\n2. Article 30 includes the right of a minority to impart education to its children in its own language.\n3. Article 29 protects both religious and linguistic minorities.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 3,
-        explanation: "All three are correct distinctions/details regarding Articles 29 and 30.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 29 vs Article 30"
+        question: "Which Schedule contains the list of recognized languages?",
+        options: ["7th", "8th", "9th", "10th"],
+        correctAnswer: 1,
+        explanation: "8th Schedule.",
+        subtopic: "11.0"
     },
-    // Q37
     {
         id: 37,
-        question: "Which of the following laws was repealed in 2004?",
-        options: [
-            "TADA",
-            "MISA",
-            "POTA",
-            "COFEPOSA"
-        ],
+        question: "How many languages are currently in the 8th Schedule?",
+        options: ["14", "18", "22", "24"],
         correctAnswer: 2,
-        explanation: "POTA (Prevention of Terrorism Act) was repealed in 2004.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Preventive Detention Laws"
+        explanation: "22 languages.",
+        subtopic: "11.0"
     },
-    // Q38
     {
         id: 38,
-        question: "The \"Commissions for Protection of Child Rights Act, 2005\" provides for:\n\n1. Establishment of a National Commission for Protection of Child Rights.\n2. Establishment of Children's Courts for speedy trial of offenses against children.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2,
-        explanation: "The Act provides for both NCPCR and Children's Courts.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Child Rights Protection"
+        question: "Which Article provides for the abolition or creation of Legislative Councils in states?",
+        options: ["168", "169", "170", "171"],
+        correctAnswer: 1,
+        explanation: "Article 169.",
+        subtopic: "33.0"
     },
-    // Q39
     {
         id: 39,
-        question: "Statement I: Punitive detention is to punish a person for an offense committed by him after trial and conviction.\n\nStatement II: Preventive detention is detention without trial and conviction by a court.\n\nWhich one of the following is correct in respect of the above statements?",
-        options: [
-            "Both Statement I and Statement II are correct and Statement II is the correct explanation for Statement I",
-            "Both Statement I and Statement II are correct and Statement II is not the correct explanation for Statement I",
-            "Statement I is correct but Statement II is incorrect",
-            "Statement I is incorrect but Statement II is correct"
-        ],
+        question: "The maximum gap between two sessions of State Legislature cannot exceed:",
+        options: ["3 months", "6 months", "9 months", "1 year"],
         correctAnswer: 1,
-        explanation: "Both statements are correct definitions but Statement II does not explain Statement I - they are distinct concepts.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Punitive vs Preventive Detention"
+        explanation: "6 months.",
+        subtopic: "33.0"
     },
-    // Q40
     {
         id: 40,
-        question: "The safeguards under the first part of Article 22 (Rights of arrested persons) are NOT available to:",
-        options: [
-            "A citizen arrested under ordinary law.",
-            "An enemy alien.",
-            "A friendly alien arrested under ordinary law.",
-            "A person arrested under civil arrest orders."
-        ],
+        question: "Who appoints the Chief Election Commissioner?",
+        options: ["Prime Minister", "President", "Parliament", "CJI"],
         correctAnswer: 1,
-        explanation: "Enemy aliens and persons under preventive detention do not get protections under the first part of Article 22.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 22 - Exceptions"
+        explanation: "President.",
+        subtopic: "18.3"
     },
-    // Q41
     {
         id: 41,
-        question: "The Supreme Court ruled that the \"Right to Consult and be Defended by a Legal Practitioner\" (Article 22) does not apply to:\n\n1. Arrest on failure to pay income tax.\n2. Deportation of an alien.\n3. Arrest under the orders of a court.\n\nSelect the correct answer:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 3,
-        explanation: "All three are exceptions where the right to legal practitioner under Article 22 does not apply.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 22 - SC Rulings"
+        question: "The CAG (Comptroller and Auditor General) acts as:",
+        options: ["Guardian of public purse", "Guardian of Constitution", "Guardian of Law", "Government accountant only"],
+        correctAnswer: 0,
+        explanation: "Guardian of the public purse.",
+        subtopic: "11.0"
     },
-    // Q42
     {
         id: 42,
-        question: "Which of the following is NOT a form of \"Traffic in Human Beings\" explicitly mentioned or implied in the text under Article 23?",
-        options: [
-            "Devadasis",
-            "Prostitution",
-            "Slavery",
-            "Employment of children in factories"
-        ],
-        correctAnswer: 3,
-        explanation: "Employment of children in factories is covered under Article 24, not Article 23 (Traffic in Human Beings).",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 23 vs Article 24"
+        question: "The term of CAG office is:",
+        options: ["5 years or 65 age", "6 years or 65 age", "6 years or 62 age", "5 years or 60 age"],
+        correctAnswer: 1,
+        explanation: "6 years or upto age of 65 years, whichever is earlier.",
+        subtopic: "11.0"
     },
-    // Q43
     {
         id: 43,
-        question: "The \"Bonded Labour System (Abolition) Act\" was enacted in which year?",
-        options: [
-            "1970",
-            "1976",
-            "1986",
-            "1956"
-        ],
+        question: "Does the Governor have the power to appoint Judges of the High Court?",
+        options: ["Yes", "No", "Only District Judges", "Only Additional Judges"],
         correctAnswer: 1,
-        explanation: "The Bonded Labour System (Abolition) Act was enacted in 1976.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Bonded Labour Act"
+        explanation: "No. HC Judges are appointed by President. Governor is only CONSULTED.",
+        subtopic: "31.2"
     },
-    // Q44
     {
         id: 44,
-        question: "\"Inner freedom of an individual to mould his relation with God or Creatures in whatever way he desires\" refers to:",
-        options: [
-            "Right to Profess",
-            "Right to Practice",
-            "Freedom of Conscience",
-            "Right to Propagate"
-        ],
-        correctAnswer: 2,
-        explanation: "This definition describes 'Freedom of Conscience' - the inner freedom regarding one's religious beliefs.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 25 - Freedom of Conscience"
+        question: "The decisions of the Central Administrative Tribunal (CAT) can be appealed in:",
+        options: ["Supreme Court only", "High Court (Division Bench)", "District Court", "President"],
+        correctAnswer: 1,
+        explanation: "Since Chandra Kumar case (1997), appeal lies to Division Bench of concerned High Court first.",
+        subtopic: "11.0"
     },
-    // Q45
     {
         id: 45,
-        question: "The State can regulate or restrict which of the following activities associated with religious practice under Article 25?\n\n1. Economic activity\n2. Financial activity\n3. Political activity\n\nSelect the correct answer:",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2 and 3"
-        ],
+        question: "Which of the following states does not have a bicameral legislature?",
+        options: ["Bihar", "Karnataka", "Maharashtra", "Tamil Nadu"],
         correctAnswer: 3,
-        explanation: "The State can regulate all three - economic, financial, and political activities associated with religious practice.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 25 - State Regulation"
+        explanation: "Tamil Nadu has a unicameral legislature (abolished Council).",
+        subtopic: "33.0"
     },
-    // Q46
     {
         id: 46,
-        question: "The right to \"administer such property in accordance with law\" belongs to:",
-        options: [
-            "Individuals under Article 25.",
-            "Religious Denominations under Article 26.",
-            "Linguistic Minorities under Article 30.",
-            "Any section of citizens under Article 29."
-        ],
+        question: "The Sarkaria Commission recommended that the Governor should be:",
+        options: ["A politician from the ruling party", "An eminent person from outside the state", "A retired judge of the same state", "The Chief Secretary"],
         correctAnswer: 1,
-        explanation: "Article 26 grants religious denominations the right to own and administer movable and immovable property.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 26 - Property Rights"
+        explanation: "An eminent person from outside the state (to ensure impartiality).",
+        subtopic: "15.4"
     },
-    // Q47
     {
         id: 47,
-        question: "Which of the following is NOT a condition to be a \"Religious Denomination\"?",
-        options: [
-            "Common organization.",
-            "Distinctive name.",
-            "State recognition.",
-            "Collection of individuals with a system of beliefs."
-        ],
+        question: "Which Article grants special status to Delhi?",
+        options: ["239", "239A", "239AA", "239AB"],
         correctAnswer: 2,
-        explanation: "State recognition is NOT a condition. The three conditions are: common beliefs, common organization, and distinctive name.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 26 - Denomination Conditions"
+        explanation: "Article 239AA (69th Amendment Act, 1991).",
+        subtopic: "11.0"
     },
-    // Q48
     {
         id: 48,
-        question: "The prohibition of religious instruction in State-maintained institutions (Article 28) does not apply if:",
-        options: [
-            "The institution is administered by the State but established under an endowment requiring such instruction.",
-            "The majority of students request it.",
-            "The institution charges a fee.",
-            "It is a higher education institution."
-        ],
-        correctAnswer: 0,
-        explanation: "If the institution was established under an endowment/trust requiring religious instruction, Article 28 allows it even if administered by State.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 28 - Exception"
+        question: "Who conducts elections to Municipalities and Panchayats?",
+        options: ["Election Commission of India", "State Election Commission", "State Government", "Governor"],
+        correctAnswer: 1,
+        explanation: "State Election Commission.",
+        subtopic: "33.0"
     },
-    // Q49
     {
         id: 49,
-        question: "In the context of Article 30, \"Minority Educational Institutions\" can be classified into how many types based on recognition and aid?",
-        options: [
-            "Two",
-            "Three",
-            "Four",
-            "Five"
-        ],
+        question: "The State Election Commissioner is appointed by:",
+        options: ["President", "Governor", "Chief Minister", "CEC of India"],
         correctAnswer: 1,
-        explanation: "Three types: (1) Aided + Recognized, (2) Recognized only (unaided), (3) Neither aided nor recognized.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Minority Institution Types"
+        explanation: "Governor.",
+        subtopic: "33.0"
     },
-    // Q50
     {
         id: 50,
-        question: "General laws of the land (Contract law, Labour law, Tax law) are applicable to:",
-        options: [
-            "Only aided minority institutions.",
-            "Only unaided minority institutions.",
-            "All minority institutions, including unaided ones.",
-            "Only non-minority institutions."
-        ],
-        correctAnswer: 2,
-        explanation: "General laws of the land apply to all minority institutions, whether aided or unaided.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Minority Institutions - General Laws"
+        question: "Article 243-ZD deals with:",
+        options: ["District Planning Committee", "Metropolitan Planning Committee", "State Finance Commission", "Gram Sabha"],
+        correctAnswer: 0,
+        explanation: "District Planning Committee.",
+        subtopic: "33.0"
     },
-    // Q51
     {
         id: 51,
-        question: "The \"Right to establish and administer educational institutions\" under Article 30 is:",
-        options: [
-            "Absolute.",
-            "Not absolute; it does not include the right to maladminister.",
-            "Subject to Article 19 restrictions.",
-            "Available to all sections of citizens."
-        ],
+        question: "Taxes on agricultural income is listed in:",
+        options: ["Union List", "State List", "Concurrent List", "Residuary Powers"],
         correctAnswer: 1,
-        explanation: "The right under Article 30 is not absolute - it does not include the right to maladminister.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 30 - Limitations"
+        explanation: "State List.",
+        subtopic: "15.1"
     },
-    // Q52
     {
         id: 52,
-        question: "Regarding the \"fee structure\" in unaided minority institutions:",
-        options: [
-            "The State fixes the fee.",
-            "They can set up a reasonable fee structure.",
-            "They must provide free education.",
-            "They cannot charge fees higher than government schools."
-        ],
-        correctAnswer: 1,
-        explanation: "Unaided minority institutions can set up their own reasonable fee structure.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Unaided Minority Institutions - Fees"
+        question: "Education was moved to Concurrent List by:",
+        options: ["42nd Amendment", "44th Amendment", "86th Amendment", "1st Amendment"],
+        correctAnswer: 0,
+        explanation: "42nd Amendment Act, 1976.",
+        subtopic: "15.1"
     },
-    // Q53
     {
         id: 53,
-        question: "Which Article protects the \"Collective Freedom of Religion\"?",
-        options: [
-            "Article 25",
-            "Article 26",
-            "Article 27",
-            "Article 28"
-        ],
+        question: "Who is empowered to remove the Chairperson of a State Public Service Commission?",
+        options: ["Governor", "President", "Parliament", "Supreme Court"],
         correctAnswer: 1,
-        explanation: "Article 26 deals with collective freedom of religion (rights of religious denominations as groups).",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 26 - Collective Freedom"
+        explanation: "President (even though appointed by Governor).",
+        subtopic: "31.1"
     },
-    // Q54
     {
         id: 54,
-        question: "The Supreme Court held that \"Political speeches or promises made for the conservation of the language of a section of the citizens\":",
-        options: [
-            "Amount to corrupt practice.",
-            "Do not amount to corrupt practice.",
-            "Are violative of Article 19.",
-            "Are unconstitutional."
-        ],
-        correctAnswer: 1,
-        explanation: "The Supreme Court held that such political speeches do NOT amount to corrupt practice.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Right to Conserve Language"
+        question: "Which President of India was elected unopposed?",
+        options: ["Rajendra Prasad", "S. Radhakrishnan", "N. Sanjeeva Reddy", "APJ Abdul Kalam"],
+        correctAnswer: 2,
+        explanation: "N. Sanjeeva Reddy (1977).",
+        subtopic: "18.0"
     },
-    // Q55
     {
         id: 55,
-        question: "The term \"Begar\" means:",
-        options: [
-            "Working for minimum wage.",
-            "Compulsory work without remuneration.",
-            "Traffic in women.",
-            "Bonded labour."
-        ],
-        correctAnswer: 1,
-        explanation: "Begar means compulsory work without remuneration.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 23 - Begar"
+        question: "Who was the first Vice-President of India?",
+        options: ["S. Radhakrishnan", "V.V. Giri", "Zakir Hussain", "G.S. Pathak"],
+        correctAnswer: 0,
+        explanation: "Dr. S. Radhakrishnan.",
+        subtopic: "19.0"
     },
-    // Q56
     {
         id: 56,
-        question: "The \"Prevention of Illicit Traffic in Narcotic Drugs and Psychotropic Substances Act\" (PITNDPSA) was enacted in:",
-        options: [
-            "1980",
-            "1985",
-            "1988",
-            "2002"
-        ],
+        question: "The term 'Cabinet' is mentioned in the Constitution only once in Article:",
+        options: ["74", "75", "352", "356"],
         correctAnswer: 2,
-        explanation: "PITNDPSA was enacted in 1988.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Preventive Detention Laws"
+        explanation: "Article 352 (Clause 3)",
+        subtopic: "21.3"
     },
-    // Q57
     {
         id: 57,
-        question: "Which Article contains the provision that \"No person shall be compelled to pay any taxes for the promotion or maintenance of any particular religion\"?",
-        options: [
-            "Article 25",
-            "Article 26",
-            "Article 27",
-            "Article 28"
-        ],
-        correctAnswer: 2,
-        explanation: "Article 27 contains this prohibition against compulsory payment of religious taxes.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 27"
+        question: "Total number of members in the Constituent Assembly were:",
+        options: ["299", "389", "296", "412"],
+        correctAnswer: 1,
+        explanation: "389 (before partition). 299 (after partition).",
+        subtopic: "11.0"
     },
-    // Q58
     {
         id: 58,
-        question: "The right to \"move the Supreme Court\" for the enforcement of Fundamental Rights is itself a Fundamental Right under:",
-        options: [
-            "Article 22",
-            "Article 32",
-            "Article 21",
-            "Article 13"
-        ],
-        correctAnswer: 1,
-        explanation: "Article 32 guarantees the right to move the Supreme Court for enforcement of Fundamental Rights.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Article 32"
+        question: "The design of the National Flag was adopted on:",
+        options: ["July 22, 1947", "August 15, 1947", "January 26, 1950", "November 26, 1949"],
+        correctAnswer: 0,
+        explanation: "July 22, 1947.",
+        subtopic: "11.0"
     },
-    // Q59
     {
         id: 59,
-        question: "According to the text, which democratic country has made preventive detention an integral part of the Constitution?",
-        options: [
-            "USA",
-            "Britain",
-            "India",
-            "Canada"
-        ],
+        question: "Who was the Chairman of the Drafting Committee?",
+        options: ["Jawaharlal Nehru", "Sardar Patel", "Dr. B.R. Ambedkar", "Dr. Rajendra Prasad"],
         correctAnswer: 2,
-        explanation: "India is the only democratic country that has made preventive detention an integral part of its Constitution.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "Preventive Detention - India"
+        explanation: "Dr. B.R. Ambedkar.",
+        subtopic: "11.0"
     },
-    // Q60
     {
         id: 60,
-        question: "Which Amendment Act deleted the \"Right to Property\" as a Fundamental Right (Article 31)?",
-        options: [
-            "42nd Amendment Act, 1976",
-            "44th Amendment Act, 1978",
-            "86th Amendment Act, 2002",
-            "97th Amendment Act, 2011"
-        ],
+        question: "The Constitution of India was adopted on:",
+        options: ["26 January 1950", "26 November 1949", "15 August 1947", "26 January 1949"],
         correctAnswer: 1,
-        explanation: "The 44th Amendment Act, 1978 deleted the Right to Property from Fundamental Rights.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Fundamental Rights",
-        subtopic: "44th Amendment - Right to Property"
+        explanation: "26 November 1949 (Enacted/Adopted). Came into force on 26 Jan 1950.",
+        subtopic: "11.0"
     }
 ];
+
+export default DAY7_MCQS;

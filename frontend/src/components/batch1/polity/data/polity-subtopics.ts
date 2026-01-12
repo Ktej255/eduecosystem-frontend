@@ -4,6 +4,22 @@ export interface SubTopic {
 }
 
 export const CHAPTER_SUBTOPICS: Record<number, SubTopic[]> = {
+    1: [
+        { id: '1.1', label: 'Company Rule (1773-1858)' },
+        { id: '1.2', label: 'Crown Rule (1858-1947)' },
+        { id: '1.3', label: 'Independence Act 1947' }
+    ],
+    2: [
+        { id: '2.1', label: 'Composition of Constituent Assembly' },
+        { id: '2.2', label: 'Working of the Assembly' },
+        { id: '2.3', label: 'Committees of Constituent Assembly' },
+        { id: '2.4', label: 'Enactment & Enforcement' }
+    ],
+    3: [
+        { id: '3.1', label: 'Salient Features Overview' },
+        { id: '3.2', label: 'Schedules of Constitution' },
+        { id: '3.3', label: 'Borrowed Features (Sources)' }
+    ],
     7: [
         { id: '7.1', label: 'Meaning and Significance' },
         { id: '7.2', label: 'Constitutional Provisions (Art 5-11)' },
@@ -88,6 +104,78 @@ export const CHAPTER_SUBTOPICS: Record<number, SubTopic[]> = {
         { id: '18.4', label: 'Veto Power of the President' },
         { id: '18.5', label: 'Ordinance-Making Power (Art 123)' },
         { id: '18.6', label: 'Pardoning Power (Art 72)' }
+    ],
+    19: [
+        { id: '19.1', label: 'Election and Qualifications' },
+        { id: '19.2', label: 'Term and Removal' },
+        { id: '19.3', label: 'Powers and Functions' },
+        { id: '19.4', label: 'Comparison with American Vice-President' }
+    ],
+    20: [
+        { id: '20.1', label: 'Appointment and Oath' },
+        { id: '20.2', label: 'Role as Head of Government' },
+        { id: '20.3', label: 'Relationship with President (Art 78)' },
+        { id: '20.4', label: 'Powers and Functions' }
+    ],
+    21: [
+        { id: '21.1', label: 'Composition (Cabinet, MoS, Deputy)' },
+        { id: '21.2', label: 'Collective Responsibility (Art 75)' },
+        { id: '21.3', label: 'Cabinet Committees' },
+        { id: '21.4', label: 'Kitchen Cabinet' }
+    ],
+    22: [
+        { id: '22.1', label: 'Organization and Composition of Two Houses' },
+        { id: '22.2', label: 'Duration and Membership Qualifications' },
+        { id: '22.3', label: 'Sessions of Parliament (Summoning, Adjournment, Dissolution)' },
+        { id: '22.4', label: 'Speaker and Chairman (Presiding Officers)' },
+        { id: '22.5', label: 'Leaders in Parliament (Leader of House, Leader of Opposition)' },
+        { id: '22.6', label: 'Legislative Procedure (Ordinary, Money, Financial Bills)' },
+        { id: '22.7', label: 'Joint Sitting of Two Houses' },
+        { id: '22.8', label: 'Budget in Parliament' },
+        { id: '22.9', label: 'Multifunctional Role of Parliament' },
+        { id: '22.10', label: 'Funds (Consolidated, Contingency, Public Account)' }
+    ],
+    23: [
+        { id: '23.1', label: 'Financial Committees (PAC, Estimates, CPU)' },
+        { id: '23.2', label: 'Departmental Standing Committees (24 DSCs)' },
+        { id: '23.3', label: 'Committees to Inquire and Scrutinize' },
+        { id: '23.4', label: 'Committees Relating to Day-to-Day Business' },
+        { id: '23.5', label: 'House Keeping and Consultative Committees' }
+    ],
+    24: [
+        { id: '24.1', label: 'Parliamentary Forums' },
+        { id: '24.2', label: 'Parliamentary Groups' }
+    ],
+    26: [
+        { id: '26.1', label: 'Organization and Appointment of Judges (Collegium System)' },
+        { id: '26.2', label: 'Qualifications, Oath, Tenure, Removal' },
+        { id: '26.3', label: 'Jurisdiction and Powers (Original, Writ, Appellate, Advisory)' },
+        { id: '26.4', label: 'Judicial Review and Activism' }
+    ],
+    34: [
+        { id: '34.1', label: 'Organization and Appointment (Comparision with SC)' },
+        { id: '34.2', label: 'Jurisdiction and Powers (Writ, Appellate, Supervisory)' }
+    ],
+    35: [
+        { id: '35.1', label: 'Subordinate Courts Structure (District Judges)' },
+        { id: '35.2', label: 'NALSA and Lok Adalats' }
+    ],
+    36: [
+        { id: '36.1', label: 'Organization of State Legislature (Unicameral/Bicameral)' },
+        { id: '36.2', label: 'Creation and Abolition of Legislative Council (Art 169)' },
+        { id: '36.3', label: 'Composition of Assembly and Council' },
+        { id: '36.4', label: 'Presiding Officers (Speaker, Chairman)' },
+        { id: '36.5', label: 'Legislative Procedure (Comparison with Parliament)' },
+        { id: '36.6', label: 'Powers and Privileges' }
+    ],
+    32: [
+        { id: '32.1', label: 'Appointment by Governor' },
+        { id: '32.2', label: 'Powers and Functions' },
+        { id: '32.3', label: 'Relationship with Governor' }
+    ],
+    33: [
+        { id: '33.1', label: 'Composition and Appointment' },
+        { id: '33.2', label: 'Collective Responsibility (Art 164)' }
     ],
     31: [
         { id: '31.1', label: 'Appointment and Conditions of Office' },

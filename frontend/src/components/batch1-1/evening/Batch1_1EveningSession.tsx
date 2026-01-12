@@ -16,6 +16,10 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { CHAPTER_SUBTOPICS, SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
+import CycleFlashcards from '../pomodoro/CycleFlashcards';
+import CycleMCQs from '../pomodoro/CycleMCQs';
+import { getFlashcardsForSubtopics } from '@/components/batch1/polity/data/polity-flashcards-data';
+import { getMCQsForSubtopics } from '@/components/batch1/polity/data/polity-mcqs-data';
 
 interface CycleData {
     cycleNumber: number;
@@ -90,29 +94,100 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
     const eveningContent = useMemo(() => generateEveningContent(morningProgress), [morningProgress]);
 
-    const hasMorningProgress = morningProgress && morningProgress.cycleHistory.length > 0;
+    // BYPASS LOGIC: Unlock Day 1 Evening even without Morning Progress
+    const isDay1Bypass = weekId === 1 && dayId === 1;
+    const hasMorningProgress = isDay1Bypass || (morningProgress && morningProgress.cycleHistory.length > 0);
 
-    if (activeSection !== 'menu') {
-        // Placeholder for actual content sections
+    // Content Generation Logic
+    const sessionContent = useMemo(() => {
+        if (!hasMorningProgress) return null;
+
+        let morningSubtopics: SubTopic[] = [];
+        let uniqueMorningIds: string[] = [];
+
+        if (morningProgress?.cycleHistory) {
+            morningSubtopics = morningProgress.cycleHistory.flatMap(c => c.selectedSubtopics);
+            uniqueMorningIds = Array.from(new Set(morningSubtopics.map(s => s.id)));
+        } else if (isDay1Bypass) {
+            // Fallback for Day 1 Bypass: Default to Ch 11-14 subtopics
+            // Simulating "Morning done" with key Week 1 topics
+            uniqueMorningIds = ['11.1', '11.2', '12.1', '12.2', '13.1', '13.2', '14.1'];
+        }
+
+        // REPEATS: 20% of session (approx 4-5 cards)
+        // We take all cards from morning subtopics and shuffle
+        const repeatCards = getFlashcardsForSubtopics(uniqueMorningIds);
+
+        // NEW: 80% of session
+        // In a real app, this would come from the Schedule or next chapters.
+        // For now, we simulate "New" by taking Chapter 12 subtopics if not done, or just remaining Ch 11.
+        // We'll just grab ALL seeded cards that are NOT in repeatCards (simplification)
+        const allSeededCardIds = new Set(repeatCards.map(c => c.id));
+        // Note: In real implementation, we'd fetch from Ch 12 specifically.
+        const newCards = getFlashcardsForSubtopics(['11.5', '12.1', '12.2', '12.3']);
+        const actuallyNewCards = newCards.filter(c => !allSeededCardIds.has(c.id));
+
+        // Combine (limit to reasonable session size ~20 cards)
+        // 20% Repeats, 80% New
+        const targetTotal = 20;
+        const targetRepeat = Math.ceil(targetTotal * 0.2);
+        const targetNew = targetTotal - targetRepeat;
+
+        const finalFlashcards = [
+            ...repeatCards.slice(0, targetRepeat),
+            ...actuallyNewCards.slice(0, targetNew)
+        ];
+
+        // MCQs: Similar logic, or just 60 mixed
+        const repeatMCQs = getMCQsForSubtopics(uniqueMorningIds);
+        const newMCQs = getMCQsForSubtopics(['11.5', '12.1', '12.2', '12.3']).filter(m => !uniqueMorningIds.includes(m.subtopicId));
+
+        const finalMCQs = [...repeatMCQs, ...newMCQs].slice(0, 60);
+
+        return {
+            flashcards: finalFlashcards,
+            mcqs: finalMCQs,
+            subtopics: morningSubtopics // Just for header context
+        };
+    }, [morningProgress, hasMorningProgress, isDay1Bypass]);
+
+    if (activeSection === 'flashcards' && sessionContent) {
         return (
             <div className="max-w-4xl mx-auto p-6">
                 <Button variant="ghost" onClick={() => setActiveSection('menu')} className="mb-4">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to Menu
+                    <ArrowLeft className="mr-2 h-4 w-4" /> Back
                 </Button>
-                <Card className="p-12 text-center">
-                    <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
-                        {activeSection === 'flashcards' && '📚 Flashcards Session'}
-                        {activeSection === 'mcqs' && '🎯 MCQ Test (60 Questions)'}
-                        {activeSection === 'csat' && '🧮 CSAT Practice'}
-                    </h2>
-                    <p className="text-gray-500 mb-4">
-                        Content based on your morning progress will appear here.
-                    </p>
-                    <p className="text-sm text-gray-400">
-                        {eveningContent.totalSubtopics} subtopics from morning sessions
-                    </p>
-                </Card>
+                <CycleFlashcards
+                    selectedSubtopics={sessionContent.subtopics} // Context only
+                    cycleNumber={5} // Evening
+                    onComplete={() => setActiveSection('menu')}
+                    preloadedCards={sessionContent.flashcards}
+                />
+            </div>
+        );
+    }
+
+    if (activeSection === 'mcqs' && sessionContent) {
+        return (
+            <div className="max-w-4xl mx-auto p-6">
+                <Button variant="ghost" onClick={() => setActiveSection('menu')} className="mb-4">
+                    <ArrowLeft className="mr-2 h-4 w-4" /> Back
+                </Button>
+                <CycleMCQs
+                    selectedSubtopics={sessionContent.subtopics}
+                    cycleNumber={5}
+                    onComplete={() => setActiveSection('menu')}
+                    preloadedMCQs={sessionContent.mcqs}
+                />
+            </div>
+        );
+    }
+
+    if (activeSection !== 'menu') {
+        return (
+            <div className="max-w-4xl mx-auto p-6 text-center">
+                <p>Loading session content...</p>
+                <Button variant="ghost" onClick={() => setActiveSection('menu')}>Back</Button>
             </div>
         );
     }
@@ -190,8 +265,8 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                 {/* Flashcards */}
                 <Card
                     className={`hover:shadow-lg transition-all cursor-pointer border-blue-200 ${hasMorningProgress
-                            ? 'bg-blue-50 dark:bg-blue-900/20'
-                            : 'bg-gray-50 dark:bg-gray-800 opacity-60'
+                        ? 'bg-blue-50 dark:bg-blue-900/20'
+                        : 'bg-gray-50 dark:bg-gray-800 opacity-60'
                         }`}
                     onClick={() => hasMorningProgress && setActiveSection('flashcards')}
                 >
@@ -215,8 +290,8 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                 {/* MCQs */}
                 <Card
                     className={`hover:shadow-lg transition-all cursor-pointer border-green-200 ${hasMorningProgress
-                            ? 'bg-green-50 dark:bg-green-900/20'
-                            : 'bg-gray-50 dark:bg-gray-800 opacity-60'
+                        ? 'bg-green-50 dark:bg-green-900/20'
+                        : 'bg-gray-50 dark:bg-gray-800 opacity-60'
                         }`}
                     onClick={() => hasMorningProgress && setActiveSection('mcqs')}
                 >

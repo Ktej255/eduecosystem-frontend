@@ -5,17 +5,13 @@ import { ChevronLeft, ChevronRight, CheckCircle2, BookOpen, Sparkles } from 'luc
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
+import { getFlashcardsForSubtopics, Flashcard } from '@/components/batch1/polity/data/polity-flashcards-data';
 
-// Sample flashcard data structure - will be populated from actual data
-interface Flashcard {
-    id: string;
-    subtopicId: string;
-    question: string;
-    answer: string;
-}
-
-// Temporary flashcard generator - in production, fetch from actual data files
+// Temporary flashcard generator (fallback if no real data)
 function generateFlashcardsForSubtopics(subtopics: SubTopic[]): Flashcard[] {
+    const realCards = getFlashcardsForSubtopics(subtopics.map(s => s.id));
+    if (realCards.length > 0) return realCards;
+
     // This generates placeholder flashcards - will be replaced with actual content
     const flashcards: Flashcard[] = [];
 
@@ -45,14 +41,19 @@ interface CycleFlashcardsProps {
     selectedSubtopics: SubTopic[];
     onComplete: (viewedCount: number) => void;
     cycleNumber: number;
+    preloadedCards?: Flashcard[];
 }
 
 export default function CycleFlashcards({
     selectedSubtopics,
     onComplete,
-    cycleNumber
+    cycleNumber,
+    preloadedCards
 }: CycleFlashcardsProps) {
-    const flashcards = useMemo(() => generateFlashcardsForSubtopics(selectedSubtopics), [selectedSubtopics]);
+    const flashcards = useMemo(() => {
+        if (preloadedCards && preloadedCards.length > 0) return preloadedCards;
+        return generateFlashcardsForSubtopics(selectedSubtopics);
+    }, [selectedSubtopics, preloadedCards]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);

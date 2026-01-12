@@ -1,1029 +1,519 @@
-import { MCQ } from "./day1-mcqs";
 
-/**
- * Indian Polity - Chapter 7: Citizenship
- * 60 MCQs for Day 5 Evening Session (6-7 PM)
- * Topic metadata included for detailed analytics
- */
+export interface MCQ {
+    id: number;
+    question: string;
+    options: string[];
+    correctAnswer: number;
+    explanation?: string;
+    level?: string;
+    topic?: string;
+    chapter?: string;
+    subtopic?: string;
+}
+
 export const DAY5_MCQS: MCQ[] = [
-    // Q1
+    // ==========================================
+    // CHAPTER 20: PRIME MINISTER (10 Questions)
+    // ==========================================
+
     {
         id: 1,
-        question: "Consider the following statements regarding the constitutional provisions of citizenship in India:\n\n1. The Constitution identifies the persons who became citizens of India at its commencement (January 26, 1950).\n2. It contains permanent and elaborate provisions regarding the acquisition and loss of citizenship subsequent to the commencement of the Constitution.\n3. Parliament has the exclusive power to make any provision with respect to the acquisition and termination of citizenship.\n\nHow many of the statements given above are correct?",
-        options: [
-            "Only one",
-            "Only two",
-            "All three",
-            "None"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Statement 2 is incorrect; provisions are neither permanent nor elaborate. The Constitution only identifies citizens at commencement and leaves subsequent matters to Parliament.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Constitutional Provisions Overview"
+        question: "Article 75 says that the Prime Minister shall be appointed by:",
+        options: ["The Parliament", "The President", "The Lok Sabha", "The Chief Justice of India"],
+        correctAnswer: 1,
+        explanation: "Article 75 says the Prime Minister shall be appointed by the President.",
+        subtopic: "20.1"
     },
-    // Q2
     {
         id: 2,
-        question: "According to Article 5 of the Constitution, a person domiciled in India became a citizen at the commencement of the Constitution if he/she fulfilled which of the following conditions?\n\n1. He/she was born in India.\n2. Either of his/her parents was born in India.\n3. He/she has been ordinarily resident in India for not less than five years immediately preceding such commencement.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "Any one of 1, 2, or 3"
-        ],
-        correctAnswer: 3, // d
-        explanation: "Fulfilling ANY one of the three conditions was sufficient for citizenship under Article 5.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Article 5 - Citizenship at Commencement"
+        question: "Does the Constitution contain any specific procedure for the selection and appointment of the Prime Minister?",
+        options: ["Yes, detailed in Art 75", "No, it relies on conventions", "Yes, in Art 74", "Yes, in Art 78"],
+        correctAnswer: 1,
+        explanation: "Article 75 only says PM shall be appointed by President. It does not contain a specific procedure; the system of parliamentary government conventions is followed.",
+        subtopic: "20.1"
     },
-    // Q3
     {
         id: 3,
-        question: "With reference to Article 6 (Rights of citizenship of certain persons who have migrated to India from Pakistan), consider the following statements:\n\n1. It deals with persons who migrated to India from Pakistan before the commencement of the Constitution.\n2. If a person migrated to India on or after July 19, 1948, he could be registered as a citizen only if he had been resident in India for at least six months preceding the date of his application.\n3. The \"permit system\" for migration from Pakistan to India was introduced on July 19, 1948.\n\nWhich of the statements given above are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 3, // d
-        explanation: "All statements are correct regarding Article 6 provisions.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Article 6 - Migration from Pakistan"
+        question: "According to the Supreme Court (1997), a person who is not a member of either House of Parliament:",
+        options: ["Cannot be appointed as PM", "Can be appointed as PM regarding he becomes a member within 6 months", "Can be appointed as PM for 1 year", "Can be appointed if Rajya Sabha approves"],
+        correctAnswer: 1,
+        explanation: "A person who is not a member of either House can be appointed as PM for 6 months, within which he must become a member of either House.",
+        subtopic: "20.1"
     },
-    // Q4
     {
         id: 4,
-        question: "Statement I: A person who migrated to Pakistan from India after March 1, 1947, but later returned to India for resettlement under a permanent permit could become an Indian citizen.\n\nStatement II: Article 7 overrides the provisions of Article 5 and Article 6 regarding citizenship.\n\nWhich one of the following is correct in respect of the above statements?",
-        options: [
-            "Both Statement I and Statement II are correct and Statement II is the correct explanation for Statement I",
-            "Both Statement I and Statement II are correct and Statement II is not the correct explanation for Statement I",
-            "Statement I is correct but Statement II is incorrect",
-            "Statement I is incorrect but Statement II is correct"
-        ],
-        correctAnswer: 0, // a
-        explanation: "Article 7 does override Articles 5 and 6, which explains why such persons could become citizens through this special provision.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Article 7 - Rights of Migrants to Pakistan"
+        question: "The Prime Minister serves:",
+        options: ["For a fixed 5 year term", "During the pleasure of the President", "As long as he enjoys the confidence of Rajya Sabha", "As long as the President wants"],
+        correctAnswer: 1,
+        explanation: "Technically, he holds office during the pleasure of the President. However, this pleasure is not arbitrary; he cannot be dismissed as long as he enjoys majority support in Lok Sabha.",
+        subtopic: "20.1"
     },
-    // Q5
     {
         id: 5,
-        question: "Article 8 of the Constitution covers which category of persons?",
-        options: [
-            "Persons domiciled in India",
-            "Persons of Indian origin residing outside India",
-            "Persons who migrated from Pakistan",
-            "Persons who acquired foreign citizenship voluntarily"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Article 8 deals with persons of Indian origin residing outside India.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Article 8 - Persons of Indian Origin Abroad"
+        question: "It is the duty of the Prime Minister to communicate to the President all decisions of the Council of Ministers related to administration. This is under:",
+        options: ["Article 74", "Article 75", "Article 78", "Article 77"],
+        correctAnswer: 2,
+        explanation: "Article 78 defines the duties of the Prime Minister regarding furnishing information to the President.",
+        subtopic: "20.3"
     },
-    // Q6
     {
         id: 6,
-        question: "Consider the following statements regarding the loss of citizenship under the Constitution (Article 9):\n\n1. It applies to a person who has voluntarily acquired the citizenship of any foreign State.\n2. This provision deals with the acquisition of foreign citizenship even after the commencement of the Constitution.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 0, // a
-        explanation: "Statement 2 is incorrect; Article 9 deals with voluntary acquisition before the commencement of the Constitution.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Article 9 - Voluntary Acquisition of Foreign Citizenship"
+        question: "Who acts as the potential link between the President and the Council of Ministers?",
+        options: ["Speaker", "Cabinet Secretary", "Prime Minister", "Vice-President"],
+        correctAnswer: 2,
+        explanation: "The Prime Minister is the principal channel of communication between the President and the Council of Ministers.",
+        subtopic: "20.3"
     },
-    // Q7
     {
         id: 7,
-        question: "Which Article of the Constitution declares that every person who is or is deemed to be a citizen of India shall continue to be such citizen subject to the provisions of any law made by Parliament?",
-        options: [
-            "Article 9",
-            "Article 10",
-            "Article 11",
-            "Article 8"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Article 10 provides for continuance of rights of citizenship.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Article 10 - Continuance of Citizenship"
+        question: "Who creates the portfolio allocation for Ministers?",
+        options: ["The President", "The Prime Minister", "The Parliament", "The Cabinet Secretary"],
+        correctAnswer: 1,
+        explanation: "The President allocates portfolios, but strictly on the advice of the Prime Minister. The PM is the real architect.",
+        subtopic: "20.4"
     },
-    // Q8
     {
         id: 8,
-        question: "The Citizenship Act, 1955 originally provided for which of the following?\n\n1. Citizenship by Birth\n2. Citizenship by Descent\n3. Commonwealth Citizenship\n4. Dual Citizenship\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "1, 2 and 3 only",
-            "1, 2 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Dual citizenship is not provided under Indian law. The Citizenship Act originally provided for citizenship by birth, descent, registration, naturalisation, and by incorporation of territory, plus Commonwealth citizenship (later repealed).",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship Act 1955 - Overview"
+        question: "If the Prime Minister resigns or dies:",
+        options: ["The senior-most minister takes over automatically", "The Council of Ministers dissolves", "The President runs the government", "The Parliament elects a new leader immediately"],
+        correctAnswer: 1,
+        explanation: "The death or resignation of the PM automatically brings about the dissolution of the Council of Ministers.",
+        subtopic: "20.4"
     },
-    // Q9
     {
         id: 9,
-        question: "With reference to 'Citizenship by Birth' under the Citizenship Act, 1955, consider the following statements:\n\n1. A person born in India on or after January 26, 1950, but before July 1, 1987, is a citizen of India irrespective of the nationality of his parents.\n2. A person born in India on or after December 3, 2004, is a citizen of India only if both parents are citizens of India or one is a citizen and the other is not an illegal migrant.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Both statements are correct details of the Act regarding citizenship by birth provisions.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Birth"
+        question: "Which Prime Minister was a member of Rajya Sabha when appointed?",
+        options: ["Indira Gandhi", "Morarji Desai", "Charan Singh", "V.P. Singh"],
+        correctAnswer: 0,
+        explanation: "Indira Gandhi (1966), Deve Gowda (1996), and Manmohan Singh (2004) were members of Rajya Sabha.",
+        subtopic: "20.1"
     },
-    // Q10
     {
         id: 10,
-        question: "Consider the following statements regarding 'Citizenship by Descent':\n\n1. A person born outside India on or after December 10, 1992, is a citizen of India if either of his parents is a citizen of India at the time of his birth.\n2. From December 3, 2004, a person born outside India shall not be a citizen by descent unless his birth is registered at an Indian consulate within one year of the date of birth.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Both statements are correct; registration became mandatory after Dec 3, 2004.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Descent"
+        question: "The term 'Prime Minister' is mentioned in:",
+        options: ["Article 52", "Article 74", "Article 352", "All of the above"],
+        correctAnswer: 3,
+        explanation: "It is mentioned in Art 74 (Head of Council), Art 75 (Appointment), Art 78 (Duties). Interestingly, Art 352 (National Emergency) mentions 'Prime Minister and other Ministers of Cabinet level'.",
+        subtopic: "20.0"
     },
-    // Q11
+
+    // ==========================================
+    // CHAPTER 21: CENTRAL COUNCIL OF MINISTERS (10 Questions)
+    // ==========================================
+
     {
         id: 11,
-        question: "For 'Citizenship by Registration', which of the following conditions must be met by a person of Indian origin who is ordinarily resident in India?",
-        options: [
-            "Resident for 5 years immediately before making an application",
-            "Resident for 7 years immediately before making an application",
-            "Resident for 10 years immediately before making an application",
-            "Resident for 12 months immediately before making an application"
-        ],
-        correctAnswer: 1, // b
-        explanation: "7 years of ordinary residence is required for citizenship by registration.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Registration"
+        question: "The total number of Ministers, including the Prime Minister, in the Council of Ministers shall not exceed:",
+        options: ["10% of Lok Sabha", "15% of Lok Sabha", "15% of Parliament", "20% of Lok Sabha"],
+        correctAnswer: 1,
+        explanation: "15% of the total strength of the Lok Sabha (Added by 91st Amendment Act, 2003).",
+        subtopic: "21.1"
     },
-    // Q12
     {
         id: 12,
-        question: "Which of the following categories of persons are eligible to register as citizens of India under Section 5 of the Citizenship Act, 1955?\n\n1. A person who is married to a citizen of India and is ordinarily resident in India for seven years.\n2. Minor children of persons who are citizens of India.\n3. A person of full age and capacity whose parents are registered as citizens of India.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 3, // d
-        explanation: "All three categories are eligible for registration as citizens.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Registration"
+        question: "Ministers enter office after taking an oath of:",
+        options: ["Office only", "Secrecy only", "Office and Secrecy", "Allegiance to Flag"],
+        correctAnswer: 2,
+        explanation: "The President administers the oaths of office and secrecy.",
+        subtopic: "21.1"
     },
-    // Q13
     {
         id: 13,
-        question: "To acquire citizenship by 'Naturalisation', an applicant must possess which of the following qualifications?\n\n1. He/she is not a subject or citizen of any country where citizens of India are prevented from becoming subjects or citizens of that country by naturalisation.\n2. He/she has an adequate knowledge of a language specified in the Eighth Schedule to the Constitution.\n3. He/she intends to reside in India or enter into service under a Government in India.\n\nHow many of the statements given above are correct?",
-        options: [
-            "Only one",
-            "Only two",
-            "All three",
-            "None"
-        ],
-        correctAnswer: 2, // c
-        explanation: "All three are qualifications for naturalisation under the Citizenship Act.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Naturalisation"
+        question: "The Council of Ministers is collectively responsible to:",
+        options: ["The President", "The Parliament", "The Lok Sabha", "The Rajya Sabha"],
+        correctAnswer: 2,
+        explanation: "Article 75 states they are collectively responsible to the House of the People (Lok Sabha).",
+        subtopic: "21.2"
     },
-    // Q14
     {
         id: 14,
-        question: "In the context of Naturalisation, the aggregate period of residence or service in India required for a person belonging to Hindu, Sikh, Buddhist, Jain, Parsi, or Christian community from Afghanistan, Bangladesh, or Pakistan has been reduced to:",
-        options: [
-            "11 years",
-            "7 years",
-            "6 years",
-            "5 years"
-        ],
-        correctAnswer: 3, // d
-        explanation: "The Citizenship (Amendment) Act, 2019 reduced the requirement to 5 years for specified communities from these three countries.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "CAA 2019"
+        question: "Individual ministers hold office during the pleasure of:",
+        options: ["The Prime Minister", "The President", "The Speaker", "The voters"],
+        correctAnswer: 1,
+        explanation: "Individually, they hold office during the pleasure of the President (meaning they can be removed by the President on PM's advice).",
+        subtopic: "21.2"
     },
-    // Q15
     {
         id: 15,
-        question: "The Central Government may waive all or any of the conditions for naturalisation in the case of a person who has rendered distinguished service to which of the following?\n\n1. Science\n2. Philosophy\n3. Art\n4. Literature\n5. World Peace\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1, 3 and 5 only",
-            "2, 4 and 5 only",
-            "1, 2, 3 and 4 only",
-            "1, 2, 3, 4 and 5"
-        ],
-        correctAnswer: 3, // d
-        explanation: "All fields listed (science, philosophy, art, literature, world peace) are grounds for waiver.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Naturalisation"
+        question: "Is the 'Cabinet' mentioned in the original Constitution?",
+        options: ["Yes, in Article 74", "Yes, in Article 75", "No", "Yes, in Article 352"],
+        correctAnswer: 2,
+        explanation: "Cabinet was NOT mentioned in the original Constitution. It was inserted in Article 352 by the 44th Amendment Act, 1978.",
+        subtopic: "21.4"
     },
-    // Q16
     {
         id: 16,
-        question: "Which Order was issued by the Government of India under the Citizenship Act, 1955, when Puducherry became a part of India?",
-        options: [
-            "The Citizenship (Puducherry) Order, 1960",
-            "The Citizenship (Puducherry) Order, 1962",
-            "The Citizenship (Puducherry) Order, 1964",
-            "The Citizenship (Puducherry) Order, 1966"
-        ],
-        correctAnswer: 1, // b
-        explanation: "The Citizenship (Pondicherry) Order, 1962 was issued when Puducherry became part of India.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Incorporation of Territory"
+        question: "'Kitchen Cabinet' refers to:",
+        options: ["The catering committee of Parliament", "The highest decision making body technically", "An informal body consisting of the PM and few influential colleagues", "The Cabinet Committee on Economic Affairs"],
+        correctAnswer: 2,
+        explanation: "It is an informal body (Inner Cabinet) often consisting of friends and family, not necessarily ministers.",
+        subtopic: "21.4"
     },
-    // Q17
     {
         id: 17,
-        question: "Regarding the 'Special Provisions as to Citizenship of Persons Covered by the Assam Accord', consider the following statements:\n\n1. It applies to persons of Indian origin who came to Assam from Bangladesh before January 1, 1966.\n2. Persons who came to Assam on or after January 1, 1966, but before March 25, 1971, must register themselves.\n3. Such registered persons enjoy all rights of a citizen including the right to vote for a period of ten years from the date of detection.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 0, // a
-        explanation: "Statement 3 is incorrect; they do NOT enjoy the right to vote for 10 years.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Assam Accord"
+        question: "If a No-Confidence Motion is passed:",
+        options: ["Only Lok Sabha ministers resign", "Only Cabinet ministers resign", "The entire Council of Ministers resigns", "Only PM resigns"],
+        correctAnswer: 2,
+        explanation: "The entire Council (including those from Rajya Sabha) must resign.",
+        subtopic: "21.2"
     },
-    // Q18
     {
         id: 18,
-        question: "The Citizenship (Amendment) Act, 2019, grants citizenship to migrants belonging to specific communities from which three countries?",
-        options: [
-            "Pakistan, Afghanistan, Myanmar",
-            "Pakistan, Bangladesh, Afghanistan",
-            "Pakistan, Bangladesh, Sri Lanka",
-            "Afghanistan, Bangladesh, Nepal"
-        ],
-        correctAnswer: 1, // b
-        explanation: "CAA 2019 covers migrants from Pakistan, Bangladesh, and Afghanistan.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "CAA 2019"
+        question: "Which Cabinet Committee is often usually described as the 'Super-Cabinet'?",
+        options: ["Appointments Committee", "Political Affairs Committee", "Economic Affairs Committee", "Parliamentary Affairs Committee"],
+        correctAnswer: 1,
+        explanation: "The Political Affairs Committee deals with all policy matters pertaining to domestic and foreign affairs.",
+        subtopic: "21.3"
     },
-    // Q19
     {
         id: 19,
-        question: "The provisions of the Citizenship (Amendment) Act, 2019, do not apply to:\n\n1. Tribal areas of Assam, Meghalaya, Mizoram, and Tripura included in the Sixth Schedule.\n2. The area covered under \"The Inner Line\" notified under the Bengal Eastern Frontier Regulation, 1873.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Both exemptions are correct - Sixth Schedule areas and Inner Line Permit areas are exempted from CAA 2019.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "CAA 2019"
+        question: "A person who is not a member of Parliament can act as Minister for max period of:",
+        options: ["3 months", "6 months", "9 months", "1 month"],
+        correctAnswer: 1,
+        explanation: "6 consecutive months.",
+        subtopic: "21.1"
     },
-    // Q20
     {
         id: 20,
-        question: "Which of the following ways of losing citizenship is/are prescribed by the Citizenship Act, 1955?\n\n1. Renunciation\n2. Termination\n3. Deprivation\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 3, // d
-        explanation: "All three - renunciation, termination, and deprivation - are modes of losing citizenship under the Act.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Loss of Citizenship"
+        question: "Who presides over the Cabinet meetings?",
+        options: ["President", "Cabinet Secretary", "Prime Minister", "Home Minister"],
+        correctAnswer: 2,
+        explanation: "The Prime Minister presides over Cabinet meetings.",
+        subtopic: "21.3"
     },
-    // Q21
+
+    // ==========================================
+    // CHAPTER 31: GOVERNOR (20 Questions)
+    // ==========================================
+
     {
         id: 21,
-        question: "Consider the following statements regarding 'Renunciation of Citizenship':\n\n1. If a person makes a declaration of renunciation during a war in which India is engaged, the registration shall be withheld by the Central Government.\n2. When a person renounces his Indian citizenship, every minor child of that person also loses Indian citizenship.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Both statements are correct regarding renunciation of citizenship.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Renunciation of Citizenship"
+        question: "The Governor of a State is appointed by:",
+        options: ["The Prime Minister", "The Chief Justice of India", "The President", "The Chief Minister"],
+        correctAnswer: 2,
+        explanation: "He is appointed by the President by warrant under his hand and seal.",
+        subtopic: "31.1"
     },
-    // Q22
     {
         id: 22,
-        question: "The termination of Indian citizenship takes place automatically when:",
-        options: [
-            "A citizen shows disloyalty to the Constitution of India.",
-            "A citizen voluntarily acquires the citizenship of another country.",
-            "A citizen has been ordinarily resident out of India for seven years continuously.",
-            "A citizen has obtained citizenship by fraud."
-        ],
-        correctAnswer: 1, // b
-        explanation: "Termination occurs automatically when a citizen voluntarily acquires foreign citizenship.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Termination of Citizenship"
+        question: "To be appointed as Governor, a person must be of age:",
+        options: ["25", "30", "35", "40"],
+        correctAnswer: 2,
+        explanation: "35 years.",
+        subtopic: "31.1"
     },
-    // Q23
     {
         id: 23,
-        question: "The Central Government may deprive a citizen of his citizenship if he/she has been imprisoned in any country for two years within how many years of registration or naturalisation?",
-        options: [
-            "Three years",
-            "Five years",
-            "Seven years",
-            "Ten years"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Five years is the period within which imprisonment leads to deprivation.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Deprivation of Citizenship"
+        question: "The Governor holds office:",
+        options: ["For a fixed 5 year term", "During the pleasure of the President", "Until the State Assembly passes a resolution", "As long as CM wants"],
+        correctAnswer: 1,
+        explanation: "He holds office during the pleasure of the President. (Though normally 5 years).",
+        subtopic: "31.1"
     },
-    // Q24
     {
         id: 24,
-        question: "Statement I: The Constitution of India provides for single citizenship for the entire country.\n\nStatement II: In India, a citizen has the right to move freely throughout the territory of India and reside in any part of it, without any discrimination.\n\nWhich one of the following is correct in respect of the above statements?",
-        options: [
-            "Both Statement I and Statement II are correct and Statement II is the correct explanation for Statement I",
-            "Both Statement I and Statement II are correct and Statement II is not the correct explanation for Statement I",
-            "Statement I is correct but Statement II is incorrect",
-            "Statement I is incorrect but Statement II is correct"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Both are correct but II explains the right to move, not the concept of single citizenship directly, which relates to allegiance.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Single Citizenship"
+        question: "Can the same person be appointed as Governor for two or more states?",
+        options: ["No, one state only", "Yes, allowed by 7th Amendment Act", "Yes, only for 6 months", "Yes, but salary is doubled"],
+        correctAnswer: 1,
+        explanation: "7th Constitutional Amendment Act, 1956 authorized the appointment of the same person as Governor for two or more states.",
+        subtopic: "31.1"
     },
-    // Q25
     {
         id: 25,
-        question: "Which of the following is an exception to the rule of non-discrimination based on residence under Article 16?",
-        options: [
-            "Parliament can prescribe residence as a condition for certain employments in a State or UT.",
-            "State Legislatures can prescribe residence as a condition for certain employments in that State.",
-            "Both Parliament and State Legislatures can prescribe residence as a condition.",
-            "Neither Parliament nor State Legislatures can prescribe residence as a condition."
-        ],
-        correctAnswer: 0, // a
-        explanation: "Only Parliament can prescribe residence conditions as an exception to Article 16.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Single Citizenship - Residence Requirements"
+        question: "The salary of the Governor is charged on:",
+        options: ["Consolidated Fund of India", "Consolidated Fund of the State", "Contingency Fund of India", "Grants from Home Ministry"],
+        correctAnswer: 1,
+        explanation: "Charged on the Consolidated Fund of the State.",
+        subtopic: "31.1"
     },
-    // Q26
     {
         id: 26,
-        question: "Consider the following statements regarding the \"Overseas Citizen of India (OCI) Cardholder\":\n\n1. The scheme was introduced by the Citizenship (Amendment) Act, 2005.\n2. It provides for dual citizenship to Persons of Indian Origin (PIOs) of all countries.\n3. The PIO card scheme was rescinded and merged with the OCI card scheme in 2015.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 and 2 only",
-            "1 and 3 only",
-            "3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Statement 2 is incorrect; OCI is not dual citizenship. Statements 1 and 3 are correct.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders"
+        question: "Under Article 163, the discretionary power of the Governor is:",
+        options: ["Implicit", "Explicitly mentioned", "Non-existent", "Same as President"],
+        correctAnswer: 1,
+        explanation: "Unlike the President, the Constitution (Art 163) explicitly mentions that the Governor acts in his discretion in certain matters.",
+        subtopic: "31.6"
     },
-    // Q27
     {
         id: 27,
-        question: "Who among the following is NOT eligible for registration as an OCI Cardholder?",
-        options: [
-            "A person who was a citizen of India at the time of the commencement of the Constitution.",
-            "A person who belonged to a territory that became part of India after August 15, 1947.",
-            "A person who or either of whose parents or grandparents was a citizen of Pakistan or Bangladesh.",
-            "A minor child of a person who is a citizen of India."
-        ],
-        correctAnswer: 2, // c
-        explanation: "Citizens of Pakistan or Bangladesh (or their descendants) are ineligible for OCI registration.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders"
+        question: "Which of the following powers does the Governor NOT possess?",
+        options: ["Diplomatic powers", "Executive powers", "Legislative powers", "Judicial powers"],
+        correctAnswer: 0,
+        explanation: "Governor has no diplomatic, military, or emergency powers (unlike President).",
+        subtopic: "31.6"
     },
-    // Q28
     {
         id: 28,
-        question: "Which of the following rights are NOT conferred on an OCI Cardholder?\n\n1. Right to equality of opportunity in matters of public employment (Article 16).\n2. Right to be registered as a voter.\n3. Eligibility for appointment as a Judge of the Supreme Court.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 3, // d
-        explanation: "OCI holders are not entitled to any of these rights - public employment, voting, or judicial appointments.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders - Rights"
+        question: "The power to issue ordinances is given to the Governor under Article:",
+        options: ["123", "213", "356", "161"],
+        correctAnswer: 1,
+        explanation: "Article 213. (123 is for President).",
+        subtopic: "31.4"
     },
-    // Q29
     {
         id: 29,
-        question: "An OCI Cardholder is entitled to parity with Non-Resident Indians (NRIs) in respect of which of the following?\n\n1. Inter-country adoption of Indian children.\n2. Appearing for the all India entrance tests such as NEET/JEE.\n3. Purchase of agricultural land.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2 and 3"
-        ],
-        correctAnswer: 0, // a
-        explanation: "Agricultural land purchase is not allowed for OCI holders - they have parity with NRIs only in adoption and entrance tests.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders - Rights"
+        question: "The Governor can pardon a death sentence.",
+        options: ["True", "False", "Only if State law was violated", "Only if President allows"],
+        correctAnswer: 1,
+        explanation: "False. Only the President can pardon a death sentence. The Governor can suspend, remit or commute it, but not pardon it.",
+        subtopic: "31.5"
     },
-    // Q30
     {
         id: 30,
-        question: "Consider the following statements regarding the cancellation of registration as an OCI Cardholder:\n\n1. The Central Government may cancel registration if the OCI Cardholder has shown disaffection towards the Constitution of India.\n2. Registration can be cancelled if the OCI Cardholder has been sentenced to imprisonment for a term of not less than two years within five years of registration.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Both statements are correct grounds for cancellation of OCI registration.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders - Cancellation"
+        question: "Who administers the oath to the Governor?",
+        options: ["President", "Chief Justice of India", "Chief Justice of the concerned High Court", "Chief Minister"],
+        correctAnswer: 2,
+        explanation: "Chief Justice of the concerned High Court.",
+        subtopic: "31.1"
     },
-    // Q31
     {
         id: 31,
-        question: "Which committee recommended the amendment of the Citizenship Act, 1955, to provide for the grant of dual citizenship to Persons of Indian Origin (PIOs)?",
-        options: [
-            "Sarkaria Committee",
-            "L.M. Singhvi Committee",
-            "Swaran Singh Committee",
-            "Verma Committee"
-        ],
-        correctAnswer: 1, // b
-        explanation: "The L.M. Singhvi Committee recommended dual citizenship provisions.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders"
+        question: "When a bill is sent to the Governor, he CANNOT:",
+        options: ["Give assent", "Withhold assent", "Return it (if not Money Bill)", "Refer it to the High Court"],
+        correctAnswer: 3,
+        explanation: "He can reserve it for the President, but cannot refer it to the High Court directly holding it.",
+        subtopic: "31.3"
     },
-    // Q32
     {
         id: 32,
-        question: "Consider the following statements regarding the rights of \"Aliens\" in India:\n\n1. Friendly aliens enjoy all the civil and political rights that citizens enjoy.\n2. Enemy aliens do not enjoy protection against arrest and detention under Article 22.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Statement 1 is incorrect; friendly aliens don't enjoy all rights (e.g., voting). Statement 2 is correct.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Aliens - Friendly and Enemy"
+        question: "In the appointment of Chief Minister, if no party has a clear majority, the Governor uses:",
+        options: ["Situational Discretion", "Constitutional Discretion", "Cabinet advice", "President's advice"],
+        correctAnswer: 0,
+        explanation: "This is a situational discretion (derived from the political situation), not constitutional (written).",
+        subtopic: "31.2"
     },
-    // Q33
     {
         id: 33,
-        question: "Which of the following offices in India can be held ONLY by citizens of India?\n\n1. President of India\n2. Judge of the Supreme Court\n3. Attorney General of India\n4. Advocate General of a State\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "1, 2 and 3 only",
-            "2, 3 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 3, // d
-        explanation: "All listed offices are reserved exclusively for citizens of India.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Constitutional Offices"
+        question: "Article 371 provides special responsibilities to Governors of certain states like:",
+        options: ["Maharashtra and Gujarat", "Tamil Nadu and Kerala", "Bihar and UP", "Punjab and Haryana"],
+        correctAnswer: 0,
+        explanation: "Maharashtra (Vidarbha/Marathwada) and Gujarat (Saurashtra/Kutch).",
+        subtopic: "31.2"
     },
-    // Q34
     {
         id: 34,
-        question: "In the context of the office of the President of India, consider the following comparison with the USA:",
-        options: [
-            "In India, only a citizen by birth is eligible, whereas in the USA, a naturalised citizen is also eligible.",
-            "In India, both a citizen by birth and a naturalised citizen are eligible, whereas in the USA, only a citizen by birth is eligible.",
-            "In both India and the USA, only a citizen by birth is eligible.",
-            "In both India and the USA, both citizens by birth and naturalised citizens are eligible."
-        ],
-        correctAnswer: 1, // b
-        explanation: "USA requires citizen by birth for President; India allows naturalised citizens as well.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Constitutional Offices"
+        question: "Can the Governor summon the House when the CM has lost majority?",
+        options: ["Yes, at his discretion", "No, only on CM advice", "Only via President", "No"],
+        correctAnswer: 0,
+        explanation: "If the CM loses majority, the Governor can summon the house to test the majority.",
+        subtopic: "31.2"
     },
-    // Q35
     {
         id: 35,
-        question: "The Public Employment (Requirement as to Residence) Act, 1957, authorized the Government of India to prescribe residential qualification for appointment to non-Gazetted posts in which of the following states/UTs?\n\n1. Andhra Pradesh\n2. Himachal Pradesh\n3. Manipur\n4. Tripura\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "1, 3 and 4 only",
-            "2, 3 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 3, // d
-        explanation: "All four states/territories were included originally under the Act.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Residence Requirements for Employment"
+        question: "The Governor is the Chancellor of universities in the state.",
+        options: ["True, structurally", "False, CM is Chancellor", "True, by Constitution", "False, Education Minister is"],
+        correctAnswer: 0,
+        explanation: "He acts as Chancellor by virtue of status (statutory position usually), not strictly constitutional executive power, but it's a standard convention in State University laws.",
+        subtopic: "31.2"
     },
-    // Q36
     {
         id: 36,
-        question: "Which Constitutional Amendment Act provided a special status to the Hyderabad-Karnataka region (now Kalyana-Karnataka) of Karnataka?",
-        options: [
-            "98th Amendment Act, 2012",
-            "99th Amendment Act, 2014",
-            "100th Amendment Act, 2015",
-            "101st Amendment Act, 2016"
-        ],
-        correctAnswer: 0, // a
-        explanation: "The 98th Amendment Act, 2012 inserted Article 371J for Hyderabad-Karnataka region.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Special Constitutional Provisions"
+        question: "Who determines the size of the State Council of Ministers?",
+        options: ["Governor", "Chief Minister", "Parliament", "Constitution"],
+        correctAnswer: 1,
+        explanation: "The CM determines the size (within the 15% limit).",
+        subtopic: "32.1"
     },
-    // Q37
     {
         id: 37,
-        question: "The cut-off date for detection of foreigners in Assam as per the Citizenship Act, 1955 (amended in 1985) is:",
-        options: [
-            "January 1, 1966",
-            "March 25, 1971",
-            "August 15, 1947",
-            "July 19, 1948"
-        ],
-        correctAnswer: 1, // b
-        explanation: "March 25, 1971 is the cut-off date under the Assam Accord.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Assam Accord"
+        question: "Who acts as the Governor if the sitting Governor dies?",
+        options: ["Chief Justice of High Court", "Chief Minister", "President appoints an acting Governor (often CJ of HC)", "Neighbouring Governor"],
+        correctAnswer: 2,
+        explanation: "The President makes such provision as he thinks fit (Art 160). Usually, CJ of HC is appointed to discharge functions.",
+        subtopic: "31.1"
     },
-    // Q38
     {
         id: 38,
-        question: "Consider the following statements regarding the renunciation of OCI Card:\n\n1. If a person ceases to be an OCI Cardholder, the spouse of foreign origin of that person also ceases to be an OCI Cardholder.\n2. Every minor child of that person also ceases to be an OCI Cardholder.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Both statements are correct regarding the renunciation of OCI Card.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders"
+        question: "Can a Governor be removed by a process of impeachment?",
+        options: ["Yes", "No", "Only if State Assembly demands", "Only if Parliament demands"],
+        correctAnswer: 1,
+        explanation: "No. There is no impeachment for Governor. President removes him at pleasure.",
+        subtopic: "31.1"
     },
-    // Q39
     {
         id: 39,
-        question: "An OCI Cardholder requires special permission to undertake which of the following activities in India?\n\n1. Research\n2. Missionary activities\n3. Mountaineering\n4. Journalism\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 3, // d
-        explanation: "All listed activities require special permission for OCI cardholders.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders - Restrictions"
+        question: "Pardoning power of Governor is under Article:",
+        options: ["72", "161", "163", "164"],
+        correctAnswer: 1,
+        explanation: "Article 161.",
+        subtopic: "31.5"
     },
-    // Q40
     {
         id: 40,
-        question: "Match the following categories with their definitions:\n\nList-I (Category)\nA. NRI\nB. PIO\nC. OCI Cardholder\n\nList-II (Definition)\n1. A person registered under the Citizenship Act, 1955.\n2. An Indian citizen ordinarily residing outside India holding an Indian passport.\n3. A person who or whose ancestors were Indian nationals and who is presently holding another country's citizenship.\n\nSelect the correct answer using the code given below:",
-        options: [
-            "A-2, B-3, C-1",
-            "A-2, B-1, C-3",
-            "A-3, B-2, C-1",
-            "A-1, B-3, C-2"
-        ],
-        correctAnswer: 0, // a
-        explanation: "NRI is an Indian citizen residing abroad (2), PIO is a person of Indian origin holding foreign citizenship (3), OCI Cardholder is registered under the Act (1).",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "NRI vs PIO vs OCI"
+        question: "The Advocate General of the State is appointed by:",
+        options: ["President", "Governor", "Chief Justice of HC", "CM"],
+        correctAnswer: 1,
+        explanation: "Appointed by the Governor (who holds office during his pleasure).",
+        subtopic: "31.2"
     },
-    // Q41
+
+    // ==========================================
+    // CHAPTER 32 & 33: CM & STATE COUNCIL (10 Questions)
+    // ==========================================
+
     {
         id: 41,
-        question: "Statement I: The power to grant citizenship by naturalization is discretionary power of the Central Government.\n\nStatement II: The Government is bound to grant citizenship if the applicant fulfills all the qualifications mentioned in the Third Schedule.\n\nWhich one of the following is correct in respect of the above statements?",
-        options: [
-            "Both Statement I and Statement II are correct and Statement II is the correct explanation for Statement I",
-            "Both Statement I and Statement II are correct and Statement II is not the correct explanation for Statement I",
-            "Statement I is correct but Statement II is incorrect",
-            "Statement I is incorrect but Statement II is correct"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Statement II is incorrect; the Government is not bound to grant citizenship, it may grant it (discretionary power).",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Naturalisation"
+        question: "The Chief Minister's salary is determined by:",
+        options: ["The Governor", "The State Legislature", "The President", "The Parliament"],
+        correctAnswer: 1,
+        explanation: "Determined by the State Legislature.",
+        subtopic: "32.1"
     },
-    // Q42
     {
         id: 42,
-        question: "Which section of the Citizenship Act, 1955 deals with the termination of citizenship?",
-        options: [
-            "Section 8",
-            "Section 9",
-            "Section 10",
-            "Section 7"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Section 9 deals with termination of citizenship.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Termination of Citizenship"
+        question: "The relationship between Governor and CM is similar to that between:",
+        options: ["President and PM", "President and VP", "Speaker and Chairman", "PM and Cabinet"],
+        correctAnswer: 0,
+        explanation: "It mirrors the relationship between President and Prime Minister.",
+        subtopic: "32.3"
     },
-    // Q43
     {
         id: 43,
-        question: "Which of the following statements about the 'National Register of Citizens (NRC)' is correct?",
-        options: [
-            "It is a register containing names of all genuine Indian citizens.",
-            "It was first prepared after the 1951 Census of India.",
-            "It is currently being updated for the entire country.",
-            "Both (a) and (b) are correct."
-        ],
-        correctAnswer: 3, // d
-        explanation: "Both statements (a) and (b) are correct about NRC.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "NRC"
+        question: "Minimum strength of Council of Ministers in a State (including CM) is:",
+        options: ["10", "12", "15", "7"],
+        correctAnswer: 1,
+        explanation: "It shall not be less than 12 (Article 164(1A)).",
+        subtopic: "33.1"
     },
-    // Q44
     {
         id: 44,
-        question: "With reference to the Citizenship (Amendment) Act, 2019, consider the following:\n\n1. It reduces the aggregate period of residence for naturalisation from 11 years to 5 years for specified communities.\n2. The cutoff date for entry into India for these migrants is December 31, 2014.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Both statements are correct about the CAA 2019.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "CAA 2019"
+        question: "Who allocates portfolios to State Ministers?",
+        options: ["Governor", "Chief Minister", "President", "Speaker"],
+        correctAnswer: 0,
+        explanation: "The Governor appoints them and allocates portfolios on the advice of the CM.",
+        subtopic: "32.2"
     },
-    // Q45
     {
         id: 45,
-        question: "Consider the following statements regarding 'Non-Resident Indians (NRIs)':\n\n1. They are citizens of India.\n2. They have voting rights in India.\n3. They can hold public office in India.\n\nHow many of the statements given above are correct?",
-        options: [
-            "Only one",
-            "Only two",
-            "All three",
-            "None"
-        ],
-        correctAnswer: 2, // c
-        explanation: "All three are correct; NRIs are citizens with all rights.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "NRI"
+        question: "If a CM resigns, the entire council of ministers collapses.",
+        options: ["True", "False", "Only if coalition", "False, new CM takes over"],
+        correctAnswer: 0,
+        explanation: "True. The resignation or death of the CM dissolves the Council.",
+        subtopic: "32.2"
     },
-    // Q46
+    // Ch 20-33 Mixed
     {
         id: 46,
-        question: "A person born in India on 2nd December 2004 will be considered a citizen of India by birth if:",
-        options: [
-            "Both his parents are citizens of India.",
-            "One of his parents is a citizen of India and the other is not an illegal migrant.",
-            "Either (a) or (b).",
-            "Either of his parents is a citizen of India irrespective of the status of the other."
-        ],
-        correctAnswer: 2, // c
-        explanation: "Either condition (both parents citizens OR one citizen, other not illegal migrant) applies for those born after Dec 3, 2004.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Birth"
+        question: "Who is the head of the State Planning Board?",
+        options: ["Governor", "Chief Minister", "Finance Minister", "Planning Secretary"],
+        correctAnswer: 1,
+        explanation: "Chief Minister.",
+        subtopic: "32.2"
     },
-    // Q47
     {
         id: 47,
-        question: "The provision for \"Commonwealth Citizenship\" in the Citizenship Act, 1955 was repealed by which Amendment Act?",
-        options: [
-            "Citizenship (Amendment) Act, 1986",
-            "Citizenship (Amendment) Act, 1992",
-            "Citizenship (Amendment) Act, 2003",
-            "Citizenship (Amendment) Act, 2005"
-        ],
-        correctAnswer: 2, // c
-        explanation: "The 2003 Amendment repealed Commonwealth Citizenship provisions.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship Act Amendments"
+        question: "Which Articles deal with the organization of State Executive?",
+        options: ["153 to 167", "52 to 78", "12 to 35", "36 to 51"],
+        correctAnswer: 0,
+        explanation: "Part VI, Articles 153 to 167.",
+        subtopic: "31.0"
     },
-    // Q48
     {
         id: 48,
-        question: "Which Article of the Constitution empowers the Parliament to regulate the right of citizenship by law?",
-        options: [
-            "Article 9",
-            "Article 10",
-            "Article 11",
-            "Article 8"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Article 11 empowers Parliament to regulate citizenship by law.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Article 11"
+        question: "Can an outsider (non-legislator) be appointed as CM?",
+        options: ["Yes, for 6 months", "No", "Yes, indefinitely", "Yes, if Governor allows"],
+        correctAnswer: 0,
+        explanation: "Yes, provided he gets elected to State Legislature within 6 months.",
+        subtopic: "32.1"
     },
-    // Q49
     {
         id: 49,
-        question: "Consider the following statements:\n\n1. The Constitution of India defines the term 'citizen'.\n2. The Constitution of India defines the term 'illegal migrant'.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 3, // d
-        explanation: "The Constitution defines neither 'citizen' nor 'illegal migrant'.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Constitutional Definitions"
+        question: "Is the Governor liable to any court for the exercise of his powers?",
+        options: ["Yes", "No", "Only for personal acts", "Only after resignation"],
+        correctAnswer: 1,
+        explanation: "Article 361 provides immunity. He is not answerable to any court for the exercise of the powers and duties of his office.",
+        subtopic: "31.1"
     },
-    // Q50
     {
         id: 50,
-        question: "Under the Citizenship Act, 1955, a person can apply for registration as a citizen if he is a person of Indian origin and is ordinarily resident in any country or place outside:",
-        options: [
-            "Undivided India",
-            "Asia",
-            "The Commonwealth",
-            "South Asia"
-        ],
-        correctAnswer: 0, // a
-        explanation: "Undivided India is the relevant territory for determining Indian origin.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Registration"
+        question: "The power to recommend the dissolution of the Admin Assembly rests with:",
+        options: ["Speaker", "Chief Justice", "Chief Minister", "Leader of Opposition"],
+        correctAnswer: 2,
+        explanation: "The CM can recommend the dissolution of the Legislative Assembly to the Governor at any time.",
+        subtopic: "32.2"
     },
-    // Q51
+
+    // Extra fill
     {
         id: 51,
-        question: "Which of the following is NOT a ground for the deprivation of citizenship under Section 10 of the Citizenship Act, 1955?",
-        options: [
-            "The citizen has shown disloyalty to the Constitution.",
-            "The citizen has unlawfully traded with the enemy during a war.",
-            "The citizen has been convicted for a traffic offence in a foreign country.",
-            "The citizen has obtained citizenship by fraud."
-        ],
-        correctAnswer: 2, // c
-        explanation: "Traffic offence is not a ground for deprivation of citizenship.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Deprivation of Citizenship"
+        question: "The oath of the Prime Minister includes:",
+        options: ["To preserve, protect and defend the Constitution (Like President)", "To bear true faith and allegiance to the Constitution"],
+        correctAnswer: 1,
+        explanation: "The PM/Ministers swear 'true faith and allegiance'. The President swears to 'preserve, protect and defend'.",
+        subtopic: "20.1"
     },
-    // Q52
     {
         id: 52,
-        question: "The 'Inner Line Permit' (ILP) system, which exempts certain areas from the Citizenship (Amendment) Act, 2019, is operational in which of the following states?\n\n1. Arunachal Pradesh\n2. Nagaland\n3. Mizoram\n4. Manipur\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1, 2 and 3 only",
-            "2, 3 and 4 only",
-            "1, 3 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 3, // d
-        explanation: "All four states have Inner Line Permit system.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "CAA 2019 - ILP Exemptions"
+        question: "Which PM coined the term 'Jai Jawan, Jai Kisan'?",
+        options: ["Nehru", "Lal Bahadur Shastri", "Indira Gandhi", "Vajpayee"],
+        correctAnswer: 1,
+        explanation: "Lal Bahadur Shastri.",
+        subtopic: "20.0"
     },
-    // Q53
     {
         id: 53,
-        question: "An OCI Cardholder is eligible for appointment as teaching faculty in which of the following institutions?\n\n1. IITs\n2. IIMs\n3. Central Universities\n4. AIIMS\n\nSelect the correct answer using the code given below:",
-        options: [
-            "1 and 2 only",
-            "1, 2 and 3 only",
-            "2, 3 and 4 only",
-            "1, 2, 3 and 4"
-        ],
-        correctAnswer: 3, // d
-        explanation: "OCI cardholders can be appointed as teaching faculty in all listed institutions.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders - Rights"
+        question: "The Shadow Cabinet is a feature of:",
+        options: ["American System", "British System", "French System", "Indian System"],
+        correctAnswer: 1,
+        explanation: "It is a unique institution of the British Cabinet system (formed by Opposition).",
+        subtopic: "21.4"
     },
-    // Q54
     {
         id: 54,
-        question: "Consider the following statements regarding the rights of OCI Cardholders compared to NRIs:\n\n1. OCI Cardholders have parity with NRIs in domestic airfares.\n2. OCI Cardholders have parity with NRIs in entry fees to national monuments.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 1, // b
-        explanation: "Statement 1 is incorrect; OCI has parity with Indian nationals for airfares. Statement 2 is correct - parity with NRIs in entry fees.",
-        level: "Tough",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI Cardholders - Rights"
+        question: "Who was the first woman Chief Minister of a State?",
+        options: ["Sarojini Naidu", "Sucheta Kripalani", "Indira Gandhi", "Mamata Banerjee"],
+        correctAnswer: 1,
+        explanation: "Sucheta Kripalani (UP, 1963).",
+        subtopic: "32.0"
     },
-    // Q55
     {
         id: 55,
-        question: "Statement I: The USA has a system of double citizenship.\n\nStatement II: In the USA, a citizen owes allegiance to both the National Government and the State Government.\n\nWhich one of the following is correct in respect of the above statements?",
-        options: [
-            "Both Statement I and Statement II are correct and Statement II is the correct explanation for Statement I",
-            "Both Statement I and Statement II are correct and Statement II is not the correct explanation for Statement I",
-            "Statement I is correct but Statement II is incorrect",
-            "Statement I is incorrect but Statement II is correct"
-        ],
-        correctAnswer: 0, // a
-        explanation: "Both correct and II explains I - dual allegiance is the basis for double citizenship.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Single vs Double Citizenship"
+        question: "Can a Minister vote in the House of which he is not a member?",
+        options: ["Yes", "No", "Only if PM allows", "Only in joint sitting"],
+        correctAnswer: 1,
+        explanation: "He can speak and participate, but he can VOTE only in the House of which he is a member.",
+        subtopic: "21.2"
     },
-    // Q56
     {
         id: 56,
-        question: "The Citizenship (Amendment) Act, 1986, made the acquisition of citizenship by birth more stringent by:",
-        options: [
-            "Removing the provision of citizenship by birth altogether.",
-            "Adding the condition that at least one parent must be an Indian citizen.",
-            "Adding the condition that both parents must be Indian citizens.",
-            "Reducing the cutoff date to 1950."
-        ],
-        correctAnswer: 1, // b
-        explanation: "The 1986 Amendment added the requirement that at least one parent must be a citizen for birth between July 1, 1987 and Dec 2, 2004.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Birth"
+        question: "Article 167 defines:",
+        options: ["Duties of CM", "Appointment of CM", "Duties of Governor", "Powers of Governor"],
+        correctAnswer: 0,
+        explanation: "Duties of Chief Minister as respects the furnishing of information to Governor (Parallel to Art 78 for PM).",
+        subtopic: "32.3"
     },
-    // Q57
     {
         id: 57,
-        question: "A person who has been registered as an OCI Cardholder for ________ years and is ordinarily resident in India for ________ months is eligible for grant of Indian citizenship.",
-        options: [
-            "5 years, 12 months",
-            "7 years, 12 months",
-            "5 years, 6 months",
-            "10 years, 12 months"
-        ],
-        correctAnswer: 0, // a
-        explanation: "5 years registration and 12 months ordinary residence are required.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "OCI to Citizenship"
+        question: "The Governor can promulgate an ordinance when:",
+        options: ["State Legislature is not in session", "CM advises him to", "President orders", "Emergency is on"],
+        correctAnswer: 0,
+        explanation: "And he is satisfied that circumstances exist which render it necessary for him to take immediate action.",
+        subtopic: "31.4"
     },
-    // Q58
     {
         id: 58,
-        question: "Which of the following is correct regarding the 'Oath of Allegiance' under the Citizenship Act?",
-        options: [
-            "It is mandatory only for naturalisation.",
-            "It is mandatory for registration and naturalisation.",
-            "It is mandatory for descent and registration.",
-            "It is not mandatory for any category."
-        ],
-        correctAnswer: 1, // b
-        explanation: "Oath of Allegiance is mandatory for both registration and naturalisation.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Oath of Allegiance"
+        question: "Who is the Chairman of the State Planning Commission?",
+        options: ["Governor", "CM", "Chief Secretary", "Finance Minister"],
+        correctAnswer: 1,
+        explanation: "Chief Minister.",
+        subtopic: "32.2"
     },
-    // Q59
     {
         id: 59,
-        question: "The power to specify as to who shall be the citizens of India when a foreign territory becomes a part of India is vested in:",
-        options: [
-            "The Parliament",
-            "The Supreme Court",
-            "The Government of India",
-            "The President of India"
-        ],
-        correctAnswer: 2, // c
-        explanation: "The Government of India has the power to specify citizens when territory is incorporated.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Citizenship by Incorporation of Territory"
+        question: "The 91st Amendment limited the council size. Which state has the smallest Assembly strength (thus needing the exception of min 12)?",
+        options: ["Sikkim", "Goa", "Mizoram", "All of the above"],
+        correctAnswer: 3,
+        explanation: "Sikkim (32), Goa (40), Mizoram (40) have small assemblies.",
+        subtopic: "33.1"
     },
-    // Q60
     {
         id: 60,
-        question: "Consider the following statements:\n\n1. Article 11 gives the Parliament the power to curtail the right of citizenship.\n2. The Citizenship Act, 1955, was enacted in exercise of the powers conferred by Article 11.\n\nWhich of the statements given above is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2, // c
-        explanation: "Both statements are correct - Article 11 empowers Parliament, and the 1955 Act was enacted under this power.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Citizenship",
-        subtopic: "Article 11"
+        question: "Collective Responsibility means that Cabinet decisions bind all cabinet ministers:",
+        options: ["Even if they differed in the cabinet meeting", "Only if they agreed", "Only if they voted", "None"],
+        correctAnswer: 0,
+        explanation: "They must support the decision inside and outside Parliament. If they cannot, they must resign.",
+        subtopic: "21.2"
     }
 ];
+
+export default DAY5_MCQS;

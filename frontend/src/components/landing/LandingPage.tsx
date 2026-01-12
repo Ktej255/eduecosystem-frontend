@@ -11,7 +11,8 @@ import {
     Zap,
     Globe,
     Lock,
-    Target
+    Target,
+    PenTool
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -166,12 +167,44 @@ export default function LandingPage() {
                         delay={0.3}
                     />
                     <PortalCard
+                        title="Graphotherapy"
+                        description="Reprogram your subconscious mind. Change your handwriting, change your life."
+                        icon={PenTool}
+                        href="/graphotherapy"
+                        color="bg-purple-600"
+                        delay={0.35}
+                    />
+                    <PortalCard
+                        title="Meditation"
+                        description="Scientific mindfulness tools for focus and stress reduction."
+                        icon={Brain}
+                        href="/meditation"
+                        color="bg-teal-500"
+                        delay={0.4}
+                    />
+                    <PortalCard
+                        title="UPSC Revision"
+                        description="Scientific spaced repetition for civil services preparation."
+                        icon={Target}
+                        href="/upsc"
+                        color="bg-orange-500"
+                        delay={0.45}
+                    />
+                    <PortalCard
+                        title="Ancient Wisdom"
+                        description="Self-learning modules: Upanishads, Sanskrit, and Vedic Math."
+                        icon={Globe}
+                        href="/self-learning"
+                        color="bg-amber-600"
+                        delay={0.5}
+                    />
+                    <PortalCard
                         title="Enterprise SSO"
                         description="Scalable authentication solutions for schools and corporate partners."
                         icon={Lock}
                         href="/auth/sso"
                         color="bg-primary-indigo"
-                        delay={0.4}
+                        delay={0.55}
                     />
                 </div>
             </section>

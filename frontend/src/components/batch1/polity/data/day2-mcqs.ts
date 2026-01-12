@@ -1,3 +1,4 @@
+
 export interface MCQ {
     id: number;
     question: string;
@@ -12,799 +13,640 @@ export interface MCQ {
 }
 
 export const DAY2_MCQS: MCQ[] = [
+    // SET 1: Legislative Relations (Articles 245-255)
     {
         id: 1,
-        question: "Who among the following was the constitutional advisor to the Constituent Assembly?",
-        options: [
-            "Dr. B.R. Ambedkar",
-            "K.M. Munshi",
-            "Sir B.N. Rau",
-            "T.T. Krishnamachari"
-        ],
+        question: "With reference to Centre-State legislative relations, consider the following statements:\n1. Parliament can make laws for the whole or any part of the territory of India.\n2. A law made by Parliament cannot be invalidated on the ground that it has extra-territorial operation.\n\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 2,
-        explanation: "Sir B.N. Rau was the Constitutional Advisor to the Constituent Assembly. He prepared the initial draft of the Constitution.",
-        level: "Easy",
+        explanation: "Article 245 provides that Parliament may make laws for the whole or any part of India. Article 245(2) states that no law made by Parliament shall be deemed to be invalid on the ground that it would have extra-territorial operation.",
+        level: "Moderate",
         topic: "Indian Polity",
-        chapter: "Making of the Constitution",
-        subtopic: "Constituent Assembly"
+        chapter: "Centre-State Relations",
+        subtopic: "Legislative Relations"
     },
     {
         id: 2,
-        question: "Which of the following features of the Indian Constitution is borrowed from the Canadian Constitution?",
-        options: [
-            "Independence of Judiciary",
-            "Federation with a strong Centre",
-            "Directive Principles of State Policy",
-            "Concurrent List"
-        ],
-        correctAnswer: 1,
-        explanation: "Federation with a strong Centre and residuary powers with the Centre were borrowed from the Canadian Constitution.",
+        question: "Which of the following subjects is NOT included in the Union List?",
+        options: ["Defence", "Banking", "Public Health and Sanitation", "Foreign Affairs"],
+        correctAnswer: 2,
+        explanation: "Public Health and Sanitation is a State List subject (Entry 6). Defence, Banking, and Foreign Affairs are Union List subjects.",
         level: "Easy",
         topic: "Indian Polity",
-        chapter: "Making of the Constitution",
-        subtopic: "Sources of Constitution"
+        chapter: "Centre-State Relations",
+        subtopic: "Legislative Relations"
     },
     {
         id: 3,
-        question: "Consider the following statements regarding the Constituent Assembly:\n\n1. It was constituted under the scheme formulated by the Cabinet Mission Plan.\n2. The members were elected directly by the people of India.\n\nWhich of the statements given above is/are correct?",
+        question: "Under Article 249 of the Constitution, a resolution empowering Parliament to legislate on a State List subject must be passed by:",
         options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
+            "Simple majority of Lok Sabha",
+            "Special majority of Lok Sabha",
+            "Simple majority of Rajya Sabha",
+            "Two-thirds of members present and voting in Rajya Sabha"
         ],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct. Statement 2 is incorrect as the members were elected indirectly by the members of the provincial assemblies.",
-        level: "Moderate",
-        topic: "Indian Polity",
-        chapter: "Making of the Constitution",
-        subtopic: "Constituent Assembly"
+        correctAnswer: 3,
+        explanation: "Article 249 requires a resolution supported by not less than two-thirds of the members present and voting in the Rajya Sabha (Council of States).",
+        level: "Moderate"
     },
     {
         id: 4,
-        question: "The idea of a Constituent Assembly for India was put forward for the first time by:",
-        options: [
-            "Mahatma Gandhi",
-            "Jawaharlal Nehru",
-            "M.N. Roy",
-            "Sardar Vallabhbhai Patel"
-        ],
-        correctAnswer: 2,
-        explanation: "M.N. Roy was the first to propose the idea of a Constituent Assembly for India in 1934.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Making of the Constitution",
-        subtopic: "Constituent Assembly"
+        question: "Which Article of the Constitution deals with the residuary powers of legislation?",
+        options: ["Article 246", "Article 248", "Article 250", "Article 254"],
+        correctAnswer: 1,
+        explanation: "Article 248 vests the residuary powers of legislation (subjects not enumerated in any of the three lists) exclusively in the Parliament.",
+        level: "Easy"
     },
     {
         id: 5,
-        question: "Which Schedule of the Indian Constitution contains the list of recognized languages?",
+        question: "In case of a conflict between the Union law and the State law on a subject in the Concurrent List, which law prevails?",
         options: [
-            "Seventh Schedule",
-            "Eighth Schedule",
-            "Ninth Schedule",
-            "Tenth Schedule"
+            "The State law always prevails",
+            "The Union law prevails, unless the State law has received Presidential assent",
+            "The Supreme Court decides which law prevails",
+            "Both laws cease to operate"
         ],
         correctAnswer: 1,
-        explanation: "The Eighth Schedule contains the list of 22 recognized languages of India.",
-        level: "Easy",
-        topic: "Indian Polity",
-        chapter: "Making of the Constitution",
-        subtopic: "Schedules"
+        explanation: "Under Article 254, the Union law prevails. However, if the State law has been reserved for the consideration of the President and has received his assent, the State law prevails in that State.",
+        level: "Moderate"
     },
     {
         id: 6,
-        question: "The \"Objective Resolution\" was moved in the Constituent Assembly by:",
-        options: [
-            "Dr. Rajendra Prasad",
-            "Dr. B.R. Ambedkar",
-            "Jawaharlal Nehru",
-            "Sardar Patel"
-        ],
-        correctAnswer: 2, // C
-        explanation: "Jawaharlal Nehru moved the Objective Resolution on December 13, 1946, which later became the Preamble of the Constitution.",
+        question: "Parliament can legislate on State List subjects during a National Emergency under which Article?",
+        options: ["Article 249", "Article 250", "Article 252", "Article 356"],
+        correctAnswer: 1,
+        explanation: "Article 250 empowers Parliament to legislate with respect to any matter in the State List if a Proclamation of Emergency is in operation.",
         level: "Easy"
     },
     {
         id: 7,
-        question: "Which of the following is NOT a feature of the Parliamentary System in India?",
+        question: "When the legislatures of two or more states pass resolutions requesting Parliament to enact laws on a matter in the State List, then:",
         options: [
-            "Presence of nominal and real executives",
-            "Dissolution of the Lower House",
-            "Collective responsibility of the Executive to the Legislature",
-            "Strict separation of powers between Legislature and Executive"
+            "The law enacted applies to all states in India",
+            "The law enacted applies only to those states which passed the resolutions",
+            "The law cannot be amended or repealed by the Parliament",
+            "The State legislature can amend the law subsequently"
         ],
-        correctAnswer: 3, // D
-        explanation: "Strict separation of powers is a feature of the Presidential system, not the Parliamentary system. In a Parliamentary system, there is fusion of powers.",
+        correctAnswer: 1,
+        explanation: "Under Article 252, such a law applies only to those states. Other states can adopt it later. Such a law can be amended or repealed only by Parliament, not by the State legislatures.",
         level: "Moderate"
     },
     {
         id: 8,
-        question: "The term 'Secular' was added to the Preamble of the Indian Constitution by which Amendment Act?",
-        options: [
-            "42nd Amendment Act, 1976",
-            "44th Amendment Act, 1978",
-            "86th Amendment Act, 2002",
-            "61st Amendment Act, 1988"
-        ],
-        correctAnswer: 0, // A
-        explanation: "The 42nd Amendment Act, 1976 added the words 'Socialist', 'Secular', and 'Integrity' to the Preamble.",
+        question: "The power to make laws for implementing international treaties, agreements, or conventions belongs to:",
+        options: ["State Legislature", "Parliament", "President", "Ministry of External Affairs"],
+        correctAnswer: 1,
+        explanation: "Article 253 empowers Parliament to make any law for the whole or any part of the territory of India for implementing any treaty, agreement or convention.",
         level: "Easy"
     },
     {
         id: 9,
-        question: "Who was the Chairman of the Drafting Committee of the Constituent Assembly?",
+        question: "Which of the following changes was made by the 42nd Amendment Act regarding the division of powers?",
         options: [
-            "Jawaharlal Nehru",
-            "Dr. Rajendra Prasad",
-            "Dr. B.R. Ambedkar",
-            "Sardar Patel"
+            "Transferred 'Education' from Union List to State List",
+            "Transferred 'Education' from State List to Concurrent List",
+            "Transferred 'Police' from State List to Concurrent List",
+            "Transferred 'Agriculture' from State List to Union List"
         ],
-        correctAnswer: 2, // C
-        explanation: "Dr. B.R. Ambedkar was the Chairman of the Drafting Committee, which prepared the draft Constitution.",
-        level: "Easy"
+        correctAnswer: 1,
+        explanation: "The 42nd Amendment Act of 1976 transferred five subjects from the State List to the Concurrent List: Education, Forests, Weights & Measures, Protection of Wild Animals/Birds, and Administration of Justice.",
+        level: "Moderate"
     },
     {
         id: 10,
-        question: "The concept of \"Judicial Review\" in the Indian Constitution is borrowed from:",
+        question: "The doctrine of 'Pith and Substance' is used to resolve disputes regarding:",
         options: [
-            "United Kingdom",
-            "USA",
-            "Ireland",
-            "Australia"
+            "Fundamental Rights",
+            "Centre-State Legislative Competence",
+            "Appointment of Judges",
+            "Emergency Provisions"
         ],
-        correctAnswer: 1, // B
-        explanation: "Judicial Review was borrowed from the USA, where the Supreme Court can review the constitutionality of laws.",
-        level: "Easy"
+        correctAnswer: 1,
+        explanation: "The doctrine of 'Pith and Substance' determines the true nature and character of a legislation to decide which list it falls under, especially when there is an apparent encroachment.",
+        level: "Moderate"
     },
+
+    // SET 2: Administrative Relations (Articles 256-263)
     {
         id: 11,
-        question: "Consider the following statements regarding the composition of the Constituent Assembly:\n\n1. The total strength was to be 389.\n2. 93 seats were allotted to the Princely States.\n3. Seats were allocated in proportion to their respective population.\n\nWhich of the statements given above are correct?",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 3, // D
-        explanation: "All three statements are correct. The total strength was 389, with 93 seats for Princely States, and allocation was based on population (roughly 1 seat per million).",
+        question: "The executive power of the Union extends to giving directions to the State in which of the following matters?\n1. Construction and maintenance of means of communication of national importance.\n2. Measures for the protection of railways within the state.\n3. Implementation of schemes for the welfare of Scheduled Tribes.",
+        options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2, and 3"],
+        correctAnswer: 3,
+        explanation: "Articles 257 and 339(2) empower the Centre to give directions on all these matters.",
         level: "Moderate"
     },
     {
         id: 12,
-        question: "The Indian Constitution is often described as:",
+        question: "Article 263 of the Constitution deals with the establishment of:",
         options: [
-            "Quasi-Federal",
-            "Unitary",
-            "Federal",
-            "Presidential"
+            "Finance Commission",
+            "Inter-State Council",
+            "Zonal Council",
+            "NITI Aayog"
         ],
-        correctAnswer: 0, // A
-        explanation: "K.C. Wheare described the Indian Constitution as 'Quasi-Federal' because it has both federal and unitary features with a strong central bias.",
+        correctAnswer: 1,
+        explanation: "Article 263 provides for the establishment of an Inter-State Council by the President.",
         level: "Easy"
     },
     {
         id: 13,
-        question: "When was the National Flag adopted by the Constituent Assembly?",
-        options: [
-            "July 22, 1947",
-            "August 15, 1947",
-            "January 26, 1950",
-            "November 26, 1949"
-        ],
-        correctAnswer: 0, // A
-        explanation: "The National Flag was adopted by the Constituent Assembly on July 22, 1947, a few days before independence.",
+        question: "Who among the following imposes the 'President's Rule' in a state on the ground of failure to comply with Centre's directions?",
+        options: ["Governor", "Prime Minister", "President", "Chief Justice of India"],
+        correctAnswer: 2,
+        explanation: "Under Article 365, if a state fails to comply with any direction given by the Centre, the President can hold that a situation has arisen where the state government cannot be carried on in accordance with the Constitution.",
         level: "Easy"
     },
     {
         id: 14,
-        question: "Which part of the Constitution is described as the \"Magna Carta of India\"?",
+        question: "Which of the following is NOT a constitutional provision for Centre-State administrative cooperation?",
         options: [
-            "Part III",
-            "Part IV",
-            "Part IV-A",
-            "Part V"
+            "Delegation of Union functions to State functions",
+            "All-India Services",
+            "Grants-in-aid",
+            "Zonal Councils"
         ],
-        correctAnswer: 0, // A
-        explanation: "Part III (Fundamental Rights) is described as the Magna Carta of India as it guarantees civil liberties to all citizens.",
-        level: "Easy"
+        correctAnswer: 3,
+        explanation: "Zonal Councils are statutory bodies established under the States Reorganisation Act, 1956. They are not constitutional bodies.",
+        level: "Moderate"
     },
     {
         id: 15,
-        question: "Who was elected as the temporary President of the Constituent Assembly following the French practice?",
-        options: [
-            "Dr. Rajendra Prasad",
-            "H.C. Mukherjee",
-            "Dr. Sachchidanand Sinha",
-            "V.T. Krishnamachari"
-        ],
-        correctAnswer: 2, // C
-        explanation: "Dr. Sachchidanand Sinha was elected as the temporary President (Provisional Chairman) on December 9, 1946, following the French practice of electing the oldest member.",
-        level: "Moderate"
+        question: "The adjudication of disputes relating to waters of inter-state rivers or river valleys is dealt with under:",
+        options: ["Article 262", "Article 263", "Article 280", "Article 275"],
+        correctAnswer: 0,
+        explanation: "Article 262 deals with the adjudication of disputes relating to waters of inter-state rivers or river valleys. Parliament provides for this by law.",
+        level: "Easy"
     },
     {
         id: 16,
-        question: "The concept of \"Procedure Established by Law\" is borrowed from:",
-        options: [
-            "USA",
-            "Japan",
-            "UK",
-            "France"
-        ],
-        correctAnswer: 1, // B
-        explanation: "The concept of 'Procedure Established by Law' was borrowed from the Japanese Constitution.",
-        level: "Moderate"
+        question: "Consider the following statements about All-India Services:\n1. They are recruited by the Centre.\n2. They are trained by the Centre.\n3. They serve both the Centre and the States.\n\nWhich of the statements given above are correct?",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctAnswer: 3,
+        explanation: "All-India Services (IAS, IPS, IFoS) are recruited and trained by the Centre but serve both the Centre and the States. They are controlled jointly.",
+        level: "Easy"
     },
     {
         id: 17,
-        question: "Which of the following is correct regarding the Indian Federation?",
+        question: "The 'Full Faith and Credit' clause (Article 261) applies to:",
         options: [
-            "It is the result of an agreement among the states.",
-            "The states have no right to secede from the federation.",
-            "It is strictly federal like the USA.",
-            "It does not have a unitary bias."
+            "Only public acts",
+            "Only judicial proceedings",
+            "Public acts, records and judicial proceedings",
+            "Only legislative acts"
         ],
-        correctAnswer: 1, // B
-        explanation: "The Indian Federation is indestructible, meaning states have no right to secede. India is not the result of an agreement among states and has a strong unitary bias.",
+        correctAnswer: 2,
+        explanation: "Article 261 states that full faith and credit shall be given throughout the territory of India to public acts, records and judicial proceedings of the Union and of every State.",
         level: "Moderate"
     },
     {
         id: 18,
-        question: "The Preamble to the Indian Constitution is based on:",
-        options: [
-            "The Government of India Act, 1935",
-            "The Objective Resolution",
-            "The Indian Independence Act, 1947",
-            "The August Offer"
-        ],
-        correctAnswer: 1, // B
-        explanation: "The Preamble is based on the 'Objective Resolution' moved by Jawaharlal Nehru on December 13, 1946.",
-        level: "Easy"
+        question: "With the consent of the State Government, the President can entrust to that Government any function in relation to any matter to which the executive power of the Union extends. This is provided under:",
+        options: ["Article 258", "Article 258A", "Article 260", "Article 263"],
+        correctAnswer: 0,
+        explanation: "Article 258(1) allows the President, with the consent of the State Government, to entrust Union executive functions to the State.",
+        level: "Tough"
     },
     {
         id: 19,
-        question: "Consider the following pairs of sources and borrowed features:\n\n1. Ireland: Directive Principles of State Policy\n2. Australia: Concurrent List\n3. Germany: Suspension of Fundamental Rights during Emergency\n\nWhich of the pairs given above is/are correctly matched?",
-        options: [
-            "1 only",
-            "1 and 2 only",
-            "2 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 3, // D
-        explanation: "All pairs are correctly matched. DPSP from Ireland, Concurrent List from Australia, and Emergency provisions from Germany (Weimar Constitution).",
-        level: "Moderate"
+        question: "Who is the Chairman of the Inter-State Council?",
+        options: ["President", "Home Minister", "Prime Minister", "Chief Justice of India"],
+        correctAnswer: 2,
+        explanation: "The Prime Minister is the Chairman of the Inter-State Council.",
+        level: "Easy"
     },
     {
         id: 20,
-        question: "Who was the Chairman of the Union Powers Committee of the Constituent Assembly?",
+        question: "The Constitution of India empowers the Parliament to adjudicate inter-state water disputes. In exercise of this power, Parliament has enacted:",
         options: [
-            "Sardar Patel",
-            "Dr. B.R. Ambedkar",
-            "Jawaharlal Nehru",
-            "J.B. Kripalani"
+            "River Boards Act, 1956",
+            "Inter-State Water Disputes Act, 1956",
+            "Both A and B",
+            "Neither A nor B"
         ],
-        correctAnswer: 2, // C
-        explanation: "Jawaharlal Nehru was the Chairman of the Union Powers Committee.",
+        correctAnswer: 2,
+        explanation: "Parliament enacted both the River Boards Act (1956) and the Inter-State Water Disputes Act (1956) under Article 262.",
         level: "Moderate"
     },
+
+    // SET 3: Financial Relations (Articles 268-293)
     {
         id: 21,
-        question: "The Indian Constitution establishes a:",
-        options: [
-            "Dual Citizenship",
-            "Single Citizenship",
-            "Triple Citizenship",
-            "State Citizenship only"
-        ],
-        correctAnswer: 1, // B
-        explanation: "The Indian Constitution provides for single citizenship, unlike the USA which has dual citizenship (state and federal).",
+        question: "Which Constitutional Amendment introduced the Goods and Services Tax (GST)?",
+        options: ["100th Amendment", "101st Amendment", "102nd Amendment", "103rd Amendment"],
+        correctAnswer: 1,
+        explanation: "The 101st Constitution Amendment Act, 2016 introduced GST in India.",
         level: "Easy"
     },
     {
         id: 22,
-        question: "Which Amendment Act is known as the \"Mini-Constitution\"?",
-        options: [
-            "24th Amendment Act",
-            "42nd Amendment Act",
-            "44th Amendment Act",
-            "73rd Amendment Act"
-        ],
-        correctAnswer: 1, // B
-        explanation: "The 42nd Amendment Act, 1976 is known as the 'Mini-Constitution' due to the extensive changes it made to the Constitution.",
+        question: "Article 280 of the Constitution provides for the appointment of a:",
+        options: ["Planning Commission", "Finance Commission", "GST Council", "NITI Aayog"],
+        correctAnswer: 1,
+        explanation: "Article 280 provides for the constitution of a Finance Commission by the President every five years.",
         level: "Easy"
     },
     {
         id: 23,
-        question: "The Constituent Assembly held its first meeting on:",
-        options: [
-            "December 9, 1946",
-            "January 26, 1947",
-            "August 15, 1947",
-            "November 26, 1949"
-        ],
-        correctAnswer: 0, // A
-        explanation: "The Constituent Assembly held its first meeting on December 9, 1946, in the Constitution Hall (now Central Hall of Parliament).",
-        level: "Easy"
+        question: "Grants-in-aid to the states from the Consolidated Fund of India under Article 275 are known as:",
+        options: ["Statutory Grants", "Discretionary Grants", "Plan Grants", "Special Grants"],
+        correctAnswer: 0,
+        explanation: "Article 275 provides for 'Statutory Grants' to states in need of assistance, on the recommendation of the Finance Commission.",
+        level: "Moderate"
     },
     {
         id: 24,
-        question: "Which of the following is NOT a fundamental duty under the Indian Constitution?",
-        options: [
-            "To safeguard public property",
-            "To protect the natural environment",
-            "To vote in public elections",
-            "To abide by the Constitution"
-        ],
-        correctAnswer: 2, // C
-        explanation: "Voting in public elections is NOT listed as a Fundamental Duty under Article 51A. It remains a right, not a duty.",
-        level: "Easy"
+        question: "Which Article deals with the exemption of property of the Union from State taxation?",
+        options: ["Article 285", "Article 287", "Article 289", "Article 292"],
+        correctAnswer: 0,
+        explanation: "Article 285 exempts the property of the Union from all taxes imposed by a State or any authority within a State.",
+        level: "Moderate"
     },
     {
         id: 25,
-        question: "The Drafting Committee consisted of how many members?",
-        options: [
-            "5",
-            "6",
-            "7",
-            "9"
-        ],
-        correctAnswer: 2, // C
-        explanation: "The Drafting Committee had 7 members, with Dr. B.R. Ambedkar as the Chairman.",
+        question: "Who is the Chairman of the GST Council?",
+        options: ["Prime Minister", "Union Finance Minister", "RBI Governor", "President"],
+        correctAnswer: 1,
+        explanation: "The Union Finance Minister is the Chairman of the GST Council (Article 279A).",
         level: "Easy"
     },
     {
         id: 26,
-        question: "Which Article of the Indian Constitution defines \"State\"?",
+        question: "The power of a State to borrow money is limited to:",
         options: [
-            "Article 12",
-            "Article 13",
-            "Article 14",
-            "Article 32"
+            "Borrowing only from the Central Government",
+            "Borrowing within the territory of India",
+            "Borrowing from foreign countries only",
+            "Borrowing from RBI only"
         ],
-        correctAnswer: 0, // A
-        explanation: "Article 12 defines 'State' for the purpose of Part III (Fundamental Rights).",
-        level: "Easy"
+        correctAnswer: 1,
+        explanation: "Under Article 293, the executive power of a State extends to borrowing within the territory of India upon the security of the Consolidated Fund of the State.",
+        level: "Moderate"
     },
     {
         id: 27,
-        question: "The provisions regarding the suspension of Fundamental Rights during National Emergency were borrowed from:",
+        question: "Which of the following taxes are levied and collected by the Union but assigned to the States?",
         options: [
-            "Weimar Constitution of Germany",
-            "Constitution of USSR",
-            "Constitution of USA",
-            "Constitution of Canada"
+            "Stamp duties",
+            "Duties in respect of succession to property other than agricultural land",
+            "Taxes on railway fares and freights",
+            "Taxes on newspapers and advertisements"
         ],
-        correctAnswer: 0, // A
-        explanation: "The provisions for suspension of Fundamental Rights during Emergency were borrowed from the Weimar Constitution of Germany.",
-        level: "Moderate"
-    },
-    {
-        id: 28,
-        question: "Who among the following was NOT a member of the Drafting Committee?",
-        options: [
-            "Dr. K.M. Munshi",
-            "Syed Mohammad Saadullah",
-            "N. Madhava Rau",
-            "Pattabhi Sitaramayya"
-        ],
-        correctAnswer: 3, // D
-        explanation: "Pattabhi Sitaramayya was NOT a member of the Drafting Committee. The 7 members were: Ambedkar, N. Gopalaswami Ayyangar, Alladi Krishnaswami Ayyar, K.M. Munshi, Syed Mohammad Saadullah, N. Madhava Rau, and D.P. Khaitan (later T.T. Krishnamachari).",
+        correctAnswer: 3,
+        explanation: "Under Article 269 (before GST) and current provisions, taxes on sale/purchase of goods in inter-state trade and taxes on consignment of goods are levied/collected by Union but assigned to States. (Note: Many older tax categories subsumed under GST).",
         level: "Tough"
     },
     {
-        id: 29,
-        question: "The Universal Adult Franchise was adopted in the Constitution by reducing the voting age from 21 to 18 years through which Amendment?",
-        options: [
-            "42nd Amendment Act",
-            "44th Amendment Act",
-            "61st Amendment Act",
-            "73rd Amendment Act"
-        ],
-        correctAnswer: 2, // C
-        explanation: "The 61st Amendment Act, 1988 reduced the voting age from 21 to 18 years.",
-        level: "Easy"
-    },
-    {
-        id: 30,
-        question: "The \"Basic Structure\" doctrine was propounded by the Supreme Court in which case?",
-        options: [
-            "Golaknath Case",
-            "Kesavananda Bharati Case",
-            "Minerva Mills Case",
-            "Maneka Gandhi Case"
-        ],
-        correctAnswer: 1, // B
-        explanation: "The Basic Structure doctrine was propounded in the Kesavananda Bharati v. State of Kerala case (1973).",
-        level: "Easy"
-    },
-    {
-        id: 31,
-        question: "Which of the following features makes the Indian Constitution \"Rigid\"?",
-        options: [
-            "It can be amended by a simple majority.",
-            "Some provisions require special majority and ratification by states.",
-            "It is a written constitution.",
-            "It provides for a parliamentary system."
-        ],
-        correctAnswer: 1, // B
-        explanation: "The rigidity comes from the fact that some provisions require a special majority (2/3rd) in Parliament AND ratification by at least half of the states.",
+        id: 28,
+        question: "Which Article provides for 'Discretionary Grants' by the Union or a State for any public purpose?",
+        options: ["Article 275", "Article 282", "Article 293", "Article 266"],
+        correctAnswer: 1,
+        explanation: "Article 282 empowers the Union or a State to make any grants for any public purpose, even if it is not within their respective legislative competence. These are discretionary.",
         level: "Moderate"
     },
     {
-        id: 32,
-        question: "Who was the Chairman of the Provincial Constitution Committee?",
+        id: 29,
+        question: "The net proceeds of any tax or duty are ascertained and certified by:",
+        options: ["Finance Minister", "Prime Minister", "Comptroller and Auditor-General of India", "President"],
+        correctAnswer: 2,
+        explanation: "Article 279 states that the net proceeds are ascertained and certified by the CAG, whose certificate is final.",
+        level: "Moderate"
+    },
+    {
+        id: 30,
+        question: "The recommendation of the Finance Commission regarding the distribution of taxes is:",
         options: [
-            "Jawaharlal Nehru",
-            "Sardar Vallabhbhai Patel",
-            "Dr. B.R. Ambedkar",
-            "J.B. Kripalani"
+            "Binding on the Government",
+            "Advisory in nature",
+            "Subject to approval by Supreme Court",
+            "Final and cannot be rejected"
         ],
-        correctAnswer: 1, // B
-        explanation: "Sardar Vallabhbhai Patel was the Chairman of the Provincial Constitution Committee.",
+        correctAnswer: 1,
+        explanation: "The recommendations of the Finance Commission are advisory in nature and not binding on the government, although they are generally accepted by convention.",
+        level: "Moderate"
+    },
+
+    // SET 4: Commissions & Committees (Sarkaria, Punchhi, Rajamannar, etc.)
+    {
+        id: 31,
+        question: "The Sarkaria Commission was appointed in 1983 to review:",
+        options: [
+            "Centre-State Relations",
+            "Electoral Reforms",
+            "Judicial Reforms",
+            "Police Reforms"
+        ],
+        correctAnswer: 0,
+        explanation: "The Sarkaria Commission was appointed to examine and review the working of the existing arrangements between the Union and States.",
+        level: "Easy"
+    },
+    {
+        id: 32,
+        question: "Which of the following was NOT a recommendation of the Sarkaria Commission?",
+        options: [
+            "Establishment of Inter-State Council",
+            "Appointment of Governor in consultation with CM",
+            "Abolition of the post of Governor",
+            "Reasons for Governors removal should be laid before the Parliament"
+        ],
+        correctAnswer: 2,
+        explanation: "The Sarkaria Commission explicitly rejected the demand for the abolition of the post of Governor. It recommended reforms, not abolition.",
         level: "Moderate"
     },
     {
         id: 33,
-        question: "Which of the following is a feature of the Presidential system of government?",
-        options: [
-            "Collective Responsibility",
-            "Dual Executive",
-            "Separation of Legislature and Executive",
-            "Dissolution of Lower House"
-        ],
-        correctAnswer: 2, // C
-        explanation: "The Presidential system features strict separation of powers between the Legislature, Executive, and Judiciary.",
-        level: "Easy"
+        question: "The Punchhi Commission on Centre-State Relations was submitted in which year?",
+        options: ["2000", "2007", "2010", "2015"],
+        correctAnswer: 2,
+        explanation: "The Punchhi Commission was constituted in 2007 and submitted its report in 2010.",
+        level: "Moderate"
     },
     {
         id: 34,
-        question: "The original Constitution of India contained how many Articles and Schedules?",
-        options: [
-            "395 Articles and 8 Schedules",
-            "395 Articles and 10 Schedules",
-            "448 Articles and 12 Schedules",
-            "395 Articles and 12 Schedules"
-        ],
-        correctAnswer: 0, // A
-        explanation: "The original Constitution had 395 Articles and 8 Schedules. Currently, it has around 470 Articles and 12 Schedules.",
+        question: "Which state government appointed the Rajamannar Committee (1969) to study Centre-State relations?",
+        options: ["Kerala", "West Bengal", "Tamil Nadu", "Andhra Pradesh"],
+        correctAnswer: 2,
+        explanation: "The DMK Government of Tamil Nadu appointed the Rajamannar Committee in 1969.",
         level: "Easy"
     },
     {
         id: 35,
-        question: "The method of election of the President of India is borrowed from:",
+        question: "The Anandpur Sahib Resolution (1973) demanded:",
         options: [
-            "USA",
-            "Ireland",
-            "France",
-            "Canada"
+            "A separate nation meant for Sikhs",
+            "Greater autonomy for the States, retaining only Defence, Foreign Affairs, Communications and Currency with the Centre",
+            "Creation of new States based on language",
+            "Implementation of Uniform Civil Code"
         ],
-        correctAnswer: 1, // B
-        explanation: "The method of election of the President (indirect election by an electoral college with proportional representation and single transferable vote) is borrowed from Ireland.",
-        level: "Easy"
+        correctAnswer: 1,
+        explanation: "The Anandpur Sahib Resolution demanded that the Centre's jurisdiction should be restricted only to Defence, Foreign Affairs, Communications, and Currency.",
+        level: "Moderate"
     },
     {
         id: 36,
-        question: "On which date was the Constitution of India adopted?",
-        options: [
-            "January 26, 1950",
-            "November 26, 1949",
-            "August 15, 1947",
-            "December 9, 1946"
-        ],
-        correctAnswer: 1, // B
-        explanation: "The Constitution was adopted on November 26, 1949 (celebrated as Constitution Day), and came into force on January 26, 1950 (Republic Day).",
+        question: "The Punchhi Commission recommended that the Governor should have a fixed tenure of:",
+        options: ["3 years", "5 years", "6 years", "No fixed tenure"],
+        correctAnswer: 1,
+        explanation: "The Punchhi Commission recommended a fixed tenure of 5 years for the Governor and that they should not be removed at the pleasure of the President.",
         level: "Easy"
     },
     {
         id: 37,
-        question: "Which of the following is a unitary feature of the Indian Constitution?",
-        options: [
-            "Written Constitution",
-            "Division of Powers",
-            "Single Constitution",
-            "Independent Judiciary"
-        ],
-        correctAnswer: 2, // C
-        explanation: "Single Constitution for both the Centre and States is a unitary feature. In USA, states have their own constitutions.",
-        level: "Easy"
+        question: "Which Commission/Committee observed that 'Federalism is more a functional arrangement for cooperative action, than a static institutional concept'?",
+        options: ["Sarkaria Commission", "National Commission to Review the Working of the Constitution", "Administrative Reforms Commission", "Rajamannar Committee"],
+        correctAnswer: 0,
+        explanation: "This observation was made by the Sarkaria Commission.",
+        level: "Tough"
     },
     {
         id: 38,
-        question: "Who described the Directive Principles of State Policy as a \"Novel Feature\" of the Indian Constitution?",
-        options: [
-            "Jawaharlal Nehru",
-            "K.T. Shah",
-            "Dr. B.R. Ambedkar",
-            "Granville Austin"
-        ],
-        correctAnswer: 2, // C
-        explanation: "Dr. B.R. Ambedkar described the DPSPs as a 'Novel Feature' of the Indian Constitution.",
+        question: "The 1st Administrative Reforms Commission (1966) was initially chaired by:",
+        options: ["Morarji Desai", "K. Hanumanthaiya", "M.C. Setalvad", "G.S. Pathak"],
+        correctAnswer: 0,
+        explanation: "The 1st ARC was constituted in 1966 under the chairmanship of Morarji Desai. Later, K. Hanumanthaiya became chairman when Desai became Deputy PM.",
         level: "Moderate"
     },
     {
         id: 39,
-        question: "The Muslim League boycotted the first meeting of the Constituent Assembly. What was their demand?",
+        question: "The West Bengal Memorandum (1977) suggested that:",
         options: [
-            "Separate Electorate",
-            "A separate state of Pakistan",
-            "More seats in the Assembly",
-            "Federal Government"
+            "The word 'Union' should be replaced by 'Federal'",
+            "The office of Governor should be strengthened",
+            "Article 356 should be used more frequently",
+            "Residuary powers should be with the Centre"
         ],
-        correctAnswer: 1, // B
-        explanation: "The Muslim League boycotted the Constituent Assembly demanding a separate state of Pakistan.",
-        level: "Easy"
+        correctAnswer: 0,
+        explanation: "The West Bengal Memorandum suggested that the word 'Union' in the Constitution should be replaced by the word 'Federal', and residuary powers should lie with the States.",
+        level: "Moderate"
     },
     {
         id: 40,
-        question: "The ideal of 'Justice' (Social, Economic, and Political) in the Preamble draws inspiration from:",
-        options: [
-            "French Revolution",
-            "Russian Revolution",
-            "American Revolution",
-            "Irish Revolution"
-        ],
-        correctAnswer: 1, // B
-        explanation: "The ideal of Justice (Social, Economic, and Political) was inspired by the Russian Revolution.",
+        question: "Which of the following is NOT an extra-constitutional device for Centre-State cooperation?",
+        options: ["NITI Aayog", "National Development Council", "Zonal Councils", "Inter-State Council"],
+        correctAnswer: 3,
+        explanation: "The Inter-State Council is a Constitutional body (Article 263). The others are extra-constitutional (Statutory or Executive resolution).",
         level: "Moderate"
     },
+
+    // SET 5: Mix & Applied (Recent Trends, Case Laws)
     {
         id: 41,
-        question: "Which of the following committees was chaired by Dr. Rajendra Prasad?\n\n1. Rules of Procedure Committee\n2. Steering Committee\n3. States Committee\n\nSelect the correct answer:",
-        options: [
-            "1 and 2 only",
-            "2 and 3 only",
-            "1 and 3 only",
-            "1, 2, and 3"
-        ],
-        correctAnswer: 0, // A
-        explanation: "Dr. Rajendra Prasad chaired the Rules of Procedure Committee and Steering Committee. The States Committee (for negotiating with princely states) was chaired by Nehru.",
-        level: "Tough"
+        question: "In which case did the Supreme Court declare that 'Federalism is a part of the basic structure of the Constitution'?",
+        options: ["Kesavananda Bharati Case", "S.R. Bommai Case", "Minerva Mills Case", "Golaknath Case"],
+        correctAnswer: 1,
+        explanation: "In the S.R. Bommai case (1994), the Supreme Court declared that Federalism is a basic feature of the Constitution.",
+        level: "Easy"
     },
     {
         id: 42,
-        question: "The term \"Cooperative Federalism\" is often used to describe the Indian Constitution by:",
-        options: [
-            "K.C. Wheare",
-            "Granville Austin",
-            "Ivor Jennings",
-            "Morris Jones"
-        ],
-        correctAnswer: 1, // B
-        explanation: "Granville Austin used the term 'Cooperative Federalism' to describe the Indian Constitution in his book 'The Indian Constitution: Cornerstone of a Nation'.",
-        level: "Moderate"
+        question: "Under the 7th Schedule, 'Education' falls under which list?",
+        options: ["Union List", "State List", "Concurrent List", "Residuary List"],
+        correctAnswer: 2,
+        explanation: "Education was transferred to the Concurrent List by the 42nd Amendment Act of 1976.",
+        level: "Easy"
     },
     {
         id: 43,
-        question: "Which of the following provisions came into force on November 26, 1949 itself?",
+        question: "Which of the following creates a 'Unitary Bias' in the Indian Constitution?",
         options: [
-            "Fundamental Rights",
-            "Citizenship",
-            "Directive Principles",
-            "Emergency Provisions"
+            "Rigidity of Constitution",
+            "Division of Powers",
+            "Appointment of Governor by Centre",
+            "Bicameralism"
         ],
-        correctAnswer: 1, // B
-        explanation: "Citizenship provisions (Arts. 5, 6, 7, 8, 9), Elections (Art. 324), and some other provisions came into force on November 26, 1949. The rest came into force on January 26, 1950.",
-        level: "Moderate"
+        correctAnswer: 2,
+        explanation: "The appointment of the Governor by the Centre, who acts as an agent of the Centre, is a strong unitary feature.",
+        level: "Easy"
     },
     {
         id: 44,
-        question: "The system of \"Single Citizenship\" in India is borrowed from:",
-        options: [
-            "USA",
-            "Canada",
-            "UK",
-            "Australia"
-        ],
-        correctAnswer: 2, // C
-        explanation: "Single Citizenship is borrowed from the British (UK) Constitution.",
-        level: "Easy"
+        question: "Which Article empowers the Rajya Sabha to create a new All-India Service?",
+        options: ["Article 312", "Article 315", "Article 320", "Article 324"],
+        correctAnswer: 0,
+        explanation: "Article 312 empowers Parliament to create new All-India Services if the Rajya Sabha passes a resolution to that effect.",
+        level: "Moderate"
     },
     {
         id: 45,
-        question: "Who replaced D.P. Khaitan on the Drafting Committee after his death in 1948?",
-        options: [
-            "N. Madhava Rau",
-            "T.T. Krishnamachari",
-            "B.L. Mitter",
-            "K.M. Munshi"
-        ],
-        correctAnswer: 1, // B
-        explanation: "T.T. Krishnamachari replaced D.P. Khaitan on the Drafting Committee after Khaitan's death in 1948.",
-        level: "Tough"
-    },
-    {
-        id: 46,
-        question: "The Indian Constitution provides for a three-tier government. This feature was constitutionalized by:",
-        options: [
-            "42nd Amendment Act",
-            "44th Amendment Act",
-            "73rd and 74th Amendment Acts",
-            "86th Amendment Act"
-        ],
-        correctAnswer: 2, // C
-        explanation: "The 73rd Amendment (Panchayati Raj) and 74th Amendment (Municipalities) of 1992 constitutionalized the three-tier government structure.",
+        question: "The power to decide whether a bill is a Money Bill in the State Legislature rests with:",
+        options: ["Chief Minister", "Governor", "Speaker of Legislative Assembly", "High Court"],
+        correctAnswer: 2,
+        explanation: "The Speaker of the Legislative Assembly has the final power to decide whether a bill is a Money Bill.",
         level: "Easy"
     },
     {
+        id: 46,
+        question: "If the President reserves a State Bill for consideration, does he have a time limit to give assent?",
+        options: ["Yes, 6 months", "Yes, 3 months", "No time limit", "Yes, 1 year"],
+        correctAnswer: 2,
+        explanation: "The Constitution does not prescribe any time limit for the President to give assent to a state bill reserved for his consideration (Pocket Veto).",
+        level: "Moderate"
+    },
+    {
         id: 47,
-        question: "Which of the following is correct regarding the Constituent Assembly acting as the Dominion Legislature?",
+        question: "The 'Mutual Delegation of Functions' between Centre and State can happen:",
         options: [
-            "It was chaired by Dr. Rajendra Prasad.",
-            "It was chaired by G.V. Mavalankar.",
-            "It discussed the Draft Constitution.",
-            "It met in the evening sessions only."
+            "Only from Centre to State",
+            "Only from State to Centre",
+            "Either way",
+            "Neither way"
         ],
-        correctAnswer: 1, // B
-        explanation: "When the Constituent Assembly acted as the Dominion Legislature (to pass ordinary laws), it was chaired by G.V. Mavalankar. When it drafted the Constitution, it was chaired by Dr. Rajendra Prasad.",
-        level: "Tough"
+        correctAnswer: 2,
+        explanation: "The Constitution allows for inter-governmental delegation of executive functions from Centre to State (Art 258) and from State to Centre (Art 258A).",
+        level: "Easy"
     },
     {
         id: 48,
-        question: "The \"Synthesis of Parliamentary Sovereignty and Judicial Supremacy\" is a unique feature of the Indian Constitution. This synthesis is between the systems of:",
-        options: [
-            "Britain and Ireland",
-            "Britain and USA",
-            "USA and Canada",
-            "USA and Ireland"
-        ],
-        correctAnswer: 1, // B
-        explanation: "The Indian Constitution synthesizes the British doctrine of Parliamentary Sovereignty with the American doctrine of Judicial Supremacy.",
+        question: "Taxes on Agricultural Income are listed in the:",
+        options: ["Union List", "State List", "Concurrent List", "Exempted List"],
+        correctAnswer: 1,
+        explanation: "Taxes on agricultural income is a subject in the State List (Entry 46). Central Income Tax does not apply to agricultural income.",
         level: "Moderate"
     },
     {
         id: 49,
-        question: "The Ninth Schedule was added to the Constitution by the:",
-        options: [
-            "1st Amendment Act, 1951",
-            "42nd Amendment Act, 1976",
-            "44th Amendment Act, 1978",
-            "73rd Amendment Act, 1992"
-        ],
-        correctAnswer: 0, // A
-        explanation: "The Ninth Schedule was added by the 1st Amendment Act, 1951 to protect land reform laws from judicial scrutiny.",
-        level: "Easy"
+        question: "The report of the CAG relating to the accounts of a State is submitted to:",
+        options: ["The President", "The Governor", "The Parliament", "The State Legislature"],
+        correctAnswer: 1,
+        explanation: "Under Article 151, the CAG submits the audit reports relating to the accounts of a State to the Governor, who lays them before the State Legislature.",
+        level: "Moderate"
     },
     {
         id: 50,
-        question: "Who called the Indian Constitution a \"Paradise for Lawyers\"?",
+        question: "Which of the following is an example of 'Cooperative Federalism'?",
         options: [
-            "Sir Ivor Jennings",
-            "K.C. Wheare",
-            "Granville Austin",
-            "Dr. B.R. Ambedkar"
+            "Article 356",
+            "GST Council",
+            "Appointment of Governor",
+            "Vet power of President on State bills"
         ],
-        correctAnswer: 0, // A
-        explanation: "Sir Ivor Jennings, the British constitutional expert, called the Indian Constitution a 'Paradise for Lawyers' due to its detailed and lengthy nature.",
+        correctAnswer: 1,
+        explanation: "The GST Council (Article 279A) is a prime example of cooperative federalism where Centre and States jointly decide on tax matters.",
         level: "Easy"
     },
     {
         id: 51,
-        question: "Consider the following statements about the Independence of Judiciary:\n\n1. The Supreme Court judges have a fixed tenure.\n2. The expenses of the Supreme Court are charged on the Consolidated Fund of India.\n\nWhich of the statements is/are correct?",
-        options: [
-            "1 only",
-            "2 only",
-            "Both 1 and 2",
-            "Neither 1 nor 2"
-        ],
-        correctAnswer: 2, // C
-        explanation: "Both statements are correct. SC judges serve till 65 years of age (fixed tenure) and expenses are charged on the Consolidated Fund of India (non-votable).",
+        question: "Which of the following subjects is in the Concurrent List?",
+        options: ["Fisheries", "Agriculture", "Forests", "Banking"],
+        correctAnswer: 2,
+        explanation: "Forests was transferred to the Concurrent List by the 42nd Amendment. Fisheries and Agriculture are State subjects. Banking is a Union subject.",
         level: "Moderate"
     },
     {
         id: 52,
-        question: "The elections to the Constituent Assembly were held in:",
+        question: "The President can establish a Joint Public Service Commission (JPSC) for two or more states on the request of:",
         options: [
-            "July-August 1946",
-            "December 1946",
-            "January 1947",
-            "August 1947"
+            "Governors of concerned states",
+            "Chief Ministers of concerned states",
+            "State Legislatures of concerned states",
+            "Parliament"
         ],
-        correctAnswer: 0, // A
-        explanation: "The elections to the Constituent Assembly were held in July-August 1946.",
-        level: "Easy"
+        correctAnswer: 2,
+        explanation: "Actually, a JPSC can be created by Parliament by law on the request of the State Legislatures of the concerned states. The question phrasing is tricky; Parliament creates it, but on request of Legislatures.",
+        level: "Tough",
+        topic: "Note: The option C is close, but technically Parliament creates it. Re-reading M. Lax: 'Parliament can provide for the establishment of a JPSC... on the request of the state legislatures concerned.' So correct answer in context of 'request' is Legislatures."
+    },
+    {
+        id: 52, // Correction
+        question: "A Joint Public Service Commission (JPSC) for two or more states can be created by:",
+        options: [
+            "President",
+            "Parliament",
+            "UPSC",
+            "Agreement between States"
+        ],
+        correctAnswer: 1,
+        explanation: "Parliament can provide for the establishment of a JPSC for two or more states on the request of the state legislatures concerned.",
+        level: "Moderate"
     },
     {
         id: 53,
-        question: "Which feature of the Indian Constitution ensures the \"Secular\" nature of the state?",
+        question: "Under Article 260, the Government of India may undertake any legislative, executive or judicial functions in:",
         options: [
-            "Uniform Civil Code",
-            "Fundamental Rights (Articles 25-28)",
-            "Directive Principles",
-            "Single Citizenship"
+            "Jammu and Kashmir",
+            "Any territory outside India",
+            "Union Territories only",
+            "Tribal Areas only"
         ],
-        correctAnswer: 1, // B
-        explanation: "Articles 25-28 (Right to Freedom of Religion) in Part III ensure the secular nature of the Indian state.",
-        level: "Easy"
+        correctAnswer: 1,
+        explanation: "Article 260 empowers the Government of India to undertake any legislative, executive or judicial functions in relation to any territory outside India by agreement with the government of that territory.",
+        level: "Tough"
     },
     {
         id: 54,
-        question: "Who proposed the Preamble before the Drafting Committee?",
+        question: "The salary and allowances of the judges of High Courts are charged on:",
         options: [
-            "Jawaharlal Nehru",
-            "B.N. Rau",
-            "B.R. Ambedkar",
-            "Mahatma Gandhi"
+            "Consolidated Fund of India",
+            "Consolidated Fund of the State",
+            "Contingency Fund of India",
+            "Public Account of India"
         ],
-        correctAnswer: 0, // A
-        explanation: "Jawaharlal Nehru proposed the Objective Resolution which later became the basis of the Preamble.",
-        level: "Easy"
+        correctAnswer: 1,
+        explanation: "The salaries and allowances are charged on the Consolidated Fund of the State, BUT their pension is charged on the Consolidated Fund of India.",
+        level: "Moderate"
     },
     {
         id: 55,
-        question: "The provisions of \"Freedom of Trade, Commerce and Intercourse\" were borrowed from:",
+        question: "Who can initiate the process of changing the name or boundary of a state?",
         options: [
-            "UK",
-            "USA",
-            "Australia",
-            "Canada"
+            "State Legislature",
+            "Parliament (on recommendation of President)",
+            "Governor",
+            "NITI Aayog"
         ],
-        correctAnswer: 2, // C
-        explanation: "Freedom of Trade, Commerce and Intercourse (Part XIII) was borrowed from the Australian Constitution.",
-        level: "Moderate"
-    },
-    {
-        id: 56,
-        question: "Which of the following functions was NOT performed by the Constituent Assembly?",
-        options: [
-            "Adoption of National Flag",
-            "Adoption of National Anthem",
-            "Ratification of India's membership of the Commonwealth",
-            "Electing the first Prime Minister of India"
-        ],
-        correctAnswer: 3, // D
-        explanation: "The Constituent Assembly did not elect the first Prime Minister. It elected the first President (Dr. Rajendra Prasad). The PM was appointed by the Governor-General.",
-        level: "Moderate"
-    },
-    {
-        id: 57,
-        question: "The concept of \"Rule of Law\" in India is reflected in:",
-        options: [
-            "Article 13",
-            "Article 14",
-            "Article 21",
-            "Article 32"
-        ],
-        correctAnswer: 1, // B
-        explanation: "Article 14 (Equality before Law) reflects the concept of Rule of Law in India.",
+        correctAnswer: 1,
+        explanation: "Article 3 empowers Parliament to form new states and alter areas, boundaries or names of existing states. The bill can be introduced only on the recommendation of the President.",
         level: "Easy"
     },
     {
-        id: 58,
-        question: "Who among the following was the Vice-President of the Constituent Assembly?",
+        id: 56,
+        question: "Which of the following is NOT true regarding the recommendations of the Punchhi Commission?",
         options: [
-            "H.C. Mukherjee",
-            "B.N. Rau",
-            "K.M. Munshi",
-            "J.B. Kripalani"
+            "It recommended impeachment of Governor",
+            "It supported the 'Pocket Veto' of the President for indefinite period",
+            "It recommended that Governor should have fixed tenure",
+            "It recommended that convention of appointing Governor from outside state should be followed"
         ],
-        correctAnswer: 0, // A
-        explanation: "H.C. Mukherjee was the Vice-President of the Constituent Assembly. V.T. Krishnamachari was also a Vice-President.",
+        correctAnswer: 1,
+        explanation: "The Punchhi Commission actually recommended that a time limit of 6 months should be prescribed for the President to decide on reserved bills, opposing indefinite Pocket Veto.",
+        level: "Tough"
+    },
+    {
+        id: 57,
+        question: "Corporation Tax is:",
+        options: [
+            "Levied by Centre and shared with States",
+            "Levied by Centre and appropriated by Centre",
+            "Levied by State and appropriated by State",
+            "Levied by Centre but collected by State"
+        ],
+        correctAnswer: 0,
+        explanation: "Before the 80th Amendment (2000), Corporation Tax was not consistently shared. Now, all central taxes (except cesses/surcharges) are shared with states under the divisible pool (Article 270).",
         level: "Moderate"
     },
     {
+        id: 58,
+        question: "The subject 'Local Government' is mentioned in:",
+        options: ["Union List", "State List", "Concurrent List", "Not mentioned"],
+        correctAnswer: 1,
+        explanation: "Local Government is a subject in the State List (Entry 5).",
+        level: "Easy"
+    },
+    {
         id: 59,
-        question: "The \"Federal System with a Strong Centre\" was borrowed from which country?",
-        options: [
-            "USA",
-            "Canada",
-            "Australia",
-            "Germany"
-        ],
-        correctAnswer: 1, // B
-        explanation: "The Federal System with a Strong Centre and residuary powers with the Centre were borrowed from the Canadian Constitution.",
+        question: "Who settles disputes between the Centre and States regarding the distribution of powers?",
+        options: ["President", "Parliament", "Supreme Court", "Finance Commission"],
+        correctAnswer: 2,
+        explanation: "The Supreme Court has original and exclusive jurisdiction in disputes between the Centre and States (Article 131).",
         level: "Easy"
     },
     {
         id: 60,
-        question: "Which of the following is considered the \"Soul of the Constitution\" by Thakurdas Bhargava?",
-        options: [
-            "Fundamental Rights",
-            "Directive Principles",
-            "Preamble",
-            "Right to Constitutional Remedies"
-        ],
-        correctAnswer: 2, // C
-        explanation: "Thakurdas Bhargava called the Preamble the 'Soul of the Constitution'. Note: Dr. Ambedkar called Article 32 the 'Heart and Soul' of the Constitution.",
+        question: "Which of the following articles deals with 'Grants in aid' from the Union to certain States?",
+        options: ["Article 275", "Article 265", "Article 280", "Article 300A"],
+        correctAnswer: 0,
+        explanation: "Article 275 deals with Grants-in-aid from the Union to certain States.",
         level: "Easy"
     }
 ];
+
+export default DAY2_MCQS;

@@ -15,10 +15,40 @@ import {
     CheckCircle2,
     Layers
 } from 'lucide-react';
-import { ACTION_LOG, DailyAction, getTodayDate, getActionsForDate } from '@/components/admin/data/action-log-data';
+import { ACTION_LOG, getTodayDate, getActionsForDate } from '@/components/admin/data/action-log-data';
+import Link from 'next/link';
+import { LAXMIKANTH_CHAPTERS } from '@/components/batch1/polity/data/polity-schedule-data';
+import { POLITY_FLASHCARDS_DATA } from '@/components/batch1/polity/data/polity-flashcards-data';
+import { POLITY_MCQS_DATA } from '@/components/batch1/polity/data/polity-mcqs-data';
 
 export default function AdminActionsPage() {
     const [selectedDate, setSelectedDate] = useState(getTodayDate());
+
+    // Check Week 2 Status (Dynamic)
+    // Week 2 starts Jan 19 covers Chapters 18, 31, 20... (Indices 7-13 in LAXMIKANTH_CHAPTERS)
+    const week2Status = useMemo(() => {
+        const week2Chapters = LAXMIKANTH_CHAPTERS.slice(7, 14); // Module 1
+        let missingCount = 0;
+        let missingItems: string[] = [];
+
+        week2Chapters.forEach(ch => {
+            const hasFlashcards = POLITY_FLASHCARDS_DATA.some(fc => fc.subtopicId.startsWith(`${ch.chapter}.`));
+            const hasMCQs = POLITY_MCQS_DATA.some(mcq => mcq.subtopicId.startsWith(`${ch.chapter}.`));
+
+            if (!hasFlashcards) {
+                missingCount++;
+                if (missingItems.length < 2) missingItems.push(`Flashcards Ch${ch.chapter}`);
+            }
+            if (!hasMCQs) {
+                missingCount++;
+                if (missingItems.length < 4) missingItems.push(`MCQs Ch${ch.chapter}`);
+            }
+        });
+
+        const isComplete = missingCount === 0;
+
+        return { isComplete, missingItems, missingCount };
+    }, []);
 
     const currentMonth = useMemo(() => {
         const date = new Date(selectedDate);
@@ -80,35 +110,53 @@ export default function AdminActionsPage() {
                 </div>
             </div>
 
-            {/* Weekly Readiness Alert (Simulated for upcoming Week 2) */}
-            <Card className="mb-6 border-l-4 border-l-yellow-500 bg-yellow-50/50 dark:bg-yellow-900/10">
-                <CardContent className="p-4 flex items-center justify-between">
-                    <div className="flex items-start gap-4">
-                        <div className="p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-full">
-                            <AlertTriangle className="h-6 w-6 text-yellow-600" />
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">
-                                Week 2 Content Preparation Needed
-                            </h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">
-                                Upcoming content for Week 2 (starting Jan 19) is incomplete. Please generate missing Flashcards and MCQs.
-                            </p>
-                            <div className="flex gap-2 mt-2">
-                                <span className="text-xs px-2 py-1 bg-white dark:bg-gray-800 border rounded text-gray-500">
-                                    Missing: Flashcards (Days 3-5)
-                                </span>
-                                <span className="text-xs px-2 py-1 bg-white dark:bg-gray-800 border rounded text-gray-500">
-                                    Missing: MCQs (Days 3-5)
-                                </span>
+            {/* Weekly Readiness Alert (Dynamic) */}
+            {!week2Status.isComplete ? (
+                <Card className="mb-6 border-l-4 border-l-yellow-500 bg-yellow-50/50 dark:bg-yellow-900/10">
+                    <CardContent className="p-4 flex items-center justify-between">
+                        <div className="flex items-start gap-4">
+                            <div className="p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-full">
+                                <AlertTriangle className="h-6 w-6 text-yellow-600" />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+                                    Week 2 Content Preparation Needed
+                                </h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                    Upcoming content for Week 2 (starting Jan 19) is incomplete. Please generate missing Flashcards and MCQs.
+                                </p>
+                                <div className="flex flex-wrap gap-2 mt-2">
+                                    {week2Status.missingItems.map((item, idx) => (
+                                        <span key={idx} className="text-xs px-2 py-1 bg-white dark:bg-gray-800 border rounded text-gray-500">
+                                            Missing: {item}
+                                        </span>
+                                    ))}
+                                    {week2Status.missingCount > week2Status.missingItems.length && (
+                                        <span className="text-xs px-2 py-1 text-gray-500">
+                                            + {week2Status.missingCount - week2Status.missingItems.length} more...
+                                        </span>
+                                    )}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <Button variant="outline" className="border-yellow-200 text-yellow-700 hover:bg-yellow-100" asChild>
-                        <a href="/admin/content-system">Go to Content System</a>
-                    </Button>
-                </CardContent>
-            </Card>
+                        <Button variant="outline" className="border-yellow-200 text-yellow-700 hover:bg-yellow-100" asChild>
+                            <Link href="/admin/content-system">Go to Content System</Link>
+                        </Button>
+                    </CardContent>
+                </Card>
+            ) : (
+                <Card className="mb-6 border-l-4 border-l-green-500 bg-green-50/50 dark:bg-green-900/10">
+                    <CardContent className="p-4 flex items-center gap-4">
+                        <CheckCircle2 className="h-6 w-6 text-green-600" />
+                        <div>
+                            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+                                Week 2 Content Ready
+                            </h3>
+                            <p className="text-sm text-gray-600">All flashcards and MCQs for next week are prepared.</p>
+                        </div>
+                    </CardContent>
+                </Card>
+            )}
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Left: Calendar */}

@@ -194,14 +194,14 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                                         <span className="text-sm text-gray-500">6:00 PM - 7:00 PM</span>
                                     </div>
                                     <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                                        Daily Practice Test (50 Questions)
+                                        Daily Practice Test (60 Questions)
                                     </h3>
                                     <p className="text-gray-600 dark:text-gray-300 mb-4">
                                         Full length MCQ test with negative marking.
                                         Test your knowledge under exam conditions!
                                     </p>
                                     <div className="flex items-center gap-4 text-sm text-gray-500">
-                                        <span className="flex items-center gap-1"><Brain className="h-4 w-4" /> 50 MCQs</span>
+                                        <span className="flex items-center gap-1"><Brain className="h-4 w-4" /> 60 MCQs</span>
                                         <span className="flex items-center gap-1"><Target className="h-4 w-4" /> 60 Minutes</span>
                                     </div>
                                 </div>

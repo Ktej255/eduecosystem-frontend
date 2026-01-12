@@ -5,18 +5,13 @@ import { CheckCircle2, XCircle, Target, ChevronRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
-
-interface MCQ {
-    id: string;
-    subtopicId: string;
-    question: string;
-    options: string[];
-    correctIndex: number;
-    explanation: string;
-}
+import { getMCQsForSubtopics, MCQ } from '@/components/batch1/polity/data/polity-mcqs-data';
 
 // Temporary MCQ generator - will be replaced with actual content
 function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
+    const realMCQs = getMCQsForSubtopics(subtopics.map(s => s.id));
+    if (realMCQs.length > 0) return realMCQs;
+
     const mcqs: MCQ[] = [];
 
     subtopics.forEach((subtopic, index) => {
@@ -44,14 +39,19 @@ interface CycleMCQsProps {
     selectedSubtopics: SubTopic[];
     onComplete: (results: { correct: number; total: number }) => void;
     cycleNumber: number;
+    preloadedMCQs?: MCQ[];
 }
 
 export default function CycleMCQs({
     selectedSubtopics,
     onComplete,
-    cycleNumber
+    cycleNumber,
+    preloadedMCQs
 }: CycleMCQsProps) {
-    const mcqs = useMemo(() => generateMCQsForSubtopics(selectedSubtopics), [selectedSubtopics]);
+    const mcqs = useMemo(() => {
+        if (preloadedMCQs && preloadedMCQs.length > 0) return preloadedMCQs;
+        return generateMCQsForSubtopics(selectedSubtopics);
+    }, [selectedSubtopics, preloadedMCQs]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
@@ -166,12 +166,12 @@ export default function CycleMCQs({
                                 >
                                     <div className="flex items-center gap-3">
                                         <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${showCorrectness && isCorrect
-                                                ? 'bg-green-500 text-white'
-                                                : showCorrectness && isSelected && !isCorrect
-                                                    ? 'bg-red-500 text-white'
-                                                    : isSelected
-                                                        ? 'bg-purple-500 text-white'
-                                                        : 'bg-gray-100 dark:bg-gray-800 text-gray-500'
+                                            ? 'bg-green-500 text-white'
+                                            : showCorrectness && isSelected && !isCorrect
+                                                ? 'bg-red-500 text-white'
+                                                : isSelected
+                                                    ? 'bg-purple-500 text-white'
+                                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-500'
                                             }`}>
                                             {showCorrectness ? (
                                                 isCorrect ? <CheckCircle2 className="h-4 w-4" /> :
