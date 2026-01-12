@@ -98,29 +98,18 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
     // UNBLOCK: Always allow evening session
     const hasMorningProgress = true; // Was: isDay1Bypass || (morningProgress && morningProgress.cycleHistory.length > 0);
 
-    // Content Generation Logic
+    // Content Generation Logic - Use content-registry for complete day content
     const sessionContent = useMemo(() => {
         let morningSubtopics: SubTopic[] = [];
-        let uniqueMorningIds: string[] = [];
 
         if (morningProgress?.cycleHistory && morningProgress.cycleHistory.length > 0) {
             morningSubtopics = morningProgress.cycleHistory.flatMap(c => c.selectedSubtopics);
-            uniqueMorningIds = Array.from(new Set(morningSubtopics.map(s => s.id)));
         } else {
             // FALLBACK: If morning session skipped, use scheduled chapters for this day
-            // This ensures evening Revision is always functional
             const schedule = generateWeeklySchedule();
             const weekSchedule = schedule.find(w => w.week === weekId);
 
             if (weekSchedule) {
-                // Map dayId (1-7) to schedule keys
-                // Assuming Day 1 = Monday
-                const dayKeys: (keyof typeof weekSchedule.days)[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-                // Adjust index: Day 1->Monday (index 1?), Day 7->Sunday (index 0?)
-                // If week starts on Monday: 
-                // Day 1 (Mon) -> 'monday'
-                // Day 7 (Sun) -> 'sunday'
-                // Let's use a simple map based on standard 1-7 (Mon-Sun)
                 const dayKeyMap: Record<number, keyof typeof weekSchedule.days> = {
                     1: 'monday', 2: 'tuesday', 3: 'wednesday', 4: 'thursday', 5: 'friday', 6: 'saturday', 7: 'sunday'
                 };
@@ -128,8 +117,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                 const dayKey = dayKeyMap[dayId] || 'monday';
                 const chapters = weekSchedule.days[dayKey];
 
-                if (Array.isArray(chapters)) { // It might be string[] for Saturday
-                    // Get subtopics for these chapters
+                if (Array.isArray(chapters)) {
                     chapters.forEach(ch => {
                         if (typeof ch !== 'string') {
                             const subtopics = CHAPTER_SUBTOPICS[ch.chapter];
@@ -138,50 +126,27 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                             }
                         }
                     });
-                    uniqueMorningIds = morningSubtopics.map(s => s.id);
                 }
-            }
-
-            // If still empty (e.g. Saturday or no data), fall back to defaults (Day 1 topics as safe bet)
-            if (uniqueMorningIds.length === 0) {
-                uniqueMorningIds = ['11.1', '11.2', '12.1', '12.2', '13.1', '13.2', '14.1'];
             }
         }
 
-        // REPEATS: 20% of session (approx 4-5 cards)
-        // We take all cards from morning subtopics and shuffle
-        const repeatCards = getFlashcardsForSubtopics(uniqueMorningIds);
+        // ===== USE CONTENT REGISTRY FOR FULL DAY 1 CONTENT =====
+        // Import flashcards and MCQs from the dedicated Day files via registry
+        // This ensures ALL content from week1-flashcards.ts and week1-mcqs.ts is used
 
-        // NEW: 80% of session
-        // In a real app, this would come from the Schedule or next chapters.
-        // For now, we simulate "New" by taking Chapter 12 subtopics if not done, or just remaining Ch 11.
-        // We'll just grab ALL seeded cards that are NOT in repeatCards (simplification)
-        const allSeededCardIds = new Set(repeatCards.map(c => c.id));
-        // Note: In real implementation, we'd fetch from Ch 12 specifically.
-        const newCards = getFlashcardsForSubtopics(['11.5', '12.1', '12.2', '12.3']);
-        const actuallyNewCards = newCards.filter(c => !allSeededCardIds.has(c.id));
+        // Dynamically import to get full registry data
+        const { FLASHCARD_CONTENT_REGISTRY, MCQ_CONTENT_REGISTRY } = require('@/components/batch1/content-registry');
 
-        // Combine (limit to reasonable session size ~20 cards)
-        // 20% Repeats, 80% New
-        const targetTotal = 20;
-        const targetRepeat = Math.ceil(targetTotal * 0.2);
-        const targetNew = targetTotal - targetRepeat;
+        // Get all flashcards for this day from the registry
+        const dayFlashcards = FLASHCARD_CONTENT_REGISTRY[dayId] || [];
 
-        const finalFlashcards = [
-            ...repeatCards.slice(0, targetRepeat),
-            ...actuallyNewCards.slice(0, targetNew)
-        ];
-
-        // MCQs: Similar logic, or just 60 mixed
-        const repeatMCQs = getMCQsForSubtopics(uniqueMorningIds);
-        const newMCQs = getMCQsForSubtopics(['11.5', '12.1', '12.2', '12.3']).filter(m => !uniqueMorningIds.includes(m.subtopicId));
-
-        const finalMCQs = [...repeatMCQs, ...newMCQs].slice(0, 60);
+        // Get all MCQs for this day from the registry
+        const dayMCQs = MCQ_CONTENT_REGISTRY[dayId] || [];
 
         return {
-            flashcards: finalFlashcards,
-            mcqs: finalMCQs,
-            subtopics: morningSubtopics // Just for header context
+            flashcards: dayFlashcards, // ALL flashcards from WEEK1_FLASHCARDS (20 cards)
+            mcqs: dayMCQs, // ALL MCQs from WEEK1_MCQS (60 questions)
+            subtopics: morningSubtopics // Context for header
         };
     }, [morningProgress, weekId, dayId]);
 
