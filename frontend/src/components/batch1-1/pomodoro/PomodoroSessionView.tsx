@@ -14,6 +14,7 @@ import BreakTimer from "./BreakTimer";
 import { getChaptersForWeek } from "../data/polity-modules";
 import { CHAPTER_SUBTOPICS, SubTopic } from "@/components/batch1/polity/data/polity-subtopics";
 import { LAXMIKANTH_CHAPTERS } from "@/components/batch1/polity/data/polity-schedule-data";
+import { markChapterComplete, markSubtopicsComplete, updateDayProgress, recordMCQScore } from "@/lib/polity-progress-store";
 
 // Session states for the enhanced cycle
 type SessionState =
@@ -70,18 +71,42 @@ function getChaptersForDay(weekId: number, dayId: number): number[] {
     return dayChapters.map(ch => ch.primaryId);
 }
 
-// Sync completed subtopics to Study Planner
-function syncToStudyPlanner(chapterIds: number[]) {
-    const saved = localStorage.getItem('completed_polity_chapters');
-    const completed = saved ? JSON.parse(saved) : [];
-
-    chapterIds.forEach(id => {
-        if (!completed.includes(id)) {
-            completed.push(id);
+// Sync to unified progress store (replaces old syncToStudyPlanner)
+function syncProgressToStore(
+    weekId: number,
+    dayId: number,
+    subtopics: SubTopic[],
+    mcqResults?: { correct: number; total: number },
+    cyclesCompleted?: number
+) {
+    // Group subtopics by chapter
+    const chapterSubtopics: Record<number, string[]> = {};
+    subtopics.forEach(s => {
+        const chapterId = parseInt(s.id.split('.')[0]);
+        if (!chapterSubtopics[chapterId]) {
+            chapterSubtopics[chapterId] = [];
         }
+        chapterSubtopics[chapterId].push(s.id);
     });
 
-    localStorage.setItem('completed_polity_chapters', JSON.stringify(completed));
+    // Mark subtopics complete for each chapter
+    Object.entries(chapterSubtopics).forEach(([chapterId, subtopicIds]) => {
+        markSubtopicsComplete(parseInt(chapterId), subtopicIds);
+    });
+
+    // Update day progress
+    updateDayProgress(weekId, dayId, {
+        cyclesCompleted: cyclesCompleted || 0,
+        totalSubtopics: subtopics.length,
+        morningComplete: cyclesCompleted === 4
+    });
+
+    // Record MCQ scores if available
+    if (mcqResults) {
+        Object.keys(chapterSubtopics).forEach(chapterId => {
+            recordMCQScore(parseInt(chapterId), Math.round((mcqResults.correct / mcqResults.total) * 100));
+        });
+    }
 }
 
 export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionViewProps) {
@@ -168,9 +193,8 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
 
         setCycleHistory(prev => [...prev, newCycleData]);
 
-        // Sync to Study Planner
-        const completedChapters = [...new Set(currentSubtopics.map(s => parseInt(s.id.split('.')[0])))];
-        syncToStudyPlanner(completedChapters);
+        // Sync to unified progress store
+        syncProgressToStore(weekId, dayId, currentSubtopics, results, currentCycle);
 
         // Determine next state
         if (currentCycle >= TOTAL_CYCLES) {
@@ -289,10 +313,10 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                         <div
                             key={cycle}
                             className={`flex-1 h-2 rounded-full ${cycle < currentCycle
-                                    ? 'bg-green-500'
-                                    : cycle === currentCycle
-                                        ? 'bg-orange-500 animate-pulse'
-                                        : 'bg-gray-200 dark:bg-gray-700'
+                                ? 'bg-green-500'
+                                : cycle === currentCycle
+                                    ? 'bg-orange-500 animate-pulse'
+                                    : 'bg-gray-200 dark:bg-gray-700'
                                 }`}
                         />
                     ))}
@@ -415,10 +439,10 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                                         <div
                                             key={cycle}
                                             className={`p-3 rounded-lg border ${isComplete
-                                                    ? 'bg-green-50 dark:bg-green-900/20 border-green-200'
-                                                    : isActive
-                                                        ? 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 animate-pulse'
-                                                        : 'bg-white dark:bg-gray-900 border-gray-200'
+                                                ? 'bg-green-50 dark:bg-green-900/20 border-green-200'
+                                                : isActive
+                                                    ? 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 animate-pulse'
+                                                    : 'bg-white dark:bg-gray-900 border-gray-200'
                                                 }`}
                                         >
                                             <div className="flex items-center justify-between mb-1">
