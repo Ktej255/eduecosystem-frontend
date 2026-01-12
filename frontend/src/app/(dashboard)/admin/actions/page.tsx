@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import {
     Calendar,
     Command,
+    AlertTriangle,
     FileCode2,
     GitBranch,
     ChevronLeft,
@@ -79,6 +80,36 @@ export default function AdminActionsPage() {
                 </div>
             </div>
 
+            {/* Weekly Readiness Alert (Simulated for upcoming Week 2) */}
+            <Card className="mb-6 border-l-4 border-l-yellow-500 bg-yellow-50/50 dark:bg-yellow-900/10">
+                <CardContent className="p-4 flex items-center justify-between">
+                    <div className="flex items-start gap-4">
+                        <div className="p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-full">
+                            <AlertTriangle className="h-6 w-6 text-yellow-600" />
+                        </div>
+                        <div>
+                            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+                                Week 2 Content Preparation Needed
+                            </h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                                Upcoming content for Week 2 (starting Jan 19) is incomplete. Please generate missing Flashcards and MCQs.
+                            </p>
+                            <div className="flex gap-2 mt-2">
+                                <span className="text-xs px-2 py-1 bg-white dark:bg-gray-800 border rounded text-gray-500">
+                                    Missing: Flashcards (Days 3-5)
+                                </span>
+                                <span className="text-xs px-2 py-1 bg-white dark:bg-gray-800 border rounded text-gray-500">
+                                    Missing: MCQs (Days 3-5)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <Button variant="outline" className="border-yellow-200 text-yellow-700 hover:bg-yellow-100" asChild>
+                        <a href="/admin/content-system">Go to Content System</a>
+                    </Button>
+                </CardContent>
+            </Card>
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Left: Calendar */}
                 <div>
@@ -111,14 +142,14 @@ export default function AdminActionsPage() {
                                         onClick={() => day.date && setSelectedDate(day.date)}
                                         disabled={!day.date}
                                         className={`aspect-square flex items-center justify-center text-sm rounded-lg transition-all relative ${!day.date
-                                                ? 'invisible'
-                                                : day.date === selectedDate
-                                                    ? 'bg-indigo-600 text-white font-bold'
-                                                    : day.isToday
-                                                        ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 font-bold'
-                                                        : day.hasActions
-                                                            ? 'bg-green-50 dark:bg-green-900/20 text-green-700 hover:bg-green-100'
-                                                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                            ? 'invisible'
+                                            : day.date === selectedDate
+                                                ? 'bg-indigo-600 text-white font-bold'
+                                                : day.isToday
+                                                    ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 font-bold'
+                                                    : day.hasActions
+                                                        ? 'bg-green-50 dark:bg-green-900/20 text-green-700 hover:bg-green-100'
+                                                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                                             }`}
                                     >
                                         {day.day || ''}
