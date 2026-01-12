@@ -245,7 +245,9 @@ export function getFlashcardAvailableDays(): number[] {
 
 // ...
 
-export const MCQ_CONTENT_REGISTRY: Record<number, Question[] | undefined> = {
+// Note: MCQ entries may have varying shapes (Question, MCQ, Week1Question, Day32Question, etc.)
+// Using any[] to accommodate multiple interfaces used across different day files
+export const MCQ_CONTENT_REGISTRY: Record<number, any[] | undefined> = {
     // STARTING WITH DAY 1 (Ch 11, 12, 13, 14 Revision)
     1: WEEK1_MCQS,
     2: DAY2_MCQS, // Day 2 (Ch 15)

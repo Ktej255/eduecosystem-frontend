@@ -50,7 +50,7 @@ export const WEEK1_FLASHCARDS: Flashcard[] = [
         id: 'w1-ch12-1',
         front: 'In which case did the Supreme Court propound the "Basic Structure" doctrine?',
         back: 'Kesavananda Bharati v. State of Kerala (1973). It overruled Golak Nath (1967).',
-        category: 'case',
+        category: 'fact',
         source: 'Ch 12',
         highlight: true,
         subtopicId: '12.2'
@@ -75,7 +75,7 @@ export const WEEK1_FLASHCARDS: Flashcard[] = [
         id: 'w1-ch12-4',
         front: 'What was the outcome of the Minerva Mills case (1980) regarding Basic Structure?',
         back: 'It struck down clauses of 42nd Amendment that excluded Judicial Review, reinforcing that Judicial Review is part of Basic Structure.',
-        category: 'case',
+        category: 'fact',
         source: 'Ch 12',
         subtopicId: '12.2'
     },
@@ -146,7 +146,7 @@ export const WEEK1_FLASHCARDS: Flashcard[] = [
         id: 'w1-ch14-2',
         front: 'Why did K.C. Wheare call India "Quasi-Federal"?',
         back: 'Because it combines features of a federal state with strong unitary (centralizing) features.',
-        category: 'quote',
+        category: 'concept',
         source: 'Ch 14',
         subtopicId: '14.2'
     },

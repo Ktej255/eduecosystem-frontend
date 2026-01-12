@@ -1,6 +1,14 @@
-import { Question } from "../../../qa/testing-data";
+// WEEK1 MCQ uses string IDs - separate from day1's MCQ interface
+export interface Week1Question {
+    id: string;
+    question: string;
+    options: string[];
+    correctAnswer: number;
+    explanation?: string;
+    subtopicId?: string;
+}
 
-export const WEEK1_MCQS: Question[] = [
+export const WEEK1_MCQS: Week1Question[] = [
     // 1
     {
         id: "q1",

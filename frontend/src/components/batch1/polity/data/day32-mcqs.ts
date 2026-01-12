@@ -1,6 +1,13 @@
-import { Question } from "../../types";
+// Day32 MCQ interface - uses 'text' instead of 'question'
+export interface Day32Question {
+    id: string;
+    text: string;
+    options: string[];
+    correctAnswer: number;
+    explanation?: string;
+}
 
-export const DAY32_MCQS: Question[] = [
+export const DAY32_MCQS: Day32Question[] = [
     // TOPIC 1: BAR COUNCIL OF INDIA (15 Questions)
     {
         id: 'day32-mcq-1',
