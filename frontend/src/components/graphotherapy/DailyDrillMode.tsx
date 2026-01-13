@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { toast } from 'sonner';
 import { GraphoDrill } from '@/lib/graphotherapy/grapho-engine';
 import { CLASS_CONFIG } from '@/lib/journey/class-config';
 import { markStepComplete } from '@/lib/journey/completion-tracker';
@@ -16,13 +17,16 @@ import {
     Upload,
     BookHeart,
     HelpCircle,
-    ArrowRight
+    ArrowRight,
+    Activity
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
+import GraphoAIAnalyzer from './GraphoAIAnalyzer';
+import GraphoVoiceSync from './GraphoVoiceSync';
 import { graphotherapyService } from '@/services/graphotherapyService';
 
+// ... (existing helper types)
 type DrillStep =
     | 'page-instructions'
     | 'page-writing'
@@ -44,6 +48,9 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
     const [step, setStep] = useState<DrillStep>('page-instructions');
     const [files, setFiles] = useState<(File | null)[]>(Array(pagesRequired).fill(null));
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showAnalyzer, setShowAnalyzer] = useState(false);
+    const [isVoiceSyncActive, setIsVoiceSyncActive] = useState(false); // Controls Voice Sync
+    const [startTime, setStartTime] = useState<Date | null>(null); // Metadata tracking
 
     // Timer State
     const [timerSeconds, setTimerSeconds] = useState(CLASS_CONFIG.graphotherapy.timerMinutes * 60);
@@ -75,6 +82,7 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
     const startTimer = () => {
         setIsTimerRunning(true);
         setStep('page-writing');
+        setStartTime(new Date());
     };
 
     const resetTimerForNextPage = () => {
@@ -99,7 +107,17 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
 
         // Try to save to backend (don't block on failure)
         try {
-            await graphotherapyService.completeDay(level, drill.day, file);
+            const duration = startTime
+                ? Math.round((new Date().getTime() - startTime.getTime()) / 1000)
+                : 0;
+
+            await graphotherapyService.completeDay(
+                level,
+                drill.day,
+                file,
+                startTime?.toISOString(),
+                duration
+            );
         } catch (error) {
             console.warn("API save failed, continuing offline:", error);
             // Save to localStorage as backup
@@ -208,7 +226,27 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
     }
 
     return (
-        <div className="min-h-screen bg-neutral-900 text-white pb-20">
+        <div className="min-h-screen bg-neutral-900 text-white pb-20 relative">
+            {/* AI Analyzer Overlay */}
+            {showAnalyzer && files[currentPage - 1] && (
+                <GraphoAIAnalyzer
+                    file={files[currentPage - 1]!}
+                    onClose={() => setShowAnalyzer(false)}
+                />
+            )}
+
+            {/* Voice Sync Manager */}
+            <GraphoVoiceSync
+                isActive={step === 'page-writing' && isVoiceSyncActive}
+                bpm={60}
+                affirmations={[
+                    "I am calm and focused",
+                    "My handwriting reflects my clarity",
+                    "New strokes, new patterns",
+                    "Consistency creates change"
+                ]}
+            />
+
             {/* Top Bar */}
             <div className="border-b border-neutral-800 p-4 sticky top-0 bg-neutral-900/80 backdrop-blur z-20 flex justify-between items-center">
                 <Link href="/student/dashboard" className="p-2 hover:bg-neutral-800 rounded-full">
@@ -219,6 +257,24 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
                         Page {currentPage} of {pagesRequired}
                     </span>
                     <div className="font-bold text-sm">Day {drill.day}</div>
+
+                    {/* Voice Sync Toggle */}
+                    {step === 'page-writing' && (
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setIsVoiceSyncActive(!isVoiceSyncActive)}
+                            className={`
+                                gap-2 text-xs border rounded-full px-3 h-8 transition-all ml-2
+                                ${isVoiceSyncActive
+                                    ? 'bg-purple-500/20 text-purple-300 border-purple-500/50 hover:bg-purple-500/30'
+                                    : 'border-neutral-700 text-neutral-400 hover:text-white'}
+                            `}
+                        >
+                            <Activity className="w-3 h-3" />
+                            {isVoiceSyncActive ? 'Voice Sync ON' : 'Voice Sync OFF'}
+                        </Button>
+                    )}
                 </div>
                 <div className="w-9" />
             </div>
@@ -340,18 +396,30 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
                             )}
                         </div>
 
-                        <Button
-                            disabled={!files[currentPage - 1] || isSubmitting}
-                            onClick={handlePageSubmit}
-                            className="w-full mt-6 bg-green-600 hover:bg-green-700 text-white font-bold h-12 rounded-xl text-lg flex items-center justify-center gap-2"
-                        >
-                            {isSubmitting ? "Submitting..." : (
-                                <>
-                                    <Upload className="w-5 h-5" />
-                                    Submit Page {currentPage}
-                                </>
+                        <div className="flex flex-col gap-3 mt-6">
+                            {files[currentPage - 1] && (
+                                <Button
+                                    onClick={() => setShowAnalyzer(true)}
+                                    className="w-full bg-purple-600/20 hover:bg-purple-600/40 text-purple-300 border border-purple-500/50 font-bold h-12 rounded-xl text-lg flex items-center justify-center gap-2"
+                                >
+                                    <BookHeart className="w-5 h-5" />
+                                    Analyze with AI
+                                </Button>
                             )}
-                        </Button>
+
+                            <Button
+                                disabled={!files[currentPage - 1] || isSubmitting}
+                                onClick={handlePageSubmit}
+                                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold h-12 rounded-xl text-lg flex items-center justify-center gap-2"
+                            >
+                                {isSubmitting ? "Submitting..." : (
+                                    <>
+                                        <Upload className="w-5 h-5" />
+                                        Submit Page {currentPage}
+                                    </>
+                                )}
+                            </Button>
+                        </div>
                     </div>
                 )}
             </div>

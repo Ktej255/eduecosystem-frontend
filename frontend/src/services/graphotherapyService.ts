@@ -99,9 +99,14 @@ export const graphotherapyService = {
     /**
      * Complete a day with image upload
      */
-    async completeDay(levelId: number, dayNumber: number, file: File): Promise<DayCompleteResponse> {
+    /**
+     * Complete a day with image upload
+     */
+    async completeDay(levelId: number, dayNumber: number, file: File, startedAt?: string, duration?: number): Promise<DayCompleteResponse> {
         const formData = new FormData();
         formData.append("file", file);
+        if (startedAt) formData.append("started_at", startedAt);
+        if (duration !== undefined) formData.append("duration_seconds", duration.toString());
 
         const response = await api.post(
             `/graphotherapy/level/${levelId}/day/${dayNumber}/complete`,
@@ -120,6 +125,48 @@ export const graphotherapyService = {
      */
     async getStreak(): Promise<StreakResponse> {
         const response = await api.get("/graphotherapy/streak");
+        return response.data;
+    },
+
+    // --- Admin Endpoints ---
+
+    /**
+     * Upload a reference book (Admin)
+     */
+    async uploadReferenceBook(title: string, level: number, totalDays: number, file: File) {
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("level", level.toString());
+        formData.append("total_days", totalDays.toString());
+        formData.append("file", file);
+
+        const response = await api.post("/graphotherapy/admin/books/upload", formData, {
+            headers: { "Content-Type": "multipart/form-data" }
+        });
+        return response.data;
+    },
+
+    /**
+     * Get all reference books (Admin)
+     */
+    async getBooks() {
+        const response = await api.get("/graphotherapy/admin/books");
+        return response.data;
+    },
+
+    /**
+     * Get all student submissions (Admin)
+     */
+    async getSubmissions() {
+        const response = await api.get("/graphotherapy/admin/submissions");
+        return response.data;
+    },
+
+    /**
+     * Trigger AI Analysis (Admin)
+     */
+    async analyzeSubmission(submissionId: number) {
+        const response = await api.post(`/graphotherapy/admin/submissions/${submissionId}/analyze`);
         return response.data;
     }
 };

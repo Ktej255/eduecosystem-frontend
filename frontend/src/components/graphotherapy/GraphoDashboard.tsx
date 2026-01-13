@@ -6,6 +6,7 @@ import { graphotherapyService, OverviewResponse } from '@/services/graphotherapy
 import { Lock, CheckCircle2, Play, Star, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import GraphoStreakHeatmap from './GraphoStreakHeatmap';
 
 export default function GraphoDashboard() {
     const [overview, setOverview] = useState<OverviewResponse | null>(null);
@@ -35,28 +36,7 @@ export default function GraphoDashboard() {
 
     // Flatten completed days from all levels for easy lookup
     overview?.levels.forEach(level => {
-        // We know from the API that we don't get individual completed days in overview, 
-        // but passing completed_days count is common. 
-        // However, the dashboard needs to know WHICH days are completed to show checkmarks.
-        // The current backend OverviewResponse DOES NOT return the list of completed days per level, 
-        // only the count. 
-        // Wait, the backend implementation of `get_graphotherapy_overview` returns `LevelInfo` 
-        // which has `completed_days` (count), but NOT the list of days.
-
-        // ISSUE: The dashboard grid needs to know if day X is completed.
-        // The API `OverviewResponse` lacks this granularity.
-        // I should have checked the API response type more carefully.
-
-        // Resolution: I should update the backend `OverviewResponse` to include the set of completed days,
-        // OR fetch level details for the current level.
-        // But the dashboard shows ALL 30 days (Level 1 + part of Level 2?). 
-        // Actually `GraphoDrill` has 30 days hardcoded in the grid?
-        // The grid `Array.from({ length: 30 })` maps to days 1..30.
-        // But Graphotherapy Levels (Foundation) is 21 days.
-
-        // If I want to show the correct status, I need granular data.
-        // I will assume for now that if `current_day` > X, then X is completed?
-        // That's a safe assumption for a linear program.
+        //Logic preserved from original file
     });
 
     return (
@@ -82,26 +62,20 @@ export default function GraphoDashboard() {
                 </div>
             </div>
 
+            {/* Streak Heatmap */}
+            <div className="max-w-4xl mx-auto px-6 -mt-6 relative z-20 mb-8">
+                <GraphoStreakHeatmap
+                    streak={overview?.total_streak || 0}
+                    lastPracticeDate={overview?.last_practice_date || null}
+                    totalDays={30}
+                />
+            </div>
+
             {/* Grid */}
             <div className="max-w-4xl mx-auto px-6 mt-8">
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                     {Array.from({ length: 30 }, (_, i) => i + 1).map((day) => {
                         // Determine Status based on linear progress
-                        // This simplifies things: if day < currentDay, it's completed.
-                        // If day == currentDay, it's active.
-                        // If day > currentDay, it's locked.
-                        // NOTE: This assumes sequential completion which the backend enforces.
-
-                        // Wait, what if I missed a day? The backend tracks `current_day`.
-                        // If I am on Day 5, Days 1-4 are completed.
-
-                        // However, Graphotherapy levels are: L1=21 days, L2=30 days.
-                        // The dashboard grid shows 30 days. Does it show Level 1 only? Or mix?
-                        // `GraphotherapyEngine` has 30 days?
-                        // `GRAPHO_PROGRAM` in `grapho-engine.ts` has... only 5 items in the snippet I saw!
-
-                        // Let's rely on the `currentDay` from backend as the source of truth for "Active".
-
                         const isCompleted = day < currentDay;
                         const isCurrent = day === currentDay;
                         const isUnlocked = day <= currentDay;

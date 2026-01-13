@@ -10,10 +10,12 @@ import { useMemo } from 'react';
 
 import { useEffect } from 'react';
 
+import Batch1ContentMap from './Batch1ContentMap';
+
 export default function PolityHome({ embedded = false }: { embedded?: boolean }) {
     const [selectedModule, setSelectedModule] = useState<string | null>(null);
 
-    const [view, setView] = useState<'topics' | 'schedule'>('topics');
+    const [view, setView] = useState<'topics' | 'schedule' | 'map'>('map');
 
     useEffect(() => {
         if (typeof window !== 'undefined' && !localStorage.getItem('polity_start_calendar_date')) {
@@ -117,12 +119,13 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                         </div>
 
                         <div className="mt-8">
-                            <Link href="/student/batch1/content-map">
-                                <button className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all">
-                                    <TrendingUp className="w-5 h-5" />
-                                    View Syllabus Tracker & Content Map
-                                </button>
-                            </Link>
+                            <button
+                                onClick={() => setView('map')}
+                                className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all"
+                            >
+                                <TrendingUp className="w-5 h-5" />
+                                View Syllabus Tracker & Content Map
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -140,8 +143,8 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                         <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
                                 <span className={`text-white text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ${todayTarget.type === 'MCQ' ? 'bg-amber-600' :
-                                        todayTarget.type === 'Revision' ? 'bg-indigo-600' :
-                                            'bg-blue-600'
+                                    todayTarget.type === 'Revision' ? 'bg-indigo-600' :
+                                        'bg-blue-600'
                                     }`}>
                                     Today's {todayTarget.type}
                                 </span>
@@ -493,9 +496,13 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                         </div>
                     )}
                 </>
-            ) : (
+            ) : view === 'schedule' ? (
                 <div className="max-w-6xl mx-auto px-6 py-12">
                     <PolityScheduleView isAdmin={isAdmin} />
+                </div>
+            ) : (
+                <div className="max-w-7xl mx-auto px-6 py-12">
+                    <Batch1ContentMap onBack={() => setView('topics')} />
                 </div>
             )}
         </div>

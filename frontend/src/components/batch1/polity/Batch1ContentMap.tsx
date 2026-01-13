@@ -9,7 +9,7 @@ import Link from "next/link";
 import { getDayContentSummary } from "../content-registry";
 import { motion } from "framer-motion";
 
-export default function Batch1ContentMap() {
+export default function Batch1ContentMap({ onBack }: { onBack?: () => void }) {
     // Generate days 1 to 100
     const days = Array.from({ length: 100 }, (_, i) => i + 1);
 
@@ -52,11 +52,17 @@ export default function Batch1ContentMap() {
                         Track your daily progress. content availability, and revision status.
                     </p>
                 </div>
-                <Link href="/student/batch1/polity">
-                    <Button variant="outline">
+                {onBack ? (
+                    <Button variant="outline" onClick={onBack}>
                         <ChevronLeft className="mr-2 h-4 w-4" /> Back to Polity Home
                     </Button>
-                </Link>
+                ) : (
+                    <Link href="/student/batch1/polity">
+                        <Button variant="outline">
+                            <ChevronLeft className="mr-2 h-4 w-4" /> Back to Polity Home
+                        </Button>
+                    </Link>
+                )}
             </div>
 
             {/* Legend */}

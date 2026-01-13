@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -20,22 +20,25 @@ import {
 import { useRouter } from 'next/navigation';
 import LevelCard from '@/components/graphotherapy/LevelCard';
 import BeforeAfterSlider from '@/components/graphotherapy/BeforeAfterSlider';
-import InkParticleBackground from '@/components/graphotherapy/InkParticleBackground';
+import NeuroCanvas from '@/components/graphotherapy/NeuroCanvas';
+import ScrollInkSystem from '@/components/graphotherapy/ScrollInkSystem';
+import IntentSelector, { UserIntent } from '@/components/graphotherapy/IntentSelector';
 
 export default function GraphotherapyLandingPage() {
     const router = useRouter();
     const [showFreeAnalysisPopup, setShowFreeAnalysisPopup] = useState(false);
-    const { scrollYProgress } = useScroll();
-    const scrollProgress = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+    const [selectedIntent, setSelectedIntent] = useState<UserIntent>(null);
+    const [mouseSpeed, setMouseSpeed] = useState(0);
 
     // Popup Timer
     useEffect(() => {
-        const timer = setTimeout(() => setShowFreeAnalysisPopup(true), 8000);
+        const timer = setTimeout(() => setShowFreeAnalysisPopup(true), 15000); // Increased delay
         return () => clearTimeout(timer);
     }, []);
 
     const levels = [
         {
+            id: 'l1',
             level: 1 as const,
             title: "The Awakening",
             subtitle: "Foundation & Mindfulness",
@@ -49,8 +52,10 @@ export default function GraphotherapyLandingPage() {
                 "Daily Progress Tracking & Reminders",
                 "Community Support Access",
             ],
+            tags: ['anxiety', 'healing'],
         },
         {
+            id: 'l2',
             level: 2 as const,
             title: "The Scholar",
             subtitle: "Focus & Academic Excellence",
@@ -65,8 +70,10 @@ export default function GraphotherapyLandingPage() {
                 "Weekly Expert Progress Review",
             ],
             isPopular: true,
+            tags: ['focus', 'leadership'],
         },
         {
+            id: 'l3',
             level: 3 as const,
             title: "The Architect",
             subtitle: "Leadership & Mastery",
@@ -80,8 +87,10 @@ export default function GraphotherapyLandingPage() {
                 "Specific Trait Elimination Program",
                 "Priority 1-on-1 Expert Support",
             ],
+            tags: ['leadership', 'focus'],
         },
         {
+            id: 'l4',
             level: 4 as const,
             title: "The Healer",
             subtitle: "Health & Complete Transformation",
@@ -96,8 +105,20 @@ export default function GraphotherapyLandingPage() {
                 "Lifetime Community Access",
                 "Direct Expert Reviews & Calls",
             ],
+            tags: ['healing', 'anxiety'],
         },
     ];
+
+    // Filter and sort levels based on intent
+    const filteredLevels = React.useMemo(() => {
+        if (!selectedIntent) return levels;
+
+        return [...levels].sort((a, b) => {
+            const aMatch = a.tags.includes(selectedIntent) ? 1 : 0;
+            const bMatch = b.tags.includes(selectedIntent) ? 1 : 0;
+            return bMatch - aMatch; // Match comes first
+        });
+    }, [selectedIntent]);
 
     const testimonials = [
         {
@@ -121,16 +142,30 @@ export default function GraphotherapyLandingPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#FFFEF7] font-sans">
-            {/* Scroll Progress Line */}
-            <motion.div
-                className="scroll-progress-line"
-                style={{ width: scrollProgress }}
-            />
+        <div className="min-h-screen bg-[#FFFEF7] font-sans selection:bg-[#D4AF37] selection:text-white">
+            {/* 10X Upgrade: Living Border System */}
+            <ScrollInkSystem />
 
             {/* ======================= HERO SECTION ======================= */}
-            <header className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-[#0A1628] via-[#1a2a4a] to-[#FFFEF7]">
-                <InkParticleBackground particleCount={40} interactive />
+            <header className="relative min-h-screen flex items-center overflow-hidden bg-[#0A1628]">
+                {/* 10X Upgrade: Interactive NeuroCanvas */}
+                <div className="absolute inset-0 z-0 opacity-40">
+                    <NeuroCanvas
+                        interactive
+                        onSpeedChange={setMouseSpeed}
+                    />
+                </div>
+
+                {/* Dynamic Gradient Overlay based on mouse speed */}
+                <motion.div
+                    className="absolute inset-0 z-0 pointer-events-none mix-blend-overlay"
+                    animate={{
+                        background: mouseSpeed > 10
+                            ? 'radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.2), transparent 70%)' // Active Teal
+                            : 'radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1), transparent 70%)' // Calm Gold
+                    }}
+                    transition={{ duration: 1 }}
+                />
 
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -146,7 +181,7 @@ export default function GraphotherapyLandingPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-amber-300 text-sm font-medium mb-8"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-amber-300 text-sm font-medium mb-8"
                             >
                                 <Sparkles className="w-4 h-4" />
                                 THE SCIENCE OF HANDWRITING THERAPY
@@ -361,7 +396,7 @@ export default function GraphotherapyLandingPage() {
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-center max-w-3xl mx-auto mb-16"
+                        className="text-center max-w-3xl mx-auto mb-12"
                     >
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                             Your <span className="bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">4-Level Journey</span>
@@ -371,14 +406,30 @@ export default function GraphotherapyLandingPage() {
                         </p>
                     </motion.div>
 
+                    {/* 10X Upgrade: Intent Logic Engine */}
+                    <IntentSelector
+                        selectedIntent={selectedIntent}
+                        onSelect={setSelectedIntent}
+                    />
+
                     <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                        {levels.map((level) => (
-                            <LevelCard
-                                key={level.level}
-                                {...level}
-                                onSelect={() => router.push(`/graphotherapy/checkout/level-${level.level}`)}
-                            />
-                        ))}
+                        <AnimatePresence mode='popLayout'>
+                            {filteredLevels.map((level) => (
+                                <motion.div
+                                    key={level.level}
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.9 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <LevelCard
+                                        {...level}
+                                        onSelect={() => router.push(`/student/graphotherapy/level/${level.level}`)}
+                                    />
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
                     </div>
                 </div>
             </section>
