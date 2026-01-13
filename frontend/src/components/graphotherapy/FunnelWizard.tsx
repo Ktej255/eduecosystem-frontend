@@ -174,15 +174,44 @@ export default function FunnelWizard() {
                         <p className="text-gray-500">Take clear photos of your 4 pages and upload them here.</p>
                     </div>
 
-                    <div className="border-2 border-dashed border-blue-300 hover:border-blue-500 rounded-xl p-10 cursor-pointer transition-colors bg-blue-50/50">
-                        <UploadCloud className="mx-auto h-12 w-12 text-blue-400" />
-                        <span className="mt-2 block text-sm font-semibold text-blue-600">
-                            Click to upload photos
-                        </span>
-                        <span className="mt-1 block text-xs text-gray-500">
-                            JPG, PNG up to 10MB
-                        </span>
-                    </div>
+                    <label
+                        htmlFor="file-upload"
+                        className="block border-2 border-dashed border-blue-300 hover:border-blue-500 rounded-xl p-10 cursor-pointer transition-colors bg-blue-50/50"
+                    >
+                        <input
+                            id="file-upload"
+                            type="file"
+                            multiple
+                            accept="image/jpeg,image/png"
+                            className="hidden"
+                            onChange={(e) => {
+                                if (e.target.files) {
+                                    setUploadedFiles(Array.from(e.target.files));
+                                }
+                            }}
+                        />
+                        {uploadedFiles.length > 0 ? (
+                            <div className="space-y-2">
+                                <CheckCircle2 className="mx-auto h-12 w-12 text-green-500" />
+                                <span className="block text-sm font-semibold text-green-600">
+                                    {uploadedFiles.length} file(s) selected
+                                </span>
+                                <span className="block text-xs text-gray-500">
+                                    {uploadedFiles.map(f => f.name).join(', ')}
+                                </span>
+                            </div>
+                        ) : (
+                            <>
+                                <UploadCloud className="mx-auto h-12 w-12 text-blue-400" />
+                                <span className="mt-2 block text-sm font-semibold text-blue-600">
+                                    Click to upload photos
+                                </span>
+                                <span className="mt-1 block text-xs text-gray-500">
+                                    JPG, PNG up to 10MB
+                                </span>
+                            </>
+                        )}
+                    </label>
 
                     <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 shadow-green-500/20 shadow-lg" onClick={() => router.push('/graphotherapy/funnel/complete')}>
                         <CheckCircle2 className="mr-2 w-5 h-5" /> Submit for Analysis
