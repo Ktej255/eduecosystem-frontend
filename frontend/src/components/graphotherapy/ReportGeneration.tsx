@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { PlayCircle, CheckCircle2, Lock, BookOpen } from 'lucide-react';
 
 export default function ReportGeneration() {
+    const router = useRouter();
     // Stage: 'generating' | 'ready' | 'viewing'
     const [stage, setStage] = useState<'generating' | 'ready' | 'viewing'>('generating');
     const [progress, setProgress] = useState(0);
@@ -168,7 +170,10 @@ export default function ReportGeneration() {
                                 <div className="text-xs text-green-600 font-bold mt-1">50% OFF - Expires in 15:00</div>
                             </div>
 
-                            <Button className="w-full h-12 bg-red-600 hover:bg-red-700 text-white font-bold animate-pulse">
+                            <Button
+                                className="w-full h-12 bg-red-600 hover:bg-red-700 text-white font-bold animate-pulse"
+                                onClick={() => router.push('/graphotherapy/funnel/checkout')}
+                            >
                                 Add to Order & Start
                             </Button>
                             <p className="text-xs text-gray-400">Includes 30-day Portal Access</p>

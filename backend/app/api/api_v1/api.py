@@ -146,3 +146,7 @@ api_router.include_router(branding.router, prefix="/public", tags=["branding"])
 # Admin Organizations Management (Multi-Tenancy Phase 7)
 from app.api.api_v1.endpoints import admin_organizations
 api_router.include_router(admin_organizations.router, prefix="/admin", tags=["admin-organizations"])
+
+# Graphotherapy Funnel Leads
+from app.api.api_v1.endpoints import funnel_leads
+api_router.include_router(funnel_leads.router, prefix="/leads", tags=["funnel-leads"])

@@ -112,7 +112,27 @@ export default function FunnelWizard() {
                             />
                         </div>
 
-                        <Button className="w-full bg-purple-600 hover:bg-purple-700" onClick={handleNext}
+                        <Button
+                            className="w-full bg-purple-600 hover:bg-purple-700"
+                            onClick={async () => {
+                                // Save lead to backend
+                                try {
+                                    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/leads/funnel`, {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({
+                                            name: formData.name,
+                                            email: formData.email,
+                                            phone: formData.contact,
+                                            address: formData.address,
+                                            source: 'graphotherapy_funnel'
+                                        })
+                                    });
+                                } catch (e) {
+                                    console.error('Failed to save lead:', e);
+                                }
+                                handleNext();
+                            }}
                             disabled={!formData.name || !formData.email}
                         >
                             Continue to Sample Submission
