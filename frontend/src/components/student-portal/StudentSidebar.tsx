@@ -21,61 +21,63 @@ import {
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
+import { getUserAccess, isMasterUser } from "@/config/user-access-config";
 
+// Menu items with access keys that map to UserAccess properties
 const menuItems = [
     {
         name: "Dashboard",
         href: "/student/dashboard",
         icon: LayoutDashboard,
-        access: "all", // visible to all
+        accessKey: "dashboard", // Maps to UserAccess.dashboard
     },
     {
         name: "Study Planner",
         href: "/student/batch1-1/polity?tab=schedule",
         icon: CalendarDays,
-        access: "batch1", // Study Planner for Batch 1.1 students
+        accessKey: "studyPlanner", // Maps to UserAccess.studyPlanner
     },
     {
         name: "Batch 1",
         href: "/student/batch1",
         icon: BookOpen,
-        access: "batch1", // visible to Batch 1 enrolled
+        accessKey: "batch1", // Maps to UserAccess.batch1
     },
     {
         name: "Batch 2",
         href: "/student/batch2",
         icon: Layers,
-        access: "batch2", // visible to Batch 2 enrolled
+        accessKey: "batch2", // Maps to UserAccess.batch2
     },
     {
         name: "RAS Revision",
         href: "/student/my-plan",
         icon: CalendarDays,
-        access: "ras", // visible to RAS enrolled
+        accessKey: "rasRevision", // Maps to UserAccess.rasRevision
     },
     {
         name: "AI Coach",
         href: "/student/ai-coach",
         icon: BrainCircuit,
-        access: "all",
+        accessKey: "aiCoach", // Maps to UserAccess.aiCoach
     },
     {
         name: "Graphotherapy",
         href: "/student/graphotherapy",
         icon: PenTool,
-        access: "all",
+        accessKey: "graphotherapy", // Maps to UserAccess.graphotherapy
     },
     {
         name: "Meditation",
         href: "/student/meditation",
         icon: Brain,
-        access: "all",
+        accessKey: "meditation", // Maps to UserAccess.meditation
     },
     {
         name: "Revision Portal",
         href: "/student/revision",
         icon: Layers,
-        access: "master_only", // Only visible to Master ID for testing
+        accessKey: "revisionPortal", // Maps to UserAccess.revisionPortal
     },
 ];
 
@@ -113,20 +115,10 @@ interface StudentSidebarProps {
 export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebarProps) {
     const pathname = usePathname();
     const { user } = useAuth();
-    const isMasterId = user?.email === "ktej255@gmail.com";
 
-    // Updated Batch 1 Access List
-    const batch1AllowedEmails = [
-        "ktej255@gmail.com",
-        "test001@gmail.com",
-        "Test001@gmail.com", // Handle case sensitivity
-        "kajaldhannatar@gmail.com",
-        "dikshajakhar0212@gmail.com"
-    ];
-
-    const isSpecialBatch1Student = user?.email && batch1AllowedEmails.includes(user.email);
-    const isRasAuthorized = user?.is_ras_authorized || user?.email === "chitrakumawat33@gmail.com";
-    const isBatch1Allowed = isMasterId || isSpecialBatch1Student || user?.is_batch1_authorized;
+    // Get user access configuration from centralized config
+    const userAccess = getUserAccess(user?.email);
+    const isMasterId = isMasterUser(user?.email);
 
     const [stats, setStats] = useState<StudentStats | null>(null);
     const [isHovered, setIsHovered] = useState(false);
@@ -204,19 +196,9 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
             <nav className="p-4 space-y-2">
                 {menuItems
                     .filter((item) => {
-                        // Master ID sees everything
-                        if (isMasterId) return true;
-
-                        // Show all items with "all" access
-                        if (item.access === "all") return true;
-
-                        // Batch Specific Access
-                        if (item.access === "batch1") return user?.is_batch1_authorized || isSpecialBatch1Student;
-                        if (item.access === "batch2") return user?.is_batch2_authorized;
-                        if (item.access === "ras") return isRasAuthorized;
-                        if (item.access === "master_only") return false; // Only Master ID sees this (handled above)
-
-                        return true;
+                        // Use centralized access config for filtering
+                        const accessKey = item.accessKey as keyof typeof userAccess.access;
+                        return userAccess.access[accessKey] === true;
                     })
                     .map((item) => {
                         const Icon = item.icon;

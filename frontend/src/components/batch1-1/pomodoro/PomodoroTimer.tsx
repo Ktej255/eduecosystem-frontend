@@ -26,12 +26,67 @@ export default function PomodoroTimer({
     sessionNumber,
     totalSessions
 }: PomodoroTimerProps) {
-    const [timeLeft, setTimeLeft] = useState(duration);
+    // Generate unique storage key for this pomodoro session
+    const storageKey = `pomodoro_timer_${sessionNumber}_${totalSessions}`;
+
+    // Initialize state from localStorage if available
+    const [timeLeft, setTimeLeft] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                try {
+                    const state = JSON.parse(saved);
+                    // Check if state is recent (within 30 min)
+                    if (Date.now() - state.savedAt < 30 * 60 * 1000) {
+                        return state.timeLeft;
+                    }
+                } catch (e) {
+                    console.error('Failed to parse saved timer state:', e);
+                }
+            }
+        }
+        return duration;
+    });
+
     const [isRunning, setIsRunning] = useState(false);
-    const [hasStarted, setHasStarted] = useState(false);
+
+    const [hasStarted, setHasStarted] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                try {
+                    const state = JSON.parse(saved);
+                    if (Date.now() - state.savedAt < 30 * 60 * 1000) {
+                        return state.hasStarted;
+                    }
+                } catch (e) { /* ignore */ }
+            }
+        }
+        return false;
+    });
+
     const [soundEnabled, setSoundEnabled] = useState(true);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    // Save timer state to localStorage on every change
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const timerState = {
+                timeLeft,
+                hasStarted,
+                savedAt: Date.now()
+            };
+            localStorage.setItem(storageKey, JSON.stringify(timerState));
+        }
+    }, [timeLeft, hasStarted, storageKey]);
+
+    // Clear saved state when timer completes
+    const clearSavedState = useCallback(() => {
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem(storageKey);
+        }
+    }, [storageKey]);
 
     // Initialize audio
     useEffect(() => {
@@ -45,10 +100,12 @@ export default function PomodoroTimer({
     useEffect(() => {
         if (isRunning && timeLeft > 0) {
             intervalRef.current = setInterval(() => {
-                setTimeLeft(prev => {
+                setTimeLeft((prev: number) => {
                     if (prev <= 1) {
                         clearInterval(intervalRef.current!);
                         setIsRunning(false);
+                        // Clear saved state on completion
+                        clearSavedState();
                         // Play completion sound
                         if (soundEnabled && audioRef.current) {
                             audioRef.current.play().catch(() => { });

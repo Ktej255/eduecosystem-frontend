@@ -10,6 +10,7 @@ import {
     StudentStats,
 } from "@/services/progressStorage";
 import { getCompletedStepsForDay } from "@/lib/journey/completion-tracker";
+import { getUserAccess } from "@/config/user-access-config";
 import { RefreshCw, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -148,22 +149,29 @@ export default function StudentDashboard() {
                 </h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {[
-                        { name: 'Meditation', href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600' },
-                        { name: 'Graphotherapy', href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600' },
-                        { name: 'Revision', href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600' },
-                        { name: 'Polity Study', href: '/student/batch1/polity', emoji: '📚', color: 'from-blue-500 to-cyan-600' },
-                    ].map((module) => (
-                        <a
-                            key={module.name}
-                            href={module.href}
-                            className="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                        >
-                            <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
-                            <div className="text-3xl mb-3">{module.emoji}</div>
-                            <div className="font-bold text-gray-900 dark:text-white">{module.name}</div>
-                            <div className="text-xs text-gray-500 mt-1">Explore →</div>
-                        </a>
-                    ))}
+                        { name: 'Meditation', href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600', accessKey: 'meditation' },
+                        { name: 'Graphotherapy', href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy' },
+                        { name: 'Revision', href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal' },
+                        { name: 'Polity Study', href: '/student/batch1-1/polity', emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity' },
+                    ]
+                        .filter((module) => {
+                            // Filter modules based on user access
+                            const userConfig = getUserAccess(user?.email);
+                            const accessKey = module.accessKey as keyof typeof userConfig.access;
+                            return userConfig.access[accessKey] === true;
+                        })
+                        .map((module) => (
+                            <a
+                                key={module.name}
+                                href={module.href}
+                                className="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                            >
+                                <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
+                                <div className="text-3xl mb-3">{module.emoji}</div>
+                                <div className="font-bold text-gray-900 dark:text-white">{module.name}</div>
+                                <div className="text-xs text-gray-500 mt-1">Explore →</div>
+                            </a>
+                        ))}
                 </div>
             </div>
         </div>
