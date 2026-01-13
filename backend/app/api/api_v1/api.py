@@ -150,3 +150,7 @@ api_router.include_router(admin_organizations.router, prefix="/admin", tags=["ad
 # Graphotherapy Funnel Leads
 from app.api.api_v1.endpoints import funnel_leads
 api_router.include_router(funnel_leads.router, prefix="/leads", tags=["funnel-leads"])
+
+# Graphotherapy Analysis (AI)
+from app.api.api_v1.endpoints import funnel_analysis
+api_router.include_router(funnel_analysis.router, prefix="/funnel", tags=["funnel-analysis"])

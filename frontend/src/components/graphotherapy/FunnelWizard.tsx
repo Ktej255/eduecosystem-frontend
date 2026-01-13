@@ -233,7 +233,55 @@ export default function FunnelWizard() {
                         )}
                     </label>
 
-                    <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 shadow-green-500/20 shadow-lg" onClick={() => router.push('/graphotherapy/funnel/complete')}>
+                    <Button
+                        size="lg"
+                        className="w-full bg-green-600 hover:bg-green-700 shadow-green-500/20 shadow-lg"
+                        onClick={async () => {
+                            if (uploadedFiles.length === 0) return;
+
+                            // 1. Upload file to backend for analysis
+                            // (In a real app, we might upload to S3 and pass URL, or use FormData)
+                            // Here we'll pass the file to next page via Context or Session Storage
+                            // For simplicity, we'll use Session Storage for the demo flow
+
+                            // Convert first file to base64 for local preview in next step if needed
+                            // Or better, just redirect and let the next page handle the actual API call?
+                            // Issue: API call takes time. Better to start here?
+                            // Let's forward the file object? JS can't easily pass File objects between pages without context.
+                            // Strategy: Use a global Context or just pass a flag and let next page request re-upload? 
+                            // No, user just selected it.
+
+                            // "Simpler": Store file in a global store (Zustand/Jotai) or Context.
+                            // Current codebase has BrandingContext. Let's assume we can use a temporary global state or 
+                            // simplistic approach: We'll pass the file content via localStorage (bad for large files) or IndexedDB.
+
+                            // ALTERNATIVE: Upload NOW, get ID, pass ID.
+                            // But we are building the backend endpoint to analyze directly. 
+
+                            // LET'S DO THIS:
+                            // 1. User clicks submit.
+                            // 2. We store the file in a browser global (window.tmpFile) - hacky but works for SPA transition.
+                            // 3. Navigate to /analysis
+                            // 4. /analysis reads window.tmpFile and calls API.
+
+                            // cleaner: BrandingContext? No.
+                            // Let's use a specialized context provider or just modify ReportGeneration to be PART of this Wizard?
+                            // No, requested flow separate pages.
+
+                            // Best Approach for this Agent session: 
+                            // Use session storage for small images or just mock the handoff if file transfer is hard.
+                            // User uploaded images. 
+                            // I will use a simple client-side singleton to hold the file temporarily.
+
+                            if (typeof window !== 'undefined') {
+                                // @ts-ignore
+                                window.uploadedGraphologyFile = uploadedFiles[0];
+                            }
+
+                            router.push('/graphotherapy/funnel/analysis');
+                        }}
+                        disabled={uploadedFiles.length === 0}
+                    >
                         <CheckCircle2 className="mr-2 w-5 h-5" /> Submit for Analysis
                     </Button>
                 </CardContent>

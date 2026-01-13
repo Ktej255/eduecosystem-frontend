@@ -14,22 +14,70 @@ export default function ReportGeneration() {
     const [progress, setProgress] = useState(0);
     const [videoWatched, setVideoWatched] = useState(false);
 
-    // Mock Generation Progress
+    // State for Real Analysis
+    const [analysis, setAnalysis] = useState<any>(null);
+    const [error, setError] = useState("");
+
+    // Real API Call
     useEffect(() => {
         if (stage === 'generating') {
+            const performAnalysis = async () => {
+                try {
+                    // @ts-ignore
+                    const file = window.uploadedGraphologyFile;
+                    if (!file) {
+                        console.log("No file found in window.tmp, using mock mode");
+                        return;
+                    }
+
+                    const formData = new FormData();
+                    formData.append('files', file);
+
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/funnel/analyze`, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!res.ok) throw new Error("Analysis failed");
+
+                    const data = await res.json();
+                    setAnalysis(data);
+
+                } catch (err) {
+                    console.error(err);
+                    setError("Analysis failed. Please try again.");
+                }
+            };
+
+            // Start Progress Animation parallel to API
             const interval = setInterval(() => {
                 setProgress(prev => {
-                    if (prev >= 100) {
-                        clearInterval(interval);
-                        setStage('ready');
-                        return 100;
-                    }
-                    return prev + 0.5; // Slow progress to simulate analysis
+                    if (prev >= 95) return 95; // Wait for real API
+                    return prev + 2;
                 });
-            }, 100); // Updates every 100ms
+            }, 500);
+
+            // Call API
+            performAnalysis();
+
             return () => clearInterval(interval);
         }
     }, [stage]);
+
+    // Update Stage to Ready only when Analysis is present
+    useEffect(() => {
+        if (analysis) {
+            setProgress(100);
+            setStage('ready');
+        }
+    }, [analysis]);
+
+    // Parse Analysis Data Safe Access
+    const stability = analysis?.emotional_stability?.status || "Moderate";
+    const stabilityScore = analysis?.emotional_stability?.score || 60;
+    const stabilityObs = analysis?.emotional_stability?.observation || "Analysis processing...";
+    const concerns = analysis?.areas_of_concern || [];
+    const insight = analysis?.summary || "Analyzing your subconscious map...";
 
     // Mock Video Completion (Auto-enables button after 5s for demo, usually length of video)
     useEffect(() => {
@@ -96,13 +144,15 @@ export default function ReportGeneration() {
     }
 
     // VIEWING STAGE (Report + Upsell)
+    // ... Render ...
+
     return (
         <div className="max-w-5xl mx-auto space-y-12 animate-in fade-in duration-500">
             {/* Header */}
             <div className="flex justify-between items-center border-b pb-6">
                 <div>
                     <h1 className="text-3xl font-bold">Personal Analysis Report</h1>
-                    <p className="text-gray-500">Generated for [User Name] on {new Date().toLocaleDateString()}</p>
+                    <p className="text-gray-500">Generated for You on {new Date().toLocaleDateString()}</p>
                 </div>
                 <Button variant="outline">Download PDF</Button>
             </div>
@@ -118,18 +168,29 @@ export default function ReportGeneration() {
                             <div className="space-y-2">
                                 <div className="flex justify-between font-semibold">
                                     <span>Emotional Stability</span>
-                                    <span className="text-yellow-600">Moderate (Requires Correction)</span>
+                                    <span className={stability === "High" ? "text-green-600" : "text-yellow-600"}>
+                                        {stability} ({stabilityScore}/100)
+                                    </span>
                                 </div>
-                                <Progress value={60} className="h-2 bg-yellow-100" />
+                                <Progress value={stabilityScore} className="h-2 bg-gray-100" />
                                 <p className="text-sm text-gray-600">
-                                    Your handwriting shows fluctuating baseline, indicating mood swings.
-                                    However, your 't' bars suggest high determination potential.
+                                    {stabilityObs}
                                 </p>
                             </div>
-                            {/* ... More mock report content ... */}
-                            <div className="p-4 bg-gray-50 rounded-lg border text-sm text-gray-700">
-                                <strong>Key Insight:</strong> You have the "Claw" formation in your lower loops (g, y),
-                                which suggests you hold onto past guilt. Removing this stroke will release 80% of your mental burden.
+
+                            {/* Dynamic Key Traits */}
+                            {analysis?.key_traits?.map((trait: any, idx: number) => (
+                                <div key={idx} className="p-3 bg-gray-50 rounded border text-sm">
+                                    <div className="font-bold flex justify-between">
+                                        {trait.trait}
+                                        <span className={trait.impact === "Positive" ? "text-green-600" : "text-red-500"}>{trait.impact}</span>
+                                    </div>
+                                    <div className="text-gray-600">{trait.description}</div>
+                                </div>
+                            ))}
+
+                            <div className="p-4 bg-purple-50 rounded-lg border border-purple-100 text-sm text-purple-900 mt-4">
+                                <strong>AI Summary:</strong> {insight}
                             </div>
                         </CardContent>
                     </Card>
@@ -137,14 +198,21 @@ export default function ReportGeneration() {
                     <Card className="border-red-200 bg-red-50/30">
                         <CardHeader>
                             <CardTitle className="text-red-700 flex items-center">
-                                <Lock className="w-5 h-5 mr-2" /> Areas of Concern
+                                <Lock className="w-5 h-5 mr-2" /> Sections Requiring Correction
                             </CardTitle>
                         </CardHeader>
-                        <CardContent>
-                            <p className="text-gray-700">
-                                We identified 3 critical strokes that are blocking your financial growth.
-                                These strokes (found in letters 'd' and 't') create a subconscious fear of success.
-                            </p>
+                        <CardContent className="space-y-3">
+                            {concerns.length > 0 ? concerns.map((concern: any, i: number) => (
+                                <div key={i} className="flex gap-3 items-start">
+                                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 shrink-0" />
+                                    <div>
+                                        <strong className="text-gray-900">{concern.stroke} ({concern.meaning})</strong>
+                                        <p className="text-gray-600 text-sm">{concern.fix}</p>
+                                    </div>
+                                </div>
+                            )) : (
+                                <p>No major negative strokes found! Great job.</p>
+                            )}
                         </CardContent>
                     </Card>
                 </div>
@@ -172,9 +240,9 @@ export default function ReportGeneration() {
 
                             <Button
                                 className="w-full h-12 bg-red-600 hover:bg-red-700 text-white font-bold animate-pulse"
-                                onClick={() => router.push('/graphotherapy/funnel/checkout')}
+                                onClick={() => router.push('/graphotherapy/funnel/complete')}
                             >
-                                Add to Order & Start
+                                Continue to Your Plan
                             </Button>
                             <p className="text-xs text-gray-400">Includes 30-day Portal Access</p>
                         </CardContent>
