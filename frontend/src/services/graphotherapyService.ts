@@ -168,6 +168,53 @@ export const graphotherapyService = {
     async analyzeSubmission(submissionId: number) {
         const response = await api.post(`/graphotherapy/admin/submissions/${submissionId}/analyze`);
         return response.data;
+    },
+
+    /**
+     * Compare Transformation (Day 1 vs Day 21)
+     */
+    async compareTransformation(baselineDay: number = 1, currentDay: number = 21) {
+        const response = await api.post("/graphotherapy/transform/compare", {
+            baseline_day: baselineDay,
+            current_day: currentDay
+        });
+        return response.data;
+    },
+
+    /**
+     * Get Predictive Growth Suggestions
+     */
+    async getPredictiveGrowth() {
+        const response = await api.get("/graphotherapy/predict/next-steps");
+        return response.data;
+    },
+
+    /**
+     * Get Community Leaderboard
+     */
+    async getLeaderboard() {
+        const response = await api.get("/graphotherapy/community/leaderboard");
+        return response.data;
+    },
+
+    /**
+     * Share Transformation Report
+     */
+    async shareTransformation() {
+        const response = await api.post("/graphotherapy/share/transformation");
+        return response.data;
+    },
+
+    /**
+     * Purchase Level or Bundle
+     */
+    async purchaseLevel(levelId: number, useCoins: boolean, isBundle: boolean) {
+        const response = await api.post("/graphotherapy/purchase", {
+            level_id: levelId,
+            use_coins: useCoins,
+            is_bundle: isBundle
+        });
+        return response.data;
     }
 };
 

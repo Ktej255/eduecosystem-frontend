@@ -22,6 +22,10 @@ interface Organization {
   slug: string;
   sso_enabled: boolean;
   sso_provider?: string;
+  logo_url?: string;
+  theme_config?: { primary_color?: string };
+  hero_text?: string;
+  is_active?: boolean;
 }
 
 export const OrganizationList: React.FC = () => {
@@ -36,7 +40,7 @@ export const OrganizationList: React.FC = () => {
 
   const fetchOrganizations = async () => {
     try {
-      const response = await api.get("/organizations");
+      const response = await api.get("/admin/organizations");
       setOrganizations(response.data);
     } catch (err) {
       setError("Failed to load organizations");
@@ -49,7 +53,7 @@ export const OrganizationList: React.FC = () => {
   const handleDelete = async (id: number) => {
     if (window.confirm("Are you sure you want to delete this organization?")) {
       try {
-        await api.delete(`/organizations/${id}`);
+        await api.delete(`/admin/organizations/${id}`);
         fetchOrganizations();
       } catch (err) {
         console.error("Failed to delete organization", err);
@@ -84,24 +88,33 @@ export const OrganizationList: React.FC = () => {
               <TableRow>
                 <TableHead>Name</TableHead>
                 <TableHead>Domain</TableHead>
-                <TableHead>Slug</TableHead>
-                <TableHead>SSO Status</TableHead>
-                <TableHead>Provider</TableHead>
+                <TableHead>Theme</TableHead>
+                <TableHead>Status</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {organizations.map((org) => (
                 <TableRow key={org.id}>
-                  <TableCell className="font-medium">{org.name}</TableCell>
+                  <TableCell className="font-medium">
+                    <div className="flex items-center gap-2">
+                      {org.logo_url && <img src={org.logo_url} alt="" className="w-6 h-6 rounded" />}
+                      {org.name}
+                    </div>
+                  </TableCell>
                   <TableCell>{org.domain}</TableCell>
-                  <TableCell>{org.slug}</TableCell>
                   <TableCell>
-                    <Badge variant={org.sso_enabled ? "default" : "secondary"}>
-                      {org.sso_enabled ? "Enabled" : "Disabled"}
+                    <div
+                      className="w-6 h-6 rounded-full border"
+                      style={{ backgroundColor: org.theme_config?.primary_color || '#6366f1' }}
+                      title={org.theme_config?.primary_color}
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant={org.is_active ? "default" : "secondary"}>
+                      {org.is_active ? "Active" : "Inactive"}
                     </Badge>
                   </TableCell>
-                  <TableCell>{org.sso_provider || "-"}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
                       <Button

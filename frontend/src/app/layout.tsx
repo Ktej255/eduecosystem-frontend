@@ -7,6 +7,7 @@ import ErrorBoundary from "@/components/ui/ErrorBoundary";
 import { ThemeProvider } from "@/components/theme-provider";
 import AIChatWidget from "@/components/chat/AIChatWidget";
 import BuildInfo from "@/components/BuildInfo";
+import { BrandingProvider } from "@/contexts/BrandingContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,13 +55,15 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <AuthProvider>
-              <ToastProvider>
-                {children}
-                <AIChatWidget />
-                <BuildInfo />
-              </ToastProvider>
-            </AuthProvider>
+            <BrandingProvider>
+              <AuthProvider>
+                <ToastProvider>
+                  {children}
+                  <AIChatWidget />
+                  <BuildInfo />
+                </ToastProvider>
+              </AuthProvider>
+            </BrandingProvider>
           </ThemeProvider>
         </ErrorBoundary>
       </body>

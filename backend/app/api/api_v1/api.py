@@ -138,3 +138,11 @@ api_router.include_router(polity.router, prefix="/polity", tags=["polity"])
 # Attendance Tracking
 from app.api.api_v1.endpoints import attendance
 api_router.include_router(attendance.router, prefix="/attendance", tags=["attendance"])
+
+# Public Branding (Multi-Tenancy Phase 6)
+from app.api.api_v1.endpoints import branding
+api_router.include_router(branding.router, prefix="/public", tags=["branding"])
+
+# Admin Organizations Management (Multi-Tenancy Phase 7)
+from app.api.api_v1.endpoints import admin_organizations
+api_router.include_router(admin_organizations.router, prefix="/admin", tags=["admin-organizations"])
