@@ -21,6 +21,37 @@
   --neutral-dark-grey: #1A1A1A;
   --neutral-slate-grey: #4A4A4A;
 
+  /* ========================================
+   * ORGANIC FUTURISM - Graphotherapy Theme
+   * ======================================== */
+
+  /* Premium Palette */
+  --grapho-gold: #D4AF37;
+  --grapho-gold-light: #F4E4BC;
+  --grapho-ink-navy: #0A1628;
+  --grapho-cream: #FFFEF7;
+  --grapho-parchment: #F5F0E6;
+
+  /* Level 1: Awareness - Calming Blues/Greens */
+  --level-1-primary: #4ECDC4;
+  --level-1-secondary: #44A08D;
+  --level-1-bg: linear-gradient(135deg, #667DB6 0%, #0082C8 50%, #4ECDC4 100%);
+
+  /* Level 2: Academic - Energetic Oranges/Yellows */
+  --level-2-primary: #FF8C42;
+  --level-2-secondary: #F7B32B;
+  --level-2-bg: linear-gradient(135deg, #FF8008 0%, #FFC837 100%);
+
+  /* Level 3: Architect - Premium Gold/Black */
+  --level-3-primary: #D4AF37;
+  --level-3-secondary: #1A1A1A;
+  --level-3-bg: linear-gradient(135deg, #0D0D0D 0%, #434343 50%, #D4AF37 100%);
+
+  /* Level 4: Healer - Deep Sage/Teal */
+  --level-4-primary: #2D6A4F;
+  --level-4-secondary: #40916C;
+  --level-4-bg: linear-gradient(135deg, #134E5E 0%, #2D6A4F 50%, #40916C 100%);
+
   /* Base Colors */
   --background: var(--neutral-light-grey);
   --foreground: var(--neutral-dark-grey);
@@ -79,9 +110,23 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-sans: 'Inter', 'Roboto', sans-serif;
-  --font-display: 'Poppins', 'Inter', sans-serif;
-  
+  /* Graphotherapy Theme Colors */
+  --color-grapho-gold: var(--grapho-gold);
+  --color-grapho-gold-light: var(--grapho-gold-light);
+  --color-grapho-ink: var(--grapho-ink-navy);
+  --color-grapho-cream: var(--grapho-cream);
+  --color-grapho-parchment: var(--grapho-parchment);
+
+  --color-level-1: var(--level-1-primary);
+  --color-level-2: var(--level-2-primary);
+  --color-level-3: var(--level-3-primary);
+  --color-level-4: var(--level-4-primary);
+
+  /* Typography - Organic Futurism */
+  --font-sans: 'DM Sans', 'Inter', sans-serif;
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-serif: 'Playfair Display', 'Georgia', serif;
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -134,4 +179,93 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
+}
+
+/* ========================================
+ * Ink & Quill Animation Utilities
+ * ======================================== */
+
+@keyframes ink-bleed {
+  0% {
+    transform: scale(1);
+    filter: blur(0px);
+  }
+
+  50% {
+    transform: scale(1.02);
+    filter: blur(0.5px);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes ink-flow {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes particle-float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Utility Classes */
+.animate-ink-bleed {
+  animation: ink-bleed 0.3s ease-in-out;
+}
+
+.animate-ink-flow {
+  animation: ink-flow 2s ease-out forwards;
+  stroke-dasharray: 1000;
+}
+
+.animate-particle {
+  animation: particle-float 3s ease-in-out infinite;
+}
+
+/* Premium Button Hover Effect */
+.btn-ink-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ink-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212, 175, 55, 0.3) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ink-hover:hover::before {
+  opacity: 1;
+}
+
+/* Scroll Progress Line (Fountain Pen) */
+.scroll-progress-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--grapho-gold) 0%, var(--level-1-primary) 50%, var(--level-4-primary) 100%);
+  transform-origin: left;
+  z-index: 9999;
 }

@@ -1,253 +1,528 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ArrowRight, Star, Quote, PlayCircle } from 'lucide-react';
-import ProductCard from '@/components/graphotherapy/ProductCard';
+import {
+    ArrowRight,
+    Star,
+    Quote,
+    PlayCircle,
+    Brain,
+    PenTool,
+    Sparkles,
+    ChevronDown,
+    Users,
+    Award,
+    Clock
+} from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import LevelCard from '@/components/graphotherapy/LevelCard';
+import BeforeAfterSlider from '@/components/graphotherapy/BeforeAfterSlider';
+import InkParticleBackground from '@/components/graphotherapy/InkParticleBackground';
 
 export default function GraphotherapyLandingPage() {
+    const router = useRouter();
     const [showFreeAnalysisPopup, setShowFreeAnalysisPopup] = useState(false);
+    const { scrollYProgress } = useScroll();
+    const scrollProgress = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
-    // Popup Timer Logic
+    // Popup Timer
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowFreeAnalysisPopup(true);
-        }, 5000); // 5 seconds delay
+        const timer = setTimeout(() => setShowFreeAnalysisPopup(true), 8000);
         return () => clearTimeout(timer);
     }, []);
 
-    const products = [
+    const levels = [
         {
-            title: "Handwriting Analysis",
-            description: "Discover your hidden personality traits through expert analysis.",
-            price: "1,599",
-            duration: "One-time",
-            features: [
-                "Detailed Personality Report",
-                "Strength & Weakness Identification",
-                "Career Guidance insights",
-                "Relationship compatibility check"
-            ]
-        },
-        {
-            title: "Level 1 Graphotherapy",
-            description: "Foundation course to reprogram your subconscious mind.",
-            price: "4,999",
+            level: 1 as const,
+            title: "The Awakening",
+            subtitle: "Foundation & Mindfulness",
+            description: "Begin your transformation journey. Master the basic strokes that rewire your subconscious for calm and clarity.",
             duration: "21 Days",
+            price: "4,999",
             features: [
-                "21-Day Guided Practice",
-                "Daily Stroke Correction",
-                "Stress & Anxiety Reduction",
-                "Basic Personality Tuning"
-            ]
+                "21-Day Guided Daily Practice",
+                "Foundational Stroke Correction (t-bars, loops)",
+                "Stress & Anxiety Reduction Techniques",
+                "Daily Progress Tracking & Reminders",
+                "Community Support Access",
+            ],
         },
         {
-            title: "Level 2 Graphotherapy",
-            description: "Advanced techniques for deeper behavioral changes.",
-            price: "6,999",
+            level: 2 as const,
+            title: "The Scholar",
+            subtitle: "Focus & Academic Excellence",
+            description: "Unlock laser-sharp focus and memory retention. Designed for students and professionals seeking peak mental performance.",
             duration: "30 Days",
+            price: "6,999",
             features: [
                 "30-Day Intensive Program",
-                "Emotional Healing strokes",
-                "Procrastination Removal",
+                "Concentration & Memory Strokes",
+                "Procrastination Elimination Protocol",
                 "Confidence Building Exercises",
-                "Weekly Progress Review"
+                "Weekly Expert Progress Review",
             ],
-            isPopular: true
+            isPopular: true,
         },
         {
-            title: "Level 3 Graphotherapy",
-            description: "Mastery level for complete transformation.",
-            price: "7,999",
+            level: 3 as const,
+            title: "The Architect",
+            subtitle: "Leadership & Mastery",
+            description: "Develop the handwriting of leaders. Build unshakable self-belief, initiative, and decisive thinking patterns.",
             duration: "40 Days",
+            price: "9,999",
             features: [
                 "40-Day Mastery Course",
-                "Leader Mindset Development",
-                "Health & Vitality Strokes",
-                "Specific Trait Elimination",
-                "Priority Support"
-            ]
+                "Leadership Mindset Strokes",
+                "Decision Making Enhancement",
+                "Specific Trait Elimination Program",
+                "Priority 1-on-1 Expert Support",
+            ],
         },
         {
-            title: "Level 4 Graphotherapy",
-            description: "The ultimate 90-day rewiring protocol.",
-            price: "15,999",
+            level: 4 as const,
+            title: "The Healer",
+            subtitle: "Health & Complete Transformation",
+            description: "The ultimate 90-day neural rewiring protocol. Address deep-rooted patterns for holistic wellbeing and self-mastery.",
             duration: "90 Days",
+            price: "15,999",
             features: [
                 "Complete 90-Day Protocol",
-                "Total Personality Overhaul",
+                "Total Personality Architecture",
+                "Health & Vitality Strokes",
                 "Subconscious Reprogramming",
-                "Lifetime Access to Community",
-                "Direct Expert Reviews"
-            ]
+                "Lifetime Community Access",
+                "Direct Expert Reviews & Calls",
+            ],
         },
-        {
-            title: "Expert Consultation",
-            description: "1-on-1 session with a master graphologist.",
-            price: "5,000",
-            duration: "1 Hour",
-            features: [
-                "Personalized Zoom Session",
-                "Deep-dive Analysis",
-                "Custom Remedy Plan",
-                "Live Q&A"
-            ]
-        }
     ];
 
-    const router = useRouter(); // Need to import useRouter
-    const handleStartFunnel = () => {
-        router.push('/graphotherapy/funnel');
-    };
+    const testimonials = [
+        {
+            quote: "I never knew changing the way I cross my 't's could make me feel so much more confident. After 21 days, my manager noticed the difference!",
+            name: "Priya S.",
+            role: "Software Engineer, Bangalore",
+            rating: 5,
+        },
+        {
+            quote: "My concentration during UPSC preparation improved dramatically. The procrastination strokes literally changed my study routine.",
+            name: "Rahul K.",
+            role: "UPSC Aspirant, Delhi",
+            rating: 5,
+        },
+        {
+            quote: "Skeptic at first, but the science behind it is solid. My anxiety reduced significantly within the first week.",
+            name: "Ananya M.",
+            role: "Marketing Manager, Mumbai",
+            rating: 5,
+        },
+    ];
 
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-950 font-sans">
-            {/* Hero Section */}
-            <header className="relative overflow-hidden bg-gradient-to-b from-purple-50 to-white dark:from-purple-950/20 dark:to-gray-950 pt-16 pb-32">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center max-w-4xl mx-auto">
-                        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6">
-                            Change Your Handwriting, <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">
-                                Change Your Life.
-                            </span>
-                        </h1>
-                        <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10">
-                            Graphotherapy is the science of changing your personality by changing your handwriting strokes.
-                            Reprogram your subconscious mind for success, confidence, and emotional stability.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-lg px-8 py-6 h-auto rounded-full shadow-lg hover:shadow-purple-500/30 transition-all" onClick={() => setShowFreeAnalysisPopup(true)}>
-                                Get Free Analysis
-                            </Button>
-                            <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto rounded-full border-2">
-                                <PlayCircle className="mr-2 h-5 w-5" /> Watch Case Study
-                            </Button>
-                        </div>
+        <div className="min-h-screen bg-[#FFFEF7] font-sans">
+            {/* Scroll Progress Line */}
+            <motion.div
+                className="scroll-progress-line"
+                style={{ width: scrollProgress }}
+            />
+
+            {/* ======================= HERO SECTION ======================= */}
+            <header className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-[#0A1628] via-[#1a2a4a] to-[#FFFEF7]">
+                <InkParticleBackground particleCount={40} interactive />
+
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        {/* Left: Copy */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="text-center lg:text-left"
+                        >
+                            {/* Badge */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-amber-300 text-sm font-medium mb-8"
+                            >
+                                <Sparkles className="w-4 h-4" />
+                                THE SCIENCE OF HANDWRITING THERAPY
+                            </motion.div>
+
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6">
+                                <span className="block">Rewrite Your</span>
+                                <span className="block bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
+                                    Neuron Pathways.
+                                </span>
+                                <span className="block mt-2 text-3xl sm:text-4xl lg:text-5xl font-light text-gray-300">
+                                    Redesign Your Destiny.
+                                </span>
+                            </h1>
+
+                            <p className="text-lg sm:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+                                Every stroke you write is a signal to your brain. Change your handwriting,
+                                change your <span className="text-amber-400 font-semibold">personality</span>,
+                                change your <span className="text-teal-400 font-semibold">life</span>.
+                            </p>
+
+                            {/* CTAs - Z-Pattern Hot Zone */}
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                                <Button
+                                    size="lg"
+                                    className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-gray-900 text-lg px-8 py-6 h-auto rounded-full shadow-xl shadow-amber-500/30 font-semibold btn-ink-hover group"
+                                    onClick={() => setShowFreeAnalysisPopup(true)}
+                                >
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        Get Free Analysis
+                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </span>
+                                </Button>
+                                <Button
+                                    variant="outline"
+                                    size="lg"
+                                    className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 h-auto rounded-full backdrop-blur-sm"
+                                >
+                                    <PlayCircle className="mr-2 h-5 w-5" />
+                                    Watch Case Study
+                                </Button>
+                            </div>
+
+                            {/* Social Proof Stats */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.8 }}
+                                className="flex flex-wrap gap-8 mt-12 justify-center lg:justify-start"
+                            >
+                                <div className="text-center">
+                                    <div className="text-3xl font-bold text-white">5000+</div>
+                                    <div className="text-sm text-gray-400">Students Transformed</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-3xl font-bold text-amber-400">21 Days</div>
+                                    <div className="text-sm text-gray-400">To See Results</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-3xl font-bold text-teal-400">4.9★</div>
+                                    <div className="text-sm text-gray-400">Student Rating</div>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Right: Visual */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="hidden lg:block relative"
+                        >
+                            <div className="relative w-full aspect-square max-w-lg mx-auto">
+                                {/* Decorative rings */}
+                                <div className="absolute inset-0 border-2 border-amber-500/20 rounded-full animate-pulse" />
+                                <div className="absolute inset-8 border border-teal-500/20 rounded-full" />
+                                <div className="absolute inset-16 border border-white/10 rounded-full" />
+
+                                {/* Center brain icon */}
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="w-32 h-32 bg-gradient-to-br from-amber-500/20 to-teal-500/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
+                                        <Brain className="w-16 h-16 text-white" />
+                                    </div>
+                                </div>
+
+                                {/* Floating icons */}
+                                <motion.div
+                                    animate={{ y: [0, -10, 0] }}
+                                    transition={{ duration: 3, repeat: Infinity }}
+                                    className="absolute top-8 right-8 w-14 h-14 bg-amber-500 rounded-xl flex items-center justify-center shadow-lg"
+                                >
+                                    <PenTool className="w-7 h-7 text-white" />
+                                </motion.div>
+                                <motion.div
+                                    animate={{ y: [0, 10, 0] }}
+                                    transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+                                    className="absolute bottom-16 left-8 w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center shadow-lg"
+                                >
+                                    <Star className="w-6 h-6 text-white" />
+                                </motion.div>
+                            </div>
+                        </motion.div>
                     </div>
+
+                    {/* Scroll indicator */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.5 }}
+                        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+                    >
+                        <motion.div
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                            <ChevronDown className="w-8 h-8 text-white/50" />
+                        </motion.div>
+                    </motion.div>
                 </div>
             </header>
 
-            {/* About Section */}
-            <section className="py-20 bg-gray-50 dark:bg-gray-900">
+            {/* ======================= WHY GRAPHOTHERAPY ======================= */}
+            <section className="py-24 bg-white">
                 <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Why Graphotherapy?</h2>
-                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                                Your handwriting is actually "brain-writing". Every stroke you put on paper comes from a neural pathway in your brain.
-                                By consciously altering these strokes through specific exercises (Graphotherapy), you send reverse signals to your brain,
-                                effectively creating new neural pathways and changing your personality traits.
-                            </p>
-                            <ul className="space-y-3">
-                                <li className="flex items-center gap-3">
-                                    <div className="bg-green-100 p-2 rounded-full"><Star className="h-4 w-4 text-green-600" /></div>
-                                    <span>Improve Concentration & Focus</span>
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="bg-purple-100 p-2 rounded-full"><Star className="h-4 w-4 text-purple-600" /></div>
-                                    <span>Eliminate Fear & Procrastination</span>
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="bg-blue-100 p-2 rounded-full"><Star className="h-4 w-4 text-blue-600" /></div>
-                                    <span>Boost Confidence & Self-Esteem</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="relative h-[400px] bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-2xl shadow-xl flex items-center justify-center p-8 text-white">
-                            <div className="text-center">
-                                <Quote className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                                <p className="text-2xl font-light italic">
-                                    "I never knew changing the way I cross my 't's could make me feel so much more confident. This is pure science!"
-                                </p>
-                                <p className="mt-4 font-bold">- Successful Student</p>
-                            </div>
-                        </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center max-w-3xl mx-auto mb-16"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                            Why <span className="text-amber-600">Graphotherapy</span>?
+                        </h2>
+                        <p className="text-xl text-gray-600 leading-relaxed">
+                            Your handwriting is actually <strong>"brain-writing"</strong>.
+                            Every stroke comes from neural pathways in your brain.
+                            By altering specific strokes, you send reverse signals that create
+                            <strong> new neural connections</strong>.
+                        </p>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        {[
+                            {
+                                icon: Brain,
+                                title: "Neuroscience-Backed",
+                                description: "Based on neuroplasticity research. Your brain can rewire itself at any age through consistent practice.",
+                                color: "text-blue-600",
+                                bg: "bg-blue-50",
+                            },
+                            {
+                                icon: PenTool,
+                                title: "Simple Daily Practice",
+                                description: "Just 15 minutes of conscious writing each day. No equipment, no apps—just paper and intention.",
+                                color: "text-amber-600",
+                                bg: "bg-amber-50",
+                            },
+                            {
+                                icon: Sparkles,
+                                title: "Visible Results",
+                                description: "Students report changes in confidence, focus, and emotional stability within 21 days.",
+                                color: "text-emerald-600",
+                                bg: "bg-emerald-50",
+                            },
+                        ].map((item, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className={`${item.bg} p-8 rounded-2xl hover:shadow-lg transition-shadow`}
+                            >
+                                <div className={`w-14 h-14 rounded-xl ${item.bg} border border-current/10 flex items-center justify-center mb-6 ${item.color}`}>
+                                    <item.icon className="w-7 h-7" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                                <p className="text-gray-600">{item.description}</p>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* Products Section */}
-            <section className="py-24 bg-white dark:bg-gray-950" id="products">
+            {/* ======================= BEFORE/AFTER SLIDER ======================= */}
+            <section className="py-24 bg-gradient-to-b from-white to-gray-50">
                 <div className="container mx-auto px-4">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Choose Your Transformation</h2>
-                        <p className="text-gray-600 dark:text-gray-400">
-                            Select the program that fits your goals. From a quick analysis to a complete 90-day personality overhaul.
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center max-w-3xl mx-auto mb-12"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                            See the <span className="text-amber-600">Transformation</span>
+                        </h2>
+                        <p className="text-xl text-gray-600">
+                            Drag the slider to compare handwriting before and after Graphotherapy
                         </p>
-                    </div>
+                    </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {products.map((product, idx) => (
-                            <ProductCard
-                                key={idx}
-                                {...product}
-                                onBuy={() => console.log('Buy', product.title)}
+                    <div className="max-w-4xl mx-auto">
+                        <BeforeAfterSlider />
+                    </div>
+                </div>
+            </section>
+
+            {/* ======================= 4-LEVEL JOURNEY ======================= */}
+            <section className="py-24 bg-[#FFFEF7]" id="programs">
+                <div className="container mx-auto px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center max-w-3xl mx-auto mb-16"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                            Your <span className="bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">4-Level Journey</span>
+                        </h2>
+                        <p className="text-xl text-gray-600">
+                            From awareness to mastery—a structured path to complete personality transformation.
+                        </p>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                        {levels.map((level) => (
+                            <LevelCard
+                                key={level.level}
+                                {...level}
+                                onSelect={() => router.push(`/graphotherapy/checkout/level-${level.level}`)}
                             />
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Lead Capture Footer */}
-            <section className="bg-gray-900 text-white py-20">
-                <div className="container mx-auto px-4 text-center max-w-2xl">
-                    <h2 className="text-3xl font-bold mb-6">Ready to start?</h2>
-                    <p className="text-gray-400 mb-8">
-                        Enter your details below to schedule a free 15-minute introductory call with our experts.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <Input placeholder="Your Email Address" className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 h-12" />
-                        <Button className="bg-white text-gray-900 hover:bg-gray-100 h-12 px-8 font-semibold">
-                            Join Waitlist
-                        </Button>
+            {/* ======================= TESTIMONIALS ======================= */}
+            <section className="py-24 bg-gradient-to-b from-[#0A1628] to-gray-900 text-white">
+                <div className="container mx-auto px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center max-w-3xl mx-auto mb-16"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                            Real <span className="text-amber-400">Transformations</span>
+                        </h2>
+                        <p className="text-xl text-gray-400">
+                            Hear from students who rewrote their stories
+                        </p>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {testimonials.map((testimonial, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+                            >
+                                <div className="flex gap-1 mb-4">
+                                    {[...Array(testimonial.rating)].map((_, i) => (
+                                        <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
+                                    ))}
+                                </div>
+                                <Quote className="w-8 h-8 text-amber-400/50 mb-4" />
+                                <p className="text-gray-300 mb-6 leading-relaxed italic">
+                                    "{testimonial.quote}"
+                                </p>
+                                <div>
+                                    <div className="font-semibold text-white">{testimonial.name}</div>
+                                    <div className="text-sm text-gray-500">{testimonial.role}</div>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* FREE ANALYSIS POPUP (Phase 2 Placeholder) */}
+            {/* ======================= FOOTER CTA ======================= */}
+            <section className="py-24 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-gray-900">
+                <div className="container mx-auto px-4 text-center max-w-3xl">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                            Ready to Transform?
+                        </h2>
+                        <p className="text-xl text-gray-800 mb-10 max-w-2xl mx-auto">
+                            Join thousands of students who have rewritten their destiny.
+                            Start with a free handwriting analysis today.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button
+                                size="lg"
+                                className="bg-gray-900 text-white hover:bg-gray-800 text-lg px-10 py-6 h-auto rounded-full font-semibold shadow-xl"
+                                onClick={() => router.push('/graphotherapy/funnel')}
+                            >
+                                Start Free Analysis
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900/10 text-lg px-10 py-6 h-auto rounded-full font-semibold"
+                                onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
+                            >
+                                View Programs
+                            </Button>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ======================= FREE ANALYSIS POPUP ======================= */}
             {showFreeAnalysisPopup && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-300">
-                    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full p-8 relative border-2 border-purple-500 overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+                >
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-8 relative overflow-hidden"
+                    >
+                        {/* Gold accent bar */}
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 to-yellow-500" />
+
                         <button
                             onClick={() => setShowFreeAnalysisPopup(false)}
-                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl"
                         >
-                            ✕
+                            ×
                         </button>
 
                         <div className="text-center space-y-6">
-                            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Star className="h-8 w-8 text-purple-600 animate-pulse" />
-                            </div>
+                            <motion.div
+                                animate={{ rotate: [0, 10, -10, 0] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                                className="w-20 h-20 bg-gradient-to-br from-amber-100 to-yellow-100 rounded-2xl flex items-center justify-center mx-auto"
+                            >
+                                <PenTool className="h-10 w-10 text-amber-600" />
+                            </motion.div>
 
-                            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                                Get Your Handwriting Analysis <span className="text-purple-600">For FREE!</span>
+                            <h2 className="text-3xl font-bold text-gray-900">
+                                Get Your Handwriting Analysis
+                                <span className="text-amber-600"> FREE!</span>
                             </h2>
 
-                            <p className="text-gray-600 dark:text-gray-300">
-                                Discover what your handwriting says about your subconscious mind. It only takes 2 minutes!
+                            <p className="text-gray-600">
+                                Discover what your handwriting reveals about your subconscious mind.
+                                Takes only 2 minutes!
                             </p>
 
-                            <div className="pt-4">
-                                <Button className="w-full h-14 text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-lg shadow-purple-500/30 font-bold"
-                                    onClick={handleStartFunnel}
-                                >
-                                    Yes! Analyze My Handwriting
-                                </Button>
-                                <button
-                                    onClick={() => setShowFreeAnalysisPopup(false)}
-                                    className="mt-4 text-sm text-gray-400 underline hover:text-gray-600"
-                                >
-                                    No thanks, I'll pay full price later
-                                </button>
-                            </div>
+                            <Button
+                                className="w-full h-14 text-lg bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-gray-900 shadow-lg font-bold rounded-xl"
+                                onClick={() => router.push('/graphotherapy/funnel')}
+                            >
+                                Yes! Analyze My Handwriting
+                            </Button>
+
+                            <button
+                                onClick={() => setShowFreeAnalysisPopup(false)}
+                                className="text-sm text-gray-400 underline hover:text-gray-600"
+                            >
+                                No thanks, I'll pay full price later
+                            </button>
                         </div>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             )}
         </div>
     );
