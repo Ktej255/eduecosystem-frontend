@@ -114,10 +114,7 @@ export default function Batch2Page() {
                         </div>
                     </div>
 
-                    {/* Knowledge Map View (Tree Layout - Coherent) */}
-                    <div className="p-4 md:p-8">
-                        <KnowledgeTree />
-                    </div>
+                    {/* Main Content End */}
 
                     {/* Info Section */}
                     <div className="max-w-4xl mx-auto px-4 pb-12">
