@@ -548,32 +548,16 @@ function generateEdgePath(
     edgeType: string
 ): string {
     const startX = fromNode.x;
-    const startY = fromNode.y + (fromNode.height || 20) / 2 + 5;
+    const startY = fromNode.y + ((fromNode.height || 40) / 2); // Start from bottom of source
     const endX = toNode.x;
-    const endY = toNode.y - (toNode.height || 20) / 2 - 5;
+    const endY = toNode.y - ((toNode.height || 40) / 2); // End at top of target
 
-    const dy = endY - startY;
-    const dx = Math.abs(endX - startX);
+    // Orthogonal Routing (Manhattan Style)
+    // Results in clean, "circuit-board" like connections
+    const midY = startY + (endY - startY) / 2;
 
-    if (dy < 0) {
-        // Target is above source - horizontal edge
-        const midX = (startX + endX) / 2;
-        return `M ${startX} ${fromNode.y} L ${midX} ${fromNode.y} L ${midX} ${toNode.y} L ${endX} ${toNode.y}`;
-    }
-
-    if (edgeType === "convergence") {
-        const ctrlY1 = startY + dy * 0.4;
-        const ctrlY2 = endY - dy * 0.4;
-        return `M ${startX} ${startY} C ${startX} ${ctrlY1} ${endX} ${ctrlY2} ${endX} ${endY}`;
-    }
-
-    if (dx < 50) {
-        return `M ${startX} ${startY} Q ${startX} ${(startY + endY) / 2} ${endX} ${endY}`;
-    }
-
-    const ctrlY1 = startY + dy * 0.3;
-    const ctrlY2 = endY - dy * 0.3;
-    return `M ${startX} ${startY} C ${startX} ${ctrlY1} ${endX} ${ctrlY2} ${endX} ${endY}`;
+    // Standard Org-Chart Step: Down -> Over -> Down
+    return `M ${startX} ${startY} L ${startX} ${midY} L ${endX} ${midY} L ${endX} ${endY}`;
 }
 
 // ==========================================
@@ -602,6 +586,27 @@ export default function CanonicalKnowledgeMap() {
         return () => {
             const el = document.getElementById('knowledge-map-styles');
             if (el) el.remove();
+        };
+    }, []);
+
+    // Scroll Control (Native Listener to preventDefault)
+    useEffect(() => {
+        const canvas = containerRef.current;
+        if (!canvas) return;
+
+        const handleWheelNative = (e: WheelEvent) => {
+            if (e.ctrlKey) return; // Allow pinch-zoom if needed, or handle separately
+
+            e.preventDefault(); // STOP page scroll
+
+            const delta = e.deltaY > 0 ? -0.05 : 0.05;
+            setZoom(z => Math.max(0.2, Math.min(2, z + delta)));
+        };
+
+        canvas.addEventListener('wheel', handleWheelNative, { passive: false });
+
+        return () => {
+            canvas.removeEventListener('wheel', handleWheelNative);
         };
     }, []);
 
@@ -728,7 +733,7 @@ export default function CanonicalKnowledgeMap() {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            onWheel={handleWheel}
+        // onWheel handled by native listener
         >
             {/* Zoom Controls */}
             <div className="absolute top-4 right-4 z-30 flex flex-col gap-2 bg-amber-50/95 backdrop-blur-sm rounded-lg p-2 border border-amber-300/50 shadow-md">
