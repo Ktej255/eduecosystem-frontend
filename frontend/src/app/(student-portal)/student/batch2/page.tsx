@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Library, ArrowRight, LayoutDashboard, Star, Sparkles, BookOpen, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
+import UpanishadsLibraryView from "@/components/batch2/upanishads/UpanishadsLibraryView";
 import CanonicalKnowledgeMap from "@/components/batch2/canonical-knowledge-map";
 import { ALL_108_UPANISHADS } from "@/components/batch2/upanishads/upanishads-108-data";
 
