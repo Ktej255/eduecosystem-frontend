@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Library, ArrowRight, LayoutDashboard, Star, Sparkles } from "lucide-react";
-import UpanishadsLibraryView from "@/components/batch2/upanishads/UpanishadsLibraryView";
-import KnowledgeTree from "@/components/batch2/knowledge-tree";
+import { Library, ArrowRight, LayoutDashboard, Star, Sparkles, BookOpen, GraduationCap } from "lucide-react";
+import { motion } from "framer-motion";
+import CanonicalKnowledgeMap from "@/components/batch2/canonical-knowledge-map";
 import { ALL_108_UPANISHADS } from "@/components/batch2/upanishads/upanishads-108-data";
 
 export default function Batch2Page() {
@@ -60,7 +60,29 @@ export default function Batch2Page() {
                 </div>
             ) : (
                 <>
-                    {/* Progress Banner (Restored Missing Option) */}
+                    {/* Canonical Knowledge Map Section */}
+                    <div className="max-w-7xl mx-auto px-4 mt-6 mb-8">
+                        <div className="text-center mb-8">
+                            <div className="flex items-center justify-center gap-2 mb-2">
+                                <Sparkles className="w-4 h-4 text-amber-500" />
+                                <span className="text-amber-700 font-medium">Vedic Knowledge Tree</span>
+                            </div>
+                            <h1 className="text-3xl font-bold text-amber-950 mb-4 font-serif">
+                                Brahmavidyā Roadmap
+                            </h1>
+                            <p className="text-amber-800/80 leading-relaxed max-w-2xl mx-auto">
+                                Explore the structured lineage of Vedic wisdom, from the eternal Brahman to the meticulous Vedāṅgas.
+                                Select any node to begin your study.
+                            </p>
+                        </div>
+
+                        {/* Main Interactive Map */}
+                        <div className="w-full bg-white rounded-xl shadow-sm border border-amber-100 overflow-hidden">
+                            <CanonicalKnowledgeMap />
+                        </div>
+                    </div>
+
+                    {/* Progress Banner (Restored Missing Option) - Moved and adapted */}
                     <div className="max-w-7xl mx-auto px-4 mt-6 mb-2">
                         <div className="flex items-center justify-between bg-white/60 backdrop-blur-sm rounded-xl border border-amber-200 p-4 shadow-sm">
                             <div className="flex items-center gap-3">
