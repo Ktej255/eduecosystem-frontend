@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Timer, CheckCircle2, Flame, Trophy, Repeat, BookOpen } from "lucide-react";
+import { ArrowLeft, Timer, CheckCircle2, Flame, Trophy, Repeat, BookOpen, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import PomodoroTimer from "./PomodoroTimer";
 import SubtopicSelector from "./SubtopicSelector";
