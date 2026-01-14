@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Library, ArrowRight, LayoutDashboard } from "lucide-react";
-import UpanishadProgressSequence from "@/components/batch2/UpanishadProgressSequence";
 import UpanishadsLibraryView from "@/components/batch2/upanishads/UpanishadsLibraryView";
+import CanonicalKnowledgeMap from "@/components/batch2/canonical-knowledge-map";
 
 export default function Batch2Page() {
     const [showLibrary, setShowLibrary] = useState(false);
@@ -31,7 +31,7 @@ export default function Batch2Page() {
                                 className="gap-2 border-amber-300 text-amber-800 hover:bg-amber-100"
                             >
                                 <LayoutDashboard className="h-4 w-4" />
-                                View Progress Map
+                                View Knowledge Map
                             </Button>
                         ) : (
                             <Button
@@ -55,20 +55,19 @@ export default function Batch2Page() {
                 </div>
             ) : (
                 <>
-                    {/* Flowchart Progress View */}
+                    {/* Knowledge Map View (Restored Old Layout) */}
                     <div className="p-4 md:p-8">
-                        <UpanishadProgressSequence currentUpanishadId="isa" />
+                        <CanonicalKnowledgeMap />
                     </div>
 
                     {/* Info Section */}
                     <div className="max-w-4xl mx-auto px-4 pb-12">
                         <div className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl border border-amber-200 dark:border-gray-800 p-6 text-center">
                             <h3 className="text-lg font-bold text-amber-900 dark:text-amber-100 mb-2">
-                                Your Upanishad Journey
+                                The Vedic Knowledge Map
                             </h3>
                             <p className="text-amber-700 dark:text-amber-300 text-sm max-w-2xl mx-auto">
-                                Complete each Upanishad in sequence to unlock the next. Click on an unlocked level to begin your study.
-                                The flowchart shows your progress through the 108 Upanishads.
+                                Explore the interconnected wisdom of the Vedas. Click on any node to deepen your study.
                             </p>
                         </div>
                     </div>
