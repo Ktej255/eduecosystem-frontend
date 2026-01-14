@@ -3,12 +3,17 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Library, ArrowRight, LayoutDashboard } from "lucide-react";
+import { Library, ArrowRight, LayoutDashboard, Star, Sparkles } from "lucide-react";
 import UpanishadsLibraryView from "@/components/batch2/upanishads/UpanishadsLibraryView";
-import CanonicalKnowledgeMap from "@/components/batch2/canonical-knowledge-map";
+import KnowledgeTree from "@/components/batch2/knowledge-tree";
+import { ALL_108_UPANISHADS } from "@/components/batch2/upanishads/upanishads-108-data";
 
 export default function Batch2Page() {
     const [showLibrary, setShowLibrary] = useState(false);
+
+    // Progress Logic (Mocked for now or simplistic)
+    const currentUpanishadId = "isa"; // Default
+    const currentIndex = ALL_108_UPANISHADS.findIndex(u => u.id === currentUpanishadId);
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-950">
@@ -55,19 +60,51 @@ export default function Batch2Page() {
                 </div>
             ) : (
                 <>
-                    {/* Knowledge Map View (Restored Old Layout) */}
+                    {/* Progress Banner (Restored Missing Option) */}
+                    <div className="max-w-7xl mx-auto px-4 mt-6 mb-2">
+                        <div className="flex items-center justify-between bg-white/60 backdrop-blur-sm rounded-xl border border-amber-200 p-4 shadow-sm">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-amber-100 rounded-full">
+                                    <Sparkles className="h-5 w-5 text-amber-600" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-amber-900">Your Journey Progress</h3>
+                                    <p className="text-xs text-amber-700">Level {currentIndex + 1}: Isha Upanishad</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-4">
+                                <div className="hidden md:flex flex-col items-end mr-2">
+                                    <span className="text-xs font-medium text-amber-800">Overall Mastery</span>
+                                    <div className="w-32 h-2 bg-amber-100 rounded-full mt-1">
+                                        <div
+                                            className="h-full bg-amber-500 rounded-full"
+                                            style={{ width: `${Math.round(((currentIndex) / 108) * 100)}%` }}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-50 rounded-full border border-amber-200">
+                                    <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                                    <span className="text-amber-900 font-bold text-sm">{currentIndex} / 108</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Knowledge Map View (Tree Layout - Coherent) */}
                     <div className="p-4 md:p-8">
-                        <CanonicalKnowledgeMap />
+                        <KnowledgeTree />
                     </div>
 
                     {/* Info Section */}
                     <div className="max-w-4xl mx-auto px-4 pb-12">
                         <div className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl border border-amber-200 dark:border-gray-800 p-6 text-center">
                             <h3 className="text-lg font-bold text-amber-900 dark:text-amber-100 mb-2">
-                                The Vedic Knowledge Map
+                                The Vedic Knowledge Tree
                             </h3>
                             <p className="text-amber-700 dark:text-amber-300 text-sm max-w-2xl mx-auto">
-                                Explore the interconnected wisdom of the Vedas. Click on any node to deepen your study.
+                                Explore the interconnected wisdom of the Vedas in a structured hierarchy.
+                                Click on any node to deepen your study.
                             </p>
                         </div>
                     </div>
