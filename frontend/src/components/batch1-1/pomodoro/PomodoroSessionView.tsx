@@ -148,12 +148,46 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
 
     // --- Persistence ---
     useEffect(() => {
-        const saved = localStorage.getItem(`batch11_pomodoro_${weekId}_${dayId}`);
-        if (saved) {
-            const data = JSON.parse(saved);
+        const savedNew = localStorage.getItem(`batch11_pomodoro_${weekId}_${dayId}`);
+
+        if (savedNew) {
+            // Priority: Load new structure
+            const data = JSON.parse(savedNew);
             setCurrentSessionGlobal(data.currentSessionGlobal || 1);
             setSessionHistory(data.sessionHistory || []);
-            // Resume logic could be added here to set state based on last update
+        } else {
+            // Fallback: Check for legacy data (Migration)
+            const savedOld = localStorage.getItem(`batch11_cycle_${weekId}_${dayId}`);
+            if (savedOld) {
+                try {
+                    const oldData = JSON.parse(savedOld);
+                    console.log("Migrating legacy Pomodoro data:", oldData);
+
+                    // Map legacy cycles to new sessions
+                    // Legacy: 4 Cycles. New: 12 Sessions.
+                    // If user was on Cycle 2 (completed Cycle 1), they should be on Session 2 (completed Session 1).
+                    // We assume 1-to-1 mapping for completed cycles to sessions for continuity,
+                    // or we could map 1 cycle -> 3 sessions (if we wanted to preserve time, but 1-to-1 is safer for logic).
+                    // User request: "cycle 1 is already done... start from directly from cycle 2"
+
+                    const migratedHistory: CycleData[] = (oldData.cycleHistory || []).map((c: any) => ({
+                        cycleNumber: c.cycleNumber, // Keep 1 as 1
+                        selectedSubtopics: c.selectedSubtopics || [],
+                        flashcardsViewed: c.flashcardsViewed || 0,
+                        mcqResults: c.mcqResults || { correct: 0, total: 0 }
+                    }));
+
+                    setSessionHistory(migratedHistory);
+
+                    // Set current session. If old was 2, new is 2.
+                    // Ensure we don't exceed limits or go backwards.
+                    const nextSession = oldData.currentCycle || 1;
+                    setCurrentSessionGlobal(nextSession);
+
+                } catch (e) {
+                    console.error("Failed to migrate legacy data", e);
+                }
+            }
         }
     }, [weekId, dayId]);
 
