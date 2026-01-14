@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Lock, ArrowRight, Star, Flame, Trophy, Coins } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
+import { TimeCapsule } from "@/components/graphotherapy/dashboard/TimeCapsule";
 
 export default function GraphotherapyDashboard() {
     const [loading, setLoading] = useState(true);
@@ -93,13 +94,16 @@ export default function GraphotherapyDashboard() {
                 </DialogContent>
             </Dialog>
 
-            {/* Progress Bar */}
-            <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                <div className="flex justify-between text-sm mb-2 text-gray-500">
-                    <span>Progress</span>
-                    <span>{Math.round((stats.day / 30) * 100)}%</span>
+            {/* Progress & Time Capsule */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="md:col-span-2 bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-center">
+                    <div className="flex justify-between text-sm mb-2 text-gray-500">
+                        <span>Progress</span>
+                        <span>{Math.round((stats.day / 30) * 100)}%</span>
+                    </div>
+                    <Progress value={(stats.day / 30) * 100} className="h-3" />
                 </div>
-                <Progress value={(stats.day / 30) * 100} className="h-3" />
+                <TimeCapsule />
             </div>
 
             {/* Level Grid */}
