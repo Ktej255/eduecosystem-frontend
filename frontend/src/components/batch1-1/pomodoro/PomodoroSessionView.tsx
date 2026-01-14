@@ -116,10 +116,10 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
     const [cycleHistory, setCycleHistory] = useState<CycleData[]>([]);
     const [currentSubtopics, setCurrentSubtopics] = useState<SubTopic[]>([]);
 
-    const TOTAL_CYCLES = 4; // 4 cycles per session
+    const TOTAL_CYCLES = 3; // 3 cycles per session (6 hours total)
     const POMODORO_DURATION = 1500; // 25 minutes
     const SHORT_BREAK = 300; // 5 minutes
-    const LONG_BREAK = 900; // 15 minutes (after Cycle 4)
+    const LONG_BREAK = 900; // 15 minutes (after Cycle 3)
 
     // Get today's chapters
     const todayChapters = useMemo(() => getChaptersForDay(weekId, dayId), [weekId, dayId]);
@@ -156,9 +156,10 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
     // Calculate total progress
     const totalSubtopicsCompleted = cycleHistory.reduce((sum, c) => sum + c.selectedSubtopics.length, 0);
     const totalCorrectMCQs = cycleHistory.reduce((sum, c) => sum + c.mcqResults.correct, 0);
-    const isConsolidationCycle = currentCycle === 4;
+    const totalMCQs = cycleHistory.reduce((sum, c) => sum + c.mcqResults.total, 0);
+    const isConsolidationCycle = currentCycle === TOTAL_CYCLES;
 
-    // All previously completed subtopics for Cycle 4
+    // All previously completed subtopics for consolidation
     const allCompletedSubtopics = useMemo(() => {
         return cycleHistory.flatMap(c => c.selectedSubtopics);
     }, [cycleHistory]);
@@ -198,10 +199,7 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
 
         // Determine next state
         if (currentCycle >= TOTAL_CYCLES) {
-            setSessionState('long_break');
-        } else if (currentCycle === 3) {
-            // After cycle 3, short break then consolidation
-            setSessionState('break');
+            setSessionState('long_break'); // Or directly complete? User said "after completion of all the three cycles"
         } else {
             setSessionState('break');
         }
@@ -221,55 +219,86 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
         setSessionState('complete');
     };
 
+    // Calculate detailed stats for the report
+    const calculateOverallEfficiency = () => {
+        if (totalMCQs === 0) return 0;
+        const mcqAccuracy = (totalCorrectMCQs / totalMCQs) * 100;
+        // Efficiency could be a mix of coverage and accuracy
+        return Math.round(mcqAccuracy);
+    };
+
+    const efficiencyScore = calculateOverallEfficiency();
+
     // Session complete view
     if (sessionState === 'complete') {
         const avgMCQScore = cycleHistory.length > 0
-            ? Math.round((totalCorrectMCQs / cycleHistory.reduce((sum, c) => sum + c.mcqResults.total, 0)) * 100)
+            ? Math.round((totalCorrectMCQs / totalMCQs) * 100)
             : 0;
 
         return (
             <div className="max-w-4xl mx-auto p-6">
-                <div className="text-center py-12">
-                    <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                        <Trophy className="h-12 w-12 text-green-500" />
+                <div className="text-center py-8">
+                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                        <Trophy className="h-10 w-10 text-green-500" />
                     </div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                        All Cycles Complete! 🎉
+                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                        6-Hour Session Complete! 🎉
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mb-8">
-                        You completed all {TOTAL_CYCLES} study cycles for today.
+                    <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto">
+                        Excellent work! You've completed all {TOTAL_CYCLES} cycles. Here is your daily performance report clearly showing your efficiency and improvement.
                     </p>
 
-                    <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-8">
-                        <Card className="bg-orange-50 dark:bg-orange-900/20 border-orange-200">
-                            <CardContent className="p-4 text-center">
-                                <div className="text-3xl font-bold text-orange-600">{TOTAL_CYCLES}</div>
-                                <div className="text-sm text-orange-700">Cycles</div>
-                            </CardContent>
-                        </Card>
-                        <Card className="bg-green-50 dark:bg-green-900/20 border-green-200">
-                            <CardContent className="p-4 text-center">
-                                <div className="text-3xl font-bold text-green-600">{totalSubtopicsCompleted}</div>
-                                <div className="text-sm text-green-700">Subtopics</div>
-                            </CardContent>
-                        </Card>
-                        <Card className="bg-purple-50 dark:bg-purple-900/20 border-purple-200">
-                            <CardContent className="p-4 text-center">
-                                <div className="text-3xl font-bold text-purple-600">{avgMCQScore}%</div>
-                                <div className="text-sm text-purple-700">MCQ Score</div>
-                            </CardContent>
-                        </Card>
+                    {/* Overall Score Card */}
+                    <Card className="mb-8 overflow-hidden border-indigo-200 bg-indigo-50 dark:bg-indigo-900/20 dark:border-indigo-800">
+                        <CardContent className="p-6">
+                            <div className="flex flex-col md:flex-row items-center justify-around gap-6">
+                                <div className="text-center">
+                                    <div className="text-sm font-medium text-indigo-800 dark:text-indigo-300 mb-1 uppercase tracking-wide">Overall Efficiency</div>
+                                    <div className="text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">{efficiencyScore}%</div>
+                                </div>
+                                <div className="h-16 w-px bg-indigo-200 dark:bg-indigo-800 hidden md:block"></div>
+                                <div className="text-center">
+                                    <div className="text-sm font-medium text-indigo-800 dark:text-indigo-300 mb-1 uppercase tracking-wide">Subtopics Cleaned</div>
+                                    <div className="text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">{totalSubtopicsCompleted}</div>
+                                </div>
+                                <div className="h-16 w-px bg-indigo-200 dark:bg-indigo-800 hidden md:block"></div>
+                                <div className="text-center">
+                                    <div className="text-sm font-medium text-indigo-800 dark:text-indigo-300 mb-1 uppercase tracking-wide">MCQ Accuracy</div>
+                                    <div className="text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">{avgMCQScore}%</div>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* Cycle Breakdown */}
+                    <div className="text-left mb-8">
+                        <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+                            <Repeat className="h-5 w-5" /> Cycle Performance
+                        </h3>
+                        <div className="grid grid-cols-1 gap-4">
+                            {cycleHistory.map((cycle, idx) => (
+                                <Card key={idx} className="bg-white dark:bg-gray-800 border-gray-200">
+                                    <CardContent className="p-4 flex items-center justify-between">
+                                        <div>
+                                            <div className="font-bold text-gray-700 dark:text-gray-300">Cycle {cycle.cycleNumber}</div>
+                                            <div className="text-sm text-gray-500">{cycle.selectedSubtopics.length} subtopics covered</div>
+                                        </div>
+                                        <div className="text-right">
+                                            <div className="font-bold text-gray-800 dark:text-gray-200">
+                                                {Math.round((cycle.mcqResults.correct / cycle.mcqResults.total) * 100)}%
+                                            </div>
+                                            <div className="text-xs text-gray-500">Accuracy</div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="flex gap-4 justify-center">
                         <Link href={`/student/batch1-1/${weekId}/${dayId}/evening`}>
-                            <Button className="bg-indigo-600 hover:bg-indigo-700">
+                            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8">
                                 Go to Evening Session
-                            </Button>
-                        </Link>
-                        <Link href="/student/batch1-1">
-                            <Button variant="outline">
-                                Back to Batch 1.1
                             </Button>
                         </Link>
                     </div>
@@ -309,17 +338,20 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                     <span>{currentCycle}/{TOTAL_CYCLES} cycles</span>
                 </div>
                 <div className="flex gap-2">
-                    {[1, 2, 3, 4].map(cycle => (
-                        <div
-                            key={cycle}
-                            className={`flex-1 h-2 rounded-full ${cycle < currentCycle
-                                ? 'bg-green-500'
-                                : cycle === currentCycle
-                                    ? 'bg-orange-500 animate-pulse'
-                                    : 'bg-gray-200 dark:bg-gray-700'
-                                }`}
-                        />
-                    ))}
+                    {Array.from({ length: TOTAL_CYCLES }).map((_, i) => {
+                        const cycle = i + 1;
+                        return (
+                            <div
+                                key={cycle}
+                                className={`flex-1 h-2 rounded-full ${cycle < currentCycle
+                                    ? 'bg-green-500'
+                                    : cycle === currentCycle
+                                        ? 'bg-orange-500 animate-pulse'
+                                        : 'bg-gray-200 dark:bg-gray-700'
+                                    }`}
+                            />
+                        );
+                    })}
                 </div>
             </div>
 
@@ -430,7 +462,8 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                                 Cycle History
                             </h4>
                             <div className="space-y-3">
-                                {[1, 2, 3, 4].map(cycle => {
+                                {Array.from({ length: TOTAL_CYCLES }).map((_, i) => {
+                                    const cycle = i + 1;
                                     const cycleData = cycleHistory.find(c => c.cycleNumber === cycle);
                                     const isActive = cycle === currentCycle;
                                     const isComplete = cycleData !== undefined;
@@ -447,7 +480,7 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                                         >
                                             <div className="flex items-center justify-between mb-1">
                                                 <span className={`font-bold text-sm ${isComplete ? 'text-green-600' : isActive ? 'text-orange-600' : 'text-gray-400'}`}>
-                                                    {cycle === 4 ? '🎯 Consolidation' : `Cycle ${cycle}`}
+                                                    {cycle === 3 ? '🎯 Consolidation' : `Cycle ${cycle}`}
                                                 </span>
                                                 {isComplete && <CheckCircle2 className="h-4 w-4 text-green-500" />}
                                             </div>

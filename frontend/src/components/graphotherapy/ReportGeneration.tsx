@@ -17,38 +17,44 @@ export default function ReportGeneration() {
     // State for Real Analysis
     const [analysis, setAnalysis] = useState<any>(null);
     const [error, setError] = useState("");
+    const [needsUpload, setNeedsUpload] = useState(false);
 
-    // Real API Call
+    const performAnalysis = async (fileToUse?: File) => {
+        setNeedsUpload(false);
+        setError("");
+
+        try {
+            // @ts-ignore
+            const file = fileToUse || window.uploadedGraphologyFile;
+
+            if (!file) {
+                console.log("No file found, requesting manual upload");
+                setNeedsUpload(true);
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('files', file);
+
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/funnel/analyze`, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!res.ok) throw new Error("Analysis failed");
+
+            const data = await res.json();
+            setAnalysis(data);
+
+        } catch (err) {
+            console.error(err);
+            setError("Analysis failed. Please try again.");
+        }
+    };
+
+    // Initial Auto-Trigger
     useEffect(() => {
         if (stage === 'generating') {
-            const performAnalysis = async () => {
-                try {
-                    // @ts-ignore
-                    const file = window.uploadedGraphologyFile;
-                    if (!file) {
-                        console.log("No file found in window.tmp, using mock mode");
-                        return;
-                    }
-
-                    const formData = new FormData();
-                    formData.append('files', file);
-
-                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/funnel/analyze`, {
-                        method: 'POST',
-                        body: formData
-                    });
-
-                    if (!res.ok) throw new Error("Analysis failed");
-
-                    const data = await res.json();
-                    setAnalysis(data);
-
-                } catch (err) {
-                    console.error(err);
-                    setError("Analysis failed. Please try again.");
-                }
-            };
-
             // Start Progress Animation parallel to API
             const interval = setInterval(() => {
                 setProgress(prev => {
@@ -90,6 +96,45 @@ export default function ReportGeneration() {
     };
 
     if (stage === 'generating' || stage === 'ready') {
+        if (needsUpload) {
+            return (
+                <div className="max-w-xl mx-auto space-y-8 animate-in fade-in duration-500 text-center pt-10">
+                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <Lock className="w-10 h-10 text-red-500" />
+                    </div>
+
+                    <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">
+                        Session Expired
+                    </h1>
+                    <p className="text-gray-500">
+                        Your uploaded handwriting sample was cleared for security. Please re-upload to continue the analysis.
+                    </p>
+
+                    <Card className="border-2 border-dashed border-gray-300 hover:border-purple-500 transition-colors p-8 cursor-pointer relative overflow-hidden">
+                        <input
+                            type="file"
+                            className="absolute inset-0 opacity-0 cursor-pointer"
+                            onChange={(e) => {
+                                if (e.target.files && e.target.files[0]) {
+                                    performAnalysis(e.target.files[0]);
+                                }
+                            }}
+                        />
+                        <div className="flex flex-col items-center gap-4">
+                            <div className="p-4 bg-purple-50 rounded-full text-purple-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" /></svg>
+                            </div>
+                            <span className="font-semibold text-purple-700">Click to Re-Upload Image</span>
+                        </div>
+                    </Card>
+
+                    <Button variant="outline" onClick={() => router.push('/graphotherapy/funnel')}>
+                        Start Over
+                    </Button>
+                </div>
+            );
+        }
+
         return (
             <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-500 text-center">
                 <div className="space-y-4">
@@ -160,59 +205,78 @@ export default function ReportGeneration() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Main Report Content */}
                 <div className="lg:col-span-2 space-y-6">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Core Personality Matrix</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <div className="space-y-2">
-                                <div className="flex justify-between font-semibold">
-                                    <span>Emotional Stability</span>
-                                    <span className={stability === "High" ? "text-green-600" : "text-yellow-600"}>
-                                        {stability} ({stabilityScore}/100)
-                                    </span>
-                                </div>
-                                <Progress value={stabilityScore} className="h-2 bg-gray-100" />
-                                <p className="text-sm text-gray-600">
-                                    {stabilityObs}
-                                </p>
-                            </div>
+                    {/* 1. THE HOOK */}
+                    <Card className="bg-gradient-to-r from-purple-50 to-white border-purple-100">
+                        <CardContent className="p-6">
+                            <h3 className="text-lg font-serif italic text-purple-900 leading-relaxed">
+                                "{analysis?.hook || "Your handwriting is a whisper from your subconscious..."}"
+                            </h3>
+                        </CardContent>
+                    </Card>
 
-                            {/* Dynamic Key Traits */}
-                            {analysis?.key_traits?.map((trait: any, idx: number) => (
-                                <div key={idx} className="p-3 bg-gray-50 rounded border text-sm">
-                                    <div className="font-bold flex justify-between">
-                                        {trait.trait}
-                                        <span className={trait.impact === "Positive" ? "text-green-600" : "text-red-500"}>{trait.impact}</span>
+                    {/* 2. THE 3 INSIGHTS */}
+                    <div className="space-y-4">
+                        <h2 className="text-xl font-bold flex items-center gap-2">
+                            <span className="bg-purple-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">3</span>
+                            Key Personality Insights
+                        </h2>
+                        {analysis?.insights?.map((insight: any, idx: number) => (
+                            <Card key={idx} className="overflow-hidden">
+                                <CardHeader className="pb-2 bg-gray-50/50">
+                                    <CardTitle className="text-lg flex items-center gap-2">
+                                        {idx === 0 && <span className="text-blue-500">🧠</span>}
+                                        {idx === 1 && <span className="text-red-500">❤️</span>}
+                                        {idx === 2 && <span className="text-amber-500">⚡</span>}
+                                        {insight.title}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="pt-4 space-y-4">
+                                    <p className="text-gray-700 leading-relaxed">
+                                        {insight.analysis}
+                                    </p>
+
+                                    {/* Shadow Hint */}
+                                    <div className="bg-gray-900 text-gray-300 p-4 rounded-lg text-sm italic border-l-4 border-purple-500">
+                                        <span className="text-purple-400 font-bold not-italic">Shadow Hint: </span>
+                                        "{insight.shadow_hint}"
                                     </div>
-                                    <div className="text-gray-600">{trait.description}</div>
-                                </div>
-                            ))}
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
 
-                            <div className="p-4 bg-purple-50 rounded-lg border border-purple-100 text-sm text-purple-900 mt-4">
-                                <strong>AI Summary:</strong> {insight}
+                    {/* 3. THE BLIND SPOT */}
+                    <Card className="border-2 border-gray-900 bg-gray-900 text-white overflow-hidden relative">
+                        <div className="absolute top-0 right-0 p-4 opacity-10">
+                            <Lock className="w-32 h-32" />
+                        </div>
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2 text-white">
+                                <Lock className="w-5 h-5 text-purple-400" />
+                                {analysis?.blind_spot?.title || "The Blind Spot"}
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="relative z-10">
+                            <p className="text-gray-300 mb-4">
+                                {analysis?.blind_spot?.description}
+                            </p>
+                            <div className="bg-white/10 backdrop-blur-md p-3 rounded text-center text-sm text-purple-200 border border-white/10">
+                                🔒 This trait is often the key to unlocking your full potential.
                             </div>
                         </CardContent>
                     </Card>
 
-                    <Card className="border-red-200 bg-red-50/30">
+                    {/* 4. THE VERDICT */}
+                    <Card className="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
                         <CardHeader>
-                            <CardTitle className="text-red-700 flex items-center">
-                                <Lock className="w-5 h-5 mr-2" /> Sections Requiring Correction
+                            <CardTitle className="text-green-800">
+                                {analysis?.verdict?.title || "The Verdict"}
                             </CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-3">
-                            {concerns.length > 0 ? concerns.map((concern: any, i: number) => (
-                                <div key={i} className="flex gap-3 items-start">
-                                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 shrink-0" />
-                                    <div>
-                                        <strong className="text-gray-900">{concern.stroke} ({concern.meaning})</strong>
-                                        <p className="text-gray-600 text-sm">{concern.fix}</p>
-                                    </div>
-                                </div>
-                            )) : (
-                                <p>No major negative strokes found! Great job.</p>
-                            )}
+                        <CardContent>
+                            <p className="text-green-900 font-medium text-lg">
+                                {analysis?.verdict?.description}
+                            </p>
                         </CardContent>
                     </Card>
                 </div>

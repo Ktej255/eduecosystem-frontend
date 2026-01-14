@@ -1,7 +1,5 @@
-"use client";
-
-import React, { useState, useMemo } from 'react';
-import { CheckCircle2, XCircle, Target, ChevronRight } from 'lucide-react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
+import { CheckCircle2, XCircle, Target, ChevronRight, Timer } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
@@ -58,9 +56,58 @@ export default function CycleMCQs({
     const [showResult, setShowResult] = useState(false);
     const [results, setResults] = useState<{ questionId: string; isCorrect: boolean }[]>([]);
 
+    // Timer state
+    const [timeLeft, setTimeLeft] = useState(60);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
+
     const currentMCQ = mcqs[currentIndex];
     const progress = ((currentIndex + 1) / mcqs.length) * 100;
     const isLastQuestion = currentIndex === mcqs.length - 1;
+
+    // Timer logic
+    useEffect(() => {
+        if (showResult) return; // Stop timer if result is shown
+
+        setTimeLeft(60);
+
+        if (timerRef.current) clearInterval(timerRef.current);
+
+        timerRef.current = setInterval(() => {
+            setTimeLeft((prev) => {
+                if (prev <= 1) {
+                    if (timerRef.current) clearInterval(timerRef.current);
+                    // Time up - auto submit
+                    // We need to trigger submit, but we can't easily call the handler from here due to closure.
+                    // Instead rely on the effect watching timeLeft
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+
+        return () => {
+            if (timerRef.current) clearInterval(timerRef.current);
+        };
+    }, [currentIndex, showResult]);
+
+    // Watch for timeout
+    useEffect(() => {
+        if (timeLeft === 0 && !showResult) {
+            handleAutoSubmit();
+        }
+    }, [timeLeft, showResult]);
+
+    const handleAutoSubmit = () => {
+        if (showResult) return;
+
+        // If time runs out, mark as incorrect (or calculate score based on selected if any? usually timeout = wrong/unanswered)
+        // Let's assume if they selected something but didn't click submit, we take that answer.
+        // If nothing selected, it is wrong.
+
+        const isCorrect = selectedAnswer === currentMCQ.correctIndex;
+        setResults(prev => [...prev, { questionId: currentMCQ.id, isCorrect: selectedAnswer !== null ? isCorrect : false }]);
+        setShowResult(true);
+    };
 
     const handleAnswerSelect = (optionIndex: number) => {
         if (showResult) return; // Already answered
@@ -77,8 +124,17 @@ export default function CycleMCQs({
 
     const handleNext = () => {
         if (isLastQuestion) {
-            const correct = results.filter(r => r.isCorrect).length + (selectedAnswer === currentMCQ.correctIndex ? 1 : 0);
-            onComplete({ correct, total: mcqs.length });
+            const correct = results.filter(r => r.isCorrect).length + (showResult && selectedAnswer === currentMCQ.correctIndex && !results.find(r => r.questionId === currentMCQ.id) ? 1 : 0);
+            // Note: results state might not be immediately updated if we just called setResults in handleSubmitAnswer?
+            // Actually setResults is async. But here flow is: Submit -> Show Result -> User clicks Next.
+            // So results SHOULD be updated by the time User clicks Next.
+
+            // Wait, results array contains PREVIOUS questions. The current question result is added when Submit is clicked.
+            // So results.length should be equal to (currentIndex + 1) when Next is clicked?
+            // Yes.
+
+            const totalCorrect = results.filter(r => r.isCorrect).length;
+            onComplete({ correct: totalCorrect, total: mcqs.length });
         } else {
             setCurrentIndex(prev => prev + 1);
             setSelectedAnswer(null);
@@ -109,13 +165,19 @@ export default function CycleMCQs({
                                 Cycle {cycleNumber} MCQs
                             </span>
                         </div>
-                        <div className="flex items-center gap-3">
-                            <span className="text-sm text-green-600 dark:text-green-400 font-medium">
-                                {correctCount}/{results.length} correct
-                            </span>
-                            <span className="text-sm text-purple-600 dark:text-purple-400">
-                                Q{currentIndex + 1} / {mcqs.length}
-                            </span>
+                        <div className="flex items-center gap-4">
+                            <div className={`flex items-center gap-1.5 font-mono font-bold px-3 py-1 rounded-full ${timeLeft < 10 ? 'bg-red-100 text-red-600' : 'bg-purple-100 text-purple-600'}`}>
+                                <Timer className="h-4 w-4" />
+                                <span>{timeLeft}s</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <span className="text-sm text-green-600 dark:text-green-400 font-medium">
+                                    {correctCount}/{results.length} correct
+                                </span>
+                                <span className="text-sm text-purple-600 dark:text-purple-400">
+                                    Q{currentIndex + 1} / {mcqs.length}
+                                </span>
+                            </div>
                         </div>
                     </div>
 

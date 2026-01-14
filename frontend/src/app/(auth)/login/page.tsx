@@ -8,6 +8,7 @@ import { useAuth } from "@/contexts/auth-context";
 import { TwoFactorVerification } from "@/components/auth/TwoFactorVerification";
 import { twoFactorService } from "@/services/twoFactorService";
 import { Eye, EyeOff } from "lucide-react";
+import api from "@/lib/api";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -50,8 +51,18 @@ export default function LoginPage() {
       // Update with full access token
       localStorage.setItem("token", response.access_token);
 
-      // Redirect to student portal (Master ID can access both portals)
-      window.location.href = "/student/dashboard";
+      // Check User Role for Redirection
+      try {
+        const userRes = await api.get("/users/me");
+        if (userRes.data?.is_graphotherapy_exclusive) {
+          window.location.href = "/graphotherapy-dashboard";
+        } else {
+          window.location.href = "/student/dashboard";
+        }
+      } catch (e) {
+        // Fallback
+        window.location.href = "/student/dashboard";
+      }
     } catch (err: any) {
       // Error will be handled by TwoFactorVerification component
       throw err;

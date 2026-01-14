@@ -1,7 +1,5 @@
-"use client";
-
-import React, { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight, CheckCircle2, BookOpen, Sparkles } from 'lucide-react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight, CheckCircle2, BookOpen, Sparkles, Timer } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
@@ -58,9 +56,54 @@ export default function CycleFlashcards({
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [viewedCards, setViewedCards] = useState<Set<string>>(new Set());
+    const [timeLeft, setTimeLeft] = useState(15);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
 
     const currentCard = flashcards[currentIndex];
     const progress = ((currentIndex + 1) / flashcards.length) * 100;
+
+    // Timer logic
+    useEffect(() => {
+        // Reset timer when card changes
+        setTimeLeft(15);
+
+        if (timerRef.current) clearInterval(timerRef.current);
+
+        timerRef.current = setInterval(() => {
+            setTimeLeft((prev) => {
+                if (prev <= 1) {
+                    // Time up! Auto advance
+                    if (timerRef.current) clearInterval(timerRef.current);
+                    handleAutoNext();
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+
+        return () => {
+            if (timerRef.current) clearInterval(timerRef.current);
+        };
+    }, [currentIndex]); // Re-run when currentIndex changes
+
+    const handleAutoNext = () => {
+        // If not flipped, maybe flip for a split second? 
+        // For now, simplify to just moving to next card or completing
+        // We need to use functional state update effectively here or manage a ref for 'currentIndex'
+        // But since this is called from within the interval closure (old closure), be careful.
+        // Actually, the effect re-runs on currentIndex change, so 'handleAutoNext' closure should be fresh IF defined inside or text.
+
+        // Wait, I can't easily call handleNext() from inside the setTimeLeft callback if it relies on current state (though here I used a separate function call from the effect).
+        // Better to just have a separate effect watching 'timeLeft'.
+    };
+
+    // Watch for timer hitting 0
+    useEffect(() => {
+        if (timeLeft === 0) {
+            handleNext();
+        }
+    }, [timeLeft]);
+
 
     const handleFlip = () => {
         setIsFlipped(!isFlipped);
@@ -107,9 +150,15 @@ export default function CycleFlashcards({
                                 Cycle {cycleNumber} Flashcards
                             </span>
                         </div>
-                        <span className="text-sm text-amber-600 dark:text-amber-400">
-                            {currentIndex + 1} / {flashcards.length}
-                        </span>
+                        <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-1.5 text-orange-600 dark:text-orange-400 font-mono font-bold bg-orange-100 dark:bg-orange-900/40 px-3 py-1 rounded-full">
+                                <Timer className="h-4 w-4" />
+                                <span>{timeLeft}s</span>
+                            </div>
+                            <span className="text-sm text-amber-600 dark:text-amber-400">
+                                {currentIndex + 1} / {flashcards.length}
+                            </span>
+                        </div>
                     </div>
 
                     {/* Progress Bar */}

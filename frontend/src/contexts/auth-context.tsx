@@ -69,6 +69,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const response = await api.get("/users/me");
       setUser(response.data);
+      return response.data;
     } catch (error) {
       console.error("Failed to fetch user:", error);
       localStorage.removeItem("token");
@@ -117,8 +118,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setToken(access_token);
 
     // Fetch user data
-    await fetchCurrentUser();
-    router.push("/student/dashboard");
+    const userData = await fetchCurrentUser();
+
+    if (userData?.is_graphotherapy_exclusive) {
+      router.push("/graphotherapy-dashboard");
+    } else {
+      router.push("/student/dashboard");
+    }
   };
 
   const register = async (
