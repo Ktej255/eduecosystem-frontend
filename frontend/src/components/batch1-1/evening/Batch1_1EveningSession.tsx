@@ -15,6 +15,15 @@ import {
     Target
 } from 'lucide-react';
 import Link from 'next/link';
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
+import { Progress } from "@/components/ui/progress";
 import { CHAPTER_SUBTOPICS, SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
 import { generateWeeklySchedule } from '@/components/batch1/polity/data/polity-schedule-data';
 import CycleFlashcards from '../pomodoro/CycleFlashcards';
@@ -44,11 +53,19 @@ interface EveningSessionViewProps {
 function getMorningProgress(weekId: number, dayId: number): MorningProgress | null {
     if (typeof window === 'undefined') return null;
 
-    const savedKey = `batch11_cycle_${weekId}_${dayId}`;
+    // UPDATED KEY: match PomodoroSessionView
+    const savedKey = `batch11_pomodoro_${weekId}_${dayId}`;
     const saved = localStorage.getItem(savedKey);
 
     if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // Map sessionHistory to cycleHistory for compatibility definition
+        // PomodoroSessionView saves: { currentSessionGlobal, sessionHistory, lastUpdated }
+        return {
+            currentCycle: parsed.currentSessionGlobal || 0,
+            cycleHistory: parsed.sessionHistory || [],
+            lastUpdated: parsed.lastUpdated
+        };
     }
     return null;
 }
@@ -87,16 +104,38 @@ function generateEveningContent(morningProgress: MorningProgress | null) {
 export default function Batch1_1EveningSession({ weekId, dayId }: EveningSessionViewProps) {
     const [morningProgress, setMorningProgress] = useState<MorningProgress | null>(null);
     const [activeSection, setActiveSection] = useState<'menu' | 'flashcards' | 'mcqs' | 'csat'>('menu');
+    const [showMorningReport, setShowMorningReport] = useState(false);
 
     useEffect(() => {
         const progress = getMorningProgress(weekId, dayId);
         setMorningProgress(progress);
+
+        // Show report if there is any progress
+        if (progress && progress.cycleHistory.length > 0) {
+            setShowMorningReport(true);
+        }
     }, [weekId, dayId]);
 
     const eveningContent = useMemo(() => generateEveningContent(morningProgress), [morningProgress]);
 
     // UNBLOCK: Always allow evening session
     const hasMorningProgress = true; // Was: isDay1Bypass || (morningProgress && morningProgress.cycleHistory.length > 0);
+
+    // Calculate Morning Stats
+    const morningStats = useMemo(() => {
+        if (!morningProgress || !morningProgress.cycleHistory.length) return null;
+
+        const totalSessions = morningProgress.cycleHistory.length;
+        const totalSubtopics = morningProgress.cycleHistory.reduce((sum: number, c: CycleData) => sum + c.selectedSubtopics.length, 0);
+        const totalCorrect = morningProgress.cycleHistory.reduce((sum: number, c: CycleData) => sum + c.mcqResults.correct, 0);
+        const totalQuestions = morningProgress.cycleHistory.reduce((sum: number, c: CycleData) => sum + c.mcqResults.total, 0);
+        const accuracy = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+
+        // Efficiency metric
+        const efficiency = accuracy; // Simplified for now
+
+        return { totalSessions, totalSubtopics, accuracy, efficiency };
+    }, [morningProgress]);
 
     // Content Generation Logic - Use content-registry for complete day content
     const sessionContent = useMemo(() => {
@@ -193,6 +232,65 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
     return (
         <div className="max-w-4xl mx-auto p-6 space-y-6">
+            {/* Morning Report Dialog */}
+            <Dialog open={showMorningReport} onOpenChange={setShowMorningReport}>
+                <DialogContent className="max-w-lg">
+                    <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2 text-xl">
+                            <Brain className="h-6 w-6 text-indigo-600" />
+                            Morning Performance Report
+                        </DialogTitle>
+                        <DialogDescription>
+                            Here is a summary of your study session from this morning.
+                        </DialogDescription>
+                    </DialogHeader>
+
+                    {morningStats && (
+                        <div className="space-y-6 py-4">
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-xl text-center">
+                                    <div className="text-3xl font-bold text-indigo-700 dark:text-indigo-300">{morningStats.efficiency}%</div>
+                                    <div className="text-xs uppercase font-semibold text-indigo-600 dark:text-indigo-400 mt-1">Efficiency</div>
+                                </div>
+                                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl text-center">
+                                    <div className="text-3xl font-bold text-green-700 dark:text-green-300">{morningStats.accuracy}%</div>
+                                    <div className="text-xs uppercase font-semibold text-green-600 dark:text-green-400 mt-1">Accuracy</div>
+                                </div>
+                            </div>
+
+                            <div className="space-y-2">
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-500">Topics Mastered</span>
+                                    <span className="font-medium text-gray-900 dark:text-gray-100">{morningStats.totalSubtopics} Subtopics</span>
+                                </div>
+                                <Progress value={(morningStats.totalSubtopics / 20) * 100} className="h-2" />
+                            </div>
+
+                            <div className="space-y-2">
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-500">Sessions Completed</span>
+                                    <span className="font-medium text-gray-900 dark:text-gray-100">{morningStats.totalSessions}/12 Sessions</span>
+                                </div>
+                                <Progress value={(morningStats.totalSessions / 12) * 100} className="h-2" />
+                            </div>
+
+                            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-sm text-gray-600 dark:text-gray-300">
+                                <p>
+                                    Your evening content has been customized based on your morning performance.
+                                    Recommended focus: <strong>Recall & Elaboration</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="flex justify-end">
+                        <Button onClick={() => setShowMorningReport(false)} className="w-full sm:w-auto">
+                            Let's Begin Evening Session
+                        </Button>
+                    </div>
+                </DialogContent>
+            </Dialog>
+
             {/* Header */}
             <div className="text-center space-y-2">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
@@ -208,32 +306,37 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
             {/* Morning Progress Summary */}
             {hasMorningProgress ? (
-                <Card className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-green-200">
-                    <CardContent className="p-4">
-                        <div className="flex items-center gap-3 mb-3">
-                            <CheckCircle2 className="h-5 w-5 text-green-600" />
-                            <span className="font-bold text-green-700 dark:text-green-300">
-                                {morningProgress ? "Morning Session Complete" : "Ready for Revision"}
-                            </span>
+                <Card className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-green-200" onClick={() => setShowMorningReport(true)}>
+                    <CardContent className="p-4 cursor-pointer hover:bg-green-100/50 transition-colors">
+                        <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-green-600" />
+                                <span className="font-bold text-green-700 dark:text-green-300">
+                                    {morningProgress ? "Morning Session Complete" : "Ready for Revision"}
+                                </span>
+                            </div>
+                            <Button variant="ghost" size="sm" className="text-green-700 hover:text-green-800 hover:bg-green-100 p-0 h-auto font-normal">
+                                View Report
+                            </Button>
                         </div>
                         <div className="grid grid-cols-3 gap-4">
                             <div className="text-center">
                                 <div className="text-2xl font-bold text-green-600">
                                     {morningProgress?.cycleHistory?.length || 0}
                                 </div>
-                                <div className="text-xs text-green-700">Cycles Done</div>
+                                <div className="text-xs text-green-700">Sessions</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-2xl font-bold text-green-600">
-                                    {sessionContent?.subtopics.length || 0}
+                                    {morningStats?.totalSubtopics || 0}
                                 </div>
                                 <div className="text-xs text-green-700">Subtopics</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-2xl font-bold text-green-600">
-                                    {sessionContent?.flashcards.length || 0}
+                                    {morningStats?.accuracy || 0}%
                                 </div>
-                                <div className="text-xs text-green-700">Flashcards Ready</div>
+                                <div className="text-xs text-green-700">Accuracy</div>
                             </div>
                         </div>
                     </CardContent>

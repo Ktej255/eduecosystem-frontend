@@ -111,15 +111,29 @@ function syncProgressToStore(
 
 export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionViewProps) {
     const router = useRouter();
+
+
+    // --- Constants for 6-Hour Schedule ---
+    const TOTAL_BLOCKS = 3;         // 3 Blocks of 2 hours each
+    const SESSIONS_PER_BLOCK = 4;   // 4 Sessions per block (25m each)
+    const TOTAL_SESSIONS = TOTAL_BLOCKS * SESSIONS_PER_BLOCK; // 12 Sessions total
+    const POMODORO_DURATION = 1500; // 25 minutes
+    const SHORT_BREAK = 300;        // 5 minutes
+    const LONG_BREAK = 900;         // 15 minutes (End of Block)
+
+    // --- State ---
+    const [currentSessionGlobal, setCurrentSessionGlobal] = useState(1); // 1 to 12
     const [sessionState, setSessionState] = useState<SessionState>('ready');
-    const [currentCycle, setCurrentCycle] = useState(1);
-    const [cycleHistory, setCycleHistory] = useState<CycleData[]>([]);
+    const [timeLeft, setTimeLeft] = useState(POMODORO_DURATION);
+    const [subtopics, setSubtopics] = useState<SubTopic[]>([]);
     const [currentSubtopics, setCurrentSubtopics] = useState<SubTopic[]>([]);
 
-    const TOTAL_CYCLES = 3; // 3 cycles per session (6 hours total)
-    const POMODORO_DURATION = 1500; // 25 minutes
-    const SHORT_BREAK = 300; // 5 minutes
-    const LONG_BREAK = 900; // 15 minutes (after Cycle 3)
+    // Detailed history: Store data for each of the 12 sessions
+    const [sessionHistory, setSessionHistory] = useState<CycleData[]>([]);
+
+    // Derived State
+    const currentBlock = Math.ceil(currentSessionGlobal / SESSIONS_PER_BLOCK);
+    const currentSessionInBlock = ((currentSessionGlobal - 1) % SESSIONS_PER_BLOCK) + 1;
 
     // Get today's chapters
     const todayChapters = useMemo(() => getChaptersForDay(weekId, dayId), [weekId, dayId]);
@@ -132,45 +146,54 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
         });
     }, [todayChapters]);
 
-    // Load saved progress
+    // --- Persistence ---
     useEffect(() => {
-        const savedKey = `batch11_cycle_${weekId}_${dayId}`;
-        const saved = localStorage.getItem(savedKey);
+        const saved = localStorage.getItem(`batch11_pomodoro_${weekId}_${dayId}`);
         if (saved) {
             const data = JSON.parse(saved);
-            setCurrentCycle(data.currentCycle || 1);
-            setCycleHistory(data.cycleHistory || []);
+            setCurrentSessionGlobal(data.currentSessionGlobal || 1);
+            setSessionHistory(data.sessionHistory || []);
+            // Resume logic could be added here to set state based on last update
         }
     }, [weekId, dayId]);
 
-    // Save progress
+    // Save on updates
     useEffect(() => {
-        const savedKey = `batch11_cycle_${weekId}_${dayId}`;
-        localStorage.setItem(savedKey, JSON.stringify({
-            currentCycle,
-            cycleHistory,
+        localStorage.setItem(`batch11_pomodoro_${weekId}_${dayId}`, JSON.stringify({
+            currentSessionGlobal,
+            sessionHistory,
             lastUpdated: new Date().toISOString()
         }));
-    }, [currentCycle, cycleHistory, weekId, dayId]);
+    }, [currentSessionGlobal, sessionHistory, weekId, dayId]);
 
     // Calculate total progress
-    const totalSubtopicsCompleted = cycleHistory.reduce((sum, c) => sum + c.selectedSubtopics.length, 0);
-    const totalCorrectMCQs = cycleHistory.reduce((sum, c) => sum + c.mcqResults.correct, 0);
-    const totalMCQs = cycleHistory.reduce((sum, c) => sum + c.mcqResults.total, 0);
-    const isConsolidationCycle = currentCycle === TOTAL_CYCLES;
+    const totalSubtopicsCompleted = sessionHistory.reduce((sum, c) => sum + c.selectedSubtopics.length, 0);
+    const totalCorrectMCQs = sessionHistory.reduce((sum, c) => sum + c.mcqResults.correct, 0);
+    const totalMCQs = sessionHistory.reduce((sum, c) => sum + c.mcqResults.total, 0);
 
-    // All previously completed subtopics for consolidation
+    // All previously completed subtopics (for filtering if needed)
     const allCompletedSubtopics = useMemo(() => {
-        return cycleHistory.flatMap(c => c.selectedSubtopics);
-    }, [cycleHistory]);
+        return sessionHistory.flatMap(c => c.selectedSubtopics);
+    }, [sessionHistory]);
 
     // Handlers
-    const handleStartPomodoro = () => {
+    // Handlers
+    const startSession = () => {
         setSessionState('pomodoro');
+        setTimeLeft(POMODORO_DURATION);
     };
 
-    const handlePomodoroComplete = () => {
-        setSessionState('subtopic_select');
+    const handleTimerComplete = () => {
+        // playNotificationSound(); // Assuming global or imported function if available, else comment out or leave if it was there
+
+        if (sessionState === 'pomodoro') {
+            // Always go to subtopic selection after study
+            setSessionState('subtopic_select');
+        } else if (sessionState === 'break' || sessionState === 'long_break') {
+            // Break over -> Ready for next session
+            setSessionState('ready');
+            setTimeLeft(POMODORO_DURATION);
+        }
     };
 
     const handleSubtopicSubmit = (selected: SubTopic[]) => {
@@ -179,44 +202,72 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
     };
 
     const handleFlashcardsComplete = (viewedCount: number) => {
-        // Store flashcard count for cycle data
         setSessionState('mcqs');
     };
 
     const handleMCQsComplete = (results: { correct: number; total: number }) => {
-        // Complete this cycle
-        const newCycleData: CycleData = {
-            cycleNumber: currentCycle,
+        // 1. Record Data for this Session
+        const newSessionData: CycleData = {
+            cycleNumber: currentSessionGlobal,
             selectedSubtopics: currentSubtopics,
-            flashcardsViewed: currentSubtopics.length * 2, // Approximate
-            mcqResults: results
+            flashcardsViewed: currentSubtopics.length * 2, // Approx
+            mcqResults: results,
+            // timestamp: new Date().toISOString() // Optional if CycleData supports it
         };
 
-        setCycleHistory(prev => [...prev, newCycleData]);
+        const updated = [...sessionHistory, newSessionData];
+        setSessionHistory(updated);
 
         // Sync to unified progress store
-        syncProgressToStore(weekId, dayId, currentSubtopics, results, currentCycle);
+        syncProgressToStore(weekId, dayId, currentSubtopics, results, currentSessionGlobal);
 
-        // Determine next state
-        if (currentCycle >= TOTAL_CYCLES) {
-            setSessionState('long_break'); // Or directly complete? User said "after completion of all the three cycles"
+        // 2. Determine Next Step
+        if (currentSessionGlobal >= TOTAL_SESSIONS) {
+            setSessionState('complete');
         } else {
-            setSessionState('break');
+            // Check if end of block
+            const isBlockEnd = currentSessionGlobal % SESSIONS_PER_BLOCK === 0;
+
+            if (isBlockEnd) {
+                setSessionState('long_break');
+                setTimeLeft(LONG_BREAK);
+            } else {
+                setSessionState('break');
+                setTimeLeft(SHORT_BREAK);
+            }
+
+            // Output log for debug
+            console.log(`Completed Session ${currentSessionGlobal}. Next limit: ${TOTAL_SESSIONS}`);
         }
     };
 
     const handleBreakComplete = () => {
-        if (currentCycle >= TOTAL_CYCLES) {
-            setSessionState('complete');
-        } else {
-            setCurrentCycle(prev => prev + 1);
-            setCurrentSubtopics([]);
-            setSessionState('ready');
-        }
+        // Break timer finished or skipped
+        startNextSession();
     };
 
     const handleLongBreakComplete = () => {
-        setSessionState('complete');
+        // Long break finished or skipped
+        startNextSession();
+    };
+
+    const startNextSession = () => {
+        if (currentSessionGlobal >= TOTAL_SESSIONS && sessionHistory.length >= TOTAL_SESSIONS) {
+            setSessionState('complete');
+        } else {
+            // Advance session if not already done in handleMCQs (we advance AFTER break usually? 
+            // Logic: MCQs done -> Break Start. Counter + 1. 
+            // Break Done -> Ready state for NEW counter. 
+
+            // In handleMCQsComplete we actually need to increment counter? 
+            // If we increment there, then 'ready' screen needs to show NEW counter.
+            // Yes.
+
+            setCurrentSessionGlobal(prev => prev + 1);
+            setCurrentSubtopics([]);
+            setSessionState('ready');
+            setTimeLeft(POMODORO_DURATION);
+        }
     };
 
     // Calculate detailed stats for the report
@@ -231,74 +282,93 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
 
     // Session complete view
     if (sessionState === 'complete') {
-        const avgMCQScore = cycleHistory.length > 0
+        const avgMCQScore = sessionHistory.length > 0
             ? Math.round((totalCorrectMCQs / totalMCQs) * 100)
             : 0;
 
         return (
-            <div className="max-w-4xl mx-auto p-6">
-                <div className="text-center py-8">
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                        <Trophy className="h-10 w-10 text-green-500" />
+            <div className="max-w-4xl mx-auto p-6 animate-in fade-in">
+                <div className="text-center py-12">
+                    <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                        <Trophy className="h-12 w-12 text-green-500" />
                     </div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                         6-Hour Session Complete! 🎉
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto">
-                        Excellent work! You've completed all {TOTAL_CYCLES} cycles. Here is your daily performance report clearly showing your efficiency and improvement.
+                    <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                        You have mastered {totalSubtopicsCompleted} subtopics across 3 intensity blocks.
                     </p>
 
-                    {/* Overall Score Card */}
-                    <Card className="mb-8 overflow-hidden border-indigo-200 bg-indigo-50 dark:bg-indigo-900/20 dark:border-indigo-800">
-                        <CardContent className="p-6">
-                            <div className="flex flex-col md:flex-row items-center justify-around gap-6">
-                                <div className="text-center">
-                                    <div className="text-sm font-medium text-indigo-800 dark:text-indigo-300 mb-1 uppercase tracking-wide">Overall Efficiency</div>
-                                    <div className="text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">{efficiencyScore}%</div>
-                                </div>
-                                <div className="h-16 w-px bg-indigo-200 dark:bg-indigo-800 hidden md:block"></div>
-                                <div className="text-center">
-                                    <div className="text-sm font-medium text-indigo-800 dark:text-indigo-300 mb-1 uppercase tracking-wide">Subtopics Cleaned</div>
-                                    <div className="text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">{totalSubtopicsCompleted}</div>
-                                </div>
-                                <div className="h-16 w-px bg-indigo-200 dark:bg-indigo-800 hidden md:block"></div>
-                                <div className="text-center">
-                                    <div className="text-sm font-medium text-indigo-800 dark:text-indigo-300 mb-1 uppercase tracking-wide">MCQ Accuracy</div>
-                                    <div className="text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">{avgMCQScore}%</div>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
+                        <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+                            <CardContent className="p-6 text-center">
+                                <div className="text-4xl font-bold text-blue-700 mb-1">{efficiencyScore}%</div>
+                                <div className="text-sm font-bold text-blue-600 uppercase tracking-wider">Overall Efficiency</div>
+                            </CardContent>
+                        </Card>
+                        <Card className="bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200">
+                            <CardContent className="p-6 text-center">
+                                <div className="text-4xl font-bold text-purple-700 mb-1">{totalSubtopicsCompleted}</div>
+                                <div className="text-sm font-bold text-purple-600 uppercase tracking-wider">Topics Mastered</div>
+                            </CardContent>
+                        </Card>
+                        <Card className="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
+                            <CardContent className="p-6 text-center">
+                                <div className="text-4xl font-bold text-green-700 mb-1">{avgMCQScore}%</div>
+                                <div className="text-sm font-bold text-green-600 uppercase tracking-wider">Accuracy</div>
+                            </CardContent>
+                        </Card>
+                    </div>
 
-                    {/* Cycle Breakdown */}
-                    <div className="text-left mb-8">
-                        <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
-                            <Repeat className="h-5 w-5" /> Cycle Performance
-                        </h3>
-                        <div className="grid grid-cols-1 gap-4">
-                            {cycleHistory.map((cycle, idx) => (
-                                <Card key={idx} className="bg-white dark:bg-gray-800 border-gray-200">
-                                    <CardContent className="p-4 flex items-center justify-between">
-                                        <div>
-                                            <div className="font-bold text-gray-700 dark:text-gray-300">Cycle {cycle.cycleNumber}</div>
-                                            <div className="text-sm text-gray-500">{cycle.selectedSubtopics.length} subtopics covered</div>
-                                        </div>
-                                        <div className="text-right">
-                                            <div className="font-bold text-gray-800 dark:text-gray-200">
-                                                {Math.round((cycle.mcqResults.correct / cycle.mcqResults.total) * 100)}%
+                    {/* Block-wise Breakdown */}
+                    <div className="max-w-3xl mx-auto space-y-6 text-left mb-12">
+                        <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 px-2">Session Breakdown</h3>
+                        {[1, 2, 3].map(blockId => {
+                            // Filter sessions for this block
+                            // blockId 1: sessions 1-4, blockId 2: 5-8, blockId 3: 9-12
+                            const start = (blockId - 1) * 4 + 1;
+                            const end = blockId * 4;
+                            const blockSessions = sessionHistory.filter(s => s.cycleNumber >= start && s.cycleNumber <= end);
+
+                            if (blockSessions.length === 0) return null;
+
+                            const blockCorrect = blockSessions.reduce((sum, s) => sum + s.mcqResults.correct, 0);
+                            const blockTotal = blockSessions.reduce((sum, s) => sum + s.mcqResults.total, 0);
+                            const blockScore = blockTotal > 0 ? Math.round((blockCorrect / blockTotal) * 100) : 0;
+
+                            return (
+                                <Card key={blockId} className="overflow-hidden">
+                                    <div className="bg-gray-50 dark:bg-gray-800/50 p-4 border-b flex justify-between items-center">
+                                        <span className="font-bold text-lg">Block {blockId} (Sessions {start}-{end})</span>
+                                        <span className={`px-3 py-1 rounded-full text-sm font-bold ${blockScore >= 80 ? 'bg-green-100 text-green-700' :
+                                            blockScore >= 60 ? 'bg-yellow-100 text-yellow-700' :
+                                                'bg-red-100 text-red-700'
+                                            }`}>
+                                            {blockScore}% Accuracy
+                                        </span>
+                                    </div>
+                                    <CardContent className="p-4 space-y-2">
+                                        {blockSessions.map((session) => (
+                                            <div key={session.cycleNumber} className="flex justify-between items-center text-sm border-b last:border-0 pb-2 last:pb-0">
+                                                <div className="flex-1">
+                                                    <span className="font-medium text-gray-700 mr-2">Session {(session.cycleNumber - 1) % 4 + 1}:</span>
+                                                    <span className="text-gray-500">{session.selectedSubtopics.map(s => s.label).join(", ").slice(0, 60)}...</span>
+                                                </div>
+                                                <div className="font-mono text-gray-600">
+                                                    {session.mcqResults.correct}/{session.mcqResults.total}
+                                                </div>
                                             </div>
-                                            <div className="text-xs text-gray-500">Accuracy</div>
-                                        </div>
+                                        ))}
                                     </CardContent>
                                 </Card>
-                            ))}
-                        </div>
+                            );
+                        })}
                     </div>
 
                     <div className="flex gap-4 justify-center">
                         <Link href={`/student/batch1-1/${weekId}/${dayId}/evening`}>
-                            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8">
-                                Go to Evening Session
+                            <Button className="bg-indigo-600 hover:bg-indigo-700 h-12 px-8 text-lg shadow-lg shadow-indigo-200">
+                                Proceed to Evening Session <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </Link>
                     </div>
@@ -322,7 +392,7 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                         Week {weekId}, Day {dayId}
                     </h1>
                     <p className="text-sm text-gray-500">
-                        Cycle {currentCycle} of {TOTAL_CYCLES}
+                        Session {currentSessionGlobal} of {TOTAL_SESSIONS} (Block {currentBlock})
                     </p>
                 </div>
                 <div className="flex items-center gap-2 text-orange-600">
@@ -331,25 +401,29 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                 </div>
             </div>
 
-            {/* Cycle Progress */}
+            {/* Session Progress Bar (12 segments divided into 3 blocks) */}
             <div className="mb-6">
                 <div className="flex justify-between text-xs text-gray-500 mb-1">
-                    <span>Cycle Progress</span>
-                    <span>{currentCycle}/{TOTAL_CYCLES} cycles</span>
+                    <span>Block 1</span>
+                    <span>Block 2</span>
+                    <span>Block 3</span>
                 </div>
-                <div className="flex gap-2">
-                    {Array.from({ length: TOTAL_CYCLES }).map((_, i) => {
-                        const cycle = i + 1;
+                <div className="flex gap-1.5">
+                    {Array.from({ length: TOTAL_SESSIONS }).map((_, i) => {
+                        const sessionNum = i + 1;
+                        const isBlockStart = (i % 4) === 0 && i !== 0;
+
                         return (
-                            <div
-                                key={cycle}
-                                className={`flex-1 h-2 rounded-full ${cycle < currentCycle
-                                    ? 'bg-green-500'
-                                    : cycle === currentCycle
-                                        ? 'bg-orange-500 animate-pulse'
-                                        : 'bg-gray-200 dark:bg-gray-700'
-                                    }`}
-                            />
+                            <div key={sessionNum} className={`flex-1 flex gap-1 ${isBlockStart ? 'ml-2' : ''}`}>
+                                <div
+                                    className={`w-full h-2 rounded-full ${sessionNum < currentSessionGlobal
+                                        ? 'bg-green-500'
+                                        : sessionNum === currentSessionGlobal
+                                            ? 'bg-orange-500 animate-pulse'
+                                            : 'bg-gray-200 dark:bg-gray-700'
+                                        }`}
+                                />
+                            </div>
                         );
                     })}
                 </div>
@@ -381,19 +455,19 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                                     <Timer className="h-10 w-10 text-orange-500" />
                                 </div>
                                 <h2 className="text-2xl font-bold text-orange-700 dark:text-orange-300 mb-2">
-                                    {isConsolidationCycle ? '🎯 Consolidation Cycle' : `Ready for Cycle ${currentCycle}?`}
+                                    Ready for Session {currentSessionGlobal}?
                                 </h2>
                                 <p className="text-orange-600 dark:text-orange-400 mb-6">
-                                    {isConsolidationCycle
-                                        ? 'Final cycle! Review all the subtopics you covered today.'
-                                        : '25 minutes of focused study. Then select your completed subtopics.'}
+                                    Block {currentBlock}, Session {currentSessionInBlock}/4.
+                                    <br />
+                                    25 minutes of focused study. Timer starts now.
                                 </p>
                                 <Button
                                     size="lg"
-                                    onClick={handleStartPomodoro}
+                                    onClick={startSession}
                                     className="bg-orange-500 hover:bg-orange-600 text-white px-8"
                                 >
-                                    Start Pomodoro
+                                    Start Session {currentSessionGlobal}
                                 </Button>
                             </CardContent>
                         </Card>
@@ -402,9 +476,9 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                     {sessionState === 'pomodoro' && (
                         <PomodoroTimer
                             duration={POMODORO_DURATION}
-                            onComplete={handlePomodoroComplete}
-                            sessionNumber={currentCycle}
-                            totalSessions={TOTAL_CYCLES}
+                            onComplete={handleTimerComplete}
+                            sessionNumber={currentSessionGlobal}
+                            totalSessions={TOTAL_SESSIONS}
                             isStrict={true}
                         />
                     )}
@@ -413,8 +487,8 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                         <SubtopicSelector
                             chapterIds={todayChapters}
                             onSubmit={handleSubtopicSubmit}
-                            cycleNumber={currentCycle}
-                            isConsolidation={isConsolidationCycle}
+                            cycleNumber={currentSessionGlobal}
+                            isConsolidation={false} // No specific consolidation needed as interaction is every session
                             previouslyCompleted={allCompletedSubtopics}
                         />
                     )}
@@ -423,7 +497,7 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                         <CycleFlashcards
                             selectedSubtopics={currentSubtopics}
                             onComplete={handleFlashcardsComplete}
-                            cycleNumber={currentCycle}
+                            cycleNumber={currentSessionGlobal}
                         />
                     )}
 
@@ -431,7 +505,7 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                         <CycleMCQs
                             selectedSubtopics={currentSubtopics}
                             onComplete={handleMCQsComplete}
-                            cycleNumber={currentCycle}
+                            cycleNumber={currentSessionGlobal}
                         />
                     )}
 
@@ -455,46 +529,51 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
 
                 {/* Right: Cycle History */}
                 <div>
-                    <Card className="bg-gray-50 dark:bg-gray-800">
+                    <Card className="bg-gray-50 dark:bg-gray-800 h-full max-h-[600px] overflow-y-auto">
                         <CardContent className="p-4">
-                            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                                <Repeat className="h-4 w-4" />
-                                Cycle History
+                            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center justify-between">
+                                <span className="flex items-center gap-2"><Repeat className="h-4 w-4" /> Session History</span>
+                                <span className="text-xs text-muted-foreground">{currentSessionGlobal}/{TOTAL_SESSIONS}</span>
                             </h4>
                             <div className="space-y-3">
-                                {Array.from({ length: TOTAL_CYCLES }).map((_, i) => {
-                                    const cycle = i + 1;
-                                    const cycleData = cycleHistory.find(c => c.cycleNumber === cycle);
-                                    const isActive = cycle === currentCycle;
-                                    const isComplete = cycleData !== undefined;
+                                {Array.from({ length: TOTAL_SESSIONS }).map((_, i) => {
+                                    const sessionNum = i + 1;
+                                    const sessionData = sessionHistory.find(c => c.cycleNumber === sessionNum);
+                                    const isActive = sessionNum === currentSessionGlobal;
+                                    const isComplete = sessionData !== undefined;
+                                    const isFuture = !isActive && !isComplete;
+                                    const blockNum = Math.ceil(sessionNum / 4);
+
+                                    // Add block header if start of block
+                                    if ((i % 4) === 0) {
+                                        // Only if we want headers in list. Maybe simple list is cleaner.
+                                        // Let's keep simple list but use colors or breaks.
+                                    }
 
                                     return (
                                         <div
-                                            key={cycle}
-                                            className={`p-3 rounded-lg border ${isComplete
-                                                ? 'bg-green-50 dark:bg-green-900/20 border-green-200'
+                                            key={sessionNum}
+                                            className={`p-3 rounded-lg border text-xs transition-all ${isComplete
+                                                ? 'bg-green-50 dark:bg-green-900/10 border-green-200'
                                                 : isActive
-                                                    ? 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 animate-pulse'
-                                                    : 'bg-white dark:bg-gray-900 border-gray-200'
+                                                    ? 'bg-orange-50 dark:bg-orange-900/10 border-orange-200 shadow-sm transform scale-102'
+                                                    : 'bg-white dark:bg-gray-900 border-gray-100 opacity-60'
                                                 }`}
                                         >
                                             <div className="flex items-center justify-between mb-1">
-                                                <span className={`font-bold text-sm ${isComplete ? 'text-green-600' : isActive ? 'text-orange-600' : 'text-gray-400'}`}>
-                                                    {cycle === 3 ? '🎯 Consolidation' : `Cycle ${cycle}`}
+                                                <span className={`font-bold ${isComplete ? 'text-green-700' : isActive ? 'text-orange-700' : 'text-gray-400'}`}>
+                                                    S{sessionNum} (Block {blockNum})
                                                 </span>
-                                                {isComplete && <CheckCircle2 className="h-4 w-4 text-green-500" />}
+                                                {isComplete && <CheckCircle2 className="h-3 w-3 text-green-500" />}
                                             </div>
-                                            {isComplete && cycleData && (
-                                                <div className="text-xs text-gray-500 space-y-0.5">
-                                                    <div>{cycleData.selectedSubtopics.length} subtopics</div>
-                                                    <div>{cycleData.mcqResults.correct}/{cycleData.mcqResults.total} MCQs correct</div>
+                                            {isComplete && sessionData && (
+                                                <div className="text-gray-500 space-y-0.5">
+                                                    <div>{sessionData.selectedSubtopics.length} topics</div>
+                                                    <div>{Math.round((sessionData.mcqResults.correct / sessionData.mcqResults.total) * 100)}% Acc</div>
                                                 </div>
                                             )}
-                                            {!isComplete && !isActive && (
-                                                <div className="text-xs text-gray-400">Not started</div>
-                                            )}
                                             {isActive && !isComplete && (
-                                                <div className="text-xs text-orange-500">In progress...</div>
+                                                <div className="text-orange-500 font-medium">In Progress</div>
                                             )}
                                         </div>
                                     );

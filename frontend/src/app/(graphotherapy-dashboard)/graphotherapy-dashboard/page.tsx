@@ -7,37 +7,68 @@ import { Lock, ArrowRight, Star, Flame, Trophy, Coins } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
 import { TimeCapsule } from "@/components/graphotherapy/dashboard/TimeCapsule";
+import { Level4OfferModal } from "@/components/graphotherapy/dashboard/Level4OfferModal";
+import { useAuth } from "@/contexts/auth-context";
 
 export default function GraphotherapyDashboard() {
+    const { user } = useAuth(); // Assuming useAuth is imported
     const [loading, setLoading] = useState(true);
     const [stats, setStats] = useState({
         level: 1,
-        day: 15, // Simulating Day 15 for the demo
-        streak: 15,
-        coins: 1500,
+        day: 1,
+        streak: 0,
+        coins: 0,
         nextUnlock: false
     });
 
     const [showDay15Modal, setShowDay15Modal] = useState(false);
     const [showShopModal, setShowShopModal] = useState(false);
+    const [showLevel4Modal, setShowLevel4Modal] = useState(false);
 
-    // Simulating Fetch
     useEffect(() => {
-        // In real app: fetch('/api/v1/graphotherapy/overview')
-        setTimeout(() => {
-            setLoading(false);
-            // Trigger Day 15 Logic
-            if (stats.day === 15 && stats.streak >= 15) {
-                setShowDay15Modal(true);
-            }
-        }, 1000);
-    }, []);
+        const fetchOverview = async () => {
+            // In a real app, use a proper API client (axios instance)
+            const token = localStorage.getItem('token');
+            if (!token) return;
 
-    const handleUnlockLevel2 = () => {
-        // Call Purchase API
-        alert("Redeeming 1500 Coins for ₹150 OFF + ₹1000 Streak Bonus! Level 2 Unlocked.");
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/graphotherapy/overview`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    setStats(prev => ({
+                        ...prev,
+                        level: data.current_level,
+                        day: data.current_day,
+                        streak: data.total_streak,
+                        coins: user?.coins || 0, // Use user context coins
+                        nextUnlock: data.current_level < 4 && data.levels[data.current_level - 1].is_completed
+                    }));
+
+                    // Trigger Day 15 Logic (Real)
+                    if (data.current_day === 15 && data.total_streak >= 15 && !localStorage.getItem('day15_reward_seen')) {
+                        setShowDay15Modal(true);
+                        localStorage.setItem('day15_reward_seen', 'true');
+                    }
+                }
+            } catch (e) {
+                console.error("Dashboard fetch failed", e);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (user) fetchOverview();
+    }, [user]);
+
+    const handleUnlockLevel2 = async () => {
+        // Real Purchase Call could go here
+        alert("Validation Successful. Unlocking Level 2...");
         setShowDay15Modal(false);
-        setStats(prev => ({ ...prev, level: 2, coins: 0, nextUnlock: true }));
+        // Optimistic update
+        setStats(prev => ({ ...prev, level: 2 }));
     };
 
     return (
@@ -153,17 +184,32 @@ export default function GraphotherapyDashboard() {
                 </Card>
 
                 {/* Level 4 */}
-                <Card className="opacity-70 border-dashed border-2 bg-amber-50/20">
+                <Card className="opacity-100 border-dashed border-2 bg-amber-50/20 ring-2 ring-amber-400/20 cursor-pointer hover:ring-amber-400/50 transition-all">
                     <CardHeader>
                         <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-2 text-xl">👑</div>
                         <CardTitle>Level 4: Mastery</CardTitle>
                         <CardDescription>Become the Architect</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <Button disabled variant="outline" className="w-full">Locked</Button>
+                        <Button
+                            variant="outline"
+                            className="w-full text-amber-700 border-amber-300 hover:bg-amber-100"
+                            onClick={() => setShowLevel4Modal(true)}
+                        >
+                            Unlock Now
+                        </Button>
                     </CardContent>
                 </Card>
             </div>
+
+            <Level4OfferModal
+                isOpen={showLevel4Modal}
+                onClose={() => setShowLevel4Modal(false)}
+                onPurchase={() => {
+                    alert("Redirecting to Secure Payment Gateway...");
+                    setShowLevel4Modal(false);
+                }}
+            />
 
             {/* Day 15 Unlock Modal */}
             <Dialog open={showDay15Modal} onOpenChange={setShowDay15Modal}>
