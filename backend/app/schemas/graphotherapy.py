@@ -3,13 +3,7 @@ from datetime import datetime
 from typing import Optional, List
 
 
-# Level configuration constants
-GRAPHOTHERAPY_LEVELS = {
-    1: {"days": 30, "name": "Foundations of Flow", "price": 0}, # Free
-    2: {"days": 30, "name": "Neuro-Linguistic Integration", "price": 5000}, # Paid
-    3: {"days": 30, "name": "Mastery of Subconscious", "price": 5000}, # Paid
-    4: {"days": 30, "name": "Architect of Reality", "price": 5000} # Paid
-}
+from app.models.graphotherapy import GRAPHOTHERAPY_LEVELS
 
 
 class DayCompletionBase(BaseModel):
@@ -168,6 +162,10 @@ class ComparisonMetric(BaseModel):
     change_percentage: float
     status: str # "Improved", "Stable", "Needs Focus"
 
+class ShareResponse(BaseModel):
+    share_url: str
+    message: str
+
 class TransformationComparisonResponse(BaseModel):
     baseline_image_url: Optional[str] = None
     current_image_url: Optional[str] = None
@@ -203,6 +201,7 @@ class LeaderboardEntry(BaseModel):
 
 class PurchaseRequest(BaseModel):
     level_id: int
+    item_type: str = "level" # "level" or "streak_freeze"
     use_coins: bool = False
     is_bundle: bool = False
 

@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Pause, RefreshCw, CheckCircle, Disc, BrainCircuit, X } from "lucide-react";
+import { Play, Pause, RefreshCw, CheckCircle, Disc, BrainCircuit, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { getPomodoroTimerService } from "@/services/PomodoroTimerService";
@@ -112,9 +112,11 @@ export default function RASPomodoroSession({
         }
     };
 
+    const [language, setLanguage] = useState<"en" | "hi">("en");
+
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
+        const secs = Math.floor(seconds % 60);
         return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
     };
 
@@ -138,6 +140,17 @@ export default function RASPomodoroSession({
                     <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-700 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
                 </div>
 
+
+                <div className="absolute top-4 right-16">
+                    <button
+                        onClick={() => setLanguage(prev => prev === "en" ? "hi" : "en")}
+                        className="p-2 text-neutral-400 hover:text-white transition-colors flex items-center gap-1 font-bold text-xs"
+                    >
+                        <Globe className="w-4 h-4" />
+                        {language === "en" ? "HI" : "EN"}
+                    </button>
+                </div>
+
                 <button
                     onClick={onExit}
                     className="absolute top-4 right-4 p-2 text-neutral-400 hover:text-white transition-colors"
@@ -152,7 +165,7 @@ export default function RASPomodoroSession({
                             initial={{ y: -10, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                         >
-                            RAS Focus Mode
+                            {language === "en" ? "RAS Focus Mode" : "RAS फोकस मोड"}
                         </motion.h3>
                         <h2 className="text-2xl md:text-3xl font-bold text-white max-w-md leading-tight">
                             {topic}
@@ -192,7 +205,9 @@ export default function RASPomodoroSession({
                             <div className="text-6xl font-mono font-bold text-white tracking-tighter">
                                 {formatTime(timeLeft)}
                             </div>
-                            <div className="text-neutral-500 text-sm mt-2 font-medium">MINUTES REMAINING</div>
+                            <div className="text-neutral-500 text-sm mt-2 font-medium">
+                                {language === "en" ? "MINUTES REMAINING" : "मिनट शेष"}
+                            </div>
                         </div>
                     </div>
 

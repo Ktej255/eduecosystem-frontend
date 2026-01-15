@@ -2,12 +2,16 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Target, Clock, Zap, Award, BookOpen, ChevronRight, Play, Star, TrendingUp, AlertCircle, BrainCircuit, X, CheckCircle2 } from "lucide-react";
+import { Calendar, Target, Clock, Zap, Award, BookOpen, ChevronRight, Play, Star, TrendingUp, AlertCircle, BrainCircuit, X, CheckCircle2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card } from "@/components/ui/card";
 import { RAS_REVISION_PLAN, RASDayPlan, RASSession } from "@/data/ras-revision-plan";
 import RASPomodoroSession from "@/components/ras/RASPomodoroSession";
+import RASMCQTestSession from "@/components/ras/RASMCQTestSession";
+import RASSyllabusViewer from "@/components/ras/RASSyllabusViewer";
+import RASScienceTechViewer from "@/components/ras/RASScienceTechViewer";
+import RASAnswerWritingSession from "@/components/ras/RASAnswerWritingSession";
 import { getPomodoroTimerService } from "@/services/PomodoroTimerService";
 
 // Organic Futurism Utilities
@@ -25,6 +29,10 @@ export default function RASRevisionPortal() {
     });
     const [isScheduleOpen, setIsScheduleOpen] = useState(false);
     const [today, setToday] = useState(1);
+    const [isTestMode, setIsTestMode] = useState(false);
+    const [isSyllabusOpen, setIsSyllabusOpen] = useState(false);
+    const [isScienceTechOpen, setIsScienceTechOpen] = useState(false);
+    const [isAnswerWritingOpen, setIsAnswerWritingOpen] = useState(false);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -190,6 +198,37 @@ export default function RASRevisionPortal() {
                         >
                             View Full Schedule
                         </Button>
+                        <Button
+                            size="lg"
+                            className="h-14 px-8 rounded-full bg-neutral-800 text-amber-500 hover:bg-neutral-700 font-bold text-lg border border-amber-500/30"
+                            onClick={() => setIsTestMode(true)}
+                        >
+                            <Target className="w-5 h-5 mr-2" /> Start Mock Test
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant="ghost"
+                            className="h-14 px-8 rounded-full text-neutral-400 hover:text-white hover:bg-white/5"
+                            onClick={() => setIsSyllabusOpen(true)}
+                        >
+                            <BookOpen className="w-5 h-5 mr-2" /> Syllabus 2026
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant="ghost"
+                            className="h-14 px-8 rounded-full text-cyan-400/80 hover:text-cyan-400 hover:bg-cyan-500/10"
+                            onClick={() => setIsScienceTechOpen(true)}
+                        >
+                            <Zap className="w-5 h-5 mr-2" /> Science & Tech
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant="ghost"
+                            className="h-14 px-8 rounded-full text-emerald-400/80 hover:text-emerald-400 hover:bg-emerald-500/10"
+                            onClick={() => setIsAnswerWritingOpen(true)}
+                        >
+                            <FileText className="w-5 h-5 mr-2" /> Mains Writing
+                        </Button>
                     </motion.div>
                 </div>
 
@@ -333,6 +372,62 @@ export default function RASRevisionPortal() {
                             setActivePomodoroSession(null);
                         }}
                     />
+                )}
+            </AnimatePresence>
+
+            {/* RAS MCQ Test Session Overlay */}
+            <AnimatePresence>
+                {isTestMode && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[60] bg-black"
+                    >
+                        <RASMCQTestSession onExit={() => setIsTestMode(false)} />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* RAS Syllabus Overlay */}
+            <AnimatePresence>
+                {isSyllabusOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[60] bg-black"
+                    >
+                        <RASSyllabusViewer onExit={() => setIsSyllabusOpen(false)} />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Science & Tech Overlay */}
+            <AnimatePresence>
+                {isScienceTechOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[60] bg-black"
+                    >
+                        <RASScienceTechViewer onExit={() => setIsScienceTechOpen(false)} />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Answer Writing Overlay */}
+            <AnimatePresence>
+                {isAnswerWritingOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[60] bg-black"
+                    >
+                        <RASAnswerWritingSession onClose={() => setIsAnswerWritingOpen(false)} />
+                    </motion.div>
                 )}
             </AnimatePresence>
 

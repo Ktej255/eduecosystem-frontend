@@ -21,20 +21,35 @@ export default function BreakTimer({
     const [timeLeft, setTimeLeft] = useState(duration);
     const [isPaused, setIsPaused] = useState(false);
 
-    useEffect(() => {
-        if (isPaused) return;
+    const [endTime, setEndTime] = useState<number | null>(null);
 
-        if (timeLeft <= 0) {
-            onComplete();
-            return;
+    // Initial start or resume
+    useEffect(() => {
+        if (!isPaused && !endTime && timeLeft > 0) {
+            setEndTime(Date.now() + timeLeft * 1000);
+        } else if (isPaused) {
+            setEndTime(null);
         }
+    }, [isPaused, endTime, timeLeft]);
+
+    useEffect(() => {
+        if (isPaused || !endTime) return;
 
         const timer = setInterval(() => {
-            setTimeLeft(prev => prev - 1);
+            const now = Date.now();
+            const diff = endTime - now;
+
+            if (diff <= 0) {
+                setTimeLeft(0);
+                onComplete();
+                clearInterval(timer);
+            } else {
+                setTimeLeft(Math.ceil(diff / 1000));
+            }
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [timeLeft, isPaused, onComplete]);
+    }, [isPaused, endTime, onComplete]);
 
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;

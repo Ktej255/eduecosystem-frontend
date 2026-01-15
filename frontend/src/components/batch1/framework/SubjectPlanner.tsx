@@ -22,6 +22,12 @@ export interface SubjectTopic {
     staticFocus: string;
     keyConcepts: string[];
     currentAffairsCount: number;
+    mainsQuestions?: {
+        id: string;
+        question: string;
+        marks: number;
+        modelAnswer?: string;
+    }[];
 }
 
 export interface WeeklyScheduleData {
@@ -387,8 +393,8 @@ function SubjectScheduleView({ config, isAdmin }: { config: SubjectConfig, isAdm
                             </div>
 
                             <div className={`flex-1 space-y-3 p-3 rounded-2xl border ${isSaturday ? 'bg-amber-50 border-amber-200' :
-                                    isSunday ? 'bg-indigo-50 border-indigo-200' :
-                                        'bg-white dark:bg-[#111] border-gray-100 dark:border-gray-800'
+                                isSunday ? 'bg-indigo-50 border-indigo-200' :
+                                    'bg-white dark:bg-[#111] border-gray-100 dark:border-gray-800'
                                 }`}>
                                 {(content as any[]).map((itemId: number | string, i: number) => {
                                     // Render logic varies by type

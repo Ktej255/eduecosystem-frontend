@@ -88,6 +88,13 @@ export default function PomodoroTimer({
         }
     }, [storageKey]);
 
+    const [endTime, setEndTime] = useState<number | null>(null);
+
+    // We need to persist the expected end time to survive refreshes if we wanted full persistence,
+    // but the current requirement is just to fix the "tab in background" throttling issue.
+    // The existing localStorage logic saves 'timeLeft', which is fine for pausing/resuming.
+    // But for the running timer, we need to rely on Date.now() vs target time.
+
     // Initialize audio
     useEffect(() => {
         audioRef.current = new Audio('/sounds/bell.mp3');
@@ -96,51 +103,67 @@ export default function PomodoroTimer({
         };
     }, []);
 
-    // Timer logic
+    // Timer logic with Delta Time pattern
     useEffect(() => {
-        if (isRunning && timeLeft > 0) {
+        if (isRunning && endTime) {
             intervalRef.current = setInterval(() => {
-                setTimeLeft((prev: number) => {
-                    if (prev <= 1) {
-                        clearInterval(intervalRef.current!);
-                        setIsRunning(false);
-                        // Clear saved state on completion
-                        clearSavedState();
-                        // Play completion sound
-                        if (soundEnabled && audioRef.current) {
-                            audioRef.current.play().catch(() => { });
-                        }
-                        // Trigger completion callback
-                        setTimeout(onComplete, 500);
-                        return 0;
+                const now = Date.now();
+                const diff = endTime - now;
+
+                if (diff <= 1000) { // Less than 1 second remaining
+                    clearInterval(intervalRef.current!);
+                    setIsRunning(false);
+                    setTimeLeft(0);
+                    setEndTime(null);
+
+                    // Clear saved state on completion
+                    clearSavedState();
+
+                    // Play completion sound
+                    if (soundEnabled && audioRef.current) {
+                        audioRef.current.play().catch(() => { });
                     }
-                    return prev - 1;
-                });
-            }, 1000);
+                    // Trigger completion callback
+                    setTimeout(onComplete, 500);
+                } else {
+                    const newTimeLeft = Math.ceil(diff / 1000);
+                    setTimeLeft(newTimeLeft);
+                }
+            }, 1000) as unknown as NodeJS.Timeout;
+        } else {
+            if (intervalRef.current) clearInterval(intervalRef.current);
         }
 
         return () => {
             if (intervalRef.current) clearInterval(intervalRef.current);
         };
-    }, [isRunning, timeLeft, onComplete, soundEnabled]);
+    }, [isRunning, endTime, onComplete, soundEnabled, clearSavedState]);
 
     const handleStart = useCallback(() => {
         if (!hasStarted) {
             setHasStarted(true);
             onStart?.();
         }
+
+        // Calculate expected end time based on CURRENT timeLeft
+        // This works for both fresh start and resume
+        const targetTime = Date.now() + (timeLeft * 1000);
+        setEndTime(targetTime);
         setIsRunning(true);
-    }, [hasStarted, onStart]);
+    }, [hasStarted, onStart, timeLeft]);
 
     const handlePause = useCallback(() => {
         if (!isStrict) {
             setIsRunning(false);
+            setEndTime(null); // Clear end time so we don't keep counting in background while paused
+            // timeLeft is already updated by the interval state, so it holds the correct "remaining" value
         }
     }, [isStrict]);
 
     const handleReset = useCallback(() => {
         if (!isStrict || !hasStarted) {
             setIsRunning(false);
+            setEndTime(null);
             setTimeLeft(duration);
             setHasStarted(false);
         }

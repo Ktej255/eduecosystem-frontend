@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from app.api.api_v1.endpoints import (
     auth,
     users,
+    admin,
     # tasks,
     # ... (all other imports commented out)
     admin_drill,
@@ -26,6 +27,9 @@ api_router.include_router(auth.router, prefix="/login", tags=["login"])
 
 # Users
 api_router.include_router(users.router, prefix="/users", tags=["users"])
+
+# Admin (User Management)
+api_router.include_router(admin.router, prefix="/admin", tags=["admin"])
 
 # AI Chat (for chat widget)
 api_router.include_router(ai.router, prefix="/ai", tags=["ai"])
@@ -154,3 +158,15 @@ api_router.include_router(funnel_leads.router, prefix="/leads", tags=["funnel-le
 # Graphotherapy Analysis (AI)
 from app.api.api_v1.endpoints import funnel_analysis
 api_router.include_router(funnel_analysis.router, prefix="/funnel", tags=["funnel-analysis"])
+
+# Premium Analysis (AI)
+from app.api.api_v1.endpoints import premium_analysis
+api_router.include_router(premium_analysis.router, prefix="/funnel", tags=["premium-analysis"])
+
+# Advanced Health Analysis (Level 3)
+from app.api.api_v1.endpoints import advanced_health_analysis
+api_router.include_router(advanced_health_analysis.router, prefix="/graphotherapy", tags=["health-analysis"])
+
+# Mains Answer Evaluation (AI)
+from app.api.api_v1.endpoints import mains_evaluation
+api_router.include_router(mains_evaluation.router, prefix="/mains", tags=["mains-evaluation"])

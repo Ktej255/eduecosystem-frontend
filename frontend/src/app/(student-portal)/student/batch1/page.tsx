@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
-import { BookOpen, Landmark, Globe, Coins, Leaf, Palette, Atom } from 'lucide-react';
+import { BookOpen, Landmark, Globe, Coins, Leaf, Palette, Atom, BrainCircuit } from 'lucide-react';
 
 const subjects = [
     {
@@ -68,6 +68,14 @@ const subjects = [
         color: "violet",
         gradient: "from-violet-500 to-purple-600",
         href: "/student/batch1/science-tech"
+    },
+    {
+        title: "Focus Room",
+        description: "Deep Work Sessions & Daily Targets.",
+        icon: BrainCircuit,
+        color: "cyan",
+        gradient: "from-cyan-500 to-blue-600",
+        href: "/student/my-plan"
     }
 ];
 
@@ -80,7 +88,7 @@ export default function Batch1Hub() {
                         UPSC Prelims Batch 1
                     </h1>
                     <p className="text-xl text-gray-600 dark:text-gray-400">
-                        Select a subject to begin your guided study plan.
+                        Select a module to begin your guided study plan.
                     </p>
                 </div>
 

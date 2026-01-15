@@ -25,6 +25,13 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
     const [isSealing, setIsSealing] = useState(false);
     const [isComplete, setIsComplete] = useState(false);
     const [aiInsight, setAiInsight] = useState<{ insight: string; state: string; score: number } | null>(null);
+    const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+    const SENSATION_TAGS = [
+        "Silence", "Expansion", "Heat", "Tingling",
+        "Lightness", "Heaviness", "Throbbing", "Coolness",
+        "Resistance", "Fear", "Joy (Ananda)", "Tears"
+    ];
 
     const handleGunaChange = (guna: keyof typeof gunas, value: number) => {
         setGunas(prev => ({ ...prev, [guna]: value }));
@@ -81,7 +88,7 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
 
             // Close after delay if successful
             setTimeout(() => {
-                onSubmit({ reflections, gunas });
+                onSubmit({ reflections, gunas, tags: selectedTags });
                 onClose();
             }, 5000); // Longer delay to read insight
         }
@@ -163,6 +170,31 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
                                             onChange={(v) => handleGunaChange("tamas", v)}
                                             description="Rest & Stability"
                                         />
+                                    </div>
+                                </div>
+
+                                {/* Sensations */}
+                                <div>
+                                    <h3 className="text-sm font-bold text-slate-300 uppercase tracking-widest mb-4">Sensations & Shifts</h3>
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {SENSATION_TAGS.map(tag => (
+                                            <button
+                                                key={tag}
+                                                onClick={() => {
+                                                    if (selectedTags.includes(tag)) {
+                                                        setSelectedTags(prev => prev.filter(t => t !== tag));
+                                                    } else {
+                                                        setSelectedTags(prev => [...prev, tag]);
+                                                    }
+                                                }}
+                                                className={`px-3 py-1.5 rounded-full text-xs font-bold border transition-all ${selectedTags.includes(tag)
+                                                    ? "bg-amber-500 text-slate-900 border-amber-500"
+                                                    : "bg-transparent text-slate-500 border-slate-800 hover:border-slate-600"
+                                                    }`}
+                                            >
+                                                {tag}
+                                            </button>
+                                        ))}
                                     </div>
                                 </div>
 

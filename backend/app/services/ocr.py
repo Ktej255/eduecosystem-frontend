@@ -103,32 +103,20 @@ Analysis: [detailed paragraph about personality based on handwriting]
 
         # If parsing failed, use fallback mock features
         if not features:
-            random.seed(len(extracted_text))
+            # Return error state instead of mocks
             features = {
-                "baseline": random.choice(
-                    ["Straight", "Ascending", "Descending", "Wavy"]
-                ),
-                "slant": random.choice(["Vertical", "Right", "Left", "Variable"]),
-                "pressure": random.choice(["Heavy", "Light", "Medium"]),
-                "size": random.choice(["Large", "Small", "Medium"]),
-                "spacing": random.choice(["Wide", "Narrow", "Balanced"]),
-                "confidence_score": 0.75,
+                "confidence_score": 0.0,
+                "error": "Could not extract features from AI response"
             }
-            analysis_text = f"AI Analysis: Based on the handwriting characteristics, the analysis suggests {', '.join(['determination', 'sensitivity', 'logic'])}."
+            analysis_text = f"AI Analysis failed to generate structured data. Raw response: {gemini_analysis[:100]}..."
 
     except Exception as e:
         print(f"Gemini Analysis Error: {e}")
-        # Fallback to mock analysis
-        random.seed(len(extracted_text))
         features = {
-            "baseline": random.choice(["Straight", "Ascending", "Descending", "Wavy"]),
-            "slant": random.choice(["Vertical", "Right", "Left", "Variable"]),
-            "pressure": random.choice(["Heavy", "Light", "Medium"]),
-            "size": random.choice(["Large", "Small", "Medium"]),
-            "spacing": random.choice(["Wide", "Narrow", "Balanced"]),
-            "confidence_score": round(random.uniform(0.7, 0.85), 2),
+            "confidence_score": 0.0,
+            "error": str(e)
         }
-        analysis_text = f"Analysis: Based on {features['slant']} slant and {features['pressure']} pressure, the writer shows determination and focus."
+        analysis_text = "AI Analysis unavailable."
 
     return {
         "extracted_text": extracted_text,

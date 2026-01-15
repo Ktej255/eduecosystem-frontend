@@ -20,26 +20,41 @@ export const DrillTimer: React.FC<DrillTimerProps> = ({
 }) => {
     const [timeLeft, setTimeLeft] = useState(durationSeconds);
 
+    const [endTime, setEndTime] = useState<number | null>(null);
+
+    // Reset loop if duration changes
     useEffect(() => {
+        setEndTime(null);
         setTimeLeft(durationSeconds);
     }, [durationSeconds]);
 
+    // Handle Active State Transitions
     useEffect(() => {
-        if (!isActive || timeLeft <= 0) return;
+        if (isActive && !endTime && timeLeft > 0) {
+            setEndTime(Date.now() + timeLeft * 1000);
+        } else if (!isActive) {
+            setEndTime(null);
+        }
+    }, [isActive, endTime, timeLeft]);
+
+    useEffect(() => {
+        if (!isActive || !endTime) return;
 
         const interval = setInterval(() => {
-            setTimeLeft((prev) => {
-                if (prev <= 1) {
-                    clearInterval(interval);
-                    onComplete();
-                    return 0;
-                }
-                return prev - 1;
-            });
+            const now = Date.now();
+            const diff = endTime - now;
+
+            if (diff <= 1000) {
+                clearInterval(interval);
+                setTimeLeft(0);
+                onComplete();
+            } else {
+                setTimeLeft(Math.ceil(diff / 1000));
+            }
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [isActive, timeLeft, onComplete]);
+    }, [isActive, endTime, onComplete]);
 
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
