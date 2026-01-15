@@ -71,6 +71,28 @@ export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
             const updated = new Set(prev);
             updated.add(sectionId);
             localStorage.setItem('kena_intro_progress', JSON.stringify([...updated]));
+
+            // Check if all sections are complete to mark Phase 1 as done in Roadmap
+            if (updated.size === sections.length) {
+                try {
+                    const globalProgressStr = localStorage.getItem("ancientWisdomProgress");
+                    let globalProgress = globalProgressStr ? JSON.parse(globalProgressStr) : { completedPhases: [], currentPhase: 1 };
+
+                    if (!globalProgress.completedPhases) globalProgress.completedPhases = [];
+
+                    if (!globalProgress.completedPhases.includes(1)) {
+                        globalProgress.completedPhases.push(1);
+                        // Auto-advance to next phase if currently on 1
+                        if (globalProgress.currentPhase === 1) {
+                            globalProgress.currentPhase = 2;
+                        }
+                        localStorage.setItem("ancientWisdomProgress", JSON.stringify(globalProgress));
+                    }
+                } catch (e) {
+                    console.error("Failed to update global progress", e);
+                }
+            }
+
             return updated;
         });
     };

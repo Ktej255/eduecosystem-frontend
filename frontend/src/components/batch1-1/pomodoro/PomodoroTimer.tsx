@@ -16,6 +16,7 @@ interface PomodoroTimerProps {
     isStrict?: boolean; // If true, cannot pause or skip
     sessionNumber: number;
     totalSessions: number;
+    focusTask?: string;
 }
 
 export default function PomodoroTimer({
@@ -24,7 +25,8 @@ export default function PomodoroTimer({
     onStart,
     isStrict = true,
     sessionNumber,
-    totalSessions
+    totalSessions,
+    focusTask
 }: PomodoroTimerProps) {
     // Generate unique storage key for this pomodoro session
     const storageKey = `pomodoro_timer_${sessionNumber}_${totalSessions}`;
@@ -89,19 +91,69 @@ export default function PomodoroTimer({
     }, [storageKey]);
 
     const [endTime, setEndTime] = useState<number | null>(null);
+    const audioContextRef = useRef<AudioContext | null>(null);
 
-    // We need to persist the expected end time to survive refreshes if we wanted full persistence,
-    // but the current requirement is just to fix the "tab in background" throttling issue.
-    // The existing localStorage logic saves 'timeLeft', which is fine for pausing/resuming.
-    // But for the running timer, we need to rely on Date.now() vs target time.
+    // Initialize AudioContext on user interaction (Start) to unlock it
+    const initAudio = () => {
+        if (!audioContextRef.current && typeof window !== 'undefined') {
+            const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+            if (AudioContext) {
+                audioContextRef.current = new AudioContext();
+            }
+        }
+        // Resume if suspended (common browser policy)
+        if (audioContextRef.current?.state === 'suspended') {
+            audioContextRef.current.resume();
+        }
+    };
 
-    // Initialize audio
+    const playBell = () => {
+        if (!soundEnabled || !audioContextRef.current) return;
+
+        try {
+            const ctx = audioContextRef.current;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            // Bell-like envelope
+            const now = ctx.currentTime;
+            osc.frequency.setValueAtTime(880, now); // High pitch start
+            osc.frequency.exponentialRampToValueAtTime(110, now + 1.5); // Decay pitch
+
+            gain.gain.setValueAtTime(0.5, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 1.5); // Decay volume
+
+            osc.start(now);
+            osc.stop(now + 1.5);
+        } catch (e) {
+            console.error("Failed to play bell:", e);
+        }
+    };
+
+    // Document Title Update
     useEffect(() => {
-        audioRef.current = new Audio('/sounds/bell.mp3');
-        return () => {
-            if (intervalRef.current) clearInterval(intervalRef.current);
+        if (typeof document !== 'undefined') {
+            document.title = isRunning ? `(${formatTime(timeLeft)}) Pomodoro` : 'Eduecosystem';
+        }
+    }, [timeLeft, isRunning]);
+
+    // Visibility Change Handler to re-sync immediately
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'visible' && isRunning && endTime) {
+                const now = Date.now();
+                const diff = endTime - now;
+                const newTimeLeft = Math.max(0, Math.ceil(diff / 1000));
+                setTimeLeft(newTimeLeft);
+            }
         };
-    }, []);
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+    }, [isRunning, endTime]);
 
     // Timer logic with Delta Time pattern
     useEffect(() => {
@@ -120,9 +172,8 @@ export default function PomodoroTimer({
                     clearSavedState();
 
                     // Play completion sound
-                    if (soundEnabled && audioRef.current) {
-                        audioRef.current.play().catch(() => { });
-                    }
+                    playBell();
+
                     // Trigger completion callback
                     setTimeout(onComplete, 500);
                 } else {
@@ -140,6 +191,7 @@ export default function PomodoroTimer({
     }, [isRunning, endTime, onComplete, soundEnabled, clearSavedState]);
 
     const handleStart = useCallback(() => {
+        initAudio(); // Initialize audio context
         if (!hasStarted) {
             setHasStarted(true);
             onStart?.();
@@ -236,8 +288,8 @@ export default function PomodoroTimer({
                         <span className={`text-5xl font-bold font-mono ${getTimerColor()}`}>
                             {formatTime(timeLeft)}
                         </span>
-                        <span className="text-sm text-gray-500 mt-2">
-                            {isRunning ? 'Focus Time' : hasStarted ? 'Paused' : 'Ready'}
+                        <span className="text-sm text-gray-500 mt-2 max-w-[180px] text-center truncate px-2">
+                            {isRunning ? (focusTask || 'Deep Focus Mode') : hasStarted ? 'Paused' : 'Ready'}
                         </span>
                     </div>
                 </div>

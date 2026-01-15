@@ -4,7 +4,8 @@ import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Timer, CheckCircle2, Flame, Trophy, Repeat, BookOpen, ArrowRight } from "lucide-react";
+import { ArrowLeft, Timer, CheckCircle2, Flame, Trophy, Repeat, BookOpen, ArrowRight, Target } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import PomodoroTimer from "./PomodoroTimer";
 import SubtopicSelector from "./SubtopicSelector";
@@ -15,6 +16,10 @@ import { getChaptersForWeek } from "../data/polity-modules";
 import { CHAPTER_SUBTOPICS, SubTopic } from "@/components/batch1/polity/data/polity-subtopics";
 import { LAXMIKANTH_CHAPTERS } from "@/components/batch1/polity/data/polity-schedule-data";
 import { markChapterComplete, markSubtopicsComplete, updateDayProgress, recordMCQScore } from "@/lib/polity-progress-store";
+import { ambientSoundManager, NoiseType } from "@/lib/ambient-sound-manager";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
+import { Volume2, Volume1, VolumeX, Headphones } from "lucide-react";
 
 // Session states for the enhanced cycle
 type SessionState =
@@ -128,8 +133,51 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
     const [subtopics, setSubtopics] = useState<SubTopic[]>([]);
     const [currentSubtopics, setCurrentSubtopics] = useState<SubTopic[]>([]);
 
+    // Session Goal
+    const [sessionGoal, setSessionGoal] = useState("");
+
     // Detailed history: Store data for each of the 12 sessions
     const [sessionHistory, setSessionHistory] = useState<CycleData[]>([]);
+
+    // Ambient Sound State
+    const [ambientEnabled, setAmbientEnabled] = useState(false);
+    const [ambientType, setAmbientType] = useState<NoiseType>('pink'); // Pink noise is best for focus
+    const [ambientVolume, setAmbientVolume] = useState(0.3);
+
+    // Initial Ambient Setup
+    useEffect(() => {
+        // Stop any playing sounds on unmount
+        return () => ambientSoundManager.stopAll();
+    }, []);
+
+    // Toggle Ambient
+    const toggleAmbient = (enabled: boolean) => {
+        setAmbientEnabled(enabled);
+        if (enabled) {
+            ambientSoundManager.toggle(ambientType, true, ambientVolume);
+        } else {
+            ambientSoundManager.stopAll();
+        }
+    };
+
+    // Change Volume
+    const handleVolumeChange = (vals: number[]) => {
+        const val = vals[0];
+        setAmbientVolume(val);
+        if (ambientEnabled) {
+            ambientSoundManager.setVolume(ambientType, val);
+        }
+    };
+
+    // Change Type
+    const handleTypeChange = (type: NoiseType) => {
+        setAmbientType(type);
+        if (ambientEnabled) {
+            // Restart with new type
+            ambientSoundManager.stopAll();
+            ambientSoundManager.toggle(type, true, ambientVolume);
+        }
+    };
 
     // Derived State
     const currentBlock = Math.ceil(currentSessionGlobal / SESSIONS_PER_BLOCK);
@@ -162,6 +210,9 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
             // Use stored current if it's ahead (e.g. during a break), but never behind history
             const storedCurrent = data.currentSessionGlobal || 1;
             setCurrentSessionGlobal(Math.max(derivedSession, storedCurrent));
+
+            // Restore goal
+            if (data.sessionGoal) setSessionGoal(data.sessionGoal);
         } else {
             // Fallback: Check for legacy data (Migration)
             const savedOld = localStorage.getItem(`batch11_cycle_${weekId}_${dayId}`);
@@ -203,9 +254,11 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
         localStorage.setItem(`batch11_pomodoro_${weekId}_${dayId}`, JSON.stringify({
             currentSessionGlobal,
             sessionHistory,
+            sessionGoal,
             lastUpdated: new Date().toISOString()
         }));
-    }, [currentSessionGlobal, sessionHistory, weekId, dayId]);
+    }, [currentSessionGlobal, sessionHistory, sessionGoal, weekId, dayId]);
+
 
     // Calculate total progress
     const totalSubtopicsCompleted = sessionHistory.reduce((sum, c) => sum + c.selectedSubtopics.length, 0);
@@ -502,7 +555,21 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                                     Block {currentBlock}, Session {currentSessionInBlock}/4.
                                     <br />
                                     25 minutes of focused study. Timer starts now.
+
                                 </p>
+
+                                <div className="max-w-md mx-auto mb-6">
+                                    <div className="relative">
+                                        <Target className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                                        <Input
+                                            placeholder="What is your main goal for this session?"
+                                            className="pl-10 h-12 text-lg bg-white/80 border-orange-200 focus:border-orange-500"
+                                            value={sessionGoal}
+                                            onChange={(e) => setSessionGoal(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+
                                 <Button
                                     size="lg"
                                     onClick={startSession}
@@ -514,6 +581,59 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                         </Card>
                     )}
 
+                    {/* Ambient Focus Controls (Visible in all active states) */}
+                    {(sessionState === 'pomodoro' || sessionState === 'ready') && (
+                        <Card className="mb-6 border-blue-100 bg-blue-50/50 dark:bg-blue-900/10">
+                            <CardContent className="p-4 flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className={`p-2 rounded-full ${ambientEnabled ? 'bg-blue-500 text-white animate-pulse' : 'bg-gray-200 text-gray-500'}`}>
+                                        <Headphones className="h-5 w-5" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-sm text-gray-700 dark:text-gray-300">Deep Focus Noise</h3>
+                                        <p className="text-xs text-gray-500">Block out distractions</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center gap-4">
+                                    {ambientEnabled && (
+                                        <div className="hidden md:flex items-center gap-2 w-32">
+                                            <Volume1 className="h-4 w-4 text-gray-400" />
+                                            <Slider
+                                                value={[ambientVolume]}
+                                                min={0}
+                                                max={1}
+                                                step={0.01}
+                                                onValueChange={handleVolumeChange}
+                                                className="cursor-pointer"
+                                            />
+                                            <Volume2 className="h-4 w-4 text-gray-400" />
+                                        </div>
+                                    )}
+
+                                    <div className="flex items-center gap-2 bg-white dark:bg-gray-800 rounded-lg border p-1">
+                                        {(['white', 'pink', 'brown'] as NoiseType[]).map(type => (
+                                            <button
+                                                key={type}
+                                                onClick={() => handleTypeChange(type)}
+                                                className={`text-[10px] px-2 py-1 rounded-md font-bold uppercase transition-all ${ambientType === type
+                                                    ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
+                                                    : 'text-gray-400 hover:text-gray-600'}`}
+                                            >
+                                                {type}
+                                            </button>
+                                        ))}
+                                    </div>
+
+                                    <Switch
+                                        checked={ambientEnabled}
+                                        onCheckedChange={toggleAmbient}
+                                    />
+                                </div>
+                            </CardContent>
+                        </Card>
+                    )}
+
                     {sessionState === 'pomodoro' && (
                         <PomodoroTimer
                             duration={POMODORO_DURATION}
@@ -521,6 +641,7 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                             sessionNumber={currentSessionGlobal}
                             totalSessions={TOTAL_SESSIONS}
                             isStrict={true}
+                            focusTask={sessionGoal}
                         />
                     )}
 

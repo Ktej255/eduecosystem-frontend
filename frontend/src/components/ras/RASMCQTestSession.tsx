@@ -26,7 +26,7 @@ export default function RASMCQTestSession({ onExit }: RASMCQTestSessionProps) {
     const progress = ((currentIndex + 1) / totalQuestions) * 100;
 
     const handleOptionSelect = (optionIndex: number) => {
-        if (showResult) return; // Prevent changing after submission/result view if we add that mode
+        if (showResult) return;
         setSelectedAnswers(prev => ({
             ...prev,
             [currentQuestion.id]: optionIndex
@@ -37,7 +37,7 @@ export default function RASMCQTestSession({ onExit }: RASMCQTestSessionProps) {
         if (currentIndex < totalQuestions - 1) {
             setCurrentIndex(prev => prev + 1);
         } else {
-            setShowResult(true);
+            finishTest();
         }
     };
 
@@ -56,21 +56,10 @@ export default function RASMCQTestSession({ onExit }: RASMCQTestSessionProps) {
         questions.forEach(q => {
             const userAns = selectedAnswers[q.id];
             if (userAns !== undefined) {
-                // RAS specific: Option 5 (index 4) is usually "Question not attempted" in recent papers if forced, 
-                // but here our data has it as an option. 
-                // If the correct answer is index 4 (5th option), and user picked it, they get marks.
-                // However, usually "Question not attempted" is a specific bubble. 
-                // In our data, "Question not attempted" is often the 5th option text.
-                // If user selects "Question not attempted" (index 4), it should count as 0 marks, not negative.
-                // WE need to check if the question defines 'correctAnswer' as the actual answer logic.
-                // In the data provided, `correctAnswer` is the 1-based index of the correct option.
-                // So if userAns + 1 === q.correctAnswer, it is correct.
-
                 if (userAns + 1 === q.correctAnswer) {
-                    score += 1.33; // Standard RAS prelims marks approx? (200 marks / 150 Qs = 1.33 marks/Q)
+                    score += 1.33;
                     correctCount++;
                 } else {
-                    // Negative marking usually 1/3rd of marks assigned.
                     score -= (1.33 / 3);
                     incorrectCount++;
                 }
@@ -78,7 +67,44 @@ export default function RASMCQTestSession({ onExit }: RASMCQTestSessionProps) {
                 unattemptedCount++;
             }
         });
-        return { score, correctCount, incorrectCount, unattemptedCount };
+        return { score: Number(score.toFixed(2)), correctCount, incorrectCount, unattemptedCount };
+    };
+
+    const finishTest = async () => {
+        setShowResult(true);
+        try {
+            const stats = calculateScore();
+            // Dynamic import to avoid SSR/circular dependency issues if any
+            const { RASSessionService } = await import("@/lib/ras-api");
+
+            const breakdown: any = {};
+            questions.forEach(q => {
+                const subject = q.subject || 'General';
+                if (!breakdown[subject]) breakdown[subject] = { total: 0, correct: 0, incorrect: 0 };
+                breakdown[subject].total++;
+
+                const userAns = selectedAnswers[q.id];
+                if (userAns !== undefined) {
+                    if (userAns + 1 === q.correctAnswer) breakdown[subject].correct++;
+                    else breakdown[subject].incorrect++;
+                }
+            });
+
+            await RASSessionService.submitTestResult({
+                testId: "RAS_2024_PRELIMS",
+                totalQuestions,
+                correctCount: stats.correctCount,
+                incorrectCount: stats.incorrectCount,
+                unansweredCount: stats.unattemptedCount,
+                score: stats.score,
+                timeSpentSeconds: 0,
+                timestamp: new Date().toISOString(),
+                subjectBreakdown: breakdown
+            });
+            console.log("RAS Result saved successfully");
+        } catch (e) {
+            console.error("Failed to save RAS result", e);
+        }
     };
 
     if (showResult) {

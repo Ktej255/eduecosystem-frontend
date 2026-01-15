@@ -120,7 +120,7 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <Link href="/student/batch1/analytics">
+                    <Link href="/student/batch1/analytics?returnPath=/student/batch1/polity">
                         <button className="flex items-center gap-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg text-sm font-bold border border-purple-200 dark:border-purple-800 hover:bg-purple-200 transition-colors shadow-sm">
                             <BarChart3 className="w-4 h-4" />
                             Test Analysis

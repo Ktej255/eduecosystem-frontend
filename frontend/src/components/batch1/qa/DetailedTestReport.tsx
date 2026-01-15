@@ -18,7 +18,20 @@ import {
     Timer,
     BarChart3,
     BookOpen,
+    Download,
+    Bookmark, // For Spaced Repetition
+    Filter,   // For filtering questions
 } from "lucide-react";
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+    ReferenceLine
+} from 'recharts';
 
 interface TestAnswer {
     qId: number;
@@ -54,6 +67,13 @@ interface DetailedTestReportProps {
         timestamp: string;
     };
     mcqs: MCQWithMeta[];
+    history?: {
+        id: number;
+        score: number;
+        total: number;
+        accuracy: number;
+        date: string;
+    }[]; // For Trend Analysis
     onClose: () => void;
 }
 
@@ -64,7 +84,23 @@ const CONFIDENCE_LABELS: Record<number, { label: string; emoji: string; color: s
     4: { label: "Blind Guess", emoji: "🎲", color: "text-red-600" },
 };
 
-export default function DetailedTestReport({ testResult, mcqs, onClose }: DetailedTestReportProps) {
+export default function DetailedTestReport({ testResult, mcqs, history, onClose }: DetailedTestReportProps) {
+    const [reviewFilter, setReviewFilter] = useState<'all' | 'incorrect' | 'skipped' | 'marked'>('all');
+    const [markedQuestions, setMarkedQuestions] = useState<number[]>([]);
+
+    // Load bookmarks
+    useEffect(() => {
+        const saved = localStorage.getItem('spacerep_bookmarks');
+        if (saved) setMarkedQuestions(JSON.parse(saved));
+    }, []);
+
+    const toggleBookmark = (qId: number) => {
+        const newSet = markedQuestions.includes(qId)
+            ? markedQuestions.filter(id => id !== qId)
+            : [...markedQuestions, qId];
+        setMarkedQuestions(newSet);
+        localStorage.setItem('spacerep_bookmarks', JSON.stringify(newSet));
+    };
     // Compute topic-wise breakdown
     const topicAnalysis = useMemo(() => {
         const topicMap: Record<string, {
@@ -168,6 +204,26 @@ export default function DetailedTestReport({ testResult, mcqs, onClose }: Detail
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back
                 </Button>
                 <div className="flex gap-2">
+                    <Button variant="outline" size="sm" onClick={() => {
+                        const csvContent = "data:text/csv;charset=utf-8,"
+                            + "Question ID,Question,Your Answer,Correct Answer,Is Correct,Time Spent(s),Confidence\n"
+                            + testResult.answers.map(ans => {
+                                const mcq = mcqs.find(m => m.id === ans.qId);
+                                const qText = mcq?.question.replace(/,/g, " ") || "Unknown";
+                                const myAns = ans.answer !== -1 ? String.fromCharCode(65 + ans.answer) : "Skipped";
+                                const correctAns = mcq ? String.fromCharCode(65 + mcq.correctAnswer) : "?";
+                                return `${ans.qId},"${qText}",${myAns},${correctAns},${ans.isCorrect ? "Yes" : "No"},${ans.timeSpentSeconds || 0},${ans.confidence || ""}`;
+                            }).join("\n");
+                        const encodedUri = encodeURI(csvContent);
+                        const link = document.createElement("a");
+                        link.setAttribute("href", encodedUri);
+                        link.setAttribute("download", `test_report_${testResult.id}.csv`);
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }}>
+                        <Download className="mr-2 h-4 w-4" /> Export CSV
+                    </Button>
                     <Button variant="outline" size="sm" onClick={() => {
                         const summary = `Test Score: ${testResult.score}/${testResult.total_questions * 2}\nCorrect: ${testResult.correct_count}\nAccuracy: ${scorePercent}%`;
                         navigator.clipboard.writeText(summary);
@@ -291,95 +347,134 @@ export default function DetailedTestReport({ testResult, mcqs, onClose }: Detail
                 </CardContent>
             </Card>
 
-            {/* Time Analysis (if available) */}
-            {timeAnalysis && (
+            {/* Trend Analysis (If History Provided) */}
+            {history && history.length > 1 && (
                 <Card>
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-lg">
-                            <Timer className="h-5 w-5 text-orange-600" />
-                            Time Analysis
+                            <TrendingUp className="h-5 w-5 text-indigo-600" />
+                            Performance Trend
                         </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                        <div className="grid grid-cols-3 gap-4 text-center">
-                            <div className="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20">
-                                <Clock className="h-6 w-6 mx-auto mb-2 text-blue-600" />
-                                <p className="text-xl font-bold">{Math.round(timeAnalysis.totalTime / 60)}m</p>
-                                <p className="text-xs text-gray-500">Total Time</p>
-                            </div>
-                            <div className="p-4 rounded-lg bg-green-50 dark:bg-green-900/20">
-                                <Timer className="h-6 w-6 mx-auto mb-2 text-green-600" />
-                                <p className="text-xl font-bold">{Math.round(timeAnalysis.avgTime)}s</p>
-                                <p className="text-xs text-gray-500">Avg per Question</p>
-                            </div>
-                            <div className="p-4 rounded-lg bg-orange-50 dark:bg-orange-900/20">
-                                <AlertTriangle className="h-6 w-6 mx-auto mb-2 text-orange-600" />
-                                <p className="text-xl font-bold">{timeAnalysis.slowCount}</p>
-                                <p className="text-xs text-gray-500">Slow Questions</p>
-                            </div>
-                        </div>
+                    <CardContent className="h-[250px] w-full">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <LineChart data={history}>
+                                <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
+                                <XAxis
+                                    dataKey="date"
+                                    tickFormatter={(str) => new Date(str).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                                    style={{ fontSize: 10 }}
+                                />
+                                <YAxis domain={[0, 100]} style={{ fontSize: 10 }} />
+                                <Tooltip
+                                    labelFormatter={(d) => new Date(d).toLocaleDateString()}
+                                    formatter={(val: number | any) => [`${val}%`, 'Accuracy']}
+                                />
+                                <ReferenceLine y={scorePercent} stroke="green" strokeDasharray="3 3" label="Current" />
+                                <Line
+                                    type="monotone"
+                                    dataKey="accuracy"
+                                    stroke="#8884d8"
+                                    strokeWidth={2}
+                                    dot={{ r: 4 }}
+                                    activeDot={{ r: 6 }}
+                                />
+                            </LineChart>
+                        </ResponsiveContainer>
                     </CardContent>
                 </Card>
             )}
 
             {/* Question Review Panel */}
             <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-lg">
-                        <BookOpen className="h-5 w-5 text-blue-600" />
-                        Detailed Question Review
-                    </CardTitle>
+                <CardHeader className="pb-3">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <CardTitle className="flex items-center gap-2 text-lg">
+                            <BookOpen className="h-5 w-5 text-blue-600" />
+                            Detailed Question Review
+                        </CardTitle>
+
+                        <div className="flex gap-2">
+                            <Button variant={reviewFilter === 'all' ? "default" : "outline"} size="sm" onClick={() => setReviewFilter('all')}>
+                                All
+                            </Button>
+                            <Button variant={reviewFilter === 'incorrect' ? "destructive" : "outline"} size="sm" onClick={() => setReviewFilter('incorrect')}>
+                                Incorrect
+                            </Button>
+                            <Button variant={reviewFilter === 'skipped' ? "secondary" : "outline"} size="sm" onClick={() => setReviewFilter('skipped')}>
+                                Skipped
+                            </Button>
+                            <Button variant={reviewFilter === 'marked' ? "default" : "outline"} size="sm" onClick={() => setReviewFilter('marked')} className={reviewFilter === 'marked' ? "bg-amber-500 hover:bg-amber-600" : ""}>
+                                <Bookmark className="w-3 h-3 mr-1" /> Marked
+                            </Button>
+                        </div>
+                    </div>
                 </CardHeader>
-                <CardContent className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
-                    {testResult.answers.map((ans, idx) => {
-                        const mcq = mcqs.find(m => m.id === ans.qId);
-                        if (!mcq) return null;
+                <CardContent className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+                    {testResult.answers
+                        .filter(ans => {
+                            if (reviewFilter === 'incorrect') return !ans.isCorrect && ans.answer !== -1;
+                            if (reviewFilter === 'skipped') return ans.answer === -1;
+                            if (reviewFilter === 'marked') return markedQuestions.includes(ans.qId);
+                            return true;
+                        })
+                        .map((ans, idx) => {
+                            const mcq = mcqs.find(m => m.id === ans.qId);
+                            if (!mcq) return null;
 
-                        return (
-                            <div key={idx} className={`p-4 rounded-lg border ${ans.isCorrect
-                                ? "bg-green-50/50 border-green-100 dark:bg-green-900/10 dark:border-green-800"
-                                : "bg-red-50/50 border-red-100 dark:bg-red-900/10 dark:border-red-800"
-                                }`}>
-                                <div className="flex justify-between items-start mb-2">
-                                    <span className="font-semibold text-sm text-gray-500">Q{idx + 1}</span>
-                                    <div className="flex items-center gap-2">
-                                        {ans.confidence && CONFIDENCE_LABELS[ans.confidence] && (
-                                            <span className={`text-xs px-2 py-0.5 rounded-full bg-white dark:bg-black border ${CONFIDENCE_LABELS[ans.confidence].color} border-current`}>
-                                                {CONFIDENCE_LABELS[ans.confidence].emoji} {CONFIDENCE_LABELS[ans.confidence].label}
-                                            </span>
-                                        )}
-                                        {ans.timeSpentSeconds && (
-                                            <span className="text-xs text-gray-400 flex items-center gap-1">
-                                                <Timer className="w-3 h-3" /> {ans.timeSpentSeconds}s
-                                            </span>
-                                        )}
-                                    </div>
-                                </div>
-                                <p className="font-medium text-gray-900 dark:text-gray-100 mb-3">{mcq.question}</p>
+                            return (
+                                <div key={idx} className={`p-4 rounded-lg border ${ans.isCorrect
+                                    ? "bg-green-50/50 border-green-100 dark:bg-green-900/10 dark:border-green-800"
+                                    : "bg-red-50/50 border-red-100 dark:bg-red-900/10 dark:border-red-800"
+                                    }`}>
+                                    <div className="flex justify-between items-start mb-2">
+                                        <span className="font-semibold text-sm text-gray-500">Q{idx + 1}</span>
+                                        <div className="flex items-center gap-2">
+                                            <button
+                                                onClick={() => toggleBookmark(ans.qId)}
+                                                className={`p-1.5 rounded-full transition-colors ${markedQuestions.includes(ans.qId) ? 'text-amber-500 bg-amber-100 dark:bg-amber-900/30' : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
+                                                title="Mark for Spaced Repetition"
+                                            >
+                                                <Bookmark className={`w-4 h-4 ${markedQuestions.includes(ans.qId) ? 'fill-amber-500' : ''}`} />
+                                            </button>
 
-                                <div className="space-y-2 pl-4 border-l-2 border-gray-200 dark:border-gray-800">
-                                    {mcq.options.map((opt, oIdx) => (
-                                        <div key={oIdx} className={`text-sm p-2 rounded ${oIdx === mcq.correctAnswer
-                                            ? "bg-green-100 dark:bg-green-900/40 text-green-900 dark:text-green-100 font-medium"
-                                            : oIdx === ans.answer && !ans.isCorrect
-                                                ? "bg-red-100 dark:bg-red-900/40 text-red-900 dark:text-red-100 line-through decoration-red-500"
-                                                : "text-gray-600 dark:text-gray-400"
-                                            }`}>
-                                            {String.fromCharCode(65 + oIdx)}. {opt}
-                                            {oIdx === mcq.correctAnswer && <span className="ml-2 text-green-600">✓</span>}
-                                            {oIdx === ans.answer && !ans.isCorrect && <span className="ml-2 text-red-600">✗</span>}
+                                            {ans.confidence && CONFIDENCE_LABELS[ans.confidence] && (
+                                                <span className={`text-xs px-2 py-0.5 rounded-full bg-white dark:bg-black border ${CONFIDENCE_LABELS[ans.confidence].color} border-current`}>
+                                                    {CONFIDENCE_LABELS[ans.confidence].emoji} {CONFIDENCE_LABELS[ans.confidence].label}
+                                                </span>
+                                            )}
+                                            {ans.timeSpentSeconds && (
+                                                <span className="text-xs text-gray-400 flex items-center gap-1">
+                                                    <Timer className="w-3 h-3" /> {ans.timeSpentSeconds}s
+                                                </span>
+                                            )}
                                         </div>
-                                    ))}
-                                </div>
-
-                                {mcq.explanation && (
-                                    <div className="mt-3 text-xs bg-blue-50 dark:bg-blue-900/20 p-3 rounded text-blue-800 dark:text-blue-300">
-                                        <span className="font-bold">Explanation:</span> {mcq.explanation}
                                     </div>
-                                )}
-                            </div>
-                        );
-                    })}
+                                    <p className="font-medium text-gray-900 dark:text-gray-100 mb-3">{mcq.question}</p>
+
+                                    <div className="space-y-2 pl-4 border-l-2 border-gray-200 dark:border-gray-800">
+                                        {mcq.options.map((opt, oIdx) => (
+                                            <div key={oIdx} className={`text-sm p-2 rounded ${oIdx === mcq.correctAnswer
+                                                ? "bg-green-100 dark:bg-green-900/40 text-green-900 dark:text-green-100 font-medium"
+                                                : oIdx === ans.answer && !ans.isCorrect
+                                                    ? "bg-red-100 dark:bg-red-900/40 text-red-900 dark:text-red-100 line-through decoration-red-500"
+                                                    : "text-gray-600 dark:text-gray-400"
+                                                }`}>
+                                                {String.fromCharCode(65 + oIdx)}. {opt}
+                                                {oIdx === mcq.correctAnswer && <span className="ml-2 text-green-600">✓</span>}
+                                                {oIdx === ans.answer && !ans.isCorrect && <span className="ml-2 text-red-600">✗</span>}
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {mcq.explanation && (
+                                        <div className="mt-3 text-xs bg-blue-50 dark:bg-blue-900/20 p-3 rounded text-blue-800 dark:text-blue-300">
+                                            <span className="font-bold">Explanation:</span> {mcq.explanation}
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
                 </CardContent>
             </Card>
 

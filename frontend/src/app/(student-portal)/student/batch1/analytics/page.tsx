@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/auth-context";
+import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -165,15 +166,19 @@ export default function AnalyticsPage() {
         );
     }
 
+    const searchParams = useSearchParams();
+    const returnPath = searchParams.get('returnPath') || "/student/batch1";
+    const backLabel = returnPath.includes('polity') ? "Back to Polity Planner" : "Back to Batch 1";
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 p-6">
             <div className="max-w-7xl mx-auto space-y-6">
                 {/* Header */}
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                        <Link href="/student/batch1">
+                        <Link href={returnPath}>
                             <Button variant="ghost" size="sm">
-                                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Batch 1
+                                <ArrowLeft className="mr-2 h-4 w-4" /> {backLabel}
                             </Button>
                         </Link>
                         <div>
