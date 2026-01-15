@@ -10,6 +10,7 @@ import { useAuth } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
 
 import InternalShiftTracker from "./InternalShiftTracker";
+import JourneyRecap from "./JourneyRecap";
 
 import SpiritualQuotientTest from "./SpiritualQuotientTest";
 
@@ -178,6 +179,13 @@ export default function AncientWisdomLanding() {
                 <div className="lg:sticky lg:top-24">
                     <InternalShiftTracker />
                 </div>
+            </section>
+
+            {/* 
+        JOURNEY RECAP SECTION 
+      */}
+            <section className="py-20 bg-gradient-to-b from-slate-900/50 to-transparent">
+                <JourneyRecap />
             </section>
 
             {/* 

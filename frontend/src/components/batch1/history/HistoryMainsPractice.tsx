@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { SubjectConfig, SubjectTopic } from '../framework/SubjectPlanner';
-import { PenTool, CheckCircle, Clock, BookOpen, ChevronDown, ChevronUp, Loader2, Sparkles, ThumbsUp, AlertTriangle } from 'lucide-react';
+import { PenTool, CheckCircle, Clock, BookOpen, ChevronDown, ChevronUp, Loader2, Sparkles, ThumbsUp, AlertTriangle, Eye } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -17,15 +17,48 @@ interface EvaluationResult {
     improvements: string[];
 }
 
+const STORAGE_KEY_PREFIX = "mains_draft_";
+
 export default function HistoryMainsPractice({ config }: HistoryMainsPracticeProps) {
     const [selectedQuestionId, setSelectedQuestionId] = useState<string | null>(null);
     const [answers, setAnswers] = useState<{ [key: string]: string }>({});
     const [evaluations, setEvaluations] = useState<{ [key: string]: EvaluationResult }>({});
     const [loadingEvaluation, setLoadingEvaluation] = useState<{ [key: string]: boolean }>({});
     const [evaluationError, setEvaluationError] = useState<{ [key: string]: string }>({});
+    const [showModelAnswer, setShowModelAnswer] = useState<{ [key: string]: boolean }>({});
 
     // Filter topics that have Mains Questions
     const topicsWithMains = config.topics.filter(t => t.mainsQuestions && t.mainsQuestions.length > 0);
+
+    // Load drafts from localStorage on mount
+    useEffect(() => {
+        const loadedAnswers: { [key: string]: string } = {};
+        topicsWithMains.forEach(topic => {
+            topic.mainsQuestions?.forEach(q => {
+                const saved = localStorage.getItem(`${STORAGE_KEY_PREFIX}${q.id}`);
+                if (saved) {
+                    loadedAnswers[q.id] = saved;
+                }
+            });
+        });
+        if (Object.keys(loadedAnswers).length > 0) {
+            setAnswers(loadedAnswers);
+        }
+    }, []);
+
+    // Save draft to localStorage (debounced via effect)
+    useEffect(() => {
+        const timeoutIds: NodeJS.Timeout[] = [];
+        Object.entries(answers).forEach(([questionId, answer]) => {
+            const timeoutId = setTimeout(() => {
+                if (answer) {
+                    localStorage.setItem(`${STORAGE_KEY_PREFIX}${questionId}`, answer);
+                }
+            }, 500); // 500ms debounce
+            timeoutIds.push(timeoutId);
+        });
+        return () => timeoutIds.forEach(id => clearTimeout(id));
+    }, [answers]);
 
     const handleEvaluate = async (questionId: string, question: string, marks: number) => {
         const answer = answers[questionId];
