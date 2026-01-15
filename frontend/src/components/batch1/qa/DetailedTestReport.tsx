@@ -167,6 +167,15 @@ export default function DetailedTestReport({ testResult, mcqs, onClose }: Detail
                 <Button variant="ghost" size="sm" onClick={onClose}>
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back
                 </Button>
+                <div className="flex gap-2">
+                    <Button variant="outline" size="sm" onClick={() => {
+                        const summary = `Test Score: ${testResult.score}/${testResult.total_questions * 2}\nCorrect: ${testResult.correct_count}\nAccuracy: ${scorePercent}%`;
+                        navigator.clipboard.writeText(summary);
+                        alert("Summary copied to clipboard!");
+                    }}>
+                        Copy Summary
+                    </Button>
+                </div>
                 <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                     📊 Detailed Test Report
                 </h2>
@@ -312,6 +321,67 @@ export default function DetailedTestReport({ testResult, mcqs, onClose }: Detail
                     </CardContent>
                 </Card>
             )}
+
+            {/* Question Review Panel */}
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-lg">
+                        <BookOpen className="h-5 w-5 text-blue-600" />
+                        Detailed Question Review
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+                    {testResult.answers.map((ans, idx) => {
+                        const mcq = mcqs.find(m => m.id === ans.qId);
+                        if (!mcq) return null;
+
+                        return (
+                            <div key={idx} className={`p-4 rounded-lg border ${ans.isCorrect
+                                ? "bg-green-50/50 border-green-100 dark:bg-green-900/10 dark:border-green-800"
+                                : "bg-red-50/50 border-red-100 dark:bg-red-900/10 dark:border-red-800"
+                                }`}>
+                                <div className="flex justify-between items-start mb-2">
+                                    <span className="font-semibold text-sm text-gray-500">Q{idx + 1}</span>
+                                    <div className="flex items-center gap-2">
+                                        {ans.confidence && CONFIDENCE_LABELS[ans.confidence] && (
+                                            <span className={`text-xs px-2 py-0.5 rounded-full bg-white dark:bg-black border ${CONFIDENCE_LABELS[ans.confidence].color} border-current`}>
+                                                {CONFIDENCE_LABELS[ans.confidence].emoji} {CONFIDENCE_LABELS[ans.confidence].label}
+                                            </span>
+                                        )}
+                                        {ans.timeSpentSeconds && (
+                                            <span className="text-xs text-gray-400 flex items-center gap-1">
+                                                <Timer className="w-3 h-3" /> {ans.timeSpentSeconds}s
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+                                <p className="font-medium text-gray-900 dark:text-gray-100 mb-3">{mcq.question}</p>
+
+                                <div className="space-y-2 pl-4 border-l-2 border-gray-200 dark:border-gray-800">
+                                    {mcq.options.map((opt, oIdx) => (
+                                        <div key={oIdx} className={`text-sm p-2 rounded ${oIdx === mcq.correctAnswer
+                                            ? "bg-green-100 dark:bg-green-900/40 text-green-900 dark:text-green-100 font-medium"
+                                            : oIdx === ans.answer && !ans.isCorrect
+                                                ? "bg-red-100 dark:bg-red-900/40 text-red-900 dark:text-red-100 line-through decoration-red-500"
+                                                : "text-gray-600 dark:text-gray-400"
+                                            }`}>
+                                            {String.fromCharCode(65 + oIdx)}. {opt}
+                                            {oIdx === mcq.correctAnswer && <span className="ml-2 text-green-600">✓</span>}
+                                            {oIdx === ans.answer && !ans.isCorrect && <span className="ml-2 text-red-600">✗</span>}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {mcq.explanation && (
+                                    <div className="mt-3 text-xs bg-blue-50 dark:bg-blue-900/20 p-3 rounded text-blue-800 dark:text-blue-300">
+                                        <span className="font-bold">Explanation:</span> {mcq.explanation}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+                </CardContent>
+            </Card>
 
             {/* Recommendations */}
             <Card className="border-2 border-purple-200 dark:border-purple-800">

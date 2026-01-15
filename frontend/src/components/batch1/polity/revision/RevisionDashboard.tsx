@@ -30,6 +30,7 @@ import {
     RevisionProgress,
     StudyStreak
 } from './progress-utils';
+import RevisionCalendar from './RevisionCalendar';
 
 
 export default function RevisionDashboard() {
@@ -96,7 +97,7 @@ export default function RevisionDashboard() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-[#030303] dark:via-[#050510] dark:to-[#030303] pb-20">
             {/* Hero Header */}
-            <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white pt-12 pb-24 px-6 relative overflow-hidden">
+            <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white pt-12 pb-48 px-6 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml,...')] opacity-10" />
                 <div className="max-w-6xl mx-auto relative z-10">
                     <Link href="/student/batch1/polity" className="inline-flex items-center gap-2 text-indigo-200 hover:text-white transition-colors mb-8 text-sm font-medium">
@@ -132,56 +133,89 @@ export default function RevisionDashboard() {
                 </div>
             </div>
 
-            {/* Stats Grid */}
-            <div className="max-w-6xl mx-auto px-6 -mt-12">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                                <BookOpen className="w-5 h-5 text-blue-600" />
+            <div className="max-w-6xl mx-auto px-6 -mt-24 space-y-6">
+
+                {/* 11.1 Daily Drill CTA */}
+                <div className="bg-white dark:bg-[#111] rounded-3xl p-1 shadow-xl border border-indigo-100 dark:border-indigo-900/30">
+                    <div className="bg-gradient-to-r from-indigo-600 to-pink-600 rounded-[22px] p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                        <div className="absolute right-0 top-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
+
+                        <div className="flex items-center gap-6 relative z-10">
+                            <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center">
+                                <Zap className="w-8 h-8 text-yellow-300" />
                             </div>
-                            <span className="text-sm text-gray-500">Progress</span>
+                            <div>
+                                <h2 className="text-2xl font-black mb-1">Morning Vitamin Drill</h2>
+                                <p className="text-indigo-100">5 SRS Cards • 3 Facts • 2 Fast MCQs</p>
+                            </div>
                         </div>
-                        <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.overallProgress}%</div>
-                        <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full mt-2 overflow-hidden">
-                            <div
-                                className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full transition-all"
-                                style={{ width: `${stats.overallProgress}%` }}
-                            />
+
+                        <Link
+                            href="/student/batch1/polity/revision/drill"
+                            className="bg-white text-indigo-600 px-8 py-4 rounded-xl font-black shadow-lg hover:scale-105 transition-transform flex items-center gap-2 relative z-10"
+                        >
+                            <Play className="w-5 h-5 fill-indigo-600" /> Start Daily Drill
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Stats & Calendar Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {/* Left: Progression Stats */}
+                    <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+                        <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                                    <BookOpen className="w-5 h-5 text-blue-600" />
+                                </div>
+                                <span className="text-sm text-gray-500">Progress</span>
+                            </div>
+                            <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.overallProgress}%</div>
+                            <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full mt-2 overflow-hidden">
+                                <div
+                                    className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full transition-all"
+                                    style={{ width: `${stats.overallProgress}%` }}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+                                    <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                                </div>
+                                <span className="text-sm text-gray-500">Mastered</span>
+                            </div>
+                            <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.masteredChapters}</div>
+                            <div className="text-xs text-gray-500">of {stats.totalChapters} chapters</div>
+                        </div>
+
+                        <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
+                                    <Layers className="w-5 h-5 text-amber-600" />
+                                </div>
+                                <span className="text-sm text-gray-500">Flashcards</span>
+                            </div>
+                            <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.completedFlashcards}</div>
+                            <div className="text-xs text-gray-500">of {stats.totalFlashcards} completed</div>
+                        </div>
+
+                        <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                                    <Target className="w-5 h-5 text-purple-600" />
+                                </div>
+                                <span className="text-sm text-gray-500">MCQs</span>
+                            </div>
+                            <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.completedMcqs}</div>
+                            <div className="text-xs text-gray-500">of {stats.totalMcqs} attempted</div>
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                            </div>
-                            <span className="text-sm text-gray-500">Mastered</span>
-                        </div>
-                        <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.masteredChapters}</div>
-                        <div className="text-xs text-gray-500">of {stats.totalChapters} chapters</div>
-                    </div>
-
-                    <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-                                <Layers className="w-5 h-5 text-amber-600" />
-                            </div>
-                            <span className="text-sm text-gray-500">Flashcards</span>
-                        </div>
-                        <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.completedFlashcards}</div>
-                        <div className="text-xs text-gray-500">of {stats.totalFlashcards} completed</div>
-                    </div>
-
-                    <div className="bg-white dark:bg-[#111] rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800">
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                                <Target className="w-5 h-5 text-purple-600" />
-                            </div>
-                            <span className="text-sm text-gray-500">MCQs</span>
-                        </div>
-                        <div className="text-3xl font-black text-gray-900 dark:text-white">{stats.completedMcqs}</div>
-                        <div className="text-xs text-gray-500">of {stats.totalMcqs} attempted</div>
+                    {/* Right: Revision Calendar */}
+                    <div className="lg:col-span-1">
+                        <RevisionCalendar />
                     </div>
                 </div>
             </div>

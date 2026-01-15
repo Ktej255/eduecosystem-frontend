@@ -75,7 +75,7 @@ const subjects = [
         icon: BrainCircuit,
         color: "cyan",
         gradient: "from-cyan-500 to-blue-600",
-        href: "/student/batch1/analytics"
+        href: "/student/batch1/polity?view=schedule"
     }
 ];
 

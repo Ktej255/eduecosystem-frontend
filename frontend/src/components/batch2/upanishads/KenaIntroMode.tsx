@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { KENA_INTRO_DATA } from "@/components/batch2/upanishads/data/kena-intro-data";
-import { BookOpen, Sparkles, MapPin, Feather, Quote, Brain } from "lucide-react";
+import { BookOpen, Sparkles, MapPin, Feather, Quote, Brain, CheckCircle2 } from "lucide-react";
 
 // Define flexible section type to handle all possible properties
 interface KenaSection {
@@ -49,6 +49,36 @@ export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
     // Cast sections to our flexible type
     const sections = KENA_INTRO_DATA.sections as KenaSection[];
 
+    // Progress tracking state
+    const [completedSections, setCompletedSections] = React.useState<Set<string>>(new Set());
+
+    // Load progress from localStorage on mount
+    React.useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('kena_intro_progress');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    setCompletedSections(new Set(parsed));
+                } catch { }
+            }
+        }
+    }, []);
+
+    // Save progress to localStorage
+    const markSectionComplete = (sectionId: string) => {
+        setCompletedSections(prev => {
+            const updated = new Set(prev);
+            updated.add(sectionId);
+            localStorage.setItem('kena_intro_progress', JSON.stringify([...updated]));
+            return updated;
+        });
+    };
+
+    const progressPercent = sections.length > 0
+        ? Math.round((completedSections.size / sections.length) * 100)
+        : 0;
+
     const objectives = [
         { icon: "👁️", label: lang === "en" ? "Sharpened Perception" : "तीक्ष्ण दृष्टि", desc: lang === "en" ? "Identify the source of sight and hearing." : "देखने और सुनने के स्रोत की पहचान।" },
         { icon: "🧠", label: lang === "en" ? "Mental Clarity" : "मानसिक स्पष्टता", desc: lang === "en" ? "Recognize the 'impeller' behind thoughts." : "विचारों के पीछे के 'प्रेरक' को पहचानना।" },
@@ -57,6 +87,29 @@ export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
 
     return (
         <div className="space-y-12 max-w-5xl mx-auto">
+            {/* Progress Bar */}
+            <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-gradient-to-r from-cyan-900/50 to-teal-900/50 rounded-2xl border border-teal-500/20 p-6"
+            >
+                <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-teal-300 font-bold text-sm uppercase tracking-wider">Your Progress</h3>
+                    <span className="text-white font-bold text-lg">{progressPercent}%</span>
+                </div>
+                <div className="w-full bg-black/30 rounded-full h-3 overflow-hidden">
+                    <motion.div
+                        className="bg-gradient-to-r from-teal-400 to-cyan-400 h-full rounded-full"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${progressPercent}%` }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    />
+                </div>
+                <p className="text-xs text-teal-400/70 mt-2">
+                    {completedSections.size} of {sections.length} sections completed
+                </p>
+            </motion.div>
+
             {/* Transformation Objectives Section */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -225,6 +278,28 @@ export default function KenaIntroMode({ lang }: { lang: "en" | "hi" }) {
                             ))}
                         </div>
                     )}
+
+                    {/* Section Completion Control */}
+                    <div className="mt-8 pt-8 border-t border-teal-500/10 flex justify-end">
+                        <button
+                            onClick={() => markSectionComplete(section.id || idx.toString())}
+                            disabled={completedSections.has(section.id || idx.toString())}
+                            className={`px-6 py-2 rounded-full font-medium text-sm flex items-center gap-2 transition-all ${completedSections.has(section.id || idx.toString())
+                                ? "bg-teal-500/20 text-teal-300 cursor-default"
+                                : "bg-teal-500 text-slate-900 hover:bg-teal-400 hover:scale-105"
+                                }`}
+                        >
+                            {completedSections.has(section.id || idx.toString()) ? (
+                                <>
+                                    <CheckCircle2 className="w-4 h-4" /> Completed
+                                </>
+                            ) : (
+                                <>
+                                    Mark as Complete
+                                </>
+                            )}
+                        </button>
+                    </div>
                 </motion.section>
             ))}
 

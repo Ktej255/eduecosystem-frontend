@@ -126,11 +126,13 @@ export default function AnalyticsPage() {
             scorePercent: Math.round((r.correct_count / r.total_questions) * 100)
         }));
 
-        // Subject breakdown (placeholder - will be enhanced with actual subject data)
+        // Subject breakdown (Simplified for now as real metadata is needed for accurate split)
+        // Assuming current Batch 1 tests are primarily Polity based on the schedule
         const subjectBreakdown = [
-            { name: 'Polity', tests: Math.ceil(totalTests * 0.4), avgScore: Math.round(avgScorePercent + (Math.random() * 10 - 5)), color: COLORS[0] },
-            { name: 'History', tests: Math.ceil(totalTests * 0.3), avgScore: Math.round(avgScorePercent + (Math.random() * 10 - 5)), color: COLORS[1] },
-            { name: 'CSAT', tests: Math.ceil(totalTests * 0.3), avgScore: Math.round(avgScorePercent + (Math.random() * 10 - 5)), color: COLORS[2] },
+            { name: 'Polity', tests: totalTests, avgScore: Math.round(avgScorePercent) || 0, color: COLORS[0] },
+            // Placeholder for other subjects when they are properly tagged in backend
+            { name: 'History', tests: 0, avgScore: 0, color: COLORS[1] },
+            { name: 'CSAT', tests: 0, avgScore: 0, color: COLORS[2] },
         ];
 
         setAnalytics({

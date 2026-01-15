@@ -17,8 +17,10 @@ import {
     Sparkles,
     BrainCircuit,
     FileText,
-    CheckCircle
+    CheckCircle,
+    BarChart3
 } from 'lucide-react';
+import Link from 'next/link';
 import { generateWeeklySchedule, WeeklySchedule, LAXMIKANTH_CHAPTERS } from './data/polity-schedule-data';
 import { CHAPTER_SUBTOPICS } from './data/polity-subtopics';
 import { getModuleById, getModuleColors } from './data/polity-types';
@@ -118,6 +120,12 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
                 </div>
 
                 <div className="flex items-center gap-4">
+                    <Link href="/student/batch1/analytics">
+                        <button className="flex items-center gap-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg text-sm font-bold border border-purple-200 dark:border-purple-800 hover:bg-purple-200 transition-colors shadow-sm">
+                            <BarChart3 className="w-4 h-4" />
+                            Test Analysis
+                        </button>
+                    </Link>
                     {isAdmin && (
                         <div className="flex p-1 bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800">
                             <button
@@ -339,7 +347,7 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
 
                                     {!isSaturday && !isSunday && (
                                         <div className="mt-auto pt-3">
-                                            <a href={`/student/batch1-1/${currentWeek.week}/${dayIndex + 1}`} className="block w-full">
+                                            <a href={`/student/batch1-1/${currentWeek.week}/${dayIndex + 1}/pomodoro`} className="block w-full">
                                                 <button className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
                                                     <BrainCircuit className="w-3.5 h-3.5" />
                                                     Start Session

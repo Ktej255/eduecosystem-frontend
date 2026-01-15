@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Book, ChevronRight, Clock, Sparkles, Target, TrendingUp } from 'lucide-react';
+import { Book, ChevronRight, Clock, Sparkles, Target, TrendingUp, PenTool } from 'lucide-react';
 import Link from 'next/link';
 import { POLITY_MODULES, POLITY_TOPICS, getModuleColors, getTopicsByModule } from './data/polity-registry';
 import PolityScheduleView from './PolityScheduleView';
@@ -11,12 +11,19 @@ import { useMemo } from 'react';
 import { useEffect } from 'react';
 
 import Batch1ContentMap from './Batch1ContentMap';
+import MainsPractice from '../history/HistoryMainsPractice';
+import { createPolitySubjectConfig } from './data/polity-mains-adapter';
 
 export default function PolityHome({ embedded = false }: { embedded?: boolean }) {
     const [selectedModule, setSelectedModule] = useState<string | null>(null);
+    const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    const initialView = searchParams?.get('view') as 'topics' | 'schedule' | 'map' | 'mains' | null;
 
-    const [view, setView] = useState<'topics' | 'schedule' | 'map'>('map');
+    const [view, setView] = useState<'topics' | 'schedule' | 'map' | 'mains'>(initialView || 'map');
     const scheduleRef = React.useRef<HTMLDivElement>(null);
+
+    // Create adapted config for Mains Practice
+    const polityConfig = useMemo(() => createPolitySubjectConfig(POLITY_TOPICS), []);
 
     useEffect(() => {
         if (view === 'schedule' && scheduleRef.current) {
@@ -362,6 +369,16 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                         Study Planner & Schedule
                         <span className="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full uppercase">New</span>
                     </button>
+                    <button
+                        onClick={() => setView('mains')}
+                        className={`px-8 py-4 text-sm font-bold transition-all border-b-2 flex items-center gap-2 ${view === 'mains'
+                            ? 'text-purple-600 border-purple-600'
+                            : 'text-gray-500 border-transparent hover:text-gray-700'
+                            }`}
+                    >
+                        <PenTool className="w-4 h-4" />
+                        Mains Practice
+                    </button>
                 </div>
             </div>
 
@@ -508,6 +525,10 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
             ) : view === 'schedule' ? (
                 <div ref={scheduleRef} className="max-w-6xl mx-auto px-6 py-12">
                     <PolityScheduleView isAdmin={isAdmin} />
+                </div>
+            ) : view === 'mains' ? (
+                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <MainsPractice config={polityConfig} />
                 </div>
             ) : (
                 <div className="max-w-7xl mx-auto px-6 py-12">
