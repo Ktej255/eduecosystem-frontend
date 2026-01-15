@@ -211,7 +211,7 @@ export const graphotherapyService = {
      */
     async analyzeInstant(file: File) {
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append("files", file);  // Backend expects 'files' (plural)
         const response = await api.post("/funnel/analyze", formData, {
             headers: { "Content-Type": "multipart/form-data" }
         });

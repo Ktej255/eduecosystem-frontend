@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Zap, Brain, Eye, Sun, UserCheck, Sparkles } from "lucide-react";
 
@@ -12,6 +12,7 @@ const PHASES = [
         icon: <Zap className="w-5 h-5" />,
         color: "emerald",
         path: "/student/batch2/upanishads/kena",
+        upanishadKey: "kena",
     },
     {
         id: 2,
@@ -20,6 +21,7 @@ const PHASES = [
         icon: <Brain className="w-5 h-5" />,
         color: "blue",
         path: "/student/batch2/upanishads/isa",
+        upanishadKey: "isa",
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ const PHASES = [
         desc: "Understanding Cause & Effect (Karma) and Dharma.",
         icon: <Eye className="w-5 h-5" />,
         color: "amber",
-        path: "/student/batch2/upanishads/kena", // Placeholder for next level
+        path: "/student/batch2/upanishads/katha",
+        upanishadKey: "katha",
     },
     {
         id: 4,
@@ -35,7 +38,8 @@ const PHASES = [
         desc: "Unifying the internal and external worlds.",
         icon: <UserCheck className="w-5 h-5" />,
         color: "purple",
-        path: "/student/batch2",
+        path: "/student/batch2/upanishads/mandukya",
+        upanishadKey: "mandukya",
     },
     {
         id: 5,
@@ -43,7 +47,8 @@ const PHASES = [
         desc: "Realizing the ultimate nature of Reality.",
         icon: <Sun className="w-5 h-5" />,
         color: "rose",
-        path: "/student/batch2",
+        path: "/student/batch2/upanishads/mundaka",
+        upanishadKey: "mundaka",
     },
 ];
 
@@ -51,8 +56,23 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 
 export default function TransformationRoadmap({ suggestedPhaseId }: { suggestedPhaseId?: number }) {
-    // In a real app, this would come from a progress service/hook
-    const completedPhases = [0]; // Placeholder for progress tracking
+    const [completedPhases, setCompletedPhases] = useState<number[]>([]);
+    const [currentPhase, setCurrentPhase] = useState<number>(1); // Default: Phase 1 (Kena)
+
+    useEffect(() => {
+        // Read progress from localStorage
+        const savedProgress = localStorage.getItem("ancientWisdomProgress");
+        if (savedProgress) {
+            try {
+                const progress = JSON.parse(savedProgress);
+                if (progress.completedPhases) setCompletedPhases(progress.completedPhases);
+                if (progress.currentPhase) setCurrentPhase(progress.currentPhase);
+            } catch (e) {
+                console.error("Failed to parse progress", e);
+            }
+        }
+    }, []);
+
     return (
         <div className="w-full py-12 relative" id="roadmap">
             <h2 className="text-3xl font-bold text-center text-white mb-16 font-serif">The Path of Ascent</h2>

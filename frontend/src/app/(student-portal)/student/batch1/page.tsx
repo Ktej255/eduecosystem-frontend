@@ -71,11 +71,11 @@ const subjects = [
     },
     {
         title: "Focus Room",
-        description: "Deep Work Sessions & Daily Targets.",
+        description: "Pomodoro Sessions, Test Analytics & Progress.",
         icon: BrainCircuit,
         color: "cyan",
         gradient: "from-cyan-500 to-blue-600",
-        href: "/student/my-plan"
+        href: "/student/batch1/analytics"
     }
 ];
 
