@@ -75,12 +75,14 @@ function ZoneBackgrounds() {
 // MAIN COMPONENT
 // ==========================================
 
-export default function VedicKnowledgeGraph() {
+export default function VedicKnowledgeGraph({ theme = "light" }: { theme?: "light" | "dark" }) {
     const [nodes, setNodes, onNodesChange] = useNodesState<any>([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState<any>([]);
     const [loading, setLoading] = useState(true);
 
-    // Fetch and layout data
+    const isDark = theme === "dark";
+
+    // ... (rest of the loadData logic remains same)
     useEffect(() => {
         async function loadData() {
             try {
@@ -94,7 +96,6 @@ export default function VedicKnowledgeGraph() {
                 // Transform to React Flow format
                 const rfNodes = rawNodes.map((n: any) => ({
                     id: n.id,
-                    // Use listNode type for nodes with listItems
                     type: n.listItems && n.listItems.length > 0 ? "listNode" : "vedicNode",
                     position: { x: n.x || 0, y: n.y || 0 },
                     data: {
@@ -106,19 +107,22 @@ export default function VedicKnowledgeGraph() {
                     },
                 }));
 
-                // Transform edges with arrow markers
+                // Transform edges
                 const rfEdges = rawEdges.map((e: any, i: number) => ({
                     id: `e-${i}`,
                     source: e.source,
                     target: e.target,
                     type: "smoothstep",
                     animated: false,
-                    style: { stroke: "rgba(139, 115, 85, 0.6)", strokeWidth: 2 },
+                    style: {
+                        stroke: isDark ? "rgba(251, 191, 36, 0.4)" : "rgba(139, 115, 85, 0.6)",
+                        strokeWidth: 2
+                    },
                     markerEnd: {
                         type: MarkerType.ArrowClosed,
                         width: 16,
                         height: 16,
-                        color: "rgba(139, 115, 85, 0.8)",
+                        color: isDark ? "rgba(251, 191, 36, 0.6)" : "rgba(139, 115, 85, 0.8)",
                     },
                 }));
 
@@ -131,13 +135,12 @@ export default function VedicKnowledgeGraph() {
             }
         }
         loadData();
-    }, [setNodes, setEdges]);
+    }, [setNodes, setEdges, isDark]);
 
-    // Node click handler - internal navigation for student pages
+    // Node click handler
     const onNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
         const url = node.data?.url;
         if (url && typeof url === "string") {
-            // Use internal navigation for student pages
             if (url.startsWith("/student")) {
                 window.location.href = url;
             } else {
@@ -148,14 +151,14 @@ export default function VedicKnowledgeGraph() {
 
     if (loading) {
         return (
-            <div className="w-full h-[900px] flex items-center justify-center bg-[#F8F4EB] rounded-xl border border-amber-200">
-                <div className="text-amber-800/60 text-lg animate-pulse">Loading Vedic Knowledge Graph...</div>
+            <div className={`w-full h-[900px] flex items-center justify-center rounded-xl border ${isDark ? "bg-slate-950 border-white/10" : "bg-[#F8F4EB] border-amber-200"}`}>
+                <div className={`${isDark ? "text-amber-400/40" : "text-amber-800/60"} text-lg animate-pulse`}>Loading Vedic Knowledge Graph...</div>
             </div>
         );
     }
 
     return (
-        <div className="relative w-full h-[900px] rounded-xl overflow-hidden border border-amber-300/50" style={{ background: "#F8F4EB" }}>
+        <div className={`relative w-full h-[900px] rounded-xl overflow-hidden border ${isDark ? "border-amber-500/20 bg-slate-950" : "border-amber-300/50 bg-[#F8F4EB]"}`}>
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -171,45 +174,49 @@ export default function VedicKnowledgeGraph() {
                 defaultViewport={{ x: 0, y: 0, zoom: 0.7 }}
                 proOptions={{ hideAttribution: true }}
             >
-                <Background variant={BackgroundVariant.Dots} gap={20} size={1} color="rgba(139, 115, 85, 0.1)" />
+                <Background
+                    variant={BackgroundVariant.Dots}
+                    gap={20} size={1}
+                    color={isDark ? "rgba(251, 191, 36, 0.05)" : "rgba(139, 115, 85, 0.1)"}
+                />
                 <Controls
                     showInteractive={false}
-                    className="!bg-amber-50/90 !border-amber-300/50 !rounded-lg !shadow-sm"
+                    className={`${isDark ? "!bg-slate-900/90 !border-white/10" : "!bg-amber-50/90 !border-amber-300/50"} !rounded-lg !shadow-sm`}
                 />
 
                 {/* Info Panel */}
-                <Panel position="bottom-center" className="!bg-amber-50/80 !rounded-full !px-4 !py-2 !border !border-amber-200/50 !text-xs !text-amber-800/60 flex items-center gap-2">
+                <Panel position="bottom-center" className={`${isDark ? "!bg-slate-900/80 !border-white/10 !text-slate-400" : "!bg-amber-50/80 !border-amber-200/50 !text-amber-800/60"} !rounded-full !px-4 !py-2 !text-xs flex items-center gap-2`}>
                     <Move className="h-3 w-3" />
                     <span>Drag to pan • Scroll to zoom • Click node to open details</span>
                 </Panel>
 
                 {/* Legend Panel */}
-                <Panel position="bottom-right" className="!bg-amber-50/90 !rounded-lg !p-3 !border !border-amber-200/50 !shadow-sm">
-                    <div className="text-xs text-amber-800/70 font-medium mb-2">Category Legend</div>
+                <Panel position="bottom-right" className={`${isDark ? "!bg-slate-900/90 !border-white/10" : "!bg-amber-50/90 !border-amber-200/50"} !rounded-lg !p-3 !shadow-sm`}>
+                    <div className={`text-xs ${isDark ? "text-white/80" : "text-amber-800/70"} font-medium mb-2`}>Category Legend</div>
                     <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs">
                         <div className="flex items-center gap-2">
                             <span className="w-3 h-3 rounded" style={{ backgroundColor: "#E07B39" }} />
-                            <span className="text-amber-700/70">Śruti (Vedas)</span>
+                            <span className={`${isDark ? "text-slate-300" : "text-amber-700/70"}`}>Śruti (Vedas)</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="w-3 h-3 rounded" style={{ backgroundColor: "#E8B98D" }} />
-                            <span className="text-amber-700/70">Upaniṣads</span>
+                            <span className={`${isDark ? "text-slate-300" : "text-amber-700/70"}`}>Upaniṣads</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="w-3 h-3 rounded" style={{ backgroundColor: "#C94C4C" }} />
-                            <span className="text-amber-700/70">Itihāsa</span>
+                            <span className={`${isDark ? "text-slate-300" : "text-amber-700/70"}`}>Itihāsa</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="w-3 h-3 rounded" style={{ backgroundColor: "#9B6B9E" }} />
-                            <span className="text-amber-700/70">Purāṇas</span>
+                            <span className={`${isDark ? "text-slate-300" : "text-amber-700/70"}`}>Purāṇas</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="w-3 h-3 rounded" style={{ backgroundColor: "#5A8F7B" }} />
-                            <span className="text-amber-700/70">Darśanas</span>
+                            <span className={`${isDark ? "text-slate-300" : "text-amber-700/70"}`}>Darśanas</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="w-3 h-3 rounded" style={{ backgroundColor: "#4A90A4" }} />
-                            <span className="text-amber-700/70">Vedāṅgas</span>
+                            <span className={`${isDark ? "text-slate-300" : "text-amber-700/70"}`}>Vedāṅgas</span>
                         </div>
                     </div>
                 </Panel>

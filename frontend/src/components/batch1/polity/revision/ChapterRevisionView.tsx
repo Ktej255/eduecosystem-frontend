@@ -16,14 +16,15 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { getRevisionDataById } from '../data/RevisionRegistry';
-import { updateFlashcardProgress, updateMcqProgress, getChapterProgress, getStreak } from './progress-utils';
+import { updateFlashcardProgress, updateMcqProgress, getChapterProgress, getStreak, getAllProgress } from './progress-utils';
 import { toast } from 'sonner';
 
 interface Props {
     chapterId: number;
+    subjectId?: string;
 }
 
-export default function ChapterRevisionView({ chapterId }: Props) {
+export default function ChapterRevisionView({ chapterId, subjectId = 'polity' }: Props) {
     const [activeTab, setActiveTab] = useState<'content' | 'flashcards' | 'mcqs'>('content');
     const [revisionData, setRevisionData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
@@ -58,7 +59,7 @@ export default function ChapterRevisionView({ chapterId }: Props) {
             setCurrentFlashIdx(newIdx);
             setShowAnswer(false);
             // Save progress
-            updateFlashcardProgress(chapterId, newIdx, flashcards.length);
+            updateFlashcardProgress(chapterId, newIdx, flashcards.length, subjectId);
         }
     };
 
@@ -83,7 +84,7 @@ export default function ChapterRevisionView({ chapterId }: Props) {
         setScore(finalScore);
         setSubmitted(true);
         // Save MCQ progress
-        updateMcqProgress(chapterId, finalScore, mcqs.length);
+        updateMcqProgress(chapterId, finalScore, mcqs.length, subjectId);
         toast.success(`Test Completed! Score: ${finalScore}/${mcqs.length}`);
     };
 
@@ -99,7 +100,7 @@ export default function ChapterRevisionView({ chapterId }: Props) {
             {/* Header */}
             <div className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10">
                 <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-                    <Link href="/student/batch1/polity/revision" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
+                    <Link href={`/student/revision/${subjectId}`} className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
                         <ChevronLeft className="w-5 h-4" />
                         <span className="text-sm font-medium">Back to Revision Hub</span>
                     </Link>

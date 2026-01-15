@@ -7,6 +7,8 @@ import ChapterRevisionView from '@/components/batch1/polity/revision/ChapterRevi
 export default function ChapterRevisionPage() {
     const params = useParams();
     const id = parseInt(params.id as string);
+    const subjectId = params.subjectId as string;
 
-    return <ChapterRevisionView chapterId={id} />;
+    // We can now pass subjectId if needed, but for now we keep the same logic
+    return <ChapterRevisionView chapterId={id} subjectId={subjectId} />;
 }

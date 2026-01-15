@@ -32,43 +32,33 @@ export default function TeacherDashboard() {
     const [stats, setStats] = useState({ totalStudents: 0, batch1: 0, ras: 0, activeToday: 0 });
     const [polityTask, setPolityTask] = useState<any>(null);
 
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
-
-    useEffect(() => {
-        fetchDashboardData();
-    }, []);
-
     const fetchDashboardData = async () => {
         try {
             // Fetch students
-            const token = localStorage.getItem('token');
-            const usersRes = await fetch(`${API_BASE}/admin/users?role=student&limit=100`, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-            if (usersRes.ok) {
-                const data = await usersRes.json();
-                const studentList = data.users || [];
-                setStudents(studentList);
+            const usersRes = await api.get('/admin/users?role=student&limit=100');
+            const studentList = usersRes.data.users || [];
+            setStudents(studentList);
 
-                // Calculate stats
-                const batch1Count = studentList.filter((s: StudentData) => s.is_batch1_authorized).length;
-                const rasCount = studentList.filter((s: StudentData) => s.is_ras_authorized).length;
-                setStats({
-                    totalStudents: studentList.length,
-                    batch1: batch1Count,
-                    ras: rasCount,
-                    activeToday: Math.ceil(studentList.length * 0.3) // Placeholder
-                });
-            }
+            // Calculate stats
+            const batch1Count = studentList.filter((s: StudentData) => s.is_batch1_authorized).length;
+            const rasCount = studentList.filter((s: StudentData) => s.is_ras_authorized).length;
+            setStats({
+                totalStudents: studentList.length,
+                batch1: batch1Count,
+                ras: rasCount,
+                activeToday: Math.ceil(studentList.length * 0.3) // Placeholder
+            });
 
             // Fetch Polity Task
-            const polityRes = await fetch(`${API_BASE}/polity/tasks`, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-            if (polityRes.ok) {
-                const tasks = await polityRes.json();
+            try {
+                const polityRes = await api.get('/polity/tasks');
+                const tasks = polityRes.data;
                 const nextTask = tasks.find((t: any) => t.status !== 'completed');
                 setPolityTask(nextTask || { title: "All Chapters Completed!", status: 'completed' });
+            } catch (err) {
+                console.log("Polity tasks not found", err);
+                // Fallback if endpoint fails
+                setPolityTask(null);
             }
         } catch (error) {
             console.error("Failed to fetch dashboard data:", error);

@@ -29,11 +29,12 @@ import { Flashcard, generateFlashcardsFromTopic, getFlashcardsForDay, shuffleArr
 import VoiceRecorder from "../../ui/VoiceRecorder";
 import { toast } from "sonner";
 
-import { POLITY_TOPICS } from "../polity/data/polity-registry";
+import { POLITY_TOPICS, PolityTopic } from "../polity/data/polity-registry";
 import { getFlashcardDataForDay, hasFlashcardContent } from "../content-registry";
+import api from "@/lib/api"; // Import centralized API instance
 
 // Map topics by ID for easy lookup
-const TOPIC_MAP: Record<number, any> = {};
+const TOPIC_MAP: Record<number, PolityTopic> = {};
 POLITY_TOPICS.forEach(topic => {
     TOPIC_MAP[topic.id] = topic;
 });
@@ -94,8 +95,6 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
 
     // TIMER CONSTANTS
     const TOTAL_TIME = 15;
-
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
     useEffect(() => {
         loadFlashcards();
@@ -283,20 +282,14 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
         setIsAnalyzing(true);
         const recordedDuration = currentRecordingDuration; // Capture duration before reset
         try {
-            const response = await fetch(`${API_URL}/audio-analysis/analyze-flashcard`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    audio_base64: base64Audio,
-                    card_front: currentCard.front,
-                    card_back: currentCard.back,
-                    topic: currentCard.source
-                })
+            const response = await api.post('/audio-analysis/analyze-flashcard', {
+                audio_base64: base64Audio,
+                card_front: currentCard.front,
+                card_back: currentCard.back,
+                topic: currentCard.source
             });
 
-            if (!response.ok) throw new Error("Analysis failed");
-
-            const result = await response.json();
+            const result = response.data;
             setAiResult(result);
 
             // Store result for session report
@@ -774,7 +767,7 @@ export default function FlashcardSession({ cycleId, day, onClose }: FlashcardSes
                 >
                     {/* Front of Card */}
                     <Card
-                        className={`min-h-[300px] ${isFlipped ? 'invisible' : 'visible'} ${currentCard?.highlight ? 'border-2 border-amber-400' : ''}`}
+                        className={`min-h-[300px] bg-white dark:bg-gray-800 border-2 ${isFlipped ? 'invisible' : 'visible'} ${currentCard?.highlight ? 'border-amber-400' : 'border-transparent'}`}
                         style={{ backfaceVisibility: 'hidden' }}
                     >
                         <CardContent className="p-8 flex flex-col items-center justify-center min-h-[300px]">

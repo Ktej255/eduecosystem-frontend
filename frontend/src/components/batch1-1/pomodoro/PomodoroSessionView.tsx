@@ -153,8 +153,15 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
         if (savedNew) {
             // Priority: Load new structure
             const data = JSON.parse(savedNew);
-            setCurrentSessionGlobal(data.currentSessionGlobal || 1);
-            setSessionHistory(data.sessionHistory || []);
+            const history = data.sessionHistory || [];
+            setSessionHistory(history);
+
+            // Auto-correct current session based on history length to prevent "stuck in previous session" loop
+            // If history has 1 item (Session 1 done), next should be 2.
+            const derivedSession = history.length + 1;
+            // Use stored current if it's ahead (e.g. during a break), but never behind history
+            const storedCurrent = data.currentSessionGlobal || 1;
+            setCurrentSessionGlobal(Math.max(derivedSession, storedCurrent));
         } else {
             // Fallback: Check for legacy data (Migration)
             const savedOld = localStorage.getItem(`batch11_cycle_${weekId}_${dayId}`);

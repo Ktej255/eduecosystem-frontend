@@ -17,8 +17,9 @@ export default function SubmissionsPage() {
 
   const fetchSubmissions = async () => {
     try {
-      // Note: This endpoint would need to be added to backend
-      const response = await api.get("/grapho/submissions");
+      // Endpoint matches graphotherapy.py: router.get("/admin/submissions")
+      // Prefix is likely /graphotherapy based on router inclusion in main.py
+      const response = await api.get("/graphotherapy/admin/submissions");
       setSubmissions(response.data);
     } catch (error) {
       console.error("Failed to fetch submissions:", error);

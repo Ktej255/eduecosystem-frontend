@@ -71,6 +71,12 @@ const SESSION_CONFIG: Record<SessionType, {
         color: "text-rose-500",
         bgColor: "bg-gradient-to-br from-rose-500/20 to-red-600/20"
     },
+    ras_revision: {
+        label: "RAS Revision",
+        icon: <BookOpen className="w-5 h-5" />,
+        color: "text-indigo-500",
+        bgColor: "bg-gradient-to-br from-indigo-500/20 to-violet-600/20"
+    },
 };
 
 export default function BackgroundTimer({

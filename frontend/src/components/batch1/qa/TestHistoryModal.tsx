@@ -16,28 +16,20 @@ import { DAY1_MCQS } from "@/components/batch1/polity/data/day1-mcqs";
 import { DAY2_MCQS } from "@/components/batch1/polity/data/day2-mcqs";
 import { DAY3_MCQS } from "@/components/batch1/polity/data/day3-mcqs";
 
+import api from "@/lib/api";
+
 export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalProps) {
     const [history, setHistory] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
     const [reviewingTest, setReviewingTest] = useState<any | null>(null);
     const [reviewAnswers, setReviewAnswers] = useState<any[]>([]);
 
-    // FORCE AWS URL - Centralized
-    const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
-
-    useEffect(() => {
-        if (isOpen) {
-            fetchHistory();
-        }
-    }, [isOpen]);
+    // ... inside component ...
 
     const fetchHistory = async () => {
         setLoading(true);
         try {
-            const token = localStorage.getItem('token');
-            const res = await axios.get(`${API_BASE}/batch1/test-results`, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
+            const res = await api.get('/batch1/test-results');
             setHistory(res.data);
         } catch (error) {
             console.error("Failed to fetch history:", error);
@@ -50,18 +42,7 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
         console.log("Fetching detail for ID:", id);
         setLoading(true);
         try {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                throw new Error("No authentication token found");
-            }
-
-            const url = `${API_BASE}/batch1/test-results/${id}`;
-            console.log("Requesting URL:", url);
-
-            const res = await axios.get(url, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-
+            const res = await api.get(`/batch1/test-results/${id}`);
             console.log("Detail Response:", res.data);
             setReviewingTest(res.data);
             setReviewAnswers(res.data.answers || []);
@@ -73,6 +54,8 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
             setLoading(false);
         }
     };
+
+
 
     // Helper to get MCQs for a day
     const getMcqsForDay = (day: number) => {

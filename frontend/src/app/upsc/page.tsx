@@ -172,7 +172,7 @@ function ProgramCard({
 function TricolorBackground() {
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute inset-0 bg-gradient-to-b from-orange-900/30 via-transparent to-green-900/20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-orange-900/30 to-green-900/20" />
 
             {/* Saffron particles */}
             {[...Array(8)].map((_, i) => (

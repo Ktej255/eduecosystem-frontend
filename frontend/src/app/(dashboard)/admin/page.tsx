@@ -47,8 +47,7 @@ export default function AdminDashboard() {
 
   const [selectedTab, setSelectedTab] = useState<"overview" | "teachers" | "students" | "timeline">("overview");
 
-  // FORCE AWS URL
-  const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+
 
   useEffect(() => {
     fetchAllData();
@@ -80,14 +79,8 @@ export default function AdminDashboard() {
 
       // Fetch test results summary
       try {
-        const token = localStorage.getItem('token');
-        const testRes = await fetch(`${API_BASE}/batch1/test-results/all`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        if (testRes.ok) {
-          const data = await testRes.json();
-          setTestResults(data);
-        }
+        const testRes = await api.get('/batch1/test-results/all');
+        setTestResults(testRes.data);
       } catch (e) {
         console.error("Test results fetch failed:", e);
       }

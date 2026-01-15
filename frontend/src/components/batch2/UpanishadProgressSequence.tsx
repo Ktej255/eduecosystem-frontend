@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Lock, CheckCircle2, Star, Sparkles, ArrowRight, ArrowLeft, ArrowDown } from "lucide-react";
-import { ALL_108_UPANISHADS, VEDA_COLORS } from "./upanishads/upanishads-108-data";
+import { PEDAGOGICAL_UPANISHADS, VEDA_COLORS } from "./upanishads/upanishads-108-data";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/auth-context";
 
@@ -17,7 +17,7 @@ export default function UpanishadProgressSequence({
     const { user } = useAuth();
     const isMasterId = user?.email === "ktej255@gmail.com";
 
-    const currentIndex = ALL_108_UPANISHADS.findIndex(u => u.id === currentUpanishadId);
+    const currentIndex = PEDAGOGICAL_UPANISHADS.findIndex(u => u.id === currentUpanishadId);
 
     const getUpanishadStatus = (index: number): "completed" | "in-progress" | "next-up" | "locked" => {
         if (isMasterId) {
@@ -32,7 +32,7 @@ export default function UpanishadProgressSequence({
     };
 
     // Show first 15 levels, can expand later
-    const visibleLevels = ALL_108_UPANISHADS.slice(0, 15);
+    const visibleLevels = PEDAGOGICAL_UPANISHADS.slice(0, 15);
 
     return (
         <div className="relative w-full min-h-[700px] bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100 rounded-3xl border-2 border-amber-200 overflow-hidden p-6">
@@ -284,12 +284,17 @@ export default function UpanishadProgressSequence({
                                                     )}>
                                                         {upanishad.name}
                                                     </p>
-                                                    <span
-                                                        className="text-[10px] font-medium px-2 py-0.5 rounded-full inline-block mt-1"
-                                                        style={{ backgroundColor: `${vedaColor.bg}60`, color: vedaColor.text }}
-                                                    >
-                                                        {upanishad.veda}
-                                                    </span>
+                                                    <div className="flex flex-col items-center gap-0.5 mt-1">
+                                                        <span className="text-[9px] font-black uppercase tracking-tighter text-amber-600/60">
+                                                            {upanishad.level}
+                                                        </span>
+                                                        <span
+                                                            className="text-[10px] font-medium px-2 py-0.5 rounded-full inline-block"
+                                                            style={{ backgroundColor: `${vedaColor.bg}60`, color: vedaColor.text }}
+                                                        >
+                                                            {upanishad.veda}
+                                                        </span>
+                                                    </div>
                                                 </motion.div>
                                             </motion.div>
                                         );

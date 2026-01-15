@@ -66,7 +66,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                 // DAY 10 SPECIAL VIEW: 2 Mock Papers
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Paper 1 Card */}
-                    <Card className="border-l-4 border-l-blue-500 overflow-hidden relative hover:shadow-xl transition-shadow cursor-pointer" onClick={() => setActivePaper(10)}>
+                    <Card className="border-l-4 border-l-blue-500 overflow-hidden relative hover:shadow-xl transition-shadow cursor-pointer bg-white dark:bg-gray-900" onClick={() => setActivePaper(10)}>
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <BookOpen className="w-32 h-32 text-blue-500" />
                         </div>
@@ -90,7 +90,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                     </Card>
 
                     {/* Paper 2 Card */}
-                    <Card className="border-l-4 border-l-purple-500 overflow-hidden relative hover:shadow-xl transition-shadow cursor-pointer" onClick={() => setActivePaper(102)}>
+                    <Card className="border-l-4 border-l-purple-500 overflow-hidden relative hover:shadow-xl transition-shadow cursor-pointer bg-white dark:bg-gray-900" onClick={() => setActivePaper(102)}>
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <Brain className="w-32 h-32 text-purple-500" />
                         </div>
@@ -146,7 +146,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                     )}
 
                     {/* Hour 1: Flashcards */}
-                    <Card className="border-l-4 border-l-pink-500 overflow-hidden relative">
+                    <Card className="border-l-4 border-l-pink-500 overflow-hidden relative bg-white dark:bg-gray-900">
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <Layers className="w-32 h-32 text-pink-500" />
                         </div>
@@ -182,7 +182,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                     </Card>
 
                     {/* Hour 2: Elaboration Q&A */}
-                    <Card className="border-l-4 border-l-blue-500 overflow-hidden relative">
+                    <Card className="border-l-4 border-l-blue-500 overflow-hidden relative bg-white dark:bg-gray-900">
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <Brain className="w-32 h-32 text-blue-500" />
                         </div>
@@ -218,7 +218,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
                     </Card>
 
                     {/* Hour 3: CSAT */}
-                    <Card className="border-l-4 border-l-amber-500 overflow-hidden relative">
+                    <Card className="border-l-4 border-l-amber-500 overflow-hidden relative bg-white dark:bg-gray-900">
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <BookOpen className="w-32 h-32 text-amber-500" />
                         </div>

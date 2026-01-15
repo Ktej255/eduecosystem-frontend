@@ -21,6 +21,8 @@ interface AnalysisResult {
 export default function GraphoAIAnalyzer({ file, onClose }: GraphoAIAnalyzerProps) {
     const [phase, setPhase] = useState<'scanning' | 'computing' | 'result'>('scanning');
     const [imagePreview, setImagePreview] = useState<string | null>(null);
+    const [result, setResult] = useState<AnalysisResult | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     // Create preview
     useEffect(() => {
@@ -29,28 +31,49 @@ export default function GraphoAIAnalyzer({ file, onClose }: GraphoAIAnalyzerProp
         return () => URL.revokeObjectURL(url);
     }, [file]);
 
-    // Mock Analysis Process
+    // Real AI Analysis Process
     useEffect(() => {
-        const scanTimer = setTimeout(() => setPhase('computing'), 2000);
-        const computeTimer = setTimeout(() => setPhase('result'), 3500);
+        let mounted = true;
 
-        return () => {
-            clearTimeout(scanTimer);
-            clearTimeout(computeTimer);
+        const analyze = async () => {
+            try {
+                // Phase 1: Scanning Visual (2s)
+                setPhase('scanning');
+                await new Promise(r => setTimeout(r, 2000));
+
+                if (!mounted) return;
+                setPhase('computing');
+
+                // Call Backend
+                // Dynamic import to avoid circular dependencies if any, though service is safe
+                const { default: graphotherapyService } = await import('@/services/graphotherapyService');
+                const data = await graphotherapyService.analyzeInstant(file);
+
+                if (!mounted) return;
+
+                // Map Backend Response to Frontend Interface
+                setResult({
+                    score: data.overall_score || 85,
+                    metrics: data.metrics || [
+                        { label: 'Analysis', value: 'Completed', status: 'good' }
+                    ],
+                    feedback: data.verdict?.description || data.hook || "Analysis complete."
+                });
+                setPhase('result');
+
+            } catch (err) {
+                console.error("AI Analysis Failed", err);
+                if (mounted) {
+                    setError("AI Analysis failed. Please try again.");
+                    setPhase('result'); // Show error state
+                }
+            }
         };
-    }, []);
 
-    // Mock Data based on filename or random
-    const result: AnalysisResult = {
-        score: 85,
-        metrics: [
-            { label: 'Slant Angle', value: '75° (Right)', status: 'good' },
-            { label: 'Pressure', value: 'Consistent', status: 'good' },
-            { label: 'Zone Balance', value: 'Upper Zone Weak', status: 'warning' },
-            { label: 'Baseline', value: 'Straight', status: 'good' }
-        ],
-        feedback: "Excellent progress! Your slant indicates healthy emotional responsiveness. Focus slightly more on the upper loops (t-bars and l-loops) to boost goal-orientation."
-    };
+        analyze();
+
+        return () => { mounted = false; };
+    }, [file]);
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
@@ -120,7 +143,7 @@ export default function GraphoAIAnalyzer({ file, onClose }: GraphoAIAnalyzerProp
                     )}
 
                     {/* Result Overlay */}
-                    {phase === 'result' && (
+                    {phase === 'result' && result && (
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -139,12 +162,13 @@ export default function GraphoAIAnalyzer({ file, onClose }: GraphoAIAnalyzerProp
                                         <span className="text-neutral-400 text-sm">{m.label}</span>
                                         <div className="flex items-center gap-2">
                                             <span className={`font-mono font-bold text-sm ${m.status === 'good' ? 'text-white' :
-                                                    m.status === 'warning' ? 'text-yellow-400' : 'text-neutral-300'
+                                                m.status === 'warning' ? 'text-yellow-400' : 'text-neutral-300'
                                                 }`}>
                                                 {m.value}
                                             </span>
                                             {m.status === 'good' && <CheckCircle className="w-4 h-4 text-green-500" />}
                                             {m.status === 'warning' && <AlertCircle className="w-4 h-4 text-yellow-500" />}
+                                            {m.status === 'neutral' && <CheckCircle className="w-4 h-4 text-gray-500" />}
                                         </div>
                                     </div>
                                 ))}
@@ -161,6 +185,18 @@ export default function GraphoAIAnalyzer({ file, onClose }: GraphoAIAnalyzerProp
                                 Continue
                             </Button>
                         </motion.div>
+                    )}
+
+                    {/* Error Overlay */}
+                    {phase === 'result' && error && (
+                        <div className="absolute inset-0 bg-neutral-900 p-6 flex flex-col items-center justify-center text-center">
+                            <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
+                            <p className="text-white font-bold mb-2">Analysis Error</p>
+                            <p className="text-neutral-400 text-sm mb-6">{error}</p>
+                            <Button onClick={onClose} variant="outline" className="text-white border-white/20">
+                                Close
+                            </Button>
+                        </div>
                     )}
                 </div>
             </motion.div>

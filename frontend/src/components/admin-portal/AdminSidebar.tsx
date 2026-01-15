@@ -36,10 +36,10 @@ const menuItems = [
         icon: LayoutDashboard,
     },
     {
-        name: "Drill Management",
+        name: "Graphotherapy",
         icon: BookOpen,
         children: [
-            { name: "Questions", href: "/admin/drill/questions", icon: FileText },
+            { name: "Daily Drills", href: "/admin/drill/questions", icon: FileText },
             { name: "Analytics", href: "/admin/drill/analytics", icon: BarChart3 },
             { name: "AI Insights", href: "/admin/drill/insights", icon: Brain },
         ],
@@ -50,6 +50,7 @@ const menuItems = [
         children: [
             { name: "Users", href: "/admin/users", icon: Users },
             { name: "Leads", href: "/admin/leads", icon: TrendingUp },
+            { name: "Attendance", href: "/admin/attendance", icon: Activity },
             { name: "Marketing", href: "/admin/marketing-automation", icon: Zap },
             { name: "User Management", href: "/admin/user-management", icon: Shield },
         ],

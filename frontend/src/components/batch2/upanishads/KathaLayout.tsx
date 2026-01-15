@@ -20,11 +20,15 @@ import {
     Crown,
     User,
     Gift,
-    ArrowRight
+    ArrowRight,
+    Wind,
+    Feather
 } from "lucide-react";
 import { KATHA_METADATA, kathaData, getKathaByValli } from "@/components/batch2/upanishads/data/katha-shlokas";
 import { getKathaShlokaImage } from "@/components/batch2/upanishads/data/katha-images";
 import KathaResearchReport from "@/components/batch2/upanishads/KathaResearchReport";
+import SadhanaTimer from "@/components/batch2/shared/SadhanaTimer";
+import ExperienceReport from "@/components/batch2/shared/ExperienceReport";
 
 // ==========================================
 // KATHA OVERVIEW COMPONENT
@@ -298,6 +302,22 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                                     {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
                                 </p>
                             </div>
+
+                            {/* Practice Launchers */}
+                            <div className="grid grid-cols-2 gap-4 mt-6">
+                                <button
+                                    onClick={() => (window as any).showSadhanaTimer && (window as any).showSadhanaTimer()}
+                                    className="bg-amber-600/20 hover:bg-amber-600/30 border border-amber-500/30 rounded-xl p-4 text-amber-300 font-bold text-sm flex items-center justify-center gap-2 transition-all"
+                                >
+                                    <Wind className="w-4 h-4" /> Start Sadhana
+                                </button>
+                                <button
+                                    onClick={() => (window as any).showExperienceReport && (window as any).showExperienceReport()}
+                                    className="bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 rounded-xl p-4 text-emerald-300 font-bold text-sm flex items-center justify-center gap-2 transition-all"
+                                >
+                                    <Feather className="w-4 h-4" /> Log Experience
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -395,6 +415,14 @@ export default function KathaLayout() {
     const [lang, setLang] = useState<"en" | "hi">("en");
     const [activeTab, setActiveTab] = useState<"overview" | "research" | "valli1" | "valli2" | "valli3" | "valli4" | "valli5" | "valli6">("overview");
     const [isPlaying, setIsPlaying] = useState(false);
+    const [sadhanaActive, setSadhanaActive] = useState(false);
+    const [reportActive, setReportActive] = useState(false);
+
+    // Expose control to sub-components via window for simplicity
+    React.useEffect(() => {
+        (window as any).showSadhanaTimer = () => setSadhanaActive(true);
+        (window as any).showExperienceReport = () => setReportActive(true);
+    }, []);
 
     // Get data for each valli
     const valli1Data = getKathaByValli(1);
@@ -630,6 +658,50 @@ export default function KathaLayout() {
 
                 {/* Glow Background */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(251,191,36,0.05)_0%,transparent_70%)] pointer-events-none" />
+
+                {/* Modals */}
+                <AnimatePresence>
+                    {sadhanaActive && (
+                        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="absolute inset-0 bg-black/60 backdrop-blur-md"
+                                onClick={() => setSadhanaActive(false)}
+                            />
+                            <motion.div
+                                initial={{ scale: 0.9, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.9, opacity: 0 }}
+                                className="relative z-10 w-full max-w-xl"
+                            >
+                                <SadhanaTimer
+                                    title="Katha: Secret of the Self"
+                                    duration={300}
+                                    onComplete={() => {
+                                        setSadhanaActive(false);
+                                        setReportActive(true);
+                                    }}
+                                />
+                            </motion.div>
+                        </div>
+                    )}
+                </AnimatePresence>
+
+                <AnimatePresence>
+                    {reportActive && (
+                        <ExperienceReport
+                            isOpen={reportActive}
+                            onClose={() => setReportActive(false)}
+                            onSubmit={(data: any) => {
+                                console.log("Experience Logged:", data);
+                                setReportActive(false);
+                            }}
+                            title="Katha Upanishad: Internal Shift"
+                        />
+                    )}
+                </AnimatePresence>
             </footer>
         </div>
     );

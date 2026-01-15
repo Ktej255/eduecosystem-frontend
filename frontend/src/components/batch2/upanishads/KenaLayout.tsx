@@ -3,22 +3,43 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, BookOpen, Drama, Volume2, VolumeX, ChevronRight, ChevronLeft } from "lucide-react";
+import { ArrowLeft, BookOpen, Drama, Volume2, VolumeX, ChevronRight, ChevronLeft, Zap, Wind, Feather } from "lucide-react";
 import { KENA_METADATA, kenaData } from "@/components/batch2/upanishads/data/kena-shlokas";
 import { getKenaShlokaImage } from "@/components/batch2/upanishads/data/kena-images";
 import KenaIntroMode from "@/components/batch2/upanishads/KenaIntroMode";
 import { Sparkles } from "lucide-react";
+import SadhanaTimer from "@/components/batch2/shared/SadhanaTimer";
+import ExperienceReport from "@/components/batch2/shared/ExperienceReport";
+import KenaMantra1 from "@/components/batch2/upanishads/KenaMantra1";
 
 // Split data
-const philosophyData = kenaData.filter(d => d.section === "Philosophy");
-const storyData = kenaData.filter(d => d.section === "Story");
+const philosophyData = kenaData.filter(d => d.section === "Philosophy").map(d => ({
+    ...d,
+    reflection: getReflectionQuestion(String(d.id))
+}));
+const storyData = kenaData.filter(d => d.section === "Story").map(d => ({
+    ...d,
+    reflection: getReflectionQuestion(String(d.id))
+}));
+
+function getReflectionQuestion(id: string) {
+    const questions: Record<string, string> = {
+        "1": "Close your eyes. What is the very first thing that 'directs' your mind to think? Is it a choice or a reflex?",
+        "2": "When you hear a sound, do you 'hear' it, or does the sound simply 'register' in a space that is already listening?",
+        "3": "If the eye cannot see 'That', but 'That' is the reason the eye sees—can you find the 'Seer' within yourself right now?",
+        "4": "Think of a deep sleep. There was no thought, yet you know you slept. Who was the 'knower' of that silence?",
+        "default": "How does this mantra change your perspective on your daily routine?"
+    };
+    return questions[id] || questions["default"];
+}
 
 // ==========================================
 // PHILOSOPHY STREAM COMPONENT (1-13)
 // ==========================================
-function PhilosophyStream({ lang }: { lang: "en" | "hi" }) {
+function PhilosophyStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolean }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const shloka = philosophyData[currentIndex];
+    const [showReflection, setShowReflection] = useState(false);
+    const shloka = philosophyData[currentIndex] as any;
     const image = getKenaShlokaImage(shloka.id);
 
     return (
@@ -63,15 +84,88 @@ function PhilosophyStream({ lang }: { lang: "en" | "hi" }) {
                                 </p>
                             </div>
 
-                            {/* Sarit's Insight */}
-                            <div className="bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl p-6 border border-teal-400/40 shadow-lg">
-                                <h4 className="text-teal-200 font-bold mb-3 flex items-center gap-2">
-                                    <span className="text-xl">💡</span>
-                                    {lang === "en" ? "Sarit's Insight" : "सरल बोध"}
-                                </h4>
-                                <p className="text-cyan-50 text-lg leading-relaxed italic font-medium">
-                                    {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
-                                </p>
+                            {/* Reflection Question */}
+                            <AnimatePresence mode="wait">
+                                {!showReflection ? (
+                                    <motion.button
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        onClick={() => setShowReflection(true)}
+                                        className="w-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 rounded-xl p-4 text-cyan-300 font-bold flex items-center justify-center gap-2 transition-all group"
+                                    >
+                                        <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                                        Launch Internal Inquiry
+                                    </motion.button>
+                                ) : (
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.95 }}
+                                        className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-xl p-6 border border-amber-400/40 shadow-lg relative overflow-hidden"
+                                    >
+                                        <div className="absolute top-0 right-0 p-2">
+                                            <button onClick={() => setShowReflection(false)} className="text-amber-200/50 hover:text-amber-200">✕</button>
+                                        </div>
+                                        <h4 className="text-amber-200 font-bold mb-3 flex items-center gap-2">
+                                            <span className="text-xl">🧘</span>
+                                            {lang === "en" ? "Contemplation" : "चिंतन"}
+                                        </h4>
+                                        <p className="text-amber-50 text-lg leading-relaxed font-medium italic">
+                                            {shloka.reflection}
+                                        </p>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+
+                            {/* Sarit's Insight - Only for Premium */}
+                            {isPremium ? (
+                                <div className="bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl p-6 border border-teal-400/40 shadow-lg">
+                                    <h4 className="text-teal-200 font-bold mb-3 flex items-center gap-2">
+                                        <span className="text-xl">💡</span>
+                                        {lang === "en" ? "Sarit's Insight" : "सरल बोध"}
+                                    </h4>
+                                    <p className="text-cyan-50 text-lg leading-relaxed italic font-medium">
+                                        {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="bg-slate-900/60 rounded-xl p-6 border border-slate-700/50 relative overflow-hidden group">
+                                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <button className="bg-amber-500 text-black px-4 py-2 rounded-lg font-bold flex items-center gap-2 shadow-xl hover:bg-amber-400">
+                                            <Zap className="w-4 h-4 fill-current" /> Unlock Insights
+                                        </button>
+                                    </div>
+                                    <h4 className="text-slate-500 font-bold mb-3 flex items-center gap-2 blur-[1px]">
+                                        <span className="text-xl">💡</span>
+                                        Sarit's Insight
+                                    </h4>
+                                    <p className="text-slate-600 text-lg leading-relaxed italic font-medium blur-[4px] select-none">
+                                        This hidden wisdom explains how the mind functions as a mirror for the ultimate reality, reflecting the light of pure consciousness...
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* Practice Launchers */}
+                            <div className="grid grid-cols-3 gap-4 mt-6">
+                                <button
+                                    onClick={() => (window as any).showSadhanaTimer && (window as any).showSadhanaTimer()}
+                                    className="bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 rounded-xl p-4 text-indigo-300 font-bold text-xs flex flex-col items-center justify-center gap-2 transition-all"
+                                >
+                                    <Wind className="w-4 h-4" /> Start Sadhana
+                                </button>
+                                <button
+                                    onClick={() => (window as any).showGuidedMantra && (window as any).showGuidedMantra()}
+                                    className="bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 rounded-xl p-4 text-purple-300 font-bold text-xs flex flex-col items-center justify-center gap-2 transition-all"
+                                >
+                                    <Volume2 className="w-4 h-4" /> Guided Mode
+                                </button>
+                                <button
+                                    onClick={() => (window as any).showExperienceReport && (window as any).showExperienceReport()}
+                                    className="bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 rounded-xl p-4 text-emerald-300 font-bold text-xs flex flex-col items-center justify-center gap-2 transition-all"
+                                >
+                                    <Feather className="w-4 h-4" /> Log Experience
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -142,12 +236,30 @@ function PhilosophyStream({ lang }: { lang: "en" | "hi" }) {
 }
 
 // ==========================================
-// YAKSHA STORY MODE COMPONENT (14-34)
+// STORY MODE COMPONENT (14-34) - PREMIUM
 // ==========================================
-function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
+function StoryStream({ lang, isPremium }: { lang: "en" | "hi", isPremium: boolean }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const scrollRef = useRef<HTMLDivElement>(null);
-    const step = storyData[currentIndex];
+    const shloka = storyData[currentIndex] as any;
+    const image = getKenaShlokaImage(shloka.id);
+    const scrollRef = useRef<HTMLDivElement>(null); // Moved here
+
+    if (!isPremium) {
+        return (
+            <div className="min-h-[500px] flex flex-col items-center justify-center p-8 bg-cyan-900/20 rounded-3xl border border-teal-500/20 text-center space-y-6">
+                <div className="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center border border-amber-500/40">
+                    <Drama className="w-10 h-10 text-amber-500" />
+                </div>
+                <div className="space-y-2 max-w-md">
+                    <h2 className="text-2xl font-bold text-white">The Yaksha Story</h2>
+                    <p className="text-slate-400">Join Agni, Vayu, and Indra on their quest to identify the mysterious Spirit. This visual storytelling experience is exclusive to Premium seekers.</p>
+                </div>
+                <button className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-teal-500/20 hover:scale-105 transition-transform">
+                    Unlock Premium Wisdom
+                </button>
+            </div>
+        );
+    }
 
     // Scroll timeline on change
     useEffect(() => {
@@ -196,7 +308,7 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
             {/* Content Display */}
             <AnimatePresence mode="wait">
                 <motion.div
-                    key={step.id}
+                    key={shloka.id} // Changed from step.id to shloka.id
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
@@ -207,11 +319,11 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                         <div className="p-8 md:p-12 space-y-8">
                             <div className="flex items-center gap-4">
                                 <div className="w-14 h-14 bg-teal-500 text-white rounded-2xl flex items-center justify-center text-2xl font-black shadow-lg">
-                                    {step.id}
+                                    {shloka.id}
                                 </div>
                                 <div className="h-full border-l-2 border-teal-500/20 pl-4">
                                     <h3 className="text-3xl font-bold text-white tracking-tight leading-tight">
-                                        {lang === "en" ? (step.theme || "The Revelation") : (step.theme || "रहस्योद्घाटन")}
+                                        {lang === "en" ? (shloka.theme || "The Revelation") : (shloka.theme || "रहस्योद्घाटन")}
                                     </h3>
                                     <p className="text-teal-400 font-medium text-sm">Chapter 3 & 4: The Yaksha Allegory</p>
                                 </div>
@@ -220,9 +332,25 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                             {/* Main Story Text */}
                             <div className="bg-cyan-950/40 rounded-2xl p-6 border border-teal-500/20">
                                 <p className="text-xl text-cyan-50 leading-relaxed font-medium">
-                                    {lang === "en" ? step.english : step.hindi}
+                                    {lang === "en" ? shloka.english : shloka.hindi}
                                 </p>
                             </div>
+
+                            {/* Reflection Question */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.95 }}
+                                className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-xl p-6 border border-amber-400/40 shadow-lg relative overflow-hidden"
+                            >
+                                <h4 className="text-amber-200 font-bold mb-3 flex items-center gap-2">
+                                    <span className="text-xl">🧘</span>
+                                    {lang === "en" ? "Contemplation" : "चिंतन"}
+                                </h4>
+                                <p className="text-amber-50 text-lg leading-relaxed font-medium italic">
+                                    {shloka.reflection}
+                                </p>
+                            </motion.div>
 
                             {/* Simplified Section */}
                             <div className="space-y-4">
@@ -231,7 +359,7 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                                     <span className="uppercase text-xs font-black tracking-widest tracking-widest">Master Key</span>
                                 </div>
                                 <p className="text-xl text-teal-100/90 leading-relaxed italic pl-9 border-l-2 border-teal-500/30">
-                                    {lang === "en" ? step.simpleExplanation : step.simpleExplanationHindi}
+                                    {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
                                 </p>
                             </div>
                         </div>
@@ -250,16 +378,16 @@ function YakshaStoryMode({ lang }: { lang: "en" | "hi" }) {
                                     }}
                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                                 >
-                                    {step.id >= 14 && step.id <= 15 && "✨"}
-                                    {step.id >= 16 && step.id <= 20 && "🔥"}
-                                    {step.id >= 21 && step.id <= 25 && "💨"}
-                                    {step.id >= 26 && step.id <= 27 && "🔱"}
-                                    {step.id >= 28 && step.id <= 32 && "⚡"}
-                                    {step.id >= 33 && step.id <= 34 && "🕉️"}
+                                    {shloka.id >= 14 && shloka.id <= 15 && "✨"}
+                                    {shloka.id >= 16 && shloka.id <= 20 && "🔥"}
+                                    {shloka.id >= 21 && shloka.id <= 25 && "💨"}
+                                    {shloka.id >= 26 && shloka.id <= 27 && "🔱"}
+                                    {shloka.id >= 28 && shloka.id <= 32 && "⚡"}
+                                    {shloka.id >= 33 && shloka.id <= 34 && "🕉️"}
                                 </motion.div>
                                 <p className="text-teal-400 text-sm font-bold tracking-widest uppercase mb-2">Scene Description</p>
                                 <p className="text-cyan-100/70 max-w-xs mx-auto italic leading-relaxed">
-                                    {step.nanoBananaPrompt}
+                                    {shloka.nanoBananaPrompt}
                                 </p>
                             </div>
                         </div>
@@ -311,6 +439,23 @@ export default function KenaLayout() {
     const [lang, setLang] = useState<"en" | "hi">("en");
     const [activeTab, setActiveTab] = useState<"introduction" | "philosophy" | "story">("introduction");
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isPremium, setIsPremium] = useState(false); // Default to free
+    const [sadhanaActive, setSadhanaActive] = useState(false);
+    const [reportActive, setReportActive] = useState(false);
+    const [guidedActive, setGuidedActive] = useState(false);
+
+    // Expose control to sub-components via window for simplicity (since components are in same file)
+    useEffect(() => {
+        (window as any).showSadhanaTimer = () => setSadhanaActive(true);
+        (window as any).showExperienceReport = () => setReportActive(true);
+        (window as any).showGuidedMantra = () => setGuidedActive(true);
+    }, []);
+
+    const TABS = [
+        { id: "introduction", label: lang === "en" ? "Introduction" : "परिचय", icon: <Sparkles className="w-4 h-4" /> },
+        { id: "philosophy", label: lang === "en" ? "The Philosophy" : "दर्शन", icon: <BookOpen className="w-4 h-4" /> },
+        { id: "story", label: lang === "en" ? "The Yaksha Story" : "यक्ष कथा", icon: <Drama className="w-4 h-4" /> },
+    ];
 
     return (
         <div className="min-h-screen bg-cyan-950 text-cyan-50 font-sans selection:bg-teal-500/30 selection:text-teal-200">
@@ -375,39 +520,29 @@ export default function KenaLayout() {
                     </button>
 
                     <div className="flex bg-black/40 rounded-2xl p-1 shadow-inner border border-white/5">
-                        <button
-                            onClick={() => setActiveTab("introduction")}
-                            className={`flex items-center gap-3 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === "introduction"
-                                ? "bg-teal-600 text-white shadow-lg"
-                                : "text-teal-500 hover:text-teal-300"
-                                }`}
-                        >
-                            <Sparkles className="w-4 h-4" />
-                            <span className="hidden md:inline">{lang === "en" ? "Introduction" : "परिचय"}</span>
-                            <span className="md:hidden">Intro</span>
-                        </button>
-                        <button
-                            onClick={() => setActiveTab("philosophy")}
-                            className={`flex items-center gap-3 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === "philosophy"
-                                ? "bg-teal-600 text-white shadow-lg"
-                                : "text-teal-500 hover:text-teal-300"
-                                }`}
-                        >
-                            <BookOpen className="w-4 h-4" />
-                            <span className="hidden md:inline">{lang === "en" ? "The Philosophy" : "दर्शन"}</span>
-                            <span className="md:hidden">{lang === "en" ? "Part 1" : "भाग १"}</span>
-                        </button>
-                        <button
-                            onClick={() => setActiveTab("story")}
-                            className={`flex items-center gap-3 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === "story"
-                                ? "bg-teal-600 text-white shadow-lg"
-                                : "text-teal-500 hover:text-teal-300"
-                                }`}
-                        >
-                            <Drama className="w-4 h-4" />
-                            <span className="hidden md:inline">{lang === "en" ? "The Yaksha Story" : "यक्ष कथा"}</span>
-                            <span className="md:hidden">{lang === "en" ? "Part 2" : "भाग २"}</span>
-                        </button>
+                        {TABS.map((tab) => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id as any)}
+                                className={`flex items-center gap-3 px-6 py-2.5 rounded-xl text-sm font-bold transition-all relative ${activeTab === tab.id
+                                    ? "bg-teal-600 text-white shadow-lg"
+                                    : "text-teal-500 hover:text-teal-300"
+                                    }`}
+                            >
+                                {tab.icon}
+                                <span className="hidden md:inline">{tab.label}</span>
+                                <span className="md:hidden">
+                                    {tab.id === "introduction" && "Intro"}
+                                    {tab.id === "philosophy" && (lang === "en" ? "Part 1" : "भाग १")}
+                                    {tab.id === "story" && (lang === "en" ? "Part 2" : "भाग २")}
+                                </span>
+                                {(tab.id === "story") && !isPremium && (
+                                    <span className="absolute -top-1 -right-1">
+                                        <Zap className="w-3 h-3 text-amber-400 fill-current" />
+                                    </span>
+                                )}
+                            </button>
+                        ))}
                     </div>
 
                     <div className="flex items-center gap-4">
@@ -462,9 +597,9 @@ export default function KenaLayout() {
                         {activeTab === "introduction" ? (
                             <KenaIntroMode lang={lang} />
                         ) : activeTab === "philosophy" ? (
-                            <PhilosophyStream lang={lang} />
+                            <PhilosophyStream lang={lang} isPremium={isPremium} />
                         ) : (
-                            <YakshaStoryMode lang={lang} />
+                            <StoryStream lang={lang} isPremium={isPremium} />
                         )}
                     </motion.div>
                 </AnimatePresence>
@@ -502,6 +637,59 @@ export default function KenaLayout() {
                 {/* Background glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-teal-500/5 blur-[120px] rounded-full pointer-events-none" />
             </footer>
+
+            {/* Modals */}
+            <AnimatePresence>
+                {sadhanaActive && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+                            onClick={() => setSadhanaActive(false)}
+                        />
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="relative z-10 w-full max-w-xl"
+                        >
+                            <SadhanaTimer
+                                title="Kena Mantra 1: Self-Inquiry"
+                                duration={300}
+                                onComplete={(data) => {
+                                    console.log("Sadhana Complete:", data);
+                                    setSadhanaActive(false);
+                                    setReportActive(true);
+                                }}
+                            />
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+                {reportActive && (
+                    <ExperienceReport
+                        isOpen={reportActive}
+                        onClose={() => setReportActive(false)}
+                        onSubmit={(data) => {
+                            console.log("Experience Logged:", data);
+                            setReportActive(false);
+                        }}
+                        title="Kena Mantra 1: Internal Shift"
+                    />
+                )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+                {guidedActive && (
+                    <KenaMantra1
+                        onClose={() => setGuidedActive(false)}
+                    />
+                )}
+            </AnimatePresence>
         </div>
     );
 }

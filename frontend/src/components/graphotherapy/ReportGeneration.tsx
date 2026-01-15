@@ -139,25 +139,42 @@ export default function ReportGeneration() {
             <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-500 text-center">
                 <div className="space-y-4">
                     <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">
-                        {stage === 'generating' ? 'Analyzing Your Subconscious Map...' : 'Analysis Complete!'}
+                        {error ? 'Analysis Issue Encountered' : (stage === 'generating' ? 'Analyzing Your Subconscious Map...' : 'Analysis Complete!')}
                     </h1>
                     <p className="text-gray-500">
-                        {stage === 'generating'
-                            ? 'Our AI and expert graphologists are decoding your strokes. This takes about 5 minutes.'
-                            : 'Your detailed personality report is ready to view.'}
+                        {error
+                            ? "We couldn't generate your report. Please try again or upload a clearer image."
+                            : (stage === 'generating'
+                                ? 'Our AI and expert graphologists are decoding your strokes. This takes about 5 minutes.'
+                                : 'Your detailed personality report is ready to view.')}
                     </p>
                 </div>
 
-                {/* Progress Bar */}
-                <div className="max-w-md mx-auto space-y-2">
-                    <Progress value={progress} className="h-3" />
-                    <p className="text-xs text-gray-400 text-right">{Math.round(progress)}%</p>
-                </div>
+                {error && (
+                    <div className="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200">
+                        <p className="font-bold">{error}</p>
+                        <Button
+                            variant="outline"
+                            className="mt-4 border-red-200 hover:bg-red-100"
+                            onClick={() => window.location.reload()}
+                        >
+                            Reload Page
+                        </Button>
+                    </div>
+                )}
+
+                {/* Progress Bar - Only show if no error */}
+                {!error && (
+                    <div className="max-w-md mx-auto space-y-2">
+                        <Progress value={progress} className="h-3" />
+                        <p className="text-xs text-gray-400 text-right">{Math.round(progress)}%</p>
+                    </div>
+                )}
 
                 {/* Reputation Video */}
                 <Card className="overflow-hidden shadow-2xl border-purple-200">
                     <div className="aspect-video bg-black relative group cursor-pointer flex items-center justify-center">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                         <PlayCircle className="w-20 h-20 text-white opacity-90 group-hover:scale-110 transition-transform" />
                         <div className="absolute bottom-6 left-6 text-left">
                             <h3 className="text-white font-bold text-lg">Understanding Your Results</h3>

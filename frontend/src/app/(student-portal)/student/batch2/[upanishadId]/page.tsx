@@ -6,6 +6,9 @@ import { ALL_108_UPANISHADS, VEDA_COLORS, Upanishad108 } from "@/components/batc
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, BookOpen, Share2, Printer, Info, PlayCircle } from "lucide-react";
+import { UPANISHAD_REGISTRY } from "@/components/batch2/upanishads/upanishad-registry";
+import KenaLayout from "@/components/batch2/upanishads/KenaLayout";
+import IshaLayout from "@/components/batch2/upanishads/IshaLayout";
 
 export default function UpanishadReaderPage() {
     const params = useParams();
@@ -21,6 +24,13 @@ export default function UpanishadReaderPage() {
 
     if (!upanishad) {
         return <div className="p-8 text-center">Loading Upanishad...</div>;
+    }
+
+    // Check for Custom Layouts
+    const registryEntry = UPANISHAD_REGISTRY[upanishad.id];
+    if (registryEntry?.hasCustomLayout) {
+        if (upanishad.id === "kena") return <KenaLayout />;
+        if (upanishad.id === "isa") return <IshaLayout />;
     }
 
     const colors = VEDA_COLORS[upanishad.veda] || { bg: "#fff", border: "#ccc", text: "#000" };

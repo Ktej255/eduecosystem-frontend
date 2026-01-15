@@ -52,26 +52,22 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
     const [isVoiceSyncActive, setIsVoiceSyncActive] = useState(false); // Controls Voice Sync
     const [startTime, setStartTime] = useState<Date | null>(null); // Metadata tracking
 
-    // Timer State
-    const [timerSeconds, setTimerSeconds] = useState(CLASS_CONFIG.graphotherapy.timerMinutes * 60);
+    // Stopwatch State
+    const [elapsedSeconds, setElapsedSeconds] = useState(0);
     const [isTimerRunning, setIsTimerRunning] = useState(false);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-    // Timer Logic
+    // Stopwatch Logic
     useEffect(() => {
-        if (isTimerRunning && timerSeconds > 0) {
-            timerRef.current = setTimeout(() => {
-                setTimerSeconds(prev => prev - 1);
+        if (isTimerRunning) {
+            timerRef.current = setInterval(() => {
+                setElapsedSeconds(prev => prev + 1);
             }, 1000);
-        } else if (timerSeconds === 0 && step === 'page-writing') {
-            // Timer ended, move to upload
-            toast.info("Time's up! Upload your page.");
-            setStep('page-upload');
         }
         return () => {
-            if (timerRef.current) clearTimeout(timerRef.current);
+            if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [isTimerRunning, timerSeconds, step]);
+    }, [isTimerRunning]);
 
     const formatTime = (seconds: number) => {
         const m = Math.floor(seconds / 60);
@@ -86,7 +82,7 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
     };
 
     const resetTimerForNextPage = () => {
-        setTimerSeconds(CLASS_CONFIG.graphotherapy.timerMinutes * 60);
+        setElapsedSeconds(0);
         setIsTimerRunning(false);
     };
 
@@ -300,8 +296,11 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
                                 <PenTool className="w-6 h-6" />
                             </div>
                         </div>
-                        <h2 className="text-2xl font-bold mb-2">Page {currentPage}</h2>
-                        <p className="text-neutral-400 mb-6">{drill.focus}</p>
+                        <h2 className="text-2xl font-bold mb-2">Page {currentPage} - {drill.focus}</h2>
+                        <p className="text-neutral-400 mb-6 font-medium text-amber-500">
+                            Current Focus: {drill.focus} ({drill.trait})
+                        </p>
+                        <p className="text-neutral-400 mb-6 text-sm">{drill.instruction}</p>
 
                         <div className="bg-neutral-900/50 rounded-2xl p-6 border border-neutral-700/50 mb-8 text-left">
                             <div className="text-xs font-bold text-neutral-500 uppercase mb-4 flex items-center gap-2">
@@ -334,10 +333,13 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
                 {step === 'page-writing' && (
                     <div className="bg-neutral-800 rounded-3xl p-8 border border-neutral-700 text-center">
                         <div className="mb-8">
-                            <div className={`text-6xl font-mono font-black ${timerSeconds < 30 ? 'text-red-500 animate-pulse' : 'text-green-400'}`}>
-                                {formatTime(timerSeconds)}
+                            <div className="absolute top-4 right-4 bg-neutral-900/80 px-4 py-2 rounded-full border border-neutral-700">
+                                <span className="text-amber-500 font-bold uppercase text-xs tracking-wider">Focus: {drill.focus}</span>
                             </div>
-                            <p className="text-neutral-500 mt-2">Time Remaining</p>
+                            <div className={`text-6xl font-mono font-black text-green-400`}>
+                                {formatTime(elapsedSeconds)}
+                            </div>
+                            <p className="text-neutral-500 mt-2">Time Elapsed</p>
                         </div>
 
                         <div className="bg-neutral-900/50 rounded-2xl p-6 border border-neutral-700/50 mb-8 text-left">

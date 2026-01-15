@@ -595,15 +595,17 @@ export default function CanonicalKnowledgeMap() {
         if (!canvas) return;
 
         const handleWheelNative = (e: WheelEvent) => {
-            if (e.ctrlKey) return; // Allow pinch-zoom if needed, or handle separately
+            // STOP page scroll completely when over the map
+            e.preventDefault();
+            e.stopPropagation();
 
-            e.preventDefault(); // STOP page scroll
-
+            // Zoom logic
             const delta = e.deltaY > 0 ? -0.05 : 0.05;
             setZoom(z => Math.max(0.2, Math.min(2, z + delta)));
         };
 
-        canvas.addEventListener('wheel', handleWheelNative, { passive: false });
+        // Use capture phase to ensure we catch it before page scrolling
+        canvas.addEventListener('wheel', handleWheelNative, { passive: false, capture: true });
 
         return () => {
             canvas.removeEventListener('wheel', handleWheelNative);

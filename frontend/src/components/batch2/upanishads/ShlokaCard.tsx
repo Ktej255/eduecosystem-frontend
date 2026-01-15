@@ -144,7 +144,7 @@ export default function ShlokaCard({ shloka, totalShlokas, onNext, onPrev, theme
                                     alt={`Visual representation of ${shloka.theme}`}
                                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 p-2"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                                     <span className="text-xs text-amber-200/80 bg-black/40 px-2 py-1 rounded">
                                         AI Generated • {shloka.theme}

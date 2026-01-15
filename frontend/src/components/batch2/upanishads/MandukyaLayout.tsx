@@ -13,9 +13,13 @@ import {
     Moon,
     Sun,
     Cloud,
-    Sparkles
+    Sparkles,
+    Wind,
+    Feather
 } from "lucide-react";
 import { MANDUKYA_METADATA, MANDUKYA_SHLOKAS } from "@/components/batch2/upanishads/data/mandukya-shlokas";
+import SadhanaTimer from "@/components/batch2/shared/SadhanaTimer";
+import ExperienceReport from "@/components/batch2/shared/ExperienceReport";
 
 // ==========================================
 // OVERVIEW COMPONENT
@@ -138,6 +142,22 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                         {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
                     </p>
                 </div>
+
+                {/* Practice Launchers */}
+                <div className="grid grid-cols-2 gap-4 mt-6">
+                    <button
+                        onClick={() => (window as any).showSadhanaTimer && (window as any).showSadhanaTimer()}
+                        className="bg-violet-600/20 hover:bg-violet-600/30 border border-violet-500/30 rounded-xl p-4 text-violet-300 font-bold text-sm flex items-center justify-center gap-2 transition-all"
+                    >
+                        <Wind className="w-4 h-4" /> Start Sadhana
+                    </button>
+                    <button
+                        onClick={() => (window as any).showExperienceReport && (window as any).showExperienceReport()}
+                        className="bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 rounded-xl p-4 text-emerald-300 font-bold text-sm flex items-center justify-center gap-2 transition-all"
+                    >
+                        <Feather className="w-4 h-4" /> Log Experience
+                    </button>
+                </div>
             </motion.div>
 
             <div className="flex items-center justify-center gap-4">
@@ -168,6 +188,14 @@ export default function MandukyaLayout() {
     const router = useRouter();
     const [lang, setLang] = useState<"en" | "hi">("en");
     const [activeTab, setActiveTab] = useState<string>("overview");
+    const [sadhanaActive, setSadhanaActive] = useState(false);
+    const [reportActive, setReportActive] = useState(false);
+
+    // Expose control to sub-components via window for simplicity
+    React.useEffect(() => {
+        (window as any).showSadhanaTimer = () => setSadhanaActive(true);
+        (window as any).showExperienceReport = () => setReportActive(true);
+    }, []);
 
     const tabs = [
         { id: "overview", label: lang === "en" ? "Overview" : "परिचय", icon: Eye },
@@ -229,6 +257,50 @@ export default function MandukyaLayout() {
                 <p className="text-3xl md:text-4xl font-serif text-violet-50 mb-4">शान्तं शिवमद्वैतम्</p>
                 <p className="text-violet-400/60 italic">{lang === "en" ? "Peaceful, Auspicious, Non-dual" : "शांत, कल्याणकारी, अद्वैत"}</p>
                 <p className="text-violet-500/40 text-sm mt-2">— Mandukya Upanishad, Verse 7</p>
+
+                {/* Modals */}
+                <AnimatePresence>
+                    {sadhanaActive && (
+                        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="absolute inset-0 bg-black/60 backdrop-blur-md"
+                                onClick={() => setSadhanaActive(false)}
+                            />
+                            <motion.div
+                                initial={{ scale: 0.9, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.9, opacity: 0 }}
+                                className="relative z-10 w-full max-w-xl"
+                            >
+                                <SadhanaTimer
+                                    title="Mandukya: Turīya Contemplation"
+                                    duration={300}
+                                    onComplete={() => {
+                                        setSadhanaActive(false);
+                                        setReportActive(true);
+                                    }}
+                                />
+                            </motion.div>
+                        </div>
+                    )}
+                </AnimatePresence>
+
+                <AnimatePresence>
+                    {reportActive && (
+                        <ExperienceReport
+                            isOpen={reportActive}
+                            onClose={() => setReportActive(false)}
+                            onSubmit={(data: any) => {
+                                console.log("Experience Logged:", data);
+                                setReportActive(false);
+                            }}
+                            title="Mandukya Upanishad: Internal Shift"
+                        />
+                    )}
+                </AnimatePresence>
             </footer>
         </div>
     );

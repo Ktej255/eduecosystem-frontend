@@ -16,6 +16,15 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
     const [selectedModule, setSelectedModule] = useState<string | null>(null);
 
     const [view, setView] = useState<'topics' | 'schedule' | 'map'>('map');
+    const scheduleRef = React.useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (view === 'schedule' && scheduleRef.current) {
+            setTimeout(() => {
+                scheduleRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    }, [view]);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && !localStorage.getItem('polity_start_calendar_date')) {
@@ -497,7 +506,7 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                     )}
                 </>
             ) : view === 'schedule' ? (
-                <div className="max-w-6xl mx-auto px-6 py-12">
+                <div ref={scheduleRef} className="max-w-6xl mx-auto px-6 py-12">
                     <PolityScheduleView isAdmin={isAdmin} />
                 </div>
             ) : (

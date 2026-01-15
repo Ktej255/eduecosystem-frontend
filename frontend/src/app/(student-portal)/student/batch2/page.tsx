@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Library, ArrowRight, LayoutDashboard, Star, Sparkles, BookOpen, GraduationCap, Target, Clock } from "lucide-react";
+import { Library, ArrowRight, LayoutDashboard, Star, Sparkles, BookOpen, GraduationCap, Target, Clock, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import UpanishadsLibraryView from "@/components/batch2/upanishads/UpanishadsLibraryView";
 import CanonicalKnowledgeMap from "@/components/batch2/canonical-knowledge-map";
@@ -13,11 +13,11 @@ import SelfStudyMissions from "@/components/batch2/SelfStudyMissions";
 import BatchSummary from "@/components/batch2/BatchSummary";
 
 export default function Batch2Page() {
-    const [activeTab, setActiveTab] = useState("map");
+    const [activeTab, setActiveTab] = useState("progress");
 
     const tabs = [
-        { id: "map", label: "Knowledge Map", icon: Sparkles },
         { id: "progress", label: "Progress Path", icon: Star },
+        { id: "map", label: "Knowledge Map", icon: Sparkles },
         { id: "mission", label: "Daily Missions", icon: Target },
         { id: "summary", label: "Journey Recap", icon: Clock },
     ];
@@ -31,7 +31,7 @@ export default function Batch2Page() {
                         <div className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
                             <GraduationCap className="w-5 h-5 text-amber-600" />
                         </div>
-                        <span className="font-bold text-amber-900 hidden md:block">Batch II</span>
+                        <span className="font-bold text-amber-900 hidden md:block">Ancient Wisdom Portal</span>
                     </div>
 
                     <div className="flex items-center bg-amber-50 p-1 rounded-full border border-amber-200 overflow-x-auto max-w-[calc(100vw-100px)] scrollbar-hide">
@@ -104,15 +104,72 @@ export default function Batch2Page() {
                     )}
 
                     {activeTab === "progress" && (
-                        <UpanishadProgressSequence />
+                        <>
+                            <div className="text-center mb-8">
+                                <h1 className="text-3xl font-bold text-amber-950 mb-2 font-serif">
+                                    Guided Ascent
+                                </h1>
+                                <p className="text-amber-800/80 leading-relaxed max-w-2xl mx-auto">
+                                    Your personalized sequence of internal transformation.
+                                </p>
+                            </div>
+
+                            {/* Progress Banner (Progress View) */}
+                            <div className="mb-8">
+                                <div className="flex items-center justify-between bg-white/80 backdrop-blur-md rounded-2xl border-2 border-amber-200 p-6 shadow-xl max-w-4xl mx-auto relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                        <Sparkles className="w-20 h-20 text-amber-600" />
+                                    </div>
+                                    <div className="flex items-center gap-5 relative z-10">
+                                        <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
+                                            <Zap className="w-8 h-8" />
+                                        </div>
+                                        <div>
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-widest rounded-md border border-emerald-200">
+                                                    Phase 1: Vitality (Prana)
+                                                </span>
+                                                <span className="text-amber-600 font-bold text-xs">Day 4 of 21</span>
+                                            </div>
+                                            <h2 className="text-2xl font-bold text-amber-950 font-serif">Today's Focus: Īśā Upaniṣad</h2>
+                                            <p className="text-amber-700 font-medium">Verses 1-4 • Mastering the Life-Force</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col items-end gap-2 relative z-10">
+                                        <Link href="/student/batch2/upanishads/kena">
+                                            <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white rounded-xl px-8 shadow-lg shadow-amber-600/20 font-bold">
+                                                Resume Journey
+                                            </Button>
+                                        </Link>
+                                        <div className="flex items-center gap-2 text-xs font-bold text-amber-800/60 uppercase tracking-tighter">
+                                            Next: Kena Upanishad <ArrowRight className="w-3 h-3" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <UpanishadProgressSequence />
+                        </>
                     )}
 
                     {activeTab === "mission" && (
                         <SelfStudyMissions />
                     )}
 
-                    {activeTab === "summary" && (
-                        <BatchSummary />
+                    {activeTab === "map" && (
+                        <div className="space-y-6">
+                            <div className="text-center mb-8">
+                                <h1 className="text-3xl font-bold text-amber-950 mb-2 font-serif">
+                                    Canonical Knowledge Map
+                                </h1>
+                                <p className="text-amber-800/80 leading-relaxed max-w-2xl mx-auto">
+                                    Explore the interconnected web of Vedic texts and their relationships.
+                                </p>
+                            </div>
+                            <div className="w-full bg-white rounded-xl shadow-sm border border-amber-100 overflow-hidden">
+                                <CanonicalKnowledgeMap />
+                            </div>
+                        </div>
                     )}
                 </motion.div>
             </div>

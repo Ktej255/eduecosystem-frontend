@@ -338,6 +338,17 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
                                     </div>
 
                                     {!isSaturday && !isSunday && (
+                                        <div className="mt-auto pt-3">
+                                            <a href={`/student/batch1-1/${currentWeek.week}/${dayIndex + 1}`} className="block w-full">
+                                                <button className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                                                    <BrainCircuit className="w-3.5 h-3.5" />
+                                                    Start Session
+                                                </button>
+                                            </a>
+                                        </div>
+                                    )}
+
+                                    {!isSaturday && !isSunday && (
                                         <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-dashed border-gray-200 dark:border-gray-800 text-center">
                                             <span className="text-[10px] font-bold text-gray-500 uppercase">Day Summary</span>
                                             <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">

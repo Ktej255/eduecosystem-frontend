@@ -185,7 +185,7 @@ function ZenParticleBackground() {
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/20 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/20 to-transparent" />
 
             {/* Floating particles */}
             {[...Array(20)].map((_, i) => (

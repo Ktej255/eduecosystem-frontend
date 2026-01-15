@@ -103,6 +103,14 @@ const routes: Route[] = [
     children: [],
   },
   {
+    label: "Revision Portal",
+    icon: Sparkles,
+    href: "/revision",
+    color: "text-amber-500",
+    badge: "FREE",
+    children: [],
+  },
+  {
     label: "Create Course",
     icon: PlusCircle,
     href: "/lms/courses/create",
@@ -310,6 +318,9 @@ export default function Sidebar() {
 
       // Check children for student access (e.g., Courses in Products)
       if (route.label === "Products") return true; // Allow viewing products menu
+
+      // Allow Revision Portal access
+      if (route.href === "/revision") return true;
 
       return false;
     }

@@ -355,7 +355,7 @@ export default function WhatsAppBusinessPage() {
                         transition={{ duration: 0.8, delay: 0.5 }}
                         className="mt-20 relative"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent z-10" />
                         <div className="relative mx-auto max-w-4xl">
                             {/* Phone Mockup */}
                             <div className="relative w-72 h-[500px] mx-auto">

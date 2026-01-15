@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from "react";
 import axios from "axios";
+import api from "@/lib/api"; // Import centralized API instance
 import { useAuth } from "@/contexts/auth-context";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -248,12 +249,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const fetchTestHistory = async () => {
         setLoadingHistory(true);
         try {
-            // FORCE AWS URL to avoid any Vercel env var issues
-            const AWS_API = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
-            const token = localStorage.getItem('token');
-            const response = await axios.get(`${AWS_API}/batch1/test-results`, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
+            const response = await api.get(`/batch1/test-results`);
             setTestHistory(response.data);
         } catch (error) {
             console.error("Failed to fetch test history:", error);
@@ -265,12 +261,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const fetchTestDetail = async (resultId: number) => {
         setLoadingHistory(true);
         try {
-            // FORCE AWS URL to avoid any Vercel env var issues
-            const AWS_API = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
-            const token = localStorage.getItem('token');
-            const response = await axios.get(`${AWS_API}/batch1/test-results/${resultId}`, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
+            const response = await api.get(`/batch1/test-results/${resultId}`);
             setReviewingTest(response.data);
             setReviewAnswers(response.data.answers || []);
         } catch (error) {
@@ -342,11 +333,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
         // Save to Database in background
         setIsSaving(true);
         try {
-            // FORCE AWS URL to avoid any Vercel env var issues
-            const AWS_API = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
-            const token = localStorage.getItem('token');
-
-            const response = await axios.post(`${AWS_API}/batch1/test-results`, {
+            const response = await api.post(`/batch1/test-results`, {
                 cycle_id: cycleId,
                 day_number: day,
                 score: finalScore,
@@ -355,10 +342,6 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                 incorrect_count: incorrect,
                 unanswered_count: unanswered,
                 answers: resultsForApi
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
             });
             console.log("Test result saved to AWS database", response.data);
 
@@ -369,11 +352,11 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
 
             // Refresh test history after successful save
             fetchTestHistory();
-        } catch (error: any) {
+        } catch (error) {
             console.error("Failed to save test result:", error);
             // Log detailed error for debugging
-            const errorMessage = error.response?.data?.detail || error.response?.statusText || error.message || "Unknown error";
-            const errorStatus = error.response?.status || "No status";
+            const errorMessage = (error as any)?.response?.data?.detail || (error as any)?.response?.statusText || (error as any)?.message || "Unknown error";
+            const errorStatus = (error as any)?.response?.status || "No status";
             console.error("API Error: Status=" + errorStatus + ", Message=" + errorMessage);
             // Show error message but keep the report visible
             alert("Warning: Could not save to server (" + errorStatus + ": " + errorMessage + "). Your report is displayed but may not appear in history after refresh.");
@@ -598,7 +581,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             )}
 
             {/* Main Question Area */}
-            <Card className="min-h-[400px] flex flex-col">
+            <Card className="min-h-[400px] flex flex-col bg-white dark:bg-gray-900 border">
                 <CardContent className="p-6 flex-1">
                     <div className="mb-6">
                         <span className="inline-block px-2 py-1 rounded text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 mb-2">

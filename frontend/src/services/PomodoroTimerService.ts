@@ -15,7 +15,8 @@ export type SessionType =
     | 'break_15'      // Break between phases
     | 'study_45'      // Phase 2: 45-minute study
     | 'explanation_10'// Phase 2: 10-minute explanation
-    | 'revision_25';  // 6:30 revision session
+    | 'revision_25'   // 6:30 revision session
+    | 'ras_revision'; // RAS Portal 2.0 Revision session
 
 export interface TimerState {
     isRunning: boolean;
@@ -48,6 +49,7 @@ export const SESSION_DURATIONS: Record<SessionType, number> = {
     study_45: 45 * 60 * 1000,         // 45 minutes
     explanation_10: 10 * 60 * 1000,   // 10 minutes
     revision_25: 25 * 60 * 1000,      // 25 minutes
+    ras_revision: 25 * 60 * 1000,     // 25 minutes (default)
 };
 
 class PomodoroTimerService {
@@ -216,6 +218,7 @@ class PomodoroTimerService {
                 study_45: '45-minute study session',
                 explanation_10: '10-minute explanation',
                 revision_25: '25-minute revision',
+                ras_revision: 'RAS revision session',
             };
 
             const label = this.state.sessionType

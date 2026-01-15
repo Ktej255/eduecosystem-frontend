@@ -12,9 +12,13 @@ import {
     Eye,
     GraduationCap,
     Layers,
-    Heart
+    Heart,
+    Wind,
+    Feather
 } from "lucide-react";
 import { TAITTIRIYA_METADATA, TAITTIRIYA_SHLOKAS } from "@/components/batch2/upanishads/data/taittiriya-shlokas";
+import SadhanaTimer from "@/components/batch2/shared/SadhanaTimer";
+import ExperienceReport from "@/components/batch2/shared/ExperienceReport";
 
 // Group by Valli
 const shiksha = TAITTIRIYA_SHLOKAS.filter(d => d.valli === 1);
@@ -158,6 +162,22 @@ function WisdomStream({ data, lang, title, subtitle }: { data: any[], lang: "en"
                         {lang === "en" ? shloka.simpleExplanation : shloka.simpleExplanationHindi}
                     </p>
                 </div>
+
+                {/* Practice Launchers */}
+                <div className="grid grid-cols-2 gap-4 mt-6">
+                    <button
+                        onClick={() => (window as any).showSadhanaTimer && (window as any).showSadhanaTimer()}
+                        className="bg-rose-600/20 hover:bg-rose-600/30 border border-rose-500/30 rounded-xl p-4 text-rose-300 font-bold text-sm flex items-center justify-center gap-2 transition-all"
+                    >
+                        <Wind className="w-4 h-4" /> Start Sadhana
+                    </button>
+                    <button
+                        onClick={() => (window as any).showExperienceReport && (window as any).showExperienceReport()}
+                        className="bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 rounded-xl p-4 text-emerald-300 font-bold text-sm flex items-center justify-center gap-2 transition-all"
+                    >
+                        <Feather className="w-4 h-4" /> Log Experience
+                    </button>
+                </div>
             </motion.div>
 
             <div className="flex items-center justify-center gap-4">
@@ -188,6 +208,14 @@ export default function TaittiriyaLayout() {
     const router = useRouter();
     const [lang, setLang] = useState<"en" | "hi">("en");
     const [activeTab, setActiveTab] = useState<string>("overview");
+    const [sadhanaActive, setSadhanaActive] = useState(false);
+    const [reportActive, setReportActive] = useState(false);
+
+    // Expose control to sub-components via window for simplicity
+    React.useEffect(() => {
+        (window as any).showSadhanaTimer = () => setSadhanaActive(true);
+        (window as any).showExperienceReport = () => setReportActive(true);
+    }, []);
 
     const tabs = [
         { id: "overview", label: lang === "en" ? "Overview" : "परिचय", icon: Eye },
@@ -251,6 +279,50 @@ export default function TaittiriyaLayout() {
             <footer className="bg-slate-950 py-24 text-center border-t border-rose-900/10">
                 <p className="text-3xl md:text-4xl font-serif text-rose-50 mb-4">सह नाववतु । सह नौ भुनक्तु ।</p>
                 <p className="text-rose-400/60 italic">{lang === "en" ? "May He protect us both. May He nourish us both." : "वह हम दोनों की रक्षा करे। वह हम दोनों का पालन करे।"}</p>
+
+                {/* Modals */}
+                <AnimatePresence>
+                    {sadhanaActive && (
+                        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="absolute inset-0 bg-black/60 backdrop-blur-md"
+                                onClick={() => setSadhanaActive(false)}
+                            />
+                            <motion.div
+                                initial={{ scale: 0.9, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.9, opacity: 0 }}
+                                className="relative z-10 w-full max-w-xl"
+                            >
+                                <SadhanaTimer
+                                    title="Taittiriya: Kosha Contemplation"
+                                    duration={300}
+                                    onComplete={() => {
+                                        setSadhanaActive(false);
+                                        setReportActive(true);
+                                    }}
+                                />
+                            </motion.div>
+                        </div>
+                    )}
+                </AnimatePresence>
+
+                <AnimatePresence>
+                    {reportActive && (
+                        <ExperienceReport
+                            isOpen={reportActive}
+                            onClose={() => setReportActive(false)}
+                            onSubmit={(data: any) => {
+                                console.log("Experience Logged:", data);
+                                setReportActive(false);
+                            }}
+                            title="Taittiriya Upanishad: Internal Shift"
+                        />
+                    )}
+                </AnimatePresence>
             </footer>
         </div>
     );

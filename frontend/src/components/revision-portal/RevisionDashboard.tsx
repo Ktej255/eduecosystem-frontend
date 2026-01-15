@@ -47,6 +47,7 @@ export interface RevisionDashboardProps {
     basePath: string; // e.g. "/student/batch1/polity/revision"
     title?: string;
     subtitle?: string;
+    subjectId?: string; // e.g., 'polity', 'history'
 }
 
 export default function GenericRevisionDashboard({
@@ -55,7 +56,8 @@ export default function GenericRevisionDashboard({
     backLabel = "Back to Dashboard",
     basePath,
     title = "Revision Hub",
-    subtitle = "Master Your Syllabus"
+    subtitle = "Master Your Syllabus",
+    subjectId = "polity"
 }: RevisionDashboardProps) {
     const [progress, setProgress] = useState<Record<number, RevisionProgress>>({});
     const [streak, setStreak] = useState<StudyStreak>({ currentStreak: 0, longestStreak: 0, lastStudyDate: null, totalDaysStudied: 0 });
@@ -65,10 +67,9 @@ export default function GenericRevisionDashboard({
 
     // Load data on mount
     useEffect(() => {
-        // TODO: In the future, 'getAllProgress' might need to be scoped by subject/module
-        setProgress(getAllProgress());
-        setStreak(getStreak());
-    }, []);
+        setProgress(getAllProgress(subjectId));
+        setStreak(getStreak(subjectId));
+    }, [subjectId]);
 
     // Stats
     const stats = useMemo(() => {

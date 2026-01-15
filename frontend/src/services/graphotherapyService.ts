@@ -206,6 +206,19 @@ export const graphotherapyService = {
     },
 
     /**
+     * Instant AI Analysis (Student View)
+     * Uses the funnel analysis engine for immediate feedback
+     */
+    async analyzeInstant(file: File) {
+        const formData = new FormData();
+        formData.append("file", file);
+        const response = await api.post("/funnel/analyze", formData, {
+            headers: { "Content-Type": "multipart/form-data" }
+        });
+        return response.data;
+    },
+
+    /**
      * Purchase Level or Bundle
      */
     async purchaseLevel(levelId: number, useCoins: boolean, isBundle: boolean) {
