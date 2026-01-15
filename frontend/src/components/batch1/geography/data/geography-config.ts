@@ -39,24 +39,81 @@ const GEOGRAPHY_MODULES = [
     }
 ];
 
-// Placeholder Topics
-const GEOGRAPHY_TOPICS = Array.from({ length: 65 }, (_, i) => {
-    const id = i + 1;
-    let moduleId = "1";
-    if (id > 20) moduleId = "2";
-    if (id > 35) moduleId = "3";
-    if (id > 55) moduleId = "4";
+// Enhanced Geography Topics
+const GEOGRAPHY_TOPICS = [
+    // --- Physical Geography (Module 1) ---
+    {
+        id: 1,
+        title: "Geomorphology: Origin of Earth",
+        moduleId: "1",
+        priority: "Medium",
+        staticFocus: "Nebular hypothesis, Plate tectonics, Continental drift.",
+        keyConcepts: ["Pangaea", "Sea Floor Spreading", "Convection Currents"],
+        currentAffairsCount: 0,
+        mainsQuestions: [
+            { id: "GQ1", question: "Explain the theory of Plate Tectonics and its role in shaping the Earth's landforms.", marks: 15 }
+        ]
+    },
+    {
+        id: 2,
+        title: "Weathering and Erosion",
+        moduleId: "1",
+        priority: "High",
+        staticFocus: "Types of weathering, mass wasting, erosional landforms.",
+        keyConcepts: ["Mechanical Weathering", "Chemical Weathering", "Biological Weathering"],
+        currentAffairsCount: 1
+    },
+    {
+        id: 3,
+        title: "Fluvial Landforms",
+        moduleId: "1",
+        priority: "High",
+        staticFocus: "River erosion, deposition, meanders, deltas.",
+        keyConcepts: ["Oxbow Lake", "Alluvial Fan", "Delta Formation"],
+        currentAffairsCount: 0,
+        mainsQuestions: [
+            { id: "GQ2", question: "Describe the formation and types of deltas with Indian examples.", marks: 10, modelAnswer: "Deltas are depositional landforms at river mouths. Types include: Arcuate (Ganga), Bird's Foot (Mississippi), Cuspate. Factors: Sediment load, wave energy, tidal range." }
+        ]
+    },
+    {
+        id: 4,
+        title: "Climatology: Atmospheric Circulation",
+        moduleId: "1",
+        priority: "High",
+        staticFocus: "Pressure belts, wind systems, jet streams.",
+        keyConcepts: ["Trade Winds", "Westerlies", "Ferrel Cell"],
+        currentAffairsCount: 2,
+        mainsQuestions: [
+            { id: "GQ3", question: "Explain the role of Jet Streams in influencing Indian Monsoon.", marks: 15 }
+        ]
+    },
 
-    return {
-        id: id,
-        title: `Geography Topic ${id}`,
-        moduleId: moduleId,
-        priority: id % 4 === 0 ? "High" : "Medium",
-        staticFocus: "Core concepts and distribution patterns...",
-        keyConcepts: ["Process A", "Distribution B"],
-        currentAffairsCount: Math.floor(Math.random() * 3),
-    };
-}) as any[];
+    // --- Indian Geography (Module 3) ---
+    {
+        id: 36,
+        title: "Physiography of India",
+        moduleId: "3",
+        priority: "High",
+        staticFocus: "Northern Mountains, Indo-Gangetic Plain, Peninsular Plateau.",
+        keyConcepts: ["Himalayas", "Deccan Plateau", "Western Ghats"],
+        currentAffairsCount: 1,
+        mainsQuestions: [
+            { id: "GQ4", question: "Discuss the physiographic divisions of India and their economic significance.", marks: 15 }
+        ]
+    },
+    {
+        id: 37,
+        title: "Indian Monsoon",
+        moduleId: "3",
+        priority: "High",
+        staticFocus: "Mechanism, onset, variability, impact on agriculture.",
+        keyConcepts: ["ITCZ", "El Niño", "Monsoon Breaks"],
+        currentAffairsCount: 3,
+        mainsQuestions: [
+            { id: "GQ5", question: "Analyze the factors affecting the distribution of rainfall in India.", marks: 10 }
+        ]
+    }
+] as any[];
 
 const GEOGRAPHY_CHAPTERS = GEOGRAPHY_TOPICS.map(t => ({
     chapter: t.id,

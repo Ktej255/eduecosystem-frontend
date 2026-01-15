@@ -156,20 +156,8 @@ export default function Batch2Page() {
                         <SelfStudyMissions />
                     )}
 
-                    {activeTab === "map" && (
-                        <div className="space-y-6">
-                            <div className="text-center mb-8">
-                                <h1 className="text-3xl font-bold text-amber-950 mb-2 font-serif">
-                                    Canonical Knowledge Map
-                                </h1>
-                                <p className="text-amber-800/80 leading-relaxed max-w-2xl mx-auto">
-                                    Explore the interconnected web of Vedic texts and their relationships.
-                                </p>
-                            </div>
-                            <div className="w-full bg-white rounded-xl shadow-sm border border-amber-100 overflow-hidden">
-                                <CanonicalKnowledgeMap />
-                            </div>
-                        </div>
+                    {activeTab === "summary" && (
+                        <BatchSummary />
                     )}
                 </motion.div>
             </div>

@@ -192,8 +192,14 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
                                                         </p>
                                                     )}
                                                     <div className="flex gap-2">
-                                                        <Button variant="outline" size="sm">
-                                                            View Model Answer
+                                                        <Button
+                                                            variant="outline"
+                                                            size="sm"
+                                                            onClick={() => setShowModelAnswer({ ...showModelAnswer, [q.id]: !showModelAnswer[q.id] })}
+                                                            disabled={!q.modelAnswer}
+                                                        >
+                                                            <Eye className="w-4 h-4 mr-2" />
+                                                            {showModelAnswer[q.id] ? "Hide" : "View"} Model Answer
                                                         </Button>
                                                         <Button
                                                             size="sm"
@@ -209,6 +215,18 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
                                                         </Button>
                                                     </div>
                                                 </div>
+
+                                                {/* Model Answer Display */}
+                                                {showModelAnswer[q.id] && q.modelAnswer && (
+                                                    <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
+                                                        <h4 className="font-bold text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-2">
+                                                            <BookOpen className="w-4 h-4" /> Model Answer
+                                                        </h4>
+                                                        <p className="text-sm text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap">
+                                                            {q.modelAnswer}
+                                                        </p>
+                                                    </div>
+                                                )}
 
                                                 {/* Evaluation Results */}
                                                 {evaluation && (

@@ -64,7 +64,27 @@ const HISTORY_TOPICS = [
         keyConcepts: ["Urban Planning", "Great Bath", "Seals", "Bronze Dancing Girl"],
         currentAffairsCount: 2,
         mainsQuestions: [
-            { id: "M1Q2", question: "The urban planning of the Indus Valley Civilization was advanced for its time. Elaborate.", marks: 15 }
+            {
+                id: "M1Q2",
+                question: "The urban planning of the Indus Valley Civilization was advanced for its time. Elaborate.",
+                marks: 15,
+                modelAnswer: `The Indus Valley Civilization (IVC), also known as the Harappan Civilization, showcased remarkably advanced urban planning for its era (2600-1900 BCE).
+
+**Key Features of Urban Planning:**
+
+1. **Grid Pattern**: Cities like Mohenjo-daro and Harappa were laid out in a grid pattern with streets intersecting at right angles, indicating centralized planning.
+
+2. **Drainage System**: Perhaps the most impressive feature was the sophisticated drainage system. Every house had drains connected to main street drains, which were covered with bricks. This was unparalleled in the ancient world.
+
+3. **Citadel and Lower Town**: Cities were typically divided into a raised citadel (with public buildings) and a lower town (residential areas), suggesting social stratification and organized governance.
+
+4. **Standardized Bricks**: The use of bricks of uniform size (ratio 4:2:1) across different sites indicates centralized control and standardization.
+
+5. **Public Structures**: The Great Bath at Mohenjo-daro, granaries, and assembly halls suggest well-organized community life and possibly religious practices.
+
+**Conclusion:**
+The urban planning of the IVC reflects a sophisticated understanding of civil engineering, public health, and governance, making it one of the most organized ancient civilizations.`
+            }
         ]
     },
     {
