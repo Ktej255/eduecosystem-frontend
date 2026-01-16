@@ -101,8 +101,14 @@ Analysis: [detailed paragraph about personality based on handwriting]
                 elif key == "personality traits":
                     traits = [t.strip() for t in val.split(",")]
 
+        if "API_ERROR:" in gemini_analysis:
+             features = {
+                "confidence_score": 0.0,
+                "error": gemini_analysis
+            }
+             analysis_text = gemini_analysis
         # If parsing failed, use fallback mock features
-        if not features:
+        elif not features:
             # Return error state instead of mocks
             features = {
                 "confidence_score": 0.0,

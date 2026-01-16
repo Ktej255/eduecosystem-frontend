@@ -159,7 +159,14 @@ export default function GraphologyPage() {
 
           {error && (
             <div className="mt-4 p-4 bg-red-900/20 border border-red-500/30 rounded-lg text-red-400">
+              <strong className="block font-bold mb-1">Analysis Failed</strong>
               {error}
+              {(error.includes("API Key") || error.includes("blocked")) && (
+                <div className="mt-2 text-sm text-red-300">
+                  <p>It seems your Google Gemini API Key has been flagged or invalidated.</p>
+                  <p>Please generate a new API Key from Google AI Studio and update your configuration.</p>
+                </div>
+              )}
             </div>
           )}
         </Card>

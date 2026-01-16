@@ -31,7 +31,7 @@ class GeminiService:
         self.llama_key = settings.LLAMA_API_KEY
         
         self.base_url = settings.OPENROUTER_BASE_URL
-        self.default_model = "gemini-1.5-flash" # Safe default for Google
+        self.default_model = "gemini-2.5-flash" # Updated for 2026
 
     def _get_execution_plan(self, user: Any = None, is_complex: bool = False) -> List[Tuple[str, str, str]]:
         """
@@ -45,11 +45,11 @@ class GeminiService:
         # Primary: Google Direct (Fast, Free/Paid)
         if is_premium and self.paid_key:
              # Paid Pro -> Free Flash
-             plan.append(("google", self.paid_key, "gemini-1.5-pro"))
-             plan.append(("google", self.free_key, "gemini-1.5-flash"))
+             plan.append(("google", self.paid_key, "gemini-2.5-pro"))
+             plan.append(("google", self.free_key, "gemini-2.5-flash"))
         else:
              # Free Flash
-             plan.append(("google", self.free_key, "gemini-1.5-flash"))
+             plan.append(("google", self.free_key, "gemini-2.5-flash"))
              
         # Fallbacks (OpenRouter)
         if self.gemma_key:
@@ -195,6 +195,11 @@ class GeminiService:
             except Exception as e:
                 last_error = str(e)
                 print(f"DEBUG: Google Error: {e}")
+                
+                # Check for key validity issues
+                if "API key not valid" in last_error or "API key was reported as leaked" in last_error or "403" in last_error:
+                    return f"API_ERROR: {last_error}"
+                
                 continue
                 
         return f"Image Analysis Error: {last_error}"
