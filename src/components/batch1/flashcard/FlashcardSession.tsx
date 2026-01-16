@@ -27,6 +27,7 @@ import { topic02MakingConstitution } from "../polity/data/topics/topic-02-making
 import { topic03Preamble } from "../polity/data/topics/topic-03-preamble";
 import { topic04UnionTerritory } from "../polity/data/topics/topic-04-union-territory";
 import { topic05Citizenship } from "../polity/data/topics/topic-05-citizenship";
+import { topic14CentreStateRelations } from "../polity/data/topics/topic-14-centre-state";
 
 // Topic registry for dynamic loading
 const TOPIC_MAP: Record<number, any> = {
@@ -35,6 +36,7 @@ const TOPIC_MAP: Record<number, any> = {
     3: topic03Preamble,
     4: topic04UnionTerritory,
     5: topic05Citizenship,
+    14: topic14CentreStateRelations,
     // Add more as needed
 };
 

@@ -30,6 +30,7 @@ import CycleFlashcards from '../pomodoro/CycleFlashcards';
 import CycleMCQs from '../pomodoro/CycleMCQs';
 import { getFlashcardsForSubtopics } from '@/components/batch1/polity/data/polity-flashcards-data';
 import { getMCQsForSubtopics } from '@/components/batch1/polity/data/polity-mcqs-data';
+import { markStepComplete } from '@/lib/journey/completion-tracker';
 
 interface CycleData {
     cycleNumber: number;
@@ -189,17 +190,138 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
         };
     }, [morningProgress, weekId, dayId]);
 
+    // DAY 3 SPECIFIC LOGIC
+    const isDay3 = Number(weekId) === 1 && Number(dayId) === 3;
+
+    // Calculate Absolute Day Number for Dashboard Tracking
+    // Week 1 starts at Day 1. Week 1 Day 1 = 1. Week 2 Day 1 = 8.
+    const absoluteDayNumber = (Number(weekId) - 1) * 7 + Number(dayId);
+
+    const handleSessionComplete = () => {
+        // Mark the dashboard step as complete
+        markStepComplete(absoluteDayNumber, `evening-${absoluteDayNumber}`);
+        setActiveSection('menu');
+    };
+
+    const [activeChapter, setActiveChapter] = useState<'16' | '17' | null>(null);
+    const [completedChapters, setCompletedChapters] = useState<Set<string>>(new Set());
+    const [showDay3Guidance, setShowDay3Guidance] = useState<{ type: 'to-mcq' | 'to-next-chapter' | 'finish', nextChapter?: '16' | '17' } | null>(null);
+
+    // Persistence for Day 3 Progress
+    useEffect(() => {
+        if (isDay3) {
+            const storageKey = `batch1_1_evening_progress_${weekId}_${dayId}`;
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    setCompletedChapters(new Set(parsed));
+                } catch (e) {
+                    console.error("Failed to load evening progress", e);
+                }
+            }
+        }
+    }, [isDay3, weekId, dayId]);
+
+    const saveProgress = (chapters: Set<string>) => {
+        const storageKey = `batch1_1_evening_progress_${weekId}_${dayId}`;
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(chapters)));
+    };
+
+    const handleDay3CardClick = (chapterId: '16' | '17') => {
+        setActiveChapter(chapterId);
+        setActiveSection('flashcards'); // Start with Flashcards
+    };
+
+    const handleDay3FlashcardComplete = () => {
+        // Prompt to go to MCQs
+        setShowDay3Guidance({ type: 'to-mcq' });
+    };
+
+    const handleDay3MCQComplete = () => {
+        // Mark chapter as complete
+        if (activeChapter) {
+            const newCompleted = new Set(completedChapters);
+            newCompleted.add(activeChapter);
+            setCompletedChapters(newCompleted);
+            saveProgress(newCompleted); // Save to localStorage
+
+            // Check if other chapter is pending
+            const otherChapter = activeChapter === '16' ? '17' : '16';
+            if (!newCompleted.has(otherChapter)) {
+                setShowDay3Guidance({ type: 'to-next-chapter', nextChapter: otherChapter });
+            } else {
+                setShowDay3Guidance({ type: 'finish' });
+                // Also mark global dashboard step as complete since both are done
+                markStepComplete(absoluteDayNumber, `evening-${absoluteDayNumber}`);
+            }
+        }
+    };
+
+    // Filter content based on active chapter
+    const activeDay3Flashcards = useMemo(() => {
+        if (!isDay3 || !activeChapter || !sessionContent) return [];
+        return sessionContent.flashcards.filter(fc => fc.subtopicId && fc.subtopicId.startsWith(`${activeChapter}.`));
+    }, [isDay3, activeChapter, sessionContent]);
+
+    const activeDay3MCQs = useMemo(() => {
+        if (!isDay3 || !activeChapter || !sessionContent) return [];
+        return sessionContent.mcqs.filter(mcq => mcq.subtopicId && mcq.subtopicId.startsWith(`${activeChapter}.`));
+    }, [isDay3, activeChapter, sessionContent]);
+
+
     if (activeSection === 'flashcards' && sessionContent) {
         return (
             <div className="max-w-4xl mx-auto p-6">
                 <Button variant="ghost" onClick={() => setActiveSection('menu')} className="mb-4">
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back
                 </Button>
+
+                {/* Day 3 Guidance Dialog */}
+                <Dialog open={!!showDay3Guidance} onOpenChange={(open) => !open && setShowDay3Guidance(null)}>
+                    <DialogContent>
+                        <DialogHeader>
+                            <DialogTitle>
+                                {showDay3Guidance?.type === 'to-mcq' && "Flashcards Completed!"}
+                                {showDay3Guidance?.type === 'to-next-chapter' && "Chapter Completed!"}
+                                {showDay3Guidance?.type === 'finish' && "Day 3 Session Completed!"}
+                            </DialogTitle>
+                            <DialogDescription>
+                                {showDay3Guidance?.type === 'to-mcq' && "Great job reviewing the concepts. Let's test your knowledge with some MCQs."}
+                                {showDay3Guidance?.type === 'to-next-chapter' && `You have completed ${activeChapter === '16' ? 'Inter-State Relations' : 'Emergency Provisions'}. Ready to move on to ${activeChapter === '16' ? 'Emergency Provisions' : 'Inter-State Relations'}?`}
+                                {showDay3Guidance?.type === 'finish' && "You have completed both chapters for today! Great work."}
+                            </DialogDescription>
+                        </DialogHeader>
+                        <div className="flex justify-end gap-3 mt-4">
+                            <Button variant="outline" onClick={() => {
+                                setShowDay3Guidance(null);
+                                setActiveSection('menu');
+                            }}>
+                                Return to Menu
+                            </Button>
+                            <Button onClick={() => {
+                                setShowDay3Guidance(null);
+                                if (showDay3Guidance?.type === 'to-mcq') {
+                                    setActiveSection('mcqs');
+                                } else if (showDay3Guidance?.type === 'to-next-chapter' && showDay3Guidance.nextChapter) {
+                                    setActiveChapter(showDay3Guidance.nextChapter);
+                                    setActiveSection('flashcards');
+                                } else {
+                                    setActiveSection('menu');
+                                }
+                            }}>
+                                {showDay3Guidance?.type === 'to-mcq' ? "Start MCQs" :
+                                    showDay3Guidance?.type === 'to-next-chapter' ? "Start Next Chapter" : "Finish"}
+                            </Button>
+                        </div>
+                    </DialogContent>
+                </Dialog>
+
                 <CycleFlashcards
-                    selectedSubtopics={sessionContent.subtopics} // Context only
-                    cycleNumber={5} // Evening
-                    onComplete={() => setActiveSection('menu')}
-                    preloadedCards={sessionContent.flashcards}
+                    selectedSubtopics={sessionContent.subtopics}
+                    cycleNumber={5}
+                    onComplete={isDay3 ? handleDay3FlashcardComplete : () => setActiveSection('menu')}
+                    preloadedCards={isDay3 ? activeDay3Flashcards : sessionContent.flashcards}
                 />
             </div>
         );
@@ -211,11 +333,47 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                 <Button variant="ghost" onClick={() => setActiveSection('menu')} className="mb-4">
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back
                 </Button>
+
+                {/* Day 3 Guidance Dialog (Reused for MCQs -> Next flow) */}
+                <Dialog open={!!showDay3Guidance} onOpenChange={(open) => !open && setShowDay3Guidance(null)}>
+                    <DialogContent>
+                        <DialogHeader>
+                            <DialogTitle>
+                                {showDay3Guidance?.type === 'to-next-chapter' && "Chapter Completed!"}
+                                {showDay3Guidance?.type === 'finish' && "Day 3 Session Completed!"}
+                            </DialogTitle>
+                            <DialogDescription>
+                                {showDay3Guidance?.type === 'to-next-chapter' && `You have completed ${activeChapter === '16' ? 'Inter-State Relations' : 'Emergency Provisions'}. Ready to move on to ${activeChapter === '16' ? 'Emergency Provisions' : 'Inter-State Relations'}?`}
+                                {showDay3Guidance?.type === 'finish' && "You have completed both chapters for today! Great work."}
+                            </DialogDescription>
+                        </DialogHeader>
+                        <div className="flex justify-end gap-3 mt-4">
+                            <Button variant="outline" onClick={() => {
+                                setShowDay3Guidance(null);
+                                setActiveSection('menu');
+                            }}>
+                                Return to Menu
+                            </Button>
+                            <Button onClick={() => {
+                                setShowDay3Guidance(null);
+                                if (showDay3Guidance?.type === 'to-next-chapter' && showDay3Guidance.nextChapter) {
+                                    setActiveChapter(showDay3Guidance.nextChapter);
+                                    setActiveSection('flashcards');
+                                } else {
+                                    setActiveSection('menu');
+                                }
+                            }}>
+                                {showDay3Guidance?.type === 'to-next-chapter' ? "Start Next Chapter" : "Finish"}
+                            </Button>
+                        </div>
+                    </DialogContent>
+                </Dialog>
+
                 <CycleMCQs
                     selectedSubtopics={sessionContent.subtopics}
                     cycleNumber={5}
-                    onComplete={() => setActiveSection('menu')}
-                    preloadedMCQs={sessionContent.mcqs}
+                    onComplete={isDay3 ? handleDay3MCQComplete : handleSessionComplete}
+                    preloadedMCQs={isDay3 ? activeDay3MCQs : sessionContent.mcqs}
                 />
             </div>
         );
@@ -363,77 +521,155 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
             )}
 
             {/* Session Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Flashcards */}
-                <Card
-                    className={`hover:shadow-lg transition-all cursor-pointer border-blue-200 ${hasMorningProgress
-                        ? 'bg-blue-50 dark:bg-blue-900/20'
-                        : 'bg-gray-50 dark:bg-gray-800 opacity-60'
-                        }`}
-                    onClick={() => hasMorningProgress && setActiveSection('flashcards')}
-                >
-                    <CardHeader className="pb-2">
-                        <Brain className="w-10 h-10 text-blue-600 mb-2" />
-                        <CardTitle className="text-lg">Flashcards</CardTitle>
-                        <CardDescription>
-                            {hasMorningProgress
-                                ? `${eveningContent.newFlashcards} new + ${eveningContent.repeatFlashcards} repeat`
-                                : 'Based on morning progress'}
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="flex items-center justify-between text-sm text-blue-600">
-                            <span>80% new • 20% repeat</span>
-                            <ChevronRight className="h-4 w-4" />
-                        </div>
-                    </CardContent>
-                </Card>
+            {isDay3 ? (
+                // DAY 3 SPECIFIC CARDS
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Chapter 16: Inter-State Relations */}
+                    <Card
+                        className={`hover:shadow-lg transition-all cursor-pointer border-blue-200 ${hasMorningProgress && !completedChapters.has('16')
+                            ? 'bg-blue-50 dark:bg-blue-900/20'
+                            : completedChapters.has('16') ? 'bg-green-50 border-green-200 opacity-80' : 'bg-gray-50 dark:bg-gray-800 opacity-60'
+                            }`}
+                        onClick={() => hasMorningProgress && handleDay3CardClick('16')}
+                    >
+                        <CardHeader className="pb-2">
+                            <div className="flex justify-between items-start">
+                                <Brain className="w-10 h-10 text-blue-600 mb-2" />
+                                {completedChapters.has('16') && <CheckCircle2 className="w-6 h-6 text-green-600" />}
+                            </div>
+                            <CardTitle className="text-lg">Inter-State Relations</CardTitle>
+                            <CardDescription>
+                                Chapter 16 • Flashcards & MCQs
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex items-center justify-between text-sm text-blue-600">
+                                <span>Complete Module</span>
+                                <ChevronRight className="h-4 w-4" />
+                            </div>
+                        </CardContent>
+                    </Card>
 
-                {/* MCQs */}
-                <Card
-                    className={`hover:shadow-lg transition-all cursor-pointer border-green-200 ${hasMorningProgress
-                        ? 'bg-green-50 dark:bg-green-900/20'
-                        : 'bg-gray-50 dark:bg-gray-800 opacity-60'
-                        }`}
-                    onClick={() => hasMorningProgress && setActiveSection('mcqs')}
-                >
-                    <CardHeader className="pb-2">
-                        <Target className="w-10 h-10 text-green-600 mb-2" />
-                        <CardTitle className="text-lg">MCQ Test</CardTitle>
-                        <CardDescription>
-                            {hasMorningProgress
-                                ? `${eveningContent.totalMCQs} questions`
-                                : '60 questions planned'}
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="flex items-center justify-between text-sm text-green-600">
-                            <span>Moderate to Tough</span>
-                            <ChevronRight className="h-4 w-4" />
-                        </div>
-                    </CardContent>
-                </Card>
+                    {/* Chapter 17: Emergency Provisions */}
+                    <Card
+                        className={`hover:shadow-lg transition-all cursor-pointer border-rose-200 ${hasMorningProgress && !completedChapters.has('17')
+                            ? 'bg-rose-50 dark:bg-rose-900/20'
+                            : completedChapters.has('17') ? 'bg-green-50 border-green-200 opacity-80' : 'bg-gray-50 dark:bg-gray-800 opacity-60'
+                            }`}
+                        onClick={() => hasMorningProgress && handleDay3CardClick('17')}
+                    >
+                        <CardHeader className="pb-2">
+                            <div className="flex justify-between items-start">
+                                <Target className="w-10 h-10 text-rose-600 mb-2" />
+                                {completedChapters.has('17') && <CheckCircle2 className="w-6 h-6 text-green-600" />}
+                            </div>
+                            <CardTitle className="text-lg">Emergency Provisions</CardTitle>
+                            <CardDescription>
+                                Chapter 17 • Flashcards & MCQs
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex items-center justify-between text-sm text-rose-600">
+                                <span>Complete Module</span>
+                                <ChevronRight className="h-4 w-4" />
+                            </div>
+                        </CardContent>
+                    </Card>
 
-                {/* CSAT */}
-                <Card
-                    className="hover:shadow-lg transition-all cursor-pointer border-purple-200 bg-purple-50 dark:bg-purple-900/20"
-                    onClick={() => setActiveSection('csat')}
-                >
-                    <CardHeader className="pb-2">
-                        <Calculator className="w-10 h-10 text-purple-600 mb-2" />
-                        <CardTitle className="text-lg">CSAT Practice</CardTitle>
-                        <CardDescription>
-                            Logical reasoning & quantitative aptitude
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="flex items-center justify-between text-sm text-purple-600">
-                            <span>Daily practice</span>
-                            <ChevronRight className="h-4 w-4" />
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
+                    {/* CSAT Card (Full Width) */}
+                    <Card
+                        className="hover:shadow-lg transition-all cursor-pointer border-purple-200 bg-purple-50 dark:bg-purple-900/20 md:col-span-2"
+                        onClick={() => setActiveSection('csat')}
+                    >
+                        <CardHeader className="pb-2">
+                            <Calculator className="w-10 h-10 text-purple-600 mb-2" />
+                            <CardTitle className="text-lg">CSAT Practice</CardTitle>
+                            <CardDescription>
+                                Logical reasoning & quantitative aptitude
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex items-center justify-between text-sm text-purple-600">
+                                <span>Daily practice</span>
+                                <ChevronRight className="h-4 w-4" />
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            ) : (
+                // STANDARD CARDS (Days 1, 2, 4, 5...)
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {/* Flashcards */}
+                    <Card
+                        className={`hover:shadow-lg transition-all cursor-pointer border-blue-200 ${hasMorningProgress
+                            ? 'bg-blue-50 dark:bg-blue-900/20'
+                            : 'bg-gray-50 dark:bg-gray-800 opacity-60'
+                            }`}
+                        onClick={() => hasMorningProgress && setActiveSection('flashcards')}
+                    >
+                        <CardHeader className="pb-2">
+                            <Brain className="w-10 h-10 text-blue-600 mb-2" />
+                            <CardTitle className="text-lg">Flashcards</CardTitle>
+                            <CardDescription>
+                                {hasMorningProgress
+                                    ? `${eveningContent.newFlashcards} new + ${eveningContent.repeatFlashcards} repeat`
+                                    : 'Based on morning progress'}
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex items-center justify-between text-sm text-blue-600">
+                                <span>80% new • 20% repeat</span>
+                                <ChevronRight className="h-4 w-4" />
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* MCQs */}
+                    <Card
+                        className={`hover:shadow-lg transition-all cursor-pointer border-green-200 ${hasMorningProgress
+                            ? 'bg-green-50 dark:bg-green-900/20'
+                            : 'bg-gray-50 dark:bg-gray-800 opacity-60'
+                            }`}
+                        onClick={() => hasMorningProgress && setActiveSection('mcqs')}
+                    >
+                        <CardHeader className="pb-2">
+                            <Target className="w-10 h-10 text-green-600 mb-2" />
+                            <CardTitle className="text-lg">MCQ Test</CardTitle>
+                            <CardDescription>
+                                {hasMorningProgress
+                                    ? `${eveningContent.totalMCQs} questions`
+                                    : '60 questions planned'}
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex items-center justify-between text-sm text-green-600">
+                                <span>Moderate to Tough</span>
+                                <ChevronRight className="h-4 w-4" />
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* CSAT */}
+                    <Card
+                        className="hover:shadow-lg transition-all cursor-pointer border-purple-200 bg-purple-50 dark:bg-purple-900/20"
+                        onClick={() => setActiveSection('csat')}
+                    >
+                        <CardHeader className="pb-2">
+                            <Calculator className="w-10 h-10 text-purple-600 mb-2" />
+                            <CardTitle className="text-lg">CSAT Practice</CardTitle>
+                            <CardDescription>
+                                Logical reasoning & quantitative aptitude
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex items-center justify-between text-sm text-purple-600">
+                                <span>Daily practice</span>
+                                <ChevronRight className="h-4 w-4" />
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            )}
 
             {/* Bottom Links */}
             <div className="flex justify-center gap-4 pt-4">

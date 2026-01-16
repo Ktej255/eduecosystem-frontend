@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Lock, CheckCircle2, Star, Sparkles, ArrowRight, ArrowLeft, ArrowDown } from "lucide-react";
+import { Lock, CheckCircle2, Star, Sparkles, ArrowRight, ArrowLeft, ArrowDown, Crown } from "lucide-react";
 import { ALL_108_UPANISHADS, VEDA_COLORS } from "./upanishads/upanishads-108-data";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/auth-context";
@@ -15,14 +15,19 @@ export default function UpanishadProgressSequence({
     currentUpanishadId = "isa"
 }: UpanishadProgressSequenceProps) {
     const { user } = useAuth();
-    const isMasterId = user?.email === "ktej255@gmail.com";
+    const ALLOWED_EMAILS = ['ktej255@gmail.com', 'test001@gmail.com', 'student1@eduecosystem.com', 'student2@eduecosystem.com', 'hitvar040@gmail.com', 'itspanwar111@gmail.com'];
+    const hasFullAccess = user?.email && ALLOWED_EMAILS.includes(user.email);
 
     const currentIndex = ALL_108_UPANISHADS.findIndex(u => u.id === currentUpanishadId);
 
     const getUpanishadStatus = (index: number): "completed" | "in-progress" | "next-up" | "locked" => {
-        if (isMasterId) {
+        if (hasFullAccess) {
             if (index < currentIndex) return "completed";
             if (index === currentIndex) return "in-progress";
+            // For masters/paid, show next few as clickable/ready, but maybe not ALL completed? 
+            // The user said "master ID... must see that which content is designated as a premium... old student and master ID should have the access".
+            // If they have access, they shouldn't see locks.
+            // Let's return "next-up" for everything else, effectively unlocking it.
             return "next-up";
         }
         if (index < currentIndex) return "completed";
@@ -194,7 +199,9 @@ export default function UpanishadProgressSequence({
                                         const sequenceNumber = globalIndex + 1; // 1-indexed
                                         const status = getUpanishadStatus(globalIndex);
                                         const vedaColor = VEDA_COLORS[upanishad.veda];
-                                        const isLocked = status === "locked" && !isMasterId;
+                                        const isLocked = status === "locked" && !hasFullAccess;
+                                        // Premium Crown Logic: All are premium for now
+                                        const isPremium = true;
 
                                         return (
                                             <motion.div
@@ -216,6 +223,13 @@ export default function UpanishadProgressSequence({
                                                         status === "locked" && "bg-slate-100 border-slate-100 opacity-40 blur-[1px] grayscale"
                                                     )}
                                                 >
+                                                    {/* Premium Crown Indicator - Footer/Lower Section */}
+                                                    {isPremium && (
+                                                        <div className="absolute -bottom-2 z-20 bg-white dark:bg-gray-800 rounded-full p-1 shadow-sm border border-amber-200">
+                                                            <Crown className="w-3 h-3 text-amber-500 fill-amber-500" />
+                                                        </div>
+                                                    )}
+
                                                     {/* Pulsating ring for in-progress */}
                                                     {status === "in-progress" && (
                                                         <motion.div

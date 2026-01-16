@@ -182,7 +182,7 @@ export default function CycleFlashcards({
                                         Question
                                     </span>
                                     <p className="flex-1 text-lg font-medium text-gray-800 dark:text-gray-200 flex items-center justify-center text-center">
-                                        {currentCard.question}
+                                        {(currentCard as any).front || (currentCard as any).question}
                                     </p>
                                     <p className="text-xs text-amber-500 text-center mt-4">
                                         Tap to reveal answer
@@ -197,7 +197,7 @@ export default function CycleFlashcards({
                                         Answer
                                     </span>
                                     <p className="flex-1 text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                                        {currentCard.answer}
+                                        {(currentCard as any).back || (currentCard as any).answer}
                                     </p>
                                     <p className="text-xs text-amber-500 text-center mt-4">
                                         Tap to see question

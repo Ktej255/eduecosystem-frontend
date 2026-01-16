@@ -74,44 +74,85 @@ const CSAT_MONTHS = [
     }
 ];
 
-// Sample practice questions
-const SAMPLE_QUESTIONS = [
-    {
-        id: 1,
-        question: "If a train covers 360 km in 4 hours, what is its speed in km/hr?",
-        options: ["80 km/hr", "90 km/hr", "85 km/hr", "95 km/hr"],
-        correctAnswer: 1,
-        explanation: "Speed = Distance / Time = 360 / 4 = 90 km/hr"
-    },
-    {
-        id: 2,
-        question: "A shopkeeper sells an article at 20% profit. If the cost price is ₹500, what is the selling price?",
-        options: ["₹550", "₹600", "₹650", "₹700"],
-        correctAnswer: 1,
-        explanation: "SP = CP + 20% of CP = 500 + (20/100 × 500) = 500 + 100 = ₹600"
-    },
-    {
-        id: 3,
-        question: "The ratio of two numbers is 3:5. If their sum is 48, find the larger number.",
-        options: ["18", "30", "24", "36"],
-        correctAnswer: 1,
-        explanation: "Let numbers be 3x and 5x. 3x + 5x = 48, so 8x = 48, x = 6. Larger number = 5x = 30"
-    },
-    {
-        id: 4,
-        question: "If 15% of a number is 45, what is the number?",
-        options: ["200", "250", "300", "350"],
-        correctAnswer: 2,
-        explanation: "Let number be x. 15% of x = 45. (15/100) × x = 45. x = 45 × 100/15 = 300"
-    },
-    {
-        id: 5,
-        question: "A can complete a work in 12 days. B can complete the same work in 15 days. In how many days can they complete it together?",
-        options: ["6 days", "6⅔ days", "7 days", "8 days"],
-        correctAnswer: 1,
-        explanation: "A's 1 day work = 1/12, B's 1 day work = 1/15. Together = 1/12 + 1/15 = 9/60 = 3/20. Days = 20/3 = 6⅔ days"
-    }
-];
+// Question Database
+const QUESTIONS_DB: Record<string, any[]> = {
+    "Quantitative Aptitude": [
+        {
+            id: 1,
+            question: "If a train covers 360 km in 4 hours, what is its speed in km/hr?",
+            options: ["80 km/hr", "90 km/hr", "85 km/hr", "95 km/hr"],
+            correctAnswer: 1,
+            explanation: "Speed = Distance / Time = 360 / 4 = 90 km/hr"
+        },
+        {
+            id: 2,
+            question: "A shopkeeper sells an article at 20% profit. If the cost price is ₹500, what is the selling price?",
+            options: ["₹550", "₹600", "₹650", "₹700"],
+            correctAnswer: 1,
+            explanation: "SP = CP + 20% of CP = 500 + (20/100 × 500) = 500 + 100 = ₹600"
+        },
+        {
+            id: 3,
+            question: "The ratio of two numbers is 3:5. If their sum is 48, find the larger number.",
+            options: ["18", "30", "24", "36"],
+            correctAnswer: 1,
+            explanation: "Let numbers be 3x and 5x. 3x + 5x = 48, so 8x = 48, x = 6. Larger number = 5x = 30"
+        },
+        {
+            id: 4,
+            question: "If 15% of a number is 45, what is the number?",
+            options: ["200", "250", "300", "350"],
+            correctAnswer: 2,
+            explanation: "Let number be x. 15% of x = 45. (15/100) × x = 45. x = 45 × 100/15 = 300"
+        },
+        {
+            id: 5,
+            question: "A can complete a work in 12 days. B can complete the same work in 15 days. In how many days can they complete it together?",
+            options: ["6 days", "6⅔ days", "7 days", "8 days"],
+            correctAnswer: 1,
+            explanation: "A's 1 day work = 1/12, B's 1 day work = 1/15. Together = 1/12 + 1/15 = 9/60 = 3/20. Days = 20/3 = 6⅔ days"
+        }
+    ],
+    "Logical Reasoning": [
+        {
+            id: 11,
+            question: "A person starts from point A, walks 3 km North, then turns right and walks 4 km. How far is he from point A?",
+            options: ["5 km", "7 km", "6 km", "10 km"],
+            correctAnswer: 0,
+            explanation: "Pythagoras theorem: 3² + 4² = 9 + 16 = 25. √25 = 5 km."
+        },
+        {
+            id: 12,
+            question: "Pointing to a man, a woman said, 'His mother is the only daughter of my mother.' How is the woman related to the man?",
+            options: ["Sister", "Mother", "Aunt", "Grandmother"],
+            correctAnswer: 1,
+            explanation: "Only daughter of my mother = Myself. So, 'His mother is myself'. Thus, the woman is the man's mother."
+        },
+        {
+            id: 13,
+            question: "If CAT is coded as 3120, how is DOG coded?",
+            options: ["4157", "4158", "3120", "4127"],
+            correctAnswer: 0,
+            explanation: "C=3, A=1, T=20. D=4, O=15, G=7. Code: 4157."
+        },
+        {
+            id: 14,
+            question: "Which number comes next in the series: 2, 6, 12, 20, 30, ...?",
+            options: ["40", "42", "38", "44"],
+            correctAnswer: 1,
+            explanation: "Differences are 4, 6, 8, 10... Next difference is 12. 30 + 12 = 42."
+        },
+        {
+            id: 15,
+            question: "All apples are fruits. All fruits are healthy. Conclusion: All apples are healthy.",
+            options: ["True", "False", "Cannot be determined", "None of these"],
+            correctAnswer: 0,
+            explanation: "Syllogism: A -> B, B -> C, therefore A -> C. True."
+        }
+    ]
+};
+
+const SAMPLE_QUESTIONS = QUESTIONS_DB["Quantitative Aptitude"]; // Default fallback
 
 type ViewMode = 'months' | 'sessions' | 'learning';
 
@@ -128,6 +169,11 @@ export default function CSATPage() {
     const [showResults, setShowResults] = useState(false);
     const [practiceStarted, setPracticeStarted] = useState(false);
     const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
+
+    // Determine questions based on selected month/topic
+    const SAMPLE_QUESTIONS = selectedMonth !== null
+        ? (QUESTIONS_DB[CSAT_MONTHS[selectedMonth].topic] || QUESTIONS_DB["Quantitative Aptitude"])
+        : QUESTIONS_DB["Quantitative Aptitude"]; // Shadowing global constant for dynamic usage
 
     const handleMonthSelect = (monthIndex: number) => {
         setSelectedMonth(monthIndex);
@@ -403,8 +449,8 @@ export default function CSATPage() {
                                         <h4 className="font-semibold text-gray-700 dark:text-gray-300">Answer Review:</h4>
                                         {SAMPLE_QUESTIONS.map((q, idx) => (
                                             <div key={q.id} className={`p-4 rounded-lg ${selectedAnswers[q.id] === q.correctAnswer
-                                                    ? 'bg-green-50 dark:bg-green-900/20'
-                                                    : 'bg-red-50 dark:bg-red-900/20'
+                                                ? 'bg-green-50 dark:bg-green-900/20'
+                                                : 'bg-red-50 dark:bg-red-900/20'
                                                 }`}>
                                                 <div className="flex items-start gap-2">
                                                     {selectedAnswers[q.id] === q.correctAnswer
@@ -472,14 +518,14 @@ export default function CSATPage() {
                                                 key={idx}
                                                 onClick={() => handleAnswerSelect(SAMPLE_QUESTIONS[currentQuestion].id, idx)}
                                                 className={`w-full text-left p-4 rounded-lg border-2 transition ${selectedAnswers[SAMPLE_QUESTIONS[currentQuestion].id] === idx
-                                                        ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20'
-                                                        : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                                    ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20'
+                                                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                                                     }`}
                                             >
                                                 <div className="flex items-center gap-3">
                                                     <span className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${selectedAnswers[SAMPLE_QUESTIONS[currentQuestion].id] === idx
-                                                            ? 'bg-amber-500 text-white'
-                                                            : 'bg-gray-200 dark:bg-gray-700'
+                                                        ? 'bg-amber-500 text-white'
+                                                        : 'bg-gray-200 dark:bg-gray-700'
                                                         }`}>
                                                         {String.fromCharCode(65 + idx)}
                                                     </span>
@@ -526,10 +572,10 @@ export default function CSATPage() {
                                                     key={q.id}
                                                     onClick={() => setCurrentQuestion(idx)}
                                                     className={`w-10 h-10 rounded flex items-center justify-center text-sm font-medium ${selectedAnswers[q.id] !== undefined
-                                                            ? 'bg-amber-500 text-white'
-                                                            : idx === currentQuestion
-                                                                ? 'bg-gray-200 border-2 border-amber-500'
-                                                                : 'bg-gray-100 dark:bg-gray-800'
+                                                        ? 'bg-amber-500 text-white'
+                                                        : idx === currentQuestion
+                                                            ? 'bg-gray-200 border-2 border-amber-500'
+                                                            : 'bg-gray-100 dark:bg-gray-800'
                                                         }`}
                                                 >
                                                     {idx + 1}

@@ -1,102 +1,142 @@
-import { Flashcard } from '../RevisionRegistry';
+import { Flashcard } from "../../../flashcard/flashcard-utils";
 
-export const CHAPTER_16_FLASHCARDS: Flashcard[] = [
+export const CHAPTER16_FLASHCARDS: Flashcard[] = [
     {
-        id: 1,
-        chapterId: 16,
-        question: "Who called the Indian Constitution 'Quasi-federal'?",
-        answer: "K.C. Wheare.",
-        category: "Views",
-        difficulty: "easy"
+        id: "ch16-01",
+        front: "What are the Constitutional provisions for Inter-State Comity?",
+        back: "1. Adjudication of inter-state water disputes (Art 262).\n2. Coordination through inter-state councils (Art 263).\n3. Mutual recognition of public acts, records and judicial proceedings (Art 261).\n4. Freedom of inter-state trade, commerce and intercourse (Art 301-307).",
+        category: "concept",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.1"
     },
     {
-        id: 2,
-        chapterId: 16,
-        question: "Which Schedule contains the three lists - Union, State, and Concurrent?",
-        answer: "Seventh Schedule.",
-        category: "Division of Powers",
-        difficulty: "easy"
+        id: "ch16-02",
+        front: "What does Article 262 provide regarding Inter-State Water Disputes?",
+        back: "1. Parliament may by law provide for adjudication of disputes regarding use/control of inter-state river waters.\n2. Parliament may provide that NEITHER the Supreme Court nor any other court shall exercise jurisdiction in respect of such disputes.",
+        category: "article",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.1"
     },
     {
-        id: 3,
-        chapterId: 16,
-        question: "What is an 'Indestructible Union of destructible states'?",
-        answer: "It means the Union of India is permanent, but the boundaries of states can be changed by Parliament.",
-        category: "Nature",
-        difficulty: "medium"
+        id: "ch16-03",
+        front: "Which two laws were enacted by Parliament under Article 262?",
+        back: "1. River Boards Act (1956): For regulation/development (advisory boards).\n2. Inter-State River Water Disputes Act (1956): Enables Centre to set up ad hoc tribunals. Tribunal decision is final and binding.",
+        category: "fact",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.1"
     },
     {
-        id: 4,
-        chapterId: 16,
-        question: "Is single citizenship a federal or unitary feature?",
-        answer: "Unitary feature (in most federations like USA, there is dual citizenship).",
-        category: "Features",
-        difficulty: "medium"
+        id: "ch16-04",
+        front: "Who establishes an Inter-State Council and under which Article?",
+        back: "The President can establish an Inter-State Council under Article 263 to effect coordination between states and Centre.",
+        category: "article",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.2"
     },
     {
-        id: 5,
-        chapterId: 16,
-        question: "What is 'Cooperative Federalism'?",
-        answer: "A concept where Centre and States work together to solve common problems (Granville Austin).",
-        category: "Concepts",
-        difficulty: "medium"
+        id: "ch16-05",
+        front: "What are the duties of the Inter-State Council as per Article 263?",
+        back: "(a) Enquiring into and advising upon disputes between states.\n(b) Investigating and discussing subjects of common interest.\n(c) Making recommendations for better coordination of policy.",
+        category: "concept",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.2"
     },
     {
-        id: 6,
-        chapterId: 16,
-        question: "Why is the Rajya Sabha called a federal feature?",
-        answer: "Because it represents the interests of the States in the Parliament.",
-        category: "Bicameralism",
-        difficulty: "easy"
+        id: "ch16-06",
+        front: "Is the Inter-State Council distinct from the Supreme Court's jurisdiction under Article 131?",
+        back: "Yes. The Council's function is advisory and can deal with legal or non-legal controversies. The Supreme Court under Art 131 makes binding decisions on legal controversies.",
+        category: "comparison",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.2"
     },
     {
-        id: 7,
-        chapterId: 16,
-        question: "Who appoints the Governor of a State?",
-        answer: "The President of India.",
-        category: "Governor",
-        difficulty: "easy"
+        id: "ch16-07",
+        front: "When was the permanent Inter-State Council established and on whose recommendation?",
+        back: "Established in 1990 by the V.P. Singh Government, based on the recommendations of the Sarkaria Commission (1983-88).",
+        category: "fact",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.2"
     },
     {
-        id: 8,
-        chapterId: 16,
-        question: "What happens to the federal structure during an Emergency?",
-        answer: "It becomes unitary (without a formal amendment).",
-        category: "Emergency",
-        difficulty: "medium"
+        id: "ch16-08",
+        front: "Who are the members of the Inter-State Council?",
+        back: "Chairman: Prime Minister\nMembers: CMs of all States, CMs of UTs with assemblies, Admins of UTs without assemblies, Governors of Pres. Rule states, 6 Central Cabinet Ministers (incl. Home Minister).",
+        category: "fact",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.2"
     },
     {
-        id: 9,
-        chapterId: 16,
-        question: "Which Article allows Parliament to create All-India Services?",
-        answer: "Article 312.",
-        category: "Services",
-        difficulty: "hard"
+        id: "ch16-09",
+        front: "Who constitutes the Standing Committee of the Inter-State Council?",
+        back: "Chairman: Union Home Minister\nMembers: 5 Union Cabinet Ministers, 9 Chief Ministers.\nSet up in 1996.",
+        category: "fact",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.2"
     },
     {
-        id: 10,
-        chapterId: 16,
-        question: "Is the division of powers between the Judiciary part of Indian federalism?",
-        answer: "No, India has an 'Integrated Judiciary'. Division of power is only between Executive and Legislature.",
-        category: "Judiciary",
-        difficulty: "hard"
+        id: "ch16-10",
+        front: "What is the 'Full Faith and Credit' clause (Article 261)?",
+        back: "Full faith and credit is given throughout India to public acts, records, and judicial proceedings of the Centre and every state. Parliament determines the mode of proof.",
+        category: "article",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.3"
     },
     {
-        id: 11,
-        chapterId: 16,
-        question: "Which case declared 'Federalism' as part of the Basic Structure?",
-        answer: "S.R. Bommai vs. Union of India (1994).",
-        category: "Legal",
-        difficulty: "hard"
+        id: "ch16-11",
+        front: "Are civil and criminal judgments executable anywhere in India under Article 261?",
+        back: "Only final judgments of CIVIL courts are capable of execution anywhere in India. It does NOT apply to criminal judgments.",
+        category: "fact",
+        source: "Chapter 16: Inter-State Relations",
+        highlight: true,
+        subtopicId: "16.3"
     },
     {
-        id: 12,
-        chapterId: 16,
-        question: "Which country has a federation with a strong centre similar to India?",
-        answer: "Canada.",
-        category: "Comparison",
-        difficulty: "medium"
+        id: "ch16-12",
+        front: "Briefly describe Article 301 regarding Trade and Commerce.",
+        back: "Article 301 declares that trade, commerce, and intercourse throughout the territory of India shall be free. It applies to both inter-state and intra-state trade.",
+        category: "article",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.4"
+    },
+    {
+        id: "ch16-13",
+        front: "Can a State Legislature impose restrictions on inter-state trade?",
+        back: "Yes, reasonable restrictions in public interest. However, such a Bill requires the previous sanction of the President. It cannot give preference to one state over another.",
+        category: "concept",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.4"
+    },
+    {
+        id: "ch16-14",
+        front: "Are Zonal Councils Constitutional bodies?",
+        back: "No, they are Statutory bodies established by the States Reorganisation Act of 1956.",
+        category: "fact",
+        source: "Chapter 16: Inter-State Relations",
+        highlight: true,
+        subtopicId: "16.5"
+    },
+    {
+        id: "ch16-15",
+        front: "Who is the Chairman of Zonal Councils?",
+        back: "The Union Home Minister is the common Chairman of all Zonal Councils.",
+        category: "fact",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.5"
+    },
+    {
+        id: "ch16-16",
+        front: "Who acts as the Vice-Chairman of a Zonal Council?",
+        back: "The Chief Ministers of the states included in each zone act as Vice-Chairman by rotation, for a period of one year at a time.",
+        category: "fact",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.5"
+    },
+    {
+        id: "ch16-17",
+        front: "Which Act created the North-Eastern Council?",
+        back: "The North-Eastern Council Act of 1971. Sikkim was added as the eighth member in 2002.",
+        category: "fact",
+        source: "Chapter 16: Inter-State Relations",
+        subtopicId: "16.5"
     }
 ];
-
-export default CHAPTER_16_FLASHCARDS;

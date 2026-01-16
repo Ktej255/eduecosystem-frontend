@@ -92,7 +92,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
     const MASTER_EMAILS = ["ktej255@gmail.com"];
     const CUSTOM_PLAN_EMAILS: string[] = []; // Custom RAS planner access (removed Chitra)
     const BATCH_1_EMAILS = ["student1@eduecosystem.com"]; // Regular Batch 1 students
-    const BATCH_2_EMAILS = ["student2@eduecosystem.com"]; // Placeholder
+    const BATCH_2_EMAILS = ["student2@eduecosystem.com", "test001@gmail.com", "student1@eduecosystem.com", "hitvar040@gmail.com", "itspanwar111@gmail.com"]; // Placeholder
     const RAS_LEARNER_EMAILS = ["chitrakumawat33@gmail.com"]; // RAS revision in Learn section
 
     const userEmail = user?.email || "";

@@ -85,6 +85,14 @@ function createQuestionFromFact(fact: string): string {
 export function getFlashcardsForDay(cycleId: number, day: number): { topicIds: number[], totalTopics: number } {
     // Cycle 1 (Polity): 50 topics over 10 days = 5 topics per day
     if (cycleId === 1) {
+        // Special override for Day 2 to ensure Centre-State Relations (Topic 14) is shown
+        if (day === 2) {
+            return {
+                topicIds: [14],
+                totalTopics: 50
+            };
+        }
+
         const topicsPerDay = 5;
         const startTopic = (day - 1) * topicsPerDay + 1;
         const endTopic = day * topicsPerDay;
