@@ -296,8 +296,11 @@ def generate_ai_plan(
 ):
     """
     Generate an AI-powered 7-day development plan based on recent history.
-    For now, returns mock data. Will integrate with Gemini API.
+    Uses Gemini API to analyze patterns and generate recommendations.
     """
+    import json
+    from app.services.gemini_service import gemini_service
+    
     days = request.days_to_analyze
     
     # Get recent development logs
@@ -306,46 +309,109 @@ def generate_ai_plan(
         DevelopmentLog.date >= start_date
     ).order_by(DevelopmentLog.date.desc()).all()
     
-    # Mock AI-generated plan (to be replaced with actual Gemini call)
-    plan_items = [
-        {
-            "day": i + 1,
-            "date": str(date.today() + timedelta(days=i)),
-            "portal": ["Admin Portal", "Student Portal", "Teacher Portal", "CRM", "Backend", "All Portals"][i % 6],
-            "tasks": [
-                f"Task {j+1} based on recent activity analysis"
-                for j in range(4)
-            ],
-            "priority": ["high", "medium", "low"][i % 3],
-            "estimated_hours": 6 + (i % 3)
-        }
-        for i in range(7)
-    ]
+    # Build context from recent development activity
+    history_context = ""
+    if recent_logs:
+        history_context = "Recent Development Activity:\n"
+        for log in recent_logs[:15]:  # Limit to 15 most recent
+            features_str = ", ".join(log.features[:3]) if log.features else "None"
+            challenges_str = ", ".join(log.challenges[:2]) if log.challenges else "None"
+            history_context += f"- {log.date}: [{log.batch}] {log.title}\n  Features: {features_str}\n  Challenges: {challenges_str}\n"
     
-    insights = [
-        {
-            "type": "priority",
-            "message": "Based on recent activity, Admin Portal enhancements should continue",
-            "portal": "Admin Portal"
-        },
-        {
-            "type": "enhancement",
-            "message": "Consider adding more real-time features to Student Activity tracking",
-            "portal": "Admin Portal"
-        },
-        {
-            "type": "recommendation",
-            "message": "Backend tests pass rate is good, maintain coverage",
-            "portal": "Backend"
-        }
+    # Build AI prompt
+    prompt = f"""You are a senior software development project planner AI. Analyze the development history below and generate a 7-day plan for continued enhancement of this educational platform.
+
+Platform Portals: Admin Portal, Student Portal (Batch 1, Batch 1.1, Batch 2), Teacher Portal, CRM Portal, Graphotherapy, Backend.
+
+{history_context if history_context else "No recent development history available."}
+
+Based on this analysis, generate:
+1. A 7-day development plan with specific tasks for each day
+2. Key insights and recommendations
+
+Return JSON ONLY in this exact format (no markdown, no explanation):
+{{
+    "plan_items": [
+        {{
+            "day": 1,
+            "portal": "Portal Name",
+            "tasks": ["Task 1", "Task 2", "Task 3", "Task 4"],
+            "priority": "high|medium|low",
+            "estimated_hours": 6
+        }}
+    ],
+    "insights": [
+        {{
+            "type": "priority|enhancement|recommendation",
+            "message": "Insight message",
+            "portal": "Portal Name"
+        }}
     ]
+}}
+
+Consider:
+- What features have been recently worked on and might need completion
+- What areas haven't received attention lately
+- What challenges have been recurring and might need architectural changes
+- Logical progression of features
+- Balance workload across different portals
+"""
+
+    try:
+        # Call Gemini API
+        response = gemini_service.generate_text(
+            prompt=prompt,
+            user=current_user,
+            is_complex=True,
+            temperature=0.7,
+            max_tokens=3000
+        )
+        
+        # Parse JSON response
+        clean_response = response.replace("```json", "").replace("```", "").strip()
+        ai_result = json.loads(clean_response)
+        
+        plan_items = ai_result.get("plan_items", [])
+        insights = ai_result.get("insights", [])
+        
+        # Add dates to plan items
+        for i, item in enumerate(plan_items):
+            item["date"] = str(date.today() + timedelta(days=i))
+        
+    except json.JSONDecodeError as e:
+        # Fallback to intelligent defaults if JSON parsing fails
+        plan_items = [
+            {
+                "day": i + 1,
+                "date": str(date.today() + timedelta(days=i)),
+                "portal": ["Admin Portal", "Student Portal", "Batch 1", "Teacher Portal", "Backend", "Testing", "Deployment"][i % 7],
+                "tasks": [
+                    "Review and test recent changes",
+                    "Address any bug reports",
+                    "Implement pending features",
+                    "Update documentation"
+                ],
+                "priority": "medium",
+                "estimated_hours": 6
+            }
+            for i in range(7)
+        ]
+        insights = [
+            {"type": "recommendation", "message": f"AI analysis error: {str(e)[:100]}. Using default plan.", "portal": "All"}
+        ]
+    except Exception as e:
+        # Handle API errors gracefully
+        plan_items = []
+        insights = [
+            {"type": "priority", "message": f"AI service error: {str(e)[:200]}. Please try again later.", "portal": "All"}
+        ]
     
     # Save the planning session
     session = AIPlanningSession(
         days_analyzed=days,
         plan_items=plan_items,
         insights=insights,
-        request_params={"days": days},
+        request_params={"days": days, "logs_analyzed": len(recent_logs)},
         generated_by=current_user.id
     )
     db.add(session)
@@ -355,6 +421,7 @@ def generate_ai_plan(
     return {
         "session_id": session.id,
         "days_analyzed": days,
+        "logs_analyzed": len(recent_logs),
         "plan_items": plan_items,
         "insights": insights,
         "generated_at": str(session.created_at)
