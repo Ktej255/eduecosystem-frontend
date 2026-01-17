@@ -12,9 +12,12 @@ import {
     Moon,
     Flame,
     ArrowLeft,
-    Target
+    Target,
+    Calendar,
+    Lock
 } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
     Dialog,
     DialogContent,
@@ -31,6 +34,8 @@ import CycleMCQs from '../pomodoro/CycleMCQs';
 import { getFlashcardsForSubtopics } from '@/components/batch1/polity/data/polity-flashcards-data';
 import { getMCQsForSubtopics } from '@/components/batch1/polity/data/polity-mcqs-data';
 import { markStepComplete } from '@/lib/journey/completion-tracker';
+// Import registry directly (ensure it exists)
+import { FLASHCARD_CONTENT_REGISTRY, MCQ_CONTENT_REGISTRY } from '@/components/batch1/content-registry';
 
 interface CycleData {
     cycleNumber: number;
@@ -102,7 +107,18 @@ function generateEveningContent(morningProgress: MorningProgress | null) {
     };
 }
 
+const DAYS = [
+    { id: 1, label: 'Mon', full: 'Monday' },
+    { id: 2, label: 'Tue', full: 'Tuesday' },
+    { id: 3, label: 'Wed', full: 'Wednesday' },
+    { id: 4, label: 'Thu', full: 'Thursday' },
+    { id: 5, label: 'Fri', full: 'Friday' },
+    { id: 6, label: 'Sat', full: 'Saturday' },
+    { id: 7, label: 'Sun', full: 'Sunday' },
+];
+
 export default function Batch1_1EveningSession({ weekId, dayId }: EveningSessionViewProps) {
+    const router = useRouter();
     const [morningProgress, setMorningProgress] = useState<MorningProgress | null>(null);
     const [activeSection, setActiveSection] = useState<'menu' | 'flashcards' | 'mcqs' | 'csat'>('menu');
     const [showMorningReport, setShowMorningReport] = useState(false);
@@ -147,14 +163,14 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
         } else {
             // FALLBACK: If morning session skipped, use scheduled chapters for this day
             const schedule = generateWeeklySchedule();
-            const weekSchedule = schedule.find(w => w.week === weekId);
+            const weekSchedule = schedule.find(w => w.week === Number(weekId));
 
             if (weekSchedule) {
                 const dayKeyMap: Record<number, keyof typeof weekSchedule.days> = {
                     1: 'monday', 2: 'tuesday', 3: 'wednesday', 4: 'thursday', 5: 'friday', 6: 'saturday', 7: 'sunday'
                 };
 
-                const dayKey = dayKeyMap[dayId] || 'monday';
+                const dayKey = dayKeyMap[Number(dayId)] || 'monday';
                 const chapters = weekSchedule.days[dayKey];
 
                 if (Array.isArray(chapters)) {
@@ -170,18 +186,17 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
             }
         }
 
-        // ===== USE CONTENT REGISTRY FOR FULL DAY 1 CONTENT =====
+        // ===== USE CONTENT REGISTRY FOR FULL DAY CONTENT =====
         // Import flashcards and MCQs from the dedicated Day files via registry
         // This ensures ALL content from week1-flashcards.ts and week1-mcqs.ts is used
 
-        // Dynamically import to get full registry data
-        const { FLASHCARD_CONTENT_REGISTRY, MCQ_CONTENT_REGISTRY } = require('@/components/batch1/content-registry');
-
         // Get all flashcards for this day from the registry
-        const dayFlashcards = FLASHCARD_CONTENT_REGISTRY[dayId] || [];
+        const dayFlashcards = FLASHCARD_CONTENT_REGISTRY[Number(dayId)] || [];
 
         // Get all MCQs for this day from the registry
-        const dayMCQs = MCQ_CONTENT_REGISTRY[dayId] || [];
+        const dayMCQs = MCQ_CONTENT_REGISTRY[Number(dayId)] || [];
+
+        console.log(`Day ${dayId} Content Loaded: ${dayFlashcards.length} Flashcards, ${dayMCQs.length} MCQs`);
 
         return {
             flashcards: dayFlashcards, // ALL flashcards from WEEK1_FLASHCARDS (20 cards)
@@ -261,13 +276,18 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
     // Filter content based on active chapter
     const activeDay3Flashcards = useMemo(() => {
         if (!isDay3 || !activeChapter || !sessionContent) return [];
-        return sessionContent.flashcards.filter(fc => fc.subtopicId && fc.subtopicId.startsWith(`${activeChapter}.`));
+        return sessionContent.flashcards.filter((fc: { subtopicId?: string }) => fc.subtopicId && fc.subtopicId.startsWith(`${activeChapter}.`));
     }, [isDay3, activeChapter, sessionContent]);
 
     const activeDay3MCQs = useMemo(() => {
         if (!isDay3 || !activeChapter || !sessionContent) return [];
-        return sessionContent.mcqs.filter(mcq => mcq.subtopicId && mcq.subtopicId.startsWith(`${activeChapter}.`));
+        return sessionContent.mcqs.filter((mcq: { subtopicId?: string }) => mcq.subtopicId && mcq.subtopicId.startsWith(`${activeChapter}.`));
     }, [isDay3, activeChapter, sessionContent]);
+
+    // Handle Day Navigation
+    const handleDayChange = (newDayId: number) => {
+        router.push(`/student/batch1-1/${weekId}/${newDayId}/evening`);
+    };
 
 
     if (activeSection === 'flashcards' && sessionContent) {
@@ -379,6 +399,34 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
         );
     }
 
+    // === NEW CSAT SECTION ===
+    if (activeSection === 'csat') {
+        return (
+            <div className="max-w-4xl mx-auto p-6">
+                <Button variant="ghost" onClick={() => setActiveSection('menu')} className="mb-4">
+                    <ArrowLeft className="mr-2 h-4 w-4" /> Back to Menu
+                </Button>
+
+                <Card className="min-h-[500px]">
+                    <CardHeader>
+                        <CardTitle>CSAT Practice - Day {dayId}</CardTitle>
+                        <CardDescription>Logical Reasoning & Quantitative Aptitude</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="flex flex-col items-center justify-center p-12 text-center text-gray-500">
+                            <Calculator className="h-16 w-16 mb-4 text-purple-200" />
+                            <p className="text-lg">CSAT Module for Day {dayId} is ready.</p>
+                            <p className="text-sm mt-2">Practice set content will appear here.</p>
+                            {/* In a real implementation we would render <CSATPracticeView /> here if available */}
+                            {/* For now this confirms the page is REACHABLE and not indefinitely loading */}
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        );
+    }
+
+
     if (activeSection !== 'menu') {
         return (
             <div className="max-w-4xl mx-auto p-6 text-center">
@@ -443,11 +491,31 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
                     <div className="flex justify-end">
                         <Button onClick={() => setShowMorningReport(false)} className="w-full sm:w-auto">
-                            Let's Begin Evening Session
+                            Let&apos;s Begin Evening Session
                         </Button>
                     </div>
                 </DialogContent>
             </Dialog>
+
+            {/* === DAY NAVIGATION BAR === */}
+            <div className="bg-white dark:bg-gray-900 p-2 rounded-xl border shadow-sm items-center justify-between overflow-x-auto flex gap-2">
+                {DAYS.map((day) => {
+                    const isActive = Number(dayId) === day.id;
+                    return (
+                        <Button
+                            key={day.id}
+                            variant={isActive ? "default" : "ghost"}
+                            onClick={() => handleDayChange(day.id)}
+                            className={`flex-1 min-w-[60px] ${isActive ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : 'text-gray-500'}`}
+                        >
+                            <div className="flex flex-col items-center">
+                                <span className="text-xs font-semibold">{day.label}</span>
+                                <span className="text-[10px] opacity-70">Day {day.id}</span>
+                            </div>
+                        </Button>
+                    );
+                })}
+            </div>
 
             {/* Header */}
             <div className="text-center space-y-2">
