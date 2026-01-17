@@ -11,6 +11,7 @@ import PomodoroTimer from "./PomodoroTimer";
 import SubtopicSelector from "./SubtopicSelector";
 import CycleFlashcards from "./CycleFlashcards";
 import CycleMCQs from "./CycleMCQs";
+import ReadingMaterial from "./ReadingMaterial";
 import BreakTimer from "./BreakTimer";
 import { getChaptersForWeek } from "../data/polity-modules";
 import { CHAPTER_SUBTOPICS, SubTopic } from "@/components/batch1/polity/data/polity-subtopics";
@@ -20,14 +21,17 @@ import { ambientSoundManager, NoiseType } from "@/lib/ambient-sound-manager";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { Volume2, Volume1, VolumeX, Headphones } from "lucide-react";
+import { awardXP, checkAchievements, updateStreak } from "@/lib/gamification";
 
 // Session states for the enhanced cycle
 type SessionState =
     | 'ready'
     | 'pomodoro'
+    | 'timer_options'
     | 'subtopic_select'
     | 'flashcards'
     | 'mcqs'
+    | 'reading'
     | 'break'
     | 'long_break'
     | 'complete';
@@ -278,15 +282,44 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
     };
 
     const handleTimerComplete = () => {
-        // playNotificationSound(); // Assuming global or imported function if available, else comment out or leave if it was there
+        // playNotificationSound(); 
 
+        // Show options instead of auto-proceeding
         if (sessionState === 'pomodoro') {
-            // Always go to subtopic selection after study
-            setSessionState('subtopic_select');
+            // Award XP for completing Pomodoro
+            awardXP('pomodoro_complete');
+            updateStreak();
+            checkAchievements();
+            window.dispatchEvent(new Event('xp-updated'));
+
+            setSessionState('timer_options');
         } else if (sessionState === 'break' || sessionState === 'long_break') {
-            // Break over -> Ready for next session
             setSessionState('ready');
             setTimeLeft(POMODORO_DURATION);
+        }
+    };
+
+    const handlePostTimerAction = (action: 'extend_5' | 'extend_10' | 'extend_15' | 'proceed' | 'skip_review') => {
+        switch (action) {
+            case 'extend_5':
+                setTimeLeft(5 * 60);
+                setSessionState('pomodoro');
+                break;
+            case 'extend_10':
+                setTimeLeft(10 * 60);
+                setSessionState('pomodoro');
+                break;
+            case 'extend_15':
+                setTimeLeft(15 * 60);
+                setSessionState('pomodoro');
+                break;
+            case 'proceed':
+                setSessionState('subtopic_select');
+                break;
+            case 'skip_review':
+                // Skip FC/MCQ/Reading -> Go to Break
+                handleReadingComplete(); // Reuse completion logic
+                break;
         }
     };
 
@@ -296,10 +329,26 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
     };
 
     const handleFlashcardsComplete = (viewedCount: number) => {
+        // Award XP for flashcard reviews
+        for (let i = 0; i < viewedCount; i++) {
+            awardXP('flashcard_review');
+        }
+        window.dispatchEvent(new Event('xp-updated'));
+
         setSessionState('mcqs');
     };
 
     const handleMCQsComplete = (results: { correct: number; total: number }) => {
+        // Award XP for MCQ attempts and correct answers
+        for (let i = 0; i < results.total; i++) {
+            awardXP('mcq_attempt');
+        }
+        for (let i = 0; i < results.correct; i++) {
+            awardXP('mcq_correct');
+        }
+        checkAchievements();
+        window.dispatchEvent(new Event('xp-updated'));
+
         // 1. Record Data for this Session
         const newSessionData: CycleData = {
             cycleNumber: currentSessionGlobal,
@@ -315,7 +364,11 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
         // Sync to unified progress store
         syncProgressToStore(weekId, dayId, currentSubtopics, results, currentSessionGlobal);
 
-        // 2. Determine Next Step
+        // 2. Determine Next Step -> Reading Phase
+        setSessionState('reading');
+    };
+
+    const handleReadingComplete = () => {
         if (currentSessionGlobal >= TOTAL_SESSIONS) {
             setSessionState('complete');
         } else {
@@ -645,6 +698,33 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                         />
                     )}
 
+                    {sessionState === 'timer_options' && (
+                        <Card className="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 text-center border-indigo-200">
+                            <CardContent className="space-y-6">
+                                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <CheckCircle2 className="h-8 w-8 text-green-600" />
+                                </div>
+                                <h2 className="text-2xl font-bold text-gray-800">Pomodoro Complete!</h2>
+                                <p className="text-gray-600">Great focus session. What would you like to do next?</p>
+
+                                <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                                    <Button onClick={() => handlePostTimerAction('extend_5')} variant="outline" className="border-indigo-300 hover:bg-indigo-50">
+                                        +5 Min Focus
+                                    </Button>
+                                    <Button onClick={() => handlePostTimerAction('extend_10')} variant="outline" className="border-indigo-300 hover:bg-indigo-50">
+                                        +10 Min Focus
+                                    </Button>
+                                    <Button onClick={() => handlePostTimerAction('proceed')} className="bg-green-600 hover:bg-green-700 text-white col-span-2">
+                                        Start Review (FC & MCQ)
+                                    </Button>
+                                    <Button onClick={() => handlePostTimerAction('skip_review')} variant="ghost" className="text-red-500 hover:bg-red-50 col-span-2">
+                                        Skip Review & Take Break
+                                    </Button>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    )}
+
                     {sessionState === 'subtopic_select' && (
                         <SubtopicSelector
                             chapterIds={todayChapters}
@@ -662,12 +742,19 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                             cycleNumber={currentSessionGlobal}
                         />
                     )}
-
                     {sessionState === 'mcqs' && (
                         <CycleMCQs
                             selectedSubtopics={currentSubtopics}
                             onComplete={handleMCQsComplete}
                             cycleNumber={currentSessionGlobal}
+                        />
+                    )}
+
+                    {sessionState === 'reading' && (
+                        <ReadingMaterial
+                            subtopicIds={currentSubtopics.map(s => s.id)}
+                            onComplete={handleReadingComplete}
+                            dayId={dayId}
                         />
                     )}
 

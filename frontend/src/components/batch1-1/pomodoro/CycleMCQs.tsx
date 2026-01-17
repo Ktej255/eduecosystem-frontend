@@ -1,9 +1,12 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { CheckCircle2, XCircle, Target, ChevronRight, Timer } from 'lucide-react';
+import { CheckCircle2, XCircle, Target, ChevronRight, Timer, AlertCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
 import { getMCQsForSubtopics, MCQ } from '@/components/batch1/polity/data/polity-mcqs-data';
+import { useMCQShortcuts } from '@/hooks/useKeyboardShortcuts';
+import KeyboardShortcutsHelp from '@/components/common/KeyboardShortcutsHelp';
+import { recordMCQAttempt } from '@/lib/analytics';
 
 // Temporary MCQ generator - will be replaced with actual content
 function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
@@ -55,30 +58,27 @@ export default function CycleMCQs({
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
     const [showResult, setShowResult] = useState(false);
     const [results, setResults] = useState<{ questionId: string; isCorrect: boolean }[]>([]);
+    const [isGlobalTimeout, setIsGlobalTimeout] = useState(false);
+
+    // Cumulative Timer: 60 minutes for the entire session
+    // Or if less questions, max 1 minute per question as per user request (cumulative)
+    const totalTimeSeconds = mcqs.length * 60;
 
     // Timer state
-    const [timeLeft, setTimeLeft] = useState(60);
+    const [timeLeft, setTimeLeft] = useState(totalTimeSeconds);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
     const currentMCQ = mcqs[currentIndex];
     const progress = ((currentIndex + 1) / mcqs.length) * 100;
     const isLastQuestion = currentIndex === mcqs.length - 1;
 
-    // Timer logic
+    // Timer logic - GLOBAL (runs continuously until 0 or completion)
     useEffect(() => {
-        if (showResult) return; // Stop timer if result is shown
-
-        setTimeLeft(60);
-
-        if (timerRef.current) clearInterval(timerRef.current);
-
         timerRef.current = setInterval(() => {
             setTimeLeft((prev) => {
                 if (prev <= 1) {
                     if (timerRef.current) clearInterval(timerRef.current);
-                    // Time up - auto submit
-                    // We need to trigger submit, but we can't easily call the handler from here due to closure.
-                    // Instead rely on the effect watching timeLeft
+                    setIsGlobalTimeout(true);
                     return 0;
                 }
                 return prev - 1;
@@ -88,29 +88,33 @@ export default function CycleMCQs({
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [currentIndex, showResult]);
+    }, []); // Run once on mount
 
-    // Watch for timeout
+    // Handle Global Timeout
     useEffect(() => {
-        if (timeLeft === 0 && !showResult) {
-            handleAutoSubmit();
+        if (isGlobalTimeout && !showResult) {
+            // Auto submit current if selected, else just finish
+            // If they selected something, count it
+            if (selectedAnswer !== null) {
+                const isCorrect = selectedAnswer === currentMCQ.correctIndex;
+                setResults(prev => [...prev, { questionId: currentMCQ.id, isCorrect }]);
+            }
+            // Finish immediately
+            handleFinish();
         }
-    }, [timeLeft, showResult]);
+    }, [isGlobalTimeout]);
 
-    const handleAutoSubmit = () => {
-        if (showResult) return;
+    // Keyboard shortcuts
+    useMCQShortcuts(
+        (index) => handleAnswerSelect(index),
+        handleSubmitAnswer,
+        handleNext,
+        !showResult && !isGlobalTimeout
+    );
 
-        // If time runs out, mark as incorrect (or calculate score based on selected if any? usually timeout = wrong/unanswered)
-        // Let's assume if they selected something but didn't click submit, we take that answer.
-        // If nothing selected, it is wrong.
-
-        const isCorrect = selectedAnswer === currentMCQ.correctIndex;
-        setResults(prev => [...prev, { questionId: currentMCQ.id, isCorrect: selectedAnswer !== null ? isCorrect : false }]);
-        setShowResult(true);
-    };
 
     const handleAnswerSelect = (optionIndex: number) => {
-        if (showResult) return; // Already answered
+        if (showResult || isGlobalTimeout) return; // Already answered or timed out
         setSelectedAnswer(optionIndex);
     };
 
@@ -119,27 +123,41 @@ export default function CycleMCQs({
 
         const isCorrect = selectedAnswer === currentMCQ.correctIndex;
         setResults(prev => [...prev, { questionId: currentMCQ.id, isCorrect }]);
+
+        // Record analytics for weak topic identification
+        const topicLabel = selectedSubtopics.find(s => s.id === currentMCQ.subtopicId)?.label || "Unknown Topic";
+        if (currentMCQ.subtopicId) {
+            recordMCQAttempt(currentMCQ.subtopicId, topicLabel, isCorrect);
+        }
+
         setShowResult(true);
     };
 
     const handleNext = () => {
         if (isLastQuestion) {
-            const correct = results.filter(r => r.isCorrect).length + (showResult && selectedAnswer === currentMCQ.correctIndex && !results.find(r => r.questionId === currentMCQ.id) ? 1 : 0);
-            // Note: results state might not be immediately updated if we just called setResults in handleSubmitAnswer?
-            // Actually setResults is async. But here flow is: Submit -> Show Result -> User clicks Next.
-            // So results SHOULD be updated by the time User clicks Next.
-
-            // Wait, results array contains PREVIOUS questions. The current question result is added when Submit is clicked.
-            // So results.length should be equal to (currentIndex + 1) when Next is clicked?
-            // Yes.
-
-            const totalCorrect = results.filter(r => r.isCorrect).length;
-            onComplete({ correct: totalCorrect, total: mcqs.length });
+            handleFinish();
         } else {
             setCurrentIndex(prev => prev + 1);
             setSelectedAnswer(null);
             setShowResult(false);
         }
+    };
+
+    const handleFinish = () => {
+        const totalCorrect = results.filter(r => r.isCorrect).length + (isLastQuestion && showResult && selectedAnswer === currentMCQ.correctIndex && !results.some(r => r.questionId === currentMCQ.id) ? 1 : 0);
+
+        // Safety check to ensure we get all correct ones
+        const calculatedCorrect = results.filter(r => r.isCorrect).length;
+
+        if (timerRef.current) clearInterval(timerRef.current);
+        onComplete({ correct: calculatedCorrect, total: mcqs.length });
+    };
+
+    // Formatting time
+    const formatTime = (seconds: number) => {
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
+        return `${m}:${s.toString().padStart(2, '0')}`;
     };
 
     if (mcqs.length === 0) {
@@ -148,6 +166,7 @@ export default function CycleMCQs({
                 <p className="text-gray-500">No MCQs available for selected subtopics.</p>
                 <Button onClick={() => onComplete({ correct: 0, total: 0 })} className="mt-4">Continue</Button>
             </Card>
+
         );
     }
 
@@ -166,9 +185,9 @@ export default function CycleMCQs({
                             </span>
                         </div>
                         <div className="flex items-center gap-4">
-                            <div className={`flex items-center gap-1.5 font-mono font-bold px-3 py-1 rounded-full ${timeLeft < 10 ? 'bg-red-100 text-red-600' : 'bg-purple-100 text-purple-600'}`}>
+                            <div className={`flex items-center gap-1.5 font-mono font-bold px-3 py-1 rounded-full ${timeLeft < 60 ? 'bg-red-100 text-red-600' : 'bg-purple-100 text-purple-600'}`}>
                                 <Timer className="h-4 w-4" />
-                                <span>{timeLeft}s</span>
+                                <span>{formatTime(timeLeft)}</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <span className="text-sm text-green-600 dark:text-green-400 font-medium">
@@ -205,17 +224,20 @@ export default function CycleMCQs({
 
                             let bgClass = 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700';
                             let textClass = 'text-gray-700 dark:text-gray-300';
+                            let icon = null;
 
                             if (showCorrectness) {
                                 if (isCorrect) {
-                                    bgClass = 'bg-green-50 dark:bg-green-900/20 border-green-400';
-                                    textClass = 'text-green-700 dark:text-green-300';
+                                    bgClass = 'bg-green-50 dark:bg-green-900/20 border-green-500 ring-1 ring-green-500';
+                                    textClass = 'text-green-700 dark:text-green-300 font-semibold';
+                                    icon = <CheckCircle2 className="h-5 w-5 text-green-600" />;
                                 } else if (isSelected && !isCorrect) {
-                                    bgClass = 'bg-red-50 dark:bg-red-900/20 border-red-400';
+                                    bgClass = 'bg-red-50 dark:bg-red-900/20 border-red-500 ring-1 ring-red-500';
                                     textClass = 'text-red-700 dark:text-red-300';
+                                    icon = <XCircle className="h-5 w-5 text-red-600" />;
                                 }
                             } else if (isSelected) {
-                                bgClass = 'bg-purple-50 dark:bg-purple-900/20 border-purple-400';
+                                bgClass = 'bg-purple-50 dark:bg-purple-900/20 border-purple-500 ring-1 ring-purple-500';
                                 textClass = 'text-purple-700 dark:text-purple-300';
                             }
 
@@ -223,26 +245,17 @@ export default function CycleMCQs({
                                 <button
                                     key={index}
                                     onClick={() => handleAnswerSelect(index)}
-                                    disabled={showResult}
-                                    className={`w-full text-left p-4 rounded-xl border-2 transition-all ${bgClass}`}
+                                    disabled={showResult || isGlobalTimeout}
+                                    className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${bgClass}`}
                                 >
-                                    <div className="flex items-center gap-3">
-                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${showCorrectness && isCorrect
-                                            ? 'bg-green-500 text-white'
-                                            : showCorrectness && isSelected && !isCorrect
-                                                ? 'bg-red-500 text-white'
-                                                : isSelected
-                                                    ? 'bg-purple-500 text-white'
-                                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-500'
-                                            }`}>
-                                            {showCorrectness ? (
-                                                isCorrect ? <CheckCircle2 className="h-4 w-4" /> :
-                                                    isSelected ? <XCircle className="h-4 w-4" /> :
-                                                        String.fromCharCode(65 + index)
-                                            ) : String.fromCharCode(65 + index)}
-                                        </div>
-                                        <span className={`flex-1 ${textClass}`}>{option}</span>
+                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0 ${showCorrectness && isCorrect ? 'bg-green-500 text-white' :
+                                        showCorrectness && isSelected && !isCorrect ? 'bg-red-500 text-white' :
+                                            isSelected ? 'bg-purple-500 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-500'
+                                        }`}>
+                                        {String.fromCharCode(65 + index)}
                                     </div>
+                                    <span className={`flex-1 ${textClass}`}>{option}</span>
+                                    {icon}
                                 </button>
                             );
                         })}
@@ -251,8 +264,8 @@ export default function CycleMCQs({
                     {/* Explanation (shown after answering) */}
                     {showResult && (
                         <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-4">
-                            <p className="text-sm font-bold text-blue-700 dark:text-blue-300 mb-1">
-                                Explanation:
+                            <p className="text-sm font-bold text-blue-700 dark:text-blue-300 mb-1 flex items-center gap-2">
+                                <AlertCircle className="h-4 w-4" /> Explanation:
                             </p>
                             <p className="text-sm text-blue-600 dark:text-blue-400">
                                 {currentMCQ.explanation}
@@ -265,7 +278,7 @@ export default function CycleMCQs({
                         {!showResult ? (
                             <Button
                                 onClick={handleSubmitAnswer}
-                                disabled={selectedAnswer === null}
+                                disabled={selectedAnswer === null || isGlobalTimeout}
                                 className="bg-purple-600 hover:bg-purple-700 text-white px-8"
                             >
                                 Submit Answer
@@ -275,13 +288,18 @@ export default function CycleMCQs({
                                 onClick={handleNext}
                                 className="bg-purple-600 hover:bg-purple-700 text-white px-8"
                             >
-                                {isLastQuestion ? 'Complete' : 'Next Question'}
+                                {isLastQuestion ? 'Complete Test' : 'Next Question'}
                                 <ChevronRight className="ml-1 h-4 w-4" />
                             </Button>
                         )}
                     </div>
                 </CardContent>
             </Card>
-        </div>
+
+
+            <div className="mt-4 flex justify-center">
+                <KeyboardShortcutsHelp context="mcq" compact={true} />
+            </div>
+        </div >
     );
 }

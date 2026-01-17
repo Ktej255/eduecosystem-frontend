@@ -22,6 +22,8 @@ import {
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
 import { getUserAccess, isMasterUser } from "@/config/user-access-config";
+import { getUserXP, getLevelIcon, getLevelTitle } from "@/lib/gamification";
+import { Flame, Sparkles, Trophy } from "lucide-react";
 
 // Menu items with access keys that map to UserAccess properties
 const menuItems = [
@@ -122,6 +124,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
 
     const [stats, setStats] = useState<StudentStats | null>(null);
     const [isHovered, setIsHovered] = useState(false);
+    const [xpData, setXpData] = useState<ReturnType<typeof getUserXP> | null>(null);
 
     // Calculate overall progress percentage
     const calculateProgress = useCallback((studentStats: StudentStats): number => {
@@ -141,6 +144,8 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
     const loadStats = useCallback(() => {
         const studentStats = getStudentStats();
         setStats(studentStats);
+        // Also load XP data
+        setXpData(getUserXP());
     }, []);
 
     // Initial load
@@ -156,6 +161,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
 
         window.addEventListener('storage', handleStorageChange);
         window.addEventListener('focus', handleStorageChange);
+        window.addEventListener('xp-updated', handleStorageChange);
 
         // Refresh every 30 seconds
         const interval = setInterval(loadStats, 30000);
@@ -163,6 +169,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
         return () => {
             window.removeEventListener('storage', handleStorageChange);
             window.removeEventListener('focus', handleStorageChange);
+            window.removeEventListener('xp-updated', handleStorageChange);
             clearInterval(interval);
         };
     }, [loadStats]);
@@ -258,9 +265,50 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
             {/* Progress Section */}
             <div className={`p-4 mt-4 border-t border-gray-200 dark:border-gray-800 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden p-0"
                 }`}>
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-4">
+                {/* XP & Level Widget */}
+                {xpData && (
+                    <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg p-4 mb-3">
+                        <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center gap-2">
+                                <span className="text-2xl">{getLevelIcon(xpData.level)}</span>
+                                <div>
+                                    <div className="font-bold text-sm text-gray-800 dark:text-gray-200">
+                                        Level {xpData.level}
+                                    </div>
+                                    <div className="text-[10px] text-gray-500">
+                                        {getLevelTitle(xpData.level)}
+                                    </div>
+                                </div>
+                            </div>
+                            {xpData.streak > 0 && (
+                                <div className="flex items-center gap-1 bg-orange-100 dark:bg-orange-900/30 px-2 py-1 rounded-full">
+                                    <Flame className="h-3 w-3 text-orange-500" />
+                                    <span className="text-xs font-bold text-orange-600">{xpData.streak}</span>
+                                </div>
+                            )}
+                        </div>
+                        <div className="space-y-1">
+                            <div className="flex justify-between text-[10px] text-gray-500">
+                                <span className="flex items-center gap-1">
+                                    <Sparkles className="h-3 w-3 text-indigo-500" />
+                                    {xpData.currentXP} / {xpData.xpToNextLevel} XP
+                                </span>
+                                <span>{Math.round((xpData.currentXP / xpData.xpToNextLevel) * 100)}%</span>
+                            </div>
+                            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                                <div
+                                    className="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full transition-all duration-500"
+                                    style={{ width: `${(xpData.currentXP / xpData.xpToNextLevel) * 100}%` }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Study Progress */}
+                <div className="bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-blue-900/20 dark:to-emerald-900/20 rounded-lg p-4">
                     <h3 className="font-semibold text-sm text-gray-900 dark:text-gray-100 mb-2">
-                        Your Progress
+                        Study Progress
                     </h3>
                     <div className="space-y-2">
                         <div className="flex justify-between text-xs">
@@ -269,7 +317,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                         </div>
                         <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
                             <div
-                                className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-500"
+                                className="bg-gradient-to-r from-blue-600 to-emerald-600 h-2 rounded-full transition-all duration-500"
                                 style={{ width: `${progressPercent}%` }}
                             />
                         </div>
@@ -282,10 +330,6 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                                 <div className="flex justify-between">
                                     <span>✍️ Graphotherapy</span>
                                     <span>Lv{stats.graphotherapy.currentLevel} D{stats.graphotherapy.currentDay}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>🔥 Streak</span>
-                                    <span>{stats.overallStreak} days</span>
                                 </div>
                             </div>
                         )}

@@ -17,9 +17,10 @@ import {
     Layers
 } from "lucide-react";
 import Link from "next/link";
+import api from "@/lib/api";
 
-// Portal structure data - comprehensive map of the entire software
-const portalData = {
+// Static fallback data defined below...
+const staticPortalData = {
     admin: {
         name: "Admin Portal",
         color: "bg-purple-500",
@@ -105,9 +106,67 @@ const portalData = {
 };
 
 export default function PDRPage() {
+    const [portalData, setPortalData] = useState<any>(staticPortalData);
+    const [isLoading, setIsLoading] = useState(true);
     const [selectedPortal, setSelectedPortal] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState("");
     const [zoom, setZoom] = useState(100);
+
+    // Fetch dynamic PDR data
+    useEffect(() => {
+        const fetchPDR = async () => {
+            try {
+                const res = await api.get('/admin/pdr/graph');
+                const { nodes, links } = res.data;
+
+                // Transform flat nodes back to hierarchical portalData
+                const dynamicData: any = {};
+
+                // 1. Identify Portals (Hubs)
+                const portalNodes = nodes.filter((n: any) => n.type === 'portal');
+                portalNodes.forEach((pNode: any) => {
+                    const key = pNode.group; // e.g. "admin"
+
+                    // Match icon/color from static config or default
+                    const staticMatch = staticPortalData[key as keyof typeof staticPortalData];
+
+                    dynamicData[key] = {
+                        name: pNode.label,
+                        color: staticMatch?.color || "bg-gray-500",
+                        icon: staticMatch?.icon || Layers,
+                        basePath: key === 'grapho' ? '/graphotherapy' : `/${key}`,
+                        pages: []
+                    };
+                });
+
+                // 2. Add Pages
+                const pageNodes = nodes.filter((n: any) => n.type === 'page');
+                pageNodes.forEach((pageNode: any) => {
+                    const key = pageNode.group;
+                    if (dynamicData[key]) {
+                        dynamicData[key].pages.push({
+                            name: pageNode.label,
+                            path: pageNode.route,
+                            connections: [] // Could derive from links if needed
+                        });
+                    }
+                });
+
+                // Use dynamic data if valid, otherwise fallback
+                if (Object.keys(dynamicData).length > 0) {
+                    setPortalData(dynamicData);
+                }
+            } catch (err) {
+                console.error("Failed to fetch PDR graph", err);
+                // Fallback to static data (already set)
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        // Start fetch
+        fetchPDR();
+    }, []);
 
     const allPages = Object.entries(portalData).flatMap(([key, portal]) =>
         portal.pages.map(page => ({ ...page, portal: key, portalName: portal.name, color: portal.color }))

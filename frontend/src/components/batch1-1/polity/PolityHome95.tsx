@@ -4,14 +4,16 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
     Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2, Clock,
-    Target, Filter, LayoutGrid, List, Sparkles
+    Target, Filter, LayoutGrid, List, Sparkles, Calendar
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { POLITY_PARTS, TOPIC_TITLES, getPartColors, getTopicsByPart, PartId } from "./data/polity-types-95";
+import { generateWeeklySchedule } from "@/components/batch1/polity/data/polity-schedule-data";
 
 interface TopicProgress {
     [topicId: number]: {

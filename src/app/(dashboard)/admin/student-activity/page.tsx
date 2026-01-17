@@ -53,20 +53,30 @@ export default function StudentActivityPage() {
         setLoading(true);
         setError(null);
         try {
-            const response = await api.get("/admin/users", {
-                params: { role: "student", limit: 100 }
+            // Use the new dedicated activity summary endpoint
+            const response = await api.get("/admin/student-activity/summary", {
+                params: { limit: 100 }
             });
 
-            // Add mock activity data for demonstration
-            const studentsWithActivity = (response.data.users || []).map((user: any) => ({
-                ...user,
-                pomodoro_sessions: Math.floor(Math.random() * 50) + 5,
-                mcqs_completed: Math.floor(Math.random() * 200) + 20,
-                flashcards_reviewed: Math.floor(Math.random() * 300) + 50,
-                total_study_hours: Math.floor(Math.random() * 100) + 10
+            // Map backend response to component state
+            const activityData = (response.data || []).map((user: any) => ({
+                id: user.id,
+                email: user.email,
+                full_name: user.name,
+                role: 'student', // default
+                coins: 0, // Not in summary yet
+                streak_days: user.streak,
+                is_active: user.lastActive !== "Never",
+                is_batch1_authorized: true, // Placeholder until batch auth is in summary
+                is_batch2_authorized: false,
+                last_login: user.lastActive === "Never" ? null : user.lastActive,
+                pomodoro_sessions: user.pomodoros,
+                mcqs_completed: user.mcqs,
+                flashcards_reviewed: 0, // Not in summary yet
+                total_study_hours: user.studyHours
             }));
 
-            setStudents(studentsWithActivity);
+            setStudents(activityData);
         } catch (err: any) {
             console.error("Failed to fetch students:", err);
             setError(err.response?.data?.detail || err.message || "Failed to load students");

@@ -174,3 +174,7 @@ api_router.include_router(mains_evaluation.router, prefix="/mains", tags=["mains
 # Development History and Daily Reports (Admin Portal)
 from app.api.api_v1.endpoints import development_history
 api_router.include_router(development_history.router, prefix="/admin", tags=["development-history"])
+
+# Portal Map (PDR)
+from app.api.api_v1.endpoints import pdr
+api_router.include_router(pdr.router, prefix="/admin", tags=["pdr"])

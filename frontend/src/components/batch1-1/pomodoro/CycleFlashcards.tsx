@@ -3,43 +3,57 @@ import { ChevronLeft, ChevronRight, CheckCircle2, BookOpen, Sparkles, Timer } fr
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
-import { getFlashcardsForSubtopics, Flashcard } from '@/components/batch1/polity/data/polity-flashcards-data';
+import { getFlashcardsForSubtopics } from '@/components/batch1/polity/data/polity-flashcards-data';
+import { useFlashcardShortcuts } from '@/hooks/useKeyboardShortcuts';
+import KeyboardShortcutsHelp from '@/components/common/KeyboardShortcutsHelp';
+
+// Flexible Flashcard Interface to handle both data sources
+export interface FlexibleFlashcard {
+    id: string;
+    subtopicId?: string;
+    front?: string;
+    back?: string;
+    question?: string;
+    answer?: string;
+    category?: string;
+    source?: string;
+    [key: string]: any;
+}
 
 // Temporary flashcard generator (fallback if no real data)
-function generateFlashcardsForSubtopics(subtopics: SubTopic[]): Flashcard[] {
+function generateFlashcardsForSubtopics(subtopics: SubTopic[]): FlexibleFlashcard[] {
     const realCards = getFlashcardsForSubtopics(subtopics.map(s => s.id));
     if (realCards.length > 0) return realCards;
 
-    // This generates placeholder flashcards - will be replaced with actual content
-    const flashcards: Flashcard[] = [];
+    // This generates placeholder flashcards
+    const flashcards: FlexibleFlashcard[] = [];
 
     subtopics.forEach((subtopic, index) => {
         flashcards.push({
             id: `fc_${subtopic.id}_1`,
             subtopicId: subtopic.id,
             question: `What are the key points of "${subtopic.label}"?`,
-            answer: `Key aspects of ${subtopic.label} include constitutional provisions, historical context, and practical applications. [Content to be added]`
+            answer: `Key aspects of ${subtopic.label} include constitutional provisions, historical context, and practical applications.`
         });
 
-        // Add a second flashcard for each subtopic (for variety)
-        if (index < 5) { // Limit total flashcards
+        if (index < 5) {
             flashcards.push({
                 id: `fc_${subtopic.id}_2`,
                 subtopicId: subtopic.id,
                 question: `Explain the significance of "${subtopic.label}" in Indian Polity.`,
-                answer: `The significance of ${subtopic.label} lies in its constitutional importance and relevance to UPSC. [Content to be added]`
+                answer: `The significance of ${subtopic.label} lies in its constitutional importance and relevance to UPSC.`
             });
         }
     });
 
-    return flashcards.slice(0, 10); // Max 10 flashcards per cycle
+    return flashcards.slice(0, 10);
 }
 
 interface CycleFlashcardsProps {
     selectedSubtopics: SubTopic[];
     onComplete: (viewedCount: number) => void;
     cycleNumber: number;
-    preloadedCards?: Flashcard[];
+    preloadedCards?: any[]; // Accept any format
 }
 
 export default function CycleFlashcards({
@@ -62,17 +76,18 @@ export default function CycleFlashcards({
     const currentCard = flashcards[currentIndex];
     const progress = ((currentIndex + 1) / flashcards.length) * 100;
 
+    // Get display text regardless of format
+    const getFront = (card: any) => card.front || card.question || "Question Missing";
+    const getBack = (card: any) => card.back || card.answer || "Answer Missing";
+
     // Timer logic
     useEffect(() => {
-        // Reset timer when card changes
         setTimeLeft(15);
-
         if (timerRef.current) clearInterval(timerRef.current);
 
         timerRef.current = setInterval(() => {
             setTimeLeft((prev) => {
                 if (prev <= 1) {
-                    // Time up! Auto advance
                     if (timerRef.current) clearInterval(timerRef.current);
                     handleAutoNext();
                     return 0;
@@ -84,26 +99,18 @@ export default function CycleFlashcards({
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [currentIndex]); // Re-run when currentIndex changes
+    }, [currentIndex]);
 
     const handleAutoNext = () => {
-        // If not flipped, maybe flip for a split second? 
-        // For now, simplify to just moving to next card or completing
-        // We need to use functional state update effectively here or manage a ref for 'currentIndex'
-        // But since this is called from within the interval closure (old closure), be careful.
-        // Actually, the effect re-runs on currentIndex change, so 'handleAutoNext' closure should be fresh IF defined inside or text.
-
-        // Wait, I can't easily call handleNext() from inside the setTimeLeft callback if it relies on current state (though here I used a separate function call from the effect).
-        // Better to just have a separate effect watching 'timeLeft'.
+        // Option specific logic could go here
     };
 
     // Watch for timer hitting 0
     useEffect(() => {
         if (timeLeft === 0) {
-            handleNext();
+            handleFlipAndNext();
         }
     }, [timeLeft]);
-
 
     const handleFlip = () => {
         setIsFlipped(!isFlipped);
@@ -112,12 +119,17 @@ export default function CycleFlashcards({
         }
     };
 
+    const handleFlipAndNext = () => {
+        // If not flipped, flip first, then wait briefly? 
+        // For auto-advance, we just move to next. User can navigate back.
+        handleNext();
+    };
+
     const handleNext = () => {
         if (currentIndex < flashcards.length - 1) {
             setCurrentIndex(prev => prev + 1);
             setIsFlipped(false);
         } else {
-            // Complete flashcard session
             onComplete(viewedCards.size);
         }
     };
@@ -129,10 +141,19 @@ export default function CycleFlashcards({
         }
     };
 
-    if (flashcards.length === 0) {
+    // Keyboard shortcuts
+    useFlashcardShortcuts(
+        () => setIsFlipped(prev => !prev),
+        handleNext,
+        handlePrev,
+        undefined,
+        true
+    );
+
+    if (!flashcards || flashcards.length === 0) {
         return (
-            <Card className="p-8 text-center">
-                <p className="text-gray-500">No flashcards available for selected subtopics.</p>
+            <Card className="p-8 text-center text-gray-500">
+                <p>No flashcards available for selected subtopics.</p>
                 <Button onClick={() => onComplete(0)} className="mt-4">Continue</Button>
             </Card>
         );
@@ -172,37 +193,37 @@ export default function CycleFlashcards({
                     {/* Flashcard */}
                     <div
                         onClick={handleFlip}
-                        className="cursor-pointer perspective-1000"
+                        className="cursor-pointer perspective-1000 min-h-[300px]"
                     >
-                        <div className={`relative min-h-[250px] transition-transform duration-500 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+                        <div className={`relative w-full h-full transition-transform duration-500 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
                             {/* Front (Question) */}
-                            <div className={`absolute inset-0 bg-white dark:bg-gray-900 rounded-2xl border-2 border-amber-200 dark:border-amber-800 p-6 shadow-lg backface-hidden ${isFlipped ? 'invisible' : ''}`}>
-                                <div className="flex flex-col h-full">
-                                    <span className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-2">
-                                        Question
-                                    </span>
-                                    <p className="flex-1 text-lg font-medium text-gray-800 dark:text-gray-200 flex items-center justify-center text-center">
-                                        {(currentCard as any).front || (currentCard as any).question}
-                                    </p>
-                                    <p className="text-xs text-amber-500 text-center mt-4">
-                                        Tap to reveal answer
+                            <div className={`absolute inset-0 bg-white dark:bg-gray-900 rounded-2xl border-2 border-amber-200 dark:border-amber-800 p-6 shadow-lg backface-hidden flex flex-col ${isFlipped ? 'invisible' : ''}`}>
+                                <span className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-2">
+                                    Question
+                                </span>
+                                <div className="flex-1 flex items-center justify-center text-center">
+                                    <p className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                                        {getFront(currentCard)}
                                     </p>
                                 </div>
+                                <p className="text-xs text-amber-500 text-center mt-4">
+                                    Tap to reveal answer
+                                </p>
                             </div>
 
                             {/* Back (Answer) */}
-                            <div className={`absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-2xl border-2 border-amber-300 dark:border-amber-700 p-6 shadow-lg backface-hidden rotate-y-180 ${!isFlipped ? 'invisible' : ''}`}>
-                                <div className="flex flex-col h-full">
-                                    <span className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">
-                                        Answer
-                                    </span>
-                                    <p className="flex-1 text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                                        {(currentCard as any).back || (currentCard as any).answer}
-                                    </p>
-                                    <p className="text-xs text-amber-500 text-center mt-4">
-                                        Tap to see question
+                            <div className={`absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-2xl border-2 border-amber-300 dark:border-amber-700 p-6 shadow-lg backface-hidden rotate-y-180 flex flex-col ${!isFlipped ? 'invisible' : ''}`}>
+                                <span className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">
+                                    Answer
+                                </span>
+                                <div className="flex-1 overflow-y-auto custom-scrollbar">
+                                    <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
+                                        {getBack(currentCard)}
                                     </p>
                                 </div>
+                                <p className="text-xs text-amber-500 text-center mt-4">
+                                    Tap to see question
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -211,7 +232,7 @@ export default function CycleFlashcards({
                     <div className="flex items-center justify-between mt-6 pt-4 border-t border-amber-100 dark:border-amber-800">
                         <Button
                             variant="outline"
-                            onClick={handlePrev}
+                            onClick={(e) => { e.stopPropagation(); handlePrev(); }}
                             disabled={currentIndex === 0}
                             className="border-amber-300"
                         >
@@ -227,7 +248,7 @@ export default function CycleFlashcards({
                         </div>
 
                         <Button
-                            onClick={handleNext}
+                            onClick={(e) => { e.stopPropagation(); handleNext(); }}
                             className="bg-amber-600 hover:bg-amber-700 text-white"
                         >
                             {currentIndex === flashcards.length - 1 ? 'Complete' : 'Next'}
@@ -236,6 +257,9 @@ export default function CycleFlashcards({
                     </div>
                 </CardContent>
             </Card>
+            <div className="mt-4 flex justify-center">
+                <KeyboardShortcutsHelp context="flashcard" compact={true} />
+            </div>
         </div>
     );
 }

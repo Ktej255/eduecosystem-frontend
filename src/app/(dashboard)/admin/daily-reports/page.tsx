@@ -13,7 +13,8 @@ import {
     CheckCircle2,
     Code,
     GitBranch,
-    Sparkles
+    Sparkles,
+    RefreshCw
 } from "lucide-react";
 
 interface DailyReport {
@@ -144,9 +145,56 @@ const dailyReports: DailyReport[] = [
     }
 ];
 
+import api from "@/lib/api";
+
+// ... (interfaces remain same)
+
 export default function DailyReportsPage() {
     const [reports, setReports] = useState<DailyReport[]>(dailyReports);
     const [expandedReports, setExpandedReports] = useState<Set<string>>(new Set(["1"]));
+    const [isGenerating, setIsGenerating] = useState(false);
+
+    useEffect(() => {
+        fetchReports();
+    }, []);
+
+    const fetchReports = async () => {
+        try {
+            const res = await api.get('/admin/daily-reports');
+            if (res.data && res.data.reports && res.data.reports.length > 0) {
+                // Transform backend data to frontend model
+                const apiReports = res.data.reports.map((r: any) => ({
+                    id: String(r.id),
+                    date: r.date,
+                    batch: r.batch,
+                    summary: r.summary,
+                    actions: r.actions || [],
+                    metrics: r.metrics || {
+                        filesChanged: 0,
+                        linesAdded: 0,
+                        linesRemoved: 0,
+                        testsRun: 0,
+                        testsPassed: 0
+                    }
+                }));
+                setReports(apiReports);
+            }
+        } catch (error) {
+            console.error("Failed to fetch reports:", error);
+        }
+    };
+
+    const handleAutoGenerate = async () => {
+        setIsGenerating(true);
+        try {
+            await api.post('/admin/daily-reports/auto-generate');
+            await fetchReports(); // Refresh list associated
+        } catch (error) {
+            console.error("Failed to auto-generate report:", error);
+        } finally {
+            setIsGenerating(false);
+        }
+    };
 
     const toggleExpanded = (id: string) => {
         const newExpanded = new Set(expandedReports);
@@ -198,10 +246,29 @@ export default function DailyReportsPage() {
                             Batch-wise breakdown of daily development activities
                         </p>
                     </div>
-                    <Button variant="outline" className="flex items-center gap-2">
-                        <Download className="w-4 h-4" />
-                        Export All
-                    </Button>
+                    <div className="flex gap-3">
+                        <Button
+                            onClick={handleAutoGenerate}
+                            disabled={isGenerating}
+                            className="bg-indigo-600 hover:bg-indigo-700"
+                        >
+                            {isGenerating ? (
+                                <>
+                                    <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                                    Generating...
+                                </>
+                            ) : (
+                                <>
+                                    <Sparkles className="w-4 h-4 mr-2" />
+                                    Auto-Generate Today
+                                </>
+                            )}
+                        </Button>
+                        <Button variant="outline" className="flex items-center gap-2">
+                            <Download className="w-4 h-4" />
+                            Export All
+                        </Button>
+                    </div>
                 </div>
             </div>
 
