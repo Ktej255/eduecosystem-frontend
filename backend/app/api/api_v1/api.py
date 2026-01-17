@@ -170,3 +170,7 @@ api_router.include_router(advanced_health_analysis.router, prefix="/graphotherap
 # Mains Answer Evaluation (AI)
 from app.api.api_v1.endpoints import mains_evaluation
 api_router.include_router(mains_evaluation.router, prefix="/mains", tags=["mains-evaluation"])
+
+# Development History and Daily Reports (Admin Portal)
+from app.api.api_v1.endpoints import development_history
+api_router.include_router(development_history.router, prefix="/admin", tags=["development-history"])

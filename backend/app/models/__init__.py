@@ -223,3 +223,10 @@ from app.models.meditation import (
 
 # Attendance
 from app.models.attendance import Attendance
+
+# Development History and Daily Reports (Admin Portal)
+from app.models.development_history import (
+    DevelopmentLog,
+    DailyDevReport,
+    AIPlanningSession,
+)

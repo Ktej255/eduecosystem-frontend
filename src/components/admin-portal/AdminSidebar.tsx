@@ -49,6 +49,7 @@ const menuItems = [
         icon: Users,
         children: [
             { name: "Users", href: "/admin/users", icon: Users },
+            { name: "Student Activity", href: "/admin/student-activity", icon: Activity },
             { name: "Leads", href: "/admin/leads", icon: TrendingUp },
             { name: "Marketing", href: "/admin/marketing-automation", icon: Zap },
             { name: "User Management", href: "/admin/user-management", icon: Shield },
@@ -68,6 +69,16 @@ const menuItems = [
         name: "Analytics",
         href: "/admin/analytics",
         icon: TrendingUp,
+    },
+    {
+        name: "Development",
+        icon: FileCode,
+        children: [
+            { name: "Dev History", href: "/admin/development-history", icon: Activity },
+            { name: "Portal Map", href: "/admin/pdr", icon: BarChart3 },
+            { name: "Daily Reports", href: "/admin/daily-reports", icon: FileText },
+            { name: "AI Planning", href: "/admin/ai-planning", icon: Brain },
+        ],
     },
     {
         name: "Communications",

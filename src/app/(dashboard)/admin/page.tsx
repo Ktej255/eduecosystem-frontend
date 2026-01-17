@@ -3,24 +3,34 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, FileText, TrendingUp, Shield, BookOpen, BarChart3, Brain, GraduationCap, ExternalLink, Zap, Activity, ArrowRight } from "lucide-react";
+import { Users, FileText, TrendingUp, Shield, BookOpen, BarChart3, Brain, GraduationCap, ExternalLink, Zap, Activity, ArrowRight, AlertCircle, RefreshCw, Clock, CheckCircle2, Timer } from "lucide-react";
 import Link from "next/link";
 import api from "@/lib/api";
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState<any>(null);
+  const [overview, setOverview] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchStats();
   }, []);
 
   const fetchStats = async () => {
+    setLoading(true);
+    setError(null);
     try {
-      const response = await api.get("/admin/stats");
-      setStats(response.data);
-    } catch (error) {
+      // Fetch both stats and overview in parallel
+      const [statsResponse, overviewResponse] = await Promise.all([
+        api.get("/admin/stats"),
+        api.get("/admin/overview").catch(() => ({ data: null }))
+      ]);
+      setStats(statsResponse.data);
+      setOverview(overviewResponse.data);
+    } catch (error: any) {
       console.error("Failed to fetch admin stats:", error);
+      setError(error.response?.data?.detail || error.message || "Failed to fetch admin data");
     } finally {
       setLoading(false);
     }
@@ -30,6 +40,20 @@ export default function AdminDashboard() {
     return (
       <div className="flex items-center justify-center h-96">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center h-96 space-y-4">
+        <AlertCircle className="w-16 h-16 text-red-500" />
+        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Failed to Load Dashboard</h2>
+        <p className="text-gray-600 dark:text-gray-400 max-w-md text-center">{error}</p>
+        <Button onClick={fetchStats} className="flex items-center gap-2">
+          <RefreshCw className="w-4 h-4" />
+          Retry
+        </Button>
       </div>
     );
   }
@@ -309,6 +333,101 @@ export default function AdminDashboard() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Student Activity Overview - Real-time data */}
+      {overview && (
+        <div>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+            <Activity className="h-5 w-5 text-green-600" />
+            Real-Time Student Activity
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Card className="border-l-4 border-l-blue-500">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                    <GraduationCap className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Total Students</p>
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{overview?.users?.total_students || 0}</h4>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-green-500">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Active Today</p>
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{overview?.users?.active_today || 0}</h4>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-purple-500">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                    <BookOpen className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Tests Taken</p>
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{overview?.activity?.total_tests_taken || 0}</h4>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-amber-500">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
+                    <Timer className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Study Sessions (Week)</p>
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{overview?.activity?.study_sessions_this_week || 0}</h4>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Batch Authorization Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            <Card>
+              <CardContent className="p-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">Batch 1 Authorized</span>
+                  <span className="font-bold text-indigo-600">{overview?.batches?.batch1_authorized || 0}</span>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">RAS Authorized</span>
+                  <span className="font-bold text-emerald-600">{overview?.batches?.ras_authorized || 0}</span>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-400">Avg Test Score</span>
+                  <span className="font-bold text-purple-600">{overview?.activity?.average_score || 0}%</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
