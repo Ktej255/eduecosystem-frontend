@@ -10,7 +10,8 @@ export const DAY3_MCQS: MCQ[] = [
         options: q.options,
         correctIndex: q.correctAnswer,
         explanation: q.explanation || '',
-        difficulty: (q.difficulty === 'easy' ? 'Easy' : q.difficulty === 'medium' ? 'Moderate' : 'Tough') as any
+        difficulty: (q.difficulty === 'easy' ? 'Easy' : q.difficulty === 'medium' ? 'Moderate' : 'Tough') as any,
+        correctAnswer: q.correctAnswer
     })),
     ...CHAPTER17_MCQS.map(q => ({
         id: String(q.id),
@@ -19,7 +20,8 @@ export const DAY3_MCQS: MCQ[] = [
         options: q.options,
         correctIndex: q.correctAnswer,
         explanation: q.explanation || '',
-        difficulty: (q.difficulty === 'easy' ? 'Easy' : q.difficulty === 'medium' ? 'Moderate' : 'Tough') as any
+        difficulty: (q.difficulty === 'easy' ? 'Easy' : q.difficulty === 'medium' ? 'Moderate' : 'Tough') as any,
+        correctAnswer: q.correctAnswer
     }))
 ];
 

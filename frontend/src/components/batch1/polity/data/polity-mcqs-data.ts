@@ -9,6 +9,7 @@ export interface MCQ {
     correctIndex: number;
     explanation: string;
     difficulty?: 'Easy' | 'Moderate' | 'Tough';
+    correctAnswer?: number; // Alias for backward compatibility with TestHistoryModal
 }
 
 // Adapter for Day 3 Data (Chapters 16, 17 - Now directly compatible)
@@ -33,7 +34,8 @@ const legacyDay5: MCQ[] = DAY5_MCQS.map(item => {
         options: item.options,
         correctIndex: item.correctAnswer,
         explanation: item.explanation || '',
-        difficulty: (item.level as any) || 'Moderate'
+        difficulty: (item.level as any) || 'Moderate',
+        correctAnswer: item.correctAnswer
     };
 });
 
