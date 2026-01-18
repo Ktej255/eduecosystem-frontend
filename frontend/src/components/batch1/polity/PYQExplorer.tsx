@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Filter, CheckCircle, XCircle, BookOpen, Calendar, Target, ChevronRight } from 'lucide-react';
+import { Filter, CheckCircle, XCircle, BookOpen, Calendar, Target, ChevronRight, HelpCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { AnimatePresence, motion } from 'framer-motion';
 import { recordMCQAttempt } from '@/lib/analytics/WeakTopicAnalyzer';
 import { POLITY_PYQS } from './data/polity-pyqs';
 
