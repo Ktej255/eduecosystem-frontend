@@ -9,6 +9,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { AnimatePresence, motion } from 'framer-motion';
 import { recordMCQAttempt } from '@/lib/analytics/WeakTopicAnalyzer';
 import { POLITY_PYQS } from './data/polity-pyqs';
+import { PYQQuestion } from '@/lib/pyq/pyq-types';
 
 export default function PYQExplorer() {
     const [selectedYears, setSelectedYears] = useState<number[]>([]);
