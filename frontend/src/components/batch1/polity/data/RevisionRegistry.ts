@@ -436,7 +436,7 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
         title: "Federal System",
         content: CHAPTER_16_CONTENT,
         flashcards: CHAPTER_16_FLASHCARDS,
-        mcqs: CHAPTER_16_MCQS
+        mcqs: CHAPTER16_MCQS
     },
     {
         id: 17,
