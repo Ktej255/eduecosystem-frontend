@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Filter, CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
+import { Filter, CheckCircle, XCircle, HelpCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -175,7 +175,7 @@ function PYQCard({ pyq, userAnswer, onAnswer }: {
                                 </span>
                                 {option}
                                 {isAnswered && idx === pyq.correctIndex && (
-                                    <CheckCircle2 className="ml-auto h-4 w-4 text-green-600" />
+                                    <CheckCircle className="ml-auto h-4 w-4 text-green-600" />
                                 )}
                                 {isAnswered && idx === userAnswer && idx !== pyq.correctIndex && (
                                     <XCircle className="ml-auto h-4 w-4 text-red-600" />
