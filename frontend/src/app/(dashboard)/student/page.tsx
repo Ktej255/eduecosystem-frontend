@@ -17,6 +17,13 @@ import {
   Coins,
   Users,
 } from "lucide-react";
+import { SadhanaStreak } from "@/components/dashboard/SadhanaStreak";
+import { DailyCheckIn } from "@/components/dashboard/DailyCheckIn";
+import { SmartBundleOffer } from "@/components/commerce/SmartBundleOffer";
+import { KnowledgeTree } from "@/components/dashboard/KnowledgeTree";
+import { ReflectionJournal } from "@/components/dashboard/ReflectionJournal";
+import { WisdomFeed } from "@/components/dashboard/WisdomFeed";
+import { GlobalHeatmap } from "@/components/dashboard/GlobalHeatmap";
 
 type CourseProgress = {
   id: number;
@@ -111,11 +118,14 @@ export default function StudentDashboardPage() {
   return (
     <div className="container mx-auto py-8 px-4">
       {/* Welcome Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Welcome back! 👋</h1>
-        <p className="text-gray-400">
-          Ready to continue your learning journey?
-        </p>
+      <div className="mb-8 flex justify-between items-start">
+        <div>
+          <h1 className="text-3xl font-bold mb-2">Welcome back! 👋</h1>
+          <p className="text-gray-400">
+            Ready to continue your learning journey?
+          </p>
+        </div>
+        <SadhanaStreak />
       </div>
 
       {/* Stats Grid */}
@@ -180,6 +190,31 @@ export default function StudentDashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Continue Learning */}
         <div className="lg:col-span-2 space-y-6">
+          {/* 3D Knowledge Tree */}
+          <div className="relative group">
+            <KnowledgeTree progress={stats.courses_completed / (stats.courses_enrolled || 1)} />
+            <div className="absolute bottom-4 right-4 z-20">
+              <Button
+                variant="secondary"
+                size="sm"
+                className="bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-400 border border-cyan-500/30 backdrop-blur-md font-bold"
+                onClick={() => router.push("/student/hall-of-masters")}
+              >
+                🏆 Visit Hall of Masters
+              </Button>
+            </div>
+          </div>
+
+          {/* Smart Offer (Dynamic) */}
+          <SmartBundleOffer />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ReflectionJournal />
+            <GlobalHeatmap />
+          </div>
+
+          <WisdomFeed />
+
           <Card className="bg-gray-900 border-gray-800">
             <CardHeader>
               <div className="flex items-center justify-between">
@@ -397,6 +432,9 @@ export default function StudentDashboardPage() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Daily Check-in */}
+          <DailyCheckIn />
 
           {/* Daily Goal */}
           <Card className="bg-gray-900 border-gray-800">

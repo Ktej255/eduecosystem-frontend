@@ -207,3 +207,5 @@ export const CHAPTER16_MCQS: MCQ[] = [
         explanation: "There is 'North-Eastern Council', not 'North-Eastern Zonal Council' under the 1956 Act."
     }
 ];
+
+export default CHAPTER16_MCQS;

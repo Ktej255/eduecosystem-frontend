@@ -8,6 +8,7 @@ import {
     Download, RefreshCw, Brain
 } from "lucide-react";
 import Link from "next/link";
+import { AtRiskStudentsTable } from "@/components/admin-dashboard/AtRiskStudentsTable";
 
 interface AnalyticsData {
     total_students: number;
@@ -173,6 +174,9 @@ export default function AdminAnalyticsPage() {
                 </div>
             )}
 
+            {/* At-Risk Students Widget */}
+            <AtRiskStudentsTable />
+
             {/* Topic Performance */}
             <Card>
                 <CardHeader>
@@ -201,8 +205,8 @@ export default function AdminAnalyticsPage() {
                                         </td>
                                         <td className="p-3 text-right">
                                             <span className={`px-2 py-1 rounded text-sm font-medium ${topic.average_score >= 80 ? 'bg-green-100 text-green-700' :
-                                                    topic.average_score >= 60 ? 'bg-yellow-100 text-yellow-700' :
-                                                        'bg-red-100 text-red-700'
+                                                topic.average_score >= 60 ? 'bg-yellow-100 text-yellow-700' :
+                                                    'bg-red-100 text-red-700'
                                                 }`}>
                                                 {topic.average_score.toFixed(1)}%
                                             </span>

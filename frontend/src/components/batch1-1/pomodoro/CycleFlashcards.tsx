@@ -6,6 +6,13 @@ import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
 import { getFlashcardsForSubtopics } from '@/components/batch1/polity/data/polity-flashcards-data';
 import { useFlashcardShortcuts } from '@/hooks/useKeyboardShortcuts';
 import KeyboardShortcutsHelp from '@/components/common/KeyboardShortcutsHelp';
+import VoiceRecallSession from '@/components/batch1-1/voice/VoiceRecallSession';
+import { Mic, RotateCcw } from 'lucide-react';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
+import { initializeSRSCard, processReview } from '@/lib/srs/srs-engine';
+import { getSRSData, saveSRSData } from '@/lib/srs/srs-storage';
+import { UIRating } from '@/lib/srs/srs-types';
 
 // Flexible Flashcard Interface to handle both data sources
 export interface FlexibleFlashcard {
@@ -71,6 +78,8 @@ export default function CycleFlashcards({
     const [isFlipped, setIsFlipped] = useState(false);
     const [viewedCards, setViewedCards] = useState<Set<string>>(new Set());
     const [timeLeft, setTimeLeft] = useState(15);
+    const [isVoiceMode, setIsVoiceMode] = useState(false);
+    const [isSRSMode, setIsSRSMode] = useState(false);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
     const currentCard = flashcards[currentIndex];
@@ -82,6 +91,13 @@ export default function CycleFlashcards({
 
     // Timer logic
     useEffect(() => {
+        // Disable timer in voice mode
+        if (isVoiceMode) {
+            setTimeLeft(0); // Show 0 or invalid
+            if (timerRef.current) clearInterval(timerRef.current);
+            return;
+        }
+
         setTimeLeft(15);
         if (timerRef.current) clearInterval(timerRef.current);
 
@@ -99,7 +115,7 @@ export default function CycleFlashcards({
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [currentIndex]);
+    }, [currentIndex, isVoiceMode]);
 
     const handleAutoNext = () => {
         // Option specific logic could go here
@@ -132,6 +148,26 @@ export default function CycleFlashcards({
         } else {
             onComplete(viewedCards.size);
         }
+    };
+
+    const handleRate = (rating: UIRating) => {
+        // SRS Logic
+        const cardId = currentCard.id.toString();
+        const srsData = getSRSData();
+        let srsCard = srsData.cards[cardId];
+
+        if (!srsCard) {
+            srsCard = initializeSRSCard(cardId, getFront(currentCard) || '', getBack(currentCard) || '', currentCard.subtopicId);
+        }
+
+        // Just use a default response time for now (e.g. 5000ms or try to track actual time)
+        const { updatedCard } = processReview(srsCard, rating, 5000);
+
+        srsData.cards[cardId] = updatedCard;
+        saveSRSData(srsData);
+
+        // Move to next
+        handleNext();
     };
 
     const handlePrev = () => {
@@ -172,6 +208,26 @@ export default function CycleFlashcards({
                             </span>
                         </div>
                         <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-2">
+                                <Label htmlFor="voice-mode" className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                                    Voice Mode
+                                </Label>
+                                <Switch
+                                    id="voice-mode"
+                                    checked={isVoiceMode}
+                                    onCheckedChange={setIsVoiceMode}
+                                />
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <Label htmlFor="srs-mode" className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                                    SRS
+                                </Label>
+                                <Switch
+                                    id="srs-mode"
+                                    checked={isSRSMode}
+                                    onCheckedChange={setIsSRSMode}
+                                />
+                            </div>
                             <div className="flex items-center gap-1.5 text-orange-600 dark:text-orange-400 font-mono font-bold bg-orange-100 dark:bg-orange-900/40 px-3 py-1 rounded-full">
                                 <Timer className="h-4 w-4" />
                                 <span>{timeLeft}s</span>
@@ -190,71 +246,117 @@ export default function CycleFlashcards({
                         />
                     </div>
 
-                    {/* Flashcard */}
-                    <div
-                        onClick={handleFlip}
-                        className="cursor-pointer perspective-1000 min-h-[300px]"
-                    >
-                        <div className={`relative w-full h-full transition-transform duration-500 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-                            {/* Front (Question) */}
-                            <div className={`absolute inset-0 bg-white dark:bg-gray-900 rounded-2xl border-2 border-amber-200 dark:border-amber-800 p-6 shadow-lg backface-hidden flex flex-col ${isFlipped ? 'invisible' : ''}`}>
-                                <span className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-2">
-                                    Question
-                                </span>
-                                <div className="flex-1 flex items-center justify-center text-center">
-                                    <p className="text-lg font-medium text-gray-800 dark:text-gray-200">
-                                        {getFront(currentCard)}
-                                    </p>
+                    {isVoiceMode ? (
+                        <VoiceRecallSession
+                            card={currentCard}
+                            onNext={handleNext}
+                            onComplete={(score) => {
+                                // Logic to record score/XP could go here
+                            }}
+                        />
+                    ) : (
+                        <>
+                            {/* Flashcard */}
+                            <div
+                                onClick={handleFlip}
+                                className="cursor-pointer perspective-1000 min-h-[300px]"
+                            >
+                                <div className={`relative w-full h-full transition-transform duration-500 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+                                    {/* Front (Question) */}
+                                    <div className={`absolute inset-0 bg-white dark:bg-gray-900 rounded-2xl border-2 border-amber-200 dark:border-amber-800 p-6 shadow-lg backface-hidden flex flex-col ${isFlipped ? 'invisible' : ''}`}>
+                                        <span className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-2">
+                                            Question
+                                        </span>
+                                        <div className="flex-1 flex items-center justify-center text-center">
+                                            <p className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                                                {getFront(currentCard)}
+                                            </p>
+                                        </div>
+                                        <p className="text-xs text-amber-500 text-center mt-4">
+                                            Tap to reveal answer
+                                        </p>
+                                    </div>
+
+                                    {/* Back (Answer) */}
+                                    <div className={`absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-2xl border-2 border-amber-300 dark:border-amber-700 p-6 shadow-lg backface-hidden rotate-y-180 flex flex-col ${!isFlipped ? 'invisible' : ''}`}>
+                                        <span className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">
+                                            Answer
+                                        </span>
+                                        <div className="flex-1 overflow-y-auto custom-scrollbar">
+                                            <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
+                                                {getBack(currentCard)}
+                                            </p>
+                                        </div>
+                                        <p className="text-xs text-amber-500 text-center mt-4">
+                                            Tap to see question
+                                        </p>
+                                    </div>
                                 </div>
-                                <p className="text-xs text-amber-500 text-center mt-4">
-                                    Tap to reveal answer
-                                </p>
                             </div>
 
-                            {/* Back (Answer) */}
-                            <div className={`absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-2xl border-2 border-amber-300 dark:border-amber-700 p-6 shadow-lg backface-hidden rotate-y-180 flex flex-col ${!isFlipped ? 'invisible' : ''}`}>
-                                <span className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">
-                                    Answer
-                                </span>
-                                <div className="flex-1 overflow-y-auto custom-scrollbar">
-                                    <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
-                                        {getBack(currentCard)}
-                                    </p>
+                            {/* SRS Buttons */}
+                            {isFlipped && isSRSMode && !isVoiceMode && (
+                                <div className="grid grid-cols-4 gap-2 mt-4 mb-4 animate-in fade-in slide-in-from-bottom-2">
+                                    <Button
+                                        variant="outline"
+                                        className="bg-white border-red-200 hover:bg-red-50 text-red-700 dark:bg-gray-800 dark:border-red-800 dark:hover:bg-red-900/20"
+                                        onClick={(e) => { e.stopPropagation(); handleRate('again'); }}
+                                    >
+                                        Again
+                                    </Button>
+                                    <Button
+                                        variant="outline"
+                                        className="bg-white border-amber-200 hover:bg-amber-50 text-amber-700 dark:bg-gray-800 dark:border-amber-800 dark:hover:bg-amber-900/20"
+                                        onClick={(e) => { e.stopPropagation(); handleRate('hard'); }}
+                                    >
+                                        Hard
+                                    </Button>
+                                    <Button
+                                        variant="outline"
+                                        className="bg-white border-blue-200 hover:bg-blue-50 text-blue-700 dark:bg-gray-800 dark:border-blue-800 dark:hover:bg-blue-900/20"
+                                        onClick={(e) => { e.stopPropagation(); handleRate('good'); }}
+                                    >
+                                        Good
+                                    </Button>
+                                    <Button
+                                        variant="outline"
+                                        className="bg-white border-green-200 hover:bg-green-50 text-green-700 dark:bg-gray-800 dark:border-green-800 dark:hover:bg-green-900/20"
+                                        onClick={(e) => { e.stopPropagation(); handleRate('easy'); }}
+                                    >
+                                        Easy
+                                    </Button>
                                 </div>
-                                <p className="text-xs text-amber-500 text-center mt-4">
-                                    Tap to see question
-                                </p>
+                            )}
+
+                            {/* Navigation */}
+                            <div className="flex items-center justify-between mt-6 pt-4 border-t border-amber-100 dark:border-amber-800">
+                                <Button
+                                    variant="outline"
+                                    onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+                                    disabled={currentIndex === 0}
+                                    className="border-amber-300"
+                                >
+                                    <ChevronLeft className="h-4 w-4 mr-1" />
+                                    Previous
+                                </Button>
+
+                                <div className="flex items-center gap-2">
+                                    <CheckCircle2 className="h-4 w-4 text-green-500" />
+                                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                                        {viewedCards.size} reviewed
+                                    </span>
+                                </div>
+
+                                <Button
+                                    onClick={(e) => { e.stopPropagation(); handleNext(); }}
+                                    className="bg-amber-600 hover:bg-amber-700 text-white"
+                                >
+                                    {currentIndex === flashcards.length - 1 ? 'Complete' : 'Next'}
+                                    {currentIndex < flashcards.length - 1 && <ChevronRight className="h-4 w-4 ml-1" />}
+                                </Button>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* Navigation */}
-                    <div className="flex items-center justify-between mt-6 pt-4 border-t border-amber-100 dark:border-amber-800">
-                        <Button
-                            variant="outline"
-                            onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-                            disabled={currentIndex === 0}
-                            className="border-amber-300"
-                        >
-                            <ChevronLeft className="h-4 w-4 mr-1" />
-                            Previous
-                        </Button>
-
-                        <div className="flex items-center gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-green-500" />
-                            <span className="text-sm text-gray-600 dark:text-gray-400">
-                                {viewedCards.size} reviewed
-                            </span>
-                        </div>
-
-                        <Button
-                            onClick={(e) => { e.stopPropagation(); handleNext(); }}
-                            className="bg-amber-600 hover:bg-amber-700 text-white"
-                        >
-                            {currentIndex === flashcards.length - 1 ? 'Complete' : 'Next'}
-                            {currentIndex < flashcards.length - 1 && <ChevronRight className="h-4 w-4 ml-1" />}
-                        </Button>
-                    </div>
+                        </>
+                    )}
                 </CardContent>
             </Card>
             <div className="mt-4 flex justify-center">

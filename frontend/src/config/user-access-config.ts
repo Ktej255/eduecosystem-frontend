@@ -21,7 +21,12 @@ export interface UserAccess {
     // Revision Portal Polity - separate MCQs/flashcards (Master only)
     revisionPolity: boolean;
     studyPlanner: boolean;
+    // Phase 8-10 Enhancements
+    productivity: boolean;
+    community: boolean;
+    leaderboard: boolean;
 }
+
 
 export interface UserAccessConfig {
     email: string;
@@ -43,7 +48,11 @@ export const DEFAULT_USER_ACCESS: UserAccess = {
     batch1Polity: false,
     revisionPolity: false,
     studyPlanner: false,
+    productivity: true, // Enabled for all by default to encourage engagement
+    community: true,
+    leaderboard: true,
 };
+
 
 // Master access (full access to everything)
 const MASTER_ACCESS: UserAccess = {
@@ -58,7 +67,11 @@ const MASTER_ACCESS: UserAccess = {
     batch1Polity: true,
     revisionPolity: true,
     studyPlanner: true,
+    productivity: true,
+    community: true,
+    leaderboard: true,
 };
+
 
 // Batch 1 Student access (Kajal, Diksha) - with Batch 1.1 Polity access
 const BATCH1_STUDENT_ACCESS: UserAccess = {
@@ -73,7 +86,11 @@ const BATCH1_STUDENT_ACCESS: UserAccess = {
     batch1Polity: true, // Daily schedule, weekly schedule, pomodoro
     revisionPolity: false, // No access to revision portal polity
     studyPlanner: true,
+    productivity: true,
+    community: true,
+    leaderboard: true,
 };
+
 
 // Batch 2 Student access (Ramesh, Mohit - Upanishads only)
 const BATCH2_STUDENT_ACCESS: UserAccess = {
@@ -88,6 +105,9 @@ const BATCH2_STUDENT_ACCESS: UserAccess = {
     batch1Polity: false,
     revisionPolity: false,
     studyPlanner: false,
+    productivity: true,
+    community: true,
+    leaderboard: true,
 };
 
 // RAS Student access (Chitra)
@@ -103,6 +123,9 @@ const RAS_STUDENT_ACCESS: UserAccess = {
     batch1Polity: false,
     revisionPolity: false,
     studyPlanner: false,
+    productivity: true,
+    community: true,
+    leaderboard: true,
 };
 
 /**

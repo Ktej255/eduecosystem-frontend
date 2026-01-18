@@ -78,19 +78,14 @@ class TwoFactorService {
   /**
    * Verify 2FA code during login
    */
-  async verifyLogin(code: string): Promise<{
+  async verifyLogin(code: string, email: string): Promise<{
     access_token: string;
     token_type: string;
     require_2fa: boolean;
   }> {
     const response = await axios.post(
       `${API_URL}/api/v1/2fa/verify-login`,
-      { code },
-      {
-        headers: {
-          Authorization: `Bearer ${this.getToken()}`,
-        },
-      },
+      { code, email }
     );
     return response.data;
   }

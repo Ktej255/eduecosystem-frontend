@@ -36,6 +36,17 @@ const menuItems = [
         icon: LayoutDashboard,
     },
     {
+        name: "Strategic Command",
+        icon: Brain,
+        children: [
+            { name: "AI Planning", href: "/admin/ai-planning", icon: Brain },
+            { name: "Dev History", href: "/admin/development-history", icon: FileText },
+            { name: "Performance", href: "/admin/performance", icon: Activity },
+            { name: "Daily Reports", href: "/admin/daily-reports", icon: FileText },
+            { name: "PDR", href: "/admin/pdr", icon: FileText },
+        ],
+    },
+    {
         name: "Graphotherapy",
         icon: BookOpen,
         children: [

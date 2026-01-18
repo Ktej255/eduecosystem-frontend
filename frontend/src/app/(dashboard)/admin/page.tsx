@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import {
-  Users, FileText, TrendingUp, Shield, BookOpen, BarChart3, Brain,
+  Users, FileText, TrendingUp, Shield, BookOpen, BarChart3, Brain, Plus,
   GraduationCap, ExternalLink, Zap, Activity, ArrowRight, Search,
   Clock, CheckCircle2, Upload, AlertCircle, Eye, ChevronRight,
   Bell, Send, UserCheck, BookMarked, Target, Award, Calendar
@@ -15,6 +15,9 @@ import {
 import Link from "next/link";
 import api from "@/lib/api";
 import ProjectTimeline from "@/components/admin/ProjectTimeline";
+import { MindscapeDashboard } from "@/components/admin/MindscapeDashboard";
+import { SecurityAlertsDashboard } from "@/components/admin/SecurityAlertsDashboard";
+import { NudgeWorkflow } from "@/components/admin/NudgeWorkflow";
 
 interface UserData {
   id: number;
@@ -45,7 +48,7 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const [selectedTab, setSelectedTab] = useState<"overview" | "teachers" | "students" | "timeline">("overview");
+  const [selectedTab, setSelectedTab] = useState<"overview" | "teachers" | "students" | "timeline" | "mindscape" | "security" | "nudges">("overview");
 
 
 
@@ -186,7 +189,7 @@ export default function AdminDashboard() {
 
       {/* Tab Navigation */}
       <div className="flex gap-2 border-b pb-2">
-        {["overview", "teachers", "students", "timeline"].map((tab) => (
+        {["overview", "teachers", "students", "timeline", "mindscape", "security", "nudges"].map((tab) => (
           <Button
             key={tab}
             variant={selectedTab === tab ? "default" : "ghost"}
@@ -194,267 +197,351 @@ export default function AdminDashboard() {
             onClick={() => setSelectedTab(tab as any)}
             className="capitalize"
           >
-            {tab === 'timeline' ? <><Calendar className="h-4 w-4 mr-2" /> Timeline</> : tab}
+            {tab === 'timeline' ? <><Calendar className="h-4 w-4 mr-2" /> Timeline</> :
+              tab === 'mindscape' ? <><Brain className="h-4 w-4 mr-2" /> Mindscape</> :
+                tab === 'security' ? <><Shield className="h-4 w-4 mr-2" /> Security</> :
+                  tab === 'nudges' ? <><Zap className="h-4 w-4 mr-2" /> Nudges</> :
+                    tab}
           </Button>
         ))}
       </div>
 
       {/* Overview Tab */}
       {selectedTab === "overview" && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Quick Portal Access */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <ExternalLink className="h-5 w-5 text-indigo-600" />
-                Quick Portal Access
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <a href="/teacher/dashboard" target="_blank" className="block">
-                <div className="flex items-center justify-between p-3 rounded-lg bg-emerald-50 hover:bg-emerald-100 transition">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-emerald-500 text-white">
-                      <GraduationCap className="h-5 w-5" />
+        <div className="space-y-6">
+          {/* Strategic Command Section */}
+          <div>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+              <Brain className="h-5 w-5 text-purple-600" />
+              Strategic Command
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Link href="/admin/ai-planning">
+                <Card className="h-full hover:shadow-lg transition-all duration-300 cursor-pointer border-t-4 border-t-purple-500">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-3">
+                          <Brain className="h-5 w-5 text-purple-600" />
+                        </div>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">Strategic AI</p>
+                        <p className="text-lg font-bold text-gray-900 dark:text-gray-100">AI Planning</p>
+                      </div>
+                      <ArrowRight className="h-5 w-5 text-gray-400" />
                     </div>
-                    <div>
-                      <p className="font-semibold">Teacher Portal</p>
-                      <p className="text-xs text-gray-500">Upload content, view analytics</p>
-                    </div>
-                  </div>
-                  <ChevronRight className="h-5 w-5 text-gray-400" />
-                </div>
-              </a>
-              <a href="/student/dashboard" target="_blank" className="block">
-                <div className="flex items-center justify-between p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-blue-500 text-white">
-                      <BookOpen className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-semibold">Student Portal</p>
-                      <p className="text-xs text-gray-500">View as student</p>
-                    </div>
-                  </div>
-                  <ChevronRight className="h-5 w-5 text-gray-400" />
-                </div>
-              </a>
-              <Link href="/crm" className="block">
-                <div className="flex items-center justify-between p-3 rounded-lg bg-purple-50 hover:bg-purple-100 transition">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-purple-500 text-white">
-                      <Users className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-semibold">CRM Dashboard</p>
-                      <p className="text-xs text-gray-500">Leads & conversions</p>
-                    </div>
-                  </div>
-                  <ChevronRight className="h-5 w-5 text-gray-400" />
-                </div>
+                  </CardContent>
+                </Card>
               </Link>
-            </CardContent>
-          </Card>
 
-          {/* Recent Students */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <UserCheck className="h-5 w-5 text-green-600" />
-                Recent Students
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                {students.slice(0, 5).map((student) => (
-                  <div key={student.id} className="flex items-center justify-between p-2 rounded-lg bg-gray-50 hover:bg-gray-100">
+              <Link href="/admin/development-history">
+                <Card className="h-full hover:shadow-lg transition-all duration-300 cursor-pointer border-t-4 border-t-blue-500">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-3">
+                          <FileText className="h-5 w-5 text-blue-600" />
+                        </div>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">Engineering</p>
+                        <p className="text-lg font-bold text-gray-900 dark:text-gray-100">Dev History</p>
+                      </div>
+                      <ArrowRight className="h-5 w-5 text-gray-400" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link href="/admin/performance">
+                <Card className="h-full hover:shadow-lg transition-all duration-300 cursor-pointer border-t-4 border-t-emerald-500">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-3">
+                          <Activity className="h-5 w-5 text-emerald-600" />
+                        </div>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">System Health</p>
+                        <p className="text-lg font-bold text-gray-900 dark:text-gray-100">Performance</p>
+                      </div>
+                      <ArrowRight className="h-5 w-5 text-gray-400" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Quick Portal Access */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <ExternalLink className="h-5 w-5 text-indigo-600" />
+                  Quick Portal Access
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <a href="/teacher/dashboard" target="_blank" className="block">
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-emerald-50 hover:bg-emerald-100 transition">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-xs">
-                        {student.full_name?.[0] || student.email[0].toUpperCase()}
+                      <div className="p-2 rounded-lg bg-emerald-500 text-white">
+                        <GraduationCap className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-medium text-sm">{student.full_name || student.email.split('@')[0]}</p>
-                        <p className="text-xs text-gray-500">{student.email}</p>
+                        <p className="font-semibold">Teacher Portal</p>
+                        <p className="text-xs text-gray-500">Upload content, view analytics</p>
                       </div>
                     </div>
-                    <div className="flex gap-1">
-                      {student.is_batch1_authorized && (
-                        <Badge variant="outline" className="text-xs bg-purple-50">B1</Badge>
-                      )}
-                      {student.is_ras_authorized && (
-                        <Badge variant="outline" className="text-xs bg-orange-50">RAS</Badge>
-                      )}
-                    </div>
+                    <ChevronRight className="h-5 w-5 text-gray-400" />
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                </a>
+                <a href="/student/dashboard" target="_blank" className="block">
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-blue-500 text-white">
+                        <BookOpen className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">Student Portal</p>
+                        <p className="text-xs text-gray-500">View as student</p>
+                      </div>
+                    </div>
+                    <ChevronRight className="h-5 w-5 text-gray-400" />
+                  </div>
+                </a>
+                <Link href="/crm" className="block">
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-purple-50 hover:bg-purple-100 transition">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-purple-500 text-white">
+                        <Users className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">CRM Dashboard</p>
+                        <p className="text-xs text-gray-500">Leads & conversions</p>
+                      </div>
+                    </div>
+                    <ChevronRight className="h-5 w-5 text-gray-400" />
+                  </div>
+                </Link>
+              </CardContent>
+            </Card>
 
-          {/* Platform Stats */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <BarChart3 className="h-5 w-5 text-blue-600" />
-                Platform Statistics
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <span className="text-gray-600">Total Users</span>
-                <span className="font-bold">{stats?.users?.total || users.length}</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <span className="text-gray-600">Active Users</span>
-                <span className="font-bold">{stats?.users?.active || 0}</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <span className="text-gray-600">Avg Streak</span>
-                <span className="font-bold">{stats?.engagement?.avg_streak || 0} days</span>
-              </div>
-            </CardContent>
-          </Card>
+            {/* Recent Students */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <UserCheck className="h-5 w-5 text-green-600" />
+                  Recent Students
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  {students.slice(0, 5).map((student) => (
+                    <div key={student.id} className="flex items-center justify-between p-2 rounded-lg bg-gray-50 hover:bg-gray-100">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-xs">
+                          {student.full_name?.[0] || student.email[0].toUpperCase()}
+                        </div>
+                        <div>
+                          <p className="font-medium text-sm">{student.full_name || student.email.split('@')[0]}</p>
+                          <p className="text-xs text-gray-500">{student.email}</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-1">
+                        {student.is_batch1_authorized && (
+                          <Badge variant="outline" className="text-xs bg-purple-50">B1</Badge>
+                        )}
+                        {student.is_ras_authorized && (
+                          <Badge variant="outline" className="text-xs bg-orange-50">RAS</Badge>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
 
-          {/* Management Links */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Zap className="h-5 w-5 text-orange-600" />
-                Quick Actions
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="grid grid-cols-2 gap-3">
-              <Link href="/admin/leads">
-                <Button variant="outline" className="w-full justify-start gap-2">
-                  <Users className="h-4 w-4" /> Leads
-                </Button>
-              </Link>
-              <Link href="/admin/user-management">
-                <Button variant="outline" className="w-full justify-start gap-2">
-                  <Shield className="h-4 w-4" /> User Mgmt
-                </Button>
-              </Link>
-              <Link href="/admin/analytics">
-                <Button variant="outline" className="w-full justify-start gap-2">
-                  <BarChart3 className="h-4 w-4" /> Analytics
-                </Button>
-              </Link>
-              <Link href="/admin/drill/questions">
-                <Button variant="outline" className="w-full justify-start gap-2">
-                  <BookOpen className="h-4 w-4" /> Drills
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+            {/* Platform Stats */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <BarChart3 className="h-5 w-5 text-blue-600" />
+                  Platform Statistics
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                  <span className="text-gray-600">Total Users</span>
+                  <span className="font-bold">{stats?.users?.total || users.length}</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                  <span className="text-gray-600">Active Users</span>
+                  <span className="font-bold">{stats?.users?.active || 0}</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                  <span className="text-gray-600">Avg Streak</span>
+                  <span className="font-bold">{stats?.engagement?.avg_streak || 0} days</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Management Links */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Zap className="h-5 w-5 text-orange-600" />
+                  Quick Actions
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="grid grid-cols-2 gap-3">
+                <Link href="/admin/leads">
+                  <Button variant="outline" className="w-full justify-start gap-2">
+                    <Users className="h-4 w-4" /> Leads
+                  </Button>
+                </Link>
+                <Link href="/admin/user-management">
+                  <Button variant="outline" className="w-full justify-start gap-2">
+                    <Shield className="h-4 w-4" /> User Mgmt
+                  </Button>
+                </Link>
+                <Link href="/admin/analytics">
+                  <Button variant="outline" className="w-full justify-start gap-2">
+                    <BarChart3 className="h-4 w-4" /> Analytics
+                  </Button>
+                </Link>
+                <Link href="/admin/drill/questions">
+                  <Button variant="outline" className="w-full justify-start gap-2">
+                    <BookOpen className="h-4 w-4" /> Drills
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       )}
 
       {/* Teachers Tab */}
-      {selectedTab === "teachers" && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Teacher Management</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {teachers.length === 0 ? (
-              <div className="text-center py-8 text-gray-500">
-                <GraduationCap className="h-12 w-12 mx-auto mb-3 opacity-50" />
-                <p>No teachers registered yet</p>
-                <p className="text-sm">Teachers will appear here once added</p>
-              </div>
-            ) : (
-              <div className="space-y-3">
-                {teachers.map((teacher) => (
-                  <div key={teacher.id} className="flex items-center justify-between p-4 rounded-lg border hover:shadow-md transition">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white font-bold">
-                        {teacher.full_name?.[0] || 'T'}
+      {
+        selectedTab === "teachers" && (
+          <Card>
+            <CardHeader>
+              <CardTitle>Teacher Management</CardTitle>
+            </CardHeader>
+            <CardContent>
+              {teachers.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  <GraduationCap className="h-12 w-12 mx-auto mb-3 opacity-50" />
+                  <p>No teachers registered yet</p>
+                  <p className="text-sm">Teachers will appear here once added</p>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {teachers.map((teacher) => (
+                    <div key={teacher.id} className="flex items-center justify-between p-4 rounded-lg border hover:shadow-md transition">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white font-bold">
+                          {teacher.full_name?.[0] || 'T'}
+                        </div>
+                        <div>
+                          <p className="font-semibold">{teacher.full_name || teacher.email}</p>
+                          <p className="text-sm text-gray-500">{teacher.email}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="font-semibold">{teacher.full_name || teacher.email}</p>
-                        <p className="text-sm text-gray-500">{teacher.email}</p>
+                      <div className="flex items-center gap-3">
+                        <Badge className="bg-emerald-100 text-emerald-700">{teacher.role}</Badge>
+                        <Link href={`/admin/teachers/${teacher.id}`}>
+                          <Button variant="outline" size="sm">
+                            <Eye className="h-4 w-4 mr-1" /> View
+                          </Button>
+                        </Link>
                       </div>
                     </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        )
+      }
+
+      {/* Students Tab */}
+      {
+        selectedTab === "students" && (
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between">
+              <CardTitle>Student Management ({students.length})</CardTitle>
+              <div className="relative w-64">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Input
+                  placeholder="Search students..."
+                  className="pl-10"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                {filteredStudents.slice(0, 20).map((student) => (
+                  <div key={student.id} className="flex items-center justify-between p-3 rounded-lg border hover:shadow-sm transition">
                     <div className="flex items-center gap-3">
-                      <Badge className="bg-emerald-100 text-emerald-700">{teacher.role}</Badge>
-                      <Link href={`/admin/teachers/${teacher.id}`}>
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-sm">
+                        {student.full_name?.[0] || student.email[0].toUpperCase()}
+                      </div>
+                      <div>
+                        <p className="font-medium">{student.full_name || student.email.split('@')[0]}</p>
+                        <p className="text-xs text-gray-500">{student.email}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="flex gap-1">
+                        {student.is_batch1_authorized && (
+                          <Badge className="bg-purple-100 text-purple-700 text-xs">Batch 1</Badge>
+                        )}
+                        {student.is_ras_authorized && (
+                          <Badge className="bg-orange-100 text-orange-700 text-xs">RAS</Badge>
+                        )}
+                      </div>
+                      <div className="text-right text-xs text-gray-500 mr-3">
+                        <p>🔥 {student.streak_days} days</p>
+                        <p>💰 {student.coins} coins</p>
+                      </div>
+                      <Link href={`/admin/students/${student.id}`}>
                         <Button variant="outline" size="sm">
-                          <Eye className="h-4 w-4 mr-1" /> View
+                          <Eye className="h-4 w-4" />
                         </Button>
                       </Link>
                     </div>
                   </div>
                 ))}
+                {filteredStudents.length > 20 && (
+                  <p className="text-center text-sm text-gray-500 py-2">
+                    Showing 20 of {filteredStudents.length} students
+                  </p>
+                )}
               </div>
-            )}
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Students Tab */}
-      {selectedTab === "students" && (
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Student Management ({students.length})</CardTitle>
-            <div className="relative w-64">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <Input
-                placeholder="Search students..."
-                className="pl-10"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2">
-              {filteredStudents.slice(0, 20).map((student) => (
-                <div key={student.id} className="flex items-center justify-between p-3 rounded-lg border hover:shadow-sm transition">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-sm">
-                      {student.full_name?.[0] || student.email[0].toUpperCase()}
-                    </div>
-                    <div>
-                      <p className="font-medium">{student.full_name || student.email.split('@')[0]}</p>
-                      <p className="text-xs text-gray-500">{student.email}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-1">
-                      {student.is_batch1_authorized && (
-                        <Badge className="bg-purple-100 text-purple-700 text-xs">Batch 1</Badge>
-                      )}
-                      {student.is_ras_authorized && (
-                        <Badge className="bg-orange-100 text-orange-700 text-xs">RAS</Badge>
-                      )}
-                    </div>
-                    <div className="text-right text-xs text-gray-500 mr-3">
-                      <p>🔥 {student.streak_days} days</p>
-                      <p>💰 {student.coins} coins</p>
-                    </div>
-                    <Link href={`/admin/students/${student.id}`}>
-                      <Button variant="outline" size="sm">
-                        <Eye className="h-4 w-4" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              ))}
-              {filteredStudents.length > 20 && (
-                <p className="text-center text-sm text-gray-500 py-2">
-                  Showing 20 of {filteredStudents.length} students
-                </p>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      )
+            </CardContent>
+          </Card>
+        )
       }
 
       {/* Timeline Tab */}
       {
         selectedTab === "timeline" && (
           <ProjectTimeline />
+        )
+      }
+      {
+        selectedTab === "mindscape" && (
+          <MindscapeDashboard />
+        )
+      }
+      {
+        selectedTab === "security" && (
+          <SecurityAlertsDashboard />
+        )
+      }
+      {
+        selectedTab === "nudges" && (
+          <NudgeWorkflow />
         )
       }
     </div >

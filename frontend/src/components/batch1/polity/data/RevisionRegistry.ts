@@ -208,8 +208,8 @@ import { CHAPTER_12_MCQS } from './mcqs/chapter12-mcqs';
 import { CHAPTER_13_MCQS } from './mcqs/chapter13-mcqs';
 import { CHAPTER_14_MCQS } from './mcqs/chapter14-mcqs';
 import { CHAPTER_15_MCQS } from './mcqs/chapter15-mcqs';
-import { CHAPTER_16_MCQS } from './mcqs/chapter16-mcqs';
-import { CHAPTER_17_MCQS } from './mcqs/chapter17-mcqs';
+import { CHAPTER16_MCQS } from './mcqs/chapter16-mcqs';
+import { CHAPTER17_MCQS } from './mcqs/chapter17-mcqs';
 import { CHAPTER_18_MCQS } from './mcqs/chapter18-mcqs';
 import { CHAPTER_19_MCQS } from './mcqs/chapter19-mcqs';
 import { CHAPTER_20_MCQS } from './mcqs/chapter20-mcqs';
@@ -443,7 +443,7 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
         title: "Centre-State Relations",
         content: CHAPTER_17_CONTENT,
         flashcards: CHAPTER_17_FLASHCARDS,
-        mcqs: CHAPTER_17_MCQS
+        mcqs: CHAPTER17_MCQS
     },
     {
         id: 18,

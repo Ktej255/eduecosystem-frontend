@@ -2,14 +2,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useAuth } from "@/contexts/auth-context";
+import { isMasterUser } from "@/config/user-access-config";
+
 
 export default function BuildInfo() {
+    const { user } = useAuth();
+    const isMaster = isMasterUser(user?.email);
     const [show, setShow] = useState(true);
     const BUILD_VERSION = "v1.11-BATCH2-LIVE";
     const COMMIT_HASH = "BATCH-2-MIGRATION";
     const TIMESTAMP = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
-    if (!show) return null;
+    if (!show || !isMaster) return null;
+
 
     return (
         <div

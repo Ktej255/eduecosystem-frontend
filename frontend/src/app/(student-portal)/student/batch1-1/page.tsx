@@ -276,6 +276,28 @@ export default function Batch11Page() {
                             </Link>
                         </CardContent>
                     </Card>
+
+                    {/* PYQ Bank */}
+                    <Card className="bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 border-teal-200 dark:border-teal-800">
+                        <CardContent className="p-6 flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                                <div className="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center text-teal-600 dark:text-teal-400">
+                                    <Target className="h-7 w-7" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-teal-900 dark:text-teal-100">PYQ Bank</h3>
+                                    <p className="text-teal-600 dark:text-teal-400 text-sm">
+                                        Practice Last 10 Years Questions (2013-2023)
+                                    </p>
+                                </div>
+                            </div>
+                            <Link href="/student/batch1-1/polity/pyq">
+                                <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white">
+                                    Open PYQs <ChevronRight className="ml-2 h-4 w-4" />
+                                </Button>
+                            </Link>
+                        </CardContent>
+                    </Card>
                 </TabsContent>
 
                 <TabsContent value="reports" className="animate-in fade-in slide-in-from-bottom-4 duration-500">

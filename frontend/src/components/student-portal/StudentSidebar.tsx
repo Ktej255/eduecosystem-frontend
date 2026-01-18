@@ -24,6 +24,7 @@ import { useAuth } from "@/contexts/auth-context";
 import { getUserAccess, isMasterUser } from "@/config/user-access-config";
 import { getUserXP, getLevelIcon, getLevelTitle } from "@/lib/gamification";
 import { Flame, Sparkles, Trophy } from "lucide-react";
+import NotificationManager from "@/components/batch1-1/utils/NotificationManager";
 
 // Menu items with access keys that map to UserAccess properties
 const menuItems = [
@@ -62,6 +63,24 @@ const menuItems = [
         href: "/student/ai-coach",
         icon: BrainCircuit,
         accessKey: "aiCoach", // Maps to UserAccess.aiCoach
+    },
+    {
+        name: "Productivity",
+        href: "/student/batch1-1/productivity",
+        icon: Sparkles,
+        accessKey: "productivity",
+    },
+    {
+        name: "Community",
+        href: "/student/batch1-1/community",
+        icon: User,
+        accessKey: "community",
+    },
+    {
+        name: "Leaderboard",
+        href: "/student/batch1-1/leaderboard",
+        icon: Trophy,
+        accessKey: "leaderboard",
     },
     {
         name: "Graphotherapy",
@@ -358,7 +377,8 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
             )}
 
             {/* Bottom Menu Items */}
-            <nav className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 space-y-2">
+            <div className={`p-4 mt-auto border-t border-gray-200 dark:border-gray-800 space-y-2 ${!showExpanded ? "flex flex-col items-center" : ""}`}>
+                {showExpanded && <NotificationManager />}
                 {bottomMenuItems.map((item) => {
                     const Icon = item.icon;
                     const isActive = pathname === item.href;
@@ -367,9 +387,9 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                         <Link
                             key={item.href}
                             href={item.href}
-                            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 overflow-hidden ${isActive
-                                ? "bg-gray-100 dark:bg-gray-800 text-blue-600"
-                                : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                            className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${isActive
+                                ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium"
+                                : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
                                 } ${!showExpanded ? "justify-center px-2" : ""}`}
                             title={!showExpanded ? item.name : ""}
                         >
@@ -381,8 +401,7 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                         </Link>
                     );
                 })}
-            </nav>
+            </div>
         </aside>
     );
 }
-

@@ -36,6 +36,8 @@ import { getMCQsForSubtopics } from '@/components/batch1/polity/data/polity-mcqs
 import { markStepComplete } from '@/lib/journey/completion-tracker';
 // Import registry directly (ensure it exists)
 import { FLASHCARD_CONTENT_REGISTRY, MCQ_CONTENT_REGISTRY } from '@/components/batch1/content-registry';
+import AIChatWidget from '@/components/chat/AIChatWidget';
+
 
 interface CycleData {
     cycleNumber: number;
@@ -752,6 +754,8 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                     </Button>
                 </Link>
             </div>
-        </div>
+            <AIChatWidget />
+        </div >
     );
 }
+

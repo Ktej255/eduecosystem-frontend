@@ -124,3 +124,5 @@ export const CHAPTER17_FLASHCARDS: Flashcard[] = [
         subtopicId: "17.4"
     }
 ];
+
+export default CHAPTER17_FLASHCARDS;

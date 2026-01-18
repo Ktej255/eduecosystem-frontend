@@ -25,7 +25,10 @@ export type XPEventType =
     | 'streak_bonus'
     | 'achievement_unlock'
     | 'daily_login'
-    | 'session_complete';
+    | 'session_complete'
+    | 'mains_submit'
+    | 'drill_complete';
+
 
 export interface Achievement {
     id: string;
@@ -90,5 +93,8 @@ export const XP_REWARDS: Record<XPEventType, number> = {
     streak_bonus: 50,  // Per day in streak
     achievement_unlock: 0, // Varies by achievement
     daily_login: 10,
-    session_complete: 50
+    session_complete: 50,
+    mains_submit: 75,      // UPSC Mains answer submission
+    drill_complete: 30     // Completing a full drill session
 };
+

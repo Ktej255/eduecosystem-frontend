@@ -39,6 +39,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import api from "@/lib/api";
+import TwoFactorSetup from "@/components/settings/TwoFactorSetup";
+import { PushNotificationManager } from "@/components/mobile/PushNotificationManager";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -533,6 +535,10 @@ export default function SettingsPage() {
               </Form>
             </CardContent>
           </Card>
+
+          <div className="mt-8">
+            <TwoFactorSetup />
+          </div>
         </TabsContent>
 
         {/* Notifications Tab */}
@@ -544,7 +550,9 @@ export default function SettingsPage() {
                 Choose which email notifications you want to receive.
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-6">
+              <PushNotificationManager />
+              <div className="h-px bg-gray-800 my-6" />
               <Form {...emailNotificationForm}>
                 <form
                   onSubmit={emailNotificationForm.handleSubmit(

@@ -46,7 +46,7 @@ export default function LoginPage() {
         localStorage.setItem("token", tempToken);
       }
 
-      const response = await twoFactorService.verifyLogin(code);
+      const response = await twoFactorService.verifyLogin(code, email);
 
       // Update with full access token
       localStorage.setItem("token", response.access_token);

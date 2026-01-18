@@ -11,23 +11,8 @@ export interface MCQ {
     difficulty?: 'Easy' | 'Moderate' | 'Tough';
 }
 
-// Adapter for Day 3 Data (Chapters 1, 2, 3)
-const legacyDay3: MCQ[] = DAY3_MCQS.map(item => {
-    // Basic mapping based on ID ranges in the file
-    let subtopicId = '1.1'; // Chapter 1: Historical Background
-    if (item.id >= 26 && item.id <= 50) subtopicId = '2.1'; // Chapter 2: Making of Constitution
-    if (item.id >= 51) subtopicId = '3.1'; // Chapter 3: Salient Features
-
-    return {
-        id: `legacy_d3_${item.id}`,
-        subtopicId,
-        question: item.question,
-        options: item.options,
-        correctIndex: item.correctAnswer,
-        explanation: item.explanation || '',
-        difficulty: (item.level as any) || 'Moderate'
-    };
-});
+// Adapter for Day 3 Data (Chapters 16, 17 - Now directly compatible)
+const legacyDay3: MCQ[] = DAY3_MCQS;
 
 // Adapter for Day 5 Data (Chapter 7: Citizenship)
 const legacyDay5: MCQ[] = DAY5_MCQS.map(item => {

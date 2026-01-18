@@ -104,13 +104,6 @@ export default function CycleMCQs({
         }
     }, [isGlobalTimeout]);
 
-    // Keyboard shortcuts
-    useMCQShortcuts(
-        (index) => handleAnswerSelect(index),
-        handleSubmitAnswer,
-        handleNext,
-        !showResult && !isGlobalTimeout
-    );
 
 
     const handleAnswerSelect = (optionIndex: number) => {
@@ -142,6 +135,14 @@ export default function CycleMCQs({
             setShowResult(false);
         }
     };
+
+    // Keyboard shortcuts
+    useMCQShortcuts(
+        (index) => handleAnswerSelect(index),
+        handleSubmitAnswer,
+        handleNext,
+        !showResult && !isGlobalTimeout
+    );
 
     const handleFinish = () => {
         const totalCorrect = results.filter(r => r.isCorrect).length + (isLastQuestion && showResult && selectedAnswer === currentMCQ.correctIndex && !results.some(r => r.questionId === currentMCQ.id) ? 1 : 0);
