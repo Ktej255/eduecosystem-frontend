@@ -246,7 +246,7 @@ export default function PDRPage() {
 
             {/* Stats */}
             <div className="grid grid-cols-5 gap-4 mb-8">
-                {Object.entries(portalData).map(([key, portal]) => {
+                {Object.entries(portalData).map(([key, portal]: [string, any]) => {
                     const Icon = portal.icon;
                     return (
                         <Card
@@ -274,7 +274,7 @@ export default function PDRPage() {
                 style={{ transform: `scale(${zoom / 100})`, transformOrigin: 'top left' }}
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {Object.entries(portalsToShow).map(([key, portal]) => {
+                    {Object.entries(portalsToShow).map(([key, portal]: [string, any]) => {
                         const Icon = portal.icon;
                         const portalPages = searchQuery
                             ? portal.pages.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()))
@@ -336,7 +336,7 @@ export default function PDRPage() {
             <div className="mt-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                 <h3 className="font-medium text-gray-900 dark:text-gray-100 mb-3">Legend</h3>
                 <div className="flex flex-wrap gap-4">
-                    {Object.entries(portalData).map(([key, portal]) => {
+                    {Object.entries(portalData).map(([key, portal]: [string, any]) => {
                         const Icon = portal.icon;
                         return (
                             <div key={key} className="flex items-center gap-2">
