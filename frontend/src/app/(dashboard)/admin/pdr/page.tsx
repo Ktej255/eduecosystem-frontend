@@ -168,8 +168,8 @@ export default function PDRPage() {
         fetchPDR();
     }, []);
 
-    const allPages = Object.entries(portalData).flatMap(([key, portal]) =>
-        portal.pages.map(page => ({ ...page, portal: key, portalName: portal.name, color: portal.color }))
+    const allPages = Object.entries(portalData).flatMap(([key, portal]: [string, any]) =>
+        portal.pages.map((page: any) => ({ ...page, portal: key, portalName: portal.name, color: portal.color }))
     );
 
     const filteredPages = searchQuery
