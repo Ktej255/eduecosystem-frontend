@@ -226,7 +226,7 @@ export default function PDRPage() {
                     >
                         All Portals
                     </Button>
-                    {Object.entries(portalData).map(([key, portal]) => {
+                    {Object.entries(portalData).map(([key, portal]: [string, any]) => {
                         const Icon = portal.icon;
                         return (
                             <Button
