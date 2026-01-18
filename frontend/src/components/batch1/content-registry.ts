@@ -148,7 +148,14 @@ export function getCSATAvailableDays(): number[] {
 export const FLASHCARD_CONTENT_REGISTRY: Record<number, Flashcard[] | undefined> = {
     1: WEEK1_FLASHCARDS, // Week 1 (Ch 11-14) Override for New Cycle
     2: DAY2_FLASHCARDS,
-    3: DAY3_FLASHCARDS, // Day 3 (Ch 16, 17)
+    3: DAY3_FLASHCARDS.map(c => ({
+        id: String(c.id),
+        front: c.question,
+        back: c.answer,
+        category: (['concept', 'fact', 'article', 'comparison'].includes(c.category.toLowerCase()) ? c.category.toLowerCase() : 'fact') as any, // Default to fact if map fails, cast to strict type
+        source: `Ch ${c.chapterId}`,
+        subtopicId: c.category // Store original category as subtopic for context
+    })), // Day 3 (Ch 16, 17) - Adapted to Legacy Format
     4: DAY4_FLASHCARDS, // Day 4 (Ch 18, 19)
     5: DAY5_FLASHCARDS, // Day 5 (Ch 20, 21, 31, 32, 33) - Mirror Executives
     6: DAY6_FLASHCARDS, // Day 6 (Jan 17): WEEK 1 REVISION (Mock Test)
