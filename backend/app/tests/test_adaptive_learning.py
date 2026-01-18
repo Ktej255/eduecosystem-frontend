@@ -225,3 +225,88 @@ def test_node_locking(client: TestClient, db: Session) -> None:
     
     assert nodes["Child Lock"]["is_locked"] == False, f"Child should be unlocked after parent is mastered. Parent Mastery: {nodes['Parent Lock']['mastery_probability']}"
 
+def test_interaction_recommendation(client: TestClient, db: Session) -> None:
+    from app.tests.utils.utils import random_email
+    from app.tests.utils.user import authentication_token_from_email
+    from app.models.adaptive_learning import Concept, ConceptDependency
+    
+    email = random_email()
+    user_headers = authentication_token_from_email(client=client, email=email, db=db)
+    
+    # 1. Setup Chain: Weak Parent -> Child
+    parent = Concept(title="Weak Parent", subject="Test")
+    child = Concept(title="Difficult Child", subject="Test")
+    db.add(parent)
+    db.add(child)
+    db.commit()
+    db.refresh(parent)
+    db.refresh(child)
+    
+    dep = ConceptDependency(parent_concept_id=parent.id, child_concept_id=child.id)
+    db.add(dep)
+    db.commit()
+    
+    # 2. Fail on Child interaction
+    interaction_data = {
+        "associated_concept_id": str(child.id),
+        "is_correct": False,
+        "time_taken_ms": 5000,
+        "hesitation_detected": True
+    }
+    
+    response = client.post(
+        f"{settings.API_V1_STR}/adaptive-learning/interaction", headers=user_headers, json=interaction_data
+    )
+    
+    assert response.status_code == 200
+    content = response.json()
+    
+    # 3. Check for Recommendation
+    assert content["recommendation"] is not None
+    assert content["recommendation"]["type"] == "review_prerequisite"
+    assert content["recommendation"]["concept_id"] == str(parent.id)
+
+def test_counseling_service(client: TestClient, db: Session) -> None:
+    from app.tests.utils.utils import random_email
+    from app.tests.utils.user import authentication_token_from_email
+    from app.models.adaptive_learning import Concept
+    from unittest.mock import patch
+    
+    email = random_email()
+    user_headers = authentication_token_from_email(client=client, email=email, db=db)
+    
+    # 1. Setup Concept
+    concept = Concept(title="Counseling Test", subject="Psychology")
+    db.add(concept)
+    db.commit()
+    db.refresh(concept)
+    
+    # 2. Simulate Frustration (Incorrect + Hesitant)
+    for _ in range(2):
+        interaction_data = {
+            "associated_concept_id": str(concept.id),
+            "is_correct": False,
+            "time_taken_ms": 15000,
+            "hesitation_detected": True
+        }
+        client.post(
+            f"{settings.API_V1_STR}/adaptive-learning/interaction", headers=user_headers, json=interaction_data
+        )
+        
+    # 3. Request Counseling
+    # Mock LLM
+    with patch("app.services.gemini_service.GeminiService.generate_text", return_value='"Keep going! You can do it."') as mock_generate:
+        response = client.post(
+            f"{settings.API_V1_STR}/adaptive-learning/counsel", 
+            headers=user_headers, 
+            json={"concept_id": str(concept.id)}
+        )
+        
+        assert response.status_code == 200, f"Error: {response.text}"
+        content = response.json()
+        
+        # 4. Verify Sentiment Analysis
+        assert content["detected_emotion"] == "frustration"
+        assert content["message"] == "Keep going! You can do it."
+        assert content["concept_id"] == str(concept.id)
+

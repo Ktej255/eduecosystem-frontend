@@ -15,10 +15,32 @@ from app.schemas.adaptive_learning import (
     InteractionCreate, 
     InteractionResponse,
     GenerateContentRequest,
-    GeneratedContent
+    GeneratedContent,
+    CounselingRequest,
+    CounselingResponse
 )
+from app.services.adaptive_counseling_service import AdaptiveCounselingService
 
 router = APIRouter()
+
+# ... existing endpoints ...
+
+@router.post("/counsel", response_model=CounselingResponse)
+def get_counseling_message(
+    *,
+    db: Session = Depends(deps.get_db),
+    current_user: User = Depends(deps.get_current_active_user),
+    request: CounselingRequest
+) -> Any:
+    """
+    Get an AI counseling message based on recent interactions.
+    """
+    service = AdaptiveCounselingService(db)
+    try:
+        response = service.generate_counseling_message(current_user.id, request.concept_id)
+        return response
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/concepts", response_model=Concept)
 def create_concept(
@@ -100,10 +122,30 @@ def log_interaction(
         # Get updated mastery to return
         updated_mastery = service.get_user_mastery(current_user.id, interaction_in.associated_concept_id)
         
+        recommendation = None
+        # Diagnostic Trigger: If incorrect and mastery is low, check parents
+        if not data.get("is_correct", False) and getattr(updated_mastery, 'status', 'Red') == "Red":
+            # Check parents
+            parents = service.db.query(ConceptDependency).filter(
+                ConceptDependency.child_concept_id == interaction_in.associated_concept_id
+            ).all()
+            
+            for dep in parents:
+                parent_mastery = service.get_user_mastery(current_user.id, dep.parent_concept_id)
+                # If parent is not Green (Mastered), flag it
+                if not parent_mastery or parent_mastery.status != "Green":
+                    recommendation = {
+                        "type": "review_prerequisite",
+                        "concept_id": str(dep.parent_concept_id),
+                        "message": "It seems you are struggling. We recommend reviewing the prerequisite concept."
+                    }
+                    break # Just one for now
+        
         return {
             "status": "logged", 
             "mastery_probability": updated_mastery.mastery_probability if updated_mastery else 0.0,
-            "mastery_status": updated_mastery.status if updated_mastery else "Red"
+            "mastery_status": updated_mastery.status if updated_mastery else "Red",
+            "recommendation": recommendation
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))

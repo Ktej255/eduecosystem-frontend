@@ -56,4 +56,14 @@ class GeneratedContent(BaseModel):
     options: List[str]
     correct_option_index: int
     explanation: str
+    explanation: str
     strategy_used: Optional[str] = None
+
+# Counseling Schemas
+class CounselingRequest(BaseModel):
+    concept_id: UUID
+
+class CounselingResponse(BaseModel):
+    message: str
+    detected_emotion: str
+    concept_id: UUID
