@@ -26,8 +26,6 @@ const CycleEngine = React.lazy(() => import('./CycleEngine'));
 const AdvancedRecallEngine = React.lazy(() => import('./AdvancedRecallEngine'));
 const IntermediatePDFSession = React.lazy(() => import('./IntermediatePDFSession'));
 
-
-
 interface FunnelOrchestratorProps {
     examId: string;
     examName: string;
@@ -157,8 +155,6 @@ export default function FunnelOrchestrator({ examId, examName }: FunnelOrchestra
                                     topicName="Fundamental Rights"
                                     onRecallComplete={(data) => {
                                         console.log("Advanced Recall Complete", data);
-                                        // Move to next phase: showing content for gaps
-                                        // setStep('diagnostic');
                                     }}
                                 />
                             </Suspense>
@@ -177,7 +173,7 @@ export default function FunnelOrchestrator({ examId, examName }: FunnelOrchestra
                                 <CycleEngine
                                     subjectId="polity"
                                     topicName="Fundamental Rights"
-                                    topicId={102} // Corresponding backend topic ID
+                                    topicId={102}
                                     durationMinutes={25}
                                     onComplete={(data) => {
                                         console.log("Cycle Complete", data);
@@ -282,4 +278,8 @@ function BeginnerSessionConfig({ level, examName, onStart, onBack }: { level: st
                 onClick={onStart}
                 className="w-full h-16 rounded-2xl bg-indigo-600 text-white text-lg font-black hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-indigo-500/30 hover:bg-indigo-700"
             >
-                L
+                Launch {duration}h Adaptive Engine
+            </Button>
+        </div>
+    );
+}

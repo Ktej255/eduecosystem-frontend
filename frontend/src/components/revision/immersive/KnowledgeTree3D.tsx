@@ -49,22 +49,31 @@ const Leaf = ({ leaf, position }: LeafProps) => {
     });
 
     // Droop effect for withered leaves
-    const droopY = leaf.status === 'withered' ? -0.3 : 0;
+    const isWithered = leaf.status === 'withered' || leaf.retentionScore < 40;
+    const droopY = isWithered ? -0.4 : 0;
+    const droopRotation = isWithered ? Math.PI / 4 : 0; // Rotate downwards
+    const witheredScale = isWithered ? 0.7 : 1.0;
+    const finalScale = scale * witheredScale;
 
     return (
-        <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.3}>
+        <Float
+            speed={isWithered ? 0.5 : 1.5}
+            rotationIntensity={isWithered ? 0.1 : 0.2}
+            floatIntensity={isWithered ? 0.1 : 0.3}
+        >
             <mesh
                 ref={meshRef}
                 position={[position[0], position[1] + droopY, position[2]]}
-                scale={scale}
+                rotation={[droopRotation, 0, 0]}
+                scale={finalScale}
             >
                 <sphereGeometry args={[1, 16, 16]} />
                 <meshStandardMaterial
                     color={color}
                     emissive={emissive}
                     emissiveIntensity={leaf.retentionScore >= 80 ? 0.4 : 0.1}
-                    roughness={0.4}
-                    metalness={0.2}
+                    roughness={isWithered ? 1.0 : 0.4} // Rougher for withered
+                    metalness={isWithered ? 0.0 : 0.2}
                 />
             </mesh>
             {/* Topic Label */}

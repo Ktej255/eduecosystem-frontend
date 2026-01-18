@@ -321,4 +321,8 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
                             Based on your previous speed, Article 17 has been prioritized for this cycle. Retention velocity is 1.2x.
                         </p>
                     </Card>
-              
+                </div>
+            </div>
+        </div>
+    );
+}

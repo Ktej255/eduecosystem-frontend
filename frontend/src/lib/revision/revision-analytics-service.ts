@@ -11,6 +11,7 @@ export interface CycleSession {
     examId: string;
     subjectId: string;
     topicName: string;
+    topicId: number;
     startTime: string; // ISO date string
     endTime: string;
     durationMinutes: number;
@@ -64,7 +65,7 @@ export async function saveCycleSession(session: CycleSession): Promise<void> {
 
 async function syncCycleToBackend(session: CycleSession) {
     const payload = {
-        topic_id: 101, // Map topic string to ID or use real ID if available
+        topic_id: session.topicId,
         cycle_type: `${session.level}_${session.durationMinutes}m`,
         duration_minutes: session.durationMinutes,
         recall_score: session.phases.recall.aiScore || 0,
