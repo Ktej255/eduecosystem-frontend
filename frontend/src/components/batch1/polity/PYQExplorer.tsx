@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Filter, CheckCircle, XCircle, BookOpen, Calendar, Target, ChevronRight, HelpCircle } from 'lucide-react';
+import { Filter, CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
