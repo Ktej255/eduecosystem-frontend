@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Users, FileText, TrendingUp, Shield, BookOpen, BarChart3, Brain, GraduationCap, ExternalLink, Zap, Activity, ArrowRight, AlertCircle, RefreshCw, Clock, CheckCircle2, Timer } from "lucide-react";
 import Link from "next/link";
 import api from "@/lib/api";
+import AdminActionCenter from "@/components/admin/ActionCenter";
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState<any>(null);
@@ -15,6 +16,9 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchStats();
+    // Poll for live updates every 30 seconds
+    const interval = setInterval(fetchStats, 30000);
+    return () => clearInterval(interval);
   }, []);
 
   const fetchStats = async () => {
@@ -291,47 +295,117 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      {/* Quick Stats Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg text-gray-900 dark:text-gray-100">User Statistics</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <span className="text-gray-600 dark:text-gray-400">Banned Users</span>
-                <span className="font-bold text-gray-900 dark:text-gray-100">{stats?.users?.banned || 0}</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <span className="text-gray-600 dark:text-gray-400">New This Week</span>
-                <span className="font-bold text-gray-900 dark:text-gray-100">{stats?.users?.new_this_week || 0}</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <span className="text-gray-600 dark:text-gray-400">Average Streak</span>
-                <span className="font-bold text-gray-900 dark:text-gray-100">{stats?.engagement?.avg_streak || 0} days</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+      {/* Strategic Command Section */}
+      <div>
+        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+          <Brain className="h-5 w-5 text-purple-600" />
+          Strategic Command
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Link href="/admin/ai-planning">
+            <Card className="h-full hover:shadow-lg transition-all duration-300 cursor-pointer border-t-4 border-t-purple-500">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-3">
+                      <Brain className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">Strategic AI</p>
+                    <p className="text-lg font-bold text-gray-900 dark:text-gray-100">AI Planning</p>
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-gray-400" />
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg text-gray-900 dark:text-gray-100">Content Overview</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <span className="text-gray-600 dark:text-gray-400">Shadow Sessions</span>
-                <span className="font-bold text-gray-900 dark:text-gray-100">{stats?.content?.shadow_sessions || 0}</span>
+          <Link href="/admin/development-history">
+            <Card className="h-full hover:shadow-lg transition-all duration-300 cursor-pointer border-t-4 border-t-blue-500">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-3">
+                      <FileText className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">Engineering</p>
+                    <p className="text-lg font-bold text-gray-900 dark:text-gray-100">Dev History</p>
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-gray-400" />
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link href="/admin/performance">
+            <Card className="h-full hover:shadow-lg transition-all duration-300 cursor-pointer border-t-4 border-t-emerald-500">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-3">
+                      <Activity className="h-5 w-5 text-emerald-600" />
+                    </div>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">System Health</p>
+                    <p className="text-lg font-bold text-gray-900 dark:text-gray-100">Performance</p>
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-gray-400" />
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
+      </div>
+
+      {/* Quick Stats & Action Center Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-1">
+          <AdminActionCenter />
+        </div>
+
+        <div className="lg:col-span-2 space-y-6">
+          <Card className="h-full">
+            <CardHeader>
+              <CardTitle className="text-lg text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                <BarChart3 className="h-5 w-5 text-indigo-500" />
+                System Health & Engagement
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
+                    <span className="text-gray-600 dark:text-gray-400 text-sm">Banned Users</span>
+                    <span className="font-bold text-red-600">{stats?.users?.banned || 0}</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
+                    <span className="text-gray-600 dark:text-gray-400 text-sm">New This Week</span>
+                    <span className="font-bold text-indigo-600">+{stats?.users?.new_this_week || 0}</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
+                    <span className="text-gray-600 dark:text-gray-400 text-sm">Average Streak</span>
+                    <span className="font-bold text-emerald-600">{stats?.engagement?.avg_streak || 0} days</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
+                    <span className="text-gray-600 dark:text-gray-400 text-sm">Shadow Sessions</span>
+                    <span className="font-bold text-gray-900 dark:text-gray-100">{stats?.content?.shadow_sessions || 0}</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
+                    <span className="text-gray-600 dark:text-gray-400 text-sm">Total Groups</span>
+                    <span className="font-bold text-gray-900 dark:text-gray-100">{stats?.content?.groups || 0}</span>
+                  </div>
+                  <div className="mt-4 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-100 dark:border-indigo-800">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Zap className="h-4 w-4 text-indigo-600" />
+                      <span className="text-sm font-bold text-indigo-900 dark:text-indigo-100">AI Performance</span>
+                    </div>
+                    <p className="text-xs text-indigo-600/80">System operation is at peak efficiency</p>
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <span className="text-gray-600 dark:text-gray-400">Total Groups</span>
-                <span className="font-bold text-gray-900 dark:text-gray-100">{stats?.content?.groups || 0}</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
       {/* Student Activity Overview - Real-time data */}
@@ -340,6 +414,20 @@ export default function AdminDashboard() {
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
             <Activity className="h-5 w-5 text-green-600" />
             Real-Time Student Activity
+            {overview?.live && (
+              <span className="ml-2 flex gap-2">
+                {overview.live.studying > 0 && (
+                  <span className="px-2 py-0.5 bg-purple-100 text-purple-700 text-[10px] rounded-full animate-pulse border border-purple-200">
+                    {overview.live.studying} Studying Live
+                  </span>
+                )}
+                {overview.live.drilling > 0 && (
+                  <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] rounded-full animate-pulse border border-blue-200">
+                    {overview.live.drilling} Drilling Live
+                  </span>
+                )}
+              </span>
+            )}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Card className="border-l-4 border-l-blue-500">

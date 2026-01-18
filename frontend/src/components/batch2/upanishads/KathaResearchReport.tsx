@@ -10,18 +10,21 @@ interface ResearchSectionProps {
     icon?: React.ElementType;
 }
 
-const ResearchSection = ({ title, children, icon: Icon }: ResearchSectionProps) => (
-    <div className="mb-12 relative">
-        <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-amber-500/50 to-transparent rounded-full" />
-        <div className="flex items-center gap-3 mb-6">
-            {Icon && <Icon className="w-6 h-6 text-amber-500" />}
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-amber-100 drop-shadow-md">{title}</h3>
+const ResearchSection = ({ title, children, icon: Icon }: ResearchSectionProps) => {
+    const IconComp = Icon as any;
+    return (
+        <div className="mb-12 relative">
+            <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-amber-500/50 to-transparent rounded-full" />
+            <div className="flex items-center gap-3 mb-6">
+                {IconComp && <IconComp className="w-6 h-6 text-amber-500" />}
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-amber-100 drop-shadow-md">{title}</h3>
+            </div>
+            <div className="space-y-6 text-lg leading-relaxed text-amber-50/90 font-light tracking-wide">
+                {children}
+            </div>
         </div>
-        <div className="space-y-6 text-lg leading-relaxed text-amber-50/90 font-light tracking-wide">
-            {children}
-        </div>
-    </div>
-);
+    );
+};
 
 const HighlightBox = ({ title, children }: { title: string, children: React.ReactNode }) => (
     <div className="bg-slate-900/80 border border-amber-500/20 rounded-2xl p-6 md:p-8 my-8 relative overflow-hidden group hover:bg-slate-800 transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]">

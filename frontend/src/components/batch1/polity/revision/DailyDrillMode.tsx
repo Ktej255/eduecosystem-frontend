@@ -14,7 +14,7 @@ import {
     Calendar
 } from 'lucide-react';
 import Link from 'next/link';
-import { POLITY_REVISION_CHAPTERS, POLITY_SUMMARY_FACTS, Flashcard } from '../data/RevisionRegistry';
+import { POLITY_REVISION_CHAPTERS, POLITY_SUMMARY_FACTS, RevisionFlashcard } from '../data/RevisionRegistry';
 import { getDueCards, SRSCard, reviewCard, Quality } from './srs-engine';
 import { updateMcqProgress, updateStreak } from './progress-utils';
 import { toast } from 'sonner';
@@ -319,13 +319,13 @@ export default function DailyDrillMode() {
                                 disabled={mcqAnswer !== null}
                                 onClick={() => setMcqAnswer(idx)}
                                 className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${mcqAnswer === idx
-                                        ? (idx === mcq.correctAnswer ? 'bg-green-50 border-green-500 text-green-700' : 'bg-red-50 border-red-500 text-red-700')
-                                        : (mcqAnswer !== null && idx === mcq.correctAnswer ? 'bg-green-50 border-green-500 text-green-700' : 'bg-white dark:bg-[#111] border-gray-100 dark:border-gray-800 hover:border-purple-200')
+                                    ? (idx === mcq.correctAnswer ? 'bg-green-50 border-green-500 text-green-700' : 'bg-red-50 border-red-500 text-red-700')
+                                    : (mcqAnswer !== null && idx === mcq.correctAnswer ? 'bg-green-50 border-green-500 text-green-700' : 'bg-white dark:bg-[#111] border-gray-100 dark:border-gray-800 hover:border-purple-200')
                                     }`}
                             >
                                 <div className={`w-6 h-6 rounded-full border flex items-center justify-center text-xs font-bold ${mcqAnswer === idx
-                                        ? (idx === mcq.correctAnswer ? 'bg-green-500 border-green-500 text-white' : 'bg-red-500 border-red-500 text-white')
-                                        : 'border-gray-300 text-gray-400'
+                                    ? (idx === mcq.correctAnswer ? 'bg-green-500 border-green-500 text-white' : 'bg-red-500 border-red-500 text-white')
+                                    : 'border-gray-300 text-gray-400'
                                     }`}>
                                     {String.fromCharCode(65 + idx)}
                                 </div>

@@ -134,6 +134,7 @@ const teacherRoutes: Route[] = [
             { label: "Question bank", icon: HelpCircle, href: "/teacher/lms/questions", color: "text-emerald-300" },
             { label: "Quiz reviews", icon: ClipboardCheck, href: "/teacher/lms/quiz-reviews", color: "text-emerald-300" },
             { label: "Assignments", icon: FileEdit, href: "/teacher/lms/assignments", color: "text-emerald-300" },
+            { label: "Evaluation Hub", icon: ClipboardCheck, href: "/teacher/manage/evaluations", color: "text-emerald-300", badge: "AI" },
             { label: "Live tests", icon: Timer, href: "/teacher/lms/live-tests", color: "text-emerald-300" },
             { label: "Live classes", icon: Radio, href: "/teacher/lms/live-classes", color: "text-emerald-300" },
             { label: "Ratings & reviews", icon: Star, href: "/teacher/lms/reviews", color: "text-emerald-300" },

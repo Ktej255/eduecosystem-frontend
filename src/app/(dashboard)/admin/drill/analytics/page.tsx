@@ -8,6 +8,7 @@ import {
     Download, RefreshCw, Brain
 } from "lucide-react";
 import Link from "next/link";
+import { TopicMasteryChart } from "@/components/admin-portal/TopicMasteryChart";
 
 interface AnalyticsData {
     total_students: number;
@@ -174,59 +175,58 @@ export default function AdminAnalyticsPage() {
             )}
 
             {/* Topic Performance */}
-            <Card>
-                <CardHeader>
-                    <CardTitle>Topic-wise Performance ({selectedGS})</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="overflow-x-auto">
-                        <table className="w-full">
-                            <thead>
-                                <tr className="border-b">
-                                    <th className="text-left p-3 text-gray-700 dark:text-gray-300">Topic</th>
-                                    <th className="text-right p-3 text-gray-700 dark:text-gray-300">Attempts</th>
-                                    <th className="text-right p-3 text-gray-700 dark:text-gray-300">Avg Score</th>
-                                    <th className="text-right p-3 text-gray-700 dark:text-gray-300">Avg Improvement</th>
-                                    <th className="text-right p-3 text-gray-700 dark:text-gray-300">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {topicPerformance.map((topic, idx) => (
-                                    <tr key={idx} className="border-b hover:bg-gray-50 dark:hover:bg-gray-800">
-                                        <td className="p-3 text-gray-900 dark:text-gray-100 font-medium">
-                                            {topic.topic}
-                                        </td>
-                                        <td className="p-3 text-right text-gray-700 dark:text-gray-300">
-                                            {topic.total_attempts}
-                                        </td>
-                                        <td className="p-3 text-right">
-                                            <span className={`px-2 py-1 rounded text-sm font-medium ${topic.average_score >= 80 ? 'bg-green-100 text-green-700' :
-                                                    topic.average_score >= 60 ? 'bg-yellow-100 text-yellow-700' :
-                                                        'bg-red-100 text-red-700'
-                                                }`}>
-                                                {topic.average_score.toFixed(1)}%
-                                            </span>
-                                        </td>
-                                        <td className="p-3 text-right text-green-600 font-semibold">
-                                            +{topic.average_improvement.toFixed(1)}%
-                                        </td>
-                                        <td className="p-3 text-right">
-                                            {topic.average_score >= 80 ? (
-                                                <span className="text-green-600">✓ Strong</span>
-                                            ) : topic.average_score >= 60 ? (
-                                                <span className="text-yellow-600">⚠ Moderate</span>
-                                            ) : (
-                                                <span className="text-red-600">⚠ Needs Attention</span>
-                                            )}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </CardContent>
-            </Card>
+            {/* Topic Performance Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <TopicMasteryChart data={topicPerformance} />
 
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Topic Details ({selectedGS})</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="overflow-x-auto">
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left p-3 text-gray-700 dark:text-gray-300">Topic</th>
+                                        <th className="text-right p-3 text-gray-700 dark:text-gray-300">Stats</th>
+                                        <th className="text-right p-3 text-gray-700 dark:text-gray-300">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {topicPerformance.map((topic, idx) => (
+                                        <tr key={idx} className="border-b hover:bg-gray-50 dark:hover:bg-gray-800">
+                                            <td className="p-3 text-gray-900 dark:text-gray-100 font-medium">
+                                                {topic.topic}
+                                            </td>
+                                            <td className="p-3 text-right">
+                                                <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                                                    {topic.average_score.toFixed(1)}%
+                                                </div>
+                                                <div className="text-xs text-gray-500">
+                                                    {topic.total_attempts} attempts
+                                                </div>
+                                            </td>
+                                            <td className="p-3 text-right">
+                                                {topic.average_score >= 80 ? (
+                                                    <span className="text-green-600 text-sm">✓ Strong</span>
+                                                ) : topic.average_score >= 60 ? (
+                                                    <span className="text-yellow-600 text-sm">⚠ Moderate</span>
+                                                ) : (
+                                                    <span className="text-red-600 text-sm">⚠ Needs Attention</span>
+                                                )}
+                                                <div className="text-xs text-green-600 font-medium">
+                                                    +{topic.average_improvement.toFixed(1)}%
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
             {/* Actions */}
             <Card>
                 <CardHeader>

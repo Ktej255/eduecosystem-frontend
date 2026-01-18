@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
+import { XPProgressBar } from "@/components/gamification/XPProgressBar";
+
 
 const menuItems = [
     {
@@ -288,43 +290,12 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                 )}
             </nav>
 
-            {/* Progress Section */}
+            {/* XP Progress Section */}
             <div className={`p-4 mt-4 border-t border-gray-200 dark:border-gray-800 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden p-0"
                 }`}>
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-4">
-                    <h3 className="font-semibold text-sm text-gray-900 dark:text-gray-100 mb-2">
-                        Your Progress
-                    </h3>
-                    <div className="space-y-2">
-                        <div className="flex justify-between text-xs">
-                            <span className="text-gray-600 dark:text-gray-400">Overall</span>
-                            <span className="font-medium text-gray-900 dark:text-gray-100">{progressPercent}%</span>
-                        </div>
-                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-                            <div
-                                className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-500"
-                                style={{ width: `${progressPercent}%` }}
-                            />
-                        </div>
-                        {stats && (
-                            <div className="mt-3 space-y-1 text-xs text-gray-500 dark:text-gray-400">
-                                <div className="flex justify-between">
-                                    <span>🧘 Meditation</span>
-                                    <span>Lv{stats.meditation.currentLevel} D{stats.meditation.currentDay}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>✍️ Graphotherapy</span>
-                                    <span>Lv{stats.graphotherapy.currentLevel} D{stats.graphotherapy.currentDay}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>🔥 Streak</span>
-                                    <span>{stats.overallStreak} days</span>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </div>
+                <XPProgressBar />
             </div>
+
 
             {/* Admin Portal Switcher - Only for Master ID */}
             {isMaster && (

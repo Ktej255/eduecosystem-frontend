@@ -11,7 +11,11 @@ import {
     BookOpen,
     PlayCircle,
     Mic,
-    ListTodo
+    ListTodo,
+    Landmark,
+    Globe,
+    Coins,
+    ArrowLeft
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -173,6 +177,7 @@ export default function FunnelOrchestrator({ examId, examName }: FunnelOrchestra
                                 <CycleEngine
                                     subjectId="polity"
                                     topicName="Fundamental Rights"
+                                    topicId={102} // Corresponding backend topic ID
                                     durationMinutes={25}
                                     onComplete={(data) => {
                                         console.log("Cycle Complete", data);
@@ -277,8 +282,4 @@ function BeginnerSessionConfig({ level, examName, onStart, onBack }: { level: st
                 onClick={onStart}
                 className="w-full h-16 rounded-2xl bg-indigo-600 text-white text-lg font-black hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-indigo-500/30 hover:bg-indigo-700"
             >
-                Launch {duration}h Adaptive Engine
-            </Button>
-        </div>
-    );
-}
+                L

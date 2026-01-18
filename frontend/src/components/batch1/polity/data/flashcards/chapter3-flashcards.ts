@@ -1,9 +1,9 @@
 // Chapter 3: Concept of the Constitution - Flashcards
 // Source: Laxmikanth Indian Polity
 
-import { Flashcard } from './chapter1-flashcards';
+import { RevisionFlashcard } from '../RevisionRegistry';
 
-export const CHAPTER_3_FLASHCARDS: Flashcard[] = [
+export const CHAPTER_3_FLASHCARDS: RevisionFlashcard[] = [
     {
         id: 1,
         chapterId: 3,

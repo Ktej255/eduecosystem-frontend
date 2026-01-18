@@ -1,6 +1,9 @@
 // Chapter 1: Historical Background - Flashcards
 // Source: Laxmikanth Indian Polity
 
+import { RevisionFlashcard } from '../RevisionRegistry';
+
+// Legacy interface kept for compatibility if needed, but we prefer RevisionFlashcard
 export interface Flashcard {
     id: number;
     chapterId: number;
@@ -10,7 +13,7 @@ export interface Flashcard {
     difficulty: 'easy' | 'medium' | 'hard';
 }
 
-export const CHAPTER_1_FLASHCARDS: Flashcard[] = [
+export const CHAPTER_1_FLASHCARDS: RevisionFlashcard[] = [
     // COMPANY RULE (1773-1858)
     {
         id: 1,

@@ -87,7 +87,7 @@ import { DAY10_PAPER1_MCQS } from "./polity/data/day10-paper1-mcqs";
 import { DAY10_PAPER2_MCQS } from "./polity/data/day10-paper2-mcqs";
 
 // Common MCQ Type (Assume exported from day1-mcqs or similar, or define here if needed)
-import { MCQ as Question } from "./polity/data/day1-mcqs";
+import { MCQ as Question } from "./polity/data/mcq-utils";
 
 // === DYNAMIC IMPORTS ===
 import { getMCQsForSubtopics } from "./polity/data/polity-mcqs-data";
@@ -238,9 +238,8 @@ export function getFlashcardAvailableDays(): number[] {
 
 // ...
 
-// Note: MCQ entries may have varying shapes (Question, MCQ, Week1Question, Day32Question, etc.)
-// Using any[] to accommodate multiple interfaces used across different day files
-export const MCQ_CONTENT_REGISTRY: Record<number, any[] | undefined> = {
+// Note: MCQ entries are now standardized to MCQ interface
+export const MCQ_CONTENT_REGISTRY: Record<number, Question[] | undefined> = {
     // STARTING WITH DAY 1 (Ch 11, 12, 13, 14 Revision)
     1: WEEK1_MCQS,
     2: DAY2_MCQS, // Day 2 (Ch 15)

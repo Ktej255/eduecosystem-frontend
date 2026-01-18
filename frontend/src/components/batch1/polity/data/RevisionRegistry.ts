@@ -298,7 +298,7 @@ import {
     SCHEDULES_SUMMARY
 } from './facts/polity-facts-summary';
 
-export interface Flashcard {
+export interface RevisionFlashcard {
     id: number;
     chapterId: number;
     question: string;
@@ -321,7 +321,7 @@ export interface ChapterRevisionData {
     id: number;
     title: string;
     content: any;
-    flashcards: Flashcard[];
+    flashcards: RevisionFlashcard[];
     mcqs: MCQ[];
 }
 

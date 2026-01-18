@@ -13,7 +13,7 @@ import {
     Timer
 } from 'lucide-react';
 import Link from 'next/link';
-import { POLITY_REVISION_CHAPTERS, Flashcard } from '../data/RevisionRegistry';
+import { POLITY_REVISION_CHAPTERS, RevisionFlashcard as Flashcard } from '../data/RevisionRegistry';
 
 // Flatten all flashcards from all chapters
 function getAllFlashcards(): (Flashcard & { chapterTitle: string })[] {

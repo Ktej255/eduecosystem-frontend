@@ -34,7 +34,7 @@ import {
 } from 'recharts';
 
 interface TestAnswer {
-    qId: number;
+    qId: string | number;
     answer: number;
     isCorrect: boolean;
     confidence: number | null; // 1=100% Sure, 2=50-50, 3=One Known, 4=Blind Guess
@@ -42,10 +42,11 @@ interface TestAnswer {
 }
 
 interface MCQWithMeta {
-    id: number;
+    id: string | number;
     question: string;
     options: string[];
-    correctAnswer: number;
+    correctAnswer?: number;
+    correctIndex?: number;
     explanation?: string;
     level?: string;
     topic?: string;
@@ -86,7 +87,7 @@ const CONFIDENCE_LABELS: Record<number, { label: string; emoji: string; color: s
 
 export default function DetailedTestReport({ testResult, mcqs, history, onClose }: DetailedTestReportProps) {
     const [reviewFilter, setReviewFilter] = useState<'all' | 'incorrect' | 'skipped' | 'marked'>('all');
-    const [markedQuestions, setMarkedQuestions] = useState<number[]>([]);
+    const [markedQuestions, setMarkedQuestions] = useState<(string | number)[]>([]);
 
     // Load bookmarks
     useEffect(() => {
@@ -94,7 +95,7 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
         if (saved) setMarkedQuestions(JSON.parse(saved));
     }, []);
 
-    const toggleBookmark = (qId: number) => {
+    const toggleBookmark = (qId: string | number) => {
         const newSet = markedQuestions.includes(qId)
             ? markedQuestions.filter(id => id !== qId)
             : [...markedQuestions, qId];
@@ -109,7 +110,7 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
             incorrect: number;
             unanswered: number;
             avgTime: number;
-            questions: { qId: number; isCorrect: boolean; confidence: number | null }[];
+            questions: { qId: string | number; isCorrect: boolean; confidence: number | null }[];
         }> = {};
 
         testResult.answers.forEach(ans => {
@@ -211,7 +212,7 @@ export default function DetailedTestReport({ testResult, mcqs, history, onClose 
                                 const mcq = mcqs.find(m => m.id === ans.qId);
                                 const qText = mcq?.question.replace(/,/g, " ") || "Unknown";
                                 const myAns = ans.answer !== -1 ? String.fromCharCode(65 + ans.answer) : "Skipped";
-                                const correctAns = mcq ? String.fromCharCode(65 + mcq.correctAnswer) : "?";
+                                const correctAns = mcq ? String.fromCharCode(65 + (mcq.correctAnswer ?? mcq.correctIndex ?? 0)) : "?";
                                 return `${ans.qId},"${qText}",${myAns},${correctAns},${ans.isCorrect ? "Yes" : "No"},${ans.timeSpentSeconds || 0},${ans.confidence || ""}`;
                             }).join("\n");
                         const encodedUri = encodeURI(csvContent);

@@ -1,9 +1,9 @@
 // Chapter 2: Making of the Constitution - Flashcards
 // Source: Laxmikanth Indian Polity
 
-import { Flashcard } from './chapter1-flashcards';
+import { RevisionFlashcard } from '../RevisionRegistry';
 
-export const CHAPTER_2_FLASHCARDS: Flashcard[] = [
+export const CHAPTER_2_FLASHCARDS: RevisionFlashcard[] = [
     {
         id: 1,
         chapterId: 2,

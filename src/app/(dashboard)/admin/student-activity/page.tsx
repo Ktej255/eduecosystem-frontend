@@ -44,10 +44,29 @@ export default function StudentActivityPage() {
     const [error, setError] = useState<string | null>(null);
     const [search, setSearch] = useState("");
     const [selectedStudent, setSelectedStudent] = useState<StudentActivity | null>(null);
+    const [timeline, setTimeline] = useState<any[]>([]);
+    const [timelineLoading, setTimelineLoading] = useState(false);
 
     useEffect(() => {
-        fetchStudents();
-    }, []);
+        if (selectedStudent) {
+            fetchTimeline(selectedStudent.id);
+        }
+    }, [selectedStudent]);
+
+    const fetchTimeline = async (studentId: number) => {
+        setTimelineLoading(true);
+        try {
+            const response = await api.get(`/admin/student-activity/${studentId}/timeline`, {
+                params: { days: 1 }
+            });
+            setTimeline(response.data);
+        } catch (err) {
+            console.error("Failed to fetch timeline", err);
+            toast.error("Failed to load activity timeline");
+        } finally {
+            setTimelineLoading(false);
+        }
+    };
 
     const fetchStudents = async () => {
         setLoading(true);
@@ -219,98 +238,117 @@ export default function StudentActivityPage() {
                 </p>
             </div>
 
-            {/* Student Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredStudents.map((student) => (
-                    <Card
-                        key={student.id}
-                        className={`cursor-pointer transition-all hover:shadow-lg ${selectedStudent?.id === student.id ? 'ring-2 ring-indigo-500' : ''
-                            }`}
-                        onClick={() => setSelectedStudent(selectedStudent?.id === student.id ? null : student)}
-                    >
-                        <CardContent className="p-5">
-                            <div className="flex items-start justify-between mb-4">
-                                <div>
-                                    <h3 className="font-semibold text-gray-900 dark:text-gray-100">
-                                        {student.full_name || "No Name"}
-                                    </h3>
-                                    <p className="text-sm text-gray-500">{student.email}</p>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    {student.is_active ? (
-                                        <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                                    ) : (
-                                        <span className="w-2 h-2 rounded-full bg-gray-400"></span>
-                                    )}
-                                    <ChevronRight className="w-4 h-4 text-gray-400" />
-                                </div>
-                            </div>
+            {/* Student Grid and Detail View */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Left: User List */}
+                <div className={`space-y-4 lg:col-span-2 ${selectedStudent ? 'hidden md:block' : ''}`}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {filteredStudents.map((student) => (
+                            <Card
+                                key={student.id}
+                                className={`cursor-pointer transition-all hover:shadow-lg ${selectedStudent?.id === student.id ? 'ring-2 ring-indigo-500' : ''
+                                    }`}
+                                onClick={() => setSelectedStudent(selectedStudent?.id === student.id ? null : student)}
+                            >
+                                <CardContent className="p-5">
+                                    <div className="flex items-start justify-between mb-4">
+                                        <div>
+                                            <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+                                                {student.full_name || "No Name"}
+                                            </h3>
+                                            <p className="text-sm text-gray-500">{student.email}</p>
+                                        </div>
+                                        <div className="flex items-center gap-1">
+                                            {student.is_active ? (
+                                                <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                                            ) : (
+                                                <span className="w-2 h-2 rounded-full bg-gray-400"></span>
+                                            )}
+                                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                                        </div>
+                                    </div>
 
-                            {/* Activity Metrics */}
-                            <div className="grid grid-cols-2 gap-2">
-                                <div className="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                                    <div className="flex items-center gap-1.5">
-                                        <Timer className="w-4 h-4 text-purple-600" />
-                                        <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                                            {student.pomodoro_sessions || 0}
-                                        </span>
+                                    {/* Activity Metrics */}
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <div className="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                            <div className="flex items-center gap-1.5">
+                                                <Timer className="w-4 h-4 text-purple-600" />
+                                                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                                    {student.pomodoro_sessions || 0}
+                                                </span>
+                                            </div>
+                                            <p className="text-xs text-gray-500 mt-0.5">Pomodoros</p>
+                                        </div>
+                                        <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                            <div className="flex items-center gap-1.5">
+                                                <BookOpen className="w-4 h-4 text-blue-600" />
+                                                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                                    {student.mcqs_completed || 0}
+                                                </span>
+                                            </div>
+                                            <p className="text-xs text-gray-500 mt-0.5">MCQs</p>
+                                        </div>
                                     </div>
-                                    <p className="text-xs text-gray-500 mt-0.5">Pomodoros</p>
-                                </div>
-                                <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                                    <div className="flex items-center gap-1.5">
-                                        <BookOpen className="w-4 h-4 text-blue-600" />
-                                        <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                                            {student.mcqs_completed || 0}
-                                        </span>
-                                    </div>
-                                    <p className="text-xs text-gray-500 mt-0.5">MCQs</p>
-                                </div>
-                                <div className="p-2 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
-                                    <div className="flex items-center gap-1.5">
-                                        <Clock className="w-4 h-4 text-amber-600" />
-                                        <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                                            {student.total_study_hours || 0}h
-                                        </span>
-                                    </div>
-                                    <p className="text-xs text-gray-500 mt-0.5">Study Time</p>
-                                </div>
-                                <div className="p-2 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                                    <div className="flex items-center gap-1.5">
-                                        <Award className="w-4 h-4 text-green-600" />
-                                        <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                                            {student.streak_days || 0}
-                                        </span>
-                                    </div>
-                                    <p className="text-xs text-gray-500 mt-0.5">Day Streak</p>
-                                </div>
-                            </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
 
-                            {/* Batch Tags */}
-                            <div className="mt-3 flex gap-2">
-                                {student.is_batch1_authorized && (
-                                    <span className="text-xs px-2 py-0.5 bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-200 rounded">
-                                        Batch 1
-                                    </span>
+                {/* Right: Detailed Timeline View */}
+                {selectedStudent && (
+                    <div className="lg:col-span-1">
+                        <Card className="sticky top-8 border-indigo-500/30 bg-indigo-50/5 dark:bg-indigo-950/5">
+                            <CardHeader className="pb-2">
+                                <div className="flex items-center justify-between">
+                                    <CardTitle className="text-lg">Activity Timeline</CardTitle>
+                                    <Button variant="ghost" size="sm" onClick={() => setSelectedStudent(null)}>Close</Button>
+                                </div>
+                                <p className="text-xs text-gray-500">{selectedStudent.full_name}</p>
+                            </CardHeader>
+                            <CardContent>
+                                {timelineLoading ? (
+                                    <div className="flex items-center justify-center p-12">
+                                        <RefreshCw className="w-6 h-6 animate-spin text-indigo-500" />
+                                    </div>
+                                ) : timeline.length > 0 ? (
+                                    <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+                                        {timeline.map((event, idx) => (
+                                            <div key={idx} className="relative pl-4 pb-4 border-l border-indigo-200 dark:border-indigo-800 last:border-0">
+                                                <div className={`absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full ${event.type === 'STUDY_SESSION' ? 'bg-purple-500' : 'bg-blue-400'
+                                                    }`} />
+                                                <div className="flex flex-col">
+                                                    <span className="text-[10px] theme-text-secondary uppercase font-bold tracking-tighter">
+                                                        {new Date(event.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                                    </span>
+                                                    <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                                        {event.action || event.details}
+                                                    </span>
+                                                    {event.type === 'STUDY_SESSION' && (
+                                                        <span className="text-xs text-purple-600 dark:text-purple-400 font-medium">
+                                                            {Math.round(event.duration / 60)} min session
+                                                        </span>
+                                                    )}
+                                                    <span className="text-[10px] text-gray-500">
+                                                        {event.category}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="text-center py-12 text-gray-500 border-2 border-dashed border-gray-100 dark:border-gray-800 rounded-xl">
+                                        <Clock className="w-8 h-8 mx-auto mb-2 opacity-20" />
+                                        <p className="text-sm">No activity in last 24h</p>
+                                    </div>
                                 )}
-                                {student.is_batch2_authorized && (
-                                    <span className="text-xs px-2 py-0.5 bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200 rounded">
-                                        Batch 2
-                                    </span>
-                                )}
-                            </div>
-
-                            {/* Last Login */}
-                            <div className="mt-3 flex items-center gap-1 text-xs text-gray-400">
-                                <Calendar className="w-3 h-3" />
-                                Last active: {student.last_login ? new Date(student.last_login).toLocaleDateString() : "Never"}
-                            </div>
-                        </CardContent>
-                    </Card>
-                ))}
+                            </CardContent>
+                        </Card>
+                    </div>
+                )}
             </div>
 
-            {filteredStudents.length === 0 && (
+            {filteredStudents.length === 0 && !selectedStudent && (
                 <div className="text-center py-12 text-gray-500">
                     No students found. {search && "Try a different search term."}
                 </div>

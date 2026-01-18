@@ -1,16 +1,8 @@
 import { DAY3_MCQS } from './day3-mcqs';
 import { DAY5_MCQS } from './day5-mcqs';
 
-export interface MCQ {
-    id: string;
-    subtopicId: string;
-    question: string;
-    options: string[];
-    correctIndex: number;
-    explanation: string;
-    difficulty?: 'Easy' | 'Moderate' | 'Tough';
-    correctAnswer?: number; // Alias for backward compatibility with TestHistoryModal
-}
+import { MCQ } from './mcq-utils';
+export type { MCQ };
 
 // Adapter for Day 3 Data (Chapters 16, 17 - Now directly compatible)
 const legacyDay3: MCQ[] = DAY3_MCQS;
@@ -444,6 +436,6 @@ export const POLITY_MCQS_DATA: MCQ[] = [
 export function getMCQsForSubtopics(subtopicIds: string[]): MCQ[] {
     // Also support partial matches for Chapter-level requests (e.g. '1.')
     return POLITY_MCQS_DATA.filter(mcq =>
-        subtopicIds.some(id => mcq.subtopicId === id || mcq.subtopicId.startsWith(id + '.'))
+        subtopicIds.some(id => mcq.subtopicId === id || mcq.subtopicId?.startsWith(id + '.'))
     );
 }

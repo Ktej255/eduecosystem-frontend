@@ -36,8 +36,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [questions, setQuestions] = useState<MCQ[]>([]);
     const [selectedSubTopic, setSelectedSubTopic] = useState<string | null>(null); // NEW: Sub-topic selection for Day 9
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [answers, setAnswers] = useState<{ [key: number]: number }>({}); // qId -> optionIndex
-    const [confidenceLevels, setConfidenceLevels] = useState<{ [key: number]: number }>({}); // qId -> confidence (1-4)
+    const [answers, setAnswers] = useState<{ [key: string]: number }>({}); // qId -> optionIndex
+    const [confidenceLevels, setConfidenceLevels] = useState<{ [key: string]: number }>({}); // qId -> confidence (1-4)
     const [timeLeft, setTimeLeft] = useState(60 * 60); // Default 60 min, will be updated based on question count
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
@@ -55,8 +55,8 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [loading, setLoading] = useState(true); // New loading state for questions
 
     // Time tracking per question
-    const [questionStartTimes, setQuestionStartTimes] = useState<{ [key: number]: number }>({}); // qId -> timestamp
-    const [timeSpentPerQuestion, setTimeSpentPerQuestion] = useState<{ [key: number]: number }>({}); // qId -> seconds
+    const [questionStartTimes, setQuestionStartTimes] = useState<{ [key: string]: number }>({}); // qId -> timestamp
+    const [timeSpentPerQuestion, setTimeSpentPerQuestion] = useState<{ [key: string]: number }>({}); // qId -> seconds
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
     const handleSubmitRef = useRef<() => void>(() => { }); // Ref to hold latest handleSubmit
@@ -287,7 +287,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             let isCorrect = false;
             if (userAnswer === undefined) {
                 unanswered++;
-            } else if (userAnswer === q.correctAnswer) {
+            } else if (userAnswer === (q.correctAnswer ?? q.correctIndex)) {
                 calculatedScore += 2; // +2 for correct
                 correct++;
                 isCorrect = true;
@@ -596,7 +596,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                         {currentQuestion.options.map((option, idx) => {
                             let optionClass = "border-2 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer transition-all";
                             const isSelected = answers[currentQuestion.id] === idx;
-                            const isCorrect = currentQuestion.correctAnswer === idx;
+                            const isCorrect = (currentQuestion.correctAnswer ?? currentQuestion.correctIndex) === idx;
 
                             if (isSubmitted) {
                                 if (isCorrect) {

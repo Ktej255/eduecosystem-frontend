@@ -20,6 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Holistic Learning Ecosystem",
   description: "AI-powered learning platform with wellness and gamification",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({

@@ -59,6 +59,10 @@ type AnalyticsData = {
     rating: number;
     revenue: number;
   }>;
+  live_activity: {
+    studying: number;
+    drilling: number;
+  };
 };
 
 export default function InstructorAnalyticsPage() {
@@ -68,12 +72,15 @@ export default function InstructorAnalyticsPage() {
 
   useEffect(() => {
     fetchAnalytics();
+    // Poll for live activity and updates every 30 seconds
+    const interval = setInterval(fetchAnalytics, 30000);
+    return () => clearInterval(interval);
   }, [timeRange]);
 
   const fetchAnalytics = async () => {
     try {
       const response = await axios.get(
-        `/api/v1/instructor/analytics?days=${timeRange}`,
+        `/api/v1/instructor/analytics/summary?days=${timeRange}`,
       );
       setData(response.data);
     } catch (error) {
@@ -119,7 +126,23 @@ export default function InstructorAnalyticsPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold mb-2">Analytics Dashboard</h1>
-          <p className="text-gray-400">Track your teaching performance</p>
+          <div className="flex items-center gap-3">
+            <p className="text-gray-400">Track your teaching performance</p>
+            {data.live_activity && (data.live_activity.studying > 0 || data.live_activity.drilling > 0) && (
+              <div className="flex gap-2 animate-pulse">
+                {data.live_activity.studying > 0 && (
+                  <span className="flex items-center gap-1 px-2 py-0.5 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase rounded-full border border-emerald-500/20">
+                    ● {data.live_activity.studying} Studying Live
+                  </span>
+                )}
+                {data.live_activity.drilling > 0 && (
+                  <span className="flex items-center gap-1 px-2 py-0.5 bg-blue-500/10 text-blue-500 text-[10px] font-bold uppercase rounded-full border border-blue-500/20">
+                    ● {data.live_activity.drilling} Drilling Live
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange}>
           <SelectTrigger className="w-48 bg-gray-900 border-gray-800">

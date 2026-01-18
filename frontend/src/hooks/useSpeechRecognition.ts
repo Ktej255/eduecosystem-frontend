@@ -116,6 +116,7 @@ export function useSpeechRecognition({
         startListening,
         stopListening,
         resetTranscript,
+        // @ts-ignore - Vendor prefixes
         hasSupport: typeof window !== 'undefined' && !!(window.SpeechRecognition || window.webkitSpeechRecognition)
     };
 }

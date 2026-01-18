@@ -1,17 +1,8 @@
 // Day 2 MCQs - UPSC Prelims 2026: Centre-State Relations (60 MCQs)
 // Updated: January 2026
 
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number; // 0 for A, 1 for B, 2 for C, 3 for D
-    explanation?: string;
-    level?: string;
-    topic?: string;
-    chapter?: string;
-    subtopic?: string;
-}
+import type { MCQ } from './mcq-utils';
+export type { MCQ };
 
 export const DAY2_MCQS: MCQ[] = [
     {

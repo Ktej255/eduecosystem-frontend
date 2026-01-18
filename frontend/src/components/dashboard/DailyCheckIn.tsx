@@ -6,7 +6,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sunrise, CheckCircle, Loader2 } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
-import { useConfetti } from "@/hooks/use-confetti"; // Assuming hooks exist, if not we'll remove
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 

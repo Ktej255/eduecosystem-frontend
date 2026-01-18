@@ -32,146 +32,67 @@ interface AIInsight {
     portal: string;
 }
 
+import { toast } from "sonner";
+import axios from "axios";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 export default function AIPlanningPage() {
     const [isGenerating, setIsGenerating] = useState(false);
     const [daysToAnalyze, setDaysToAnalyze] = useState(15);
-    const [planGenerated, setPlanGenerated] = useState(true);
+    const [planGenerated, setPlanGenerated] = useState(false);
+    const [planData, setPlanData] = useState<{ generated_plan: PlanItem[], strategic_insights: AIInsight[] } | null>(null);
+    const [isLogging, setIsLogging] = useState(false);
+    const [logForm, setLogForm] = useState({
+        portal: "Admin",
+        feature: "",
+        action: "NEW_FEATURE",
+        description: "",
+        impact: "Medium"
+    });
 
-    // AI-generated 7-day plan
-    const generatedPlan: PlanItem[] = [
-        {
-            day: 1,
-            date: "2026-01-18",
-            portal: "Admin Portal",
-            tasks: [
-                "Complete backend models for DevelopmentLog and DailyReport",
-                "Create CRUD endpoints for development history",
-                "Implement AI planning API integration with Gemini",
-                "Add auto-logging mechanism for daily summaries"
-            ],
-            priority: "high",
-            estimatedHours: 8
-        },
-        {
-            day: 2,
-            date: "2026-01-19",
-            portal: "Admin Portal",
-            tasks: [
-                "Enhance PDR visualization with interactive D3.js",
-                "Add zoom/pan functionality to portal map",
-                "Implement page navigation from diagram nodes",
-                "Create detailed connection tooltips"
-            ],
-            priority: "high",
-            estimatedHours: 6
-        },
-        {
-            day: 3,
-            date: "2026-01-20",
-            portal: "Student Portal - Batch 1",
-            tasks: [
-                "Implement real-time Pomodoro session tracking to backend",
-                "Create MCQ completion analytics API",
-                "Add study time aggregation service",
-                "Build student activity heatmap component"
-            ],
-            priority: "high",
-            estimatedHours: 8
-        },
-        {
-            day: 4,
-            date: "2026-01-21",
-            portal: "Student Portal - Batch 1.1",
-            tasks: [
-                "Add cumulative timer to MCQ sessions",
-                "Implement auto-submission on timer end",
-                "Create detailed grading with explanations",
-                "Add 'Read Material' phase after MCQs"
-            ],
-            priority: "medium",
-            estimatedHours: 6
-        },
-        {
-            day: 5,
-            date: "2026-01-22",
-            portal: "Teacher Portal",
-            tasks: [
-                "Create teacher activity tracking dashboard",
-                "Add content upload analytics",
-                "Implement student progress overview for teachers",
-                "Build engagement metrics visualization"
-            ],
-            priority: "medium",
-            estimatedHours: 5
-        },
-        {
-            day: 6,
-            date: "2026-01-23",
-            portal: "CRM Portal",
-            tasks: [
-                "Integrate real lead data with admin dashboard",
-                "Add lead conversion tracking",
-                "Create automated follow-up reminders",
-                "Build marketing campaign analytics"
-            ],
-            priority: "medium",
-            estimatedHours: 6
-        },
-        {
-            day: 7,
-            date: "2026-01-24",
-            portal: "All Portals",
-            tasks: [
-                "Run comprehensive test suite",
-                "Fix any remaining bugs",
-                "Deploy all changes to production",
-                "Create walkthrough documentation",
-                "User acceptance testing"
-            ],
-            priority: "high",
-            estimatedHours: 8
+    const handleLogDevelopment = async () => {
+        if (!logForm.feature || !logForm.description) {
+            toast.error("Please fill in feature name and description");
+            return;
         }
-    ];
-
-    // AI-generated insights
-    const aiInsights: AIInsight[] = [
-        {
-            type: "priority",
-            message: "Student Pomodoro tracking should be prioritized - 15+ days of user data not being captured in admin dashboard",
-            portal: "Admin Portal"
-        },
-        {
-            type: "enhancement",
-            message: "Consider adding email notifications when students complete batch milestones to increase engagement",
-            portal: "Student Portal"
-        },
-        {
-            type: "recommendation",
-            message: "The Batch 1.1 evening session flow could benefit from progress persistence across browser sessions",
-            portal: "Batch 1.1"
-        },
-        {
-            type: "enhancement",
-            message: "Add weekly digest emails for teachers showing their students' progress summaries",
-            portal: "Teacher Portal"
-        },
-        {
-            type: "priority",
-            message: "Mobile responsiveness needs attention - several admin pages don't scale well on tablet devices",
-            portal: "Admin Portal"
+        setIsLogging(true);
+        try {
+            const token = localStorage.getItem("access_token");
+            await axios.post(`${API_URL}/api/v1/admin/ai/log-development`, null, {
+                params: logForm,
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            toast.success("Development action logged!");
+            setLogForm({ ...logForm, feature: "", description: "" });
+        } catch (error) {
+            toast.error("Failed to log activity");
+        } finally {
+            setIsLogging(false);
         }
-    ];
+    };
 
     const handleGenerate = async () => {
         setIsGenerating(true);
-        // Simulate AI generation
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        setPlanGenerated(true);
-        setIsGenerating(false);
+        try {
+            const token = localStorage.getItem("access_token");
+            const response = await axios.get(`${API_URL}/api/v1/admin/ai/plan`, {
+                params: { lookback: daysToAnalyze },
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            setPlanData(response.data);
+            setPlanGenerated(true);
+            toast.success("AI Strategic Plan generated!");
+        } catch (error) {
+            console.error("Failed to generate plan", error);
+            toast.error("Failed to reach Strategic AI engine");
+        } finally {
+            setIsGenerating(false);
+        }
     };
 
     const getPriorityColor = (priority: string) => {
-        switch (priority) {
+        switch (priority?.toLowerCase()) {
             case "high": return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200";
             case "medium": return "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200";
             case "low": return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
@@ -180,7 +101,7 @@ export default function AIPlanningPage() {
     };
 
     const getInsightIcon = (type: string) => {
-        switch (type) {
+        switch (type?.toLowerCase()) {
             case "priority": return <Zap className="w-4 h-4 text-red-500" />;
             case "enhancement": return <Lightbulb className="w-4 h-4 text-amber-500" />;
             case "recommendation": return <Target className="w-4 h-4 text-blue-500" />;
@@ -188,8 +109,8 @@ export default function AIPlanningPage() {
         }
     };
 
-    const totalHours = generatedPlan.reduce((acc, p) => acc + p.estimatedHours, 0);
-    const totalTasks = generatedPlan.reduce((acc, p) => acc + p.tasks.length, 0);
+    const totalHours = planData?.generated_plan.reduce((acc, p) => acc + p.estimatedHours, 0) || 0;
+    const totalTasks = planData?.generated_plan.reduce((acc, p) => acc + p.tasks.length, 0) || 0;
 
     return (
         <div className="p-8 max-w-6xl mx-auto">
@@ -286,7 +207,7 @@ export default function AIPlanningPage() {
                             <div className="flex items-center gap-3">
                                 <Lightbulb className="w-8 h-8 text-green-600" />
                                 <div>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{aiInsights.length}</p>
+                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{planData?.strategic_insights.length || 0}</p>
                                     <p className="text-sm text-gray-500">AI Insights</p>
                                 </div>
                             </div>
@@ -300,7 +221,7 @@ export default function AIPlanningPage() {
                             AI-Generated Insights
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {aiInsights.map((insight, idx) => (
+                            {planData?.strategic_insights.map((insight, idx) => (
                                 <Card key={idx} className="p-4">
                                     <div className="flex items-start gap-3">
                                         {getInsightIcon(insight.type)}
@@ -326,7 +247,7 @@ export default function AIPlanningPage() {
                             7-Day Development Plan
                         </h2>
                         <div className="space-y-4">
-                            {generatedPlan.map((plan) => (
+                            {planData?.generated_plan.map((plan) => (
                                 <Card key={plan.day} className="overflow-hidden">
                                     <div className="flex">
                                         {/* Day Badge */}
@@ -370,6 +291,76 @@ export default function AIPlanningPage() {
                     </div>
                 </>
             )}
+
+            {/* Manual Activity Logger */}
+            <hr className="my-12 border-gray-800" />
+            <Card className="bg-zinc-900/50 border-zinc-800 border-dashed">
+                <CardHeader>
+                    <CardTitle className="text-sm font-bold flex items-center gap-2">
+                        <Plus className="w-4 h-4 text-gray-500" />
+                        Log Manual Development Activity
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <select
+                            className="bg-black border border-zinc-800 rounded px-3 py-1.5 text-xs text-gray-300"
+                            value={logForm.portal}
+                            onChange={(e) => setLogForm({ ...logForm, portal: e.target.value })}
+                        >
+                            <option>Admin</option>
+                            <option>Student</option>
+                            <option>Teacher</option>
+                            <option>CRM</option>
+                            <option>Graphotherapy</option>
+                        </select>
+                        <select
+                            className="bg-black border border-zinc-800 rounded px-3 py-1.5 text-xs text-gray-300"
+                            value={logForm.action}
+                            onChange={(e) => setLogForm({ ...logForm, action: e.target.value })}
+                        >
+                            <option value="NEW_FEATURE">New Feature</option>
+                            <option value="BUG_FIX">Bug Fix</option>
+                            <option value="ENHANCEMENT">Enhancement</option>
+                        </select>
+                        <Input
+                            placeholder="Feature Name"
+                            className="bg-black border-zinc-800 text-xs h-8"
+                            value={logForm.feature}
+                            onChange={(e) => setLogForm({ ...logForm, feature: e.target.value })}
+                        />
+                        <select
+                            className="bg-black border border-zinc-800 rounded px-3 py-1.5 text-xs text-gray-300"
+                            value={logForm.impact}
+                            onChange={(e) => setLogForm({ ...logForm, impact: e.target.value })}
+                        >
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </div>
+                    <div className="flex gap-4">
+                        <Input
+                            placeholder="Brief description of work done..."
+                            className="bg-black border-zinc-800 text-xs h-8 flex-1"
+                            value={logForm.description}
+                            onChange={(e) => setLogForm({ ...logForm, description: e.target.value })}
+                        />
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            disabled={isLogging}
+                            onClick={handleLogDevelopment}
+                            className="text-xs h-8"
+                        >
+                            {isLogging ? "Logging..." : "Log Activity"}
+                        </Button>
+                    </div>
+                    <p className="text-[10px] text-gray-500">
+                        Historical logs are used by the Strategic AI to understand current project state and suggest next steps.
+                    </p>
+                </CardContent>
+            </Card>
         </div>
     );
 }

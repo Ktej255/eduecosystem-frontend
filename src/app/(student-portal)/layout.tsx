@@ -4,6 +4,8 @@ import { useState } from "react";
 import StudentSidebar from "@/components/student-portal/StudentSidebar";
 import StudentHeader from "@/components/student-portal/StudentHeader";
 import ProtectedRoute from "@/components/protected-route";
+import { PWAInstallPrompt } from "@/components/pwa/PWAInstallPrompt";
+
 
 export default function StudentPortalLayout({
     children,
@@ -33,7 +35,9 @@ export default function StudentPortalLayout({
                         {children}
                     </main>
                 </div>
+                <PWAInstallPrompt />
             </div>
         </ProtectedRoute>
     );
 }
+

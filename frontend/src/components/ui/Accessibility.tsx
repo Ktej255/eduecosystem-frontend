@@ -13,7 +13,8 @@ export const VisuallyHidden: React.FC<VisuallyHiddenProps> = ({
   children,
   as: Component = "span",
 }) => {
-  return <Component className="sr-only">{children}</Component>;
+  const Comp = Component as any;
+  return <Comp className="sr-only">{children}</Comp>;
 };
 
 interface SkipLinkProps {

@@ -32,8 +32,8 @@ export default function AdminActionsPage() {
         let missingItems: string[] = [];
 
         week2Chapters.forEach(ch => {
-            const hasFlashcards = POLITY_FLASHCARDS_DATA.some(fc => fc.subtopicId.startsWith(`${ch.chapter}.`));
-            const hasMCQs = POLITY_MCQS_DATA.some(mcq => mcq.subtopicId.startsWith(`${ch.chapter}.`));
+            const hasFlashcards = POLITY_FLASHCARDS_DATA.some(fc => fc.subtopicId?.startsWith(`${ch.chapter}.`));
+            const hasMCQs = POLITY_MCQS_DATA.some(mcq => mcq.subtopicId?.startsWith(`${ch.chapter}.`));
 
             if (!hasFlashcards) {
                 missingCount++;

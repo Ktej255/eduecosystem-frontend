@@ -1,11 +1,11 @@
 {
-    "name": "Eduecosystem CRM",
-    "short_name": "EduCRM",
-    "description": "Mobile CRM for educational enrollment management - check-ins, lead tracking, and field agent tools",
-    "start_url": "/m",
+    "name": "Eduecosystem",
+    "short_name": "Edueco",
+    "description": "Your personalized learning platform for UPSC, Graphotherapy, and Holistic Development",
+    "start_url": "/student/dashboard",
     "scope": "/",
     "display": "standalone",
-    "background_color": "#111827",
+    "background_color": "#0f172a",
     "theme_color": "#10b981",
     "orientation": "portrait-primary",
     "icons": [
@@ -59,31 +59,43 @@
         }
     ],
     "categories": [
-        "business",
+        "education",
         "productivity",
-        "education"
+        "lifestyle"
     ],
     "shortcuts": [
         {
-            "name": "Check In",
-            "short_name": "Check In",
-            "description": "Record your check-in location",
-            "url": "/m/check-in",
+            "name": "Start Pomodoro",
+            "short_name": "Pomodoro",
+            "description": "Begin a focused study session",
+            "url": "/student/planner?action=pomodoro",
             "icons": [
                 {
-                    "src": "/icons/checkin-96x96.png",
+                    "src": "/icons/pomodoro-96x96.png",
                     "sizes": "96x96"
                 }
             ]
         },
         {
-            "name": "Leads",
-            "short_name": "Leads",
-            "description": "View and manage leads",
-            "url": "/m/leads",
+            "name": "Review Flashcards",
+            "short_name": "Flashcards",
+            "description": "Review due flashcards with SRS",
+            "url": "/student/review-queue",
             "icons": [
                 {
-                    "src": "/icons/leads-96x96.png",
+                    "src": "/icons/flashcard-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Leaderboard",
+            "short_name": "Ranks",
+            "description": "Check your ranking",
+            "url": "/student/leaderboard",
+            "icons": [
+                {
+                    "src": "/icons/leaderboard-96x96.png",
                     "sizes": "96x96"
                 }
             ]
@@ -91,11 +103,12 @@
     ],
     "screenshots": [
         {
-            "src": "/screenshots/mobile-dashboard.png",
+            "src": "/screenshots/student-dashboard.png",
             "sizes": "390x844",
             "type": "image/png",
             "form_factor": "narrow",
-            "label": "Mobile CRM Dashboard"
+            "label": "Student Dashboard"
         }
-    ]
+    ],
+    "prefer_related_applications": false
 }

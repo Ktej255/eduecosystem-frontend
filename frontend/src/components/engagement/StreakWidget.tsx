@@ -313,6 +313,7 @@ function MilestoneBadge({
     label: string;
     achieved: boolean;
 }) {
+    const IconComp = Icon as any;
     return (
         <motion.div
             whileHover={achieved ? { scale: 1.1, rotate: 5 } : {}}
@@ -324,7 +325,7 @@ function MilestoneBadge({
                 }
             `}
         >
-            <Icon
+            <IconComp
                 className={`w-6 h-6 ${achieved ? "text-amber-400" : "text-gray-600"}`}
             />
             <span className={`text-xs ${achieved ? "text-amber-400" : "text-gray-600"}`}>

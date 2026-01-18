@@ -118,7 +118,7 @@ export default function TestHistoryModal({ isOpen, onClose }: TestHistoryModalPr
                                             {/* Show correct answer if incorrect */}
                                             {!ans.isCorrect && (
                                                 <div className="text-xs text-green-700 dark:text-green-400 mt-1">
-                                                    Correct Answer: {q.options[q.correctAnswer]}
+                                                    Correct Answer: {q.options[(q.correctAnswer ?? q.correctIndex) ?? 0]}
                                                 </div>
                                             )}
                                             {ans.confidence && (

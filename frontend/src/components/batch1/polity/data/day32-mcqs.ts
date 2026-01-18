@@ -1,17 +1,10 @@
-// Day32 MCQ interface - uses 'text' instead of 'question'
-export interface Day32Question {
-    id: string;
-    text: string;
-    options: string[];
-    correctAnswer: number;
-    explanation?: string;
-}
+import type { MCQ } from './mcq-utils';
 
-export const DAY32_MCQS: Day32Question[] = [
+export const DAY32_MCQS: MCQ[] = [
     // TOPIC 1: BAR COUNCIL OF INDIA (15 Questions)
     {
-        id: 'day32-mcq-1',
-        text: "The Bar Council of India was established under which Act?",
+        id: 1,
+        question: "The Bar Council of India was established under which Act?",
         options: [
             "The Advocates Act, 1961",
             "The Legal Services Authorities Act, 1987",
@@ -22,8 +15,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The Bar Council of India is a statutory body established under section 4 of the Advocates Act, 1961."
     },
     {
-        id: 'day32-mcq-2',
-        text: "Who is the ex-officio member of the Bar Council of India?",
+        id: 2,
+        question: "Who is the ex-officio member of the Bar Council of India?",
         options: [
             "The Chief Justice of India",
             "The Attorney General of India",
@@ -34,8 +27,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The Attorney General of India and the Solicitor General of India are ex-officio members of the Bar Council of India."
     },
     {
-        id: 'day32-mcq-3',
-        text: "Which of the following is NOT a function of the Bar Council of India?",
+        id: 3,
+        question: "Which of the following is NOT a function of the Bar Council of India?",
         options: [
             "To lay down standards of professional conduct for advocates",
             "To safeguard the rights, privileges and interests of advocates",
@@ -46,8 +39,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Appointment of judges is done by the President (Collegium system/NJAC debate), not the Bar Council. BCI regulates the legal profession."
     },
     {
-        id: 'day32-mcq-4',
-        text: "The All India Bar Examination (AIBE) is conducted by:",
+        id: 4,
+        question: "The All India Bar Examination (AIBE) is conducted by:",
         options: [
             "Union Public Service Commission",
             "National Testing Agency",
@@ -58,8 +51,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The BCI conducts the All India Bar Examination to test an advocate's ability to practice law."
     },
     {
-        id: 'day32-mcq-5',
-        text: "State Bar Councils are established under:",
+        id: 5,
+        question: "State Bar Councils are established under:",
         options: [
             "State Legislature Acts",
             "The Advocates Act, 1961",
@@ -70,8 +63,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Both the Bar Council of India and State Bar Councils are established under the Advocates Act, 1961."
     },
     {
-        id: 'day32-mcq-6',
-        text: "The 'Senior Advocate' designation is conferred by:",
+        id: 6,
+        question: "The 'Senior Advocate' designation is conferred by:",
         options: [
             "The President of India",
             "The Bar Council of India",
@@ -82,8 +75,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The Supreme Court or High Courts designate an advocate as a 'Senior Advocate' with their consent, based on ability/standing."
     },
     {
-        id: 'day32-mcq-7',
-        text: "Professional misconduct by an advocate is punished by:",
+        id: 7,
+        question: "Professional misconduct by an advocate is punished by:",
         options: [
             "The Police",
             "The Consumer Court",
@@ -94,8 +87,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Disciplinary committees of State Bar Councils explicitly handle cases of misconduct, with appeal lying to the BCI and then SC."
     },
     {
-        id: 'day32-mcq-8',
-        text: "Foreign lawyers are strictly prohibited from practicing law in India. (True/False status)",
+        id: 8,
+        question: "Foreign lawyers are strictly prohibited from practicing law in India. (True/False status)",
         options: [
             "Strictly prohibited in all forms",
             "Allowed only for arbitration/international law on reciprocal basis (recent BCI rules)",
@@ -106,8 +99,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Recent BCI rules (2023) allow entry of foreign lawyers/firms on a reciprocal basis for foreign law advice and international commercial arbitration."
     },
     {
-        id: 'day32-mcq-9',
-        text: "The Chairman and Vice-Chairman of the Bar Council of India are elected by:",
+        id: 9,
+        question: "The Chairman and Vice-Chairman of the Bar Council of India are elected by:",
         options: [
             "The Members of the Council from amongst themselves",
             "The Chief Justice of India",
@@ -118,8 +111,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The Council elects its own Chairman and Vice-Chairman for a period of 2 years."
     },
     {
-        id: 'day32-mcq-10',
-        text: "Funds for the Bar Council of India primarily come from:",
+        id: 10,
+        question: "Funds for the Bar Council of India primarily come from:",
         options: [
             "Consolidated Fund of India",
             "20% share of enrollment fees from State Bar Councils",
@@ -130,8 +123,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Every State Bar Council must pay 20% of total enrollment fees received by it to the BCI."
     },
     {
-        id: 'day32-mcq-11',
-        text: "Who has the power to recognize foreign law degrees for enrollment in India?",
+        id: 11,
+        question: "Who has the power to recognize foreign law degrees for enrollment in India?",
         options: [
             "Ministry of Education",
             "University Grants Commission (UGC)",
@@ -142,8 +135,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "BCI recognizes universities (Indian & Foreign) whose degrees in law shall be a qualification for enrollment."
     },
     {
-        id: 'day32-mcq-12',
-        text: "Can the BCI issue directives to State Bar Councils?",
+        id: 12,
+        question: "Can the BCI issue directives to State Bar Councils?",
         options: [
             "No, State Councils are autonomous",
             "Yes, under the Advocates Act",
@@ -154,8 +147,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "BCI exercises general supervision and control over State Bar Councils."
     },
     {
-        id: 'day32-mcq-13',
-        text: "The Advocates Welfare Fund is constituted under:",
+        id: 13,
+        question: "The Advocates Welfare Fund is constituted under:",
         options: [
             "The Advocates Welfare Fund Act, 2001",
             "The BCI Rules 1975",
@@ -166,8 +159,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "A specific central act, The Advocates Welfare Fund Act, 2001, governs this."
     },
     {
-        id: 'day32-mcq-14',
-        text: "Does the BCI regulate legal aid?",
+        id: 14,
+        question: "Does the BCI regulate legal aid?",
         options: [
             "No, that is NALSA's job only",
             "Yes, it is one of its statutory functions to organize legal aid",
@@ -178,8 +171,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "One of the functions of BCI (S.7 of Advocates Act) is to organize legal aid to the poor."
     },
     {
-        id: 'day32-mcq-15',
-        text: "The term of office of elected members of a State Bar Council is:",
+        id: 15,
+        question: "The term of office of elected members of a State Bar Council is:",
         options: [
             "2 years",
             "3 years",
@@ -192,8 +185,8 @@ export const DAY32_MCQS: Day32Question[] = [
 
     // TOPIC 2: COMPETITION COMMISSION OF INDIA (15 Questions)
     {
-        id: 'day32-mcq-16',
-        text: "The Competition Commission of India (CCI) replaced which former body?",
+        id: 16,
+        question: "The Competition Commission of India (CCI) replaced which former body?",
         options: [
             "MRTP Commission",
             "Company Law Board",
@@ -204,8 +197,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The CCI replaced the Monopolies and Restrictive Trade Practices (MRTP) Commission."
     },
     {
-        id: 'day32-mcq-17',
-        text: "The Competition Act, 2002 seeks to regulate:",
+        id: 17,
+        question: "The Competition Act, 2002 seeks to regulate:",
         options: [
             "Anti-competitive agreements",
             "Abuse of dominant position",
@@ -216,8 +209,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The Act covers these three main pillars: Agreements, Dominance, and Combinations."
     },
     {
-        id: 'day32-mcq-18',
-        text: "The Chairperson and members of CCI are appointed by:",
+        id: 18,
+        question: "The Chairperson and members of CCI are appointed by:",
         options: [
             "The President directly",
             "The Central Government",
@@ -228,8 +221,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Appointed by the Central Government generally on the recommendation of a Selection Committee (headed by MCA Secretary or similar, usually)."
     },
     {
-        id: 'day32-mcq-19',
-        text: "What is 'Predatory Pricing' under the Competition Act?",
+        id: 19,
+        question: "What is 'Predatory Pricing' under the Competition Act?",
         options: [
             "Pricing below cost to eliminate competition",
             "Pricing according to market demand",
@@ -240,8 +233,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Predatory pricing is the sale of goods/services at a price below the cost of production with a view to reduce competition or eliminate competitors."
     },
     {
-        id: 'day32-mcq-20',
-        text: "The Competition Appellate Tribunal (COMPAT) was replaced by:",
+        id: 20,
+        question: "The Competition Appellate Tribunal (COMPAT) was replaced by:",
         options: [
             "National Company Law Appellate Tribunal (NCLAT)",
             "High Courts",
@@ -252,8 +245,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "In 2017, COMPAT ceased to exist and its appellate functions were transferred to the NCLAT."
     },
     {
-        id: 'day32-mcq-21',
-        text: "Is the CCI a constitutional body?",
+        id: 21,
+        question: "Is the CCI a constitutional body?",
         options: [
             "Yes, under Article 301",
             "No, it is a statutory body",
@@ -264,8 +257,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "It is a statutory body established under the Competition Act, 2002."
     },
     {
-        id: 'day32-mcq-22',
-        text: "The 'relevant market' definition in the Competition Act considers:",
+        id: 22,
+        question: "The 'relevant market' definition in the Competition Act considers:",
         options: [
             "Only relevant product market",
             "Only relevant geographic market",
@@ -276,8 +269,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Relevant market means the market determined by the Commission with reference to the relevant product market or the relevant geographic market or with reference to both."
     },
     {
-        id: 'day32-mcq-23',
-        text: "CCI has the power to impose a penalty of up to what amount on cartels?",
+        id: 23,
+        question: "CCI has the power to impose a penalty of up to what amount on cartels?",
         options: [
             "10% of turnover or 3 times profit, whichever is higher",
             "100 Crores fixed",
@@ -288,8 +281,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "For cartels, penalty can be up to 3 times of its profit for each year of continuance of such agreement or 10% of its turnover for each year of continuance of such agreement, whichever is higher."
     },
     {
-        id: 'day32-mcq-24',
-        text: "The term of office for the Chairperson of CCI is:",
+        id: 24,
+        question: "The term of office for the Chairperson of CCI is:",
         options: [
             "5 years or age of 65 years",
             "3 years or age of 65 years",
@@ -300,8 +293,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Currently 5 years or until the age of 65 years, whichever is earlier."
     },
     {
-        id: 'day32-mcq-25',
-        text: "Does the Competition Act apply to Government Departments?",
+        id: 25,
+        question: "Does the Competition Act apply to Government Departments?",
         options: [
             "No, strict sovereign immunity",
             "Yes, if they are engaged in any activity related to production/storage/supply/distribution",
@@ -312,8 +305,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The definition of 'enterprise' includes government departments engaged in economic activities, excluding sovereign functions (like atomic energy, defence, space)."
     },
     {
-        id: 'day32-mcq-26',
-        text: "The principle of 'Leniency Programme' in Competition Law refers to:",
+        id: 26,
+        question: "The principle of 'Leniency Programme' in Competition Law refers to:",
         options: [
             "Reduced penalty for whistleblowers in a cartel",
             "Forgiving small companies",
@@ -324,8 +317,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Under lesser penalty regulations (Leniency), a member of a cartel who discloses information can get a reduced penalty."
     },
     {
-        id: 'day32-mcq-27',
-        text: "Which committee recommended the enactment of the Competition Act, 2002?",
+        id: 27,
+        question: "Which committee recommended the enactment of the Competition Act, 2002?",
         options: [
             "Raghuram Rajan Committee",
             "Raghavan Committee",
@@ -336,8 +329,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The High Level Committee on Competition Policy and Law was headed by S.V.S. Raghavan."
     },
     {
-        id: 'day32-mcq-28',
-        text: "A 'combination' (M&A) needs CCI approval if:",
+        id: 28,
+        question: "A 'combination' (M&A) needs CCI approval if:",
         options: [
             "It crosses certain asset/turnover thresholds",
             "It involves any foreign company",
@@ -348,8 +341,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Combinations are regulated based on asset and turnover thresholds specified in the Act."
     },
     {
-        id: 'day32-mcq-29',
-        text: "Does CCI have suo motu powers?",
+        id: 29,
+        question: "Does CCI have suo motu powers?",
         options: [
             "No, it needs a complaint",
             "Yes, it can initiate inquiry on its own knowledge",
@@ -360,8 +353,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "CCI can inquire into alleged contraventions on its own motion (suo motu), on receipt of information, or on reference."
     },
     {
-        id: 'day32-mcq-30',
-        text: "Who represents the CCI in courts?",
+        id: 30,
+        question: "Who represents the CCI in courts?",
         options: [
             "Director General (Investigation)",
             "Secretary of CCI",
@@ -374,8 +367,8 @@ export const DAY32_MCQS: Day32Question[] = [
 
     // TOPIC 3: ROLE OF REGIONAL PARTIES (15 Questions)
     {
-        id: 'day32-mcq-31',
-        text: "What defines a 'Regional Party' in the Indian context?",
+        id: 31,
+        question: "What defines a 'Regional Party' in the Indian context?",
         options: [
             "It is restricted to a specific region/state and prioritizes local interests",
             "It is banned from national elections",
@@ -386,8 +379,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Regional parties operate within a limited area and articulate regional/local interests."
     },
     {
-        id: 'day32-mcq-32',
-        text: "Regional parties are eligible for recognition as 'State Parties' if they secure:",
+        id: 32,
+        question: "Regional parties are eligible for recognition as 'State Parties' if they secure:",
         options: [
             "10% of votes in LS",
             "6% of valid votes in the State + 2 Assembly Seats",
@@ -398,8 +391,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "One criteria is: Secure 6% of valid votes polled in the State at a general election to the Legislative Assembly AND win at least 2 seats."
     },
     {
-        id: 'day32-mcq-33',
-        text: "The rise of regional parties post-1967 is attributed to:",
+        id: 33,
+        question: "The rise of regional parties post-1967 is attributed to:",
         options: [
             "Decline of Congress dominance",
             "Rise of regional aspirations",
@@ -410,8 +403,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "All these factors contributed to the proliferation of regional parties."
     },
     {
-        id: 'day32-mcq-34',
-        text: "Which of the following is NOT a feature of regional parties?",
+        id: 34,
+        question: "Which of the following is NOT a feature of regional parties?",
         options: [
             "Regional identity is key",
             "Normally focus on Local/State issues",
@@ -422,8 +415,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Regional parties can have various ideologies (Dravidian, ethno-centric, secular, right-wing, etc.), not just Left."
     },
     {
-        id: 'day32-mcq-35',
-        text: "Regional parties have strengthened Indian Federalism by:",
+        id: 35,
+        question: "Regional parties have strengthened Indian Federalism by:",
         options: [
             "Demanding more autonomy for states",
             "Checking the monopoly of the Centre",
@@ -434,8 +427,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "They have played a crucial role in deepening federalism and decentralization."
     },
     {
-        id: 'day32-mcq-36',
-        text: "Which was the first regional party to form a government in a state on its own?",
+        id: 36,
+        question: "Which was the first regional party to form a government in a state on its own?",
         options: [
             "DMK in Tamil Nadu",
             "TDP in Andhra Pradesh",
@@ -446,8 +439,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "DMK (Dravida Munnetra Kazhagam) formed the government in Madras State (TN) in 1967, marking a shift."
     },
     {
-        id: 'day32-mcq-37',
-        text: "A recognized State Party gets the privilege of:",
+        id: 37,
+        question: "A recognized State Party gets the privilege of:",
         options: [
             "Exclusive allotted symbol in that state",
             "Free airtime on Doordarshan/AIR",
@@ -458,8 +451,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Recognition brings symbol reservation, broadcast time, and easier nomination rules."
     },
     {
-        id: 'day32-mcq-38',
-        text: "Which scholar described Indian politics as 'federalized' due to regional parties?",
+        id: 38,
+        question: "Which scholar described Indian politics as 'federalized' due to regional parties?",
         options: [
             "Rajni Kothari",
             "Paul Brass",
@@ -470,8 +463,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Scholars like Yogendra Yadav have analyzed the 'third electoral system' and federalization of politics."
     },
     {
-        id: 'day32-mcq-39',
-        text: "Can a Regional Party become a National Party?",
+        id: 39,
+        question: "Can a Regional Party become a National Party?",
         options: [
             "No, never",
             "Yes, if it meets ECI criteria across 4 states",
@@ -482,8 +475,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Yes, parties like AAP, BSP, etc., started regionally and achieved National status (though status changes based on performance)."
     },
     {
-        id: 'day32-mcq-40',
-        text: "Regional parties often focus on which type of mobilization?",
+        id: 40,
+        question: "Regional parties often focus on which type of mobilization?",
         options: [
             "International relations",
             "Caste, Language, or Ethnic identity",
@@ -494,8 +487,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Identity politics (Linguistic, Caste, Tribal) is a common mobilization tool."
     },
     {
-        id: 'day32-mcq-41',
-        text: "The 'United Front' (1996) government was largely a coalition of:",
+        id: 41,
+        question: "The 'United Front' (1996) government was largely a coalition of:",
         options: [
             "Congress and BJP",
             "Regional Parties supported by Congress",
@@ -506,8 +499,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "It was a coalition of 13 parties, mostly regional (TDP, DMK, AGP etc.), supported by Congress from outside."
     },
     {
-        id: 'day32-mcq-42',
-        text: "Regional parties play a 'Kingmaker' role in:",
+        id: 42,
+        question: "Regional parties play a 'Kingmaker' role in:",
         options: [
             "Presidential Systems",
             "Coalition Governments at the Centre",
@@ -518,8 +511,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "In hung parliaments, their support is crucial for forming the central government."
     },
     {
-        id: 'day32-mcq-43',
-        text: "Which article allows restrictions on regionalism in the interest of 'integrity of India'?",
+        id: 43,
+        question: "Which article allows restrictions on regionalism in the interest of 'integrity of India'?",
         options: [
             "Article 19(2)",
             "Article 370",
@@ -530,8 +523,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Reasonable restrictions on Freedom of Speech/Assembly/Association can be imposed for sovereignty and integrity of India (16th Amendment)."
     },
     {
-        id: 'day32-mcq-44',
-        text: "The trend of 'Regionalisation of National Parties' refers to:",
+        id: 44,
+        question: "The trend of 'Regionalisation of National Parties' refers to:",
         options: [
             "National parties forming state units with autonomy",
             "National parties shutting down",
@@ -542,8 +535,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "National parties adapting to local realities and giving autonomy to state units to compete with regional forces."
     },
     {
-        id: 'day32-mcq-45',
-        text: "Which movement largely birthed the AGP (Asom Gana Parishad)?",
+        id: 45,
+        question: "Which movement largely birthed the AGP (Asom Gana Parishad)?",
         options: [
             "Naxalite Movement",
             "Assam Agitation (Anti-foreigners movement)",
@@ -556,8 +549,8 @@ export const DAY32_MCQS: Day32Question[] = [
 
     // TOPIC 4: ELECTIONS (15 Questions)
     {
-        id: 'day32-mcq-46',
-        text: "Which Part of the Constitution deals with Elections?",
+        id: 46,
+        question: "Which Part of the Constitution deals with Elections?",
         options: [
             "Part XIV",
             "Part XV",
@@ -568,8 +561,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Part XV (Articles 324-329) deals with Elections."
     },
     {
-        id: 'day32-mcq-47',
-        text: "Article 324 vests the power of superintendence, direction, and control of elections in:",
+        id: 47,
+        question: "Article 324 vests the power of superintendence, direction, and control of elections in:",
         options: [
             "Parliament",
             "Supreme Court",
@@ -580,8 +573,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Article 324 creates the ECI."
     },
     {
-        id: 'day32-mcq-48',
-        text: "The Election Commission conducts elections for:",
+        id: 48,
+        question: "The Election Commission conducts elections for:",
         options: [
             "Parliament and State Legislatures only",
             "Parliament, State Legislatures, President, and Vice President",
@@ -592,8 +585,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "ECI is responsible for Parliament, State Legislatures, President, and VP. Local bodies are managed by State Election Commissions."
     },
     {
-        id: 'day32-mcq-49',
-        text: "Article 326 guarantees:",
+        id: 49,
+        question: "Article 326 guarantees:",
         options: [
             "Reservation for SC/STs",
             "Universal Adult Suffrage",
@@ -604,8 +597,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Article 326 states that elections to LS and Assemblies shall be on the basis of adult suffrage (18+ years)."
     },
     {
-        id: 'day32-mcq-50',
-        text: "Who prepares the electoral rolls for Parliament elections?",
+        id: 50,
+        question: "Who prepares the electoral rolls for Parliament elections?",
         options: [
             "Census Commissioner",
             "Election Commission of India",
@@ -616,8 +609,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Preparation of electoral rolls is under the superintendence of ECI (Art 324)."
     },
     {
-        id: 'day32-mcq-51',
-        text: "The 'Model Code of Conduct' comes into force:",
+        id: 51,
+        question: "The 'Model Code of Conduct' comes into force:",
         options: [
             "Immediately on announcement of election schedule by ECI",
             "From the date of notification by President",
@@ -628,8 +621,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "It applies from the moment the ECI announces the election schedule."
     },
     {
-        id: 'day32-mcq-52',
-        text: "Which Act deals with the preparation of electoral rolls and qualification of voters?",
+        id: 52,
+        question: "Which Act deals with the preparation of electoral rolls and qualification of voters?",
         options: [
             "Representation of the People Act, 1950",
             "Representation of the People Act, 1951",
@@ -640,8 +633,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "RPA 1950 deals with allocation of seats, delimitation, and preparation of electoral rolls. RPA 1951 deals with conduct of elections."
     },
     {
-        id: 'day32-mcq-53',
-        text: "Article 329 bars the interference of courts in:",
+        id: 53,
+        question: "Article 329 bars the interference of courts in:",
         options: [
             "Election expenses",
             "Electoral disputes",
@@ -652,8 +645,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Art 329(a): Validity of any law relating to delimitation or allotment of seats cannot be questioned in any court."
     },
     {
-        id: 'day32-mcq-54',
-        text: "An election petition calling in question an election to Parliament is presented to:",
+        id: 54,
+        question: "An election petition calling in question an election to Parliament is presented to:",
         options: [
             "Election Commission",
             "Supreme Court directly",
@@ -664,8 +657,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Election petitions are heard by the High Court (RPA 1951)."
     },
     {
-        id: 'day32-mcq-55',
-        text: "The 'First-Past-The-Post' system is used for:",
+        id: 55,
+        question: "The 'First-Past-The-Post' system is used for:",
         options: [
             "Presidential Election",
             "Rajya Sabha Election",
@@ -676,8 +669,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Lok Sabha and Assembly elections use FPTP. President/RS use Proportional Representation."
     },
     {
-        id: 'day32-mcq-56',
-        text: "Right to Vote in India is a:",
+        id: 56,
+        question: "Right to Vote in India is a:",
         options: [
             "Fundamental Right",
             "Natural Right",
@@ -688,8 +681,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Often debated. UPSC key has called it a Constitutional Right (Art 326) or Statutory Right (RPA). It is NOT a Fundamental Right."
     },
     {
-        id: 'day32-mcq-57',
-        text: "Who has the power to make provisions with respect to elections to Legislatures?",
+        id: 57,
+        question: "Who has the power to make provisions with respect to elections to Legislatures?",
         options: [
             "Election Commission",
             "Parliament",
@@ -700,8 +693,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Article 327 empowers Parliament to make laws relating to all matters concerning elections."
     },
     {
-        id: 'day32-mcq-58',
-        text: "The provision for 'NOTA' (None Of The Above) was introduced following which judgment?",
+        id: 58,
+        question: "The provision for 'NOTA' (None Of The Above) was introduced following which judgment?",
         options: [
             "Lily Thomas case",
             "PUCL v. Union of India (2013)",
@@ -712,8 +705,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "The SC judgment in PUCL v. UOI (2013) directed ECI to provide the NOTA option."
     },
     {
-        id: 'day32-mcq-59',
-        text: "VVPAT stands for:",
+        id: 59,
+        question: "VVPAT stands for:",
         options: [
             "Voter Verdifiable Paper Audit Trail",
             "Voter Verified Paper Audit Trail",
@@ -724,8 +717,8 @@ export const DAY32_MCQS: Day32Question[] = [
         explanation: "Voter Verified Paper Audit Trail."
     },
     {
-        id: 'day32-mcq-60',
-        text: "Is there a ceiling on election expenditure for political parties?",
+        id: 60,
+        question: "Is there a ceiling on election expenditure for political parties?",
         options: [
             "Yes, same as candidates",
             "Yes, 100 Crores",

@@ -1,9 +1,9 @@
 // Chapter 4: Salient Features of the Constitution - Flashcards
 // Source: Laxmikanth Indian Polity
 
-import { Flashcard } from './chapter1-flashcards';
+import { RevisionFlashcard } from '../RevisionRegistry';
 
-export const CHAPTER_4_FLASHCARDS: Flashcard[] = [
+export const CHAPTER_4_FLASHCARDS: RevisionFlashcard[] = [
     {
         id: 1,
         chapterId: 4,

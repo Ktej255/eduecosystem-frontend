@@ -139,7 +139,7 @@ export default function InstructorLiveClassesPage() {
     }
 
     const handleStartClass = (id: number) => {
-        router.push(`/lms/live-class/${id}`)
+        router.push(`/instructor/live-classes/${id}/console`)
     }
 
     const getStatusBadge = (status: string) => {

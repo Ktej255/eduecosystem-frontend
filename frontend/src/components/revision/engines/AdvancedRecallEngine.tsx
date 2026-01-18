@@ -19,6 +19,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition';
 import { toast } from 'react-hot-toast';
 import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
 import { saveCycleSession, CycleSession } from '@/lib/revision/revision-analytics-service';
 
 interface AdvancedRecallEngineProps {

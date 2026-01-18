@@ -1,6 +1,6 @@
-import { Flashcard } from '../RevisionRegistry';
+import { RevisionFlashcard } from '../RevisionRegistry';
 
-export const CHAPTER_31_FLASHCARDS: Flashcard[] = [
+export const CHAPTER_31_FLASHCARDS: RevisionFlashcard[] = [
     {
         id: 1,
         chapterId: 31,

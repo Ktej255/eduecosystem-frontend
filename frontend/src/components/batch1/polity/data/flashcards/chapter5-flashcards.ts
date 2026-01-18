@@ -1,9 +1,9 @@
 // Chapter 5: Preamble of the Constitution - Flashcards
 // Source: Laxmikanth Indian Polity
 
-import { Flashcard } from './chapter1-flashcards';
+import { RevisionFlashcard } from '../RevisionRegistry';
 
-export const CHAPTER_5_FLASHCARDS: Flashcard[] = [
+export const CHAPTER_5_FLASHCARDS: RevisionFlashcard[] = [
     {
         id: 1,
         chapterId: 5,

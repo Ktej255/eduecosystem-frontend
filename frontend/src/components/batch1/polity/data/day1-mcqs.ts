@@ -1,15 +1,5 @@
-export interface MCQ {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number; // 0 for A, 1 for B, 2 for C, 3 for D
-    explanation?: string;
-    level?: string;
-    // Topic metadata for detailed analytics
-    topic?: string;      // e.g., "Indian Polity"
-    chapter?: string;    // e.g., "Constitutional History"
-    subtopic?: string;   // e.g., "Regulating Act 1773"
-}
+import type { MCQ } from './mcq-utils';
+export type { MCQ };
 
 export const DAY1_MCQS: MCQ[] = [
     // LEVEL 1: EASY (Direct Factual)

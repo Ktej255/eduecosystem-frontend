@@ -27,7 +27,7 @@ function getWeekStatus(chapters: ChapterSchedule[]) {
     chapters.forEach(ch => {
         // Check if any flashcards exist for this chapter ID
         const hasFlashcards = POLITY_FLASHCARDS_DATA.some(fc => fc.subtopicId.startsWith(`${ch.chapter}.`));
-        const hasMCQs = POLITY_MCQS_DATA.some(mcq => mcq.subtopicId.startsWith(`${ch.chapter}.`));
+        const hasMCQs = POLITY_MCQS_DATA.some(mcq => mcq.subtopicId?.startsWith(`${ch.chapter}.`));
 
         if (hasFlashcards && hasMCQs) {
             readyChapters++;

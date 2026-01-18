@@ -15,7 +15,8 @@ import {
     MoreVertical,
     Play,
     Pause,
-    CheckCircle2
+    CheckCircle2,
+    Brain
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';

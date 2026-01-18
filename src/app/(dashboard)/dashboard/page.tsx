@@ -15,44 +15,17 @@ import {
 import Link from "next/link";
 import AIAssistant from "@/components/ai-assistant";
 import { useAuth } from "@/contexts/auth-context";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  PieChart,
-  Pie,
-  Cell,
-} from "recharts";
+import dynamic from "next/dynamic";
+import { LoadingSkeleton } from "@/components/ui/LoadingSkeleton";
 
-const studyActivityData = [
-  { name: "Mon", hours: 4 },
-  { name: "Tue", hours: 6 },
-  { name: "Wed", hours: 3 },
-  { name: "Thu", hours: 8 },
-  { name: "Fri", hours: 5 },
-  { name: "Sat", hours: 2 },
-  { name: "Sun", hours: 4 },
-];
-
-const progressData = [
-  { name: "Week 1", score: 65 },
-  { name: "Week 2", score: 72 },
-  { name: "Week 3", score: 78 },
-  { name: "Week 4", score: 85 },
-];
-
-const skillData = [
-  { name: "Technical", value: 400, color: "#0ea5e9" },
-  { name: "Creative", value: 300, color: "#8b5cf6" },
-  { name: "Soft Skills", value: 300, color: "#f59e0b" },
-];
+const DashboardCharts = dynamic(() => import("@/components/dashboard/DashboardCharts"), {
+  ssr: false,
+  loading: () => <LoadingSkeleton variant="card" className="h-[400px]" />
+});
 import { useGameStats, useWolfPack, useTasks, useMyCourses } from "@/hooks/use-api";
+
+import { animations } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 
 export default function DashboardPage() {
   const { user } = useAuth();
@@ -70,7 +43,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       {/* Welcome Banner */}
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 p-8 text-white shadow-lg">
+      <div className={cn("relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 p-8 text-white shadow-lg", animations.fadeIn)}>
         <div className="relative z-10">
           <h1 className="text-3xl font-bold mb-2">
             Good evening, {user?.full_name || "Student"}
@@ -87,7 +60,7 @@ export default function DashboardPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card>
+        <Card className={cn(animations.cardEntry, animations.delay100)}>
           <CardContent className="p-6 flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-muted-foreground mb-1">Courses in Progress</p>
@@ -98,7 +71,7 @@ export default function DashboardPage() {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className={cn(animations.cardEntry, animations.delay200)}>
           <CardContent className="p-6 flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-muted-foreground mb-1">Study Hours</p>
@@ -109,7 +82,7 @@ export default function DashboardPage() {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className={cn(animations.cardEntry, animations.delay300)}>
           <CardContent className="p-6 flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-muted-foreground mb-1">Avg. Quiz Score</p>
@@ -122,87 +95,9 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-      {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Study Activity Bar Chart */}
-        <Card className="lg:col-span-2">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-lg font-medium">Study Activity</CardTitle>
-            <Button variant="ghost" size="icon">
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </CardHeader>
-          <CardContent>
-            <div className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={studyActivityData}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#374151" opacity={0.2} />
-                  <XAxis
-                    dataKey="name"
-                    axisLine={false}
-                    tickLine={false}
-                    tick={{ fill: '#6b7280', fontSize: 12 }}
-                    dy={10}
-                  />
-                  <YAxis
-                    axisLine={false}
-                    tickLine={false}
-                    tick={{ fill: '#6b7280', fontSize: 12 }}
-                  />
-                  <Tooltip
-                    contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-                    cursor={{ fill: 'rgba(255, 255, 255, 0.05)' }}
-                  />
-                  <Bar dataKey="hours" fill="#3b82f6" radius={[4, 4, 0, 0]} barSize={30} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Progress Line Chart */}
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-lg font-medium">Performance</CardTitle>
-            <div className="flex items-center text-sm text-green-500">
-              <TrendingUp className="h-4 w-4 mr-1" />
-              +5.2%
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="h-[200px] w-full mb-4">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={progressData}>
-                  <Tooltip
-                    contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="score"
-                    stroke="#8b5cf6"
-                    strokeWidth={3}
-                    dot={{ r: 4, fill: '#8b5cf6', strokeWidth: 2, stroke: '#fff' }}
-                    activeDot={{ r: 6 }}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="h-2 w-2 rounded-full bg-blue-500 mr-2" />
-                  <span className="text-sm text-muted-foreground">Quiz Completion</span>
-                </div>
-                <span className="text-sm font-bold">92%</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="h-2 w-2 rounded-full bg-purple-500 mr-2" />
-                <span className="text-sm text-muted-foreground">Assignments</span>
-              </div>
-              <span className="text-sm font-bold">85%</span>
-            </div>
-          </CardContent>
-        </Card>
+      {/* Charts Section - Lazy Loaded */}
+      <div className={cn(animations.slideUp, animations.delay500)}>
+        <DashboardCharts />
       </div>
 
       {/* Bottom Section */}

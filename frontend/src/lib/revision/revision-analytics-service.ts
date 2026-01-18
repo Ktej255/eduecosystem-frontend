@@ -210,12 +210,48 @@ function isToday(date: Date): boolean {
 }
 
 export async function fetchKnowledgeTree(): Promise<TreeBranch[]> {
-    // In a real implementation, this would aggregate data from getAllSessions()
-    // or fetch from a dedicated backend endpoint.
-    // For now, we return the mock structure which is already quite detailed.
+    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
-    // Simulating API delay
-    await new Promise(resolve => setTimeout(resolve, 500));
+    if (!token) {
+        console.log('No auth token, returning mock tree data');
+        return MOCK_TREE_DATA;
+    }
 
-    return MOCK_TREE_DATA;
+    try {
+        const response = await fetch(`${API_URL}/api/v1/retention/tree`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Map backend response to frontend TreeBranch format
+        const branches: TreeBranch[] = data.map((branch: any) => ({
+            id: branch.id,
+            subjectId: branch.subjectId,
+            subjectName: branch.subjectName,
+            leaves: branch.leaves.map((leaf: any) => ({
+                id: leaf.id,
+                topicId: leaf.topicId,
+                topicName: leaf.topicName,
+                subjectId: leaf.subjectId,
+                retentionScore: leaf.retentionScore,
+                lastReviewed: leaf.lastReviewed ? new Date(leaf.lastReviewed) : new Date(),
+                status: leaf.status as 'blooming' | 'withered' | 'healthy'
+            }))
+        }));
+
+        return branches.length > 0 ? branches : MOCK_TREE_DATA;
+    } catch (error) {
+        console.error('Failed to fetch knowledge tree:', error);
+        return MOCK_TREE_DATA;
+    }
 }

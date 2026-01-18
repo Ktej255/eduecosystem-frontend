@@ -97,7 +97,7 @@ export default function CycleMCQs({
             // If they selected something, count it
             if (selectedAnswer !== null) {
                 const isCorrect = selectedAnswer === currentMCQ.correctIndex;
-                setResults(prev => [...prev, { questionId: currentMCQ.id, isCorrect }]);
+                setResults(prev => [...prev, { questionId: String(currentMCQ.id), isCorrect }]);
             }
             // Finish immediately
             handleFinish();
@@ -115,7 +115,7 @@ export default function CycleMCQs({
         if (selectedAnswer === null) return;
 
         const isCorrect = selectedAnswer === currentMCQ.correctIndex;
-        setResults(prev => [...prev, { questionId: currentMCQ.id, isCorrect }]);
+        setResults(prev => [...prev, { questionId: String(currentMCQ.id), isCorrect }]);
 
         // Record analytics for weak topic identification
         const topicLabel = selectedSubtopics.find(s => s.id === currentMCQ.subtopicId)?.label || "Unknown Topic";
