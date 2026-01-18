@@ -58,6 +58,7 @@ export default function IntermediatePDFSession({
                     id: `pdf-${Date.now()}`,
                     examId: 'upsc',
                     subjectId: 'polity',
+                    topicId: 1, // Default topic ID for PDF session
                     topicName,
                     startTime: new Date(Date.now() - durationMinutes * 60000).toISOString(),
                     endTime: new Date().toISOString(),
