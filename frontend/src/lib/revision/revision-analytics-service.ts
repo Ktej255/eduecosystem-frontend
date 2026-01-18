@@ -4,6 +4,8 @@
  * Pulls from localStorage and prepares data for daily, weekly, 15-day, and monthly views.
  */
 
+import { TreeBranch, MOCK_TREE_DATA } from '../../components/revision/immersive/tree-data';
+
 export interface CycleSession {
     id: string;
     examId: string;
@@ -205,4 +207,15 @@ function isToday(date: Date): boolean {
     return date.getDate() === today.getDate() &&
         date.getMonth() === today.getMonth() &&
         date.getFullYear() === today.getFullYear();
+}
+
+export async function fetchKnowledgeTree(): Promise<TreeBranch[]> {
+    // In a real implementation, this would aggregate data from getAllSessions()
+    // or fetch from a dedicated backend endpoint.
+    // For now, we return the mock structure which is already quite detailed.
+
+    // Simulating API delay
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    return MOCK_TREE_DATA;
 }
