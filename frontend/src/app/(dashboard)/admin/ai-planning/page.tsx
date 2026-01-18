@@ -14,7 +14,8 @@ import {
     Zap,
     TrendingUp,
     Clock,
-    CheckCircle2
+    CheckCircle2,
+    Plus
 } from "lucide-react";
 
 interface PlanItem {
