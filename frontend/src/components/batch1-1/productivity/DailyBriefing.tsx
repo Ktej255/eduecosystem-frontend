@@ -35,7 +35,10 @@ export default function DailyBriefing() {
                 },
                 body: JSON.stringify({ topic_focus: "General" })
             });
+
+            if (!response.ok) throw new Error("API Error");
             const data = await response.json();
+            if (!Array.isArray(data)) throw new Error("Invalid Data");
             setQuestions(data);
         } catch (error) {
             console.error(error);

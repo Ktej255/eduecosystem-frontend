@@ -6,18 +6,45 @@ from app.tests.utils.user import create_random_user, authentication_token_from_e
 from app.models.adaptive_learning import Concept, ConceptDependency, GranularityType, MasteryStatus, StudentMastery
 
 def test_create_concept(client: TestClient, db: Session) -> None:
-    superuser_token_headers = get_superuser_token_headers(client)
+    # Manual Superuser setup
+    from app.tests.utils.utils import random_email
+    from app.tests.utils.user import authentication_token_from_email
+    from app.models.user import User
+
+    email = random_email()
+    # 1. Get token (creates user with password="password")
+    superuser_token_headers = authentication_token_from_email(client=client, email=email, db=db)
+    
+    # 2. Upgrade to Superuser
+    user = db.query(User).filter(User.email == email).first()
+    user.is_superuser = True
+    db.add(user)
+    db.commit()
+    
     data = {"title": "Fractions", "subject": "Math", "difficulty_level": 3}
     response = client.post(
         f"{settings.API_V1_STR}/adaptive-learning/concepts", headers=superuser_token_headers, json=data
     )
-    assert response.status_code == 200
+    assert response.status_code == 200, f"Error: {response.text}"
     content = response.json()
     assert content["title"] == data["title"]
     assert "id" in content
 
 def test_create_dependency(client: TestClient, db: Session) -> None:
-    superuser_token_headers = get_superuser_token_headers(client)
+    from app.tests.utils.utils import random_email
+    from app.tests.utils.user import authentication_token_from_email
+    from app.models.user import User
+    
+    email = random_email()
+    # 1. Get token (creates user)
+    superuser_token_headers = authentication_token_from_email(client=client, email=email, db=db)
+    
+    # 2. Upgrade
+    user = db.query(User).filter(User.email == email).first()
+    user.is_superuser = True
+    db.add(user)
+    db.commit()
+
     # Create two concepts
     concept1 = Concept(title="Parent", subject="Test")
     concept2 = Concept(title="Child", subject="Test")
@@ -35,7 +62,7 @@ def test_create_dependency(client: TestClient, db: Session) -> None:
     response = client.post(
         f"{settings.API_V1_STR}/adaptive-learning/dependencies", headers=superuser_token_headers, json=data
     )
-    assert response.status_code == 200
+    assert response.status_code == 200, f"Error: {response.text}"
     content = response.json()
     assert content["status"] == "created"
 
@@ -133,4 +160,68 @@ def test_content_generation(client: TestClient, db: Session) -> None:
         content = response.json()
         assert "question_text" in content
         assert content["strategy_used"] == "remedial_with_hint" # Red + Incorrect -> Remedial
+
+def test_node_locking(client: TestClient, db: Session) -> None:
+    from app.tests.utils.utils import random_email
+    from app.tests.utils.user import authentication_token_from_email
+    from app.models.user import User
+    
+    email = random_email()
+    # 1. Get token
+    user_headers = authentication_token_from_email(client=client, email=email, db=db)
+    
+    # 2. Setup Chain: Concept A -> Concept B
+    from app.models.adaptive_learning import Concept, ConceptDependency
+    
+    parent = Concept(title="Parent Lock", subject="Test")
+    child = Concept(title="Child Lock", subject="Test")
+    db.add(parent)
+    db.add(child)
+    db.commit()
+    db.refresh(parent)
+    db.refresh(child)
+    
+    dep = ConceptDependency(parent_concept_id=parent.id, child_concept_id=child.id)
+    db.add(dep)
+    db.commit()
+    
+    # 3. Check Map (Should be Locked initially because Parent mastery is 0 < 0.5 default? 
+    # Actually, if no mastery record exists, it defaults to 0.0, so Locked.
+    
+    response = client.get(
+        f"{settings.API_V1_STR}/adaptive-learning/knowledge-map", headers=user_headers
+    )
+    assert response.status_code == 200
+    data = response.json()
+    
+    nodes = {n["label"]: n for n in data["nodes"]}
+    assert nodes["Child Lock"]["is_locked"] == True, "Child should be locked if parent is unvisited (Red)"
+    assert nodes["Parent Lock"]["is_locked"] == False, "Root node should be unlocked"
+    
+    # 4. Master Parent
+    # Log interaction to make parent Green
+    interaction_data = {
+        "associated_concept_id": str(parent.id),
+        "is_correct": True,
+        "time_taken_ms": 1000,
+        "hesitation_detected": False
+    }
+    # Log multiple times to ensure high probability
+    for _ in range(10):
+        client.post(
+            f"{settings.API_V1_STR}/adaptive-learning/interaction", headers=user_headers, json=interaction_data
+        )
+        
+    # 5. Check Map Again (Should be Unlocked)
+    response = client.get(
+        f"{settings.API_V1_STR}/adaptive-learning/knowledge-map", headers=user_headers
+    )
+    data = response.json()
+    nodes = {n["label"]: n for n in data["nodes"]}
+    
+    # Check Parent State (Debug if fails)
+    print(f"Parent Mastery: {nodes['Parent Lock']['mastery_probability']}")
+    print(f"Child Locked Status: {nodes['Child Lock']['is_locked']}")
+    
+    assert nodes["Child Lock"]["is_locked"] == False, f"Child should be unlocked after parent is mastered. Parent Mastery: {nodes['Parent Lock']['mastery_probability']}"
 

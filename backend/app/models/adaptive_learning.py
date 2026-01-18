@@ -13,12 +13,43 @@ from sqlalchemy import (
     Enum as SqlEnum,
     Float,
     Table,
+    TypeDecorator,
+    CHAR
 )
 from sqlalchemy.orm import relationship
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.dialects.postgresql import UUID as PGUUID
 
 from app.db.session import Base
 from app.models.user import User
+
+class GUID(TypeDecorator):
+    """Platform-independent GUID type.
+    Uses PostgreSQL's UUID type for PostgreSQL,
+    CHAR(36) for others (SQLite, etc.)
+    """
+    impl = CHAR
+    cache_ok = True
+
+    def load_dialect_impl(self, dialect):
+        if dialect.name == 'postgresql':
+            return dialect.type_descriptor(PGUUID())
+        else:
+            return dialect.type_descriptor(CHAR(36))
+
+    def process_bind_param(self, value, dialect):
+        if value is None:
+            return value
+        return str(value)
+
+    def process_result_value(self, value, dialect):
+        if value is None:
+            return value
+        if not isinstance(value, uuid.UUID):
+            try:
+                return uuid.UUID(value)
+            except ValueError:
+                return value
+        return value
 
 class GranularityType(str, Enum):
     SUBJECT = "Subject"
@@ -33,8 +64,9 @@ class MasteryStatus(str, Enum):
 class Concept(Base):
     __tablename__ = "concepts"
 
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id = Column(GUID(), primary_key=True, default=uuid.uuid4)
     title = Column(String(255), nullable=False)
+
     subject = Column(String(50), nullable=False)
     difficulty_level = Column(Integer, default=1)  # 1-10
     granularity_type = Column(SqlEnum(GranularityType), default=GranularityType.NANO_POINT)
@@ -62,8 +94,8 @@ class ConceptDependency(Base):
     """
     __tablename__ = "concept_dependencies"
 
-    parent_concept_id = Column(UUID(as_uuid=True), ForeignKey("concepts.id"), primary_key=True)
-    child_concept_id = Column(UUID(as_uuid=True), ForeignKey("concepts.id"), primary_key=True)
+    parent_concept_id = Column(GUID(), ForeignKey("concepts.id"), primary_key=True)
+    child_concept_id = Column(GUID(), ForeignKey("concepts.id"), primary_key=True)
     strength = Column(Float, default=1.0)
 
     parent_concept = relationship("Concept", foreign_keys=[parent_concept_id], back_populates="child_dependencies")
@@ -77,7 +109,7 @@ class StudentMastery(Base):
     __tablename__ = "student_mastery"
 
     user_id = Column(Integer, ForeignKey("users.id"), primary_key=True)
-    concept_id = Column(UUID(as_uuid=True), ForeignKey("concepts.id"), primary_key=True)
+    concept_id = Column(GUID(), ForeignKey("concepts.id"), primary_key=True)
     
     mastery_probability = Column(Float, default=0.0) # 0.0 to 1.0 (BKT Score)
     status = Column(SqlEnum(MasteryStatus), default=MasteryStatus.RED)
@@ -95,10 +127,10 @@ class InteractionLog(Base):
     """
     __tablename__ = "interaction_logs"
 
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id = Column(GUID(), primary_key=True, default=uuid.uuid4)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
     question_id = Column(String, nullable=True) # ID from Question Bank or generated ID
-    associated_concept_id = Column(UUID(as_uuid=True), ForeignKey("concepts.id"), nullable=True)
+    associated_concept_id = Column(GUID(), ForeignKey("concepts.id"), nullable=True)
     
     is_correct = Column(Boolean, default=False)
     time_taken_ms = Column(Integer, default=0)

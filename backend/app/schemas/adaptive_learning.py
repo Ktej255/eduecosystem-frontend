@@ -20,6 +20,11 @@ class Concept(ConceptBase):
     class Config:
         orm_mode = True
 
+class KnowledgeMapNode(Concept):
+    mastery_probability: float = 0.0
+    mastery_status: str = "Red"
+    is_locked: bool = False
+
 # Dependency Schemas
 class DependencyCreate(BaseModel):
     parent_id: UUID
@@ -39,6 +44,7 @@ class InteractionResponse(BaseModel):
     status: str
     mastery_probability: float
     mastery_status: str
+    recommendation: Optional[Dict[str, Any]] = None
 
 # Generation Schemas
 class GenerateContentRequest(BaseModel):

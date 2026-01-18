@@ -18,23 +18,13 @@ class AdaptiveLearningService:
     def get_user_mastery(self, user_id: int, concept_id: UUID) -> Optional[StudentMastery]:
         return (
             self.db.query(StudentMastery)
-            .filter(
-                StudentMastery.user_id == user_id, 
-                StudentMastery.concept_id == concept_id
-            )
+            .filter(StudentMastery.user_id == user_id, StudentMastery.concept_id == concept_id)
             .first()
         )
 
     def log_interaction(self, user_id: int, interaction_data: Dict[str, Any]) -> InteractionLog:
         """
         Logs an interaction and triggers the BKT update.
-        interaction_data should contain:
-        - question_id
-        - associated_concept_id
-        - is_correct
-        - time_taken_ms
-        - hesitation_detected
-        - backspaces_count
         """
         db_log = InteractionLog(
             user_id=user_id,
@@ -63,7 +53,7 @@ class AdaptiveLearningService:
         """
         mastery = self.get_user_mastery(user_id, concept_id)
         if not mastery:
-            # Initialize with default prior (e.g. 0.3 for new concept)
+            print("DEBUG: Creating NEW mastery record (0.3)")
             mastery = StudentMastery(
                 user_id=user_id,
                 concept_id=concept_id,
@@ -72,49 +62,37 @@ class AdaptiveLearningService:
                 confidence_score=0.5
             )
             self.db.add(mastery)
+        else:
+            print(f"DEBUG: Found existing mastery: {mastery.mastery_probability}")
 
-        # BKT Parameters (Simplified)
-        # P(L) = Probability already learned
-        # P(G) = Probability of Guessing (0.2)
-        # P(S) = Probability of Slipping (0.1)
-        # P(T) = Probability of Transition (Learning during step) (0.1)
-
+        # BKT Parameters
         p_known = mastery.mastery_probability
         p_guess = 0.2
         p_slip = 0.1
         p_transit = 0.1
 
-        # Adjust parameters based on Hesitation behavior (The "Perception Layer")
         if interaction.hesitation_detected:
-            # If hesitated, likelihood of guessing increases if correct,
-            # or likelihood of reliable knowledge decreases.
-            p_guess = 0.4  # Higher chance they guessed
+            p_guess = 0.4
             
+        print(f"DEBUG: p_known={p_known}, correct={interaction.is_correct}")
+
         if interaction.is_correct:
-            # Bayes update for Correct Answer
-            # P(L|Correct) = P(L) * (1 - P(S)) / (P(L) * (1 - P(S)) + (1 - P(L)) * P(G))
             numerator = p_known * (1 - p_slip)
             denominator = numerator + (1 - p_known) * p_guess
             p_known_given_obs = numerator / denominator
         else:
-            # Bayes update for Incorrect Answer
-            # P(L|Incorrect) = P(L) * P(S) / (P(L) * P(S) + (1 - P(L)) * (1 - P(G)))
             numerator = p_known * p_slip
             denominator = numerator + (1 - p_known) * (1 - p_guess)
             p_known_given_obs = numerator / denominator
 
-        # Update with Transition (Learning occurred during this step)
-        # P(L_new) = P(L|Obs) + (1 - P(L|Obs)) * P(T)
         p_new = p_known_given_obs + (1 - p_known_given_obs) * p_transit
-
-        # Apply limits
         p_new = max(0.0, min(1.0, p_new))
+        
+        print(f"DEBUG: p_new={p_new}")
 
-        # Update State
         mastery.mastery_probability = p_new
         mastery.last_assessed_at = datetime.utcnow()
         
-        # Update Red/Green Status
         if p_new < 0.5:
             mastery.status = MasteryStatus.RED
         elif p_new < 0.8:
@@ -122,37 +100,72 @@ class AdaptiveLearningService:
         else:
             mastery.status = MasteryStatus.GREEN
 
+        self.db.add(mastery) # Ensure added/updated
         self.db.commit()
         self.db.refresh(mastery)
         
         return mastery
 
-    def get_knowledge_map(self, user_id: int):
+    def get_knowledge_map(self, user_id: int) -> Dict[str, Any]:
         """
-        Returns the graph structure overlayed with user mastery.
+        Returns the graph: Nodes (Concepts + Mastery + Lock Status) and Edges (Dependencies).
         """
+        # 1. Fetch all concepts and dependencies
         concepts = self.db.query(Concept).all()
         dependencies = self.db.query(ConceptDependency).all()
-        masteries = self.db.query(StudentMastery).filter(StudentMastery.user_id == user_id).all()
         
-        mastery_map = {m.concept_id: m for m in masteries}
+        # 2. Fetch user's mastery states
+        mastery_entries = (
+            self.db.query(StudentMastery)
+            .filter(StudentMastery.user_id == user_id)
+            .all()
+        )
+        mastery_map = {m.concept_id: m for m in mastery_entries}
         
+        # 3. Build Adjacency List for Parents (Child -> [Parents])
+        parents_map = {}
+        for dep in dependencies:
+            if dep.child_concept_id not in parents_map:
+                parents_map[dep.child_concept_id] = []
+            parents_map[dep.child_concept_id].append(dep.parent_concept_id)
+
+        # 4. Construct Nodes with Status
         nodes = []
-        for c in concepts:
-            m = mastery_map.get(c.id)
+        for concept in concepts:
+            mastery = mastery_map.get(concept.id)
+            
+            # Locking Logic
+            is_locked = False
+            parents = parents_map.get(concept.id, [])
+            if parents:
+                # Check if ALL parents are "Unlocked" enough (allow Yellow/Green)
+                # Strict: Parent must be > 0.5 (Yellow or Green) to unlock child.
+                for parent_id in parents:
+                    parent_mastery = mastery_map.get(parent_id)
+                    if not parent_mastery or parent_mastery.mastery_probability < 0.5:
+                        is_locked = True
+                        break
+            
             nodes.append({
-                "id": c.id,
-                "label": c.title,
-                "status": m.status if m else MasteryStatus.RED, # Default to Red if unknown
-                "mastery_probability": m.mastery_probability if m else 0.0
+                "id": concept.id,
+                "label": concept.title,
+                "title": concept.title, # Added for schema compatibility
+                "subject": concept.subject, # Added for schema compatibility
+                "difficulty_level": concept.difficulty_level, # Added
+                "granularity_type": concept.granularity_type, # Added
+                "mastery_probability": mastery.mastery_probability if mastery else 0.0,
+                "mastery_status": mastery.status if mastery else MasteryStatus.RED,
+                "is_locked": is_locked
             })
             
-        edges = []
-        for d in dependencies:
-            edges.append({
-                "source": d.parent_concept_id,
-                "target": d.child_concept_id,
-                "strength": d.strength
-            })
-            
+        # 5. Construct Edges
+        edges = [
+            {
+                "source": dep.parent_concept_id,
+                "target": dep.child_concept_id,
+                "strength": dep.strength
+            }
+            for dep in dependencies
+        ]
+        
         return {"nodes": nodes, "edges": edges}
