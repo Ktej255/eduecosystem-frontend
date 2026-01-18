@@ -262,6 +262,7 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                                         id: `recall-${Date.now()}`,
                                         examId: 'upsc',
                                         subjectId: 'polity',
+                                        topicId: 1, // Default topic ID for advanced recall
                                         topicName,
                                         startTime: new Date().toISOString(), // Roughly now for recall-only
                                         endTime: new Date().toISOString(),
