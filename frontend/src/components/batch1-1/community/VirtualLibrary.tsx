@@ -20,6 +20,15 @@ export default function VirtualLibrary() {
     const [loading, setLoading] = useState(true);
 
     const fetchPresence = async () => {
+        // Force offline mode
+        setUsers([
+            { user_id: 101, name: "Sidharth M.", avatar: "", status: 'focusing', current_subject: 'Polity' },
+            { user_id: 102, name: "Tara S.", avatar: "", status: 'taking_break', current_subject: 'Economy' },
+            { user_id: 103, name: "Rohan K.", avatar: "", status: 'focusing', current_subject: 'History' },
+            { user_id: 104, name: "Vihaan", avatar: "", status: 'online', current_subject: 'Rest' },
+        ]);
+        setLoading(false);
+        /*
         try {
             const token = localStorage.getItem('token');
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/community/presence`, {
@@ -41,11 +50,13 @@ export default function VirtualLibrary() {
             ]);
             setLoading(false);
         }
+        */
     };
 
     // Heartbeat
     useEffect(() => {
         fetchPresence();
+        /*
         const interval = setInterval(() => {
             // Update my status
             const token = localStorage.getItem('token');
@@ -61,6 +72,7 @@ export default function VirtualLibrary() {
         }, 30000); // 30s poll
 
         return () => clearInterval(interval);
+        */
     }, []);
 
     return (
