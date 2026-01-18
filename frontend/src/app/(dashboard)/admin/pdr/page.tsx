@@ -173,7 +173,7 @@ export default function PDRPage() {
     );
 
     const filteredPages = searchQuery
-        ? allPages.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.path.toLowerCase().includes(searchQuery.toLowerCase()))
+        ? allPages.filter((p: any) => p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.path.toLowerCase().includes(searchQuery.toLowerCase()))
         : allPages;
 
     const portalsToShow = selectedPortal
@@ -277,7 +277,7 @@ export default function PDRPage() {
                     {Object.entries(portalsToShow).map(([key, portal]: [string, any]) => {
                         const Icon = portal.icon;
                         const portalPages = searchQuery
-                            ? portal.pages.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                            ? portal.pages.filter((p: any) => p.name.toLowerCase().includes(searchQuery.toLowerCase()))
                             : portal.pages;
 
                         if (portalPages.length === 0) return null;
@@ -293,7 +293,7 @@ export default function PDRPage() {
                                 </div>
                                 <CardContent className="p-4 max-h-96 overflow-y-auto">
                                     <div className="space-y-2">
-                                        {portalPages.map((page, idx) => (
+                                        {portalPages.map((page: any, idx: any) => (
                                             <div
                                                 key={idx}
                                                 className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
@@ -311,7 +311,7 @@ export default function PDRPage() {
                                                 </div>
                                                 {page.connections.length > 0 && (
                                                     <div className="mt-2 flex flex-wrap gap-1">
-                                                        {page.connections.map((conn, i) => (
+                                                        {page.connections.map((conn: any, i: any) => (
                                                             <span
                                                                 key={i}
                                                                 className="inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-white dark:bg-gray-700 rounded border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300"
