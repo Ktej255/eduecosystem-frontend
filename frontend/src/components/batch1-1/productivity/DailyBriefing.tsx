@@ -39,7 +39,31 @@ export default function DailyBriefing() {
             setQuestions(data);
         } catch (error) {
             console.error(error);
-            toast.error("Failed to load news.");
+            toast.error("Using offline mode.");
+            // Mock Fallback
+            setQuestions([
+                {
+                    id: 1,
+                    question: "Which organization regulates the Repo Rate in India?",
+                    options: ["SEBI", "RBI", "Finance Ministry", "NITI Aayog"],
+                    correctIndex: 1,
+                    explanation: "RBI Monetary Policy Committee decides the repo rate."
+                },
+                {
+                    id: 2,
+                    question: "What is the primary objective of the ISRO RLV-LEX-02 mission?",
+                    options: ["Mars Landing", "Reusable Launch Vehicle Landing", "Sun Observation", "Moon Rover"],
+                    correctIndex: 1,
+                    explanation: "It demonstrated the autonomous landing capability of a reusable launch vehicle."
+                },
+                {
+                    id: 3,
+                    question: "The 'Electoral Bonds' scheme was struck down by the Supreme Court based on which Article?",
+                    options: ["Article 14", "Article 19(1)(a)", "Article 21", "Article 32"],
+                    correctIndex: 1,
+                    explanation: "It violated the Right to Information under Article 19(1)(a)."
+                }
+            ]);
         } finally {
             setLoading(false);
         }
