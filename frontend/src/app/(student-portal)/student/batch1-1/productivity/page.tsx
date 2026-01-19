@@ -3,12 +3,25 @@
 import DailyBriefing from "@/components/batch1-1/productivity/DailyBriefing";
 import MathSprint from "@/components/batch1-1/productivity/MathSprint";
 import LogicGrid from "@/components/batch1-1/productivity/LogicGrid";
+import { MoodTrackerModal } from "@/components/batch1-1/productivity/MoodTrackerModal";
 import { ArrowLeft, Zap, Trophy, BrainCircuit } from 'lucide-react';
 import Link from 'next/link';
+import { useState, useEffect } from "react";
 
 export default function ProductivityPage() {
+    const [showMoodModal, setShowMoodModal] = useState(false);
+
+    useEffect(() => {
+        // Show modal if not logged recently (mock logic for demo)
+        const lastLog = localStorage.getItem("last_mood_log");
+        if (!lastLog) {
+            setTimeout(() => setShowMoodModal(true), 1000); // Delay for effect
+        }
+    }, []);
+
     return (
         <div className="container mx-auto p-6 max-w-7xl">
+            <MoodTrackerModal isOpen={showMoodModal} onClose={() => setShowMoodModal(false)} />
             <div className="mb-8">
                 <Link
                     href="/student/batch1-1"
