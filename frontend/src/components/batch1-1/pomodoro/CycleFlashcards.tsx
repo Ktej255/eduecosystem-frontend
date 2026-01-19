@@ -61,13 +61,19 @@ interface CycleFlashcardsProps {
     onComplete: (viewedCount: number) => void;
     cycleNumber: number;
     preloadedCards?: any[]; // Accept any format
+    canSkip?: boolean;
+    skipsRemaining?: number;
+    onSkip?: () => void;
 }
 
 export default function CycleFlashcards({
     selectedSubtopics,
     onComplete,
     cycleNumber,
-    preloadedCards
+    preloadedCards,
+    canSkip = false,
+    skipsRemaining = 0,
+    onSkip
 }: CycleFlashcardsProps) {
     const flashcards = useMemo(() => {
         if (preloadedCards && preloadedCards.length > 0) return preloadedCards;
@@ -339,6 +345,18 @@ export default function CycleFlashcards({
                                     <ChevronLeft className="h-4 w-4 mr-1" />
                                     Previous
                                 </Button>
+
+                                {onSkip && (
+                                    <Button
+                                        variant="ghost"
+                                        onClick={(e) => { e.stopPropagation(); onSkip(); handleNext(); }}
+                                        disabled={!canSkip}
+                                        className="text-amber-600 hover:text-amber-800 hover:bg-amber-100 dark:text-amber-400 dark:hover:text-amber-200 dark:hover:bg-amber-900/30"
+                                        title={canSkip ? "Skip this card" : "No skips remaining"}
+                                    >
+                                        Skip ({skipsRemaining})
+                                    </Button>
+                                )}
 
                                 <div className="flex items-center gap-2">
                                     <CheckCircle2 className="h-4 w-4 text-green-500" />
