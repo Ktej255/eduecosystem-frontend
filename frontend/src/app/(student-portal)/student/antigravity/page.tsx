@@ -91,60 +91,54 @@ export default function AntiGravityPage() {
                 }
             } catch (err) {
                 console.error("Failed to load dashboard, falling back to mock data", err);
-                // MOCK DATA FALLBACK for Verification
+                // MOCK DATA FALLBACK for Verification (Updated to Match Custom Schedule)
                 setData({
                     current_phase: {
                         phase_id: 1,
-                        name: "Foundation Building",
-                        description: "Establish core concepts and daily rhythms.",
-                        start_date: "2026-01-01",
-                        end_date: "2026-02-28",
+                        name: "Phase 1: Physics & Reasoning",
+                        description: "Jan 20 - Jan 29: Daily 1 Chapter Target",
+                        start_date: "2026-01-20",
+                        end_date: "2026-01-29",
                         is_active: true,
-                        status_message: "On Track"
+                        status_message: "Day 1 of Phase 1"
                     },
                     today_date: selectedDate,
-                    day_number_in_phase: 19,
-                    daily_progress: 35,
+                    day_number_in_phase: 1,
+                    daily_progress: 0,
                     slots: [
                         {
-                            slot_id: "A1",
-                            time_label: "06:00 AM - 08:00 AM",
-                            subject: "Polity",
-                            topic: "Preamble & Fundamental Rights",
-                            description: "Read Chapter 4 & 5 of Laxmikanth.",
-                            duration_minutes: 120,
+                            slot_id: "A",
+                            time_label: "02:00 PM - 04:45 PM",
+                            subject: "Classwork Revision",
+                            topic: "Math / Medieval History",
+                            description: "Jo subah live class mein padha, usey revise karein.",
+                            duration_minutes: 165,
                             is_locked: false,
-                            is_completed: true,
+                            is_completed: false,
+                            action_type: "revision"
+                        },
+                        {
+                            slot_id: "B",
+                            time_label: "05:00 PM - 08:00 PM",
+                            subject: "Physics",
+                            topic: "Mechanics & Motion",
+                            description: "Daily 1 Chapter target. Focus on core concepts.",
+                            duration_minutes: 180,
+                            is_locked: false,
+                            is_completed: false,
                             action_type: "reading"
                         },
                         {
-                            slot_id: "B1",
-                            time_label: "08:30 AM - 09:30 AM",
-                            subject: "Polity",
-                            topic: "FR Flashcards",
-                            description: "Review missed flashcards from yesterday.",
-                            duration_minutes: 60,
-                            is_locked: false,
-                            is_completed: false,
-                            required_slot_id: "A1",
-                            action_type: "revision",
-                            suggestion: {
-                                type: "swap",
-                                reason: "Low retention in Geography detected.",
-                                suggested_topic: "Cyclone Formation (Geography)"
-                            }
-                        },
-                        {
-                            slot_id: "C1",
-                            time_label: "06:00 PM - 07:00 PM",
-                            subject: "Current Affairs",
-                            topic: "Daily News Analysis",
-                            description: "Read The Hindu editorials.",
-                            duration_minutes: 60,
+                            slot_id: "C",
+                            time_label: "09:00 PM - 11:00 PM",
+                            subject: "Reasoning",
+                            topic: "Coding-Decoding",
+                            description: "Solve at least 30 questions from this topic.",
+                            duration_minutes: 120,
                             is_locked: true,
                             is_completed: false,
-                            required_slot_id: "B1",
-                            action_type: "reading"
+                            required_slot_id: "B",
+                            action_type: "practice"
                         }
                     ]
                 });
