@@ -23,7 +23,19 @@ export function MoodTrackerModal({ isOpen, onClose }: MoodTrackerModalProps) {
     ];
 
     const handleSave = () => {
-        // Logic to save mood would go here (e.g., API call)
+        // Calculate current slot key to match the checking logic
+        const now = new Date();
+        const hour = now.getHours();
+        const dateStr = now.toISOString().split('T')[0];
+        const slots = [0, 6, 9, 12, 15, 18, 21];
+        const currentSlot = slots.map(s => s).reverse().find(s => hour >= s);
+
+        if (currentSlot !== undefined) {
+            const slotKey = `mood_log_${dateStr}_${currentSlot}`;
+            localStorage.setItem(slotKey, "true");
+        }
+
+        // Also save generic log for history
         console.log({ mood, energy, note });
         localStorage.setItem("last_mood_log", new Date().toISOString());
         onClose();
