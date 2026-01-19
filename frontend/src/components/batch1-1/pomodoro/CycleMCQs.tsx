@@ -41,13 +41,19 @@ interface CycleMCQsProps {
     onComplete: (results: { correct: number; total: number }) => void;
     cycleNumber: number;
     preloadedMCQs?: MCQ[];
+    canSkip?: boolean;
+    skipsRemaining?: number;
+    onSkip?: () => void;
 }
 
 export default function CycleMCQs({
     selectedSubtopics,
     onComplete,
     cycleNumber,
-    preloadedMCQs
+    preloadedMCQs,
+    canSkip = false,
+    skipsRemaining = 0,
+    onSkip
 }: CycleMCQsProps) {
     const mcqs = useMemo(() => {
         if (preloadedMCQs && preloadedMCQs.length > 0) return preloadedMCQs;
@@ -275,25 +281,46 @@ export default function CycleMCQs({
                     )}
 
                     {/* Actions */}
-                    <div className="flex justify-end gap-3 pt-4 border-t border-purple-100 dark:border-purple-800">
-                        {!showResult ? (
+                    <div className="flex justify-between gap-3 pt-4 border-t border-purple-100 dark:border-purple-800">
+                        {onSkip && (
                             <Button
-                                onClick={handleSubmitAnswer}
-                                disabled={selectedAnswer === null || isGlobalTimeout}
-                                className="bg-purple-600 hover:bg-purple-700 text-white px-8"
+                                variant="ghost"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (onSkip) {
+                                        onSkip();
+                                        // Also trigger complete with current results? 
+                                        // Usually skip means abort this phase. The parent handles transition.
+                                    }
+                                }}
+                                disabled={!canSkip}
+                                className="text-purple-600 hover:text-purple-800 hover:bg-purple-100 dark:text-purple-400 dark:hover:text-purple-200 dark:hover:bg-purple-900/30"
+                                title={canSkip ? "Skip this section" : "No skips remaining"}
                             >
-                                Submit Answer
-                            </Button>
-                        ) : (
-                            <Button
-                                onClick={handleNext}
-                                className="bg-purple-600 hover:bg-purple-700 text-white px-8"
-                            >
-                                {isLastQuestion ? 'Complete Test' : 'Next Question'}
-                                <ChevronRight className="ml-1 h-4 w-4" />
+                                Skip ({skipsRemaining})
                             </Button>
                         )}
+                        <div className="flex gap-2">
+                            {!showResult ? (
+                                <Button
+                                    onClick={handleSubmitAnswer}
+                                    disabled={selectedAnswer === null || isGlobalTimeout}
+                                    className="bg-purple-600 hover:bg-purple-700 text-white px-8"
+                                >
+                                    Submit Answer
+                                </Button>
+                            ) : (
+                                <Button
+                                    onClick={handleNext}
+                                    className="bg-purple-600 hover:bg-purple-700 text-white px-8"
+                                >
+                                    {isLastQuestion ? 'Complete Test' : 'Next Question'}
+                                    <ChevronRight className="ml-1 h-4 w-4" />
+                                </Button>
+                            )}
+                        </div>
                     </div>
+
                 </CardContent>
             </Card>
 

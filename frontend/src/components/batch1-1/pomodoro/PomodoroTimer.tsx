@@ -309,8 +309,8 @@ export default function PomodoroTimer({
                                 size="sm"
                                 variant="secondary"
                                 onClick={() => {
-                                    setTimeLeft(prev => prev + 300); // Add 5 mins
-                                    setEndTime(prev => (prev || Date.now()) + 300000);
+                                    setTimeLeft((prev: number) => prev + 300); // Add 5 mins
+                                    setEndTime((prev: number | null) => (prev || Date.now()) + 300000);
                                 }}
                                 className="shadow-lg border-orange-200 bg-white/90 hover:bg-white text-orange-600 text-xs px-3 h-7"
                             >
