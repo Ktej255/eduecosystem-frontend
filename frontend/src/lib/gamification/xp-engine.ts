@@ -248,3 +248,5 @@ export function getXPForLevel(level: number): number {
     if (level > LEVEL_THRESHOLDS.length) return LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1];
     return LEVEL_THRESHOLDS[level - 1];
 }
+
+export { LEVEL_THRESHOLDS };
