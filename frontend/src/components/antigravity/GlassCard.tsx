@@ -238,7 +238,8 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                             <motion.circle
                                 cx="28" cy="28" r="24"
                                 stroke="currentColor" strokeWidth="3"
-                                fill="transparent" className={`${timerRunning ? 'text-blue-400' : 'text-gray-600'}`}
+                                fill="transparent"
+                                className={`${timerRunning ? 'text-blue-400' : 'text-gray-600'} transition-all duration-1000 ease-linear`}
                                 strokeDasharray={2 * Math.PI * 24}
                                 strokeDashoffset={2 * Math.PI * 24 * (1 - progress / 100)}
                                 strokeLinecap="round"
@@ -247,7 +248,6 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                                     opacity: [0.8, 1, 0.8]
                                 } : {}}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="transition-all duration-1000 ease-linear"
                             />
                         </svg>
                         <div className="absolute flex flex-col items-center">
@@ -298,14 +298,15 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                         {isActive && timerRunning && (
                             <div className="flex gap-2 p-1.5 bg-white/5 rounded-2xl border border-white/10">
                                 {[
-                                    { id: 'off', icon: <Volume2 size={12} title="Silence" /> },
-                                    { id: 'lofi', icon: <Music size={12} title="Lofi Beats" /> },
-                                    { id: 'noise', icon: <Wind size={12} title="Brown Noise" /> },
-                                    { id: 'rain', icon: <CloudRain size={12} title="Rainfall" /> }
+                                    { id: 'off', icon: <Volume2 size={12} />, label: "Silence" },
+                                    { id: 'lofi', icon: <Music size={12} />, label: "Lofi Beats" },
+                                    { id: 'noise', icon: <Wind size={12} />, label: "Brown Noise" },
+                                    { id: 'rain', icon: <CloudRain size={12} />, label: "Rainfall" }
                                 ].map(mode => (
                                     <button
                                         key={mode.id}
                                         onClick={() => setAmbience(mode.id as any)}
+                                        title={mode.label}
                                         className={`p-2 rounded-xl transition-all ${ambience === mode.id ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}
                                     >
                                         {mode.icon}
