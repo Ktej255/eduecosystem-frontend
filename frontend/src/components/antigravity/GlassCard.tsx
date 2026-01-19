@@ -133,9 +133,9 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                 {task.action_type}
             </div>
 
-            {/* Predictive Suggestion Badge */}
+            {/* Predictive Suggestion Badge - Relative Flow */}
             {localTask.suggestion && (
-                <div className="absolute top-14 left-8 right-8 bg-blue-500/10 border border-blue-500/30 p-3 rounded-2xl flex items-center justify-between gap-3 animate-pulse group/suggest">
+                <div className="relative mt-8 mb-6 bg-blue-500/10 border border-blue-500/30 p-3 rounded-2xl flex items-center justify-between gap-3 animate-pulse group/suggest">
                     <div className="flex items-center gap-3">
                         <AlertCircle size={16} className="text-blue-400 shrink-0" />
                         <div>
@@ -167,30 +167,27 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                 </div>
             ) : null}
 
-            {/* XP Boost Indicator */}
-            {!localTask.is_completed && !localTask.is_locked && (
-                <div className="absolute top-[88px] right-8 flex items-center gap-1.5 px-2 py-1 rounded-lg bg-yellow-500/10 border border-yellow-500/20 shadow-sm transition-all hover:bg-yellow-500/20 cursor-help group/xp">
-                    <Star size={10} className="text-yellow-400 fill-yellow-400 animate-pulse" />
-                    <span className="text-[9px] font-black text-yellow-400 uppercase tracking-tighter">
-                        +{calculateAdaptiveXP(25, localTask.srs_stability, !!localTask.suggestion)} XP
-                    </span>
-                    {localTask.srs_stability && localTask.srs_stability < 3 && (
-                        <span className="text-[8px] font-bold text-yellow-500/60 ml-0.5">(2x Boost)</span>
-                    )}
-                    <div className="absolute bottom-full right-0 mb-2 p-2 bg-black/90 border border-yellow-500/20 rounded-lg text-[8px] text-yellow-100 font-bold opacity-0 group-hover/xp:opacity-100 transition-opacity whitespace-nowrap z-30">
-                        Stability Multiplier Active 🚀
-                    </div>
-                </div>
-            )}
-
             <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
                     <Clock size={14} className="text-gray-500" />
                     <span className="text-gray-500 text-[10px] font-black tracking-widest uppercase">{localTask.time_label}</span>
                 </div>
                 <h3 className="text-2xl font-black text-white mb-1 group-hover:text-blue-400 transition-colors">{localTask.subject}</h3>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                     <p className="text-blue-200/60 text-sm font-bold tracking-tight">{localTask.topic}</p>
+
+                    {/* XP Boost Indicator (Moved Here) */}
+                    {!localTask.is_completed && !localTask.is_locked && (
+                        <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-yellow-500/10 border border-yellow-500/20 shadow-sm transition-all hover:bg-yellow-500/20 cursor-help group/xp">
+                            <Star size={10} className="text-yellow-400 fill-yellow-400 animate-pulse" />
+                            <span className="text-[9px] font-black text-yellow-400 uppercase tracking-tighter">
+                                +{calculateAdaptiveXP(25, localTask.srs_stability, !!localTask.suggestion)} XP
+                            </span>
+                            {localTask.srs_stability && localTask.srs_stability < 3 && (
+                                <span className="text-[8px] font-bold text-yellow-500/60 ml-0.5">(2x)</span>
+                            )}
+                        </div>
+                    )}
 
                     {/* Retention Bar Indicator */}
                     {localTask.srs_stability !== undefined && (
@@ -215,7 +212,7 @@ export function GlassCard({ task, onStartFocus, onComplete, isActive }: GlassCar
                             onClick={() => setShowRecall(true)}
                             className="flex items-center gap-1 px-2 py-0.5 rounded-lg bg-purple-500/10 border border-purple-500/20 text-purple-400 hover:bg-purple-500/20 transition-all text-[9px] font-black uppercase tracking-tighter"
                         >
-                            <RefreshCw size={10} /> Test Recall
+                            <RefreshCw size={10} /> Recall
                         </button>
                     )}
                 </div>
