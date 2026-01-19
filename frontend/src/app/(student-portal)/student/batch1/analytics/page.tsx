@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useAuth } from "@/contexts/auth-context";
 import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -69,7 +69,7 @@ const SUBJECTS = [
     { id: 'current-affairs', name: 'Current Affairs', icon: Calendar, color: 'from-orange-500 to-amber-600', bgColor: 'bg-orange-100', textColor: 'text-orange-700' },
 ];
 
-export default function AnalyticsPage() {
+function AnalyticsContent() {
     const { user } = useAuth();
     const [testResults, setTestResults] = useState<TestResult[]>([]);
     const [loading, setLoading] = useState(true);
@@ -398,5 +398,13 @@ export default function AnalyticsPage() {
                 )}
             </div>
         </div>
+    );
+}
+
+export default function AnalyticsPage() {
+    return (
+        <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div></div>}>
+            <AnalyticsContent />
+        </Suspense>
     );
 }

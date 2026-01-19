@@ -8,5 +8,16 @@ export default function ChapterRevisionPage() {
     const params = useParams();
     const id = parseInt(params.id as string);
 
-    return <ChapterRevisionView chapterId={id} />;
+    if (isNaN(id)) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-[#030303]">
+                <div className="text-center p-8 bg-white dark:bg-[#111] rounded-2xl shadow-lg border border-red-100 dark:border-red-900/30">
+                    <p className="text-red-500 font-bold mb-2">Invalid Chapter ID</p>
+                    <a href="/student/batch1/polity" className="text-blue-600 hover:underline text-sm">Return to Dashboard</a>
+                </div>
+            </div>
+        );
+    }
+
+    return <ChapterRevisionView chapterId={id} subjectId="polity" backLink="/student/batch1/polity" />;
 }

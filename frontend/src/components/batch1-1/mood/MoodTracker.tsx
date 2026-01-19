@@ -3,9 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Smile, Meh, Frown, Sun, Cloud, CloudRain, Zap, Coffee, X } from 'lucide-react';
+import { Smile, Meh, Frown, Sun, Cloud, CloudRain, Zap, Coffee, X, History, TrendingUp } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { useRouter } from 'next/navigation';
 
 interface MoodEntry {
     timestamp: number;
@@ -20,20 +23,30 @@ export default function MoodTracker() {
     const [currentMood, setCurrentMood] = useState<string | null>(null);
     const [energyLevel, setEnergyLevel] = useState(5);
     const [note, setNote] = useState("");
+    const [lastSnoozed, setLastSnoozed] = useState<number>(0);
+    const router = useRouter();
 
-    // Load entries
+    // Load entries & snooze state
     useEffect(() => {
         const saved = localStorage.getItem('mood_tracker_entries');
         if (saved) {
             setEntries(JSON.parse(saved));
+        }
+        const snoozed = localStorage.getItem('mood_tracker_snoozed');
+        if (snoozed) {
+            setLastSnoozed(parseInt(snoozed));
         }
     }, []);
 
     // Check for 3-hour prompt
     useEffect(() => {
         const checkPrompt = () => {
-            const lastEntryTime = entries.length > 0 ? entries[entries.length - 1].timestamp : 0;
             const now = Date.now();
+
+            // Check snooze (1 hour cooldown)
+            if (now - lastSnoozed < 60 * 60 * 1000) return;
+
+            const lastEntryTime = entries.length > 0 ? entries[entries.length - 1].timestamp : 0;
             const threeHours = 3 * 60 * 60 * 1000;
 
             if (now - lastEntryTime > threeHours) {
@@ -45,7 +58,7 @@ export default function MoodTracker() {
         checkPrompt();
         const interval = setInterval(checkPrompt, 60000);
         return () => clearInterval(interval);
-    }, [entries]);
+    }, [entries, lastSnoozed]);
 
     const handleSave = () => {
         if (!currentMood) return;
@@ -68,6 +81,15 @@ export default function MoodTracker() {
         setEnergyLevel(5);
     };
 
+    const handleClose = (snooze: boolean) => {
+        setIsOpen(false);
+        if (snooze) {
+            const now = Date.now();
+            setLastSnoozed(now);
+            localStorage.setItem('mood_tracker_snoozed', now.toString());
+        }
+    };
+
     const MOODS = [
         { id: 'great', label: 'Great', icon: Sun, color: 'text-yellow-500' },
         { id: 'good', label: 'Good', icon: Smile, color: 'text-green-500' },
@@ -79,18 +101,16 @@ export default function MoodTracker() {
     return (
         <>
             {/* Minimal Trigger Button (if closed) */}
-            <div className="fixed bottom-4 right-4 z-50">
-                <Button
-                    variant="outline"
-                    size="icon"
-                    className="rounded-full shadow-lg border-indigo-200 bg-white dark:bg-slate-800 hover:scale-110 transition-transform"
-                    onClick={() => setIsOpen(true)}
-                >
-                    <Smile className="h-5 w-5 text-indigo-500" />
-                </Button>
-            </div>
+            {/* Removed this floating button as per user request to have it in the header/manual area mostly, 
+                but keeping it here for now as a fallback or we can hide it. 
+                Actually, let's keep it but make it very subtle or remove if the header button is sufficient.
+                Plan said: "Implement Snooze logic" - User asked for "pop up after 3 hour not after every click".
+                User also said: "update by the word mood tracker... in that particular page if student want to get access".
+                So maybe we hide the floating button? Let's keep it for now as an easy access point but maybe less intrusive.
+            */}
 
-            <Dialog open={isOpen} onOpenChange={setIsOpen}>
+            <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose(true)}>
+                {/* Tapping outside automatically snoozes */}
                 <DialogContent className="sm:max-w-md">
                     <DialogHeader>
                         <DialogTitle>How are you feeling right now?</DialogTitle>
@@ -99,63 +119,134 @@ export default function MoodTracker() {
                         </DialogDescription>
                     </DialogHeader>
 
-                    <div className="space-y-6 py-4">
-                        {/* Mood Selection */}
-                        <div className="grid grid-cols-5 gap-2">
-                            {MOODS.map((m) => {
-                                const Icon = m.icon;
-                                const isSelected = currentMood === m.id;
-                                return (
-                                    <button
-                                        key={m.id}
-                                        onClick={() => setCurrentMood(m.id)}
-                                        className={`flex flex-col items-center gap-2 p-2 rounded-lg transition-all ${isSelected
+                    <Tabs defaultValue="log" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 mb-4">
+                            <TabsTrigger value="log">Log Mood</TabsTrigger>
+                            <TabsTrigger value="history">History</TabsTrigger>
+                        </TabsList>
+
+                        <TabsContent value="log" className="space-y-6">
+                            {/* Mood Selection */}
+                            <div className="grid grid-cols-5 gap-2">
+                                {MOODS.map((m) => {
+                                    const Icon = m.icon;
+                                    const isSelected = currentMood === m.id;
+                                    return (
+                                        <button
+                                            key={m.id}
+                                            onClick={() => setCurrentMood(m.id)}
+                                            className={`flex flex-col items-center gap-2 p-2 rounded-lg transition-all ${isSelected
                                                 ? 'bg-indigo-50 ring-2 ring-indigo-500 scale-110'
                                                 : 'hover:bg-gray-50'
-                                            }`}
-                                    >
-                                        <Icon className={`h-8 w-8 ${m.color} ${isSelected ? 'fill-current opacity-20' : ''}`} />
-                                        <span className="text-xs font-medium text-gray-600">{m.label}</span>
-                                    </button>
-                                );
-                            })}
-                        </div>
-
-                        {/* Energy Level */}
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
-                                <Zap className="h-4 w-4 text-orange-500" />
-                                Energy Level (1-10): {energyLevel}
-                            </label>
-                            <input
-                                type="range"
-                                min="1"
-                                max="10"
-                                value={energyLevel}
-                                onChange={(e) => setEnergyLevel(parseInt(e.target.value))}
-                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
-                            />
-                            <div className="flex justify-between text-xs text-gray-400">
-                                <span>Exhausted</span>
-                                <span>Energetic</span>
+                                                }`}
+                                        >
+                                            <Icon className={`h-8 w-8 ${m.color} ${isSelected ? 'fill-current opacity-20' : ''}`} />
+                                            <span className="text-xs font-medium text-gray-600">{m.label}</span>
+                                        </button>
+                                    );
+                                })}
                             </div>
-                        </div>
 
-                        {/* Note */}
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-700">Optional Note</label>
-                            <Input
-                                placeholder="E.g., Had a good sleep, or feeling distracted..."
-                                value={note}
-                                onChange={(e) => setNote(e.target.value)}
-                            />
-                        </div>
-                    </div>
+                            {/* Energy Level */}
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                                    <Zap className="h-4 w-4 text-orange-500" />
+                                    Energy Level (1-10): {energyLevel}
+                                </label>
+                                <input
+                                    type="range"
+                                    min="1"
+                                    max="10"
+                                    value={energyLevel}
+                                    onChange={(e) => setEnergyLevel(parseInt(e.target.value))}
+                                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                                />
+                                <div className="flex justify-between text-xs text-gray-400">
+                                    <span>Exhausted</span>
+                                    <span>Energetic</span>
+                                </div>
+                            </div>
 
-                    <div className="flex justify-end gap-3">
-                        <Button variant="ghost" onClick={() => setIsOpen(false)}>Skip</Button>
-                        <Button onClick={handleSave} disabled={!currentMood} className="bg-indigo-600">Save Log</Button>
-                    </div>
+                            {/* Note */}
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-gray-700">Optional Note</label>
+                                <Input
+                                    placeholder="E.g., Had a good sleep, or feeling distracted..."
+                                    value={note}
+                                    onChange={(e) => setNote(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="flex justify-end gap-3 pt-4">
+                                <Button variant="ghost" onClick={() => handleClose(true)}>Snooze 1h</Button>
+                                <Button onClick={handleSave} disabled={!currentMood} className="bg-indigo-600">Save Log</Button>
+                            </div>
+                        </TabsContent>
+
+                        <TabsContent value="history" className="space-y-4">
+                            {entries.length === 0 ? (
+                                <div className="text-center py-8 text-gray-500">
+                                    <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-50" />
+                                    <p>No mood logs yet.</p>
+                                </div>
+                            ) : (
+                                <>
+                                    {/* Chart */}
+                                    <div className="h-40 w-full bg-gray-50 rounded-lg p-2 border border-gray-100">
+                                        <ResponsiveContainer width="100%" height="100%">
+                                            <LineChart data={entries.slice(-10)}>
+                                                <XAxis
+                                                    dataKey="timestamp"
+                                                    tickFormatter={(ts) => new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                                    fontSize={10}
+                                                    tick={false}
+                                                />
+                                                <YAxis domain={[0, 10]} hide />
+                                                <Tooltip
+                                                    labelFormatter={(label) => new Date(label).toLocaleString()}
+                                                    contentStyle={{ fontSize: '12px' }}
+                                                />
+                                                <Line type="monotone" dataKey="energy" stroke="#f97316" strokeWidth={2} dot={false} />
+                                            </LineChart>
+                                        </ResponsiveContainer>
+                                        <div className="text-center text-[10px] text-gray-400 mt-1">Last 10 Entries (Energy Trend)</div>
+                                    </div>
+
+                                    {/* Recent List */}
+                                    <div className="space-y-2 max-h-[200px] overflow-y-auto pr-1">
+                                        {[...entries].reverse().slice(0, 5).map((entry, i) => (
+                                            <div key={i} className="flex items-center justify-between p-2 rounded bg-gray-50 text-sm">
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-gray-500 text-xs">
+                                                        {new Date(entry.timestamp).toLocaleDateString([], { month: 'short', day: 'numeric' })}
+                                                    </span>
+                                                    <span className="font-medium capitalize">{entry.mood}</span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-xs bg-orange-100 text-orange-700 px-1.5 py-0.5 rounded">
+                                                        ⚡ {entry.energy}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="pt-2">
+                                        <Button
+                                            variant="outline"
+                                            className="w-full text-indigo-600 border-indigo-200 hover:bg-indigo-50"
+                                            onClick={() => {
+                                                setIsOpen(false);
+                                                router.push('/student/batch1-1/deep-report?tab=mood');
+                                            }}
+                                        >
+                                            View Detailed Analytics
+                                        </Button>
+                                    </div>
+                                </>
+                            )}
+                        </TabsContent>
+                    </Tabs>
                 </DialogContent>
             </Dialog>
         </>

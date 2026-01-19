@@ -90,15 +90,41 @@ export function calculateLevel(totalXP: number): { level: number; currentXP: num
 }
 
 /**
+ * Calculate adaptive XP based on topic context
+ */
+export function calculateAdaptiveXP(baseXP: number, stability?: number, isVulnerable?: boolean): number {
+    let multiplier = 1.0;
+
+    // Stability Boost: Topics with low stability get a multiplier
+    if (stability !== undefined) {
+        if (stability < 1.0) multiplier = 2.0;
+        else if (stability < 3.0) multiplier = 1.5;
+        else if (stability < 7.0) multiplier = 1.25;
+    }
+
+    // Vulnerability Bonus: Priority topics get additional boost
+    if (isVulnerable) {
+        multiplier = Math.max(multiplier, 2.0);
+    }
+
+    return Math.round(baseXP * multiplier);
+}
+
+/**
  * Award XP for an action
  */
-export function awardXP(type: XPEventType, customXP?: number, details?: string): {
+export function awardXP(type: XPEventType, customXP?: number, details?: string, context?: { stability?: number, isVulnerable?: boolean }): {
     xpAwarded: number;
     levelUp: boolean;
     newLevel: number;
 } {
     const data = getGamificationData();
-    const xpAmount = customXP ?? XP_REWARDS[type];
+    let xpAmount = customXP ?? XP_REWARDS[type];
+
+    // Apply adaptive scaling if context is provided
+    if (context) {
+        xpAmount = calculateAdaptiveXP(xpAmount, context.stability, context.isVulnerable);
+    }
 
     const previousLevel = data.xp.level;
 
@@ -143,8 +169,11 @@ export function awardXP(type: XPEventType, customXP?: number, details?: string):
         data.events = data.events.slice(-500);
     }
 
-    // Update activity date
-    data.xp.lastActivityDate = new Date().toISOString().split('T')[0];
+    // Update activity date (Local Time)
+    const now = new Date();
+    const offset = now.getTimezoneOffset() * 60000;
+    const localDate = new Date(now.getTime() - offset);
+    data.xp.lastActivityDate = localDate.toISOString().split('T')[0];
 
     saveGamificationData(data);
 
@@ -173,7 +202,9 @@ export function getXPHistory(days: number = 7): { date: string; xp: number }[] {
     for (let i = days - 1; i >= 0; i--) {
         const date = new Date();
         date.setDate(date.getDate() - i);
-        const dateStr = date.toISOString().split('T')[0];
+        const offset = date.getTimezoneOffset() * 60000;
+        const localDate = new Date(date.getTime() - offset);
+        const dateStr = localDate.toISOString().split('T')[0];
 
         const dayXP = data.events
             .filter(e => e.timestamp.startsWith(dateStr))

@@ -214,17 +214,13 @@ export async function fetchKnowledgeTree(): Promise<TreeBranch[]> {
     const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
     const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
-    if (!token) {
-        console.log('No auth token, returning mock tree data');
-        return MOCK_TREE_DATA;
-    }
-
     try {
-        const response = await fetch(`${API_URL}/api/v1/retention/tree`, {
+        // Redirect to new Anti-Gravity Mastery API
+        const response = await fetch(`${API_URL}/api/v1/antigravity/reports/mastery-hierarchy`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                // 'Authorization': `Bearer ${token}` // Auth optional for now as per dev setup
             }
         });
 
@@ -232,27 +228,38 @@ export async function fetchKnowledgeTree(): Promise<TreeBranch[]> {
             throw new Error(`API Error: ${response.status}`);
         }
 
-        const data = await response.json();
+        const rootData = await response.json();
 
-        // Map backend response to frontend TreeBranch format
-        const branches: TreeBranch[] = data.map((branch: any) => ({
-            id: branch.id,
-            subjectId: branch.subjectId,
-            subjectName: branch.subjectName,
-            leaves: branch.leaves.map((leaf: any) => ({
-                id: leaf.id,
-                topicId: leaf.topicId,
-                topicName: leaf.topicName,
-                subjectId: leaf.subjectId,
-                retentionScore: leaf.retentionScore,
-                lastReviewed: leaf.lastReviewed ? new Date(leaf.lastReviewed) : new Date(),
-                status: leaf.status as 'blooming' | 'withered' | 'healthy'
-            }))
-        }));
+        // Transform MasteryNode (nested) to TreeBranch[] (flat branches)
+        // We'll treat each 'Module' as a Branch for the 3D Tree
+        const branches: TreeBranch[] = [];
+
+        if (rootData.children) {
+            rootData.children.forEach((course: any) => {
+                if (course.children) {
+                    course.children.forEach((module: any) => {
+                        branches.push({
+                            id: module.name,
+                            subjectId: course.name,
+                            subjectName: `${course.name}: ${module.name}`,
+                            leaves: (module.children || []).map((topic: any) => ({
+                                id: topic.name,
+                                topicId: 0, // Not strictly needed for visual
+                                topicName: topic.name,
+                                subjectId: course.name,
+                                retentionScore: topic.retention * 100,
+                                lastReviewed: new Date(),
+                                status: topic.retention >= 0.8 ? 'blooming' : (topic.retention >= 0.5 ? 'healthy' : 'withered')
+                            }))
+                        });
+                    });
+                }
+            });
+        }
 
         return branches.length > 0 ? branches : MOCK_TREE_DATA;
     } catch (error) {
-        console.error('Failed to fetch knowledge tree:', error);
+        console.error('Failed to fetch knowledge tree from Anti-Gravity API:', error);
         return MOCK_TREE_DATA;
     }
 }

@@ -143,6 +143,30 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
     // Detailed history: Store data for each of the 12 sessions
     const [sessionHistory, setSessionHistory] = useState<CycleData[]>([]);
 
+    // --- Skip Logic & Accumulation ---
+    // Quota: 4 Skips per "Cycle" (Block of 4 sessions). 
+    // Reset quota when a new Block starts? 
+    // User said: "in a 1 cycle they will get only 4 skip option... 4 pomodoro as a one cycle"
+    // So reset at session 1, 5, 9.
+    const [skipQuota, setSkipQuota] = useState(4);
+    const [pendingSubtopics, setPendingSubtopics] = useState<SubTopic[]>([]);
+
+    // Calculate/Reset Quota on Block Change
+    useEffect(() => {
+        //If we are at the start of a new block (1, 5, 9) and no history for it, reset quota
+        const activeBlock = Math.ceil(currentSessionGlobal / 4);
+        const startOfBlock = (activeBlock - 1) * 4 + 1;
+
+        // Use local storage to persist quota if strict, but for now reset on block entry
+        if (currentSessionGlobal === startOfBlock && !sessionHistory.find(s => s.cycleNumber === currentSessionGlobal)) {
+            setSkipQuota(4);
+            console.log("New Cycle Start: Quota Reset to 4");
+        }
+    }, [currentSessionGlobal, sessionHistory]);
+
+    // Save Pending Queue
+    // ... persistence handled in main useEffect via JSON.stringify state ...
+
     // Ambient Sound State
     const [ambientEnabled, setAmbientEnabled] = useState(false);
     const [ambientType, setAmbientType] = useState<NoiseType>('pink'); // Pink noise is best for focus
@@ -324,7 +348,19 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
     };
 
     const handleSubtopicSubmit = (selected: SubTopic[]) => {
-        setCurrentSubtopics(selected);
+        // Merge with pending (Accumulation Logic)
+        const merged = [...pendingSubtopics, ...selected];
+        // Remove duplicates just in case
+        const unique = Array.from(new Set(merged.map(s => s.id)))
+            .map(id => merged.find(s => s.id === id)!);
+
+        if (pendingSubtopics.length > 0) {
+            console.log(`Accumulated ${pendingSubtopics.length} pending items.`);
+            // Clear pending as they are now active
+            setPendingSubtopics([]);
+        }
+
+        setCurrentSubtopics(unique);
         setSessionState('flashcards');
     };
 
@@ -643,8 +679,8 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                                         <Headphones className="h-5 w-5" />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-sm text-gray-700 dark:text-gray-300">Deep Focus Noise</h3>
-                                        <p className="text-xs text-gray-500">Block out distractions</p>
+                                        <h3 className="font-bold text-sm text-gray-700 dark:text-gray-300">Peaceful Soundscapes</h3>
+                                        <p className="text-xs text-gray-500">Piano & Nature Sounds</p>
                                     </div>
                                 </div>
 
@@ -665,15 +701,19 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                                     )}
 
                                     <div className="flex items-center gap-2 bg-white dark:bg-gray-800 rounded-lg border p-1">
-                                        {(['white', 'pink', 'brown'] as NoiseType[]).map(type => (
+                                        {[
+                                            { id: 'white', label: 'Forest' },
+                                            { id: 'pink', label: 'Rain' },
+                                            { id: 'brown', label: 'Night' }
+                                        ].map(opt => (
                                             <button
-                                                key={type}
-                                                onClick={() => handleTypeChange(type)}
-                                                className={`text-[10px] px-2 py-1 rounded-md font-bold uppercase transition-all ${ambientType === type
+                                                key={opt.id}
+                                                onClick={() => handleTypeChange(opt.id as NoiseType)}
+                                                className={`text-[10px] px-2 py-1 rounded-md font-bold uppercase transition-all ${ambientType === opt.id
                                                     ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
                                                     : 'text-gray-400 hover:text-gray-600'}`}
                                             >
-                                                {type}
+                                                {opt.label}
                                             </button>
                                         ))}
                                     </div>
@@ -740,6 +780,18 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                             selectedSubtopics={currentSubtopics}
                             onComplete={handleFlashcardsComplete}
                             cycleNumber={currentSessionGlobal}
+                            // Skip Props
+                            canSkip={skipQuota > 0}
+                            skipsRemaining={skipQuota}
+                            onSkip={() => {
+                                setSkipQuota(prev => Math.max(0, prev - 1));
+                                // Add to pending
+                                setPendingSubtopics(prev => [...prev, ...currentSubtopics]); // Re-queue current
+                                setSessionState('mcqs'); // Skip to next stage? Or skip to break? 
+                                // User: "skip button for the flash card... continue with their next pomodoro cycle"
+                                // User: "one skip... for flash card... 2nd skip... for MCQ"
+                                // Logic: Skip FC -> Go to MCQ. Skip MCQ -> Go to Break/Reading.
+                            }}
                         />
                     )}
                     {sessionState === 'mcqs' && (
@@ -747,6 +799,25 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                             selectedSubtopics={currentSubtopics}
                             onComplete={handleMCQsComplete}
                             cycleNumber={currentSessionGlobal}
+                            // Skip Props
+                            canSkip={skipQuota > 0}
+                            skipsRemaining={skipQuota}
+                            onSkip={() => {
+                                setSkipQuota(prev => Math.max(0, prev - 1));
+                                // Add to pending (if not already added by FC skip? If FC done, then pending is empty. So add now)
+                                // We need to check if we just skipped FC. If so, they are already in pending?
+                                // Actually, handleSubtopicSubmit CLEARS pending. 
+                                // So if we skip FC, we re-add to pending.
+                                // If we complete FC, we DON'T add to pending.
+                                // If we skip MCQ, we check if they are already in pending? 
+                                // Safer to just add unique IDs to pending.
+                                setPendingSubtopics(prev => {
+                                    const combined = [...prev, ...currentSubtopics];
+                                    return Array.from(new Set(combined.map(s => s.id))).map(id => combined.find(s => s.id === id)!);
+                                });
+
+                                handleReadingComplete(); // Skip to Next/Break
+                            }}
                         />
                     )}
 

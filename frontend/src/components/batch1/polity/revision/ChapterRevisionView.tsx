@@ -22,9 +22,10 @@ import { toast } from 'sonner';
 interface Props {
     chapterId: number;
     subjectId?: string;
+    backLink?: string;
 }
 
-export default function ChapterRevisionView({ chapterId, subjectId = 'polity' }: Props) {
+export default function ChapterRevisionView({ chapterId, subjectId = 'polity', backLink }: Props) {
     const [activeTab, setActiveTab] = useState<'content' | 'flashcards' | 'mcqs'>('content');
     const [revisionData, setRevisionData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
@@ -100,7 +101,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity' }:
             {/* Header */}
             <div className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10">
                 <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-                    <Link href={`/student/revision/${subjectId}`} className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
+                    <Link href={backLink || (subjectId === 'polity' ? '/student/batch1/polity' : `/student/revision/${subjectId}`)} className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
                         <ChevronLeft className="w-5 h-4" />
                         <span className="text-sm font-medium">Back to Revision Hub</span>
                     </Link>

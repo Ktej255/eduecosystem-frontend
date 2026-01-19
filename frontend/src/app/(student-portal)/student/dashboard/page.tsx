@@ -14,8 +14,21 @@ import { getUserAccess } from "@/config/user-access-config";
 import { RefreshCw, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// Import the RAS Dashboard (Anti-Gravity)
+import AntiGravityPage from "../antigravity/page";
+
 export default function StudentDashboard() {
     const { user } = useAuth();
+
+    // --- CHITRA-SPECIFIC OVERRIDE ---
+    // The user 'chitrakumawat33@gmail.com' is on the specific "RAS Revision Plan" (Phases 1-3).
+    // We override the generic 'JourneyTimeline' dashboard with her specialized Anti-Gravity Dashboard.
+    const isChitra = user?.email?.toLowerCase() === "chitrakumawat33@gmail.com";
+
+    if (isChitra) {
+        return <AntiGravityPage />;
+    }
+    // --------------------------------
 
     // State
     const [stats, setStats] = useState<StudentStats | null>(null);

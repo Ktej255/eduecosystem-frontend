@@ -295,12 +295,29 @@ export default function PomodoroTimer({
                 </div>
 
                 {/* Progress Bar */}
-                <div className="mb-6">
+                <div className="mb-6 relative">
                     <div className="flex justify-between text-xs text-gray-500 mb-1">
                         <span>Progress</span>
                         <span>{Math.round(progress)}%</span>
                     </div>
                     <Progress value={progress} className="h-2 bg-orange-100" />
+
+                    {/* Extension Popup */}
+                    {isRunning && timeLeft < 180 && (
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 animate-in slide-in-from-bottom-2 fade-in">
+                            <Button
+                                size="sm"
+                                variant="secondary"
+                                onClick={() => {
+                                    setTimeLeft(prev => prev + 300); // Add 5 mins
+                                    setEndTime(prev => (prev || Date.now()) + 300000);
+                                }}
+                                className="shadow-lg border-orange-200 bg-white/90 hover:bg-white text-orange-600 text-xs px-3 h-7"
+                            >
+                                +5m (Running late?)
+                            </Button>
+                        </div>
+                    )}
                 </div>
 
                 {/* Controls */}

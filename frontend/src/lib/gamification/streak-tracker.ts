@@ -13,7 +13,11 @@ export function updateStreak(): {
     streakBonus: number;
 } {
     const data = getGamificationData();
-    const today = new Date().toISOString().split('T')[0];
+    // Use local date to avoid timezone issues (e.g. 1 AM IST being previous day UTC)
+    const now = new Date();
+    const offset = now.getTimezoneOffset() * 60000;
+    const localDate = new Date(now.getTime() - offset);
+    const today = localDate.toISOString().split('T')[0];
     const lastActivity = data.xp.lastActivityDate;
 
     let streakBroken = false;
