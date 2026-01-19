@@ -124,45 +124,7 @@ export default function Batch11Page() {
                     </select>
                 </div>
 
-                {/* Session Structure Info */}
-                <Card className="bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800">
-                    <CardContent className="p-4">
-                        <h3 className="font-semibold text-orange-700 dark:text-orange-300 flex items-center gap-2 mb-3">
-                            <Timer className="h-5 w-5" />
-                            Daily Session Structure (8 AM - 2 PM)
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
-                            <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400">
-                                <span className="w-8 h-8 rounded-full bg-orange-200 flex items-center justify-center text-xs font-bold">1</span>
-                                <div>
-                                    <div className="font-medium">Pomodoro</div>
-                                    <div className="text-xs text-orange-500">25 min focus</div>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400">
-                                <span className="w-8 h-8 rounded-full bg-orange-200 flex items-center justify-center text-xs font-bold">2</span>
-                                <div>
-                                    <div className="font-medium">Short Break</div>
-                                    <div className="text-xs text-orange-500">5 min rest</div>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400">
-                                <span className="w-8 h-8 rounded-full bg-orange-200 flex items-center justify-center text-xs font-bold">3</span>
-                                <div>
-                                    <div className="font-medium">Voice Recall</div>
-                                    <div className="text-xs text-orange-500">After 2 sessions</div>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400">
-                                <span className="w-8 h-8 rounded-full bg-orange-200 flex items-center justify-center text-xs font-bold">→</span>
-                                <div>
-                                    <div className="font-medium">12 Pomodoros</div>
-                                    <div className="text-xs text-orange-500">6 hours total</div>
-                                </div>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
+
 
                 {/* Day Selection Grid */}
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
@@ -254,23 +216,23 @@ export default function Batch11Page() {
                     </CardContent>
                 </Card>
 
-                {/* Evening Session Quick Access */}
-                <Card className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 border-indigo-200 dark:border-indigo-800">
+                {/* RAS Revision Protocol (Replaces Evening Session) */}
+                <Card className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white border-0 shadow-lg shadow-indigo-500/20">
                     <CardContent className="p-6 flex items-center justify-between">
                         <div className="flex items-center gap-4">
-                            <div className="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
-                                <BookOpen className="h-7 w-7" />
+                            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-white">
+                                <Target className="h-7 w-7" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-indigo-900 dark:text-indigo-100">Evening Session</h3>
-                                <p className="text-indigo-600 dark:text-indigo-400 text-sm">
-                                    Flashcards • MCQs • CSAT Practice
+                                <h3 className="text-xl font-bold">RAS Revision Protocol</h3>
+                                <p className="text-indigo-100 text-sm">
+                                    Anti-Gravity Roadmap • Reading • Revision • Practice
                                 </p>
                             </div>
                         </div>
-                        <Link href={`/student/batch1-1/${selectedWeek}/1/evening`}>
-                            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white">
-                                Open Evening Session <ChevronRight className="ml-2 h-4 w-4" />
+                        <Link href="/student/antigravity">
+                            <Button size="lg" className="bg-white text-indigo-600 hover:bg-indigo-50 font-bold">
+                                Open Dashboard <ChevronRight className="ml-2 h-4 w-4" />
                             </Button>
                         </Link>
                     </CardContent>
