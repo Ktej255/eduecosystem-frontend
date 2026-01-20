@@ -298,7 +298,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
         // Sync with WeakTopicAnalyzer for general tracking
         const analyzerResults = results.map(res => {
-            const subtopic = CHAPTER_SUBTOPICS[res.subtopicId?.split('.')[0] || '']?.find(s => s.id === res.subtopicId);
+            const subtopic = CHAPTER_SUBTOPICS[parseInt(res.subtopicId?.split('.')[0] || '0')]?.find(s => s.id === res.subtopicId);
             return {
                 topicId: res.subtopicId || 'unknown',
                 topicName: subtopic?.label || 'Unknown Topic',
