@@ -290,7 +290,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                 tags: ['mcq-sync', 'auto-generated']
             } as any;
 
-            const updatedCard = processReview(existingCard, 5, 0); // Default quality 5 for sync, 0ms response
+            const updatedCard = processReview(existingCard, 'easy', 0); // Default 'easy' for sync, 0ms response
             srsData.cards[cardId] = updatedCard.updatedCard;
         });
 
