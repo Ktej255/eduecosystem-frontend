@@ -10,7 +10,7 @@ import Link from "next/link";
 import PomodoroTimer from "./PomodoroTimer";
 import SubtopicSelector from "./SubtopicSelector";
 import CycleFlashcards from "./CycleFlashcards";
-import CycleMCQs from "./CycleMCQs";
+import CycleMCQs, { ConfidenceLevel } from "./CycleMCQs";
 import ReadingMaterial from "./ReadingMaterial";
 import BreakTimer from "./BreakTimer";
 import { getChaptersForWeek } from "../data/polity-modules";

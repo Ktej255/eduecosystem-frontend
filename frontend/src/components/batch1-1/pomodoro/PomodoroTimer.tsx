@@ -64,7 +64,7 @@ export default function PomodoroTimer({
                 } catch (e) { /* ignore */ }
             }
         }
-        return false;
+        return duration;
     });
 
     const [soundEnabled, setSoundEnabled] = useState(true);
