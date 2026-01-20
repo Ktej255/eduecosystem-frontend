@@ -278,7 +278,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
             // Note: SRS usually works on card level, but we can aggregate by subtopicId
             // for the knowledge tree observer.
             const cardId = `mcq_sync_${res.subtopicId}`;
-            const existingCard = srsData[cardId] || {
+            const existingCard = srsData.cards[cardId] || {
                 id: cardId,
                 subtopicId: res.subtopicId,
                 question: `Mastery of Subtopic ${res.subtopicId}`,
@@ -290,8 +290,8 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                 tags: ['mcq-sync', 'auto-generated']
             } as any;
 
-            const updatedCard = processReview(existingCard, quality);
-            srsData[cardId] = updatedCard as any;
+            const updatedCard = processReview(existingCard, 5, 0); // Default quality 5 for sync, 0ms response
+            srsData.cards[cardId] = updatedCard.updatedCard;
         });
 
         saveSRSData(srsData);
