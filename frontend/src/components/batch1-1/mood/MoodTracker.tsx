@@ -39,17 +39,35 @@ export default function MoodTracker() {
     }, []);
 
     // Check for 3-hour prompt
+    // Check for 3-hour prompt based on strict slots
     useEffect(() => {
         const checkPrompt = () => {
-            const now = Date.now();
+            const now = new Date();
+            const hour = now.getHours();
 
-            // Check snooze (1 hour cooldown)
-            if (now - lastSnoozed < 60 * 60 * 1000) return;
+            // Define slots: 6, 9, 12, 15, 18, 21
+            // If current hour is >= slot AND < next_slot, we are in that slot's window.
+            // We check if we have logged for this specific slot today.
 
-            const lastEntryTime = entries.length > 0 ? entries[entries.length - 1].timestamp : 0;
-            const threeHours = 3 * 60 * 60 * 1000;
+            const slots = [6, 9, 12, 15, 18, 21];
+            // Find the most recent slot that has passed
+            const currentSlot = slots.slice().reverse().find(s => hour >= s);
 
-            if (now - lastEntryTime > threeHours) {
+            if (currentSlot === undefined) return; // Before 6 AM or late night (if we treat <6 as no slot)
+
+            const dateStr = now.toISOString().split('T')[0];
+            const slotKey = `mood_log_${dateStr}_${currentSlot}`;
+
+            // specific check: has this specific slot been completed?
+            const hasLoggedForSlot = localStorage.getItem(slotKey);
+
+            // Also check snooze (1 hour global cooldown fallback)
+            const lastSnoozedTime = localStorage.getItem('mood_tracker_snoozed'); // Read directly to avoid stale state
+            if (lastSnoozedTime && (Date.now() - parseInt(lastSnoozedTime) < 60 * 60 * 1000)) {
+                return;
+            }
+
+            if (!hasLoggedForSlot) {
                 setIsOpen(true);
             }
         };
@@ -58,7 +76,7 @@ export default function MoodTracker() {
         checkPrompt();
         const interval = setInterval(checkPrompt, 60000);
         return () => clearInterval(interval);
-    }, [entries, lastSnoozed]);
+    }, []); // Empty dependency array - we read from localStorage directly for critical checks
 
     const handleSave = () => {
         if (!currentMood) return;
@@ -73,6 +91,17 @@ export default function MoodTracker() {
         const updated = [...entries, newEntry];
         setEntries(updated);
         localStorage.setItem('mood_tracker_entries', JSON.stringify(updated));
+
+        // Mark current slot as done
+        const now = new Date();
+        const hour = now.getHours();
+        const slots = [6, 9, 12, 15, 18, 21];
+        const currentSlot = slots.slice().reverse().find(s => hour >= s);
+        if (currentSlot !== undefined) {
+            const dateStr = now.toISOString().split('T')[0];
+            const slotKey = `mood_log_${dateStr}_${currentSlot}`;
+            localStorage.setItem(slotKey, "true");
+        }
 
         // Reset and close
         setIsOpen(false);

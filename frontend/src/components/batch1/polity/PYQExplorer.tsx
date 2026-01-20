@@ -14,6 +14,7 @@ import { GEOGRAPHY_PYQS } from '../geography/data/geography-pyqs';
 import { ECONOMY_PYQS } from '../economy/data/economy-pyqs';
 import { SCIENCE_PYQS } from '../science-tech/data/science-pyqs';
 import { ENVIRONMENT_PYQS } from '../environment/data/environment-pyqs';
+import { IR_PYQS } from '../international-relations/data/ir-pyqs';
 import { PYQQuestion } from '@/lib/pyq/pyq-types';
 import { awardXP } from '@/lib/gamification/xp-engine';
 
@@ -31,7 +32,8 @@ export default function PYQExplorer() {
         "Geography": GEOGRAPHY_PYQS,
         "Economy": ECONOMY_PYQS,
         "Science": SCIENCE_PYQS,
-        "Environment": ENVIRONMENT_PYQS
+        "Environment": ENVIRONMENT_PYQS,
+        "International Relations": IR_PYQS
     };
 
     const subjectQuestions = useMemo(() => {
