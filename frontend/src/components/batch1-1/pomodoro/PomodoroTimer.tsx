@@ -32,7 +32,7 @@ export default function PomodoroTimer({
     const storageKey = `pomodoro_timer_${sessionNumber}_${totalSessions}`;
 
     // Initialize state from localStorage if available
-    const [timeLeft, setTimeLeft] = useState(() => {
+    const [timeLeft, setTimeLeft] = useState<number>(() => {
         if (typeof window !== 'undefined') {
             const saved = localStorage.getItem(storageKey);
             if (saved) {
@@ -64,7 +64,7 @@ export default function PomodoroTimer({
                 } catch (e) { /* ignore */ }
             }
         }
-        return duration;
+        return false;
     });
 
     const [soundEnabled, setSoundEnabled] = useState(true);
@@ -308,7 +308,7 @@ export default function PomodoroTimer({
                             variant="outline"
                             onClick={() => {
                                 const addSeconds = 300; // 5 mins
-                                setTimeLeft((prev) => prev + addSeconds);
+                                setTimeLeft((prev: number) => prev + addSeconds);
                                 if (isRunning && endTime) setEndTime(endTime + (addSeconds * 1000));
                             }}
                             className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-white/50 dark:bg-orange-900/10"
@@ -320,7 +320,7 @@ export default function PomodoroTimer({
                             variant="outline"
                             onClick={() => {
                                 const addSeconds = 600; // 10 mins
-                                setTimeLeft((prev) => prev + addSeconds);
+                                setTimeLeft((prev: number) => prev + addSeconds);
                                 if (isRunning && endTime) setEndTime(endTime + (addSeconds * 1000));
                             }}
                             className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-white/50 dark:bg-orange-900/10"
@@ -332,7 +332,7 @@ export default function PomodoroTimer({
                             variant="outline"
                             onClick={() => {
                                 const addSeconds = 900; // 15 mins
-                                setTimeLeft((prev) => prev + addSeconds);
+                                setTimeLeft((prev: number) => prev + addSeconds);
                                 if (isRunning && endTime) setEndTime(endTime + (addSeconds * 1000));
                             }}
                             className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-white/50 dark:bg-orange-900/10"
