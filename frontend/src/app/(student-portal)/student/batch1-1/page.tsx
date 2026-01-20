@@ -28,11 +28,14 @@ const WEEKDAYS = [
     { id: 6, name: "Saturday", short: "Sat", isSaturday: true },
 ];
 
+import { MoodTrackerModal } from "@/components/batch1-1/productivity/MoodTrackerModal";
+
 export default function Batch11Page() {
     const router = useRouter();
     const [selectedWeek, setSelectedWeek] = useState(1);
     const [completedTopics, setCompletedTopics] = useState(0);
     const [weekProgress, setWeekProgress] = useState<Record<number, Record<number, boolean>>>({});
+    const [showMoodModal, setShowMoodModal] = useState(false);
 
     // Load progress from localStorage
     useEffect(() => {
@@ -44,11 +47,38 @@ export default function Batch11Page() {
         }
     }, []);
 
+    // Strict Mood Tracker Schedule
+    useEffect(() => {
+        const checkSchedule = () => {
+            const now = new Date();
+            const hour = now.getHours();
+            const dateStr = now.toISOString().split('T')[0];
+
+            // Define strict slots
+            const slots = [0, 6, 9, 12, 15, 18, 21];
+            const currentSlot = slots.map(s => s).reverse().find(s => hour >= s);
+
+            if (currentSlot !== undefined) {
+                const slotKey = `mood_log_${dateStr}_${currentSlot}`;
+                const hasLogged = localStorage.getItem(slotKey);
+
+                if (!hasLogged) {
+                    setShowMoodModal(true);
+                }
+            }
+        };
+
+        checkSchedule();
+        const interval = setInterval(checkSchedule, 60000);
+        return () => clearInterval(interval);
+    }, []);
+
     const currentWeekProgress = weekProgress[selectedWeek] || {};
     const daysCompleted = Object.values(currentWeekProgress).filter(Boolean).length;
 
     return (
         <div className="space-y-6 max-w-6xl mx-auto p-4 md:p-6">
+            <MoodTrackerModal isOpen={showMoodModal} onClose={() => setShowMoodModal(false)} />
             {/* Header */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
@@ -66,7 +96,7 @@ export default function Batch11Page() {
                     <Button
                         variant="outline"
                         className="gap-2 border-indigo-200 text-indigo-700 hover:bg-indigo-50"
-                        onClick={() => router.push('/student/batch1-1/deep-report?tab=mood')}
+                        onClick={() => setShowMoodModal(true)}
                     >
                         <Smile className="h-4 w-4" />
                         Mood Tracker
