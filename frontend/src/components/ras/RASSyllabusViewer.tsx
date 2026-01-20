@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
-import { RAS_MAINS_SYLLABUS, RAS_PRELIMS_SYLLABUS, SyllabusSection } from "./data/ras-syllabus-data";
+import RASOverviewPlan from "./RASOverviewPlan";
 
 interface RASSyllabusViewerProps {
     onExit: () => void;
 }
 
 export default function RASSyllabusViewer({ onExit }: RASSyllabusViewerProps) {
-    const [activeTab, setActiveTab] = useState<"mains" | "prelims">("mains");
+    const [activeTab, setActiveTab] = useState<"overview" | "mains" | "prelims">("overview");
 
     return (
         <div className="min-h-screen bg-black text-white flex flex-col">
@@ -31,6 +31,15 @@ export default function RASSyllabusViewer({ onExit }: RASSyllabusViewerProps) {
                 </div>
 
                 <div className="flex bg-neutral-800 rounded-lg p-1">
+                    <button
+                        onClick={() => setActiveTab("overview")}
+                        className={cn(
+                            "px-4 py-1.5 rounded-md text-xs font-bold transition-all",
+                            activeTab === "overview" ? "bg-amber-500 text-black shadow-lg" : "text-neutral-400 hover:text-white"
+                        )}
+                    >
+                        Overview
+                    </button>
                     <button
                         onClick={() => setActiveTab("mains")}
                         className={cn(
@@ -55,9 +64,20 @@ export default function RASSyllabusViewer({ onExit }: RASSyllabusViewerProps) {
             {/* Content Area */}
             <div className="flex-1 overflow-y-auto p-4 md:p-8 max-w-5xl mx-auto w-full space-y-8">
                 <AnimatePresence mode="wait">
-                    {activeTab === "mains" ? (
+                    {activeTab === "overview" && (
+                        <motion.div
+                            key="overview"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                        >
+                            <RASOverviewPlan />
+                        </motion.div>
+                    )}
+                    {activeTab === "mains" && (
                         <MainsSyllabusView key="mains" />
-                    ) : (
+                    )}
+                    {activeTab === "prelims" && (
                         <PrelimsSyllabusView key="prelims" />
                     )}
                 </AnimatePresence>

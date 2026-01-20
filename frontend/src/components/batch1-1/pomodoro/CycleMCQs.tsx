@@ -36,7 +36,7 @@ function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
     return mcqs.slice(0, 7); // Max 7 MCQs per cycle
 }
 
-export type ConfidenceLevel = 'sure' | '50-50' | 'blind';
+export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind';
 
 interface MCQResult {
     questionId: string;
@@ -245,9 +245,9 @@ export default function CycleMCQs({
 
     return (
         <div className="animate-in fade-in duration-300">
-            <Card className="bg-white dark:bg-gray-950 border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden">
+            <Card className="bg-white dark:bg-gray-950 border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden flex flex-col min-h-[600px] md:h-auto">
                 {/* Header with persistent timer */}
-                <div className="bg-slate-900 text-white p-4 flex items-center justify-between">
+                <div className="bg-slate-900 text-white p-4 flex items-center justify-between shrink-0">
                     <div className="flex items-center gap-3">
                         <div className="bg-indigo-600 p-2 rounded-lg">
                             <Target className="h-5 w-5" />
@@ -274,136 +274,144 @@ export default function CycleMCQs({
                     </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-4 md:p-6 flex-1 flex flex-col">
                     {/* Progress Bar */}
-                    <div className="h-1 bg-gray-100 dark:bg-gray-800 rounded-full mb-8 overflow-hidden">
+                    <div className="h-1 bg-gray-100 dark:bg-gray-800 rounded-full mb-6 overflow-hidden shrink-0">
                         <div
                             className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300"
                             style={{ width: `${progress}%` }}
                         />
                     </div>
 
-                    {/* Question Content */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        {/* Main Question Area */}
-                        <div className="lg:col-span-8 space-y-6">
-                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-slate-800">
-                                <span className="inline-block px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-bold mb-4">
-                                    QUESTION {currentIndex + 1}
-                                </span>
-                                <div className="text-xl font-medium text-slate-900 dark:text-slate-100 leading-relaxed space-y-3">
-                                    {currentMCQ.question.split(/(\d+\.\s|(?:\(?[ivx]+\)?)\.\s|(?=Which of the|Select the correct answer))/g).map((part, i, arr) => {
-                                        if (!part) return null;
+                    {/* Main Content Area - Single Column */}
+                    <div className="flex-1 space-y-6 overflow-y-auto custom-scrollbar pb-6">
+                        {/* Question Text */}
+                        <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-slate-800">
+                            <span className="inline-block px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-bold mb-4">
+                                QUESTION {currentIndex + 1}
+                            </span>
+                            <div className="text-lg md:text-xl font-medium text-slate-900 dark:text-slate-100 leading-relaxed space-y-3">
+                                {currentMCQ.question.split(/(\d+\.\s|(?:\(?[ivx]+\)?)\.\s|(?=Which of the|Select the correct answer))/g).map((part, i, arr) => {
+                                    if (!part) return null;
 
-                                        // If part is a marker (like 1. or (i).)
-                                        if (/^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(part)) {
-                                            return <div key={i} className="flex gap-2">
-                                                <span className="font-bold text-indigo-600 dark:text-indigo-400 shrink-0">{part}</span>
-                                                <span className="text-slate-800 dark:text-slate-200">{arr[i + 1]}</span>
-                                            </div>;
-                                        }
-                                        // If this is the text part following a marker, skip it here
-                                        if (i > 0 && /^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(arr[i - 1])) {
-                                            return null;
-                                        }
-                                        // Specific handling for "Which of..." or "Select the..." which are now on new lines via lookahead
-                                        const isTrailer = /^(Which of the|Select the correct answer)/.test(part);
-                                        return <div key={i} className={isTrailer ? "pt-2 border-t border-slate-100 dark:border-slate-800 text-base font-semibold text-slate-600 dark:text-slate-400" : ""}>
-                                            {part}
+                                    if (/^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(part)) {
+                                        return <div key={i} className="flex gap-2">
+                                            <span className="font-bold text-indigo-600 dark:text-indigo-400 shrink-0">{part}</span>
+                                            <span className="text-slate-800 dark:text-slate-200">{arr[i + 1]}</span>
                                         </div>;
-                                    })}
-                                </div>
-                            </div>
-
-                            <div className="space-y-3">
-                                {currentMCQ.options.map((option, index) => {
-                                    const isSelected = selectedAnswer === index;
-                                    return (
-                                        <button
-                                            key={index}
-                                            onClick={() => handleAnswerSelect(index)}
-                                            className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-4 group ${isSelected
-                                                ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 ring-4 ring-indigo-500/10 shadow-md'
-                                                : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 shadow-sm'
-                                                }`}
-                                        >
-                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold transition-colors ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-400 group-hover:bg-indigo-100 group-hover:text-indigo-700'
-                                                }`}>
-                                                {String.fromCharCode(65 + index)}
-                                            </div>
-                                            <span className={`flex-1 text-base ${isSelected ? 'text-indigo-900 dark:text-indigo-100 font-bold' : 'text-slate-800 dark:text-slate-300 font-medium'}`}>
-                                                {option}
-                                            </span>
-                                        </button>
-                                    );
+                                    }
+                                    if (i > 0 && /^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(arr[i - 1])) {
+                                        return null;
+                                    }
+                                    const isTrailer = /^(Which of the|Select the correct answer)/.test(part);
+                                    return <div key={i} className={isTrailer ? "pt-2 border-t border-slate-100 dark:border-slate-800 text-base font-semibold text-slate-600 dark:text-slate-400" : ""}>
+                                        {part}
+                                    </div>;
                                 })}
                             </div>
                         </div>
 
-                        {/* Confidence Sidebar */}
-                        <div className="lg:col-span-4 space-y-6">
-                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 h-full flex flex-col">
-                                <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
-                                    <Brain className="h-4 w-4 text-indigo-500" />
-                                    Confidence Level
-                                </h4>
-                                <p className="text-xs text-slate-500 mb-6">
-                                    Be honest about your knowledge. This helps in tailoring your revision plan.
-                                </p>
-
-                                <div className="space-y-3 flex-1">
+                        {/* Options List */}
+                        <div className="space-y-3">
+                            {currentMCQ.options.map((option, index) => {
+                                const isSelected = selectedAnswer === index;
+                                return (
                                     <button
-                                        onClick={() => handleConfidenceSelect('sure')}
-                                        className={`w-full p-4 rounded-xl border-2 flex items-center justify-between transition-all ${confidence === 'sure'
-                                            ? 'bg-green-50 dark:bg-green-900/20 border-green-500 text-green-700 dark:text-green-300 font-bold shadow-sm'
-                                            : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-800 dark:text-slate-300 hover:border-green-300'
+                                        key={index}
+                                        onClick={() => handleAnswerSelect(index)}
+                                        className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-4 group ${isSelected
+                                            ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 ring-2 ring-indigo-500/10 shadow-md'
+                                            : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 shadow-sm'
                                             }`}
                                     >
-                                        <div className="flex items-center gap-3">
-                                            <CheckCircle2 className={`h-5 w-5 ${confidence === 'sure' ? 'text-green-600' : 'text-slate-400'}`} />
-                                            <span>Sure (100%)</span>
+                                        <div className={`w-10 h-10 shrink-0 rounded-lg flex items-center justify-center font-bold transition-colors ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-400 group-hover:bg-indigo-100 group-hover:text-indigo-700'
+                                            }`}>
+                                            {String.fromCharCode(65 + index)}
                                         </div>
-                                        {confidence === 'sure' && <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]" />}
+                                        <span className={`flex-1 text-base ${isSelected ? 'text-indigo-900 dark:text-indigo-100 font-bold' : 'text-slate-800 dark:text-slate-300 font-medium'}`}>
+                                            {option}
+                                        </span>
                                     </button>
+                                );
+                            })}
+                        </div>
+                    </div>
 
-                                    <button
-                                        onClick={() => handleConfidenceSelect('50-50')}
-                                        className={`w-full p-4 rounded-xl border-2 flex items-center justify-between transition-all ${confidence === '50-50'
-                                            ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-500 text-amber-700 dark:text-amber-300 font-bold shadow-sm'
-                                            : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-800 dark:text-slate-300 hover:border-amber-300'
-                                            }`}
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <AlertCircle className={`h-5 w-5 ${confidence === '50-50' ? 'text-amber-600' : 'text-slate-400'}`} />
-                                            <span>50-50 Chance</span>
-                                        </div>
-                                        {confidence === '50-50' && <div className="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]" />}
-                                    </button>
+                    {/* Bottom Confidence Strip - Fixed or at bottom of flow */}
+                    <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-4 shrink-0">
+                        <div className="flex items-center justify-between mb-2">
+                            <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                                <Brain className="h-4 w-4 text-indigo-500" />
+                                Select Confidence
+                            </h4>
+                            <KeyboardShortcutsHelp context="mcq" compact={true} />
+                        </div>
 
-                                    <button
-                                        onClick={() => handleConfidenceSelect('blind')}
-                                        className={`w-full p-4 rounded-xl border-2 flex items-center justify-between transition-all ${confidence === 'blind'
-                                            ? 'bg-slate-100 dark:bg-slate-800 border-slate-500 text-slate-900 dark:text-slate-100 font-bold shadow-sm'
-                                            : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-800 dark:text-slate-300 hover:border-slate-400'
-                                            }`}
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <BookOpen className={`h-5 w-5 ${confidence === 'blind' ? 'text-slate-500' : 'text-slate-300'}`} />
-                                            <span>Blind Guess</span>
-                                        </div>
-                                        {confidence === 'blind' && <div className="w-2 h-2 rounded-full bg-slate-500 shadow-[0_0_8px_rgba(107,114,128,0.5)]" />}
-                                    </button>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            {/* Sure Shot */}
+                            <button
+                                onClick={() => handleConfidenceSelect('sure')}
+                                className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'sure'
+                                    ? 'bg-green-50 dark:bg-green-900/20 border-green-500 text-green-700 dark:text-green-300 font-bold shadow-sm'
+                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-green-300 hover:bg-green-50/50'
+                                    }`}
+                            >
+                                <div className="flex items-center gap-2">
+                                    <CheckCircle2 className={`h-4 w-4 ${confidence === 'sure' ? 'text-green-600' : 'text-slate-400'}`} />
+                                    <span>Sure Shot</span>
                                 </div>
+                                <span className="text-[10px] opacity-70">100% Certain</span>
+                            </button>
 
-                                <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
-                                    <KeyboardShortcutsHelp context="mcq" compact={true} />
+                            {/* 50-50 */}
+                            <button
+                                onClick={() => handleConfidenceSelect('50-50')}
+                                className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === '50-50'
+                                    ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-500 text-amber-700 dark:text-amber-300 font-bold shadow-sm'
+                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-amber-300 hover:bg-amber-50/50'
+                                    }`}
+                            >
+                                <div className="flex items-center gap-2">
+                                    <AlertCircle className={`h-4 w-4 ${confidence === '50-50' ? 'text-amber-600' : 'text-slate-400'}`} />
+                                    <span>50-50</span>
                                 </div>
-                            </div>
+                                <span className="text-[10px] opacity-70">Confused b/w 2</span>
+                            </button>
+
+                            {/* One Option Known */}
+                            <button
+                                onClick={() => handleConfidenceSelect('one-option')}
+                                className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'one-option'
+                                    ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-500 text-blue-700 dark:text-blue-300 font-bold shadow-sm'
+                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-blue-300 hover:bg-blue-50/50'
+                                    }`}
+                            >
+                                <div className="flex items-center gap-2">
+                                    <Target className={`h-4 w-4 ${confidence === 'one-option' ? 'text-blue-600' : 'text-slate-400'}`} />
+                                    <span>One Option</span>
+                                </div>
+                                <span className="text-[10px] opacity-70">Eliminated others</span>
+                            </button>
+
+                            {/* Blind Guess */}
+                            <button
+                                onClick={() => handleConfidenceSelect('blind')}
+                                className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'blind'
+                                    ? 'bg-slate-100 dark:bg-slate-800 border-slate-500 text-slate-900 dark:text-slate-100 font-bold shadow-sm'
+                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-slate-400 hover:bg-slate-50'
+                                    }`}
+                            >
+                                <div className="flex items-center gap-2">
+                                    <BookOpen className={`h-4 w-4 ${confidence === 'blind' ? 'text-slate-600' : 'text-slate-400'}`} />
+                                    <span>Blind Guess</span>
+                                </div>
+                                <span className="text-[10px] opacity-70">No Idea</span>
+                            </button>
                         </div>
                     </div>
 
                     {/* Navigation Actions */}
-                    <div className="flex justify-between items-center mt-10 pt-6 border-t border-slate-100 dark:border-slate-800">
+                    <div className="flex justify-between items-center mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 shrink-0">
                         <Button
                             variant="outline"
                             onClick={handlePrevious}
