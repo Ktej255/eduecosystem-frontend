@@ -38,8 +38,8 @@ import { FLASHCARD_CONTENT_REGISTRY, MCQ_CONTENT_REGISTRY } from '@/components/b
 import AIChatWidget from '@/components/chat/AIChatWidget';
 import MCQPerformanceReport from './MCQPerformanceReport';
 import { ConfidenceLevel } from '../pomodoro/CycleMCQs';
-import { processReview, getSRSData, saveSRSData } from '@/lib/srs/srs-storage';
-import { SRSCard } from '@/lib/srs/srs-engine';
+import { getSRSData, saveSRSData } from '@/lib/srs/srs-storage';
+import { SRSCard, processReview } from '@/lib/srs/srs-engine';
 import { recordBatchMCQResults } from '@/lib/analytics/WeakTopicAnalyzer';
 import { awardXP } from '@/lib/gamification/xp-engine';
 
