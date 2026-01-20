@@ -490,4 +490,146 @@ export const IR_PYQS: PYQQuestion[] = [
         explanation: "WTI is a grade of Crude Oil.",
         exam: 'CSE Prelims',
         difficulty: 'Easy'
+    },
+
+    // 2019
+    {
+        id: 'ir_2019_1',
+        year: 2019,
+        subject: 'International Relations',
+        topic: 'Global Indices',
+        question: "The Global Competitiveness Report is published by the:",
+        options: ["International Monetary Fund", "United Nations Conference on Trade and Development", "World Economic Forum", "World Bank"],
+        correctIndex: 2,
+        explanation: "The Global Competitiveness Report (GCR) is a yearly report published by the World Economic Forum (WEF).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2019_2',
+        year: 2019,
+        subject: 'International Relations',
+        topic: 'International Organizations',
+        question: "With reference to Asian Infrastructure Investment Bank (AIIB), consider the following statements:\n1. AIIB has more than 80 member nations.\n2. India is the largest shareholder in AIIB.\n3. AIIB does not have any members from outside Asia.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 0,
+        explanation: "AIIB has over 100 members. China is the largest shareholder (~30%), followed by India (~8%). It includes many non-regional members from outside Asia (e.g., Canada, Germany).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2018
+    {
+        id: 'ir_2018_1',
+        year: 2018,
+        subject: 'International Relations',
+        topic: 'Middle East Affairs',
+        question: "The term 'two-state solution' is sometimes mentioned in the news in the context of the affairs of:",
+        options: ["China", "Israel", "Iraq", "Yemen"],
+        correctIndex: 1,
+        explanation: "The two-state solution is the proposed framework for resolving the Israeli-Palestinian conflict by establishing an independent State of Palestine alongside the State of Israel.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'ir_2018_2',
+        year: 2018,
+        subject: 'International Relations',
+        topic: 'International Treaties',
+        question: "International Labour Organization’s Conventions 138 and 182 are related to:",
+        options: ["Child labour", "Adaptation of agriculture practices to global climate change", "Regulation of food prices and food security", "Gender parity at the workplace"],
+        correctIndex: 0,
+        explanation: "Convention 138 relates to the Minimum Age for employment, and Convention 182 relates to the Worst Forms of Child Labour.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2017
+    {
+        id: 'ir_2017_1',
+        year: 2017,
+        subject: 'International Relations',
+        topic: 'Security Cooperation',
+        question: "Consider the following in respect of Indian Ocean Naval Symposium (IONS):\n1. Inaugural IONS was held in India in 2015 under the chairmanship of the Indian Navy.\n2. IONS is a voluntary initiative that seeks to increase maritime co-operation among navies of the littoral states of the Indian Ocean Region.\nWhich of the above statements is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 1,
+        explanation: "The inaugural IONS was held in New Delhi, India, in 2008, not 2015. It is indeed a voluntary initiative for maritime cooperation in the IOR.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2016
+    {
+        id: 'ir_2016_1',
+        year: 2016,
+        subject: 'International Relations',
+        topic: 'Regional Conflicts',
+        question: "Community sometimes mentioned in the news in the affairs of:\n1. Kurd : Bangladesh\n2. Madhesi : Nepal\n3. Rohingya : Myanmar\nWhich of the pairs given above is/are correctly matched?",
+        options: ["1 and 2", "2 only", "2 and 3", "3 only"],
+        correctIndex: 2,
+        explanation: "Kurds are primarily in the Middle East (Turkey, Iraq, Syria, Iran). Madhesis are in Nepal, and Rohingya are in Myanmar.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2015
+    {
+        id: 'ir_2015_1',
+        year: 2015,
+        subject: 'International Relations',
+        topic: 'BRICS',
+        question: "The 'Fortaleza Declaration' recently in the news, is related to the affairs of:",
+        options: ["ASEAN", "BRICS", "OECD", "WTO"],
+        correctIndex: 1,
+        explanation: "The Fortaleza Declaration was signed at the 6th BRICS summit in 2014, leading to the creation of the New Development Bank (NDB).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2014
+    {
+        id: 'ir_2014_1',
+        year: 2014,
+        subject: 'International Relations',
+        topic: 'Regional Uprisings',
+        question: "Recently, a series of uprisings of people referred to as 'Arab Spring' originally started from:",
+        options: ["Egypt", "Lebanon", "Syria", "Tunisia"],
+        correctIndex: 3,
+        explanation: "The Arab Spring began in Tunisia in December 2010 with the self-immolation of Mohamed Bouazizi.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2012
+    {
+        id: 'ir_2012_1',
+        year: 2012,
+        subject: 'International Relations',
+        topic: 'Sustainable Development',
+        question: "The 'Rio+20' conference is the short name for the United Nations Conference on:",
+        options: ["Sustainable Development", "Environment and Development", "Human Environment", "Climate Change"],
+        correctIndex: 0,
+        explanation: "Rio+20 was the UN Conference on Sustainable Development (UNCSD) held in Brazil in 2012.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2011
+    {
+        id: 'ir_2011_1',
+        year: 2011,
+        subject: 'International Relations',
+        topic: 'Nuclear Treaties',
+        question: "The 'New START' treaty was in the news. What is this treaty?",
+        options: [
+            "It is a bilateral strategic nuclear arms reduction treaty between the USA and the Russian Federation",
+            "It is a multilateral energy security cooperation treaty among the members of the G20",
+            "It is a treaty between the Russian Federation and the European Union for the energy security",
+            "It is a treaty between the USA and China for the trade security"
+        ],
+        correctIndex: 0,
+        explanation: "New START (Strategic Arms Reduction Treaty) is a nuclear arms reduction treaty between the United States and the Russian Federation.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
     }
+];

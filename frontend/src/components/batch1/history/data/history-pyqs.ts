@@ -924,4 +924,226 @@ export const HISTORY_PYQS: PYQQuestion[] = [
         exam: 'CSE Prelims',
         difficulty: 'Moderate'
     },
+
+    // 2019 - Modern India
+    {
+        id: 'modern_history_2019_1',
+        year: 2019,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Consider the following pairs: Movement/Organization - Leader\n1. All India Anti-Untouchability League - Mahatma Gandhi\n2. All India Kisan Sabha - Swami Sahajanand Saraswati\n3. Self-Respect Movement - Naicker E.V. Ramaswami\nWhich of the pairs given above is/are correctly matched?",
+        options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 3,
+        explanation: "All three pairs are correctly matched. Mahatma Gandhi set up the All India Anti-Untouchability League in 1932. The All India Kisan Sabha was formed in 1936 with Swami Sahajanand Saraswati as President. The Self-Respect Movement was started by E.V. Ramaswamy Naicker in 1925.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2018 - Modern India
+    {
+        id: 'modern_history_2018_1',
+        year: 2018,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Which of the following led to the introduction of English Education in India?\n1. Charter Act of 1813\n2. General Committee of Public Instruction, 1823\n3. Orientalist and Anglicist Controversy\nSelect the correct answer using the code given below:",
+        options: ["1 and 2 only", "2 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 3,
+        explanation: "All three factors contributed to the introduction of English education. The Charter Act of 1813 first allotted funds for education. The 1823 Committee was responsible for implementing education policy, which eventually favored the Anglicist view over the Orientalist one.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2018_2',
+        year: 2018,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Which one of the following statements does not apply to the system of Subsidiary Alliance introduced by Lord Wellesley?",
+        options: [
+            "To maintain a large standing army at others expense",
+            "To keep India safe from Napoleonic danger",
+            "To secure a fixed income for the Company",
+            "To establish British paramountcy over the Indian States"
+        ],
+        correctIndex: 2,
+        explanation: "The Subsidiary Alliance was aimed at strategic and military dominance, not at securing a 'fixed income' for the Company. It focused on maintaining British troops at the expense of Indian rulers and eliminating French influence.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2018_3',
+        year: 2018,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Which of the following were the founders of the Hind Mazdoor Sabha established in 1948?",
+        options: [
+            "B. Krishna Pillai, E.M.S. Namboodiripad and K.C. George",
+            "Jayaprakash Narayan, Deen Dayal Upadhyay and M.N. Roy",
+            "C.P. Ramaswamy Iyer, K. Kamaraj and Veeresalingam Pantulu",
+            "Ashok Mehta, T.S. Ramanujam and G.G. Mehta"
+        ],
+        correctIndex: 3,
+        explanation: "The Hind Mazdoor Sabha (HMS) was founded in 1948 in Howrah by socialist leaders including Ashok Mehta, T.S. Ramanujam, and G.G. Mehta.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2018_4',
+        year: 2018,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "With reference to the Government of India Act 1935, consider the following statements:\n1. It provided for the establishment of an All-India Federation.\n2. Residuary powers were given to the Provincial Legislatures.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 0,
+        explanation: "Statement 1 is correct as it proposed an All-India Federation of provinces and princely states. Statement 2 is incorrect because residuary powers were vested in the Governor-General.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2017 - Modern India
+    {
+        id: 'modern_history_2017_1',
+        year: 2017,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Who among the following was/were associated with the introduction of Ryotwari Settlement in India during the British rule?\n1. Lord Cornwallis\n2. Alexander Read\n3. Thomas Munro\nSelect the correct answer using the code given below:",
+        options: ["1 only", "1 and 3 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 2,
+        explanation: "Ryotwari Settlement was introduced by Alexander Read and Thomas Munro. Lord Cornwallis was associated with the Permanent Settlement.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2017_2',
+        year: 2017,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Consider the following pairs:\n1. Radhakanta Deb — First President of the British Indian Association\n2. Gazulu Lakshmi Narasu Chetty — Founder of the Madras Mahajana Sabha\n3. Surendranath Banerjee — Founder of the Indian Association\nWhich of the above pairs is/are correctly matched?",
+        options: ["1 only", "1 and 3 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "Pairs 1 and 3 are correct. Radhakanta Deb was the first president of the British Indian Association. Surendranath Banerjee founded the Indian Association of Calcutta. Gazulu Lakshmi Narasu Chetty founded the Madras Native Association, not the Madras Mahajana Sabha.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2017_3',
+        year: 2017,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "The object of the Butler Committee of 1927 was to?",
+        options: [
+            "Define the jurisdiction of the Central and Provincial Governments",
+            "Define the powers of the Secretary of State for India",
+            "Impose censorship on national press",
+            "Improve the relationship between the Government of India and the Indian States"
+        ],
+        correctIndex: 3,
+        explanation: "The Hartog or Butler Committee was aimed at examining the relationship between the Paramount Power (British) and the Indian Princely States.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2016 - Modern India
+    {
+        id: 'modern_history_2016_1',
+        year: 2016,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Satya Shodhak Samaj organized?",
+        options: [
+            "a movement for upliftment of tribals in Bihar",
+            "a temple-entry movement in Gujarat",
+            "an anti-caste movement in Maharashtra",
+            "a peasant movement in Punjab"
+        ],
+        correctIndex: 2,
+        explanation: "Founded by Jyotirao Phule in 1873, Satya Shodhak Samaj was an anti-caste movement in Maharashtra aimed at the social upliftment of lower castes.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2016_2',
+        year: 2016,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "The Montague-Chelmsford Proposals were related to?",
+        options: [
+            "social reforms",
+            "educational reforms",
+            "reforms in public administration",
+            "constitutional reforms"
+        ],
+        correctIndex: 3,
+        explanation: "The Montague-Chelmsford Proposals of 1918 were for constitutional reforms, which resulted in the Government of India Act 1919.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2016_3',
+        year: 2016,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Consider the following:\n1. Calcutta Unitarian Committee\n2. Tabernacle of New Dispensation\n3. Indian Reform Association\nKeshab Chandra Sen is associated with the establishment of which of the above?",
+        options: ["1 and 3 only", "2 and 3 only", "3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "Keshab Chandra Sen was associated with the Tabernacle of New Dispensation and the Indian Reform Association. The Calcutta Unitarian Committee was established by Raja Ram Mohan Roy and others.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2015 - Modern India
+    {
+        id: 'modern_history_2015_1',
+        year: 2015,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "With reference to Rowlatt Satyagraha, which of the following statements is/are correct?\n1. The Rowlatt Act was based on the recommendations of the ‘Sedition Committee’.\n2. In Rowlatt Satyagraha, Gandhiji tried to utilize the Home Rule League.\n3. Demonstrations against the arrival of Simon Commission coincided with Rowlatt Satyagraha.\nSelect the correct answer using the code given below.",
+        options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 1,
+        explanation: "Statements 1 and 2 are correct. The 1919 Rowlatt Act was based on the Sedition Committee's report. Gandhiji used the organizational network of the Home Rule League for the Satyagraha. Statement 3 is wrong as the Simon Commission arrived in 1928.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2015_2',
+        year: 2015,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Who of the following organized a march on the Tanjore coast to break the Salt Law in April 1930?",
+        options: ["V. O. Chidambaram Pillai", "C. Rajagopalachari", "K. Kamaraj", "Annie Besant"],
+        correctIndex: 1,
+        explanation: "In 1930, C. Rajagopalachari led the Salt Satyagraha march from Trichinopoly to Vedaranyam on the Tanjore coast in Tamil Nadu.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'modern_history_2015_3',
+        year: 2015,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "Consider the following statements:\n1. The first woman President of the Indian National Congress was Sarojini Naidu.\n2. The first Muslim President of the Indian National Congress was Badruddin Tyabji.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 1,
+        explanation: "Statement 1 is incorrect; Annie Besant was the first woman President (1917). Sarojini Naidu was the first Indian woman President (1925). Statement 2 is correct; Badruddin Tyabji was the first Muslim President in 1887.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2014 - Modern India
+    {
+        id: 'modern_history_2014_1',
+        year: 2014,
+        subject: 'History',
+        topic: 'Modern India',
+        question: "The Ghadar was a?",
+        options: [
+            "revolutionary association of Indians with headquarters at San Francisco",
+            "nationalist organization operating from Singapore",
+            "militant organization with headquarters at Berlin",
+            "communist movement for India's freedom with headquarters at Tashkent"
+        ],
+        correctIndex: 0,
+        explanation: "The Ghadar Party was an Indian revolutionary organization founded in 1913 in San Francisco by Lala Hardayal and others.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    }
 ];

@@ -1841,4 +1841,80 @@ export const POLITY_PYQS: PYQQuestion[] = [
         explanation: "Both are correct.",
         exam: 'CSE Prelims', difficulty: 'Easy'
     },
+
+    // 2012
+    {
+        id: 'pol_2012_1',
+        year: 2012,
+        subject: 'Polity',
+        topic: 'Judiciary',
+        question: "What is the provision to safeguard the autonomy of the Supreme Court of India?\n1. While appointing the Supreme Court Judges, the President of India has to consult the Chief Justice of India.\n2. The Supreme Court Judges can be removed by the Chief Justice of India only.\n3. The salaries of the Judges are charged on the Consolidated Fund of India to which the legislature does not have to vote.\n4. All appointments of officers and staff of the Supreme Court of India are made by the Government only after consulting the Chief Justice of India.\nWhich of the statements given above is/are correct?",
+        options: ["1 and 2 only", "3 and 4 only", "3 only", "1, 3 and 4 only"],
+        correctIndex: 3,
+        explanation: "The autonomy is safeguarded by Consultation for appointments, Charged salaries, and staff control. Removal is by Parliament, not CJI.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'pol_2012_2',
+        year: 2012,
+        subject: 'Polity',
+        topic: 'Judiciary',
+        question: "Which of the following are included in the original jurisdiction of the Supreme Court?\n1. A dispute between the Government of India and one or more States.\n2. A dispute regarding elections to either House of the Parliament or Legislature of a State.\n3. A dispute between the Government of India and a Union Territory.\n4. A dispute between two or more States.\nSelect the correct answer using the code given below:",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 4 only", "3 and 4 only"],
+        correctIndex: 2,
+        explanation: "Original jurisdiction (Art 131) covers Center-State and Inter-State disputes.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'pol_2012_3',
+        year: 2012,
+        subject: 'Polity',
+        topic: 'Constitutional Bodies',
+        question: "According to the Constitution of India, it is the duty of the President of India to cause to be laid before the Parliament which of the following?\n1. The Recommendations of the Union Finance Commission.\n2. The Report of the Public Accounts Committee.\n3. The Report of the Comptroller and Auditor General.\n4. The Report of the National Commission for Scheduled Castes.\nSelect the correct answer using the code given below:",
+        options: ["1 only", "2 and 4 only", "1, 3 and 4 only", "1, 2, 3 and 4"],
+        correctIndex: 2,
+        explanation: "The President lays reports of FC, CAG, and NCSC. PAC report is laid by the Committee Chairman.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2011
+    {
+        id: 'pol_2011_1',
+        year: 2011,
+        subject: 'Polity',
+        topic: 'Local Government',
+        question: "The Constitution (Seventy-Third Amendment) Act, 1992, which aims at promoting the Panchayati Raj Institutions in the country, provides for which of the following?\n1. Constitution of District Planning Committees.\n2. State Election Commission to conduct all panchayat elections.\n3. Establishment of State Finance Commissions.\nSelect the correct answer using the code given below:",
+        options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"],
+        correctIndex: 2,
+        explanation: "73rd Amendment provided for SEC and SFC. District Planning Committee is part of the 74th Amendment (Urban).",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'pol_2011_2',
+        year: 2011,
+        subject: 'Polity',
+        topic: 'Fundamental Rights',
+        question: "In India, if a religious sect/community is given 'the status of a national minority', what special advantages it is entitled to?\n1. It can establish and administer exclusive educational institutions.\n2. The President of India automatically nominates a representative of the community to Lok Sabha.\n3. It can derive benefits from the Prime Minister's 15-Point Programme.\nWhich of the statements given above is / are correct?",
+        options: ["1 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
+        correctIndex: 2,
+        explanation: "Minorities have rights under Art 30 and specific welfare programs. No automatic nomination to LS exists.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'pol_2011_3',
+        year: 2011,
+        subject: 'Polity',
+        topic: 'State Government',
+        question: "Which of the following are the discretionary powers given to the Governor of a State?\n1. Sending a report to the President of India for imposing the President's rule.\n2. Appointing the Ministers.\n3. Reserving certain bills passed by the State Legislature for consideration of the President of India.\n4. Making the rules to conduct the business of the State Government.\nSelect the correct answer using the code given below:",
+        options: ["1 and 2 only", "1 and 3 only", "2, 3 and 4 only", "1, 2, 3 and 4"],
+        correctIndex: 1,
+        explanation: "Discretionary powers include Art 356 reports and Art 200 bill reservation. Appointment of ministers and conduct of business rules involve the CM's advice.",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    }
 ];

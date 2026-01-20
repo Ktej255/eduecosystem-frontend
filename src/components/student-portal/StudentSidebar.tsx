@@ -215,6 +215,22 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                         <div className={`mt-4 mb-2 px-4 transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}>
                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">RAS Revision</p>
                         </div>
+
+                        {/* RAS Dashboard (Formerly Anti-Gravity) */}
+                        <Link
+                            href="/student/antigravity"
+                            className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${pathname === "/student/antigravity"
+                                ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-600/30"
+                                : "text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/10"
+                                } ${!showExpanded ? "justify-center px-2" : ""}`}
+                            title={!showExpanded ? "RAS Dashboard" : ""}
+                        >
+                            <LayoutDashboard className="h-5 w-5 shrink-0" />
+                            <span className={`font-medium whitespace-nowrap transition-opacity duration-200 ${showExpanded ? "opacity-100" : "opacity-0 w-0"}`}>
+                                RAS Dashboard
+                            </span>
+                        </Link>
+
                         <Link
                             href="/student/my-plan"
                             className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 overflow-hidden ${pathname === "/student/my-plan"

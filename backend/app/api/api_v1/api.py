@@ -244,3 +244,7 @@ api_router.include_router(pack_battles.router, prefix="/pack-battles", tags=["pa
 # Adaptive Learning (Dynamic Knowledge Graph & BKT)
 from app.api.api_v1.endpoints import adaptive_learning
 api_router.include_router(adaptive_learning.router, prefix="/adaptive-learning", tags=["adaptive-learning"])
+
+# Anti-Gravity Phase-Wise Roadmap
+from app.api.api_v1.endpoints import antigravity
+api_router.include_router(antigravity.router, prefix="/antigravity", tags=["antigravity"])

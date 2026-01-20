@@ -34,16 +34,31 @@ import CycleMCQs from '../pomodoro/CycleMCQs';
 import { getFlashcardsForSubtopics } from '@/components/batch1/polity/data/polity-flashcards-data';
 import { getMCQsForSubtopics } from '@/components/batch1/polity/data/polity-mcqs-data';
 import { markStepComplete } from '@/lib/journey/completion-tracker';
-// Import registry directly (ensure it exists)
 import { FLASHCARD_CONTENT_REGISTRY, MCQ_CONTENT_REGISTRY } from '@/components/batch1/content-registry';
 import AIChatWidget from '@/components/chat/AIChatWidget';
+import MCQPerformanceReport from './MCQPerformanceReport';
+import { ConfidenceLevel } from '../pomodoro/CycleMCQs';
+import { processReview, getSRSData, saveSRSData } from '@/lib/srs/srs-storage';
+import { SRSCard } from '@/lib/srs/srs-engine';
+import { recordBatchMCQResults } from '@/lib/analytics/WeakTopicAnalyzer';
+import { awardXP } from '@/lib/gamification/xp-engine';
 
+
+interface MCQResult {
+    questionId: string;
+    subtopicId?: string;
+    selectedAnswer: number | null;
+    correctAnswer: number;
+    isCorrect: boolean;
+    confidence: ConfidenceLevel | null;
+    timeSpent: number;
+}
 
 interface CycleData {
     cycleNumber: number;
     selectedSubtopics: SubTopic[];
     flashcardsViewed: number;
-    mcqResults: { correct: number; total: number };
+    mcqResults: MCQResult[];
 }
 
 interface MorningProgress {
@@ -146,8 +161,22 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
         const totalSessions = morningProgress.cycleHistory.length;
         const totalSubtopics = morningProgress.cycleHistory.reduce((sum: number, c: CycleData) => sum + c.selectedSubtopics.length, 0);
-        const totalCorrect = morningProgress.cycleHistory.reduce((sum: number, c: CycleData) => sum + c.mcqResults.correct, 0);
-        const totalQuestions = morningProgress.cycleHistory.reduce((sum: number, c: CycleData) => sum + c.mcqResults.total, 0);
+
+        let totalCorrect = 0;
+        let totalQuestions = 0;
+
+        morningProgress.cycleHistory.forEach(c => {
+            if (Array.isArray(c.mcqResults)) {
+                totalCorrect += c.mcqResults.filter(r => r.isCorrect).length;
+                totalQuestions += c.mcqResults.length;
+            } else {
+                // Legacy support
+                const legacy = c.mcqResults as any;
+                totalCorrect += legacy.correct || 0;
+                totalQuestions += legacy.total || 0;
+            }
+        });
+
         const accuracy = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
         // Efficiency metric
@@ -214,10 +243,88 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
     // Week 1 starts at Day 1. Week 1 Day 1 = 1. Week 2 Day 1 = 8.
     const absoluteDayNumber = (Number(weekId) - 1) * 7 + Number(dayId);
 
-    const handleSessionComplete = () => {
+    const [sessionResults, setSessionResults] = useState<MCQResult[] | null>(null);
+    const [showResultsReport, setShowResultsReport] = useState(false);
+    const [pendingGuidance, setPendingGuidance] = useState<{ type: 'to-next-chapter' | 'finish', nextChapter?: '16' | '17' } | null>(null);
+
+    // Update SRS/Retention cards based on MCQ results
+    const syncWithRetention = (results: MCQResult[]) => {
+        const srsData = getSRSData();
+
+        results.forEach(res => {
+            if (!res.subtopicId) return;
+
+            // Map MCQ performance to SRS quality (0-5)
+            // 5: Perfect response (Sure + Correct)
+            // 4: Correct after hesitation (50-50 + Correct)
+            // 3: Correct but guessed (Blind + Correct)
+            // 2: Incorrect but almost right (50-50 + Incorrect) OR (Blind + Incorrect)
+            // 1: Incorrect with high confidence (Sure + Incorrect) - Misconception!
+            // 0: Complete blackout
+
+            let quality = 3;
+            if (res.isCorrect) {
+                if (res.confidence === 'sure') quality = 5;
+                else if (res.confidence === '50-50') quality = 4;
+                else quality = 3;
+            } else {
+                if (res.confidence === 'sure') quality = 1; // Major penalty for confident wrong answer
+                else if (res.confidence === '50-50') quality = 2;
+                else quality = 2;
+            }
+
+            // Find or create card for this subtopic
+            // Note: SRS usually works on card level, but we can aggregate by subtopicId
+            // for the knowledge tree observer.
+            const cardId = `mcq_sync_${res.subtopicId}`;
+            const existingCard = srsData[cardId] || {
+                id: cardId,
+                subtopicId: res.subtopicId,
+                question: `Mastery of Subtopic ${res.subtopicId}`,
+                answer: '',
+                reps: 0,
+                interval: 0,
+                easeFactor: 2.5,
+                dueDate: new Date().toISOString().split('T')[0],
+                tags: ['mcq-sync', 'auto-generated']
+            } as any;
+
+            const updatedCard = processReview(existingCard, quality);
+            srsData[cardId] = updatedCard as any;
+        });
+
+        saveSRSData(srsData);
+
+        // Sync with WeakTopicAnalyzer for general tracking
+        const analyzerResults = results.map(res => {
+            const subtopic = CHAPTER_SUBTOPICS[res.subtopicId?.split('.')[0] || '']?.find(s => s.id === res.subtopicId);
+            return {
+                topicId: res.subtopicId || 'unknown',
+                topicName: subtopic?.label || 'Unknown Topic',
+                isCorrect: res.isCorrect
+            };
+        });
+        recordBatchMCQResults(analyzerResults);
+
+        // Award XP for each question
+        results.forEach(res => {
+            if (res.isCorrect) {
+                awardXP('mcq_correct', undefined, `Correct answer in Evening Session (${res.confidence || 'unknown'} confidence)`);
+            } else {
+                awardXP('mcq_attempt', undefined, `Attempted in Evening Session`);
+            }
+        });
+
+        console.log("Retention, Weak Topic analytics, and XP updated.");
+    };
+
+    const handleSessionComplete = (results: MCQResult[]) => {
+        setSessionResults(results);
+        setShowResultsReport(true);
+        syncWithRetention(results);
+
         // Mark the dashboard step as complete
         markStepComplete(absoluteDayNumber, `evening-${absoluteDayNumber}`);
-        setActiveSection('menu');
     };
 
     const [activeChapter, setActiveChapter] = useState<'16' | '17' | null>(null);
@@ -255,21 +362,23 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
         setShowDay3Guidance({ type: 'to-mcq' });
     };
 
-    const handleDay3MCQComplete = () => {
-        // Mark chapter as complete
+    const handleDay3MCQComplete = (results: MCQResult[]) => {
+        setSessionResults(results);
+        setShowResultsReport(true);
+        syncWithRetention(results);
+
+        // Calculate progress but don't show dialog yet
         if (activeChapter) {
             const newCompleted = new Set(completedChapters);
             newCompleted.add(activeChapter);
             setCompletedChapters(newCompleted);
-            saveProgress(newCompleted); // Save to localStorage
+            saveProgress(newCompleted);
 
-            // Check if other chapter is pending
             const otherChapter = activeChapter === '16' ? '17' : '16';
             if (!newCompleted.has(otherChapter)) {
-                setShowDay3Guidance({ type: 'to-next-chapter', nextChapter: otherChapter });
+                setPendingGuidance({ type: 'to-next-chapter', nextChapter: otherChapter });
             } else {
-                setShowDay3Guidance({ type: 'finish' });
-                // Also mark global dashboard step as complete since both are done
+                setPendingGuidance({ type: 'finish' });
                 markStepComplete(absoluteDayNumber, `evening-${absoluteDayNumber}`);
             }
         }
@@ -391,12 +500,31 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                     </DialogContent>
                 </Dialog>
 
-                <CycleMCQs
-                    selectedSubtopics={sessionContent.subtopics}
-                    cycleNumber={5}
-                    onComplete={isDay3 ? handleDay3MCQComplete : handleSessionComplete}
-                    preloadedMCQs={isDay3 ? activeDay3MCQs : sessionContent.mcqs}
-                />
+                {!showResultsReport && (
+                    <CycleMCQs
+                        selectedSubtopics={sessionContent.subtopics}
+                        cycleNumber={5}
+                        onComplete={isDay3 ? handleDay3MCQComplete : handleSessionComplete}
+                        preloadedMCQs={isDay3 ? activeDay3MCQs : sessionContent.mcqs}
+                    />
+                )}
+
+                {showResultsReport && sessionResults && (
+                    <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+                        <MCQPerformanceReport
+                            results={sessionResults}
+                            onClose={() => {
+                                setShowResultsReport(false);
+                                if (isDay3 && pendingGuidance) {
+                                    setShowDay3Guidance(pendingGuidance);
+                                    setPendingGuidance(null);
+                                } else if (!isDay3) {
+                                    setActiveSection('menu');
+                                }
+                            }}
+                        />
+                    </div>
+                )}
             </div>
         );
     }

@@ -229,7 +229,7 @@ export default function PomodoroTimer({
     };
 
     // Progress percentage
-    const progress = ((duration - timeLeft) / duration) * 100;
+    const progress = Math.max(0, ((duration - timeLeft) / duration) * 100);
 
     // Color based on time remaining
     const getTimerColor = () => {
@@ -294,30 +294,52 @@ export default function PomodoroTimer({
                     </div>
                 </div>
 
-                {/* Progress Bar */}
                 <div className="mb-6 relative">
                     <div className="flex justify-between text-xs text-gray-500 mb-1">
                         <span>Progress</span>
                         <span>{Math.round(progress)}%</span>
                     </div>
-                    <Progress value={progress} className="h-2 bg-orange-100" />
+                    <Progress value={progress} className="h-2 bg-orange-100 mb-4" />
 
-                    {/* Extension Popup */}
-                    {isRunning && timeLeft < 180 && (
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 animate-in slide-in-from-bottom-2 fade-in">
-                            <Button
-                                size="sm"
-                                variant="secondary"
-                                onClick={() => {
-                                    setTimeLeft((prev: number) => prev + 300); // Add 5 mins
-                                    setEndTime((prev: number | null) => (prev || Date.now()) + 300000);
-                                }}
-                                className="shadow-lg border-orange-200 bg-white/90 hover:bg-white text-orange-600 text-xs px-3 h-7"
-                            >
-                                +5m (Running late?)
-                            </Button>
-                        </div>
-                    )}
+                    {/* Add Time Controls - Permanently Visible */}
+                    <div className="flex justify-center gap-2 animate-in fade-in slide-in-from-bottom-1">
+                        <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => {
+                                const addSeconds = 300; // 5 mins
+                                setTimeLeft((prev) => prev + addSeconds);
+                                if (isRunning && endTime) setEndTime(endTime + (addSeconds * 1000));
+                            }}
+                            className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-white/50 dark:bg-orange-900/10"
+                        >
+                            +5m
+                        </Button>
+                        <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => {
+                                const addSeconds = 600; // 10 mins
+                                setTimeLeft((prev) => prev + addSeconds);
+                                if (isRunning && endTime) setEndTime(endTime + (addSeconds * 1000));
+                            }}
+                            className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-white/50 dark:bg-orange-900/10"
+                        >
+                            +10m
+                        </Button>
+                        <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => {
+                                const addSeconds = 900; // 15 mins
+                                setTimeLeft((prev) => prev + addSeconds);
+                                if (isRunning && endTime) setEndTime(endTime + (addSeconds * 1000));
+                            }}
+                            className="h-7 text-xs border-orange-200 text-orange-600 hover:bg-orange-50 bg-white/50 dark:bg-orange-900/10"
+                        >
+                            +15m
+                        </Button>
+                    </div>
                 </div>
 
                 {/* Controls */}

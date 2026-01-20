@@ -228,28 +228,48 @@ export default function SRSReviewSession({ onComplete, onBack, preloadCards }: S
             {/* Flashcard */}
             <Card
                 className={`min-h-[300px] cursor-pointer transition-all duration-300 ${isFlipped
-                        ? 'bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20'
-                        : 'bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20'
+                    ? 'bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20'
+                    : 'bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20'
                     }`}
                 onClick={!isFlipped ? handleFlip : undefined}
             >
                 <CardContent className="p-8 flex flex-col items-center justify-center min-h-[300px]">
                     {!isFlipped ? (
                         <>
-                            <Badge className="mb-4 bg-blue-100 text-blue-700">Question</Badge>
-                            <p className="text-xl text-center font-medium text-gray-800 dark:text-gray-200">
-                                {currentCard?.front}
-                            </p>
-                            <p className="mt-6 text-sm text-gray-500 flex items-center gap-1">
+                            <Badge className="mb-4 bg-blue-600 text-white shadow-sm dark:bg-blue-100 dark:text-blue-700">Question</Badge>
+                            <div className="text-xl text-center font-bold text-slate-900 dark:text-gray-100 leading-relaxed space-y-2">
+                                {currentCard?.front?.split(/(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)/g).map((part, i, arr) => {
+                                    if (!part) return null;
+                                    if (/^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(part)) {
+                                        return <div key={i} className="flex gap-2 justify-center">
+                                            <span className="font-bold text-blue-600 dark:text-blue-400 shrink-0">{part}</span>
+                                            <span>{arr[i + 1]}</span>
+                                        </div>;
+                                    }
+                                    if (i > 0 && /^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(arr[i - 1])) return null;
+                                    return <p key={i}>{part}</p>;
+                                })}
+                            </div>
+                            <p className="mt-6 text-sm text-slate-500 dark:text-gray-400 font-medium flex items-center gap-1">
                                 <RotateCcw className="h-4 w-4" /> Tap to reveal answer
                             </p>
                         </>
                     ) : (
                         <>
-                            <Badge className="mb-4 bg-green-100 text-green-700">Answer</Badge>
-                            <p className="text-xl text-center font-medium text-gray-800 dark:text-gray-200">
-                                {currentCard?.back}
-                            </p>
+                            <Badge className="mb-4 bg-green-600 text-white shadow-sm dark:bg-green-100 dark:text-green-700">Answer</Badge>
+                            <div className="text-xl text-center font-bold text-slate-900 dark:text-gray-100 leading-relaxed space-y-2">
+                                {currentCard?.back?.split(/(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)/g).map((part, i, arr) => {
+                                    if (!part) return null;
+                                    if (/^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(part)) {
+                                        return <div key={i} className="flex gap-2 justify-center">
+                                            <span className="font-bold text-emerald-600 dark:text-emerald-400 shrink-0">{part}</span>
+                                            <span>{arr[i + 1]}</span>
+                                        </div>;
+                                    }
+                                    if (i > 0 && /^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(arr[i - 1])) return null;
+                                    return <p key={i}>{part}</p>;
+                                })}
+                            </div>
                             <div className="mt-4 text-xs text-gray-400">
                                 Next review: {getNextReviewText(currentCard)}
                             </div>

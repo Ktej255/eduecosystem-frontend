@@ -1395,6 +1395,146 @@ export const GEOGRAPHY_PYQS: PYQQuestion[] = [
         explanation: "Indravati and Pranahita are Godavari tributaries. Vamsadhara and Pennar are independent rivers.",
         exam: 'CSE Prelims',
         difficulty: 'Moderate'
+    },
+
+    // 2014
+    {
+        id: 'geo_2014_1',
+        year: 2014,
+        subject: 'Geography',
+        topic: 'Environment',
+        question: "Which of the following phenomena might have influenced the evolution of organisms?\n1. Continental drift\n2. Glacial cycles\nSelect the correct answer using the codes given below:",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 2,
+        explanation: "Both continental drift and glacial cycles cause climatic changes and geographical isolation, influencing evolution.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'geo_2014_2',
+        year: 2014,
+        subject: 'Geography',
+        topic: 'Agriculture',
+        question: "What are the significances of a practical approach to sugarcane production known as 'Sustainable Sugarcane Initiative'?\n1. Seed cost is very low in this compared to the conventional method of cultivation.\n2. Drip irrigation can be practiced very effectively in this.\n3. There is no application of chemical or inorganic fertilizers at all in this.\n4. The output per acre of sugarcane increases substantially in this.\nSelect the correct answer using the code given below:",
+        options: ["1, 2 and 3", "1, 2 and 4 only", "2, 3 and 4", "1, 2, 3 and 4"],
+        correctIndex: 1,
+        explanation: "SSI reduces seed cost and allows drip irrigation. It doesn't strictly forbid all chemical fertilizers (though reduces them).",
+        exam: 'CSE Prelims',
+        difficulty: 'Tough'
+    },
+    {
+        id: 'geo_2014_3',
+        year: 2014,
+        subject: 'Geography',
+        topic: 'Indian Geography',
+        question: "Which of the following pairs of islands is separated from each other by the 'Ten Degree Channel'?",
+        options: ["Andaman and Nicobar", "Nicobar and Sumatra", "Maldives and Lakshadweep", "Andaman and Myanmar"],
+        correctIndex: 0,
+        explanation: "The Ten Degree Channel separates the Andaman Islands from the Nicobar Islands.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+
+    // 2013
+    {
+        id: 'geo_2013_1',
+        year: 2013,
+        subject: 'Geography',
+        topic: 'Agriculture',
+        question: "Which of the following describes the crop: Subtropical in nature, frost is injurious, needs 210 frost-free days and 50-100cm rainfall, well-drained soil?",
+        options: ["Cotton", "Groundnut", "Rice", "Wheat"],
+        correctIndex: 0,
+        explanation: "Cotton requires 210 frost-free days and 50-100cm rainfall.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'geo_2013_2',
+        year: 2013,
+        subject: 'Geography',
+        topic: 'World Geography',
+        question: "With reference to water on Planet Earth, consider the following statements:\n1. The amount of water in rivers and lakes is more than the amount of groundwater.\n2. The amount of water in polar ice caps and glaciers is more than the amount of groundwater.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 1,
+        explanation: "Amount of groundwater is much more than rivers/lakes. Polar ice caps > Groundwater.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'geo_2013_3',
+        year: 2013,
+        subject: 'Geography',
+        topic: 'Indian Geography',
+        question: "The Narmada river flows to the west, while most other large peninsular rivers flow to the east. Why?",
+        options: ["It occupies a linear rift valley", "It flows between Vindhyas and Satpuras", "Land slopes west from Central India", "Both 1 and 2"],
+        correctIndex: 0,
+        explanation: "Narmada flows west because it occupies a linear rift valley formed due to faulting.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+
+    // 2012
+    {
+        id: 'geo_2012_1',
+        year: 2012,
+        subject: 'Geography',
+        topic: 'Climatology',
+        question: "Which one of the following is the characteristic climate of the Tropical Savannah Region?",
+        options: ["Rainfall throughout the year", "Rainfall in winter only", "Extremely short dry season", "Definite dry and wet season"],
+        correctIndex: 3,
+        explanation: "Savannah climate is characterized by alternate wet and dry seasons.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'geo_2012_2',
+        year: 2012,
+        subject: 'Geography',
+        topic: 'Oceanography',
+        question: "Which of the following factors influence the ocean currents?\n1. Rotation of the Earth\n2. Air pressure and wind\n3. Density of ocean water\n4. Revolution of the Earth",
+        options: ["1 and 2 only", "1, 2 and 3", "1 and 4", "2, 3 and 4"],
+        correctIndex: 1,
+        explanation: "Rotation (Coriolis), Wind, and Density influence currents. Revolution causes seasons but not current direction directly.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+
+    // 2011
+    {
+        id: 'geo_2011_1',
+        year: 2011,
+        subject: 'Geography',
+        topic: 'Climatology',
+        question: "The jet aircraft fly very easily and smoothly in the lower stratosphere. What could be the appropriate explanation?\n1. There are no clouds or water vapour in the lower stratosphere.\n2. There are no vertical winds in the lower stratosphere.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctIndex: 2,
+        explanation: "Lower stratosphere lacks turbulence (no vertical winds) and clouds, making it ideal for jets.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
+    },
+    {
+        id: 'geo_2011_2',
+        year: 2011,
+        subject: 'Geography',
+        topic: 'State Characteristics',
+        question: "A particular State in India has: 1. Same latitude as northern Rajasthan. 2. 80%+ forest cover. 3. 12%+ forest as Protected Area. Name the state:",
+        options: ["Arunachal Pradesh", "Assam", "Mizoram", "Sikkim"],
+        correctIndex: 0, // Search said Mizoram but Arunachal is the standard UPSC answer for "same latitude as Rajasthan" + High Forest. Actually Arunachal is correct for UPSC 2011.
+        explanation: "Arunachal Pradesh lies on the same latitude as Rajasthan and has high forest cover.",
+        exam: 'CSE Prelims',
+        difficulty: 'Moderate'
+    },
+    {
+        id: 'geo_2011_3',
+        year: 2011,
+        subject: 'Geography',
+        topic: 'Indian Geography',
+        question: "Evidence for Himalayas being young fold mountains?\n1. Deep gorges\n2. U-turn river courses\n3. Parallel mountain ranges\n4. Steep gradients causing land-sliding",
+        options: ["1 and 2", "1, 2 and 3", "3 and 4", "1, 2, 3 and 4"],
+        correctIndex: 3,
+        explanation: "All are features of the tectonically active young Himalayas.",
+        exam: 'CSE Prelims',
+        difficulty: 'Easy'
     }
 ];
 

@@ -36,9 +36,21 @@ function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
     return mcqs.slice(0, 7); // Max 7 MCQs per cycle
 }
 
+export type ConfidenceLevel = 'sure' | '50-50' | 'blind';
+
+interface MCQResult {
+    questionId: string;
+    subtopicId?: string;
+    selectedAnswer: number | null;
+    correctAnswer: number;
+    isCorrect: boolean;
+    confidence: ConfidenceLevel | null;
+    timeSpent: number; // in seconds
+}
+
 interface CycleMCQsProps {
     selectedSubtopics: SubTopic[];
-    onComplete: (results: { correct: number; total: number }) => void;
+    onComplete: (results: MCQResult[]) => void;
     cycleNumber: number;
     preloadedMCQs?: MCQ[];
     canSkip?: boolean;
@@ -62,13 +74,15 @@ export default function CycleMCQs({
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-    const [showResult, setShowResult] = useState(false);
-    const [results, setResults] = useState<{ questionId: string; isCorrect: boolean }[]>([]);
+    const [confidence, setConfidence] = useState<ConfidenceLevel | null>(null);
+    const [results, setResults] = useState<Record<string, MCQResult>>({});
     const [isGlobalTimeout, setIsGlobalTimeout] = useState(false);
 
+    // Track time spent per question
+    const [questionStartTime, setQuestionStartTime] = useState(Date.now());
+
     // Cumulative Timer: 60 minutes for the entire session
-    // Or if less questions, max 1 minute per question as per user request (cumulative)
-    const totalTimeSeconds = mcqs.length * 60;
+    const totalTimeSeconds = 60 * 60;
 
     // Timer state
     const [timeLeft, setTimeLeft] = useState(totalTimeSeconds);
@@ -78,7 +92,7 @@ export default function CycleMCQs({
     const progress = ((currentIndex + 1) / mcqs.length) * 100;
     const isLastQuestion = currentIndex === mcqs.length - 1;
 
-    // Timer logic - GLOBAL (runs continuously until 0 or completion)
+    // Timer logic - GLOBAL
     useEffect(() => {
         timerRef.current = setInterval(() => {
             setTimeLeft((prev) => {
@@ -94,73 +108,126 @@ export default function CycleMCQs({
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, []); // Run once on mount
+    }, []);
 
     // Handle Global Timeout
     useEffect(() => {
-        if (isGlobalTimeout && !showResult) {
-            // Auto submit current if selected, else just finish
-            // If they selected something, count it
-            if (selectedAnswer !== null) {
-                const isCorrect = selectedAnswer === currentMCQ.correctIndex;
-                setResults(prev => [...prev, { questionId: String(currentMCQ.id), isCorrect }]);
-            }
-            // Finish immediately
+        if (isGlobalTimeout) {
             handleFinish();
         }
     }, [isGlobalTimeout]);
 
-
-
     const handleAnswerSelect = (optionIndex: number) => {
-        if (showResult || isGlobalTimeout) return; // Already answered or timed out
+        if (isGlobalTimeout) return;
         setSelectedAnswer(optionIndex);
     };
 
-    const handleSubmitAnswer = () => {
-        if (selectedAnswer === null) return;
+    const handleConfidenceSelect = (level: ConfidenceLevel) => {
+        if (isGlobalTimeout) return;
+        setConfidence(level);
+    };
 
-        const isCorrect = selectedAnswer === currentMCQ.correctIndex;
-        setResults(prev => [...prev, { questionId: String(currentMCQ.id), isCorrect }]);
+    const saveCurrentResult = () => {
+        const timeSpent = Math.floor((Date.now() - questionStartTime) / 1000);
+        const isCorrect = selectedAnswer === (currentMCQ.correctIndex ?? currentMCQ.correctAnswer);
 
-        // Record analytics for weak topic identification
-        const topicLabel = selectedSubtopics.find(s => s.id === currentMCQ.subtopicId)?.label || "Unknown Topic";
-        if (currentMCQ.subtopicId) {
-            recordMCQAttempt(currentMCQ.subtopicId, topicLabel, isCorrect);
-        }
-
-        setShowResult(true);
+        setResults(prev => ({
+            ...prev,
+            [currentMCQ.id]: {
+                questionId: String(currentMCQ.id),
+                subtopicId: currentMCQ.subtopicId,
+                selectedAnswer,
+                correctAnswer: (currentMCQ.correctIndex ?? currentMCQ.correctAnswer) || 0,
+                isCorrect,
+                confidence,
+                timeSpent
+            }
+        }));
     };
 
     const handleNext = () => {
+        saveCurrentResult();
         if (isLastQuestion) {
             handleFinish();
         } else {
-            setCurrentIndex(prev => prev + 1);
-            setSelectedAnswer(null);
-            setShowResult(false);
+            const nextIndex = currentIndex + 1;
+            setCurrentIndex(nextIndex);
+
+            // Restore previous choice if exists
+            const existing = results[mcqs[nextIndex].id];
+            if (existing) {
+                setSelectedAnswer(existing.selectedAnswer);
+                setConfidence(existing.confidence);
+            } else {
+                setSelectedAnswer(null);
+                setConfidence(null);
+            }
+            setQuestionStartTime(Date.now());
         }
+    };
+
+    const handlePrevious = () => {
+        saveCurrentResult();
+        if (currentIndex > 0) {
+            const prevIndex = currentIndex - 1;
+            setCurrentIndex(prevIndex);
+            const existing = results[mcqs[prevIndex].id];
+            if (existing) {
+                setSelectedAnswer(existing.selectedAnswer);
+                setConfidence(existing.confidence);
+            }
+            setQuestionStartTime(Date.now());
+        }
+    };
+
+    const handleFinish = () => {
+        if (timerRef.current) clearInterval(timerRef.current);
+
+        // Current question data
+        const timeSpent = Math.floor((Date.now() - questionStartTime) / 1000);
+        const isCurrentCorrect = selectedAnswer === (currentMCQ.correctIndex ?? currentMCQ.correctAnswer);
+
+        // Create the final results object, starting with existing results
+        const finalResultsMap: Record<string, MCQResult> = { ...results };
+
+        // Ensure every question from the array is represented
+        mcqs.forEach((mcq, idx) => {
+            if (idx === currentIndex) {
+                // Current question
+                finalResultsMap[mcq.id] = {
+                    questionId: String(mcq.id),
+                    subtopicId: mcq.subtopicId,
+                    selectedAnswer,
+                    correctAnswer: (mcq.correctIndex ?? mcq.correctAnswer) || 0,
+                    isCorrect: isCurrentCorrect,
+                    confidence,
+                    timeSpent
+                };
+            } else if (!finalResultsMap[mcq.id]) {
+                // Unattempted question (before or after current index)
+                finalResultsMap[mcq.id] = {
+                    questionId: String(mcq.id),
+                    subtopicId: mcq.subtopicId,
+                    selectedAnswer: null,
+                    correctAnswer: (mcq.correctIndex ?? mcq.correctAnswer) || 0,
+                    isCorrect: false,
+                    confidence: null,
+                    timeSpent: 0
+                };
+            }
+        });
+
+        onComplete(Object.values(finalResultsMap));
     };
 
     // Keyboard shortcuts
     useMCQShortcuts(
         (index) => handleAnswerSelect(index),
-        handleSubmitAnswer,
+        () => { }, // No immediate submit
         handleNext,
-        !showResult && !isGlobalTimeout
+        !isGlobalTimeout
     );
 
-    const handleFinish = () => {
-        const totalCorrect = results.filter(r => r.isCorrect).length + (isLastQuestion && showResult && selectedAnswer === currentMCQ.correctIndex && !results.some(r => r.questionId === currentMCQ.id) ? 1 : 0);
-
-        // Safety check to ensure we get all correct ones
-        const calculatedCorrect = results.filter(r => r.isCorrect).length;
-
-        if (timerRef.current) clearInterval(timerRef.current);
-        onComplete({ correct: calculatedCorrect, total: mcqs.length });
-    };
-
-    // Formatting time
     const formatTime = (seconds: number) => {
         const m = Math.floor(seconds / 60);
         const s = seconds % 60;
@@ -171,163 +238,212 @@ export default function CycleMCQs({
         return (
             <Card className="p-8 text-center">
                 <p className="text-gray-500">No MCQs available for selected subtopics.</p>
-                <Button onClick={() => onComplete({ correct: 0, total: 0 })} className="mt-4">Continue</Button>
+                <Button onClick={() => onComplete([])} className="mt-4">Continue</Button>
             </Card>
-
         );
     }
 
-    const correctCount = results.filter(r => r.isCorrect).length;
-
     return (
         <div className="animate-in fade-in duration-300">
-            <Card className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border-purple-200 dark:border-purple-800">
-                <CardContent className="p-6">
-                    {/* Header */}
-                    <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2">
-                            <Target className="h-5 w-5 text-purple-500" />
-                            <span className="font-bold text-purple-700 dark:text-purple-300">
-                                Cycle {cycleNumber} MCQs
-                            </span>
+            <Card className="bg-white dark:bg-gray-950 border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden">
+                {/* Header with persistent timer */}
+                <div className="bg-slate-900 text-white p-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="bg-indigo-600 p-2 rounded-lg">
+                            <Target className="h-5 w-5" />
                         </div>
-                        <div className="flex items-center gap-4">
-                            <div className={`flex items-center gap-1.5 font-mono font-bold px-3 py-1 rounded-full ${timeLeft < 60 ? 'bg-red-100 text-red-600' : 'bg-purple-100 text-purple-600'}`}>
-                                <Timer className="h-4 w-4" />
-                                <span>{formatTime(timeLeft)}</span>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <span className="text-sm text-green-600 dark:text-green-400 font-medium">
-                                    {correctCount}/{results.length} correct
-                                </span>
-                                <span className="text-sm text-purple-600 dark:text-purple-400">
-                                    Q{currentIndex + 1} / {mcqs.length}
-                                </span>
-                            </div>
+                        <div>
+                            <h3 className="font-bold text-sm text-white">Evening MCQ Challenge</h3>
+                            <p className="text-[10px] text-slate-400">Week {cycleNumber} Session</p>
                         </div>
                     </div>
 
+                    <div className="flex items-center gap-6">
+                        <div className="flex flex-col items-end">
+                            <span className="text-[10px] uppercase text-slate-400 font-bold">Time Remaining</span>
+                            <div className={`flex items-center gap-2 text-xl font-mono font-bold ${timeLeft < 300 ? 'text-red-400 animate-pulse' : 'text-indigo-400'}`}>
+                                <Timer className="h-5 w-5" />
+                                {formatTime(timeLeft)}
+                            </div>
+                        </div>
+                        <div className="h-10 w-[1px] bg-slate-800" />
+                        <div className="flex flex-col items-end">
+                            <span className="text-[10px] uppercase text-slate-400 font-bold">Progress</span>
+                            <span className="text-xl font-bold text-white">{currentIndex + 1}<span className="text-slate-300 text-sm ml-1">/ {mcqs.length}</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="p-6">
                     {/* Progress Bar */}
-                    <div className="h-1.5 bg-purple-100 dark:bg-purple-900/30 rounded-full mb-6 overflow-hidden">
+                    <div className="h-1 bg-gray-100 dark:bg-gray-800 rounded-full mb-8 overflow-hidden">
                         <div
-                            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300"
+                            className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300"
                             style={{ width: `${progress}%` }}
                         />
                     </div>
 
-                    {/* Question */}
-                    <div className="bg-white dark:bg-gray-900 rounded-xl p-5 mb-4 border border-purple-100 dark:border-purple-800">
-                        <p className="text-lg font-medium text-gray-800 dark:text-gray-200 leading-relaxed">
-                            {currentMCQ.question}
-                        </p>
-                    </div>
+                    {/* Question Content */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        {/* Main Question Area */}
+                        <div className="lg:col-span-8 space-y-6">
+                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-slate-800">
+                                <span className="inline-block px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-bold mb-4">
+                                    QUESTION {currentIndex + 1}
+                                </span>
+                                <div className="text-xl font-medium text-slate-900 dark:text-slate-100 leading-relaxed space-y-3">
+                                    {currentMCQ.question.split(/(\d+\.\s|(?:\(?[ivx]+\)?)\.\s|(?=Which of the|Select the correct answer))/g).map((part, i, arr) => {
+                                        if (!part) return null;
 
-                    {/* Options */}
-                    <div className="space-y-3 mb-6">
-                        {currentMCQ.options.map((option, index) => {
-                            const isSelected = selectedAnswer === index;
-                            const isCorrect = index === currentMCQ.correctIndex;
-                            const showCorrectness = showResult;
+                                        // If part is a marker (like 1. or (i).)
+                                        if (/^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(part)) {
+                                            return <div key={i} className="flex gap-2">
+                                                <span className="font-bold text-indigo-600 dark:text-indigo-400 shrink-0">{part}</span>
+                                                <span className="text-slate-800 dark:text-slate-200">{arr[i + 1]}</span>
+                                            </div>;
+                                        }
+                                        // If this is the text part following a marker, skip it here
+                                        if (i > 0 && /^(\d+\.\s|(?:\(?[ivx]+\)?)\.\s)$/.test(arr[i - 1])) {
+                                            return null;
+                                        }
+                                        // Specific handling for "Which of..." or "Select the..." which are now on new lines via lookahead
+                                        const isTrailer = /^(Which of the|Select the correct answer)/.test(part);
+                                        return <div key={i} className={isTrailer ? "pt-2 border-t border-slate-100 dark:border-slate-800 text-base font-semibold text-slate-600 dark:text-slate-400" : ""}>
+                                            {part}
+                                        </div>;
+                                    })}
+                                </div>
+                            </div>
 
-                            let bgClass = 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700';
-                            let textClass = 'text-gray-700 dark:text-gray-300';
-                            let icon = null;
-
-                            if (showCorrectness) {
-                                if (isCorrect) {
-                                    bgClass = 'bg-green-50 dark:bg-green-900/20 border-green-500 ring-1 ring-green-500';
-                                    textClass = 'text-green-700 dark:text-green-300 font-semibold';
-                                    icon = <CheckCircle2 className="h-5 w-5 text-green-600" />;
-                                } else if (isSelected && !isCorrect) {
-                                    bgClass = 'bg-red-50 dark:bg-red-900/20 border-red-500 ring-1 ring-red-500';
-                                    textClass = 'text-red-700 dark:text-red-300';
-                                    icon = <XCircle className="h-5 w-5 text-red-600" />;
-                                }
-                            } else if (isSelected) {
-                                bgClass = 'bg-purple-50 dark:bg-purple-900/20 border-purple-500 ring-1 ring-purple-500';
-                                textClass = 'text-purple-700 dark:text-purple-300';
-                            }
-
-                            return (
-                                <button
-                                    key={index}
-                                    onClick={() => handleAnswerSelect(index)}
-                                    disabled={showResult || isGlobalTimeout}
-                                    className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${bgClass}`}
-                                >
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0 ${showCorrectness && isCorrect ? 'bg-green-500 text-white' :
-                                        showCorrectness && isSelected && !isCorrect ? 'bg-red-500 text-white' :
-                                            isSelected ? 'bg-purple-500 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-500'
-                                        }`}>
-                                        {String.fromCharCode(65 + index)}
-                                    </div>
-                                    <span className={`flex-1 ${textClass}`}>{option}</span>
-                                    {icon}
-                                </button>
-                            );
-                        })}
-                    </div>
-
-                    {/* Explanation (shown after answering) */}
-                    {showResult && (
-                        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-4">
-                            <p className="text-sm font-bold text-blue-700 dark:text-blue-300 mb-1 flex items-center gap-2">
-                                <AlertCircle className="h-4 w-4" /> Explanation:
-                            </p>
-                            <p className="text-sm text-blue-600 dark:text-blue-400">
-                                {currentMCQ.explanation}
-                            </p>
+                            <div className="space-y-3">
+                                {currentMCQ.options.map((option, index) => {
+                                    const isSelected = selectedAnswer === index;
+                                    return (
+                                        <button
+                                            key={index}
+                                            onClick={() => handleAnswerSelect(index)}
+                                            className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-4 group ${isSelected
+                                                ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 ring-4 ring-indigo-500/10 shadow-md'
+                                                : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 shadow-sm'
+                                                }`}
+                                        >
+                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold transition-colors ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-400 group-hover:bg-indigo-100 group-hover:text-indigo-700'
+                                                }`}>
+                                                {String.fromCharCode(65 + index)}
+                                            </div>
+                                            <span className={`flex-1 text-base ${isSelected ? 'text-indigo-900 dark:text-indigo-100 font-bold' : 'text-slate-800 dark:text-slate-300 font-medium'}`}>
+                                                {option}
+                                            </span>
+                                        </button>
+                                    );
+                                })}
+                            </div>
                         </div>
-                    )}
 
-                    {/* Actions */}
-                    <div className="flex justify-between gap-3 pt-4 border-t border-purple-100 dark:border-purple-800">
-                        {onSkip && (
-                            <Button
-                                variant="ghost"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    if (onSkip) {
-                                        onSkip();
-                                        // Also trigger complete with current results? 
-                                        // Usually skip means abort this phase. The parent handles transition.
-                                    }
-                                }}
-                                disabled={!canSkip}
-                                className="text-purple-600 hover:text-purple-800 hover:bg-purple-100 dark:text-purple-400 dark:hover:text-purple-200 dark:hover:bg-purple-900/30"
-                                title={canSkip ? "Skip this section" : "No skips remaining"}
-                            >
-                                Skip ({skipsRemaining})
-                            </Button>
-                        )}
-                        <div className="flex gap-2">
-                            {!showResult ? (
+                        {/* Confidence Sidebar */}
+                        <div className="lg:col-span-4 space-y-6">
+                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 h-full flex flex-col">
+                                <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+                                    <Brain className="h-4 w-4 text-indigo-500" />
+                                    Confidence Level
+                                </h4>
+                                <p className="text-xs text-slate-500 mb-6">
+                                    Be honest about your knowledge. This helps in tailoring your revision plan.
+                                </p>
+
+                                <div className="space-y-3 flex-1">
+                                    <button
+                                        onClick={() => handleConfidenceSelect('sure')}
+                                        className={`w-full p-4 rounded-xl border-2 flex items-center justify-between transition-all ${confidence === 'sure'
+                                            ? 'bg-green-50 dark:bg-green-900/20 border-green-500 text-green-700 dark:text-green-300 font-bold shadow-sm'
+                                            : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-800 dark:text-slate-300 hover:border-green-300'
+                                            }`}
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <CheckCircle2 className={`h-5 w-5 ${confidence === 'sure' ? 'text-green-600' : 'text-slate-400'}`} />
+                                            <span>Sure (100%)</span>
+                                        </div>
+                                        {confidence === 'sure' && <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]" />}
+                                    </button>
+
+                                    <button
+                                        onClick={() => handleConfidenceSelect('50-50')}
+                                        className={`w-full p-4 rounded-xl border-2 flex items-center justify-between transition-all ${confidence === '50-50'
+                                            ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-500 text-amber-700 dark:text-amber-300 font-bold shadow-sm'
+                                            : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-800 dark:text-slate-300 hover:border-amber-300'
+                                            }`}
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <AlertCircle className={`h-5 w-5 ${confidence === '50-50' ? 'text-amber-600' : 'text-slate-400'}`} />
+                                            <span>50-50 Chance</span>
+                                        </div>
+                                        {confidence === '50-50' && <div className="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]" />}
+                                    </button>
+
+                                    <button
+                                        onClick={() => handleConfidenceSelect('blind')}
+                                        className={`w-full p-4 rounded-xl border-2 flex items-center justify-between transition-all ${confidence === 'blind'
+                                            ? 'bg-slate-100 dark:bg-slate-800 border-slate-500 text-slate-900 dark:text-slate-100 font-bold shadow-sm'
+                                            : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-800 dark:text-slate-300 hover:border-slate-400'
+                                            }`}
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <BookOpen className={`h-5 w-5 ${confidence === 'blind' ? 'text-slate-500' : 'text-slate-300'}`} />
+                                            <span>Blind Guess</span>
+                                        </div>
+                                        {confidence === 'blind' && <div className="w-2 h-2 rounded-full bg-slate-500 shadow-[0_0_8px_rgba(107,114,128,0.5)]" />}
+                                    </button>
+                                </div>
+
+                                <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
+                                    <KeyboardShortcutsHelp context="mcq" compact={true} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Navigation Actions */}
+                    <div className="flex justify-between items-center mt-10 pt-6 border-t border-slate-100 dark:border-slate-800">
+                        <Button
+                            variant="outline"
+                            onClick={handlePrevious}
+                            disabled={currentIndex === 0}
+                            className="px-6 h-12 rounded-xl text-slate-600"
+                        >
+                            <ArrowLeft className="mr-2 h-4 w-4" /> Previous
+                        </Button>
+
+                        <div className="flex gap-4">
+                            {onSkip && (
                                 <Button
-                                    onClick={handleSubmitAnswer}
-                                    disabled={selectedAnswer === null || isGlobalTimeout}
-                                    className="bg-purple-600 hover:bg-purple-700 text-white px-8"
+                                    variant="ghost"
+                                    onClick={onSkip}
+                                    disabled={!canSkip}
+                                    className="text-slate-400 hover:text-indigo-600"
                                 >
-                                    Submit Answer
-                                </Button>
-                            ) : (
-                                <Button
-                                    onClick={handleNext}
-                                    className="bg-purple-600 hover:bg-purple-700 text-white px-8"
-                                >
-                                    {isLastQuestion ? 'Complete Test' : 'Next Question'}
-                                    <ChevronRight className="ml-1 h-4 w-4" />
+                                    Skip Phase ({skipsRemaining})
                                 </Button>
                             )}
+
+                            <Button
+                                onClick={handleNext}
+                                disabled={selectedAnswer === null || confidence === null}
+                                className={`px-10 h-12 rounded-xl font-bold transition-all shadow-lg ${isLastQuestion
+                                    ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
+                                    : 'bg-slate-900 hover:bg-black text-white'
+                                    }`}
+                            >
+                                {isLastQuestion ? 'Submit Test' : 'Save & Next'}
+                                {!isLastQuestion && <ChevronRight className="ml-2 h-4 w-4" />}
+                            </Button>
                         </div>
                     </div>
-
-                </CardContent>
+                </div>
             </Card>
-
-
-            <div className="mt-4 flex justify-center">
-                <KeyboardShortcutsHelp context="mcq" compact={true} />
-            </div>
-        </div >
+        </div>
     );
 }
+
+// Re-add imports that might have been missed or needed
+import { ArrowLeft, Brain, BookOpen } from 'lucide-react';
+
