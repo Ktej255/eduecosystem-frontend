@@ -41,6 +41,16 @@ interface PomodoroSessionViewProps {
     dayId: number;
 }
 
+interface MCQResult {
+    questionId: string;
+    selectedAnswer: number | null;
+    correctAnswer: number;
+    isCorrect: boolean;
+    confidence: ConfidenceLevel | null;
+    timeSpent: number;
+    subtopicId?: string; // Important for weak topic analysis
+}
+
 interface CycleData {
     cycleNumber: number;
     selectedSubtopics: SubTopic[];
@@ -374,7 +384,12 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
         setSessionState('mcqs');
     };
 
-    const handleMCQsComplete = (results: { correct: number; total: number }) => {
+    const handleMCQsComplete = (resultsArray: MCQResult[]) => {
+        // Calculate totals from array
+        const total = resultsArray.length;
+        const correct = resultsArray.filter(r => r.isCorrect).length;
+        const results = { correct, total };
+
         // Award XP for MCQ attempts and correct answers
         for (let i = 0; i < results.total; i++) {
             awardXP('mcq_attempt');
