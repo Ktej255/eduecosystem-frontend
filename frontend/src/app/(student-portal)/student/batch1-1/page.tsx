@@ -246,25 +246,31 @@ export default function Batch11Page() {
                     </CardContent>
                 </Card>
 
-                {/* RAS Revision Protocol (Replaces Evening Session) */}
+                {/* Evening Session (Renamed from RAS Revision Protocol) */}
                 <Card className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white border-0 shadow-lg shadow-indigo-500/20">
                     <CardContent className="p-6 flex items-center justify-between">
                         <div className="flex items-center gap-4">
                             <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-white">
-                                <Target className="h-7 w-7" />
+                                <Brain className="h-7 w-7" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold">RAS Revision Protocol</h3>
+                                <h3 className="text-xl font-bold">Evening Session</h3>
                                 <p className="text-indigo-100 text-sm">
-                                    Anti-Gravity Roadmap • Reading • Revision • Practice
+                                    Flashcards • MCQs • Daily Retention Review
                                 </p>
                             </div>
                         </div>
-                        <Link href="/student/antigravity">
-                            <Button size="lg" className="bg-white text-indigo-600 hover:bg-indigo-50 font-bold">
-                                Open Dashboard <ChevronRight className="ml-2 h-4 w-4" />
-                            </Button>
-                        </Link>
+                        <Button
+                            size="lg"
+                            className="bg-white text-indigo-600 hover:bg-indigo-50 font-bold"
+                            onClick={() => {
+                                const today = new Date().getDay();
+                                const dayId = (today === 0 || today > 6) ? 1 : today;
+                                router.push(`/student/batch1-1/${selectedWeek}/${dayId}/evening`);
+                            }}
+                        >
+                            Start Session <ChevronRight className="ml-2 h-4 w-4" />
+                        </Button>
                     </CardContent>
                 </Card>
 
