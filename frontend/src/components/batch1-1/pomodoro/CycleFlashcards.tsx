@@ -265,7 +265,7 @@ export default function CycleFlashcards({
                             {/* Flashcard */}
                             <div
                                 onClick={handleFlip}
-                                className="cursor-pointer perspective-1000 min-h-[300px]"
+                                className="cursor-pointer perspective-1000 h-[400px]"
                             >
                                 <div className={`relative w-full h-full transition-transform duration-500 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
                                     {/* Front (Question) */}

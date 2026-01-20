@@ -58,7 +58,7 @@ export default function Batch1Hub() {
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id as Batch1Tab)}
                                     className={`
-                                        flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold transition-all whitespace-nowrap
+                                        flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold transition-all whitespace-nowrap shrink-0
                                         ${isActive
                                             ? 'bg-gray-900 dark:bg-white text-white dark:text-black shadow-md transform scale-105'
                                             : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
