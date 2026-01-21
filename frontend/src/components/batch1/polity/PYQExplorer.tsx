@@ -110,42 +110,44 @@ export default function PYQExplorer() {
     const progressPercentage = (solvedCount / (subjectQuestions.length || 1)) * 100;
 
     return (
-        <div className="space-y-6 w-full max-w-[1800px] mx-auto px-4 md:px-6 pb-20">
-            {/* Header Section */}
-            <div className="relative overflow-hidden bg-slate-100 dark:bg-black/40 border border-slate-200 dark:border-white/10 rounded-[2rem] backdrop-blur-3xl shadow-lg dark:shadow-2xl p-6 md:p-8">
-                <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02] bg-[size:20px_20px]" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="space-y-4 md:space-y-6 w-full px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12 pb-20">
+            {/* Header Section - Compact on Mobile */}
+            <div className="relative overflow-hidden bg-slate-100 dark:bg-black/40 border border-slate-200 dark:border-white/10 rounded-xl md:rounded-[2rem] backdrop-blur-3xl shadow-lg dark:shadow-2xl p-4 md:p-6 lg:p-8">
+                <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02] bg-[size:20px_20px] hidden md:block" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none hidden md:block" />
 
-                <div className="relative flex flex-col xl:flex-row justify-between items-start xl:items-end gap-6">
+                <div className="relative flex flex-col xl:flex-row justify-between items-start xl:items-end gap-3 md:gap-6">
                     <div>
-                        <div className="flex items-center gap-2 mb-2">
+                        {/* Hide "Archives Declassified" badge on mobile */}
+                        <div className="hidden md:flex items-center gap-2 mb-2">
                             <Badge variant="outline" className="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 px-3 py-1 text-[10px] font-black tracking-widest uppercase">
                                 <Sparkles size={10} className="mr-1" /> Archives Declassified
                             </Badge>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter uppercase mb-2">
+                        <h2 className="text-xl md:text-3xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tighter uppercase mb-1 md:mb-2">
                             PYQ <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">Explorer</span>
                         </h2>
-                        <p className="text-slate-600 dark:text-gray-400 text-sm font-medium max-w-lg">
+                        <p className="text-slate-600 dark:text-gray-400 text-xs md:text-sm font-medium max-w-lg hidden md:block">
                             Access historical intelligence data. Analyze patterns from 2013-2024 to predict future trajectories.
                         </p>
                     </div>
 
-                    <div className="flex flex-col items-start xl:items-end gap-4 w-full xl:w-auto">
-                        <div className="flex flex-wrap gap-2 bg-white/60 dark:bg-black/60 p-2 rounded-xl border border-slate-200 dark:border-white/10 backdrop-blur-md w-full xl:w-auto justify-start xl:justify-end">
+                    <div className="flex flex-col items-start xl:items-end gap-2 md:gap-4 w-full xl:w-auto">
+                        {/* Subject tabs - scrollable on mobile */}
+                        <div className="flex gap-1.5 md:gap-2 bg-white/60 dark:bg-black/60 p-1.5 md:p-2 rounded-lg md:rounded-xl border border-slate-200 dark:border-white/10 backdrop-blur-md w-full xl:w-auto overflow-x-auto no-scrollbar">
                             {Object.keys(subjectDataMap).map(sub => (
                                 <button
                                     key={sub}
                                     onClick={() => { setActiveSubject(sub); setSelectedTopics([]); setSelectedYears([]); }}
-                                    className={`px-3 py-2 rounded-lg text-xs font-bold uppercase transition-all duration-300 flex-grow md:flex-grow-0 text-center ${activeSubject === sub ? "bg-blue-600 text-white shadow-lg shadow-blue-500/25" : "text-slate-500 hover:text-slate-800 dark:text-gray-500 dark:hover:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"}`}
+                                    className={`px-2 md:px-3 py-1.5 md:py-2 rounded-md md:rounded-lg text-[10px] md:text-xs font-bold uppercase transition-all duration-300 whitespace-nowrap ${activeSubject === sub ? "bg-blue-600 text-white shadow-lg shadow-blue-500/25" : "text-slate-500 hover:text-slate-800 dark:text-gray-500 dark:hover:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"}`}
                                 >
-                                    {sub}
+                                    {sub === "International Relations" ? "IR" : sub}
                                 </button>
                             ))}
                         </div>
-                        <div className="flex items-center gap-3 bg-slate-200/50 dark:bg-white/5 px-4 py-2 rounded-full border border-slate-200 dark:border-white/10 ml-auto">
-                            <Target size={14} className="text-emerald-600 dark:text-emerald-400" />
-                            <span className="text-xs font-mono text-slate-600 dark:text-gray-300">
+                        <div className="flex items-center gap-2 md:gap-3 bg-slate-200/50 dark:bg-white/5 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-slate-200 dark:border-white/10">
+                            <Target size={12} className="text-emerald-600 dark:text-emerald-400" />
+                            <span className="text-[10px] md:text-xs font-mono text-slate-600 dark:text-gray-300">
                                 <span className="text-slate-900 dark:text-white font-bold">{solvedCount}</span> / {subjectQuestions.length} Resolved
                             </span>
                         </div>
@@ -256,7 +258,7 @@ export default function PYQExplorer() {
                                 <p className="text-gray-600 text-xs mt-2">Adjust your clearance filters to access data.</p>
                             </div>
                         ) : (
-                            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                            <div className="flex flex-col gap-4">
                                 {filteredPYQs.map((pyq, index) => (
                                     <PYQCard
                                         key={pyq.id}
@@ -288,8 +290,8 @@ function PYQCard({ pyq, userAnswer, onAnswer, index }: {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
-            className={`relative p-6 md:p-8 rounded-[2rem] border backdrop-blur-3xl transition-all duration-500 overflow-hidden group ${isAnswered ? (isCorrect ? 'border-emerald-500/30 bg-gradient-to-br from-emerald-600/5 to-transparent' : 'border-red-500/30 bg-gradient-to-br from-red-600/5 to-transparent') : 'border-slate-200 dark:border-white/10 hover:border-blue-500/30 bg-slate-50 dark:bg-black/20 shadow-sm hover:shadow-md'}`}
+            transition={{ delay: Math.min(index * 0.03, 0.3) }}
+            className={`relative p-4 md:p-6 lg:p-8 rounded-xl md:rounded-[1.5rem] lg:rounded-[2rem] border backdrop-blur-3xl transition-all duration-500 overflow-hidden group ${isAnswered ? (isCorrect ? 'border-emerald-500/30 bg-gradient-to-br from-emerald-600/5 to-transparent' : 'border-red-500/30 bg-gradient-to-br from-red-600/5 to-transparent') : 'border-slate-200 dark:border-white/10 hover:border-blue-500/30 bg-slate-50 dark:bg-black/20 shadow-sm hover:shadow-md'}`}
         >
             {/* Background Decorations */}
             <div className={`absolute top-0 right-0 p-3 opacity-30 ${isAnswered ? (isCorrect ? 'text-emerald-500' : 'text-red-500') : 'text-slate-300 dark:text-gray-700'}`}>
