@@ -1,6 +1,6 @@
 import { ConfidenceLevel } from "@/components/batch1-1/pomodoro/CycleMCQs";
 
-export type ActivityType = 'MCQ_EVENING' | 'MCQ_PYQ' | 'FLASHCARD_REVIEW';
+export type ActivityType = 'MCQ_EVENING' | 'MCQ_PYQ' | 'MCQ_SATURDAY' | 'FLASHCARD_REVIEW';
 
 export interface ActivityLog {
     id: string;
@@ -58,8 +58,8 @@ export const ActivityLogger = {
     getStats: () => {
         const logs = ActivityLogger.getLogs();
         return {
-            totalMCQsSolved: logs.filter(l => l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ').length,
-            totalCorrect: logs.filter(l => (l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ') && l.details.isCorrect).length,
+            totalMCQsSolved: logs.filter(l => l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY').length,
+            totalCorrect: logs.filter(l => (l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY') && l.details.isCorrect).length,
             totalFlashcards: logs.filter(l => l.type === 'FLASHCARD_REVIEW').length,
             byTopic: logs.reduce((acc, log) => {
                 const topic = log.details.topic || 'Uncategorized';

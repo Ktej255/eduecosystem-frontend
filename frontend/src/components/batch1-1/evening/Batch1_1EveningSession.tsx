@@ -43,6 +43,7 @@ import { SRSCard } from '@/lib/srs/srs-types';
 import { processReview } from '@/lib/srs/srs-engine';
 import { recordBatchMCQResults } from '@/lib/analytics/WeakTopicAnalyzer';
 import { awardXP } from '@/lib/gamification/xp-engine';
+import CSATPracticeView from './CSATPracticeView';
 
 
 interface MCQResult {
@@ -533,26 +534,19 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
     // === NEW CSAT SECTION ===
     if (activeSection === 'csat') {
         return (
-            <div className="max-w-4xl mx-auto p-6">
+            <div className="max-w-5xl mx-auto p-6">
                 <Button variant="ghost" onClick={() => setActiveSection('menu')} className="mb-4">
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back to Menu
                 </Button>
 
-                <Card className="min-h-[500px]">
-                    <CardHeader>
-                        <CardTitle>CSAT Practice - Day {dayId}</CardTitle>
-                        <CardDescription>Logical Reasoning & Quantitative Aptitude</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="flex flex-col items-center justify-center p-12 text-center text-gray-500">
-                            <Calculator className="h-16 w-16 mb-4 text-purple-200" />
-                            <p className="text-lg">CSAT Module for Day {dayId} is ready.</p>
-                            <p className="text-sm mt-2">Practice set content will appear here.</p>
-                            {/* In a real implementation we would render <CSATPracticeView /> here if available */}
-                            {/* For now this confirms the page is REACHABLE and not indefinitely loading */}
-                        </div>
-                    </CardContent>
-                </Card>
+                <CSATPracticeView
+                    dayNumber={Number(dayId)}
+                    onComplete={(score, total) => {
+                        console.log(`CSAT Day ${dayId} Complete: ${score}/${total}`);
+                        awardXP('csat_complete', undefined, `Completed CSAT Practice Day ${dayId}`);
+                        markStepComplete(absoluteDayNumber, `csat-${absoluteDayNumber}`);
+                    }}
+                />
             </div>
         );
     }

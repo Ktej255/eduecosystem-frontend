@@ -5,9 +5,7 @@
  */
 
 // === CSAT DATA IMPORTS ===
-// === CSAT DATA IMPORTS ===
-import { CSAT_DATA_MAP, CSATSessionData as SessionData } from "@/app/(student-portal)/student/batch1/csat/csat-data";
-// import type { SessionData } from "@/app/(student-portal)/student/batch1/csat/csat-data";
+import { CSAT_BATCH1_1_DATA, CSATDayData as SessionData } from "../batch1-1/evening/data/csat-data";
 
 // === FLASHCARD DATA IMPORTS ===
 import { DAY2_FLASHCARDS } from "./polity/data/day2-flashcards";
@@ -104,11 +102,10 @@ import { POLITY_FLASHCARDS_DATA } from "./polity/data/polity-flashcards-data";
  * 3. Add an entry here: [3]: DAY3_CSAT_DATA
  */
 export const CSAT_CONTENT_REGISTRY: Record<number, SessionData | undefined> = {
-    1: CSAT_DATA_MAP[1],
-    2: CSAT_DATA_MAP[2],
-    // 3: CSAT_DAY_3_DATA,
+    1: CSAT_BATCH1_1_DATA[1],
+    2: CSAT_BATCH1_1_DATA[2],
+    3: CSAT_BATCH1_1_DATA[3],
     // Add more days as content is created:
-    // 4: CSAT_DAY_4_DATA,
 };
 
 /**

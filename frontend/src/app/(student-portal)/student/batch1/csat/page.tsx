@@ -36,11 +36,11 @@ const CSAT_MONTHS = [
         topic: "English Comprehension (1-20) & Quants",
         sessions: [
             // English Comprehension Phase (Jan 1-20)
-            { day: 1, title: "English: Reading Comprehension Foundation", videoUrl: "", completed: false },
-            { day: 2, title: "English: Determining Main Idea & Theme", videoUrl: "", completed: false },
-            { day: 3, title: "English: Inference & Conclusion Based", videoUrl: "", completed: false },
+            { day: 1, title: "UPSC CSAT Practice Set - Day 01", videoUrl: "", completed: false },
+            { day: 2, title: "UPSC CSAT Practice Set - Day 02", videoUrl: "", completed: false },
+            { day: 3, title: "UPSC CSAT Practice Set - Day 03", videoUrl: "", completed: false },
             { day: 4, title: "English: Tone, Style & Attitude", videoUrl: "", completed: false },
-            { day: 5, title: "English: Assumptions & Implicit Concepts", videoUrl: "", completed: false },
+            { day: 5, title: "UPSC CSAT Practice Set - Jan 05 (Day 05)", videoUrl: "", completed: false },
             { day: 6, title: "English: Vocabulary in Context", videoUrl: "", completed: false },
             { day: 7, title: "English: Para Jumbles & Ordering", videoUrl: "", completed: false },
             { day: 8, title: "English: Sentence Correction Rules", videoUrl: "", completed: false },
@@ -658,10 +658,10 @@ export default function CSATPage() {
                                                             onClick={() => handleConfidenceSelect(currentQuestions[currentQuestion].id, conf.id)}
                                                             disabled={selectedAnswers[currentQuestions[currentQuestion].id] === undefined}
                                                             className={`p-3 rounded-lg border-2 text-sm font-semibold transition-all ${confidenceLevels[currentQuestions[currentQuestion].id] === conf.id
-                                                                    ? `${conf.color} ring-2 ring-offset-2 ring-purple-500 shadow-md`
-                                                                    : selectedAnswers[currentQuestions[currentQuestion].id] !== undefined
-                                                                        ? "bg-white dark:bg-gray-900 border-gray-300 hover:border-purple-400"
-                                                                        : "bg-gray-100 dark:bg-gray-800 border-gray-200 opacity-50 cursor-not-allowed"
+                                                                ? `${conf.color} ring-2 ring-offset-2 ring-purple-500 shadow-md`
+                                                                : selectedAnswers[currentQuestions[currentQuestion].id] !== undefined
+                                                                    ? "bg-white dark:bg-gray-900 border-gray-300 hover:border-purple-400"
+                                                                    : "bg-gray-100 dark:bg-gray-800 border-gray-200 opacity-50 cursor-not-allowed"
                                                                 }`}
                                                         >
                                                             <span className="mr-1">{conf.emoji}</span> {conf.label}

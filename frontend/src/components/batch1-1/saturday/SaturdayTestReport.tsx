@@ -1,0 +1,326 @@
+"use client";
+
+import React, { useMemo } from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+    CheckCircle2,
+    XCircle,
+    HelpCircle,
+    Zap,
+    Target,
+    Brain,
+    Clock,
+    ArrowLeft,
+    ChevronRight,
+    ChevronDown,
+    BarChart3,
+    Search,
+    History
+} from "lucide-react";
+import {
+    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+    PieChart, Pie, Cell, Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis
+} from "recharts";
+
+interface QuestionResult {
+    id: number;
+    chapter: string;
+    subtopic: string;
+    userAnswer: number | null;
+    correctAnswer: number;
+    confidence: 'sure' | '50-50' | 'one-option' | 'blind' | null;
+    timeSpent: number;
+    isCorrect: boolean;
+}
+
+interface TestReportProps {
+    results: {
+        testTitle: string;
+        startTime: string;
+        endTime: string;
+        totalTimeTaken: number;
+        questions: QuestionResult[];
+    };
+    onBack: () => void;
+    onRetake?: () => void;
+}
+
+const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onRetake }) => {
+    const { questions, totalTimeTaken } = results;
+
+    // 1. Stats Calculation
+    const stats = useMemo(() => {
+        const total = questions.length;
+        const answered = questions.filter(q => q.userAnswer !== null).length;
+        const correct = questions.filter(q => q.isCorrect).length;
+        const incorrect = answered - correct;
+        const unattempted = total - answered;
+        const accuracy = ((correct / answered) * 100).toFixed(1);
+        const score = (correct * 2) - (incorrect * 0.66); // Standard UPSC marking
+
+        return { total, answered, correct, incorrect, unattempted, accuracy, score: score.toFixed(2) };
+    }, [questions]);
+
+    // 2. Chapter Analysis
+    const chapterData = useMemo(() => {
+        const chapters: Record<string, { correct: number; total: number }> = {};
+        questions.forEach(q => {
+            if (!chapters[q.chapter]) chapters[q.chapter] = { correct: 0, total: 0 };
+            chapters[q.chapter].total++;
+            if (q.isCorrect) chapters[q.chapter].correct++;
+        });
+
+        return Object.entries(chapters).map(([name, data]) => ({
+            name,
+            accuracy: Math.round((data.correct / data.total) * 100),
+            full: 100
+        }));
+    }, [questions]);
+
+    // 3. Confidence Analysis
+    const confidenceData = useMemo(() => {
+        const levels = {
+            'sure': { correct: 0, total: 0, time: 0 },
+            '50-50': { correct: 0, total: 0, time: 0 },
+            'one-option': { correct: 0, total: 0, time: 0 },
+            'blind': { correct: 0, total: 0, time: 0 },
+        };
+
+        questions.forEach(q => {
+            if (q.confidence && levels[q.confidence]) {
+                levels[q.confidence].total++;
+                levels[q.confidence].time += q.timeSpent;
+                if (q.isCorrect) levels[q.confidence].correct++;
+            }
+        });
+
+        return Object.entries(levels).map(([level, data]) => ({
+            level: level.toUpperCase(),
+            accuracy: data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0,
+            avgTime: data.total > 0 ? Math.round(data.time / data.total) : 0,
+            count: data.total
+        }));
+    }, [questions]);
+
+    // COLORS
+    const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'];
+
+    return (
+        <div className="min-h-screen bg-[#020617] text-slate-100 p-6 font-sans pb-20">
+            <div className="max-w-7xl mx-auto">
+
+                {/* Header */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                    <div className="flex items-center gap-4">
+                        <Button variant="ghost" size="icon" onClick={onBack} className="rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-white">
+                            <ArrowLeft className="w-5 h-5" />
+                        </Button>
+                        <div>
+                            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                                Performance Dashboard
+                            </h1>
+                            <p className="text-slate-500 font-medium">Deep analysis for {results.testTitle}</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-3">
+                        <Button variant="outline" className="bg-slate-900/50 border-slate-800 text-slate-300 hover:bg-slate-800">
+                            <Search className="w-4 h-4 mr-2" /> Review Questions
+                        </Button>
+                        {onRetake && (
+                            <Button className="bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20">
+                                Retake Test
+                            </Button>
+                        )}
+                    </div>
+                </div>
+
+                {/* Global Stats Grid */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                    {[
+                        { label: 'UPSC Score', value: stats.score, sub: 'Out of 200', icon: Target, color: 'blue' },
+                        { label: 'Accuracy', value: `${stats.accuracy}%`, sub: 'Attempted Qs', icon: Zap, color: 'emerald' },
+                        { label: 'Time Taken', value: `${Math.floor(totalTimeTaken / 60)}m ${totalTimeTaken % 60}s`, sub: 'Speed vs Accuracy', icon: Clock, color: 'purple' },
+                        { label: 'Correct Qs', value: stats.correct, sub: `In ${stats.answered} attempts`, icon: CheckCircle2, color: 'amber' },
+                    ].map((item, i) => (
+                        <Card key={i} className="p-6 bg-slate-900/40 border-slate-800/80 backdrop-blur-md relative overflow-hidden group">
+                            <div className={`absolute top-0 right-0 w-24 h-24 bg-${item.color}-500/5 blur-[40px] group-hover:bg-${item.color}-500/10 transition-all`} />
+                            <div className="flex justify-between items-start mb-2">
+                                <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">{item.label}</span>
+                                <item.icon className={`w-5 h-5 text-${item.color}-400/80`} />
+                            </div>
+                            <div className="text-3xl font-bold text-white mb-1">{item.value}</div>
+                            <div className="text-[10px] text-slate-500 font-mono tracking-tighter">{item.sub}</div>
+                        </Card>
+                    ))}
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                    {/* Chapter Accuracy Radar */}
+                    <Card className="lg:col-span-2 p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md">
+                        <div className="flex justify-between items-center mb-10">
+                            <h3 className="text-lg font-semibold flex items-center gap-2">
+                                <Brain className="w-5 h-5 text-blue-400" />
+                                Chapter Analysis (Accuracy %)
+                            </h3>
+                            <div className="text-xs text-slate-500 italic">Visualizing Retention Strengths</div>
+                        </div>
+                        <div className="h-[400px] w-full">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={chapterData}>
+                                    <PolarGrid stroke="#334155" />
+                                    <PolarAngleAxis dataKey="name" tick={{ fill: '#94a3b8', fontSize: 10 }} />
+                                    <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fill: '#475569', fontSize: 10 }} />
+                                    <Radar
+                                        name="Accuracy"
+                                        dataKey="accuracy"
+                                        stroke="#3b82f6"
+                                        fill="#3b82f6"
+                                        fillOpacity={0.2}
+                                    />
+                                    <Tooltip
+                                        contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px', fontSize: '12px' }}
+                                        itemStyle={{ color: '#3b82f6' }}
+                                    />
+                                </RadarChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </Card>
+
+                    {/* Quick Stats & Action Pane */}
+                    <Card className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md flex flex-col">
+                        <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
+                            <BarChart3 className="w-5 h-5 text-purple-400" />
+                            Quick Summary
+                        </h3>
+
+                        <div className="space-y-6 flex-grow">
+                            <div className="p-4 rounded-xl bg-slate-800/30 border border-slate-800">
+                                <div className="flex justify-between text-sm mb-2">
+                                    <span className="text-emerald-400 flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4" /> Correct</span>
+                                    <span className="font-bold text-slate-200">{stats.correct}</span>
+                                </div>
+                                <div className="flex justify-between text-sm mb-2">
+                                    <span className="text-red-400 flex items-center gap-1.5"><XCircle className="w-4 h-4" /> Incorrect</span>
+                                    <span className="font-bold text-slate-200">{stats.incorrect}</span>
+                                </div>
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-slate-400 flex items-center gap-1.5"><HelpCircle className="w-4 h-4" /> Skipper</span>
+                                    <span className="font-bold text-slate-200">{stats.unattempted}</span>
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest">Efficiency Feedback</h4>
+                                <div className="p-4 rounded-xl bg-slate-800/30 border border-slate-800">
+                                    <p className="text-sm text-slate-300 leading-relaxed italic">
+                                        {stats.score && parseFloat(stats.score) > 100
+                                            ? "Excellent control! Your accuracy is strong. Focus on decreasing time in '50-50' questions."
+                                            : "Good attempt. Your retention in certain chapters is drooping. Refer to the Gap Analysis below."}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <Button className="w-full mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 border-none">
+                            Download Detailed PDF
+                        </Button>
+                    </Card>
+                </div>
+
+                {/* Confidence & Speed Correlation */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <Card className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md">
+                        <h3 className="text-lg font-semibold mb-6 flex items-center gap-2 line-clamp-1">
+                            <History className="w-5 h-5 text-emerald-400" />
+                            Accuracy by Confidence Level
+                        </h3>
+                        <div className="h-[300px] w-full">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={confidenceData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+                                    <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
+                                    <XAxis dataKey="level" tick={{ fill: '#64748b', fontSize: 12 }} axisLine={false} tickLine={false} />
+                                    <YAxis tick={{ fill: '#64748b', fontSize: 12 }} axisLine={false} tickLine={false} />
+                                    <Tooltip
+                                        cursor={{ fill: '#0f172a' }}
+                                        contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px' }}
+                                    />
+                                    <Bar dataKey="accuracy" radius={[6, 6, 0, 0]} barSize={40}>
+                                        {confidenceData.map((entry, index) => (
+                                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} fillOpacity={0.8} stroke={COLORS[index % COLORS.length]} />
+                                        ))}
+                                    </Bar>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </Card>
+
+                    <Card className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md">
+                        <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
+                            <Clock className="w-5 h-5 text-amber-400" />
+                            Speed vs Accuracy (Time Analysis)
+                        </h3>
+                        <div className="h-[300px] w-full">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={confidenceData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+                                    <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
+                                    <XAxis dataKey="level" tick={{ fill: '#64748b', fontSize: 12 }} axisLine={false} tickLine={false} />
+                                    <YAxis tick={{ fill: '#64748b', fontSize: 12 }} axisLine={false} tickLine={false} unit="s" />
+                                    <Tooltip
+                                        cursor={{ fill: '#0f172a' }}
+                                        contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px' }}
+                                    />
+                                    <Bar dataKey="avgTime" fill="#3b82f6" radius={[6, 6, 0, 0]} barSize={40} fillOpacity={0.4} stroke="#3b82f6" />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </Card>
+                </div>
+
+                {/* Gap Analysis Table */}
+                <Card className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md">
+                    <h3 className="text-lg font-semibold mb-8 flex items-center gap-2">
+                        <Zap className="w-5 h-5 text-red-400" />
+                        Gap Analysis (Weakest Subtopics)
+                    </h3>
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left">
+                            <thead>
+                                <tr className="border-b border-slate-800 text-xs text-slate-500 uppercase tracking-widest">
+                                    <th className="pb-4 font-semibold">Subject Area</th>
+                                    <th className="pb-4 font-semibold">Subtopic</th>
+                                    <th className="pb-4 font-semibold">Stability</th>
+                                    <th className="pb-4 font-semibold">Recommendation</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-800/50">
+                                {questions.filter(q => !q.isCorrect && q.userAnswer !== null).slice(0, 5).map((q, i) => (
+                                    <tr key={i} className="group hover:bg-slate-800/20 transition-all">
+                                        <td className="py-4 text-sm font-medium text-slate-300">{q.chapter}</td>
+                                        <td className="py-4 text-sm text-slate-400">{q.subtopic}</td>
+                                        <td className="py-4">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-16 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                                    <div className="w-1/3 h-full bg-red-500/50" />
+                                                </div>
+                                                <span className="text-[10px] text-red-400 font-mono">VULNERABLE</span>
+                                            </div>
+                                        </td>
+                                        <td className="py-4">
+                                            <button className="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1 group">
+                                                Auto-Schedule Revision <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </Card>
+
+            </div>
+        </div>
+    );
+};
+
+export default SaturdayTestReport;

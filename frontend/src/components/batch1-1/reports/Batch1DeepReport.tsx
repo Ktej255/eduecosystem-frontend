@@ -13,7 +13,8 @@ import {
     ArrowLeft,
     TrendingUp,
     Zap,
-    Brain
+    Brain,
+    X
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -21,8 +22,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 // Import existing report components
 import FocusAnalyticsDashboard from "@/components/batch1/FocusAnalyticsDashboard";
-import WeeklyProgressReport from "@/components/batch1-1/reports/WeeklyProgressReport";
 import RevisionDeepReports from "@/components/revision/reports/RevisionDeepReports";
+import SaturdayTestReport from "@/components/batch1-1/saturday/SaturdayTestReport";
 import {
     LineChart,
     Line,
@@ -193,8 +194,8 @@ function ActivityReport() {
                             {logs.map((log, i) => (
                                 <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40">
                                     <div className={`mt-1 p-1.5 rounded-full shrink-0 ${log.type === 'MCQ_EVENING' ? 'bg-indigo-100 text-indigo-600' :
-                                            log.type === 'MCQ_PYQ' ? 'bg-blue-100 text-blue-600' :
-                                                'bg-amber-100 text-amber-600'
+                                        log.type === 'MCQ_PYQ' ? 'bg-blue-100 text-blue-600' :
+                                            'bg-amber-100 text-amber-600'
                                         }`}>
                                         {log.type.includes('MCQ') ? <Zap size={14} /> : <Brain size={14} />}
                                     </div>
@@ -216,8 +217,8 @@ function ActivityReport() {
                                         {log.type.includes('MCQ') && (
                                             <div className="flex gap-2 mt-2">
                                                 <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${log.details.isCorrect
-                                                        ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
-                                                        : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
+                                                    ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
+                                                    : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
                                                     }`}>
                                                     {log.details.isCorrect ? 'Correct' : 'Incorrect'}
                                                 </span>
@@ -277,16 +278,32 @@ function SaturdayTestsReportStub() { return null; }
 function SaturdayTestsReport() {
     const WEEKS = Array.from({ length: 20 }, (_, i) => ({ id: i + 1 }));
     const [scores, setScores] = useState<any[]>([]);
+    const [selectedReport, setSelectedReport] = useState<any>(null);
 
     useEffect(() => {
         // Scan localStorage for all saturday tests
         const results = WEEKS.map(week => {
-            const saved = localStorage.getItem(`batch11_saturday_${week.id}`);
-            if (saved) {
-                const data = JSON.parse(saved);
+            // Check for v2 format first
+            const savedV2 = localStorage.getItem(`batch11_saturday_results_v2_w${week.id}`);
+            if (savedV2) {
+                const data = JSON.parse(savedV2);
                 return {
                     weekId: week.id,
+                    isV2: true,
                     ...data
+                };
+            }
+
+            // Fallback to legacy format
+            const savedLegacy = localStorage.getItem(`batch11_saturday_${week.id}`);
+            if (savedLegacy) {
+                const data = JSON.parse(savedLegacy);
+                return {
+                    weekId: week.id,
+                    isV2: false,
+                    paper1Results: { score: data.paper1Score },
+                    paper2Results: { score: data.paper2Score },
+                    lastUpdated: data.lastUpdated
                 };
             }
             return null;
@@ -311,29 +328,84 @@ function SaturdayTestsReport() {
 
     return (
         <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Report Modal */}
+            {selectedReport && (
+                <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+                    <div className="min-h-screen py-8 px-4">
+                        <div className="relative max-w-7xl mx-auto">
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => setSelectedReport(null)}
+                                className="absolute -top-4 -right-4 md:top-4 md:right-4 z-[60] text-white hover:bg-white/10 rounded-full"
+                            >
+                                <X className="h-6 w-6" />
+                            </Button>
+                            <div className="rounded-2xl overflow-hidden shadow-2xl">
+                                <SaturdayTestReport
+                                    results={selectedReport}
+                                    onBack={() => setSelectedReport(null)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {scores.map((score, idx) => (
-                    <Card key={idx} className="overflow-hidden border-2 hover:border-indigo-400 transition-all">
+                    <Card key={idx} className="overflow-hidden border-2 hover:border-indigo-400 transition-all shadow-md">
                         <CardHeader className="bg-gray-50 dark:bg-gray-900/50 pb-4">
                             <CardTitle className="flex justify-between items-center">
                                 <span>Week {score.weekId}</span>
-                                <span className="text-sm font-normal text-gray-500">
+                                <span className="text-[10px] md:text-xs font-normal text-gray-500">
                                     {score.lastUpdated && new Date(score.lastUpdated).toLocaleDateString()}
                                 </span>
                             </CardTitle>
                         </CardHeader>
-                        <CardContent className="p-6 grid grid-cols-2 gap-4">
-                            <div className="text-center p-3 bg-amber-50 rounded-lg">
-                                <div className="text-sm text-amber-700 font-medium mb-1">Paper 1</div>
-                                <div className="text-2xl font-bold text-amber-600">
-                                    {score.paper1Score ?? '—'}%
+                        <CardContent className="p-6">
+                            <div className="grid grid-cols-2 gap-4 mb-6">
+                                <div className="text-center p-3 bg-amber-50 dark:bg-amber-900/10 rounded-xl border border-amber-100 dark:border-amber-900/30">
+                                    <div className="text-[10px] text-amber-700 dark:text-amber-400 font-bold uppercase tracking-wider mb-1">Paper 1</div>
+                                    <div className="text-2xl font-black text-amber-600">
+                                        {score.paper1Results?.score ?? score.paper1Results?.accuracy ?? '—'}{score.isV2 ? '%' : '%'}
+                                    </div>
+                                    {score.isV2 && score.paper1Results && (
+                                        <div className="text-[10px] text-amber-600/70 mt-1">
+                                            {score.paper1Results.correct || 0}/{score.paper1Results.total || 0} Correct
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="text-center p-3 bg-orange-50 dark:bg-orange-900/10 rounded-xl border border-orange-100 dark:border-orange-900/30">
+                                    <div className="text-[10px] text-orange-700 dark:text-orange-400 font-bold uppercase tracking-wider mb-1">Paper 2</div>
+                                    <div className="text-2xl font-black text-orange-600">
+                                        {score.paper2Results?.score ?? score.paper2Results?.accuracy ?? '—'}{score.isV2 ? '%' : '%'}
+                                    </div>
+                                    {score.isV2 && score.paper2Results && (
+                                        <div className="text-[10px] text-orange-600/70 mt-1">
+                                            {score.paper2Results.correct || 0}/{score.paper2Results.total || 0} Correct
+                                        </div>
+                                    )}
                                 </div>
                             </div>
-                            <div className="text-center p-3 bg-orange-50 rounded-lg">
-                                <div className="text-sm text-orange-700 font-medium mb-1">Paper 2</div>
-                                <div className="text-2xl font-bold text-orange-600">
-                                    {score.paper2Score ?? '—'}%
-                                </div>
+
+                            <div className="flex flex-col gap-2">
+                                <Button
+                                    className="w-full bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-slate-800 font-bold rounded-xl"
+                                    onClick={() => setSelectedReport(score.paper1Results)}
+                                    disabled={!score.paper1Results || !score.isV2}
+                                >
+                                    <BarChart3 className="w-4 h-4 mr-2" />
+                                    {score.isV2 ? 'View Paper 1 Report' : 'Detailed N/A'}
+                                </Button>
+                                <Button
+                                    className="w-full bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-slate-800 font-bold rounded-xl"
+                                    onClick={() => setSelectedReport(score.paper2Results)}
+                                    disabled={!score.paper2Results || !score.isV2}
+                                >
+                                    <BarChart3 className="w-4 h-4 mr-2" />
+                                    {score.isV2 ? 'View Paper 2 Report' : 'Detailed N/A'}
+                                </Button>
                             </div>
                         </CardContent>
                     </Card>
