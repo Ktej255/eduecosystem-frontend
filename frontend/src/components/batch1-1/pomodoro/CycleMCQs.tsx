@@ -7,6 +7,7 @@ import { getMCQsForSubtopics, MCQ } from '@/components/batch1/polity/data/polity
 import { useMCQShortcuts } from '@/hooks/useKeyboardShortcuts';
 import KeyboardShortcutsHelp from '@/components/common/KeyboardShortcutsHelp';
 import { recordMCQAttempt } from '@/lib/analytics';
+import { ActivityLogger } from '@/lib/analytics/ActivityLogger';
 
 // Temporary MCQ generator - will be replaced with actual content
 function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
@@ -143,6 +144,21 @@ export default function CycleMCQs({
                 timeSpent
             }
         }));
+
+        // Log Activity
+        if (selectedAnswer !== null) {
+            ActivityLogger.logActivity({
+                type: 'MCQ_EVENING',
+                details: {
+                    questionId: String(currentMCQ.id),
+                    topic: 'Evening Session',
+                    subtopic: currentMCQ.subtopicId,
+                    isCorrect,
+                    confidence,
+                    timeSpent
+                }
+            });
+        }
     };
 
     const handleNext = () => {

@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import RASOverviewPlan from "./RASOverviewPlan";
+import { RAS_MAINS_SYLLABUS, RAS_PRELIMS_SYLLABUS, SyllabusSection } from "./data/ras-syllabus-data";
 
 interface RASSyllabusViewerProps {
     onExit: () => void;

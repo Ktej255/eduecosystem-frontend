@@ -56,13 +56,14 @@ export default function MCQPerformanceReport({ results, onClose }: MCQPerformanc
         const confidenceStats = {
             sure: { total: 0, correct: 0 },
             '50-50': { total: 0, correct: 0 },
+            'one-option': { total: 0, correct: 0 },
             blind: { total: 0, correct: 0 }
         };
 
         results.forEach(r => {
-            if (r.confidence) {
-                confidenceStats[r.confidence].total++;
-                if (r.isCorrect) confidenceStats[r.confidence].correct++;
+            if (r.confidence && r.confidence in confidenceStats) {
+                (confidenceStats as any)[r.confidence].total++;
+                if (r.isCorrect) (confidenceStats as any)[r.confidence].correct++;
             }
         });
 

@@ -17,6 +17,7 @@ import { ENVIRONMENT_PYQS } from '../environment/data/environment-pyqs';
 import { IR_PYQS } from '../international-relations/data/ir-pyqs';
 import { PYQQuestion } from '@/lib/pyq/pyq-types';
 import { awardXP } from '@/lib/gamification/xp-engine';
+import { ActivityLogger } from '@/lib/analytics/ActivityLogger';
 
 export default function PYQExplorer() {
     const [activeSubject, setActiveSubject] = useState("Polity");
@@ -84,6 +85,18 @@ export default function PYQExplorer() {
             if (isCorrect) {
                 awardXP('mcq_correct');
             }
+
+            // Activity Logging
+            ActivityLogger.logActivity({
+                type: 'MCQ_PYQ',
+                details: {
+                    questionId: String(pyqId),
+                    topic: question.topic,
+                    subtopic: question.year.toString(), // Using year as subtopic for PYQs
+                    isCorrect: isCorrect,
+                    timeSpent: 0 // Not tracked for PYQs yet
+                }
+            });
         }
     };
 
@@ -97,20 +110,20 @@ export default function PYQExplorer() {
     const progressPercentage = (solvedCount / (subjectQuestions.length || 1)) * 100;
 
     return (
-        <div className="space-y-6 max-w-7xl mx-auto pb-20">
+        <div className="space-y-6 w-full max-w-[1800px] mx-auto px-4 md:px-6 pb-20">
             {/* Header Section */}
-            <div className="relative overflow-hidden bg-slate-100 dark:bg-black/40 border border-slate-200 dark:border-white/10 rounded-[2rem] backdrop-blur-3xl shadow-lg dark:shadow-2xl p-8">
+            <div className="relative overflow-hidden bg-slate-100 dark:bg-black/40 border border-slate-200 dark:border-white/10 rounded-[2rem] backdrop-blur-3xl shadow-lg dark:shadow-2xl p-6 md:p-8">
                 <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02] bg-[size:20px_20px]" />
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-                <div className="relative flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div className="relative flex flex-col xl:flex-row justify-between items-start xl:items-end gap-6">
                     <div>
                         <div className="flex items-center gap-2 mb-2">
                             <Badge variant="outline" className="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 px-3 py-1 text-[10px] font-black tracking-widest uppercase">
                                 <Sparkles size={10} className="mr-1" /> Archives Declassified
                             </Badge>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter uppercase mb-2">
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter uppercase mb-2">
                             PYQ <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">Explorer</span>
                         </h2>
                         <p className="text-slate-600 dark:text-gray-400 text-sm font-medium max-w-lg">
@@ -118,19 +131,19 @@ export default function PYQExplorer() {
                         </p>
                     </div>
 
-                    <div className="flex flex-col items-end gap-4">
-                        <div className="flex bg-white/60 dark:bg-black/60 p-1 rounded-xl border border-slate-200 dark:border-white/10 backdrop-blur-md">
+                    <div className="flex flex-col items-start xl:items-end gap-4 w-full xl:w-auto">
+                        <div className="flex flex-wrap gap-2 bg-white/60 dark:bg-black/60 p-2 rounded-xl border border-slate-200 dark:border-white/10 backdrop-blur-md w-full xl:w-auto justify-start xl:justify-end">
                             {Object.keys(subjectDataMap).map(sub => (
                                 <button
                                     key={sub}
                                     onClick={() => { setActiveSubject(sub); setSelectedTopics([]); setSelectedYears([]); }}
-                                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all duration-300 ${activeSubject === sub ? "bg-blue-600 text-white shadow-lg shadow-blue-500/25" : "text-slate-500 hover:text-slate-800 dark:text-gray-500 dark:hover:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"}`}
+                                    className={`px-3 py-2 rounded-lg text-xs font-bold uppercase transition-all duration-300 flex-grow md:flex-grow-0 text-center ${activeSubject === sub ? "bg-blue-600 text-white shadow-lg shadow-blue-500/25" : "text-slate-500 hover:text-slate-800 dark:text-gray-500 dark:hover:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"}`}
                                 >
                                     {sub}
                                 </button>
                             ))}
                         </div>
-                        <div className="flex items-center gap-3 bg-slate-200/50 dark:bg-white/5 px-4 py-2 rounded-full border border-slate-200 dark:border-white/10">
+                        <div className="flex items-center gap-3 bg-slate-200/50 dark:bg-white/5 px-4 py-2 rounded-full border border-slate-200 dark:border-white/10 ml-auto">
                             <Target size={14} className="text-emerald-600 dark:text-emerald-400" />
                             <span className="text-xs font-mono text-slate-600 dark:text-gray-300">
                                 <span className="text-slate-900 dark:text-white font-bold">{solvedCount}</span> / {subjectQuestions.length} Resolved
@@ -143,7 +156,7 @@ export default function PYQExplorer() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
                 {/* Sticky Sidebar */}
-                <div className="lg:col-span-3 lg:sticky lg:top-24 space-y-4">
+                <div className="lg:col-span-3 xl:col-span-2 title-sticky lg:top-24 space-y-4">
                     <div className="bg-slate-100/50 dark:bg-black/30 border border-slate-200 dark:border-white/10 rounded-[1.5rem] backdrop-blur-xl overflow-hidden">
                         <div className="p-4 border-b border-slate-200 dark:border-white/5 flex justify-between items-center cursor-pointer" onClick={() => setShowFilters(!showFilters)}>
                             <div className="flex items-center gap-2">
@@ -170,7 +183,7 @@ export default function PYQExplorer() {
                                                     <button
                                                         key={year}
                                                         onClick={() => toggleYear(year)}
-                                                        className={`relative overflow-hidden px-3 py-1.5 rounded-md text-[10px] font-bold transition-all border ${selectedYears.includes(year) ? 'bg-blue-600 text-white border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/50 dark:bg-white/5 text-slate-600 dark:text-gray-400 border-slate-200 dark:border-white/5 hover:border-blue-400'}`}
+                                                        className={`relative overflow-hidden px-2.5 py-1 rounded-md text-[10px] font-bold transition-all border ${selectedYears.includes(year) ? 'bg-blue-600 text-white border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/50 dark:bg-white/5 text-slate-600 dark:text-gray-400 border-slate-200 dark:border-white/5 hover:border-blue-400'}`}
                                                     >
                                                         {year}
                                                         <span className={`ml-1.5 text-[9px] opacity-70 ${selectedYears.includes(year) ? 'text-blue-100' : 'text-slate-400 dark:text-gray-600'}`}>
@@ -184,15 +197,15 @@ export default function PYQExplorer() {
                                         {/* Topics */}
                                         <div className="space-y-3">
                                             <span className="text-[10px] font-black text-slate-500 dark:text-gray-500 uppercase tracking-widest px-1">Classified Sectors</span>
-                                            <div className="flex flex-col gap-1 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+                                            <div className="flex flex-col gap-1 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                                                 {allTopics.map(topic => (
                                                     <button
                                                         key={topic}
                                                         onClick={() => toggleTopic(topic)}
-                                                        className={`w-full flex justify-between items-center px-3 py-2 rounded-lg text-[11px] font-medium transition-all group ${selectedTopics.includes(topic) ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30' : 'hover:bg-slate-200/50 dark:hover:bg-white/5 text-slate-600 dark:text-gray-400 border border-transparent'}`}
+                                                        className={`w-full flex justify-between items-start text-left px-3 py-2 rounded-lg text-[11px] font-medium transition-all group ${selectedTopics.includes(topic) ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30' : 'hover:bg-slate-200/50 dark:hover:bg-white/5 text-slate-600 dark:text-gray-400 border border-transparent'}`}
                                                     >
-                                                        <span>{topic}</span>
-                                                        <span className={`px-1.5 py-0.5 rounded-sm text-[9px] font-bold bg-slate-200 dark:bg-black/20 ${selectedTopics.includes(topic) ? 'text-amber-700 dark:text-amber-300' : 'text-slate-500 dark:text-gray-600'}`}>
+                                                        <span className="line-clamp-2">{topic}</span>
+                                                        <span className={`px-1.5 py-0.5 rounded-sm text-[9px] font-bold bg-slate-200 dark:bg-black/20 shrink-0 ml-2 ${selectedTopics.includes(topic) ? 'text-amber-700 dark:text-amber-300' : 'text-slate-500 dark:text-gray-600'}`}>
                                                             {topicCounts[topic]}
                                                         </span>
                                                     </button>
@@ -218,7 +231,7 @@ export default function PYQExplorer() {
                 </div>
 
                 {/* Main Content */}
-                <div className="lg:col-span-9 space-y-6">
+                <div className="lg:col-span-9 xl:col-span-10 space-y-6">
                     {/* Active Filters Display */}
                     {(selectedYears.length > 0 || selectedTopics.length > 0) && (
                         <div className="flex flex-wrap gap-2 pb-2">
@@ -243,15 +256,17 @@ export default function PYQExplorer() {
                                 <p className="text-gray-600 text-xs mt-2">Adjust your clearance filters to access data.</p>
                             </div>
                         ) : (
-                            filteredPYQs.map((pyq, index) => (
-                                <PYQCard
-                                    key={pyq.id}
-                                    pyq={pyq}
-                                    index={index}
-                                    userAnswer={userAnswers[String(pyq.id)]}
-                                    onAnswer={(idx) => handleAnswer(pyq.id, idx)}
-                                />
-                            ))
+                            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                                {filteredPYQs.map((pyq, index) => (
+                                    <PYQCard
+                                        key={pyq.id}
+                                        pyq={pyq}
+                                        index={index}
+                                        userAnswer={userAnswers[String(pyq.id)]}
+                                        onAnswer={(idx) => handleAnswer(pyq.id, idx)}
+                                    />
+                                ))}
+                            </div>
                         )}
                     </div>
                 </div>

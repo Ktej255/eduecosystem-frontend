@@ -75,7 +75,149 @@ class PomodoroTimerService {
         }
     }
 
-    // ... (existing methods until requestNotificationPermission)
+    private getDefaultState(): TimerState {
+        return {
+            isRunning: false,
+            isPaused: false,
+            sessionType: null,
+            startTime: null,
+            duration: 0,
+            pausedAt: null,
+            totalPausedDuration: 0,
+            topicId: null,
+            topicName: null,
+            cycleNumber: 1,
+            phaseNumber: 1,
+        };
+    }
+
+    private loadState(): TimerState | null {
+        if (typeof window === 'undefined') return null;
+        try {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            return saved ? JSON.parse(saved) : null;
+        } catch {
+            return null;
+        }
+    }
+
+    private saveState() {
+        if (typeof window === 'undefined') return;
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(this.state));
+        } catch {
+            // Ignore storage errors
+        }
+    }
+
+    private initWorker() {
+        if (typeof window === 'undefined') return;
+        try {
+            const workerCode = `
+                let timerId = null;
+                let startTime = 0;
+                let duration = 0;
+                let pausedTime = 0;
+
+                self.onmessage = function(e) {
+                    const { type, startTime: st, duration: dur, pausedTime: pt } = e.data;
+                    
+                    if (type === 'START') {
+                        startTime = st;
+                        duration = dur;
+                        pausedTime = 0;
+                        if (timerId) clearInterval(timerId);
+                        timerId = setInterval(() => {
+                            const elapsed = Date.now() - startTime - pausedTime;
+                            const remaining = Math.max(0, duration - elapsed);
+                            self.postMessage({ type: 'TICK', remaining, elapsed });
+                            if (remaining <= 0) {
+                                clearInterval(timerId);
+                                self.postMessage({ type: 'COMPLETE' });
+                            }
+                        }, 100);
+                    } else if (type === 'PAUSE') {
+                        if (timerId) clearInterval(timerId);
+                        timerId = null;
+                    } else if (type === 'RESUME') {
+                        pausedTime += e.data.pausedTime || 0;
+                        if (timerId) clearInterval(timerId);
+                        timerId = setInterval(() => {
+                            const elapsed = Date.now() - startTime - pausedTime;
+                            const remaining = Math.max(0, duration - elapsed);
+                            self.postMessage({ type: 'TICK', remaining, elapsed });
+                            if (remaining <= 0) {
+                                clearInterval(timerId);
+                                self.postMessage({ type: 'COMPLETE' });
+                            }
+                        }, 100);
+                    } else if (type === 'STOP') {
+                        if (timerId) clearInterval(timerId);
+                        timerId = null;
+                    }
+                };
+            `;
+            const blob = new Blob([workerCode], { type: 'application/javascript' });
+            this.worker = new Worker(URL.createObjectURL(blob));
+            this.worker.onmessage = (e) => {
+                if (e.data.type === 'TICK') {
+                    this.callbacks.onTick?.(e.data.remaining, e.data.elapsed);
+                } else if (e.data.type === 'COMPLETE') {
+                    this.handleComplete();
+                }
+            };
+        } catch {
+            // Worker not supported
+        }
+    }
+
+    private initAudio() {
+        if (typeof window === 'undefined') return;
+        try {
+            this.audio = new Audio(SOUND_PATH);
+            this.audio.preload = 'auto';
+        } catch {
+            // Audio not supported
+        }
+    }
+
+    private setupVisibilityHandler() {
+        if (typeof window === 'undefined') return;
+        this.visibilityHandler = () => {
+            if (document.visibilityState === 'visible' && this.state.isRunning && !this.state.isPaused) {
+                this.requestWakeLock();
+            }
+        };
+        document.addEventListener('visibilitychange', this.visibilityHandler);
+    }
+
+    private requestNotificationPermission() {
+        if (typeof window !== 'undefined' && 'Notification' in window && Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
+    }
+
+    private resumeFromSavedState() {
+        if (!this.state.startTime) return;
+        this.worker?.postMessage({
+            type: 'START',
+            startTime: this.state.startTime,
+            duration: this.state.duration,
+        });
+    }
+
+    private playCompletionSound() {
+        this.audio?.play().catch(() => { /* ignore */ });
+    }
+
+    private showNotification() {
+        if (typeof window !== 'undefined' && 'Notification' in window && Notification.permission === 'granted') {
+            new Notification('Timer Complete!', {
+                body: `${this.state.sessionType} session finished.`,
+                icon: '/favicon.ico',
+            });
+        }
+    }
 
     private async requestWakeLock() {
         if (typeof window !== 'undefined' && 'wakeLock' in navigator) {
@@ -86,8 +228,9 @@ class PomodoroTimerService {
                     this.wakeLock = null;
                 });
                 console.log('Wake Lock acquired');
-            } catch (err) {
-                console.error(`${err.name}, ${err.message}`);
+            } catch (err: unknown) {
+                const e = err as Error;
+                console.error(`${e.name}, ${e.message}`);
             }
         }
     }
@@ -97,8 +240,9 @@ class PomodoroTimerService {
             try {
                 await this.wakeLock.release();
                 this.wakeLock = null;
-            } catch (err) {
-                console.error(`${err.name}, ${err.message}`);
+            } catch (err: unknown) {
+                const e = err as Error;
+                console.error(`${e.name}, ${e.message}`);
             }
         }
     }
@@ -202,6 +346,45 @@ class PomodoroTimerService {
         this.releaseWakeLock();
 
         this.worker?.postMessage({ type: 'STOP' });
+        this.callbacks.onStateChange?.(this.state);
+    }
+
+    getState(): TimerState {
+        return this.state;
+    }
+
+    setCallbacks(callbacks: TimerCallbacks) {
+        this.callbacks = callbacks;
+    }
+
+    getTimeRemaining(): number {
+        if (!this.state.isRunning || !this.state.startTime) {
+            return 0;
+        }
+        const elapsed = Date.now() - this.state.startTime - this.state.totalPausedDuration;
+        return Math.max(0, this.state.duration - elapsed);
+    }
+
+    previewSound() {
+        this.audio?.play().catch(() => { /* ignore */ });
+    }
+
+    addMinutes(minutes: number) {
+        if (!this.state.isRunning) return;
+        this.state.duration += minutes * 60 * 1000;
+        this.saveState();
+        this.callbacks.onStateChange?.(this.state);
+    }
+
+    completeEarly() {
+        if (!this.state.isRunning) return;
+        this.handleComplete();
+    }
+
+    updateTopic(topicId: string, topicName: string) {
+        this.state.topicId = topicId;
+        this.state.topicName = topicName;
+        this.saveState();
         this.callbacks.onStateChange?.(this.state);
     }
 

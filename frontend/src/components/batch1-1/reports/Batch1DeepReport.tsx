@@ -70,26 +70,30 @@ export default function Batch1DeepReport() {
 
             <Tabs value={activeTab} onValueChange={handleTabChange} className="space-y-8">
                 <div className="sticky top-0 z-20 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl p-1 rounded-2xl border shadow-sm">
-                    <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 h-auto p-1 gap-1 bg-transparent">
+                    <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 h-auto p-1 gap-1 bg-transparent">
                         <TabsTrigger value="pomodoro" className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-700 py-3 rounded-xl flex items-center gap-2">
                             <Clock className="w-4 h-4" />
-                            Pomodoro
+                            <span className="hidden md:inline">Pomodoro</span>
                         </TabsTrigger>
                         <TabsTrigger value="weekly" className="data-[state=active]:bg-blue-100 data-[state=active]:text-blue-700 py-3 rounded-xl flex items-center gap-2">
                             <Calendar className="w-4 h-4" />
-                            Weekly
+                            <span className="hidden md:inline">Weekly</span>
+                        </TabsTrigger>
+                        <TabsTrigger value="activity" className="data-[state=active]:bg-indigo-100 data-[state=active]:text-indigo-700 py-3 rounded-xl flex items-center gap-2">
+                            <Zap className="w-4 h-4" />
+                            <span className="hidden md:inline">Activity</span>
                         </TabsTrigger>
                         <TabsTrigger value="tests" className="data-[state=active]:bg-green-100 data-[state=active]:text-green-700 py-3 rounded-xl flex items-center gap-2">
                             <Trophy className="w-4 h-4" />
-                            Sat Tests
+                            <span className="hidden md:inline">Sat Tests</span>
                         </TabsTrigger>
                         <TabsTrigger value="revision" className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-700 py-3 rounded-xl flex items-center gap-2">
                             <Brain className="w-4 h-4" />
-                            Revision
+                            <span className="hidden md:inline">Revision</span>
                         </TabsTrigger>
                         <TabsTrigger value="mood" className="data-[state=active]:bg-pink-100 data-[state=active]:text-pink-700 py-3 rounded-xl flex items-center gap-2">
                             <Smile className="w-4 h-4" />
-                            Mood
+                            <span className="hidden md:inline">Mood</span>
                         </TabsTrigger>
                     </TabsList>
                 </div>
@@ -101,6 +105,10 @@ export default function Batch1DeepReport() {
 
                     <TabsContent value="weekly" className="m-0">
                         <WeeklyProgressReport />
+                    </TabsContent>
+
+                    <TabsContent value="activity" className="m-0">
+                        <ActivityReport />
                     </TabsContent>
 
                     <TabsContent value="tests" className="m-0">
@@ -119,6 +127,150 @@ export default function Batch1DeepReport() {
         </div>
     );
 }
+
+import { ActivityLogger, ActivityLog } from "@/lib/analytics/ActivityLogger";
+
+function ActivityReport() {
+    const [stats, setStats] = useState<any>(null);
+    const [logs, setLogs] = useState<ActivityLog[]>([]);
+
+    useEffect(() => {
+        setStats(ActivityLogger.getStats());
+        setLogs(ActivityLogger.getLogs().reverse().slice(0, 50)); // Last 50 items
+    }, []);
+
+    if (!stats) return <div className="p-8 text-center text-gray-500">Loading Activity Data...</div>;
+
+    return (
+        <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="bg-gradient-to-br from-indigo-50 to-blue-50 border-indigo-200">
+                    <CardContent className="p-6">
+                        <div className="flex items-center gap-3 mb-2 text-indigo-700">
+                            <Zap className="w-5 h-5" />
+                            <span className="font-semibold">Total MCQs Solved</span>
+                        </div>
+                        <div className="text-4xl font-bold text-gray-900">{stats.totalMCQsSolved}</div>
+                        <p className="text-xs text-indigo-600/70 mt-2">Combined Evening & PYQ Bank</p>
+                    </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
+                    <CardContent className="p-6">
+                        <div className="flex items-center gap-3 mb-2 text-green-700">
+                            <Trophy className="w-5 h-5" />
+                            <span className="font-semibold">Accuracy Rate</span>
+                        </div>
+                        <div className="text-4xl font-bold text-gray-900">
+                            {stats.totalMCQsSolved > 0
+                                ? Math.round((stats.totalCorrect / stats.totalMCQsSolved) * 100)
+                                : 0}%
+                        </div>
+                        <p className="text-xs text-green-600/70 mt-2">{stats.totalCorrect} Correct Answers</p>
+                    </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
+                    <CardContent className="p-6">
+                        <div className="flex items-center gap-3 mb-2 text-amber-700">
+                            <Brain className="w-5 h-5" />
+                            <span className="font-semibold">Flashcards Reviewed</span>
+                        </div>
+                        <div className="text-4xl font-bold text-gray-900">{stats.totalFlashcards}</div>
+                        <p className="text-xs text-amber-600/70 mt-2">Concepts Reinforced</p>
+                    </CardContent>
+                </Card>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Recent Activity Stream</CardTitle>
+                        <CardDescription>Real-time log of your learning actions</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                            {logs.map((log, i) => (
+                                <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40">
+                                    <div className={`mt-1 p-1.5 rounded-full shrink-0 ${log.type === 'MCQ_EVENING' ? 'bg-indigo-100 text-indigo-600' :
+                                            log.type === 'MCQ_PYQ' ? 'bg-blue-100 text-blue-600' :
+                                                'bg-amber-100 text-amber-600'
+                                        }`}>
+                                        {log.type.includes('MCQ') ? <Zap size={14} /> : <Brain size={14} />}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex justify-between items-start">
+                                            <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
+                                                {log.type === 'MCQ_EVENING' ? 'Solved Evening MCQ' :
+                                                    log.type === 'MCQ_PYQ' ? 'Solved PYQ' :
+                                                        'Flashcard Review'}
+                                            </p>
+                                            <span className="text-[10px] text-slate-400 whitespace-nowrap ml-2">
+                                                {new Date(log.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                            </span>
+                                        </div>
+                                        <p className="text-xs text-slate-500 mt-1 truncate">
+                                            Topic: {log.details.topic || 'General'}
+                                            {log.details.subtopic && ` • ${log.details.subtopic}`}
+                                        </p>
+                                        {log.type.includes('MCQ') && (
+                                            <div className="flex gap-2 mt-2">
+                                                <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${log.details.isCorrect
+                                                        ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
+                                                        : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
+                                                    }`}>
+                                                    {log.details.isCorrect ? 'Correct' : 'Incorrect'}
+                                                </span>
+                                                {log.details.confidence && (
+                                                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+                                                        Confidence: {log.details.confidence}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                            {logs.length === 0 && (
+                                <div className="text-center py-8 text-gray-400 text-sm">
+                                    No activity recorded yet. Start solving questions!
+                                </div>
+                            )}
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Topic Breakdown</CardTitle>
+                        <CardDescription>Focus distribution across subjects</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="space-y-4">
+                            {Object.entries(stats.byTopic).sort((a: any, b: any) => b[1] - a[1]).slice(0, 8).map(([topic, count]: [string, any], i) => (
+                                <div key={i} className="space-y-1">
+                                    <div className="flex justify-between text-xs font-medium">
+                                        <span className="text-slate-700 dark:text-slate-300">{topic}</span>
+                                        <span className="text-slate-500">{count} interactions</span>
+                                    </div>
+                                    <div className="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                        <div
+                                            className="h-full bg-indigo-500 rounded-full"
+                                            style={{ width: `${Math.min(100, (count / (stats.totalMCQsSolved + stats.totalFlashcards || 1)) * 100)}%` }}
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    );
+}
+
+// Ensure end of previous function block
+function SaturdayTestsReportStub() { return null; }
 
 // --- Sub-components for specialized reports ---
 
