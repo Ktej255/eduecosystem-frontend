@@ -1,0 +1,273 @@
+{
+    "name": "Indian Monsoon System",
+    "description": "Seasonal reversal of winds driven by differential heating of land and sea",
+    "source": "IMD / NCERT Class 9 Geography",
+    "phases": [
+        {
+            "id": "winter",
+            "name": "Winter (Northeast Monsoon)",
+            "months": [
+                "December",
+                "January",
+                "February"
+            ],
+            "itczPosition": -5,
+            "characteristics": [
+                "High pressure over Indian landmass",
+                "Low pressure over Indian Ocean",
+                "Winds blow from land to sea (NE direction)",
+                "Dry conditions over most of India",
+                "Tamil Nadu receives rainfall (Bay of Bengal branch)"
+            ],
+            "windPatterns": [
+                {
+                    "from": [
+                        28.6,
+                        77.2
+                    ],
+                    "to": [
+                        13.0,
+                        80.2
+                    ],
+                    "direction": "NE",
+                    "color": "#64B5F6"
+                },
+                {
+                    "from": [
+                        22.5,
+                        88.3
+                    ],
+                    "to": [
+                        10.0,
+                        85.0
+                    ],
+                    "direction": "NE",
+                    "color": "#64B5F6"
+                }
+            ],
+            "pressureZones": [
+                {
+                    "type": "high",
+                    "center": [
+                        25.0,
+                        82.0
+                    ],
+                    "label": "Continental High"
+                },
+                {
+                    "type": "low",
+                    "center": [
+                        5.0,
+                        75.0
+                    ],
+                    "label": "Oceanic Low"
+                }
+            ]
+        },
+        {
+            "id": "summer",
+            "name": "Summer (Pre-Monsoon)",
+            "months": [
+                "March",
+                "April",
+                "May"
+            ],
+            "itczPosition": 15,
+            "characteristics": [
+                "Intense heating of Indian landmass",
+                "Development of low pressure trough (Loo winds)",
+                "ITCZ shifts northward",
+                "Nor'westers in Bengal, Mango Showers in Kerala/Karnataka"
+            ],
+            "windPatterns": [
+                {
+                    "from": [
+                        26.0,
+                        70.0
+                    ],
+                    "to": [
+                        26.0,
+                        85.0
+                    ],
+                    "direction": "W",
+                    "color": "#FF7043",
+                    "label": "Loo"
+                }
+            ],
+            "pressureZones": [
+                {
+                    "type": "low",
+                    "center": [
+                        26.0,
+                        75.0
+                    ],
+                    "label": "Thermal Low"
+                }
+            ]
+        },
+        {
+            "id": "swMonsoon",
+            "name": "Southwest Monsoon (Rainy Season)",
+            "months": [
+                "June",
+                "July",
+                "August",
+                "September"
+            ],
+            "itczPosition": 25,
+            "characteristics": [
+                "ITCZ over Ganga Plain",
+                "Tropical Easterly Jet established",
+                "Moisture-laden winds from Arabian Sea & Bay of Bengal",
+                "Burst of Monsoon - Kerala (June 1)",
+                "Two branches: Arabian Sea & Bay of Bengal"
+            ],
+            "windPatterns": [
+                {
+                    "from": [
+                        5.0,
+                        60.0
+                    ],
+                    "to": [
+                        10.0,
+                        76.0
+                    ],
+                    "direction": "SW",
+                    "color": "#26A69A",
+                    "label": "Arabian Sea Branch"
+                },
+                {
+                    "from": [
+                        10.0,
+                        76.0
+                    ],
+                    "to": [
+                        23.0,
+                        72.0
+                    ],
+                    "direction": "N",
+                    "color": "#26A69A"
+                },
+                {
+                    "from": [
+                        5.0,
+                        85.0
+                    ],
+                    "to": [
+                        22.0,
+                        88.0
+                    ],
+                    "direction": "S",
+                    "color": "#42A5F5",
+                    "label": "Bay of Bengal Branch"
+                },
+                {
+                    "from": [
+                        22.0,
+                        88.0
+                    ],
+                    "to": [
+                        26.0,
+                        91.0
+                    ],
+                    "direction": "NE",
+                    "color": "#42A5F5"
+                }
+            ],
+            "pressureZones": [
+                {
+                    "type": "low",
+                    "center": [
+                        26.0,
+                        75.0
+                    ],
+                    "label": "Monsoon Trough"
+                },
+                {
+                    "type": "high",
+                    "center": [
+                        -25.0,
+                        60.0
+                    ],
+                    "label": "Mascarene High"
+                }
+            ],
+            "keyDates": [
+                {
+                    "date": "June 1",
+                    "event": "Monsoon arrives Kerala"
+                },
+                {
+                    "date": "June 15",
+                    "event": "Covers Mumbai"
+                },
+                {
+                    "date": "July 1",
+                    "event": "Covers entire India"
+                }
+            ]
+        },
+        {
+            "id": "retreat",
+            "name": "Retreating Monsoon",
+            "months": [
+                "October",
+                "November"
+            ],
+            "itczPosition": 10,
+            "characteristics": [
+                "Withdrawal from northwest India",
+                "Monsoon trough weakens",
+                "High pressure returns over land",
+                "Cyclonic activity in Bay of Bengal",
+                "October Heat phenomenon"
+            ],
+            "windPatterns": [
+                {
+                    "from": [
+                        20.0,
+                        88.0
+                    ],
+                    "to": [
+                        13.0,
+                        80.0
+                    ],
+                    "direction": "NE",
+                    "color": "#7E57C2"
+                }
+            ],
+            "pressureZones": [
+                {
+                    "type": "low",
+                    "center": [
+                        15.0,
+                        88.0
+                    ],
+                    "label": "Bay Low (Cyclones)"
+                }
+            ]
+        }
+    ],
+    "keyFactors": [
+        {
+            "name": "Differential Heating",
+            "description": "Land heats faster than ocean, creating pressure differences"
+        },
+        {
+            "name": "ITCZ Shift",
+            "description": "Inter-Tropical Convergence Zone moves north in summer"
+        },
+        {
+            "name": "Jet Streams",
+            "description": "Subtropical Westerly Jet (winter) vs Tropical Easterly Jet (summer)"
+        },
+        {
+            "name": "Mascarene High",
+            "description": "High pressure east of Madagascar drives SW winds"
+        },
+        {
+            "name": "El Niño/La Niña",
+            "description": "Pacific Ocean temperature anomalies affect monsoon strength"
+        }
+    ]
+}

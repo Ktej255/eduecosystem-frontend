@@ -22,6 +22,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 // Import existing report components
 import FocusAnalyticsDashboard from "@/components/batch1/FocusAnalyticsDashboard";
+import WeeklyProgressReport from "@/components/batch1-1/reports/WeeklyProgressReport";
 import RevisionDeepReports from "@/components/revision/reports/RevisionDeepReports";
 import SaturdayTestReport from "@/components/batch1-1/saturday/SaturdayTestReport";
 import {
@@ -204,7 +205,8 @@ function ActivityReport() {
                                             <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
                                                 {log.type === 'MCQ_EVENING' ? 'Solved Evening MCQ' :
                                                     log.type === 'MCQ_PYQ' ? 'Solved PYQ' :
-                                                        'Flashcard Review'}
+                                                        log.type === 'MCQ_SATURDAY' ? 'Saturday Test MCQ' :
+                                                            'Flashcard Review'}
                                             </p>
                                             <span className="text-[10px] text-slate-400 whitespace-nowrap ml-2">
                                                 {new Date(log.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}

@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import SubjectPlanner from '../framework/SubjectPlanner';
-import { ENVIRONMENT_CONFIG } from './data/environment-config';
-import { environmentFlashcards as ENVIRONMENT_FLASHCARDS } from './data/flashcards/environment-flashcards';
+import { IR_CONFIG } from './data/ir-config';
+import { irFlashcards as IR_FLASHCARDS } from './data/flashcards/ir-flashcards';
 import GenericFlashcardSession from '../framework/GenericFlashcardSession';
 import { Layout, Zap } from 'lucide-react';
 
-export default function EnvironmentHome() {
+export default function IrHome() {
     const [activeTab, setActiveTab] = useState<'planner' | 'flashcards'>('planner');
 
     return (
@@ -16,15 +16,15 @@ export default function EnvironmentHome() {
             <div className="bg-white border-b border-neutral-200 dark:bg-black dark:border-neutral-800 sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex items-center justify-between h-16">
-                        <div className="font-bold text-xl text-emerald-700 dark:text-emerald-500 tracking-tight">
-                            ENVIRON<span className="text-neutral-400 font-light">HUB</span>
+                        <div className="font-bold text-xl text-indigo-700 dark:text-indigo-500 tracking-tight">
+                            GLOBAL<span className="text-neutral-400 font-light">HUB</span>
                         </div>
 
                         <div className="flex space-x-1">
                             <button
                                 onClick={() => setActiveTab('planner')}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'planner'
-                                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200'
+                                    ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200'
                                     : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                                     }`}
                             >
@@ -34,7 +34,7 @@ export default function EnvironmentHome() {
                             <button
                                 onClick={() => setActiveTab('flashcards')}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'flashcards'
-                                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200'
+                                    ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200'
                                     : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                                     }`}
                             >
@@ -48,22 +48,22 @@ export default function EnvironmentHome() {
 
             <div className="w-full">
                 {activeTab === 'planner' && (
-                    <SubjectPlanner config={ENVIRONMENT_CONFIG} />
+                    <SubjectPlanner config={IR_CONFIG} />
                 )}
 
                 {activeTab === 'flashcards' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 py-8">
                         <div className="max-w-4xl mx-auto mb-8 text-center">
-                            <h2 className="text-3xl font-bold mb-2">Environment Flashcards</h2>
-                            <p className="text-gray-500">Key concepts in Ecology, Biodiversity, and Climate Change.</p>
+                            <h2 className="text-3xl font-bold mb-2">IR Flashcards</h2>
+                            <p className="text-gray-500">Foreign Policy, International Organizations, and key bilateral relations.</p>
                         </div>
                         <GenericFlashcardSession
-                            flashcards={ENVIRONMENT_FLASHCARDS.map(fc => ({
+                            flashcards={IR_FLASHCARDS.map(fc => ({
                                 ...fc,
                                 category: 'concept' as const,
                                 source: fc.topic
                             }))}
-                            title="Environment"
+                            title="International Relations"
                             onClose={() => setActiveTab('planner')}
                         />
                     </div>

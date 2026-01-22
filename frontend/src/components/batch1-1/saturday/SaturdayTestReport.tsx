@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,6 +25,9 @@ import {
 
 interface QuestionResult {
     id: number;
+    question: string;
+    options: string[];
+    explanation: string;
     chapter: string;
     subtopic: string;
     userAnswer: number | null;
@@ -47,16 +50,20 @@ interface TestReportProps {
 }
 
 const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onRetake }) => {
-    const { questions, totalTimeTaken } = results;
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filter, setFilter] = useState<'all' | 'correct' | 'incorrect' | 'unattempted'>('all');
+    const questions = results?.questions || [];
+    const totalTimeTaken = results?.totalTimeTaken || 0;
 
     // 1. Stats Calculation
     const stats = useMemo(() => {
         const total = questions.length;
+        if (total === 0) return { total: 0, answered: 0, correct: 0, incorrect: 0, unattempted: 0, accuracy: "0", score: "0" };
         const answered = questions.filter(q => q.userAnswer !== null).length;
         const correct = questions.filter(q => q.isCorrect).length;
         const incorrect = answered - correct;
         const unattempted = total - answered;
-        const accuracy = ((correct / answered) * 100).toFixed(1);
+        const accuracy = answered > 0 ? ((correct / answered) * 100).toFixed(1) : "0";
         const score = (correct * 2) - (incorrect * 0.66); // Standard UPSC marking
 
         return { total, answered, correct, incorrect, unattempted, accuracy, score: score.toFixed(2) };
@@ -124,11 +131,18 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                         </div>
                     </div>
                     <div className="flex gap-3">
-                        <Button variant="outline" className="bg-slate-900/50 border-slate-800 text-slate-300 hover:bg-slate-800">
+                        <Button
+                            variant="outline"
+                            className="bg-slate-900/50 border-slate-800 text-slate-300 hover:bg-slate-800"
+                            onClick={() => document.getElementById('question-review')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
                             <Search className="w-4 h-4 mr-2" /> Review Questions
                         </Button>
                         {onRetake && (
-                            <Button className="bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20">
+                            <Button
+                                onClick={onRetake}
+                                className="bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+                            >
                                 Retake Test
                             </Button>
                         )}
@@ -318,6 +332,116 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                     </div>
                 </Card>
 
+                {/* Detailed Question Review Section */}
+                <Card id="question-review" className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                        <h3 className="text-xl font-bold flex items-center gap-2">
+                            <Search className="w-6 h-6 text-blue-400" />
+                            Detailed Question Review
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                            {['all', 'correct', 'incorrect', 'unattempted'].map((f) => (
+                                <Button
+                                    key={f}
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => setFilter(f as any)}
+                                    className={`capitalize rounded-full px-4 ${filter === f ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'text-slate-500 hover:text-slate-300'}`}
+                                >
+                                    {f}
+                                </Button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="space-y-6">
+                        {questions
+                            .filter(q => {
+                                if (filter === 'correct') return q.isCorrect;
+                                if (filter === 'incorrect') return !q.isCorrect && q.userAnswer !== null;
+                                if (filter === 'unattempted') return q.userAnswer === null;
+                                return true;
+                            })
+                            .map((q) => (
+                                <div key={q.id} className="p-6 rounded-2xl bg-slate-800/20 border border-slate-800/50 hover:border-slate-700/80 transition-all group">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <div className="flex items-center gap-3">
+                                            <span className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-sm font-bold text-slate-400 group-hover:border-blue-500/30 group-hover:text-blue-400 transition-colors">
+                                                {q.id}
+                                            </span>
+                                            <div>
+                                                <div className="text-[10px] text-slate-500 font-mono uppercase tracking-widest leading-none mb-1">
+                                                    {q.chapter} • {q.subtopic}
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    {q.isCorrect ? (
+                                                        <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-400">
+                                                            <CheckCircle2 className="w-3 h-3" /> CORRECT
+                                                        </span>
+                                                    ) : q.userAnswer === null ? (
+                                                        <span className="flex items-center gap-1 text-[10px] font-bold text-slate-400">
+                                                            <HelpCircle className="w-3 h-3" /> SKIPPED
+                                                        </span>
+                                                    ) : (
+                                                        <span className="flex items-center gap-1 text-[10px] font-bold text-red-400">
+                                                            <XCircle className="w-3 h-3" /> INCORRECT
+                                                        </span>
+                                                    )}
+                                                    <span className="w-1 h-1 rounded-full bg-slate-800" />
+                                                    <span className="text-[10px] font-mono text-slate-500 uppercase">{q.confidence || 'No Confidence Set'}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="text-xs text-slate-600 font-mono">{q.timeSpent}s spent</div>
+                                    </div>
+
+                                    <h4 className="text-base font-medium text-slate-200 mb-6 leading-relaxed">
+                                        {q.question}
+                                    </h4>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                                        {q.options.map((opt, i) => {
+                                            const isUserChoice = q.userAnswer === i;
+                                            const isCorrectChoice = q.correctAnswer === i;
+
+                                            let borderClass = "border-slate-800/50 bg-slate-900/20";
+                                            let icon = null;
+                                            let textClass = "text-slate-400";
+
+                                            if (isCorrectChoice) {
+                                                borderClass = "border-emerald-500/30 bg-emerald-500/5";
+                                                textClass = "text-emerald-400 font-medium";
+                                                icon = <CheckCircle2 className="w-4 h-4 ml-auto" />;
+                                            } else if (isUserChoice && !q.isCorrect) {
+                                                borderClass = "border-red-500/30 bg-red-500/5";
+                                                textClass = "text-red-400 font-medium";
+                                                icon = <XCircle className="w-4 h-4 ml-auto" />;
+                                            }
+
+                                            return (
+                                                <div key={i} className={`flex items-center px-4 py-3 rounded-xl border text-sm ${borderClass} ${textClass}`}>
+                                                    <span className="w-6 h-6 rounded-lg bg-slate-900/50 flex items-center justify-center mr-3 text-xs font-bold font-mono">
+                                                        {String.fromCharCode(65 + i)}
+                                                    </span>
+                                                    {opt}
+                                                    {icon}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+
+                                    <div className="p-5 rounded-xl bg-blue-500/5 border border-blue-500/10">
+                                        <div className="flex items-center gap-2 text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">
+                                            <Zap className="w-4 h-4" /> Comprehensive Explanation
+                                        </div>
+                                        <p className="text-sm text-slate-300 leading-relaxed whitespace-pre-wrap">
+                                            {q.explanation}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                    </div>
+                </Card>
             </div>
         </div>
     );

@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import SaturdayTestSession from "@/components/batch1-1/saturday/SaturdayTestSession";
 import SaturdayTestReport from "@/components/batch1-1/saturday/SaturdayTestReport";
-import { PAPER_1_QUESTIONS, PAPER_2_QUESTIONS } from "@/components/batch1-1/data/saturday-test-data";
+import { SATURDAY_TEST_DATABASE } from "@/components/batch1-1/data/saturday-test-data";
 import { ActivityLogger } from "@/lib/analytics/ActivityLogger";
 
 interface PageProps {
@@ -27,6 +27,31 @@ export default function SaturdayTestPage({ params }: PageProps) {
     const [testState, setTestState] = useState<TestState>('select');
     const [paper1Results, setPaper1Results] = useState<any>(null);
     const [paper2Results, setPaper2Results] = useState<any>(null);
+
+    const weekData = SATURDAY_TEST_DATABASE[weekId];
+    const paper1Qs = weekData?.paper1 || [];
+    const paper2Qs = weekData?.paper2 || [];
+
+    // Loading/Missing Check
+    if (!weekData || paper1Qs.length === 0) {
+        return (
+            <div className="min-h-screen bg-[#020617] p-6 flex flex-col items-center justify-center text-center">
+                <Link href="/student/batch1-1" className="mb-8">
+                    <Button variant="ghost" className="text-slate-400 hover:text-white">
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Batch 1.1
+                    </Button>
+                </Link>
+                <div className="p-6 rounded-full bg-slate-900 border border-slate-800 mb-6">
+                    <Clock className="w-12 h-12 text-blue-500" />
+                </div>
+                <h1 className="text-3xl font-bold text-white mb-3">Test Not Available Yet</h1>
+                <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
+                    The Saturday Polity Test for Week {weekId} has not been released.
+                    Tests are activated on Saturday mornings.
+                </p>
+            </div>
+        );
+    }
 
     // Load saved progress
     useEffect(() => {
@@ -86,8 +111,8 @@ export default function SaturdayTestPage({ params }: PageProps) {
     if (testState === 'paper1_test') {
         return (
             <SaturdayTestSession
-                questions={PAPER_1_QUESTIONS}
-                testTitle="Paper 1: UPSC Prelims Polity (Part B)"
+                questions={paper1Qs}
+                testTitle={`Week ${weekId} - Paper 1: UPSC Prelims 2026 Polity`}
                 onComplete={(res) => handleTestComplete(res, true)}
                 onCancel={() => setTestState('select')}
             />
@@ -96,8 +121,8 @@ export default function SaturdayTestPage({ params }: PageProps) {
     if (testState === 'paper2_test') {
         return (
             <SaturdayTestSession
-                questions={PAPER_2_QUESTIONS}
-                testTitle="Paper 2: UPSC Prelims Polity (Part A)"
+                questions={paper2Qs}
+                testTitle={`Week ${weekId} - Paper 2: UPSC Prelims 2026 Polity`}
                 onComplete={(res) => handleTestComplete(res, false)}
                 onCancel={() => setTestState('select')}
             />
@@ -152,8 +177,8 @@ export default function SaturdayTestPage({ params }: PageProps) {
                                     </div>
                                 )}
                             </div>
-                            <CardTitle className="text-xl text-white">Paper 1: Part B</CardTitle>
-                            <p className="text-sm text-slate-500">Centre-State, Inter-State & Emergency</p>
+                            <CardTitle className="text-xl text-white">Paper 1: UPSC 2026</CardTitle>
+                            <p className="text-sm text-slate-500">Polity & Current Affairs Integration</p>
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div className="flex items-center gap-4 text-xs text-slate-400">
@@ -203,8 +228,8 @@ export default function SaturdayTestPage({ params }: PageProps) {
                                     </div>
                                 )}
                             </div>
-                            <CardTitle className="text-xl text-white">Paper 2: Part A</CardTitle>
-                            <p className="text-sm text-slate-500">President, Vice-President & Governor</p>
+                            <CardTitle className="text-xl text-white">Paper 2: UPSC 2026</CardTitle>
+                            <p className="text-sm text-slate-500">Governance & Institutional Polity</p>
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div className="flex items-center gap-4 text-xs text-slate-400">

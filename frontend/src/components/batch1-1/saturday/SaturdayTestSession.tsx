@@ -12,10 +12,12 @@ import {
     AlertCircle,
     CheckCircle2,
     Bookmark,
-    Timer
+    Timer,
+    Keyboard
 } from "lucide-react";
 import { ModuleMCQ } from "../data/saturday-test-data";
 import { recordBatchMCQResults } from "@/lib/analytics";
+import { useMCQShortcuts } from "@/hooks/useKeyboardShortcuts";
 
 interface SaturdayTestSessionProps {
     questions: ModuleMCQ[];
@@ -114,21 +116,35 @@ const SaturdayTestSession: React.FC<SaturdayTestSessionProps> = ({
     const handleFinish = useCallback(() => {
         setIsFinishing(true);
         // Process results
+        const processedQuestions = questions.map(q => ({
+            id: q.id,
+            question: q.question,
+            options: q.options,
+            explanation: q.explanation,
+            chapter: q.chapter,
+            subtopic: q.subtopic,
+            userAnswer: answers[q.id]?.selectedAnswer ?? null,
+            correctAnswer: q.correctAnswer,
+            confidence: answers[q.id]?.confidence ?? null,
+            timeSpent: answers[q.id]?.timeSpent ?? 0,
+            isCorrect: answers[q.id]?.selectedAnswer === q.correctAnswer
+        }));
+
+        const total = processedQuestions.length;
+        const correct = processedQuestions.filter(q => q.isCorrect).length;
+        const attempted = processedQuestions.filter(q => q.userAnswer !== null).length;
+        const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+
         const results = {
             testTitle,
             startTime: new Date().toISOString(),
             endTime: new Date().toISOString(),
             totalTimeTaken: 7200 - timeLeft,
-            questions: questions.map(q => ({
-                id: q.id,
-                chapter: q.chapter,
-                subtopic: q.subtopic,
-                userAnswer: answers[q.id]?.selectedAnswer ?? null,
-                correctAnswer: q.correctAnswer,
-                confidence: answers[q.id]?.confidence ?? null,
-                timeSpent: answers[q.id]?.timeSpent ?? 0,
-                isCorrect: answers[q.id]?.selectedAnswer === q.correctAnswer
-            }))
+            questions: processedQuestions,
+            score: accuracy, // Adding core stats for Deep Report summary
+            accuracy,
+            correct,
+            total
         };
 
         // Track for long-term retention
@@ -147,6 +163,26 @@ const SaturdayTestSession: React.FC<SaturdayTestSessionProps> = ({
         const s = seconds % 60;
         return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
     };
+
+    // Keyboard Shortcuts
+    useMCQShortcuts(
+        (optionIdx) => handleAnswerSelect(optionIdx),
+        () => {
+            // Enter key: Next question if answered, or finish if last
+            if (currentIdx < questions.length - 1) {
+                setCurrentIdx(prev => prev + 1);
+            } else {
+                handleFinish();
+            }
+        },
+        () => {
+            // Right Arrow: Next question
+            if (currentIdx < questions.length - 1) {
+                setCurrentIdx(prev => prev + 1);
+            }
+        },
+        true // Enabled
+    );
 
     const currentQuestion = questions[currentIdx];
     const currentState = answers[currentQuestion.id] || {
@@ -172,6 +208,10 @@ const SaturdayTestSession: React.FC<SaturdayTestSessionProps> = ({
                     </div>
                 </div>
                 <div className="flex gap-2">
+                    <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/50 border border-slate-700 text-xs text-slate-400">
+                        <Keyboard className="w-3.5 h-3.5" />
+                        <span>A-D to ans • Enter to next</span>
+                    </div>
                     <Button variant="outline" size="sm" onClick={() => setShowNav(!showNav)} className="bg-slate-800/50 border-slate-700">
                         Question Grid
                     </Button>
