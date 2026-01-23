@@ -12,113 +12,193 @@ const CHAPTER_38_FLASHCARDS: RevisionFlashcard[] = [
     {
         id: 2,
         chapterId: 38,
-        question: "Which Article empowers Parliament to abolish or create a Legislative Council in a state?",
-        answer: "Article 169.\nProcedure: The State Legislative Assembly must pass a resolution by a special majority, and then Parliament can pass a law (by simple majority).",
+        question: "How can a Legislative Council be abolished or created (Article 169)?",
+        answer: "1. The State Legislative Assembly must pass a resolution by a SPECIAL majority.\n2. Parliament must then pass a law by a SIMPLE majority.\n(Note: This is NOT a Constitutional Amendment under Art 368).",
         category: "Constitution",
         difficulty: "medium"
     },
     {
         id: 3,
         chapterId: 38,
-        question: "What is the maximum strength of a Legislative Council?",
-        answer: "The maximum strength is one-third of the total strength of the Legislative Assembly of that state.\nThe minimum strength is fixed at 40.",
+        question: "What is the composition of the Legislative Council (Selection Manner)?",
+        answer: "• 1/3 elected by Local Bodies.\n• 1/3 elected by MLAs.\n• 1/12 elected by Graduates.\n• 1/12 elected by Teachers.\n• 1/6 nominated by the Governor.",
         category: "Composition",
-        difficulty: "medium"
+        difficulty: "hard"
     },
     {
         id: 4,
         chapterId: 38,
-        question: "How are the members of the Legislative Council elected? (Give the breakdown)",
-        answer: "• 1/3 by local bodies (municipalities, etc.)\n• 1/12 by graduates (3 years standing)\n• 1/12 by teachers (3 years standing)\n• 1/3 by MLAs\n• 1/6 nominated by Governor",
-        category: "Election",
-        difficulty: "hard"
+        question: "From which fields can the Governor nominate members to the Legislative Council?",
+        answer: "1. Literature\n2. Science\n3. Art\n4. Social Service\n5. Cooperative Movement (Unique to State).",
+        category: "Composition",
+        difficulty: "medium"
     },
     {
         id: 5,
         chapterId: 38,
-        question: "What is the key difference between the Governor's nomination power to the Council vs the President's to Rajya Sabha?",
-        answer: "The Governor nominates members from 5 fields: Literature, Science, Art, Social Service, AND 'Cooperative Movement'. The President nominates from only the first 4 (Cooperative Movement is unique to States).",
-        category: "Comparison",
-        difficulty: "hard"
+        question: "What is the tenure of the Legislative Council?",
+        answer: "It is a Permanent Body (not subject to dissolution).\nMembers serve a 6-year term.\nOne-third of members retire every 2 years.",
+        category: "Duration",
+        difficulty: "easy"
     },
     {
         id: 6,
         chapterId: 38,
-        question: "Who decides disqualification of a member under the 10th Schedule (Anti-Defection Law)?",
-        answer: "The Presiding Officer of the House (Speaker in Assembly, Chairman in Council).\nNote: The Supreme Court ruled (Kihoto Hollohan case) that this decision is subject to judicial review.",
-        category: "Disqualification",
+        question: "Does the Governor have the power to return a Money Bill for reconsideration?",
+        answer: "No.\nThe Governor can only Give Assent, Withhold Assent, or Reserve it for the President. He CANNOT return a Money Bill.",
+        category: "Powers",
         difficulty: "medium"
     },
     {
         id: 7,
         chapterId: 38,
-        question: "Can the Legislative Council reject a Money Bill?",
-        answer: "No.\nThe Council cannot reject or amend a Money Bill. It can only make recommendations and must return the bill within 14 days. If not returned, it is deemed passed.",
-        category: "Procedure",
-        difficulty: "easy"
+        question: "Who decides on the disqualification of a member under the 10th Schedule (Defection)?",
+        answer: "The Presiding Officer of the House (Speaker/Chairman).\nNote: The decision is subject to Judicial Review (Kihoto Hollohan case).",
+        category: "Disqualification",
+        difficulty: "medium"
     },
     {
         id: 8,
         chapterId: 38,
-        question: "What is the Legislative Council's maximum power to delay an Ordinary Bill?",
-        answer: "4 Months in total.\n• 3 months in the first instance.\n• 1 month in the second instance (if Assembly passes it again).\nThe Assembly prevails; there is no joint sitting.",
-        category: "Procedure",
-        difficulty: "medium"
+        question: "Who decides on disqualification of a member for 'Office of Profit' (Article 191)?",
+        answer: "The Governor.\nHe must obtain the opinion of the Election Commission and act accordingly.",
+        category: "Disqualification",
+        difficulty: "hard"
     },
     {
         id: 9,
         chapterId: 38,
-        question: "What happens to a bill pending in the Legislative Council which has NOT been passed by the Legislative Assembly when the Assembly dissolves?",
-        answer: "It does NOT lapse.\nSince the Assembly (which is dissolving) has not yet touched the bill, it remains pending in the Council.",
+        question: "What is the Legislative Council's power regarding Ordinary Bills?",
+        answer: "It can delay the bill for a maximum of 4 MONTHS:\n• 3 months in the first instance.\n• 1 month in the second instance (after Assembly passes it again).\nThe Assembly prevails; there is no Joint Sitting.",
         category: "Procedure",
         difficulty: "hard"
     },
     {
         id: 10,
         chapterId: 38,
-        question: "To whom does the Speaker of the Legislative Assembly submit his resignation?",
-        answer: "To the Deputy Speaker of the Assembly.",
-        category: "Officers",
-        difficulty: "easy"
+        question: "What is the Quorum for the State Legislature?",
+        answer: "10 members OR one-tenth of the total membership, whichever is GREATER.",
+        category: "Procedure",
+        difficulty: "medium"
     },
     {
         id: 11,
         chapterId: 38,
-        question: "What is the quorum requirement for a meeting of the State Legislature?",
-        answer: "10 members or one-tenth of the total number of members of the House, whichever is greater.",
-        category: "Procedure",
+        question: "What happens if a member is absent for 60 days without permission?",
+        answer: "The House MAY declare his seat vacant.\n(Note: The 60 days excludes periods of prorogation or adjournment for more than 4 consecutive days).",
+        category: "Membership",
         difficulty: "medium"
     },
     {
         id: 12,
         chapterId: 38,
-        question: "Under Article 200, what options does the Governor have when a bill is presented to him?",
-        answer: "1. Give assent\n2. Withhold assent\n3. Return for reconsideration (if not Money Bill)\n4. Reserve for the consideration of the President",
-        category: "Governor",
-        difficulty: "medium"
-    },
-    {
-        id: 13,
-        chapterId: 38,
-        question: "If a person is elected to both the Legislative Assembly and Legislative Council, by when must they choose their seat?",
-        answer: "Within 10 days.\nIf no choice is made within this period, their seat in the Legislative Council becomes vacant (as per ROPA 1951).",
+        question: "What is the rule for Double Membership (Elected to both Houses)?",
+        answer: "The person must choose one house within 10 days.\nIf they fail to choose, their seat in the LEGISLATIVE COUNCIL becomes vacant.",
         category: "Membership",
         difficulty: "hard"
     },
     {
+        id: 13,
+        chapterId: 38,
+        question: "Does the 106th Amendment (Women's Reservation) apply to the Legislative Council?",
+        answer: "No.\nIt applies only to the State Legislative Assembly (Vidhan Sabha) and Lok Sabha.",
+        category: "Current Affairs",
+        difficulty: "medium"
+    },
+    {
         id: 14,
         chapterId: 38,
-        question: "Does the 106th Constitutional Amendment Act (Women's Reservation) apply to Legislative Councils?",
-        answer: "No.\nIt provides for 1/3rd reservation for women only in the Legislative Assemblies (and Lok Sabha), not in the Legislative Councils (or Rajya Sabha).",
-        category: "Current Affairs",
+        question: "When is the Governor obligated to reserve a bill for the President?",
+        answer: "When the bill endangers the position of the State High Court. (Article 200).",
+        category: "Governor",
         difficulty: "medium"
     },
     {
         id: 15,
         chapterId: 38,
-        question: "When is the Governor obligated to reserve a bill for the President?",
-        answer: "When the bill endangers the position of the State High Court.",
-        category: "Governor",
+        question: "Can the President return a State Bill for reconsideration a second time?",
+        answer: "Yes (implied).\nBut if the State Legislature passes it again and sends it back, the President is NOT bound to give his assent (unlike the Governor/President for Central bills).",
+        category: "Veto Power",
+        difficulty: "hard"
+    },
+    {
+        id: 16,
+        chapterId: 38,
+        question: "What happens to a bill pending in the Council but not passed by the Assembly, if the Assembly dissolves?",
+        answer: "It DOES NOT lapse.\nSince the Assembly has not touched it yet, the dissolution of the Assembly does not affect it.",
+        category: "Lapsing",
+        difficulty: "hard"
+    },
+    {
+        id: 17,
+        chapterId: 38,
+        question: "What happens to a bill passed by the Assembly but pending in the Council, if the Assembly dissolves?",
+        answer: "It LAPSES.\n(Because the House that passed it no longer exists).",
+        category: "Lapsing",
+        difficulty: "medium"
+    },
+    {
+        id: 18,
+        chapterId: 38,
+        question: "Can a Minister vote in a House he is not a member of?",
+        answer: "No.\nA Minister can speak and participate in proceedings of either House, but can only vote in the House of which he is a member.",
+        category: "Ministers",
+        difficulty: "easy"
+    },
+    {
+        id: 19,
+        chapterId: 38,
+        question: "Can the Advocate General vote in the State Legislature?",
+        answer: "No.\nHe has the right to speak and participate, but NOT to vote.",
+        category: "Officers",
+        difficulty: "easy"
+    },
+    {
+        id: 20,
+        chapterId: 38,
+        question: "What is the maximum gap allowed between two sessions of the State Legislature?",
+        answer: "Six months.",
+        category: "Sessions",
+        difficulty: "easy"
+    },
+    {
+        id: 21,
+        chapterId: 38,
+        question: "Does the State Legislature have a provision for a Joint Sitting?",
+        answer: "No.\nIn case of deadlock, the will of the Legislative Assembly prevails (after a delay process).",
+        category: "Procedure",
+        difficulty: "medium"
+    },
+    {
+        id: 22,
+        chapterId: 38,
+        question: "Can the Panel of Chairmen preside when the Speaker's office is VACANT?",
+        answer: "No.\nThey can only preside when the Speaker is ABSENT. In case of Vacancy, the Governor appoints a member for the purpose.",
+        category: "Officers",
+        difficulty: "hard"
+    },
+    {
+        id: 23,
+        chapterId: 38,
+        question: "What is the minimum age for membership in the Legislative Council vs Assembly?",
+        answer: "Council: 30 years.\nAssembly: 25 years.",
+        category: "Membership",
+        difficulty: "easy"
+    },
+    {
+        id: 24,
+        chapterId: 38,
+        question: "Who appoints the Speaker Pro Tem?",
+        answer: "The Governor.\n(Usually the senior-most member is appointed to administer oaths).",
+        category: "Officers",
+        difficulty: "medium"
+    },
+    {
+        id: 25,
+        chapterId: 38,
+        question: "Which states currently have a Bicameral Legislature?",
+        answer: "1. Andhra Pradesh\n2. Telangana\n3. Uttar Pradesh\n4. Bihar\n5. Maharashtra\n6. Karnataka",
+        category: "General Fact",
         difficulty: "medium"
     }
 ];
