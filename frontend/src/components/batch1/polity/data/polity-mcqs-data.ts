@@ -427,10 +427,13 @@ const seededContent: MCQ[] = [
     }
 ];
 
+import { PARLIAMENT_MCQS } from './parliament-mcqs';
+
 export const POLITY_MCQS_DATA: MCQ[] = [
     ...legacyDay3,
     ...legacyDay5,
-    ...seededContent
+    ...seededContent,
+    ...PARLIAMENT_MCQS
 ];
 
 export function getMCQsForSubtopics(subtopicIds: string[]): MCQ[] {
