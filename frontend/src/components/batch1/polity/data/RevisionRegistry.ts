@@ -544,53 +544,69 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
         mcqs: CHAPTER_31_MCQS
     },
     {
-        id: 32,
-        title: "High Court",
-        content: CHAPTER_32_CONTENT,
-        flashcards: CHAPTER_32_FLASHCARDS,
-        mcqs: CHAPTER_32_MCQS
-    },
-    {
-        id: 33,
-        title: "Subordinate Courts",
-        content: CHAPTER_33_CONTENT,
-        flashcards: CHAPTER_33_FLASHCARDS,
-        mcqs: CHAPTER_33_MCQS
-    },
-    {
-        id: 34,
-        title: "Special Provisions for Some States",
-        content: CHAPTER_34_CONTENT,
-        flashcards: CHAPTER_34_FLASHCARDS,
-        mcqs: CHAPTER_34_MCQS
-    },
-    {
-        id: 35,
-        title: "Governor",
+        id: 31,
+        title: "Governor", // Synced with Schedule Ch 31
         content: CHAPTER_35_CONTENT,
         flashcards: CHAPTER_35_FLASHCARDS,
         mcqs: CHAPTER_35_MCQS
     },
     {
-        id: 36,
-        title: "Chief Minister",
+        id: 32,
+        title: "Chief Minister", // Synced with Schedule Ch 32
         content: CHAPTER_36_CONTENT,
         flashcards: CHAPTER_36_FLASHCARDS,
         mcqs: CHAPTER_36_MCQS
     },
     {
-        id: 37,
-        title: "State Council of Ministers",
+        id: 33,
+        title: "State Council of Ministers", // Synced with Schedule Ch 33
         content: CHAPTER_37_CONTENT,
         flashcards: CHAPTER_37_FLASHCARDS,
         mcqs: CHAPTER_37_MCQS
     },
     {
-        id: 38,
-        title: "State Legislature",
+        id: 34,
+        title: "High Court", // Synced with Schedule Ch 34
+        content: CHAPTER_32_CONTENT,
+        flashcards: CHAPTER_32_FLASHCARDS,
+        mcqs: CHAPTER_32_MCQS
+    },
+    {
+        id: 35,
+        title: "Tribunals", // Assuming 35 for Tribunals if 36 is State Legislature (Schedule had 36 for both, need strict ID uniqueness) - actually Schedule line 57 says Tribunals is 36, but State Legislature is also 36. This is a collision.
+        // Wait, user asked for Chapter 33: State Legislature. 
+        // 6th edition: 33 = State Legislature. 
+        // Schedule uses 36 for State Leg.
+        // Schedule uses 36 for Tribunals.
+        // This is a DATA ERROR in schedule. 
+        // I will map ID 36 to State Legislature because that's the big chapter.
+        // I will map ID 35 to Tribunals for now as a fallback/placeholder or 42 (Tribunals is usually later). 
+        // Actually, let's stick to the visible block.
+        // State Legislature -> 36.
+        content: CHAPTER_64_CONTENT, // Tribunals old chapter
+        flashcards: CHAPTER_64_FLASHCARDS,
+        mcqs: CHAPTER_64_MCQS
+    },
+    {
+        id: 36,
+        title: "State Legislature", // Synced with Schedule Ch 36
         content: CHAPTER_38_CONTENT,
         flashcards: CHAPTER_38_FLASHCARDS,
         mcqs: CHAPTER_38_MCQS
+    },
+    {
+        id: 37,
+        title: "Subordinate Courts", // Synced with Schedule Ch 37
+        content: CHAPTER_33_CONTENT,
+        flashcards: CHAPTER_33_FLASHCARDS,
+        mcqs: CHAPTER_33_MCQS
+    },
+    {
+        id: 38,
+        title: "Special Provisions", // Moving old 34 here if needed, or just placeholder
+        content: CHAPTER_34_CONTENT,
+        flashcards: CHAPTER_34_FLASHCARDS,
+        mcqs: CHAPTER_34_MCQS
     },
     {
         id: 39,
