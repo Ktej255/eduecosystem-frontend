@@ -337,7 +337,7 @@ Instead of a blanket reduction that could open doors to predators disguising coe
     2: {
         dayId: 2,
         title: "UPSC CSAT Practice Set - Day 02",
-        description: "Climate Finance, ECCD, Higher Education & Energy Efficiency",
+        description: "Climate Finance, ECCD, Higher Education & Solar vs Biofuels",
         vocabulary: [
             {
                 word: "ITMOs (Internationally Transferred Mitigation Outcomes)",
@@ -347,26 +347,286 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                 antonyms: [],
                 csatTip: "Think of it as a tradeable unit of emission reduction.",
                 toneIndicator: 'neutral'
+            },
+            {
+                word: "Epigenetics",
+                context: "Research in epigenetics shows that health, nutrition, and stress before conception can influence gene expression.",
+                definition: "The study of changes in organisms caused by modification of gene expression rather than alteration of the genetic code itself.",
+                synonyms: ["Gene regulation"],
+                antonyms: [],
+                toneIndicator: 'neutral'
             }
         ],
         passages: [
             {
-                id: 1,
-                title: "Article 6 and Climate Finance",
+                id: 201,
+                title: "Passage 1: Article 6 and Climate Finance",
                 source: "Paris Agreement Analysis 2025",
-                content: "To strengthen the delivery and efficiency of climate finance, the carbon markets under Article 6 (A6) of the Paris Agreement were made fully operational at COP29. India's new JCM partnership with Japan is an early example. The real prize lies in using this mechanism to accelerate a low-carbon industrial transformation.",
+                content: "To strengthen the delivery and efficiency of climate finance, the carbon markets under Article 6 (A6) of the Paris Agreement were made fully operational at COP29. According to the A6 Implementation Partnership, there are 89 cooperation arrangements made under Article 6.2 across 58 Parties. The adoption of the Paris Agreement Crediting Mechanism (Article 6.4) marked a milestone in the transition from the Clean Development Mechanism. In August 2025, India entered a new era of carbon markets by signing the Joint Crediting Mechanism (JCM). This effectively operationalised Article 6.2 of the Paris Agreement and signalled a new chapter in international climate cooperation.\n\nWhy does participation of India in the A6 mechanism hold critical significance? Partnerships within A6 can translate into transfer of advanced tech and channel much-needed climate finance. This can be a lever for socio-economic transformation. Critically, the potential of A6 market mechanisms is not just restricted to generating finance through the exchange of carbon credits, known as internationally transferred mitigation outcomes. Instead, the real prize lies in using this mechanism to accelerate a low-carbon industrial transformation. The Paris Agreement's Rule book sets out the architecture for A6. It allows countries to cooperate bilaterally or multilaterally, transferring emissions reductions while ensuring rigorous accounting to avoid double counting. India's new JCM partnership with Japan is an early example.\n\nTo operationalise both Article 6.2 and 6.4, the Indian government has already strategically identified a first set of 13 eligible activities keeping both developmental and climate goals in balance. These are high-end, emerging technologies that can fundamentally shift the country's emissions profile, such as renewable energy with storage, green hydrogen, and compressed bio-gas. The current Indian list of activities reflects a deliberate strategy that aligns with India's long-term goals of deep decarbonisation.",
                 questions: [
                     {
                         id: 1,
-                        question: "Based on the passage, what is the 'real prize' for India in participating in the Article 6 mechanism?",
+                        question: "Based on the passage, what is the 'real prize' for India in participating in the Article 6 mechanism, beyond just financial gain?",
                         options: [
-                            "Immediate financial gain through credit sales",
-                            "Acceleration of low-carbon industrial and technological transformation",
-                            "Universal adoption of electric vehicles",
-                            "Complete removal of coal-based power"
+                            "(a) The ability to sell surplus carbon credits to developed nations to balance the fiscal deficit.",
+                            "(b) The acceleration of low-carbon industrial and technological transformation through advanced tech transfer.",
+                            "(c) The permanent removal of all coal-based power plants by 2030.",
+                            "(d) The complete replacement of the Clean Development Mechanism with a domestic carbon tax."
                         ],
                         correctAnswer: 1,
-                        explanation: "The text states the real prize is the acceleration of low-carbon industrial transformation."
+                        explanation: "The text explicitly states: 'the real prize lies in using this mechanism to accelerate a low-carbon industrial transformation... transfer of advanced tech.'"
+                    },
+                    {
+                        id: 2,
+                        question: "Which of the following statements best describes the operational difference between Article 6.2 and Article 6.4 as implied in the text?",
+                        options: [
+                            "(a) Article 6.2 deals with bilateral/multilateral cooperation like the JCM, while Article 6.4 relates to a centralized crediting mechanism replacing the Clean Development Mechanism.",
+                            "(b) Article 6.2 focuses on green hydrogen, while Article 6.4 focuses on solar energy storage.",
+                            "(c) Article 6.2 is for private sector companies, while Article 6.4 is strictly for government-to-government transfers.",
+                            "(d) Article 6.2 has not yet been operationalized, whereas Article 6.4 was fully operationalized in 2024."
+                        ],
+                        correctAnswer: 0,
+                        explanation: "The text links 'Article 6.2' to 'partnerships' and 'bilateral' (like JCM), and mentions 'Article 6.4' (Paris Agreement Crediting Mechanism) as a centralized transition from the Clean Development Mechanism."
+                    },
+                    {
+                        id: 3,
+                        question: "The passage mentions 'rigorous accounting to avoid double counting' as a key feature. In this context, 'double counting' likely refers to:",
+                        options: [
+                            "(a) Counting the same emission reduction towards the climate targets (NDCs) of both the selling country and the buying country.",
+                            "(b) Counting both carbon dioxide and methane emissions in the same calculation.",
+                            "(c) Paying for the same technology transfer twice—once through aid and once through credits.",
+                            "(d) Registering the same project under both the Indian government and the Japanese government."
+                        ],
+                        correctAnswer: 0,
+                        explanation: "In carbon markets, 'double counting' standardly refers to both the host and buyer country claiming the same emission reduction. The text mentions 'rigorous accounting' is needed to avoid this."
+                    },
+                    {
+                        id: 4,
+                        question: "With reference to India's strategy for Article 6, consider the following statements:\n1. India has signed a Joint Crediting Mechanism (JCM) with Japan to operationalize Article 6.2.\n2. The government has identified eligible activities that focus primarily on traditional coal efficiency rather than emerging technologies.\n3. Green hydrogen and compressed bio-gas are among the identified eligible activities.\nWhich of the statements given above is/are correct?",
+                        options: [
+                            "(a) 1 only",
+                            "(b) 1 and 3 only",
+                            "(c) 2 and 3 only",
+                            "(d) 1, 2 and 3"
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Statement 1 is correct (JCM signed). Statement 2 is incorrect (focus is on 'high-end, emerging technologies'). Statement 3 is correct (Green hydrogen, bio-gas listed)."
+                    },
+                    {
+                        id: 5,
+                        question: "The author suggests that India must 'move from intent to action.' Which of the following is NOT explicitly mentioned as a required policy priority in the text?",
+                        options: [
+                            "(a) Detailing the scope of activities and articulation of rules for Letters of Authorisation.",
+                            "(b) Creating a single-window clearance system for carbon projects to reduce registration time.",
+                            "(c) Mandatory privatization of all renewable energy storage facilities.",
+                            "(d) Building a domestic market for removal activities like Biochar."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Options (a), (b), and (d) are mentioned as priorities. Privatization (c) is not mentioned."
+                    }
+                ]
+            },
+            {
+                id: 202,
+                title: "Passage 2: Early Childhood Care and Development (ECCD)",
+                source: "UPSC/Editorial",
+                content: "India's aspiration to become a $30 trillion economy by 2047 demands sustained investments, particularly in human capital formation. However, a critical link remains largely missing: a focused and systematic investment in early childhood care and development (ECCD). Without strengthening the foundations laid in the earliest years, India's ambitions risk being on fragile ground. An investment in ECCD is not a welfare intervention but a strategic economic investment. From conception to the second birthday—the first 1,000 days—have been recognized by the WHO as a crucial 'window of opportunity'. The next six years constitute another 2,000 days. Thus, the first 3,000 days shape brain architecture.\n\nChildren who are well-nourished and cognitively stimulated are more likely to complete education and earn higher incomes. Paradoxically, ECCD initiatives have largely been targeted at children within government safety nets, leaving out vast sections of middle- and higher-income families. This exclusion is problematic because developmental challenges are not confined to poverty alone. Children from middle and even upper-income households increasingly face obesity, physical inactivity, excessive screen exposure, and delayed social skills. Early childhood development must be universal, not targeted.\n\nResearch in epigenetics shows that health, nutrition, and stress before conception can influence gene expression. Paradoxically, this is also when children spend almost all their time within families, with minimal engagement with formal systems beyond immunisation. In the digital age, many parents rely on social media for guidance, much of which is commercially driven or poorly informed. India must move beyond fragmented approaches. What is needed is an integrated ECCD framework that brings together health, nutrition, and early learning from conception to eight years of age.",
+                questions: [
+                    {
+                        id: 6,
+                        question: "Which one of the following is the most logical corollary to the author's argument that 'ECCD is not a welfare intervention but a strategic economic investment'?",
+                        options: [
+                            "(a) The government should privatize all Anganwadis to ensure they generate profit.",
+                            "(b) Spending on early childhood care directly contributes to future workforce productivity, tax base expansion, and national competitiveness.",
+                            "(c) Welfare schemes are generally wasteful and should be replaced by stock market investments.",
+                            "(d) The primary goal of ECCD is to reduce the medical bills of senior citizens."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text says ECCD is a 'strategic economic investment' because it shapes 'capacity to learn, adapt and contribute productively,' 'expanding the tax base,' and 'lift families out of poverty.'"
+                    },
+                    {
+                        id: 7,
+                        question: "The passage argues that ECCD initiatives should be 'universal, not targeted.' What is the primary justification given for this claim?",
+                        options: [
+                            "(a) Government safety nets have surplus funds that need to be spent on wealthy families.",
+                            "(b) Developmental challenges such as screen exposure, obesity, and delayed social skills are prevalent even in middle and upper-income households.",
+                            "(c) Poor families are already receiving too much support compared to the middle class.",
+                            "(d) Universal coverage is the only way to meet WHO standards."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text states exclusion of middle/upper class is problematic because 'developmental challenges are not confined to poverty alone... increasingly face obesity, physical inactivity...'"
+                    },
+                    {
+                        id: 8,
+                        question: "According to the passage, the period of 'the first 3,000 days' is critical because:",
+                        options: [
+                            "(a) It is the only time when the government provides free immunization.",
+                            "(b) It shapes the child's brain architecture, physical health, and emotional regulation, determining their adult capacity to learn and adapt.",
+                            "(c) It is the period before the child enters the formal school system, after which development stops.",
+                            "(d) It allows the government to collect data for the National Health Mission."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text defines the first 3,000 days (conception to age 8) as the time that 'shape(s) brain architecture, physical health... determine a child's capacity to learn.'"
+                    },
+                    {
+                        id: 9,
+                        question: "The author notes a 'paradox' regarding the time children spend within families during their early years. What is this paradox?",
+                        options: [
+                            "(a) Parents spend the most money on education when the child is at home, but the child learns the least.",
+                            "(b) Children spend almost all their time with families during the most critical developmental phase, yet this is when engagement with formal support systems is minimal.",
+                            "(c) Parents in the digital age are better informed than doctors, yet children are less healthy.",
+                            "(d) Children are most safe at home, yet that is where they face the highest risk of physical injury."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The paradox is: 'this is also when children spend almost all their time within families, with minimal engagement with formal systems' despite it being the most critical developmental phase."
+                    },
+                    {
+                        id: 10,
+                        question: "Based on the passage, 'epigenetics' is relevant to ECCD because:",
+                        options: [
+                            "(a) It proves that genes are unchangeable and determining.",
+                            "(b) It shows that environmental exposures, stress, and nutrition even before conception can influence a child's long-term health and gene expression.",
+                            "(c) It suggests that only medical doctors should be involved in child-rearing.",
+                            "(d) It indicates that digital learning is superior to traditional parenting."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text states: 'Research in epigenetics shows that health, nutrition, and stress... before conception can influence gene expression.'"
+                    }
+                ]
+            },
+            {
+                id: 203,
+                title: "Passage 3: Higher Education Regulation Bill",
+                source: "UPSC/Editorial",
+                content: "The Viksit Bharat Shiksha Adhishthan Bill, 2025, introduced in the Lok Sabha on December 15, 2025, aims to reimagine India's higher education institutions. India's higher education system has expanded rapidly, spanning over a 1,000 universities, but regulation has not evolved at the same pace. Multiple statutory bodies with overlapping mandates (UGC, AICTE, NCTE) have created a maze of approvals that often pulls institutions away from teaching and innovation. This has turned oversight into over-regulation.\n\nNEP 2020 called for a 'light but tight' framework—strong on transparency and standards, but minimal on procedural burden. The Bill creates an apex umbrella body, the Viksit Bharat Shiksha Adhishthan, anchored in Entry 66 of the Seventh Schedule. It proposes repealing three key Acts to unify the regulatory architecture. It envisages a technology-enabled single window system built on public self-disclosure, where institutions publish key information on governance and outcomes. This shifts institutional energy toward what truly matters: teaching and research. International credibility is not achieved by copying foreign models, but by meeting global benchmarks of outcomes and ethics.",
+                questions: [
+                    {
+                        id: 11,
+                        question: "The 'Viksit Bharat Shiksha Adhishthan Bill, 2025' seeks to resolve which primary structural issue in Indian higher education?",
+                        options: [
+                            "(a) The lack of funding for private universities.",
+                            "(b) The fragmentation of regulation caused by multiple statutory bodies with overlapping mandates (UGC, AICTE, NCTE).",
+                            "(c) The refusal of foreign universities to set up campuses in India.",
+                            "(d) The inability of students to pass competitive entrance exams."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text cites 'Multiple statutory bodies with overlapping mandates... created a maze of approvals' as the problem the Bill aims to solve by unifying them."
+                    },
+                    {
+                        id: 12,
+                        question: "The term 'light but tight' framework, as mentioned in the context of NEP 2020 and the Bill, implies:",
+                        options: [
+                            "(a) Minimal government funding but tight control over student unions.",
+                            "(b) Minimal procedural burden and bureaucratic interference, but strict adherence to transparency, outcomes, and academic standards.",
+                            "(c) Light penalties for non-compliance but tight restrictions on faculty recruitment.",
+                            "(d) A framework that is easy to implement in rural areas but strict in urban areas."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text defines it: 'strong on transparency and standards, but minimal on procedural burden.'"
+                    },
+                    {
+                        id: 13,
+                        question: "According to the passage, the Bill proposes to replace the current system of inspections and approvals with:",
+                        options: [
+                            "(a) A technology-enabled single window system based on public self-disclosure and transparency.",
+                            "(b) A system where international agencies conduct all audits.",
+                            "(c) A decentralized system where each state government creates its own standards.",
+                            "(d) A manual system of physical verification by police officers."
+                        ],
+                        correctAnswer: 0,
+                        explanation: "The text mentions: 'technology-enabled single window system built on public self-disclosure.'"
+                    },
+                    {
+                        id: 14,
+                        question: "The Bill is anchored in 'Entry 66 of the Seventh Schedule' of the Constitution. This entry typically relates to:",
+                        options: [
+                            "(a) Law and Order.",
+                            "(b) Foreign Affairs.",
+                            "(c) Coordination and determination of standards in institutions for higher education or research.",
+                            "(d) Agricultural income tax."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "This is a standard Polity fact reinforced by the text's mention of 'Anchored in Entry 66... coordination and determination of standards.'"
+                    },
+                    {
+                        id: 15,
+                        question: "The author argues that 'International credibility' for Indian institutions will come from:",
+                        options: [
+                            "(a) Copying the curriculum of Harvard and Oxford.",
+                            "(b) Hiring only foreign faculty members.",
+                            "(c) Meeting global benchmarks of outcomes, ethics, and research culture while remaining rooted in Indian priorities.",
+                            "(d) Increasing the fees to match international standards."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "The text says: 'not achieved by copying foreign models, but by meeting global benchmarks... while remaining rooted in Indian priorities.'"
+                    }
+                ]
+            },
+            {
+                id: 204,
+                title: "Passage 4: Solar vs Biofuels (Data Interpretation)",
+                source: "UPSC/Editorial",
+                content: "Electric vehicles might be promoted as the key solution, but back in the early 2000s, it was biofuels. While we might expect biofuels to be a solution of the past, production is higher than ever. In this article, we give a sense of perspective on land use. A Poland-sized area is dedicated to liquid biofuels. Collectively, these biofuels produce around 4% of the world's energy demand for transport.\n\nHow much solar power could you produce on that land? The answer is yes. If we put solar panels on that land, we could produce roughly 32,000 terawatt-hours of electricity each year. That is 23 times more than the energy currently produced in the form of all liquid biofuels. We estimate that the total electricity needed to power all cars and trucks is around 7,000 TWh per year. You could power all of the world's cars and trucks on this solar energy using less than one-quarter of the biofuel land.\n\nThese comparisons are explained by the fact that growing crops is a very inefficient process. Plants convert less than 1% of sunlight into biomass. Solar panels convert 15% to 20% (some recent designs 25%). Our point is not that we should cover all biofuel land in solar panels. But we do want to challenge how we think about land use. People rightly question the impact of solar farms on landscapes, but rarely consider the land use of existing biofuel crops, which do very little to decarbonise.",
+                questions: [
+                    {
+                        id: 16,
+                        question: "What is the central data-driven argument presented in the passage against the expansion of biofuels?",
+                        options: [
+                            "(a) Biofuels cause more pollution than petrol and diesel.",
+                            "(b) Biofuels are extremely land-inefficient compared to solar energy; solar can generate 23 times more energy on the same amount of land.",
+                            "(c) Biofuel crops like sugarcane and corn are impossible to grow in Europe.",
+                            "(d) Electric vehicles are too expensive for the average consumer."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The core argument is the massive efficiency gap (Solar is 23x more energy-dense per acre)."
+                    },
+                    {
+                        id: 17,
+                        question: "Based on the passage, if the land currently used for biofuels were converted to solar panels, what would be the potential outcome regarding transport energy?",
+                        options: [
+                            "(a) It would barely cover 10% of the world's transport energy needs.",
+                            "(b) It would generate enough electricity to power all the world's cars and trucks, using only about one-quarter of that land.",
+                            "(c) It would require 32 million more hectares of land to be effective.",
+                            "(d) It would lead to a collapse of the global food supply chain."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text says: 'You could power all of the world's cars and trucks on this solar energy using less than one-quarter of the biofuel land.'"
+                    },
+                    {
+                        id: 18,
+                        question: "The huge disparity in energy efficiency between biofuels and solar panels is attributed to:",
+                        options: [
+                            "(a) The high cost of solar panel manufacturing.",
+                            "(b) The biological limit where plants convert less than 1% of sunlight into biomass, versus solar panels converting 15-25%.",
+                            "(c) The fact that biofuels are mostly produced in Brazil and the US.",
+                            "(d) The government subsidies provided to the solar industry."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text explains: 'Plants convert less than 1% of sunlight... Solar panels convert 15% to 20%.'"
+                    },
+                    {
+                        id: 19,
+                        question: "Which of the following best captures the author's intent in making this comparison?",
+                        options: [
+                            "(a) To advocate for the immediate destruction of all farms.",
+                            "(b) To prove that electric vehicles are a failed technology.",
+                            "(c) To challenge the public perception of land use, highlighting that existing biofuel crops occupy vast land for minimal energy benefit compared to solar.",
+                            "(d) To suggest that Poland should become the world's leading solar energy producer."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "The author states: 'We do want to challenge how we think about land use... rarely consider the land use of existing biofuel crops.'"
+                    },
+                    {
+                        id: 20,
+                        question: "What is the approximate current contribution of liquid biofuels to the world's transport energy demand, as per the text?",
+                        options: [
+                            "(a) 4%",
+                            "(b) 15%",
+                            "(c) 25%",
+                            "(d) 50%"
+                        ],
+                        correctAnswer: 0,
+                        explanation: "The text explicitly states: 'produce around 4% of the world's energy demand for transport.'"
                     }
                 ]
             }
@@ -691,6 +951,303 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                         ],
                         correctAnswer: 1,
                         explanation: "Text explicitly mentions \"Under the NULM policy...\""
+                    }
+                ]
+            }
+        ]
+    },
+    4: {
+        dayId: 4,
+        title: "UPSC CSAT Practice Set - Day 04",
+        description: "Biodiversity, Social Justice, Science & Tech, Environment",
+        vocabulary: [
+            {
+                word: "Ramsar Sites",
+                context: "...every year several migratory birds flock to wetlands and Ramsar sites in Assam.",
+                definition: "Wetlands of international importance designated under the Ramsar Convention for conservation.",
+                synonyms: ["Protected wetlands"],
+                antonyms: [],
+                toneIndicator: 'neutral'
+            },
+            {
+                word: "Presolar Grains",
+                context: "Bennu also showed unusually abundant presolar grains, especially supernova dust.",
+                definition: "Microscopic particles that formed before the creation of our solar system, originating from dying stars.",
+                synonyms: ["Stardust"],
+                antonyms: [],
+                toneIndicator: 'neutral'
+            }
+        ],
+        passages: [
+            {
+                id: 401,
+                title: "Passage 1: Biodiversity (Assam's Wetlands)",
+                source: "UPSC/Editorial",
+                content: "With winter, tiny moving specks appearing on the sky over Assam mark the arrival of avian guests that flock to riverbeds, wetlands, and natural and artificial reservoirs. To escape the biting cold of Siberian, Tibetan, and European landscapes, every year several migratory birds flock to wetlands and Ramsar sites in Assam. This year too, these winged guests have made their way to birding spots in the northeastern State, boosting its biodiversity and ecotourism initiatives. Vibrant migratory species such as white-fronted geese, pied avocets, greylag geese, ruddy shelducks, falcated ducks, ferruginous pochards, northern pintails, great crested grebes, and bar-headed geese – known for their high-altitude migratory flight – have arrived to roost in the State's wetlands.\n\nDespite threats posed by unsustainable development activities to waterbodies and wildlife reserves, Assam remains an important seasonal hub for migratory birds. Some of the popular birding destinations in the State include Deepor Beel in Kamrup Metropolitan district; Maguri Motapung Beel in Tinsukia; Poni Diling Beel in Sivasagar; the lakes within the Kaziranga National Park and Tiger Reserve; and the largest of all, Son Beel in Karimganj district. Apart from these regular stopovers, the winter visitors also explore new and picturesque locations each year. Assam has long hosted these long-distance travellers with sustained conservation efforts, which continue to be strengthened to protect their habitats.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "Which one of the following statements best reflects the central theme of the passage?",
+                        options: [
+                            "(a) The impact of climate change on the migration patterns of Siberian birds.",
+                            "(b) The role of Assam's wetlands as a critical seasonal habitat for migratory birds despite developmental threats.",
+                            "(c) The economic potential of Deepor Beel as a tourist destination.",
+                            "(d) The decline in the population of bar-headed geese due to pollution in Assam."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text focuses on migratory birds arriving in Assam's wetlands and the dual reality of them being an 'important seasonal hub' despite 'threats posed by unsustainable development.'"
+                    },
+                    {
+                        id: 2,
+                        question: "According to the passage, which of the following is NOT listed as a location where migratory birds are found in Assam?",
+                        options: [
+                            "(a) Maguri Motapung Beel",
+                            "(b) Son Beel",
+                            "(c) Loktak Lake",
+                            "(d) Poni Diling Beel"
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Loktak Lake is in Manipur. The text lists Deepor Beel, Maguri Motapung Beel, Poni Diling Beel, and Son Beel."
+                    },
+                    {
+                        id: 3,
+                        question: "The passage mentions the 'bar-headed geese' specifically for which characteristic?",
+                        options: [
+                            "(a) Their vibrant white-fronted plumage.",
+                            "(b) Their high-altitude migratory flight.",
+                            "(c) Their status as an endangered species.",
+                            "(d) Their nesting habits in artificial reservoirs."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text explicitly describes 'bar-headed geese – known for their high-altitude migratory flight.'"
+                    },
+                    {
+                        id: 4,
+                        question: "What is the author's stance on the relationship between 'development' and 'biodiversity' in the context of Assam?",
+                        options: [
+                            "(a) Development has completely destroyed the habitat, forcing birds to find new locations.",
+                            "(b) Sustainable development has successfully eliminated all threats to wildlife.",
+                            "(c) Threats from unsustainable development activities exist, yet the state remains a vital hub due to conservation efforts.",
+                            "(d) The author suggests that development activities should be banned in all wetland areas."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "The text states: 'Despite threats posed by unsustainable development... Assam remains an important seasonal hub... sustained conservation efforts continue.'"
+                    },
+                    {
+                        id: 5,
+                        question: "Based on the passage, the arrival of these 'winged guests' contributes primarily to:",
+                        options: [
+                            "(a) The agricultural output of the state by controlling pests.",
+                            "(b) The state's biodiversity and ecotourism initiatives.",
+                            "(c) The reduction of water levels in artificial reservoirs.",
+                            "(d) The increase in fish production in Son Beel."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text states their arrival is 'boosting its biodiversity and ecotourism initiatives.'"
+                    }
+                ]
+            },
+            {
+                id: 402,
+                title: "Passage 2: Social Justice (Acid Attacks)",
+                source: "UPSC/Editorial",
+                content: "In 2023, 57 reported acid attacks took place in West Bengal, 31 in Uttar Pradesh, and 15 in Gujarat. According to the National Crime Records Bureau (NCRB), there were 207 reported cases of acid attacks in 2023, yet the conviction rate remains low. Of 703 acid attack cases in Indian courts in 2023 (including pending ones), there were only 16 convictions and 27 acquittals. Survivor Shaheen Malik's case highlights the judicial insensitivity; she did not get a verdict for 16 years, and the accused were acquitted. The crime is severely underreported due to societal stigma, family pressure, and fear of retaliation.\n\nSection 124 of the Bharatiya Nyaya Sanhita (BNS) mandates a minimum punishment of 10 years in prison up to life imprisonment, and a 'just and reasonable' fine to meet the victim's medical expenses. The law also requires all public and private hospitals to provide free treatment to victims. In 2013, the Supreme Court mandated the regulation of acid sales, with a photo ID for buyers and a register of purchases, but this is poorly implemented. Survivors have called for a more comprehensive ban. In contrast, neighbouring Bangladesh passed stringent laws against acid sales and attacks in 2002, accompanied by large-scale awareness campaigns, after which the number of reported attacks has fallen 15% to 20% each year; from 494 attacks in 2002, there were only 13 in 2024.",
+                questions: [
+                    {
+                        id: 6,
+                        question: "Based on the passage, which of the following best explains the low conviction rate in acid attack cases in India?",
+                        options: [
+                            "(a) The lack of stringent laws punishing the crime.",
+                            "(b) The absence of medical evidence in most cases.",
+                            "(c) Factors such as judicial delays, poor investigation, and witnesses/victims turning hostile due to pressure or settlements.",
+                            "(d) The fact that most acid attacks are accidental."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "The text mentions judicial insensitivity, 16-year delay, and the crime being underreported due to 'societal stigma, family pressure, and fear of retaliation.'"
+                    },
+                    {
+                        id: 7,
+                        question: "What distinction does the passage draw between India and Bangladesh regarding acid attacks?",
+                        options: [
+                            "(a) Bangladesh has failed to control acid attacks while India has succeeded.",
+                            "(b) India relies on social awareness while Bangladesh relies on police enforcement.",
+                            "(c) Bangladesh successfully reduced attacks from 494 to 13 through stringent laws and awareness, whereas India struggles with poor implementation and rising cases.",
+                            "(d) Bangladesh has completely banned the production of acid, whereas India has not."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "The text says Bangladesh passed 'stringent laws... accompanied by large-scale public awareness campaigns' leading to attacks falling from 494 to 13."
+                    },
+                    {
+                        id: 8,
+                        question: "According to the text, Section 124 of the Bharatiya Nyaya Sanhita (BNS) includes which of the following provisions?\n1. Minimum punishment of 10 years imprisonment.\n2. Mandatory death penalty for all offenders.\n3. A 'just and reasonable' fine to cover the victim's medical expenses.\nSelect the correct answer:",
+                        options: [
+                            "(a) 1 only",
+                            "(b) 1 and 3 only",
+                            "(c) 2 and 3 only",
+                            "(d) 1, 2, and 3"
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text says Section 124 mandates 'minimum punishment of 10 years... up to life' and a 'just and reasonable fine.' It does not mention a mandatory death penalty."
+                    },
+                    {
+                        id: 9,
+                        question: "The Supreme Court's 2013 mandate regarding acid sales requires:",
+                        options: [
+                            "(a) A total ban on the sale of all corrosive substances.",
+                            "(b) Buyers to provide a photo ID and sellers to maintain a register of purchases.",
+                            "(c) Acid to be sold only in government hospitals.",
+                            "(d) Buyers to obtain a license from the District Magistrate."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text states the 2013 mandate requires 'a photo ID for buyers, and sellers required to keep a register of purchases.'"
+                    },
+                    {
+                        id: 10,
+                        question: "The passage cites the 'Shaheen Malik' case primarily to illustrate:",
+                        options: [
+                            "(a) The success of the 'Brave Souls Foundation' in securing convictions.",
+                            "(b) The effectiveness of the Delhi High Court in speeding up trials.",
+                            "(c) The 'denial of justice' caused by extreme judicial delay (16 years) and insensitivity leading to acquittal.",
+                            "(d) The importance of financial compensation over legal rights."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "The text uses her case to show 'judicial insensitivity' where she 'did not get a verdict for 16 years' and the accused were acquitted."
+                    }
+                ]
+            },
+            {
+                id: 403,
+                title: "Passage 3: Science & Tech (Asteroid Bennu)",
+                source: "UPSC/Editorial",
+                content: "In 2020, NASA's OSIRIS-REx mission collected samples from asteroid Bennu. On December 2, three teams published papers reporting Bennu contains sugar and other important molecules required to form RNA, and is also surprisingly abundant in supernova dust. Scientists reported finding ribose, the sugar molecule required for RNA, and glucose. Together with previous findings of amino acids and nucleobases, the entire inventory of molecules scientists believe are needed for life have now been confirmed on Bennu.\n\nThe findings strengthen the 'RNA world' hypothesis: that early life used RNA as a source of genetic information and for catalytic functions, before DNA and proteins evolved. According to the study, the abundance of asteroids like Bennu in the inner solar system would have provided sugars and amino acids, leading to the formation of life on earth more than 3.5 billion years ago. Scientists also found evidence of chemical reactions between ices forming polymer molecules before the ices melted. Bennu also showed unusually abundant presolar grains, especially supernova dust. The concentration of presolar grains was at least 6x higher than in other similar asteroids. These grains originated from various types of stars, with high concentrations from supernovae.",
+                questions: [
+                    {
+                        id: 11,
+                        question: "The discovery of ribose on Asteroid Bennu is significant because:",
+                        options: [
+                            "(a) It proves that life currently exists on Bennu.",
+                            "(b) Ribose is the sugar molecule required for RNA, supporting the theory that asteroids delivered key ingredients for life to Earth.",
+                            "(c) It indicates that Bennu was once a planet like Earth.",
+                            "(d) It suggests that Bennu is made entirely of sugar and ice."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text states findings 'strengthen the RNA world hypothesis... asteroids... would have provided sugars... leading to the formation of life.'"
+                    },
+                    {
+                        id: 12,
+                        question: "The 'RNA world hypothesis' mentioned in the passage proposes that:",
+                        options: [
+                            "(a) DNA evolved before RNA and proteins.",
+                            "(b) Early life relied on RNA for both genetic information and catalytic functions before DNA and proteins evolved.",
+                            "(c) Life on Earth originated solely from volcanic activity.",
+                            "(d) RNA can only be formed in the presence of liquid water on Earth."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text defines it as: 'early life used RNA as a source of genetic information and for catalytic functions, before DNA and proteins evolved.'"
+                    },
+                    {
+                        id: 13,
+                        question: "What are 'presolar grains' as described in the context of the passage?",
+                        options: [
+                            "(a) Grains of sand found on Mars.",
+                            "(b) Dust particles that formed from the sun's surface.",
+                            "(c) Dust particles, including supernova dust, that originated from stars before the sun formed.",
+                            "(d) Frozen water droplets found in the asteroid belt."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "The text says 'presolar grains... especially supernova dust... originated from various types of stars' before our sun formed."
+                    },
+                    {
+                        id: 14,
+                        question: "The passage notes that the concentration of presolar grains on Bennu was 'at least 6x higher' than in other similar asteroids. What does this suggest about Bennu?",
+                        options: [
+                            "(a) Bennu is much younger than other asteroids.",
+                            "(b) Bennu formed in a part of space where supernova dust was present in abundant quantities.",
+                            "(c) Bennu has been contaminated by space debris from Earth.",
+                            "(d) Bennu is rapidly disintegrating into dust."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text says concentrations were highest for grains of supernova origin, indicating Bennu formed where supernova dust was abundant."
+                    },
+                    {
+                        id: 15,
+                        question: "Consider the following statements about the findings from the OSIRIS-REx mission mentioned in the text:\n1. Bennu contains the entire inventory of molecules believed to be needed for life, including amino acids and nucleobases.\n2. Evidence of chemical reactions forming nitrogen-rich polymers was found.\n3. The mission failed to bring samples back to Earth.\nWhich of the statements given above is/are correct?",
+                        options: [
+                            "(a) 1 only",
+                            "(b) 1 and 2 only",
+                            "(c) 2 and 3 only",
+                            "(d) 1, 2, and 3"
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Statement 1 is correct ('entire inventory... confirmed'). Statement 2 is correct ('evidence of chemical reactions... forming polymer molecules'). Statement 3 is incorrect (Scientists are studying the samples, so they successfully returned)."
+                    }
+                ]
+            },
+            {
+                id: 404,
+                title: "Passage 4: Environment (Cauvery Pollution)",
+                source: "UPSC/Editorial",
+                content: "Along its course, the Cauvery receives water from multiple tributaries but reservoirs like the Mettur Dam regulate its flow. For generations, the river sustained temple towns and planting seasons. Today, it absorbs sullage and sewage that cities and industries are unable or unwilling to treat. Only a fraction of the sewage generated across the basin is treated adequately. The rest enters the river largely untreated. Clandestine dumping of waste is common. When surplus water is released (from dams), industrial effluents are allegedly discharged into the river under the cover of night.\n\nAt Mettur, where industrial clusters draw water, dyeing and bleaching units discharge effluents. In Erode, one of the most acute urban pressure points, tanneries remain the most contaminated source. Wastewater from many units enters streams such as Pichaikaranpallam, which drain into the river. Erode generates 35 to 40 MLD of sewage, but only about 8 MLD is treated. The Central Pollution Control Board classified this stretch as polluted. Further downstream, in Tiruppur, the Noyyal river (a tributary) brings effluents from dyeing units. A 2021 study published in Science of the Total Environment examined the presence of pharmaceutically active compounds. Researchers detected substances such as caffeine, carbamazepine, diclofenac, and triclosan at most sampling locations. High chemical concentrations cause the soil to silt up and harden, preventing roots from penetrating.",
+                questions: [
+                    {
+                        id: 16,
+                        question: "According to the passage, what is the primary behavior of industries regarding effluent discharge during the release of surplus water from dams?",
+                        options: [
+                            "(a) They shut down operations to prevent overflow.",
+                            "(b) They use the opportunity to allegedly discharge effluents into the river under the cover of night, masking the pollution.",
+                            "(c) They increase their treatment capacity to match the water flow.",
+                            "(d) They divert the effluents to agricultural fields."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text states: 'When surplus water is released... industrial effluents are allegedly discharged into the river under the cover of night.'"
+                    },
+                    {
+                        id: 17,
+                        question: "The passage highlights a '2021 study' that detected which specific type of contamination in the Cauvery?",
+                        options: [
+                            "(a) Heavy metals like lead and mercury only.",
+                            "(b) Radioactive waste from nuclear plants.",
+                            "(c) Pharmaceutically active compounds like caffeine, antibiotics, and painkillers (diclofenac).",
+                            "(d) Microplastics from textile industries only."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "The text mentions the study detected 'pharmaceutically active compounds' including 'caffeine, carbamazepine, diclofenac.'"
+                    },
+                    {
+                        id: 18,
+                        question: "Which of the following locations is correctly paired with its primary source of industrial pollution as mentioned in the text?",
+                        options: [
+                            "(a) Erode – Software Parks",
+                            "(b) Tiruppur – Tanneries",
+                            "(c) Erode – Tanneries",
+                            "(d) Mettur – Automobile manufacturing"
+                        ],
+                        correctAnswer: 2,
+                        explanation: "The text explicitly states: 'In Erode... tanneries remain the most contaminated source.' (Tiruppur is linked to dyeing)."
+                    },
+                    {
+                        id: 19,
+                        question: "What is the impact of 'high chemical concentrations' on agriculture mentioned in the passage?",
+                        options: [
+                            "(a) It increases the crop yield by providing extra nutrients.",
+                            "(b) It causes the soil to silt up and harden, preventing roots from penetrating.",
+                            "(c) It attracts pests that destroy crops.",
+                            "(d) It lowers the soil pH, making it too acidic for rice."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text states: 'High chemical concentrations cause the soil to silt up and harden, preventing roots from penetrating.'"
+                    },
+                    {
+                        id: 20,
+                        question: "The passage suggests that the 'Central Pollution Control Board' (CPCB) has:",
+                        options: [
+                            "(a) Classified the Erode stretch of the Cauvery as polluted.",
+                            "(b) Declared the Cauvery water fit for drinking without treatment.",
+                            "(c) Shut down all industries in Tiruppur.",
+                            "(d) Built 40 new sewage treatment plants in Mettur."
+                        ],
+                        correctAnswer: 0,
+                        explanation: "The text states: 'The Central Pollution Control Board classified this stretch [Erode] of the Cauvery as polluted.'"
                     }
                 ]
             }
