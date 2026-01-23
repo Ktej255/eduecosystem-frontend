@@ -30,7 +30,13 @@ export interface FlexibleFlashcard {
 // Temporary flashcard generator (fallback if no real data)
 function generateFlashcardsForSubtopics(subtopics: SubTopic[]): FlexibleFlashcard[] {
     const realCards = getFlashcardsForSubtopics(subtopics.map(s => s.id));
-    if (realCards.length > 0) return realCards;
+    if (realCards.length > 0) {
+        // Randomize and take up to 10
+        if (realCards.length > 10) {
+            return realCards.sort(() => 0.5 - Math.random()).slice(0, 10);
+        }
+        return realCards;
+    }
 
     // This generates placeholder flashcards
     const flashcards: FlexibleFlashcard[] = [];

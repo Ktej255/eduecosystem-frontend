@@ -5,8 +5,11 @@ export interface Flashcard {
     answer: string;
 }
 
+import { PARLIAMENT_FLASHCARDS } from './parliament-flashcards';
+
 // Initial content for Chapter 11: Amendment of the Constitution
 export const POLITY_FLASHCARDS_DATA: Flashcard[] = [
+    ...PARLIAMENT_FLASHCARDS,
     // Note: WEEK1_FLASHCARDS are in a different format (front/back) - access via content-registry.ts
 
     // 11.1 Procedure for Amendment
