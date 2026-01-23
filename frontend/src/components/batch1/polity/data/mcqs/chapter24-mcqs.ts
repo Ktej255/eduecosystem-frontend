@@ -1,131 +1,214 @@
-import { MCQ } from '../RevisionRegistry';
+import { MCQ } from "../RevisionRegistry";
 
 export const CHAPTER_24_MCQS: MCQ[] = [
     {
         id: 1,
         chapterId: 24,
-        question: "Which of the following describes Cabinet Committees correctly?",
+        question: "Regarding 'Features of Cabinet Committees', which statement is strictly mentioned in the text?\n1. Extra-constitutional in emergence.\n2. Found in Rules of Business.\n3. Only Cabinet Ministers can be members.\n4. Set up by PM according to exigencies.",
         options: [
-            "They are provided for in the original Constitution",
-            "They are extra-constitutional bodies",
-            "They are appointed by the President",
-            "They are part of the Basic Structure"
+            "1, 2, and 4 only",
+            "1, 3, and 4 only",
+            "2, 3, and 4 only",
+            "1, 2, 3, and 4"
         ],
-        correctAnswer: 1,
-        explanation: "They are extra-constitutional and established under the Government of India (Allocation of Business) Rules, 1961.",
-        difficulty: "easy"
+        correctAnswer: 0,
+        explanation: "Statement 3 is incorrect. While mostly Cabinet Ministers, other Ministers can also be members.",
+        difficulty: "medium"
     },
     {
         id: 2,
         chapterId: 24,
-        question: "The 'Super-Cabinet' is a nickname for which committee?",
+        question: "Who usually chairs the Cabinet Committee on Parliamentary Affairs?",
         options: [
-            "Economic Affairs Committee",
-            "Military Affairs Committee",
-            "Political Affairs Committee",
-            "Appointments Committee"
+            "The Prime Minister",
+            "The Speaker of the Lok Sabha",
+            "The Home Minister",
+            "The Minister of Parliamentary Affairs"
         ],
         correctAnswer: 2,
-        explanation: "The Political Affairs Committee handles both domestic and foreign policy, making it the most powerful.",
-        difficulty: "medium"
+        explanation: "The PM chairs most committees, but CCPA and CCA are usually chaired by the Home Minister.",
+        difficulty: "easy"
     },
     {
         id: 3,
         chapterId: 24,
-        question: "Higher-level appointments in Central Secretariat are decided by:",
+        question: "Consider statements regarding membership:\n1. Membership varies from 3 to 8.\n2. Ministers not of Cabinet rank can be members.\n3. PM is a member of all Cabinet Committees.\nWhich are correct?",
         options: [
-            "Prime Minister independently",
-            "Appointments Committee of the Cabinet",
-            "UPSC",
-            "Department of Personnel and Training"
+            "1 only",
+            "1 and 2 only",
+            "2 and 3 only",
+            "1, 2, and 3"
         ],
         correctAnswer: 1,
-        explanation: "The ACC (headed by PM) is the final authority for these major appointments.",
+        explanation: "Statement 3 is incorrect. PM is not a member of all committees (e.g., Accommodation, Parliamentary Affairs).",
         difficulty: "medium"
     },
     {
         id: 4,
         chapterId: 24,
-        question: "Who among the following can be members of Cabinet Committees?",
+        question: "If the Prime Minister is not a member of a Cabinet Committee, who generally chairs it?",
         options: [
-            "Cabinet Ministers only",
-            "Cabinet and Ministers of State only",
-            "Cabinet Ministers, MoS, and Deputy Ministers",
-            "Any member of Parliament"
+            "The Home Minister",
+            "The senior-most Cabinet Minister",
+            "The Finance Minister",
+            "The Minister of Law and Justice"
         ],
-        correctAnswer: 0,
-        explanation: "Usually only Cabinet Ministers are members, but occasionally MoS or others can be included.",
-        difficulty: "hard"
+        correctAnswer: 1,
+        explanation: "The senior-most Cabinet Minister (often the Home Minister) presides.",
+        difficulty: "medium"
     },
     {
         id: 5,
         chapterId: 24,
-        question: "The Cabinet Committee on Parliamentary Affairs is headed by:",
-        options: ["The Prime Minister", "The Speaker", "The Home Minister", "The Finance Minister"],
+        question: "Which committee is described as the 'Super-Cabinet'?",
+        options: [
+            "Cabinet Committee on Economic Affairs",
+            "Appointments Committee of the Cabinet",
+            "Political Affairs Committee",
+            "Cabinet Committee on Security"
+        ],
         correctAnswer: 2,
-        explanation: "Unlike most major committees, this one is often headed by the Home Minister.",
-        difficulty: "hard"
+        explanation: "The Political Affairs Committee deals with all policy matters and is called the Super-Cabinet.",
+        difficulty: "easy"
     },
     {
         id: 6,
         chapterId: 24,
-        question: "A temporary committee set up to solve a particular issue is called:",
-        options: ["Standing Committee", "Ad hoc Committee", "Select Committee", "Joint Committee"],
-        correctAnswer: 1,
-        explanation: "Ad hoc means 'for this purpose' and implies a temporary nature.",
-        difficulty: "easy"
+        question: "Match Committee to Function:\n1. Appointments Committee\n2. CCA (Accommodation)\n3. CCPA (Parliamentary Affairs)\n4. CCEA (Economic Affairs)\nFunctions:\n(a) Progress of govt business in Parliament.\n(b) Higher-level appointments.\n(c) Allotment of accommodation.\n(d) Economic sphere coordination.",
+        options: [
+            "1-(b), 2-(c), 3-(a), 4-(d)",
+            "1-(b), 2-(a), 3-(c), 4-(d)",
+            "1-(d), 2-(c), 3-(a), 4-(b)",
+            "1-(a), 2-(b), 3-(d), 4-(c)"
+        ],
+        correctAnswer: 0,
+        explanation: "Appointments->Appointments; Accommodation->Accommodation; Parliamentary Affairs->Business; Economic Affairs->Economy.",
+        difficulty: "medium"
     },
     {
         id: 7,
         chapterId: 24,
-        question: "Cabinet Committees are an instrument of:",
+        question: "Which committee reviews the schedule of Parliament sessions?",
         options: [
-            "Separation of powers",
-            "Organizational convenience and workload reduction",
-            "Direct democracy",
-            "Judicial oversight"
+            "Political Affairs Committee",
+            "Cabinet Committee on Parliamentary Affairs",
+            "Appointments Committee",
+            "CCIG"
         ],
         correctAnswer: 1,
-        explanation: "They help the Cabinet manage its huge volume of work and provide expertise.",
+        explanation: "The Cabinet Committee on Parliamentary Affairs draws up the schedule for sessions.",
         difficulty: "easy"
     },
     {
         id: 8,
         chapterId: 24,
-        question: "The Prime Minister is the chairman of all cabinet committees EXCEPT:",
+        question: "Primary reason for abolition of GoMs/EGoMs in 2014?",
         options: [
-            "Appointments Committee",
-            "Economic Affairs Committee",
-            "Parliamentary Affairs Committee",
-            "Security Committee"
+            "Found unconstitutional.",
+            "To empower Ministries and usher in accountability.",
+            "Taking decisions meant for PM.",
+            "Lack of senior ministers."
         ],
-        correctAnswer: 2,
-        explanation: "Parliamentary Affairs and Accommodation are usually exceptions where a senior minister other than PM might preside.",
-        difficulty: "hard"
+        correctAnswer: 1,
+        explanation: "Intended to expedite decision-making and increase ministerial responsibility.",
+        difficulty: "medium"
     },
     {
         id: 9,
         chapterId: 24,
-        question: "The decisions taken by a cabinet committee are:",
+        question: "Difference between GoMs and EGoMs:",
         options: [
-            "Final and cannot be reversed",
-            "Only recommendations",
-            "Subject to review by the Cabinet",
-            "Subject to approval by the President"
+            "GoMs permanent, EGoMs ad hoc.",
+            "EGoMs can take firm decisions; GoMs only recommend.",
+            "GoMs only Cabinet Ministers.",
+            "Terms used interchangeably."
         ],
-        correctAnswer: 2,
-        explanation: "They can take decisions, but technically the full Cabinet can review/overrule them.",
-        difficulty: "medium"
+        correctAnswer: 1,
+        explanation: "Empowered GoMs (EGoMs) can take decisions on behalf of the cabinet.",
+        difficulty: "easy"
     },
     {
         id: 10,
         chapterId: 24,
-        question: "The Cabinet Committee on Employment and Skill Development (created in 2019) is a:",
-        options: ["Standing Committee", "Ad hoc Committee", "Parliamentary Committee", "Statutory body"],
+        question: "Which two NEW Cabinet Committees were constituted in 2019?\n1. Investment and Growth\n2. Employment and Skill Development\n3. Infrastructure\n4. Digital Economy",
+        options: [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 4 only",
+            "1, 2, 3, and 4"
+        ],
         correctAnswer: 0,
-        explanation: "It was created as a permanent standing committee to address the job crisis.",
-        difficulty: "hard"
+        explanation: "The two new committees are 'Investment and Growth' and 'Employment and Skill Development'.",
+        difficulty: "medium"
+    },
+    {
+        id: 11,
+        chapterId: 24,
+        question: "Objective of Cabinet Committee on Investment and Growth (CCIG):",
+        options: [
+            "Identify key projects for time-bound implementation.",
+            "Manage disinvestment.",
+            "Monitor FDI only.",
+            "Draft infrastructure budget."
+        ],
+        correctAnswer: 0,
+        explanation: "To identify key projects required to be implemented on a time-bound basis.",
+        difficulty: "medium"
+    },
+    {
+        id: 12,
+        chapterId: 24,
+        question: "Who are members of the Cabinet Committee on Security (CCS)?",
+        options: [
+            "PM, Home, Defense, Finance only.",
+            "PM, Home, Defense, Finance, External Affairs.",
+            "PM, NSA, Defense, External Affairs.",
+            "PM, Home, Chiefs of Staff."
+        ],
+        correctAnswer: 1,
+        explanation: "PM + Big 4: Home, Defense, Finance, External Affairs.",
+        difficulty: "medium"
+    },
+    {
+        id: 13,
+        chapterId: 24,
+        question: "Main advantage of Cabinet Committees as 'organisational devices':\n1. In-depth examination.\n2. Division of labour.\n3. Reduce workload.\n4. Effective delegation.",
+        options: [
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1 and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        correctAnswer: 3,
+        explanation: "All listed are advantages found in the text.",
+        difficulty: "easy"
+    },
+    {
+        id: 14,
+        chapterId: 24,
+        question: "Decisions of Cabinet Committees are subject to:",
+        options: [
+            "Approval by President.",
+            "Review by Cabinet.",
+            "Scrutiny by DRSCs.",
+            "Approval by Speaker."
+        ],
+        correctAnswer: 1,
+        explanation: "The Cabinet is the ultimate authority and can review any decision.",
+        difficulty: "medium"
+    },
+    {
+        id: 15,
+        chapterId: 24,
+        question: "Regarding Cabinet Committee on Accommodation:\n1. Chaired by PM.\n2. Consists of Home, Finance, Law ministers (example).\n3. Determines accommodation allotment.",
+        options: [
+            "1 and 2 only",
+            "3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        correctAnswer: 2,
+        explanation: "Statement 1 is incorrect. It is NOT presided by the PM (usually Home Minister).",
+        difficulty: "medium"
     }
 ];
-
-export default CHAPTER_24_MCQS;
