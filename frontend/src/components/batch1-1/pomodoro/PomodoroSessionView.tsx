@@ -14,9 +14,9 @@ import CycleFlashcards from "./CycleFlashcards";
 import CycleMCQs, { ConfidenceLevel } from "./CycleMCQs";
 import ReadingMaterial from "./ReadingMaterial";
 import BreakTimer from "./BreakTimer";
-import { getChaptersForWeek } from "../data/polity-modules";
+// Removed old module import to enforce strict schedule sync
 import { CHAPTER_SUBTOPICS, SubTopic } from "@/components/batch1/polity/data/polity-subtopics";
-import { LAXMIKANTH_CHAPTERS } from "@/components/batch1/polity/data/polity-schedule-data";
+import { LAXMIKANTH_CHAPTERS, generateWeeklySchedule } from "@/components/batch1/polity/data/polity-schedule-data";
 import { markChapterComplete, markSubtopicsComplete, updateDayProgress, recordMCQScore } from "@/lib/polity-progress-store";
 import { ambientSoundManager, NoiseType } from "@/lib/ambient-sound-manager";
 import { Slider } from "@/components/ui/slider";
@@ -59,36 +59,37 @@ interface CycleData {
     mcqResults: { correct: number; total: number };
 }
 
-// Get chapters for the day based on week and day from schedule
+// Get chapters for the day based on Unified Schedule (Synced with Evening Session)
 function getChaptersForDay(weekId: number, dayId: number): number[] {
-    // Map day to schedule: Mon=1, Tue=2, etc.
-    const dayMapping = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+    const dayMapping = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'] as const;
+
+    // Validate dayId (1-5)
+    if (dayId < 1 || dayId > 5) return [];
+
     const dayKey = dayMapping[dayId - 1];
 
-    // For Week 1, use the scheduled chapters from polity-schedule-data
-    if (weekId === 1) {
-        // Week 1 schedule: Mon=CH11-14, Tue=CH15, Wed=CH16-17, Thu=CH18,31, Fri=CH20,32
-        const week1Schedule: Record<string, number[]> = {
-            monday: [11, 12, 13, 14],
-            tuesday: [15],
-            wednesday: [16, 17],
-            thursday: [18, 31],
-            friday: [20, 32, 21, 33]
-        };
-        return week1Schedule[dayKey] || [11, 12, 13, 14];
+    // Use the official schedule generator
+    const allWeeks = generateWeeklySchedule();
+    const weekSchedule = allWeeks.find(w => w.week === weekId);
+
+    if (!weekSchedule) {
+        // Fallback for safety, though should not happen given valid URLs
+        console.warn(`No schedule found for Week ${weekId}`);
+        return [];
     }
 
-    // For other weeks, use module-based mapping
-    const moduleChapters = getChaptersForWeek(weekId);
-    if (moduleChapters.length === 0) {
-        return [11, 12]; // Fallback
+    const dayContent = weekSchedule.days[dayKey];
+
+    // Type guard to ensure we have ChapterSchedule objects (not strings like Saturday)
+    if (Array.isArray(dayContent)) {
+        return dayContent
+            .filter((item): item is import("@/components/batch1/polity/data/polity-schedule-data").ChapterSchedule =>
+                typeof item !== 'string' && 'chapter' in item
+            )
+            .map(c => c.chapter);
     }
 
-    const chaptersPerDay = Math.ceil(moduleChapters.length / 5);
-    const startIdx = (dayId - 1) * chaptersPerDay;
-    const dayChapters = moduleChapters.slice(startIdx, startIdx + chaptersPerDay);
-
-    return dayChapters.map(ch => ch.primaryId);
+    return [];
 }
 
 // Sync to unified progress store (replaces old syncToStudyPlanner)
@@ -589,7 +590,7 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                         Week {weekId}, Day {dayId}
                     </h1>
                     <p className="text-sm text-gray-500">
-                        Session {currentSessionGlobal} of {TOTAL_SESSIONS} (Block {currentBlock})
+                        Session {currentSessionGlobal} of {TOTAL_SESSIONS} (Block {currentBlock}) • <span className="text-[10px] font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">v2.2</span>
                     </p>
                 </div>
                 <div className="flex items-center gap-2 text-orange-600">

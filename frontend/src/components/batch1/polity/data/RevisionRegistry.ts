@@ -461,52 +461,52 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
     },
     {
         id: 20,
-        title: "President",
-        content: CHAPTER_20_CONTENT,
-        flashcards: CHAPTER_20_FLASHCARDS,
-        mcqs: CHAPTER_20_MCQS
-    },
-    {
-        id: 21,
-        title: "Vice-President",
-        content: CHAPTER_21_CONTENT,
-        flashcards: CHAPTER_21_FLASHCARDS,
-        mcqs: CHAPTER_21_MCQS
-    },
-    {
-        id: 22,
-        title: "Prime Minister",
-        content: CHAPTER_22_CONTENT,
+        title: "Prime Minister", // Synced with Schedule Ch 20
+        content: CHAPTER_22_CONTENT, // Note: Content files might still use old numbering, we just map ID to correct Title/Content
         flashcards: CHAPTER_22_FLASHCARDS,
         mcqs: CHAPTER_22_MCQS
     },
     {
-        id: 23,
-        title: "Central Council of Ministers",
-        content: CHAPTER_23_CONTENT,
-        flashcards: CHAPTER_23_FLASHCARDS,
-        mcqs: CHAPTER_23_MCQS
-    },
-    {
-        id: 24,
-        title: "Cabinet Committees",
-        content: CHAPTER_24_CONTENT,
+        id: 21,
+        title: "Cabinet Committees", // Synced with Schedule Ch 21
+        content: CHAPTER_24_CONTENT, // Mapping to old Ch 24 file if that's where content is
         flashcards: CHAPTER_24_FLASHCARDS,
         mcqs: CHAPTER_24_MCQS
     },
     {
-        id: 25,
-        title: "Parliament",
-        content: CHAPTER_25_CONTENT,
+        id: 22,
+        title: "Parliament", // Synced with Schedule Ch 22
+        content: CHAPTER_25_CONTENT, // Old Ch 25 was Parliament
         flashcards: CHAPTER_25_FLASHCARDS,
         mcqs: CHAPTER_25_MCQS
     },
     {
-        id: 26,
-        title: "Parliamentary Committees",
+        id: 23,
+        title: "Parliamentary Committees", // Synced with Schedule Ch 23
         content: CHAPTER_26_CONTENT,
         flashcards: CHAPTER_26_FLASHCARDS,
         mcqs: CHAPTER_26_MCQS
+    },
+    {
+        id: 24,
+        title: "Parliamentary Forums",
+        content: CHAPTER_27_CONTENT,
+        flashcards: CHAPTER_27_FLASHCARDS,
+        mcqs: CHAPTER_27_MCQS
+    },
+    {
+        id: 25,
+        title: "Parliamentary Group",
+        content: CHAPTER_28_CONTENT,
+        flashcards: CHAPTER_28_FLASHCARDS,
+        mcqs: CHAPTER_28_MCQS
+    },
+    {
+        id: 26,
+        title: "Supreme Court", // Synced with Schedule Ch 26
+        content: CHAPTER_29_CONTENT, // Old Ch 29
+        flashcards: CHAPTER_29_FLASHCARDS,
+        mcqs: CHAPTER_29_MCQS
     },
     {
         id: 27,
