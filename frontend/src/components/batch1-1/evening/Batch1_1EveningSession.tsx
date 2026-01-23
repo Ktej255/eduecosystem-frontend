@@ -184,52 +184,56 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
     // Content Generation Logic - Use content-registry for complete day content
     const sessionContent = useMemo(() => {
-        let morningSubtopics: SubTopic[] = [];
+        // STRICT MODE: Always load scheduled chapters first (User Request)
+        // Ignored morningProgress for topic selection to ensure "Plan of the Day" alignment.
+        const schedule = generateWeeklySchedule();
+        const weekSchedule = schedule.find(w => w.week === Number(weekId));
+        const plannedSubtopics: SubTopic[] = [];
 
-        if (morningProgress?.cycleHistory && morningProgress.cycleHistory.length > 0) {
-            morningSubtopics = morningProgress.cycleHistory.flatMap(c => c.selectedSubtopics);
-        } else {
-            // FALLBACK: If morning session skipped, use scheduled chapters for this day
-            const schedule = generateWeeklySchedule();
-            const weekSchedule = schedule.find(w => w.week === Number(weekId));
+        if (weekSchedule) {
+            const dayKeyMap: Record<number, keyof typeof weekSchedule.days> = {
+                1: 'monday', 2: 'tuesday', 3: 'wednesday', 4: 'thursday', 5: 'friday', 6: 'saturday', 7: 'sunday'
+            };
 
-            if (weekSchedule) {
-                const dayKeyMap: Record<number, keyof typeof weekSchedule.days> = {
-                    1: 'monday', 2: 'tuesday', 3: 'wednesday', 4: 'thursday', 5: 'friday', 6: 'saturday', 7: 'sunday'
-                };
+            const dayKey = dayKeyMap[Number(dayId)] || 'monday';
+            const chapters = weekSchedule.days[dayKey];
 
-                const dayKey = dayKeyMap[Number(dayId)] || 'monday';
-                const chapters = weekSchedule.days[dayKey];
-
-                if (Array.isArray(chapters)) {
-                    chapters.forEach(ch => {
-                        if (typeof ch !== 'string') {
-                            const subtopics = CHAPTER_SUBTOPICS[ch.chapter];
-                            if (subtopics) {
-                                morningSubtopics.push(...subtopics);
-                            }
+            if (Array.isArray(chapters)) {
+                chapters.forEach(ch => {
+                    if (typeof ch !== 'string') {
+                        const subtopics = CHAPTER_SUBTOPICS[ch.chapter];
+                        if (subtopics) {
+                            plannedSubtopics.push(...subtopics);
                         }
-                    });
-                }
+                    }
+                });
             }
         }
 
+        // Use planned subtopics as primary context
+        let activeSubtopics = plannedSubtopics;
+
+        // If morning progress exists, we can append, but PRIMARY focus is the Plan.
+        // For now, we strictly follow the plan as requested.
+
         // ===== USE CONTENT REGISTRY FOR FULL DAY CONTENT =====
-        // Import flashcards and MCQs from the dedicated Day files via registry
-        // This ensures ALL content from week1-flashcards.ts and week1-mcqs.ts is used
+        // Fix: Use absoluteDayNumber instead of relative dayId
+        const absoluteDay = (Number(weekId) - 1) * 7 + Number(dayId);
 
-        // Get all flashcards for this day from the registry
-        const dayFlashcards = FLASHCARD_CONTENT_REGISTRY[Number(dayId)] || [];
+        // getFlashcardsForSubtopics will filter from the HUGE list using the subtopic IDs
+        // But we also check the registry for manually assigned blocks
+        const registryFlashcards = FLASHCARD_CONTENT_REGISTRY[absoluteDay] || [];
+        const registryMCQs = MCQ_CONTENT_REGISTRY[absoluteDay] || [];
 
-        // Get all MCQs for this day from the registry
-        const dayMCQs = MCQ_CONTENT_REGISTRY[Number(dayId)] || [];
+        // If registry is empty (dynamic content), we generate from subtopics
+        // For Parliament (Week 2), we expect registry content or dynamic generation
 
-        console.log(`Day ${dayId} Content Loaded: ${dayFlashcards.length} Flashcards, ${dayMCQs.length} MCQs`);
+        console.log(`Day ${absoluteDay} Content Loaded: ${registryFlashcards.length} Flashcards, ${registryMCQs.length} MCQs`);
 
         return {
-            flashcards: dayFlashcards, // ALL flashcards from WEEK1_FLASHCARDS (20 cards)
-            mcqs: dayMCQs, // ALL MCQs from WEEK1_MCQS (60 questions)
-            subtopics: morningSubtopics // Context for header
+            flashcards: registryFlashcards,
+            mcqs: registryMCQs,
+            subtopics: activeSubtopics
         };
     }, [morningProgress, weekId, dayId]);
 

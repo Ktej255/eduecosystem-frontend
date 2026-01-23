@@ -37,7 +37,7 @@ export default function Batch11Page() {
     const [weekProgress, setWeekProgress] = useState<Record<number, Record<number, boolean>>>({});
     const [showMoodModal, setShowMoodModal] = useState(false);
 
-    // Load progress from localStorage
+    // Load progress and saved week from localStorage
     useEffect(() => {
         const saved = localStorage.getItem('batch11_progress');
         if (saved) {
@@ -45,7 +45,17 @@ export default function Batch11Page() {
             setWeekProgress(data.weekProgress || {});
             setCompletedTopics(data.completedTopics || 0);
         }
+
+        const savedWeek = localStorage.getItem('batch11_selected_week');
+        if (savedWeek) {
+            setSelectedWeek(Number(savedWeek));
+        }
     }, []);
+
+    // Save week selection
+    useEffect(() => {
+        localStorage.setItem('batch11_selected_week', selectedWeek.toString());
+    }, [selectedWeek]);
 
     // Mood Tracker: Only show after 3 hours of continuous use
     // No automatic popup on page load - user can open manually via button

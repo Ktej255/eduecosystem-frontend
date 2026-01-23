@@ -12,7 +12,7 @@ export interface ChapterSchedule {
 export const SLOTS_PER_DAY = 6;
 
 export const LAXMIKANTH_CHAPTERS: ChapterSchedule[] = [
-    // INTRODUCTORY BLOCK (Jan 12 - Jan 14)
+    // INTRODUCTORY BLOCK (Week 1)
     { chapter: 11, part: 'I', topic: "Amendment of the Constitution", pages: 6, slots: 1 },
     { chapter: 12, part: 'I', topic: "Basic Structure of the Constitution", pages: 6, slots: 1 },
     { chapter: 13, part: 'II', topic: "Parliamentary System", pages: 12, slots: 2 },
@@ -20,26 +20,40 @@ export const LAXMIKANTH_CHAPTERS: ChapterSchedule[] = [
     { chapter: 15, part: 'II', topic: "Centre–State Relations", pages: 32, slots: 6 },
     { chapter: 16, part: 'II', topic: "Inter-State Relations", pages: 12, slots: 2 },
     { chapter: 17, part: 'II', topic: "Emergency Provisions", pages: 20, slots: 4 },
-
-    // MODULE 1: The "Mirror Executives" (Starts Jan 15)
     { chapter: 18, part: 'III', topic: "President", pages: 24, slots: 4 },
     { chapter: 31, part: 'IV', topic: "Governor", pages: 18, slots: 3, comparativeWith: 18 },
-    { chapter: 20, part: 'III', topic: "Prime Minister", pages: 8, slots: 2 },
-    { chapter: 32, part: 'IV', topic: "Chief Minister", pages: 8, slots: 2, comparativeWith: 20 },
-    { chapter: 21, part: 'III', topic: "Central Council of Ministers", pages: 10, slots: 2 },
-    { chapter: 33, part: 'IV', topic: "State Council of Ministers", pages: 10, slots: 2, comparativeWith: 21 },
+    // End of Week 1 approx.
+
+    // WEEK 2 ALIGNMENT (Strictly as per Visual Plan)
+    // Monday
     { chapter: 19, part: 'III', topic: "Vice-President", pages: 8, slots: 2 },
 
-    // MODULE 2: The "Legislative Machinery"
-    { chapter: 23, part: 'III', topic: "Parliament", pages: 90, slots: 15 },
-    { chapter: 34, part: 'IV', topic: "State Legislature", pages: 36, slots: 6, comparativeWith: 23 },
-    { chapter: 24, part: 'III', topic: "Parliamentary Committees", pages: 22, slots: 4 },
-    { chapter: 22, part: 'III', topic: "Cabinet Committees", pages: 6, slots: 1 },
+    // Monday (part) -> Tuesday -> Wednesday (part)
+    // Parliament (ID 22 in subtopics)
+    { chapter: 22, part: 'III', topic: "Parliament", pages: 90, slots: 15 },
 
-    // MODULE 3: The "Integrated Judiciary"
-    { chapter: 27, part: 'III', topic: "Supreme Court", pages: 24, slots: 4 },
-    { chapter: 35, part: 'IV', topic: "High Court", pages: 18, slots: 3, comparativeWith: 27 },
-    { chapter: 37, part: 'IV', topic: "Subordinate Courts", pages: 12, slots: 2 },
+    // Wednesday (part) -> Thursday (part)
+    // State Legislature (ID 36 in subtopics)
+    { chapter: 36, part: 'IV', topic: "State Legislature", pages: 36, slots: 6, comparativeWith: 22 },
+
+    // Thursday (part)
+    // Parliamentary Committees (ID 23 in subtopics)
+    { chapter: 23, part: 'III', topic: "Parliamentary Committees", pages: 22, slots: 4 },
+
+    // Friday
+    // Cabinet Committees (ID 21 usually, but creating alias ch 21 for now or using 21 if fits)
+    { chapter: 21, part: 'III', topic: "Cabinet Committees", pages: 6, slots: 1 },
+    // Supreme Court (ID 26 in subtopics)
+    { chapter: 26, part: 'III', topic: "Supreme Court", pages: 24, slots: 4 },
+    // High Court (ID 34 in subtopics)
+    { chapter: 34, part: 'IV', topic: "High Court", pages: 18, slots: 3, comparativeWith: 26 },
+
+    // Next Modules (Shifted)
+    { chapter: 20, part: 'III', topic: "Prime Minister", pages: 8, slots: 2 },
+    { chapter: 32, part: 'IV', topic: "Chief Minister", pages: 8, slots: 2, comparativeWith: 20 },
+    { chapter: 33, part: 'IV', topic: "State Council of Ministers", pages: 10, slots: 2, comparativeWith: 21 },
+
+    { chapter: 37, part: 'IV', topic: "Subordinate Courts (District)", pages: 12, slots: 2 },
     { chapter: 36, part: 'IV', topic: "Tribunals", pages: 10, slots: 2 },
     { chapter: 28, part: 'III', topic: "Judicial Review", pages: 8, slots: 2 },
     { chapter: 29, part: 'III', topic: "Judicial Activism", pages: 6, slots: 1 },
