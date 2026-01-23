@@ -18,6 +18,7 @@ function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
 
     subtopics.forEach((subtopic, index) => {
         if (index < 5) { // Only 5-7 MCQs per cycle
+            const correctIdx = Math.floor(Math.random() * 4);
             mcqs.push({
                 id: `mcq_${subtopic.id}`,
                 subtopicId: subtopic.id,
@@ -28,7 +29,7 @@ function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
                     'Option C related to practical applications',
                     'Option D related to comparative analysis'
                 ],
-                correctIndex: 0, // Placeholder - actual MCQs will have correct answers
+                correctIndex: correctIdx,
                 explanation: `The correct answer explains the key aspects of ${subtopic.label} as defined in the Constitution. [Detailed explanation to be added]`
             });
         }
@@ -82,8 +83,13 @@ export default function CycleMCQs({
     // Track time spent per question
     const [questionStartTime, setQuestionStartTime] = useState(Date.now());
 
-    // Cumulative Timer: 60 minutes for the entire session
-    const totalTimeSeconds = 60 * 60;
+    // Dynamic Timer Logic
+    const totalTimeSeconds = useMemo(() => {
+        const count = mcqs.length;
+        if (count >= 100) return 2 * 60 * 60; // 2 hours for 100 questions
+        if (count >= 60) return 60 * 60;      // 1 hour for 60-99 questions
+        return count * 60;                    // 1 minute per question for < 60
+    }, [mcqs.length]);
 
     // Timer state
     const [timeLeft, setTimeLeft] = useState(totalTimeSeconds);

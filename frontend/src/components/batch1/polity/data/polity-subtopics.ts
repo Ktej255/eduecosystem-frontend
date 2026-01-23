@@ -1,6 +1,7 @@
 export interface SubTopic {
     id: string;
     label: string;
+    children?: SubTopic[];
 }
 
 export const CHAPTER_SUBTOPICS: Record<number, SubTopic[]> = {
@@ -124,16 +125,147 @@ export const CHAPTER_SUBTOPICS: Record<number, SubTopic[]> = {
         { id: '21.4', label: 'Kitchen Cabinet' }
     ],
     22: [
-        { id: '22.1', label: 'Organization and Composition of Two Houses' },
-        { id: '22.2', label: 'Duration and Membership Qualifications' },
-        { id: '22.3', label: 'Sessions of Parliament (Summoning, Adjournment, Dissolution)' },
-        { id: '22.4', label: 'Speaker and Chairman (Presiding Officers)' },
-        { id: '22.5', label: 'Leaders in Parliament (Leader of House, Leader of Opposition)' },
-        { id: '22.6', label: 'Legislative Procedure (Ordinary, Money, Financial Bills)' },
-        { id: '22.7', label: 'Joint Sitting of Two Houses' },
-        { id: '22.8', label: 'Budget in Parliament' },
-        { id: '22.9', label: 'Multifunctional Role of Parliament' },
-        { id: '22.10', label: 'Funds (Consolidated, Contingency, Public Account)' }
+        {
+            id: '22.1', label: 'Organisation of Parliament (Composition)', children: [
+                {
+                    id: '22.1.1', label: 'Composition of the Two Houses', children: [
+                        { id: '22.1.1.1', label: 'Composition of Rajya Sabha' },
+                        { id: '22.1.1.2', label: 'Composition of Lok Sabha' }
+                    ]
+                },
+                {
+                    id: '22.1.2', label: 'System of Elections to Lok Sabha', children: [
+                        { id: '22.1.2.1', label: 'Territorial Constituencies' },
+                        { id: '22.1.2.2', label: 'Readjustment after each Census' },
+                        { id: '22.1.2.3', label: 'Reservation of Seats for SCs and STs' },
+                        { id: '22.1.2.4', label: 'Proportional Representation not Adopted' }
+                    ]
+                },
+                {
+                    id: '22.1.3', label: 'Duration of Two Houses', children: [
+                        { id: '22.1.3.1', label: 'Duration of Rajya Sabha' },
+                        { id: '22.1.3.2', label: 'Duration of Lok Sabha' }
+                    ]
+                },
+                {
+                    id: '22.1.4', label: 'Membership of Parliament', children: [
+                        { id: '22.1.4.1', label: 'Qualifications' },
+                        { id: '22.1.4.2', label: 'Disqualifications (Defection, etc.)' },
+                        { id: '22.1.4.3', label: 'Vacation of Seats' },
+                        { id: '22.1.4.4', label: 'Oath or Affirmation' },
+                        { id: '22.1.4.5', label: 'Salaries and Allowances' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: '22.2', label: 'Presiding Officers of Parliament', children: [
+                {
+                    id: '22.2.1', label: 'Speaker of Lok Sabha', children: [
+                        { id: '22.2.1.1', label: 'Election and Tenure' },
+                        { id: '22.2.1.2', label: 'Role, Powers and Functions' },
+                        { id: '22.2.1.3', label: 'Independence and Impartiality' }
+                    ]
+                },
+                { id: '22.2.2', label: 'Deputy Speaker of Lok Sabha' },
+                { id: '22.2.3', label: 'Panel of Chairpersons of Lok Sabha' },
+                { id: '22.2.4', label: 'Speaker Pro Tem' },
+                { id: '22.2.5', label: 'Chairman of Rajya Sabha' },
+                { id: '22.2.6', label: 'Deputy Chairman of Rajya Sabha' },
+                { id: '22.2.7', label: 'Panel of Vice-Chairpersons of Rajya Sabha' },
+                { id: '22.2.8', label: 'Secretariat of Parliament' }
+            ]
+        },
+        {
+            id: '22.3', label: 'Leaders in Parliament', children: [
+                { id: '22.3.1', label: 'Leader of the House' },
+                { id: '22.3.2', label: 'Leader of the Opposition' },
+                { id: '22.3.3', label: 'Whip' }
+            ]
+        },
+        {
+            id: '22.4', label: 'Sessions of Parliament', children: [
+                { id: '22.4.1', label: 'Summoning' },
+                { id: '22.4.2', label: 'Adjournment' },
+                { id: '22.4.3', label: 'Adjournment Sine Die' },
+                { id: '22.4.4', label: 'Prorogation' },
+                { id: '22.4.5', label: 'Dissolution' },
+                { id: '22.4.6', label: 'Quorum' },
+                { id: '22.4.7', label: 'Voting in House' },
+                { id: '22.4.8', label: 'Language in Parliament' },
+                { id: '22.4.9', label: 'Rights of Ministers and Attorney General' }
+            ]
+        },
+        {
+            id: '22.5', label: 'Devices of Parliamentary Proceedings', children: [
+                { id: '22.5.1', label: 'Question Hour' },
+                { id: '22.5.2', label: 'Zero Hour' },
+                { id: '22.5.3', label: 'Motions' },
+                { id: '22.5.4', label: 'Point of Order' },
+                { id: '22.5.5', label: 'Half-an-Hour Discussion' },
+                { id: '22.5.6', label: 'Short Duration Discussion' },
+                { id: '22.5.7', label: 'Special Mention' },
+                { id: '22.5.8', label: 'Resolutions' },
+                { id: '22.5.9', label: 'Youth Parliament' }
+            ]
+        },
+        {
+            id: '22.6', label: 'Legislative Procedure in Parliament', children: [
+                {
+                    id: '22.6.1', label: 'Ordinary Bills', children: [
+                        { id: '22.6.1.1', label: 'First Reading' },
+                        { id: '22.6.1.2', label: 'Second Reading' },
+                        { id: '22.6.1.3', label: 'Third Reading' },
+                        { id: '22.6.1.4', label: 'Bill in the Second House' },
+                        { id: '22.6.1.5', label: 'Assent of the President' }
+                    ]
+                },
+                { id: '22.6.2', label: 'Money Bills' },
+                { id: '22.6.3', label: 'Financial Bills (Type I and Type II)' },
+                { id: '22.6.4', label: 'Joint Sitting of Two Houses' }
+            ]
+        },
+        {
+            id: '22.7', label: 'Budget in Parliament', children: [
+                { id: '22.7.1', label: 'Constitutional Provisions' },
+                { id: '22.7.2', label: 'Charged Expenditure' },
+                { id: '22.7.3', label: 'Stages in Enactment' },
+                { id: '22.7.4', label: 'Grants' },
+                { id: '22.7.5', label: 'Funds' }
+            ]
+        },
+        {
+            id: '22.8', label: 'Multifunctional Role of Parliament', children: [
+                { id: '22.8.1', label: 'Legislative Functions' },
+                { id: '22.8.2', label: 'Executive Functions' },
+                { id: '22.8.3', label: 'Financial Functions' },
+                { id: '22.8.4', label: 'Constituent Functions' },
+                { id: '22.8.5', label: 'Judicial Functions' },
+                { id: '22.8.6', label: 'Electoral Functions' }
+            ]
+        },
+        { id: '22.9', label: 'Ineffectiveness of Parliamentary Control' },
+        {
+            id: '22.10', label: 'Position of Rajya Sabha', children: [
+                { id: '22.10.1', label: 'Equal Status with Lok Sabha' },
+                { id: '22.10.2', label: 'Unequal Status with Lok Sabha' },
+                { id: '22.10.3', label: 'Special Powers of Rajya Sabha' }
+            ]
+        },
+        {
+            id: '22.11', label: 'Parliamentary Privileges', children: [
+                { id: '22.11.1', label: 'Collective Privileges' },
+                { id: '22.11.2', label: 'Individual Privileges' },
+                { id: '22.11.3', label: 'Breach of Privilege' },
+                { id: '22.11.4', label: 'Sources of Privileges' }
+            ]
+        },
+        {
+            id: '22.12', label: 'Sovereignty of Parliament', children: [
+                { id: '22.12.1', label: 'Comparison with British Parliament' },
+                { id: '22.12.2', label: 'Limitations on Sovereignty' }
+            ]
+        }
     ],
     23: [
         { id: '23.1', label: 'Financial Committees (PAC, Estimates, CPU)' },
