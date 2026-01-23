@@ -1,37 +1,55 @@
 export const CHAPTER_31_CONTENT = {
-    id: 31,
+    id: 30, // Mapping to Schedule ID 30 (PIL)
     title: "Public Interest Litigation (PIL)",
-    introduction: "The concept of Public Interest Litigation (PIL) originated and developed in the USA in the 1960s. In India, PIL is a product of judicial activism. It was introduced in the late 1970s and early 1980s by Justice V.R. Krishna Iyer and Justice P.N. Bhagwati.",
+    introduction: "Public Interest Litigation (PIL) refers to litigation undertaken to protect the public interest and demonstrates the availability of justice to socially disadvantaged parties. It is a strategic arm of the legal aid movement.",
     sections: [
         {
-            title: "MEANING AND FEATURES",
+            title: "1. Concept and Origin",
             features: [
-                "Relaxation of Locus Standi: Traditionally, only the person whose rights are violated can approach the court. In PIL, any public-spirited citizen or social organization can move the court for the enforcement of rights of any person or group who are unable to approach the court.",
-                "Nature: It is a non-adversarial litigation. It is a challenge and an opportunity to the government to make human rights meaningful to the deprived sections.",
-                "Role: It is a legal tool to help the poor and the marginalized."
+                "Origin: USA (1960s).",
+                "Introduction in India: 1970s.",
+                "Pioneers: Justice V.R. Krishna Iyer and Justice P.N. Bhagwati.",
+                "Famous Case: Hussainara Khatoon v. Home Secretary, Bihar (First reported PIL).",
+                "Definition: Litigation for protection of public interest, not individual interest."
             ]
         },
         {
-            title: "GUIDELINES FOR PIL",
-            content: "The Supreme Court has issued guidelines to check the misuse of PIL (frivolous petitions).",
+            title: "2. Features of PIL",
             features: [
-                "Bonded Labor matters.",
-                "Neglected Children.",
-                "Non-payment of minimum wages.",
-                "Petitions from jails complaining of harassment.",
-                "Petitions against police for refusing to register cases.",
-                "Petitions against atrocities on women.",
-                "Environmental pollution.",
-                "Food adulteration.",
-                "Maintenance of heritage and culture."
+                "Relaxation of Locus Standi: Traditional rule (only aggrieved person can approach) relaxed. Any public-spirited citizen can move the court.",
+                "Non-Adversarial: NOT adversarial litigation but a collaborative effort/opportunity for government to correct wrongs.",
+                "Epistolary Jurisdiction: Court can treat a letter or telegram as a writ petition.",
+                "Focus: Poor, illiterate, disadvantaged who suffer 'Public Injury'."
             ]
         },
         {
-            title: "IMPORTANCE OF PIL",
+            title: "3. Scope of PIL (Entertainable Categories)",
             features: [
-                "Vindicates the rule of law.",
-                "Facilitates effective access to justice for the weaker sections.",
-                "Enables meaningful realization of fundamental rights."
+                "1. Bonded Labour matters.",
+                "2. Neglected Children.",
+                "3. Non-payment of minimum wages.",
+                "4. Atrocities on women.",
+                "5. Environmental pollution.",
+                "6. Food adulteration.",
+                "7. Heritage and Culture."
+            ]
+        },
+        {
+            title: "4. Non-Entertainable Categories",
+            features: [
+                "1. Landlord-Tenant matters.",
+                "2. Service matters (Pension/Gratuity).",
+                "3. Admission to medical/educational institutions.",
+                "4. Petitions for early hearing/speedy trial in HCs."
+            ]
+        },
+        {
+            title: "5. Principles of PIL",
+            features: [
+                "Constitutional Obligation: Article 32 and 226.",
+                "Relaxation of Procedures.",
+                "Flexible Remedies.",
+                "Check on Abuse: Court must ensure petitioner is acting bona fide and not for personal gain/politics."
             ]
         }
     ]

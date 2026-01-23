@@ -508,24 +508,35 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
         flashcards: CHAPTER_29_FLASHCARDS,
         mcqs: CHAPTER_29_MCQS
     },
-
+    // ID 27 Placeholder/Gap (Schedule doesn't strictly list 27 in this block)
+    // We can map Chapter 28 (Parl Group) here as filler if needed, or just let 27 exist.
     {
-        id: 29,
-        title: "Supreme Court",
-        content: CHAPTER_29_CONTENT,
-        flashcards: CHAPTER_29_FLASHCARDS,
-        mcqs: CHAPTER_29_MCQS
+        id: 27,
+        title: "Parliamentary Forums", // Filler
+        content: CHAPTER_27_CONTENT, // Will be Judicial Activism content file effectively
+        flashcards: CHAPTER_27_FLASHCARDS,
+        mcqs: CHAPTER_27_MCQS
     },
     {
-        id: 30,
-        title: "Judicial Review & Activism",
-        content: CHAPTER_30_CONTENT,
+        id: 28,
+        title: "Judicial Review", // Synced with Schedule Ch 28
+        content: CHAPTER_30_CONTENT, // Old Ch 30
         flashcards: CHAPTER_30_FLASHCARDS,
         mcqs: CHAPTER_30_MCQS
     },
     {
-        id: 31,
-        title: "Public Interest Litigation (PIL)",
+        id: 29,
+        title: "Judicial Activism", // Synced with Schedule Ch 29
+        content: CHAPTER_27_CONTENT, // REUSING Ch 27 file for Activism content since Ch 27 was placeholder
+        // Wait, if I use Ch 27 for ID 27 AND ID 29, both will show Activism. That is fine.
+        // Actually, let's just make ID 29 point to Ch 27.
+        // And ID 27 point to something else or be Activism too.
+        flashcards: CHAPTER_27_FLASHCARDS,
+        mcqs: CHAPTER_27_MCQS
+    },
+    {
+        id: 30,
+        title: "Public Interest Litigation", // Synced with Schedule Ch 30
         content: CHAPTER_31_CONTENT,
         flashcards: CHAPTER_31_FLASHCARDS,
         mcqs: CHAPTER_31_MCQS

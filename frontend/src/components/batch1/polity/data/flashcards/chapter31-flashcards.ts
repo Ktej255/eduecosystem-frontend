@@ -1,43 +1,59 @@
-import { RevisionFlashcard } from '../RevisionRegistry';
+import { RevisionFlashcard } from "../RevisionRegistry";
 
-export const CHAPTER_31_FLASHCARDS: RevisionFlashcard[] = [
+const CHAPTER_31_FLASHCARDS: RevisionFlashcard[] = [
     {
         id: 1,
-        chapterId: 31,
-        question: "Where did the concept of PIL originate?",
-        answer: "In the USA (1960s).",
-        category: "General",
+        chapterId: 30, // Mapping to Schedule ID 30
+        question: "When and where did PIL originate?",
+        answer: "USA in the 1960s.",
+        category: "Origin",
         difficulty: "easy"
     },
     {
         id: 2,
-        chapterId: 31,
-        question: "Who are known as the pioneers of PIL in India?",
-        answer: "Justice V.R. Krishna Iyer and Justice P.N. Bhagwati.",
-        category: "History",
-        difficulty: "medium"
+        chapterId: 30,
+        question: "Who are the pioneers of PIL in India?",
+        answer: "Justice V.R. Krishna Iyer and Justice P.N. Bhagwati (1970s/80s).",
+        category: "Origin",
+        difficulty: "easy"
     },
     {
         id: 3,
-        chapterId: 31,
-        question: "What is 'Locus Standi' in the context of PIL?",
-        answer: "The right to appear in court. In PIL, this rule is relaxed to allow any citizen to file a case for the public good.",
-        category: "Legal concept",
+        chapterId: 30,
+        question: "What is the most significant feature of PIL?",
+        answer: "Relaxation of Locus Standi.\n(Any public-spirited citizen can file a petition).",
+        category: "Concept",
         difficulty: "medium"
     },
     {
         id: 4,
-        chapterId: 31,
-        question: "Is PIL adversarial in nature?",
-        answer: "No, it is non-adversarial and collaborative.",
-        category: "Features",
+        chapterId: 30,
+        question: "Name the first reported PIL case in India.",
+        answer: "Hussainara Khatoon v. Home Secretary, State of Bihar.",
+        category: "Case",
         difficulty: "medium"
     },
     {
         id: 5,
-        chapterId: 31,
-        question: "Which type of cases can be filed as a PIL?",
-        answer: "Environmental pollution, child labor, atrocities on women, bonded labor, etc.",
+        chapterId: 30,
+        question: "Does PIL cover Landlord-Tenant disputes?",
+        answer: "No.\nLandlord-Tenant matters are considered private disputes and are generally non-entertainable as PIL.",
+        category: "Scope",
+        difficulty: "medium"
+    },
+    {
+        id: 6,
+        chapterId: 30,
+        question: "What is Epistolary Jurisdiction?",
+        answer: "The power of the court to treat letters/telegrams as writ petitions to provide access to justice for the poor/disadvantaged.",
+        category: "Concept",
+        difficulty: "hard"
+    },
+    {
+        id: 7,
+        chapterId: 30,
+        question: "Are Service Matters (Pension/Gratuity) eligible for PIL?",
+        answer: "No.\nService matters are generally excluded from PIL scope.",
         category: "Scope",
         difficulty: "easy"
     }
