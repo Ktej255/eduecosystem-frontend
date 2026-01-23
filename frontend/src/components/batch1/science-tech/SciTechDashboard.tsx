@@ -1,0 +1,73 @@
+"use client";
+
+import React from 'react';
+import TechTreeViz from './visualizations/TechTreeViz';
+import SpaceOrbitViz from './visualizations/SpaceOrbitViz';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Atom, Microscope, Rocket } from 'lucide-react';
+
+export default function SciTechDashboard() {
+    return (
+        <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-500">
+            {/* Determine Header Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <StatCard
+                    label="Current Missions"
+                    value="Gaganyaan"
+                    color="text-indigo-500"
+                    icon={<Rocket className="w-5 h-5 text-indigo-500" />}
+                />
+                <StatCard
+                    label="Emerging Tech"
+                    value="GenAI"
+                    color="text-purple-500"
+                    icon={<Atom className="w-5 h-5 text-purple-500" />}
+                />
+                <StatCard
+                    label="Bio Focus"
+                    value="CRISPR"
+                    color="text-rose-500"
+                    icon={<Microscope className="w-5 h-5 text-rose-500" />}
+                />
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Tech Tree (Span 2) */}
+                <div className="lg:col-span-2 space-y-6">
+                    <TechTreeViz />
+                </div>
+
+                {/* Space (Span 1) */}
+                <div className="space-y-6">
+                    <SpaceOrbitViz />
+
+                    {/* Placeholder for Defense/Nuclear */}
+                    <Card className="h-[200px] flex items-center justify-center border-dashed">
+                        <div className="text-center text-gray-400">
+                            <h3 className="font-bold">Defense Technology</h3>
+                            <p className="text-sm">Missile Systems Visualization (Coming Soon)</p>
+                        </div>
+                    </Card>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function StatCard({ label, value, color, icon }: { label: string, value: string, color: string, icon: React.ReactNode }) {
+    return (
+        <Card>
+            <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                    <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                        {icon}
+                    </div>
+                </div>
+                <div>
+                    <h3 className={`text-2xl font-bold mb-1 ${color}`}>{value}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{label}</p>
+                </div>
+            </CardContent>
+        </Card>
+    );
+}

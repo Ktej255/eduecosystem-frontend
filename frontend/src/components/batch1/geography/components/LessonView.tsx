@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowLeft, BookOpen, Lightbulb, Play } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ArrowLeft, BookOpen, Lightbulb, Play, CheckCircle2 } from "lucide-react";
 import { LessonContent, ContentBlock, SimulationType } from "../content/types";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import dynamic from "next/dynamic";
+import { activityService } from "@/services/activityService";
 
 // Dynamic import for SimulationView (heavy 3D content)
 const SimulationView = dynamic(
@@ -21,6 +22,37 @@ interface LessonViewProps {
 
 export default function LessonView({ content, onClose }: LessonViewProps) {
     const [activeSimulation, setActiveSimulation] = useState<SimulationType | null>(null);
+    const [isCompleted, setIsCompleted] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        checkCompletion();
+    }, [content.topicId]);
+
+    const checkCompletion = async () => {
+        try {
+            const completedTopics = await activityService.getCompletedTopics();
+            setIsCompleted(completedTopics.includes(content.topicId));
+        } catch (error) {
+            console.error("Failed to check completion", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleMarkComplete = async () => {
+        setIsLoading(true);
+        try {
+            await activityService.logActivity('complete_topic', content.topicId);
+            setIsCompleted(true);
+            // Optional: Provide feedback or close
+            setTimeout(() => onClose(), 500);
+        } catch (error) {
+            console.error("Failed to mark complete", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     // If a simulation is active, show it fullscreen
     if (activeSimulation) {
@@ -45,7 +77,13 @@ export default function LessonView({ content, onClose }: LessonViewProps) {
                         {content.title}
                     </h1>
                 </div>
-                <div className="ml-auto">
+                <div className="ml-auto flex items-center gap-3">
+                    {isCompleted && (
+                        <Badge variant="outline" className="border-green-500/50 text-green-300 bg-green-500/10">
+                            <CheckCircle2 className="w-3 h-3 mr-1" />
+                            Completed
+                        </Badge>
+                    )}
                     <Badge variant="outline" className="border-indigo-500/50 text-indigo-300">
                         <BookOpen className="w-3 h-3 mr-1" />
                         Learning Mode
@@ -91,9 +129,18 @@ export default function LessonView({ content, onClose }: LessonViewProps) {
                     {/* Completion Footer */}
                     <div className="mt-20 pt-10 border-t border-white/10 flex justify-center">
                         <div className="text-center">
-                            <h3 className="text-xl font-semibold mb-2">Lesson Completed?</h3>
-                            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8" onClick={onClose}>
-                                Mark as Done & Return
+                            <h3 className="text-xl font-semibold mb-2">
+                                {isCompleted ? 'Lesson Completed!' : 'Lesson Completed?'}
+                            </h3>
+                            <Button
+                                size="lg"
+                                className={`px-8 ${isCompleted
+                                    ? 'bg-green-600/50 hover:bg-green-600/50 cursor-default'
+                                    : 'bg-green-600 hover:bg-green-700'}`}
+                                onClick={!isCompleted ? handleMarkComplete : onClose}
+                                disabled={isLoading}
+                            >
+                                {isLoading ? 'Updating...' : (isCompleted ? 'Return to Map' : 'Mark as Done & Return')}
                             </Button>
                         </div>
                     </div>

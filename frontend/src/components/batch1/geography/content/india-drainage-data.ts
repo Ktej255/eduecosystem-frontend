@@ -29,6 +29,12 @@ export const indiaDrainageData: LessonContent = {
                     type: 'simulation',
                     content: 'Explore the complete Ganga River System in 3D - see tributaries joining at exact confluence points!',
                     simulationType: 'ganga-river'
+                },
+                {
+                    id: 'brahmaputra-sim',
+                    type: 'simulation',
+                    content: 'Discover the mighty Brahmaputra (Yarlung Tsangpo) - flow from Tibet through the Great Bend into India.',
+                    simulationType: 'brahmaputra-river'
                 }
             ]
         },

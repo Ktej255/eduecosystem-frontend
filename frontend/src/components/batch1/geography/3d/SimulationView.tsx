@@ -54,8 +54,20 @@ const VolcanoViz = dynamic(
     }
 );
 
+const GlacialViz = dynamic(
+    () => import("./simulations/GlacialViz"),
+    {
+        ssr: false,
+        loading: () => (
+            <div className="w-full h-full flex items-center justify-center bg-slate-950">
+                <Loader2 className="w-8 h-8 text-cyan-200 animate-spin" />
+            </div>
+        )
+    }
+);
+
 interface SimulationViewProps {
-    simulationType: 'ganga-river' | 'monsoon' | 'plate-tectonics' | 'volcano';
+    simulationType: 'ganga-river' | 'brahmaputra-river' | 'monsoon' | 'plate-tectonics' | 'volcano' | 'glacial-landforms';
     onClose: () => void;
 }
 
@@ -63,13 +75,17 @@ export default function SimulationView({ simulationType, onClose }: SimulationVi
     const renderSimulation = () => {
         switch (simulationType) {
             case 'ganga-river':
-                return <RiverSystemViz />;
+                return <RiverSystemViz systemId="ganga" />;
+            case 'brahmaputra-river':
+                return <RiverSystemViz systemId="brahmaputra" />;
             case 'monsoon':
                 return <MonsoonViz />;
             case 'plate-tectonics':
                 return <PlateTectonicsViz />;
             case 'volcano':
                 return <VolcanoViz />;
+            case 'glacial-landforms':
+                return <GlacialViz />;
             default:
                 return null;
         }

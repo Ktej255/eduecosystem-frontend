@@ -1,4 +1,4 @@
-export interface VocabularyItem {
+﻿export interface VocabularyItem {
     word: string;
     definition: string;
     context: string;
@@ -40,13 +40,13 @@ export const CSAT_DATA_MAP: Record<number, CSATSessionData> = {
             {
                 id: 101,
                 title: "Passage 1: The POCSO Paradox",
-                text: `Source Text: India crossed a much-publicised milestone in 2025 – fast track special courts cleared more child sexual offence cases than registered that year under the Protection of Children from Sexual Offences (POCSO) Act. They recorded a 109% disposal rate. Commentaries have hailed this as a turning point, suggesting courts have broken the backlog. However, new data and field reports point to a different tipping point where disposals rise but convictions fall and thousands of children remain stuck in long trials with little support.
+                text: `Source Text: India crossed a much-publicised milestone in 2025 â€“ fast track special courts cleared more child sexual offence cases than registered that year under the Protection of Children from Sexual Offences (POCSO) Act. They recorded a 109% disposal rate. Commentaries have hailed this as a turning point, suggesting courts have broken the backlog. However, new data and field reports point to a different tipping point where disposals rise but convictions fall and thousands of children remain stuck in long trials with little support.
 
 Convictions have actually gone down from 35% back in 2019 to 29% across the country by 2023. If we take the baseline figure of 35% in 2019, a 90% disposal rate in 2023 would mean that conviction should have risen to 45%. But it is 29% instead. The bottom line is that clearing cases faster means weaker convictions, not better justice. Fast track courts average just 19%. In a number of States, there are more accused walking free than being put behind bars.
 
 Children who testify in POCSO cases have particular needs that go beyond quick hearings. They require trained support persons, sensitive police and lawyers. When these protections remain on paper, higher disposal rates coexist with fragile convictions. Investigations remain hurried, charge sheets stay incomplete and forensic reports are delayed. The Supreme Court directed para-legal volunteers (PLV) to be appointed at every police station. Andhra Pradesh, for instance, has PLVs in 42 of 919 stations, while Tamil Nadu has none across 1,577. Without PLVs, families walk into police stations alone, scared, pressured and ignored.
 
-There have been occasions when courts have acquitted the accused when they offered to marry the survivors once they turned adult. The higher judiciary has let off convicts citing ‘happy marriage’ despite Section 6 convictions against the perpetrator. Such rulings push vulnerable girls into life-long ties with their abusers. Speed without support leaves children more broken than justice served.`,
+There have been occasions when courts have acquitted the accused when they offered to marry the survivors once they turned adult. The higher judiciary has let off convicts citing â€˜happy marriageâ€™ despite Section 6 convictions against the perpetrator. Such rulings push vulnerable girls into life-long ties with their abusers. Speed without support leaves children more broken than justice served.`,
                 questions: [
                     {
                         id: 1,
@@ -86,7 +86,7 @@ There have been occasions when courts have acquitted the accused when they offer
                     },
                     {
                         id: 4,
-                        question: "What is the author’s primary criticism of the \"happy marriage\" acquittals mentioned in the text?",
+                        question: "What is the authorâ€™s primary criticism of the \"happy marriage\" acquittals mentioned in the text?",
                         options: [
                             "They violate the legal age of marriage established by the Prohibition of Child Marriage Act.",
                             "They significantly lower the national conviction statistics, making the government look bad.",
@@ -113,7 +113,7 @@ There have been occasions when courts have acquitted the accused when they offer
             {
                 id: 102,
                 title: "Passage 2: Geopolitics of the Quad",
-                text: `Source Text: The year 2025 brought about unprecedented disruption in global geopolitics. The return of President Donald Trump to the White House has resulted in a significant churn. However, the Quad has remained a crucial facet of Washington’s engagement. The Quad, a group of four like-minded countries – India, Australia, Japan, and the U.S. – has evolved as a crucial forum with a multifaceted agenda. The overarching objective remains anchoring a rules-based order in the region.
+                text: `Source Text: The year 2025 brought about unprecedented disruption in global geopolitics. The return of President Donald Trump to the White House has resulted in a significant churn. However, the Quad has remained a crucial facet of Washingtonâ€™s engagement. The Quad, a group of four like-minded countries â€“ India, Australia, Japan, and the U.S. â€“ has evolved as a crucial forum with a multifaceted agenda. The overarching objective remains anchoring a rules-based order in the region.
 
 The Quad was unable to convene a leader-level summit in 2025, which was scheduled to be hosted by India. This has led to speculation over whether the group has indeed withered. 2025 was, however, a year of interregnum for the Quad. While the Quad was formed in 2004, the momentum died following the steady withdrawal of member-countries. It gained steam again in 2017. Since its revival, the Quad has hosted six leader-level summits between 2021-2024.
 
@@ -153,7 +153,7 @@ For a group such as the Quad, with no institutional anchor, leader-level summits
                             "1, 2 and 3"
                         ],
                         correctAnswer: 1,
-                        explanation: "Statement 1 is false (Trump's return caused \"churn\" but Quad remains a priority). Statement 2 is false (Text says: \"'Malabar' naval exercise, though not officially a part of the Quad’s roster...\"). Statement 3 is correct (Text: \"Ship Observer Mission, which was operationalised for the first time in June 2025\")."
+                        explanation: "Statement 1 is false (Trump's return caused \"churn\" but Quad remains a priority). Statement 2 is false (Text says: \"'Malabar' naval exercise, though not officially a part of the Quadâ€™s roster...\"). Statement 3 is correct (Text: \"Ship Observer Mission, which was operationalised for the first time in June 2025\")."
                     },
                     {
                         id: 9,
@@ -162,7 +162,7 @@ For a group such as the Quad, with no institutional anchor, leader-level summits
                             "To counter China's military expansion specifically in the South China Sea.",
                             "To establish a NATO-like military treaty in Asia.",
                             "To delivering global good and establishing/sustaining a rules-based order in the Indo-Pacific.",
-                            "To ensure that Donald Trump’s \"America First\" policy is implemented globally."
+                            "To ensure that Donald Trumpâ€™s \"America First\" policy is implemented globally."
                         ],
                         correctAnswer: 2,
                         explanation: "Direct quote: \"overarching objective of the group... remains anchored in establishing and sustaining a rules-based order... and delivering global good.\""
@@ -255,13 +255,13 @@ What are the solutions? The first is to increase the total number of Lok Sabha s
             {
                 id: 104,
                 title: "Passage 4: Age of Consent & Adolescent Autonomy",
-                text: `Source Text: While some argue that the current law criminalises consensual relationships among adolescents, others warn that lowering the age could undermine protections against child exploitation. On January 10, the Supreme Court acknowledged the growing misuse of the POCSO Act in consensual, romantic adolescent relationships. The age of consent in India is currently 18 years. Consequently, sexual acts with minors are treated as “statutory rape”, based on the legal presumption that children lack the capacity to give valid consent.
+                text: `Source Text: While some argue that the current law criminalises consensual relationships among adolescents, others warn that lowering the age could undermine protections against child exploitation. On January 10, the Supreme Court acknowledged the growing misuse of the POCSO Act in consensual, romantic adolescent relationships. The age of consent in India is currently 18 years. Consequently, sexual acts with minors are treated as â€œstatutory rapeâ€, based on the legal presumption that children lack the capacity to give valid consent.
 
-Data from studies like Enfold paint a clear picture – there are too many cases, which stem from consensual romance, that are often weaponised by disapproving parents. This clogs courts and erodes trust in the system. An Enfold study analysing 7,064 POCSO judgments found that 24.3% involved romantic relationships.
+Data from studies like Enfold paint a clear picture â€“ there are too many cases, which stem from consensual romance, that are often weaponised by disapproving parents. This clogs courts and erodes trust in the system. An Enfold study analysing 7,064 POCSO judgments found that 24.3% involved romantic relationships.
 
-However, there are genuine concerns on reducing the age of consent. Many believe that such a move would risk weakening the deterrent framework, enabling trafficking and other forms of child abuse under the guise of consent. The current “bright-line rule” – which treats all individuals under 18 as incapable of consenting – reflects a clear legislative intent to create an unambiguous zone of protection.
+However, there are genuine concerns on reducing the age of consent. Many believe that such a move would risk weakening the deterrent framework, enabling trafficking and other forms of child abuse under the guise of consent. The current â€œbright-line ruleâ€ â€“ which treats all individuals under 18 as incapable of consenting â€“ reflects a clear legislative intent to create an unambiguous zone of protection.
 
-Instead of a blanket reduction that could open doors to predators disguising coercion as consent, we need a pragmatic tweak: introduce ‘close-in-age’ exemptions for 16-18-year-olds, say within a 3-4 year gap, coupled with mandatory judicial reviews to sniff out any foul play. This way, we honour adolescent autonomy without gutting protections.`,
+Instead of a blanket reduction that could open doors to predators disguising coercion as consent, we need a pragmatic tweak: introduce â€˜close-in-ageâ€™ exemptions for 16-18-year-olds, say within a 3-4 year gap, coupled with mandatory judicial reviews to sniff out any foul play. This way, we honour adolescent autonomy without gutting protections.`,
                 questions: [
                     {
                         id: 16,
@@ -285,7 +285,7 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                             "Allowing parents to decide whether a relationship is consensual or criminal."
                         ],
                         correctAnswer: 1,
-                        explanation: "The author concludes by suggesting we \"introduce ‘close-in-age’ exemptions for 16-18-year-olds... This way, we honour adolescent autonomy without gutting protections.\""
+                        explanation: "The author concludes by suggesting we \"introduce â€˜close-in-ageâ€™ exemptions for 16-18-year-olds... This way, we honour adolescent autonomy without gutting protections.\""
                     },
                     {
                         id: 18,
@@ -305,7 +305,7 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                         options: [
                             "By the adolescents themselves to blackmail each other.",
                             "By police officers looking to increase their conviction rates.",
-                            "By disapproving parents who use the law to criminalize their child’s romantic relationship.",
+                            "By disapproving parents who use the law to criminalize their childâ€™s romantic relationship.",
                             "By the Supreme Court to enforce strict moral codes on society."
                         ],
                         correctAnswer: 2,
@@ -414,7 +414,7 @@ To operationalise both Article 6.2 and 6.4, the Indian government has already st
                         options: [
                             "Counting the same emission reduction towards the climate targets (NDCs) of both the selling country and the buying country.",
                             "Counting both carbon dioxide and methane emissions in the same calculation.",
-                            "Paying for the same technology transfer twice—once through aid and once through credits.",
+                            "Paying for the same technology transfer twiceâ€”once through aid and once through credits.",
                             "Registering the same project under both the Indian government and the Japanese government."
                         ],
                         correctAnswer: 0,
@@ -444,7 +444,7 @@ To operationalise both Article 6.2 and 6.4, the Indian government has already st
             {
                 id: 202,
                 title: "Early Childhood Care and Development (ECCD)",
-                text: `Source Text: India's aspiration to become a $30 trillion economy by 2047 demands sustained investments, particularly in human capital formation. However, a critical link remains largely missing: a focused and systematic investment in early childhood care and development (ECCD). Without strengthening the foundations laid in the earliest years, India's ambitions risk being on fragile ground. An investment in ECCD is not a welfare intervention but a strategic economic investment. From conception to the second birthday—the first 1,000 days—have been recognized by the WHO as a crucial 'window of opportunity'. The next six years constitute another 2,000 days. Thus, the first 3,000 days shape brain architecture.
+                text: `Source Text: India's aspiration to become a $30 trillion economy by 2047 demands sustained investments, particularly in human capital formation. However, a critical link remains largely missing: a focused and systematic investment in early childhood care and development (ECCD). Without strengthening the foundations laid in the earliest years, India's ambitions risk being on fragile ground. An investment in ECCD is not a welfare intervention but a strategic economic investment. From conception to the second birthdayâ€”the first 1,000 daysâ€”have been recognized by the WHO as a crucial 'window of opportunity'. The next six years constitute another 2,000 days. Thus, the first 3,000 days shape brain architecture.
 
 Children who are well-nourished and cognitively stimulated are more likely to complete education and earn higher incomes. Paradoxically, ECCD initiatives have largely been targeted at children within government safety nets, leaving out vast sections of middle- and higher-income families. This exclusion is problematic because developmental challenges are not confined to poverty alone. Children from middle and even upper-income households increasingly face obesity, physical inactivity, excessive screen exposure, and delayed social skills. Early childhood development must be universal, not targeted.
 
@@ -517,7 +517,7 @@ Research in epigenetics shows that health, nutrition, and stress before concepti
                 title: "Higher Education Regulation Bill",
                 text: `Source Text: The Viksit Bharat Shiksha Adhishthan Bill, 2025, introduced in the Lok Sabha on December 15, 2025, aims to reimagine India's higher education institutions. India's higher education system has expanded rapidly, spanning over a 1,000 universities, but regulation has not evolved at the same pace. Multiple statutory bodies with overlapping mandates (UGC, AICTE, NCTE) have created a maze of approvals that often pulls institutions away from teaching and innovation. This has turned oversight into over-regulation.
 
-NEP 2020 called for a "light but tight" framework—strong on transparency and standards, but minimal on procedural burden. The Bill creates an apex umbrella body, the Viksit Bharat Shiksha Adhishthan, anchored in Entry 66 of the Seventh Schedule. It proposes repealing three key Acts to unify the regulatory architecture. It envisages a technology-enabled single window system built on public self-disclosure, where institutions publish key information on governance and outcomes. This shifts institutional energy toward what truly matters: teaching and research. International credibility is not achieved by copying foreign models, but by meeting global benchmarks of outcomes and ethics.`,
+NEP 2020 called for a "light but tight" frameworkâ€”strong on transparency and standards, but minimal on procedural burden. The Bill creates an apex umbrella body, the Viksit Bharat Shiksha Adhishthan, anchored in Entry 66 of the Seventh Schedule. It proposes repealing three key Acts to unify the regulatory architecture. It envisages a technology-enabled single window system built on public self-disclosure, where institutions publish key information on governance and outcomes. This shifts institutional energy toward what truly matters: teaching and research. International credibility is not achieved by copying foreign models, but by meeting global benchmarks of outcomes and ethics.`,
                 questions: [
                     {
                         id: 11,
@@ -779,7 +779,7 @@ Challenges such as IP disputes and API dependency persist, but resilience shines
                 title: "Passage 2: Urban Waste & Circular Economy",
                 text: `Source Text: At COP30 in Belem, Brazil, waste was fittingly placed at the heart of the climate agenda. Sizeable funds were committed to a new global initiative, No Organic Waste (NOW), to cut methane emissions. The conference noted Circularity as the way to inclusive growth. Expanding cities and towns are an irreversible reality in growing India. It is estimated that cities in India will generate 165 million tonnes of waste annually by 2030. Without early solutions, these will result in grave levels of emissions. The goal of Garbage Free Cities (GFC) by 2026 is an existential necessity.
 
-Under SBM Urban 2.0, sustainable waste management underlines the circular economy model, which recognises waste as a resource. India needs to move away from a linear to circular mode—minimising waste and recovering energy. The good thing is that more than half of municipal waste is organic. Compressed Biogas Plants (CBG) have created possibilities of generating green fuel from municipal wet waste. However, plastic and Construction and Demolition (C&D) waste pose tough challenges. C&D waste—about 12 million tonnes a year—is collateral damage from India's fast-growing economy. Unauthorised dumping of construction discards is common.
+Under SBM Urban 2.0, sustainable waste management underlines the circular economy model, which recognises waste as a resource. India needs to move away from a linear to circular modeâ€”minimising waste and recovering energy. The good thing is that more than half of municipal waste is organic. Compressed Biogas Plants (CBG) have created possibilities of generating green fuel from municipal wet waste. However, plastic and Construction and Demolition (C&D) waste pose tough challenges. C&D wasteâ€”about 12 million tonnes a yearâ€”is collateral damage from India's fast-growing economy. Unauthorised dumping of construction discards is common.
 
 Much of this waste can be reused or recycled as cost-efficient raw materials. But infrastructure is lacking. Extended Producer Responsibility (EPR) has yet to extend to all categories of dry waste. C&D waste has issues of identification, tracing and tracking. Citizens need to get a clear sense of profit and a true cause to be partners. In a society becoming increasingly consumerist, 'reuse' may become a tall order compared to 'recycling'.`,
                 questions: [
@@ -993,7 +993,7 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
             {
                 id: 501,
                 title: "Passage 1: Frontier Science (Genetic Code)",
-                text: `Source Text: The dictionary of life has a new update. A DNA sequence that signals cells in almost all other organisms to stop synthesising proteins instead encodes a rare amino acid in some archaea, according to a study published in Science. Archaea are microbes that resemble bacteria in shape and size but are biologically distinct. Calling the study “the first of its kind,” biological sciences associate professor Abhrajyoti Ghosh said the discovery could help scientists engineer proteins with “functional advantages that have been hitherto unknown.” The study’s findings provide “yet another fantastic example of how biology hides secrets that drive biotechnology innovation.”\n\nAt the heart of this code are the four nitrogen-containing bases: adenine (A), guanine (G), cytosine (C) and thymine (T). Each amino acid in a protein corresponds to a three-base-long sequence of DNA — a.k.a. a triplet codon. The genetic code is a dictionary of 64 such codons. Of these, 61 ‘sense’ codons encode 20 common amino acids. The remaining three, called ‘stop’ codons, don’t correspond to any amino acid. Instead, when the protein-making mechanism encounters them, it terminates the protein chain.\n\nHowever, in some Archaea, the ‘TAG’ stop codon has been completely repurposed. These organisms read the TAG codon as a signal for Pyl (pyrrolysine) not occasionally but always. This “genome-wide incorporation of Pyl at TAG codons” has led the team to propose “the existence of a previously unrecognized genetic code.” The ‘Pyl code’ has 62 sense codons instead of the usual 61 and only two stop codons. Berkeley researchers genetically modified Escherichia coli to express the archaeal cellular machinery required to read the Pyl code. They engineered the bacterium to express a protein whose sequence had a TAG codon in the middle. If this setup worked, the bacteria would read TAG as Pyl and produce the complete protein. Otherwise, the TAG codon would signal ‘stop’, and the bacteria would produce a shorter protein. Extracts confirmed they produced the complete protein.`,
+                text: `Source Text: The dictionary of life has a new update. A DNA sequence that signals cells in almost all other organisms to stop synthesising proteins instead encodes a rare amino acid in some archaea, according to a study published in Science. Archaea are microbes that resemble bacteria in shape and size but are biologically distinct. Calling the study â€œthe first of its kind,â€ biological sciences associate professor Abhrajyoti Ghosh said the discovery could help scientists engineer proteins with â€œfunctional advantages that have been hitherto unknown.â€ The studyâ€™s findings provide â€œyet another fantastic example of how biology hides secrets that drive biotechnology innovation.â€\n\nAt the heart of this code are the four nitrogen-containing bases: adenine (A), guanine (G), cytosine (C) and thymine (T). Each amino acid in a protein corresponds to a three-base-long sequence of DNA â€” a.k.a. a triplet codon. The genetic code is a dictionary of 64 such codons. Of these, 61 â€˜senseâ€™ codons encode 20 common amino acids. The remaining three, called â€˜stopâ€™ codons, donâ€™t correspond to any amino acid. Instead, when the protein-making mechanism encounters them, it terminates the protein chain.\n\nHowever, in some Archaea, the â€˜TAGâ€™ stop codon has been completely repurposed. These organisms read the TAG codon as a signal for Pyl (pyrrolysine) not occasionally but always. This â€œgenome-wide incorporation of Pyl at TAG codonsâ€ has led the team to propose â€œthe existence of a previously unrecognized genetic code.â€ The â€˜Pyl codeâ€™ has 62 sense codons instead of the usual 61 and only two stop codons. Berkeley researchers genetically modified Escherichia coli to express the archaeal cellular machinery required to read the Pyl code. They engineered the bacterium to express a protein whose sequence had a TAG codon in the middle. If this setup worked, the bacteria would read TAG as Pyl and produce the complete protein. Otherwise, the TAG codon would signal â€˜stopâ€™, and the bacteria would produce a shorter protein. Extracts confirmed they produced the complete protein.`,
                 questions: [
                     {
                         id: 501,
@@ -1041,7 +1041,7 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
                             "64 sense codons, each encoding a unique amino acid."
                         ],
                         correctAnswer: 2,
-                        explanation: "The text defines the standard code: \"Of these, 61 ‘sense’ codons encode 20 common amino acids. The remaining three, called ‘stop’ codons... terminate the protein chain.\""
+                        explanation: "The text defines the standard code: \"Of these, 61 â€˜senseâ€™ codons encode 20 common amino acids. The remaining three, called â€˜stopâ€™ codons... terminate the protein chain.\""
                     },
                     {
                         id: 505,
@@ -1060,7 +1060,7 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
             {
                 id: 502,
                 title: "Passage 2: Geopolitics (China's 2026 Posture)",
-                text: `Source Text: As 2026 begins, China presents a paradox: a nation wrestling with economic challenges yet projecting strategic confidence; a leadership tightening political control domestically while expanding its diplomatic reach abroad. For India, this Chinese posture and the shift in the stance of the United States toward Beijing have narrowed strategic space. China’s 2025 economic growth was weaker than official figures suggest. Domestic demand remained weak, and the overbuilt property sector continued to weigh on confidence. Instead of boosting consumption, Beijing reinforced a state-led model, prioritizing advanced manufacturing and "whole-chain breakthroughs" in high-tech industries. This "China Shock 2.0" is generating serious disruptions for developed and developing economies alike.\n\nChina's attempts to stabilize major-power ties were undercut by its harsh response to the Japanese Prime Minister’s comment on Taiwan. Beijing signalled that it remains unwilling to accommodate divergence on issues it deems sensitive. Yet, the perception of a \"G2 overlay\" – a shadow of tacit coordination between the U.S. and China – has serious consequences, as even limited accommodation can constrain the choices of other states. For India, the implications are sobering. The U.S. remains committed to preventing Chinese hegemony in Asia but is less inclined to prioritize relations with India as a strategic counter to China.\n\nOn India-China relations, 2025 witnessed cautious stabilization but no substantive progress on structural issues. The situation along the borders remains stable but not normal. Disengagement has not been accompanied by de-escalation or de-induction. \"Buffer zones\" continue to restrict India's patrolling rights. If these temporary arrangements become permanent, China will have achieved incremental gains consistent with its grey-zone playbook. China is likely to persist with its current strategy: managed competition with the U.S., stabilization of major relationships along with hardball diplomacy, and prickliness on its \"core interests\".`,
+                text: `Source Text: As 2026 begins, China presents a paradox: a nation wrestling with economic challenges yet projecting strategic confidence; a leadership tightening political control domestically while expanding its diplomatic reach abroad. For India, this Chinese posture and the shift in the stance of the United States toward Beijing have narrowed strategic space. Chinaâ€™s 2025 economic growth was weaker than official figures suggest. Domestic demand remained weak, and the overbuilt property sector continued to weigh on confidence. Instead of boosting consumption, Beijing reinforced a state-led model, prioritizing advanced manufacturing and "whole-chain breakthroughs" in high-tech industries. This "China Shock 2.0" is generating serious disruptions for developed and developing economies alike.\n\nChina's attempts to stabilize major-power ties were undercut by its harsh response to the Japanese Prime Ministerâ€™s comment on Taiwan. Beijing signalled that it remains unwilling to accommodate divergence on issues it deems sensitive. Yet, the perception of a \"G2 overlay\" â€“ a shadow of tacit coordination between the U.S. and China â€“ has serious consequences, as even limited accommodation can constrain the choices of other states. For India, the implications are sobering. The U.S. remains committed to preventing Chinese hegemony in Asia but is less inclined to prioritize relations with India as a strategic counter to China.\n\nOn India-China relations, 2025 witnessed cautious stabilization but no substantive progress on structural issues. The situation along the borders remains stable but not normal. Disengagement has not been accompanied by de-escalation or de-induction. \"Buffer zones\" continue to restrict India's patrolling rights. If these temporary arrangements become permanent, China will have achieved incremental gains consistent with its grey-zone playbook. China is likely to persist with its current strategy: managed competition with the U.S., stabilization of major relationships along with hardball diplomacy, and prickliness on its \"core interests\".`,
                 questions: [
                     {
                         id: 501,
@@ -1127,7 +1127,7 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
             {
                 id: 503,
                 title: "Passage 3: Socio-Economics (Women's Labour)",
-                text: `Source Text: A 2023 United Nations report showed that globally, women spend 2.8 more hours than men on unpaid care and domestic work. The struggle to count women’s labour continues. While domestic labour has increasingly entered the public discourse, the mental and emotional labour in sustaining relationships and managing household dynamics continues to go largely unacknowledged. This uncounted labour, which plays a critical role in the smooth functioning of families and societies, is rarely measured or rewarded. Shirin Rai argues that economic and policy priorities have long marginalized care work by framing it as secondary to \"productive\" labour traditionally performed by men. The privileging of male breadwinner employment and the relentless focus on GDP growth have contributed to the systemic devaluation of care-related work.\n\nIn India, there is still no legal framework that recognizes or compensates this form of unpaid work, despite it being the backbone of the economy. However, courts have begun to challenge this silence. In Kannaiyan Naidu and Others vs Kamsala Ammal and Others (2023), the Madras High Court ruled that a wife who performed household duties and cared for the family contributed, albeit indirectly, to the acquisition of family assets. Therefore, she was entitled to an equal share in the property.\n\nThese efforts to recognize women’s labour must be accompanied by a structural reconfiguration of gendered social relations. Without such a transformation, the burden of unpaid care work will remain disproportionately feminised. Article 338 of the Bolivian Constitution recognizes that work at home is an economic activity that creates added value and produces social welfare and wealth. Housewives are entitled to social security. Similarly, Argentina enacted a law recognizing employment contracts for domestic workers where women can get pension credits for unpaid care work.`,
+                text: `Source Text: A 2023 United Nations report showed that globally, women spend 2.8 more hours than men on unpaid care and domestic work. The struggle to count womenâ€™s labour continues. While domestic labour has increasingly entered the public discourse, the mental and emotional labour in sustaining relationships and managing household dynamics continues to go largely unacknowledged. This uncounted labour, which plays a critical role in the smooth functioning of families and societies, is rarely measured or rewarded. Shirin Rai argues that economic and policy priorities have long marginalized care work by framing it as secondary to \"productive\" labour traditionally performed by men. The privileging of male breadwinner employment and the relentless focus on GDP growth have contributed to the systemic devaluation of care-related work.\n\nIn India, there is still no legal framework that recognizes or compensates this form of unpaid work, despite it being the backbone of the economy. However, courts have begun to challenge this silence. In Kannaiyan Naidu and Others vs Kamsala Ammal and Others (2023), the Madras High Court ruled that a wife who performed household duties and cared for the family contributed, albeit indirectly, to the acquisition of family assets. Therefore, she was entitled to an equal share in the property.\n\nThese efforts to recognize womenâ€™s labour must be accompanied by a structural reconfiguration of gendered social relations. Without such a transformation, the burden of unpaid care work will remain disproportionately feminised. Article 338 of the Bolivian Constitution recognizes that work at home is an economic activity that creates added value and produces social welfare and wealth. Housewives are entitled to social security. Similarly, Argentina enacted a law recognizing employment contracts for domestic workers where women can get pension credits for unpaid care work.`,
                 questions: [
                     {
                         id: 501,
@@ -1194,7 +1194,7 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
             {
                 id: 504,
                 title: "Passage 4: International Relations (Venezuela & Oil)",
-                text: `Source Text: President Donald Trump’s plan to take control of Venezuela’s oil industry and ask American companies to revitalize it after capturing President Nicolás Maduro in a raid isn't likely to have a significant immediate impact on oil prices. Venezuela’s oil industry is in disrepair after years of neglect and international sanctions, so it could take years and major investments before production can increase dramatically. Some analysts are optimistic that Venezuela could double its current output of about 1.1 million barrels a day fairly quickly, but others warn of infrastructure decay.\n\n\"The estimate is that in order for Venezuela to increase from one million barrels per day – that is what it produces today – to four million barrels, it will take about a decade and about a hundred billion dollars of investment,\" said Francisco Monaldi. Venezuela produces heavy crude oil needed for diesel fuel and asphalt. Diesel is in short supply around the world because of sanctions on oil from Venezuela and Russia. Boosting Venezuelan production could make it easier to put pressure on Russia because Europe and the rest of the world could get more of the diesel and heavy oil they need from Venezuela and stop buying from Russia.\n\nHowever, Matthew Waxman, a Columbia University law professor, noted legal issues: \"An occupying military power can’t enrich itself by taking another state’s resources.\" Additionally, leading companies like ExxonMobil and Chevron didn't immediately respond, and the political picture remained uncertain. The problem isn't just finding the oil; it's a question of the political environment and whether companies can count on the government to live up to their contracts.`,
+                text: `Source Text: President Donald Trumpâ€™s plan to take control of Venezuelaâ€™s oil industry and ask American companies to revitalize it after capturing President NicolÃ¡s Maduro in a raid isn't likely to have a significant immediate impact on oil prices. Venezuelaâ€™s oil industry is in disrepair after years of neglect and international sanctions, so it could take years and major investments before production can increase dramatically. Some analysts are optimistic that Venezuela could double its current output of about 1.1 million barrels a day fairly quickly, but others warn of infrastructure decay.\n\n\"The estimate is that in order for Venezuela to increase from one million barrels per day â€“ that is what it produces today â€“ to four million barrels, it will take about a decade and about a hundred billion dollars of investment,\" said Francisco Monaldi. Venezuela produces heavy crude oil needed for diesel fuel and asphalt. Diesel is in short supply around the world because of sanctions on oil from Venezuela and Russia. Boosting Venezuelan production could make it easier to put pressure on Russia because Europe and the rest of the world could get more of the diesel and heavy oil they need from Venezuela and stop buying from Russia.\n\nHowever, Matthew Waxman, a Columbia University law professor, noted legal issues: \"An occupying military power canâ€™t enrich itself by taking another stateâ€™s resources.\" Additionally, leading companies like ExxonMobil and Chevron didn't immediately respond, and the political picture remained uncertain. The problem isn't just finding the oil; it's a question of the political environment and whether companies can count on the government to live up to their contracts.`,
                 questions: [
                     {
                         id: 501,
@@ -1206,7 +1206,7 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
                             "The global demand for oil has dropped to zero."
                         ],
                         correctAnswer: 1,
-                        explanation: "The text states: \"Venezuela’s oil industry is in disrepair after years of neglect... it could take years and major investments before production can increase.\""
+                        explanation: "The text states: \"Venezuelaâ€™s oil industry is in disrepair after years of neglect... it could take years and major investments before production can increase.\""
                     },
                     {
                         id: 502,
@@ -1237,12 +1237,12 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
                         question: "What legal hurdle does Matthew Waxman highlight regarding the \"seizure\" of Venezuela's oil?",
                         options: [
                             "American companies are banned from operating in South America.",
-                            "International law prohibits an occupying military power from enriching itself by taking another state’s resources.",
+                            "International law prohibits an occupying military power from enriching itself by taking another stateâ€™s resources.",
                             "The Venezuelan constitution forbids foreign investment.",
                             "The UN Security Council must approve all oil contracts."
                         ],
                         correctAnswer: 1,
-                        explanation: "Waxman notes: \"An occupying military power can’t enrich itself by taking another state’s resources.\""
+                        explanation: "Waxman notes: \"An occupying military power canâ€™t enrich itself by taking another stateâ€™s resources.\""
                     },
                     {
                         id: 505,
@@ -1312,7 +1312,7 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
                 title: "Passage 1: The AI Employment Paradox",
                 text: `Source Text: The rapid integration of Artificial Intelligence (AI) into the workforce presents a complex paradox for developing economies like India. On one hand, AI promises to boost productivity, spur innovation, and create new high-value job categories. On the other, it threatens to automate routine cognitive and manual tasks, which currently form the bulk of formal employment. For India, with its massive demographic dividend, the stakes are critically high. If AI displaces entry-level jobs in sectors like IT and BPO faster than the workforce can reskill, the demographic dividend could turn into a demographic disaster.
                 
-                However, the narrative of "AI stealing jobs" is often oversimplified. History suggests that technology tends to create more jobs than it destroys, but these new jobs are often in different sectors and require different skills. The real challenge is the "transition friction." Can the education system pivot fast enough? Can mid-career professionals afford the downtime to learn new tools? The government's role, therefore, must shift from merely protecting jobs to protecting workers—ensuring social safety nets and accessible upskilling pathways.`,
+                However, the narrative of "AI stealing jobs" is often oversimplified. History suggests that technology tends to create more jobs than it destroys, but these new jobs are often in different sectors and require different skills. The real challenge is the "transition friction." Can the education system pivot fast enough? Can mid-career professionals afford the downtime to learn new tools? The government's role, therefore, must shift from merely protecting jobs to protecting workersâ€”ensuring social safety nets and accessible upskilling pathways.`,
                 questions: [
                     {
                         id: 1,
@@ -1348,7 +1348,7 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
                             "Provide guaranteed employment in the public sector to offset private sector job losses."
                         ],
                         correctAnswer: 2,
-                        explanation: "Text concludes: 'government's role, therefore, must shift from merely protecting jobs to protecting workers—ensuring social safety nets...'"
+                        explanation: "Text concludes: 'government's role, therefore, must shift from merely protecting jobs to protecting workersâ€”ensuring social safety nets...'"
                     }
                 ]
             },
@@ -1357,7 +1357,7 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
                 title: "Passage 2: Sponge Cities",
                 text: `Source Text: As urban flooding becomes a recurrent nightmare in Indian metros, the concept of "Sponge Cities" has gained traction. A Sponge City is designed to passively absorb, clean, and use rainfall in an ecologically friendly way that reduces dangerous runoff. Instead of funneling rainwater away as quickly as possible via concrete drains (gray infrastructure), sponge cities use permeable pavements, rain gardens, and green roofs (green infrastructure) to retain water at its source.
                 
-                This approach solves two problems at once: flood management and water scarcity. By allowing water to seep into the ground, groundwater tables are recharged. However, retrofitting ancient, unplanned Indian cities is no small feat. Encroachment on natural wetlands and the concreting of open spaces have severed the natural hydrological cycle. Implementing the sponge city model requires not just engineering changes, but a fundamental shift in urban governance—strictly enforcing zoning laws and prioritizing ecology over short-term real estate gains.`,
+                This approach solves two problems at once: flood management and water scarcity. By allowing water to seep into the ground, groundwater tables are recharged. However, retrofitting ancient, unplanned Indian cities is no small feat. Encroachment on natural wetlands and the concreting of open spaces have severed the natural hydrological cycle. Implementing the sponge city model requires not just engineering changes, but a fundamental shift in urban governanceâ€”strictly enforcing zoning laws and prioritizing ecology over short-term real estate gains.`,
                 questions: [
                     {
                         id: 4,
@@ -1382,231 +1382,6 @@ The policy mandates shelters for every 1 lakh population. For Bengaluru, this me
                         ],
                         correctAnswer: 2,
                         explanation: "Text mentions: 'retrofitting ancient, unplanned Indian cities is no small feat. Encroachment on natural wetlands and the concreting... have severed the natural hydrological cycle.'"
-                    }
-                ]
-            }
-        ]
-    },
-    21: {
-        day: 21,
-        title: "Quants: Number System Basics",
-        vocabulary: [
-            {
-                word: "Dividend",
-                context: "Dividend = Divisor × Quotient + Remainder",
-                definition: "The number that is being divided.",
-                synonyms: [],
-                antonyms: [],
-                toneIndicator: 'neutral'
-            },
-            {
-                word: "Prime Number",
-                context: "2 is the only even prime number.",
-                definition: "A number greater than 1 that has exactly two factors: 1 and itself.",
-                synonyms: [],
-                antonyms: ["Composite Number"],
-                toneIndicator: 'neutral'
-            },
-            {
-                word: "Co-prime",
-                context: "Two numbers are co-prime if their HCF is 1.",
-                definition: "A set of numbers which have only 1 as their common factor.",
-                synonyms: ["Relatively Prime"],
-                antonyms: [],
-                toneIndicator: 'neutral'
-            }
-        ],
-        passages: [
-            {
-                id: 2101,
-                title: "Concept: Classification & Divisibility",
-                text: `Key Concepts:
-1. Natural Numbers (N): 1, 2, 3... | Whole Numbers (W): 0, 1, 2... | Integers (Z): ...-2, -1, 0, 1, 2...
-2. Prime Numbers: Numbers divisible only by 1 and themselves. (2, 3, 5, 7, 11, 13, 17, 19, 23, 29...)
-3. Divisibility Rules:
-   - By 2: Last digit is even.
-   - By 3: Sum of digits is divisible by 3.
-   - By 4: Last two digits are divisible by 4.
-   - By 5: Last digit is 0 or 5.
-   - By 6: Divisible by both 2 and 3.
-   - By 8: Last three digits are divisible by 8.
-   - By 9: Sum of digits is divisible by 9.
-   - By 11: Difference of (Sum of odd place digits) and (Sum of even place digits) is 0 or divisible by 11.`,
-                questions: [
-                    {
-                        id: 1,
-                        question: "Which of the following numbers is divisible by 11?",
-                        options: ["4832718", "5832718", "8432718", "4832178"],
-                        correctAnswer: 0,
-                        explanation: "For 4832718: Odd places: 8+7+3+4 = 22. Even places: 1+2+8 = 11. Diff = 22-11 = 11. Divisible by 11."
-                    },
-                    {
-                        id: 2,
-                        question: "If the number 517X324 is divisible by 3, find the smallest whole number value of X.",
-                        options: ["0", "1", "2", "3"],
-                        correctAnswer: 2,
-                        explanation: "Sum = 5+1+7+X+3+2+4 = 22+X. Next multiple of 3 after 22 is 24. So X=2."
-                    },
-                    {
-                        id: 3,
-                        question: "How many prime numbers are there between 1 and 50?",
-                        options: ["12", "15", "14", "16"],
-                        correctAnswer: 1,
-                        explanation: "Primes: 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47. Total = 15."
-                    },
-                    {
-                        id: 4,
-                        question: "Which of the following is a prime number?",
-                        options: ["119", "187", "247", "551"],
-                        correctAnswer: 3,
-                        explanation: "Check divisibility. 119=7*17. 187=11*17. 247=13*19. 551 is 19*29? No. Actually 551 is 19 * 29. Wait. Let me check. 19*20=380. 19*9=171. 380+171=551. So 551 is composite. Wait, options need a prime. Let me re-evaluate. 119 (7x17), 187 (11x17), 247 (13x19). Is there a prime? Maybe 97? Let's use simpler numbers for the user to solve. New Options: 91, 93, 97, 99. 91=7x13. 93=3x31. 97 is Prime. 99=9x11. Correct answer 97 is option C."
-                    },
-                    {
-                        id: 5,
-                        question: "What is the smallest number that must be added to 1000 so that the sum is exactly divisible by 45?",
-                        options: ["35", "80", "20", "10"],
-                        correctAnswer: 0,
-                        explanation: "45 = 5 * 9. 1000 is divisible by 5. Sum of digits = 1. Nearest multiple of 9 is 9 (too small) or 18 (too far) or just divide. 1000/45 = 22 rem 10. To make it divisible, add 45-10 = 35. 1035/45 = 23."
-                    }
-                ]
-            },
-            {
-                id: 2102,
-                title: "Concept: Unit Digit & Cyclicity",
-                text: `Key Concepts:
-1. Cyclicity of Unit Digits:
-   - 0, 1, 5, 6: Cyclicity 1 (Same digit always)
-   - 4, 9: Cyclicity 2 (4^odd=4, 4^even=6; 9^odd=9, 9^even=1)
-   - 2, 3, 7, 8: Cyclicity 4
-2. To find unit digit of x^n:
-   - Divide n by 4, find remainder 'r'.
-   - Result is units digit of x^r. (If r=0, use power 4).`,
-                questions: [
-                    {
-                        id: 6,
-                        question: "What is the unit digit of (2025)^2025?",
-                        options: ["0", "5", "1", "6"],
-                        correctAnswer: 1,
-                        explanation: "Unit digit of base is 5. 5 raised to any power ends in 5."
-                    },
-                    {
-                        id: 7,
-                        question: "Find the unit digit of 3^35.",
-                        options: ["1", "3", "7", "9"],
-                        correctAnswer: 2,
-                        explanation: "Cyclicity of 3 is 4. Divide power 35 by 4. 35 = 4*8 + 3. Remainder is 3. Unit digit = 3^3 = 27 -> 7."
-                    },
-                    {
-                        id: 8,
-                        question: "Find the unit digit of (124)^372 + (124)^373.",
-                        options: ["0", "2", "4", "5"],
-                        correctAnswer: 0,
-                        explanation: "For 4: Odd power -> 4, Even power -> 6. 372 is even -> 6. 373 is odd -> 4. Sum = 6 + 4 = 10. Unit digit 0."
-                    },
-                    {
-                        id: 9,
-                        question: "What covers the unit digit of the product: 81 × 82 × ... × 89?",
-                        options: ["0", "2", "4", "No unique digit"],
-                        correctAnswer: 0,
-                        explanation: "The series includes 82 and 85. Product of 2 and 5 ends in 0. The entire product must end in 0."
-                    },
-                    {
-                        id: 10,
-                        question: "The unit digit of 7^95 - 3^58 is?",
-                        options: ["0", "4", "6", "7"],
-                        correctAnswer: 1,
-                        explanation: "7^95: 95/4 rem 3. 7^3=343 -> 3. | 3^58: 58/4 rem 2. 3^2=9 -> 9. | 3 - 9 -> (13) - 9 = 4."
-                    }
-                ]
-            },
-            {
-                id: 2103,
-                title: "Concept: Remainders",
-                text: `Key Concept:
-Remainder Theorem: The remainder of a product is the product of the remainders. 
-Rem(A*B / N) = [Rem(A/N) * Rem(B/N)] % N.
-Negative Remainders: Sometimes easier to work with. E.g., Rem(25/26) = 25 or -1.`,
-                questions: [
-                    {
-                        id: 11,
-                        question: "What is the remainder when 17^200 is divided by 18?",
-                        options: ["1", "17", "2", "16"],
-                        correctAnswer: 0,
-                        explanation: "17 = 18 - 1. So 17 is congruent to -1 mod 18. (-1)^200 = 1. Remainder is 1."
-                    },
-                    {
-                        id: 12,
-                        question: "What is the remainder when 2^60 is divided by 7?",
-                        options: ["1", "2", "4", "3"],
-                        correctAnswer: 0,
-                        explanation: "2^3 = 8. 8 mod 7 = 1. (2^3)^20 = 1^20 = 1."
-                    },
-                    {
-                        id: 13,
-                        question: "Find the remainder when (127 + 139 + 12653 + 79 + 18769) is divided by 5.",
-                        options: ["1", "2", "3", "4"],
-                        correctAnswer: 3,
-                        explanation: "Check unit digits: 7+9+3+9+9 = 37. 37/5 rem 2? Wait. Let's do mod 5. 2+4+3+4+4 = 17. 17/5 rem 2. Wait. 127->2, 139->4, 12653->3, 79->4, 18769->4. Sum = 17. 17 mod 5 = 2. Option B (Assume options are A:1, B:2, C:3, D:4. Correct is 2). Wait, I set C as 3? Let me fix the correct answer index or text. I'll output CorrectAnswer: 1 (which refers to '2')."
-                    },
-                    {
-                        id: 14,
-                        question: "A number when divided by 899 gives a remainder 63. If the same number is divided by 29, the remainder will be:",
-                        options: ["5", "10", "25", "4"],
-                        correctAnswer: 0,
-                        explanation: "N = 899k + 63. Since 899 is divisible by 29 (31*29=899), we just divide 63 by 29. 63 = 2*29 + 5. Remainder is 5."
-                    },
-                    {
-                        id: 15,
-                        question: "What is the remainder when 9^6 + 7 is divided by 8?",
-                        options: ["0", "5", "6", "4"],
-                        correctAnswer: 0,
-                        explanation: "9 mod 8 = 1. 1^6 = 1. 1+7 = 8. 8 mod 8 = 0."
-                    }
-                ]
-            },
-            {
-                id: 2104,
-                title: "Practice Set: HCF & LCM",
-                text: `Key Concept:
-HCF: Highest Common Factor (Greatest Common Divisor).
-LCM: Least Common Multiple.
-Product of two numbers = HCF × LCM.
-Fraction HCF = HCF(Num)/LCM(Den).`,
-                questions: [
-                    {
-                        id: 16,
-                        question: "The HCF and LCM of two numbers are 8 and 48 respectively. If one of the numbers is 24, find the other number.",
-                        options: ["12", "16", "24", "48"],
-                        correctAnswer: 1,
-                        explanation: "HCF * LCM = Product. 8 * 48 = 24 * x. x = (8*48)/24 = 16."
-                    },
-                    {
-                        id: 17,
-                        question: "Find the HCF of 513, 1134 and 1215.",
-                        options: ["18", "27", "33", "36"],
-                        correctAnswer: 1,
-                        explanation: "Difference between 1215 and 1134 is 81. HCF must divide 81. Factors of 81: 1, 3, 9, 27, 81. Check 27. 513/27=19. 1134/27=42. 1215/27=45. All divisible. So 27."
-                    },
-                    {
-                        id: 18,
-                        question: "Six bells commence tolling together and toll at intervals of 2, 4, 6, 8, 10 and 12 seconds respectively. In 30 minutes, how many times do they toll together?",
-                        options: ["4", "10", "15", "16"],
-                        correctAnswer: 3,
-                        explanation: "LCM of 2,4,6,8,10,12 is 120 seconds (2 mins). In 30 mins, they toll 30/2 = 15 times. Plus the start toll = 16 times."
-                    },
-                    {
-                        id: 19,
-                        question: "Two numbers are in the ratio 3:4. Their LCM is 84. The greater number is:",
-                        options: ["21", "24", "28", "84"],
-                        correctAnswer: 2,
-                        explanation: "Let numbers be 3x and 4x. LCM = 12x. 12x = 84 => x=7. Numbers are 21 and 28. Greater is 28."
-                    },
-                    {
-                        id: 20,
-                        question: "Find the smallest number which leaves a remainder of 2 when divided by 5, 6, and 8.",
-                        options: ["242", "122", "62", "240"],
-                        correctAnswer: 1,
-                        explanation: "LCM(5,6,8) = 120. Required number = LCM + Remainder = 120 + 2 = 122."
                     }
                 ]
             }
@@ -1645,7 +1420,7 @@ Fraction HCF = HCF(Num)/LCM(Den).`,
             {
                 id: 1701,
                 title: "Passage 1: The Burden of Freedom",
-                text: `Source Text: "Man is condemned to be free; because once thrown into the world, he is responsible for everything he does." This existentialist proclamation by Jean-Paul Sartre places the weight of the world squarely on the shoulders of the individual. Unlike objects, which have a fixed essence (a knife is made to cut), human beings have no predetermined purpose. We exist first, and then we define ourselves through our actions.  This radical freedom is not a source of joy but of anguish. When we choose for ourselves, we are, in effect, choosing for all of humanity, setting a template for what we believe a human being should be. To deny this responsibility is "bad faith"—a form of self-deception where we pretend we are compelled by circumstances, society, or biology, rather than admitting we chose to yield to them.`,
+                text: `Source Text: "Man is condemned to be free; because once thrown into the world, he is responsible for everything he does." This existentialist proclamation by Jean-Paul Sartre places the weight of the world squarely on the shoulders of the individual. Unlike objects, which have a fixed essence (a knife is made to cut), human beings have no predetermined purpose. We exist first, and then we define ourselves through our actions.  This radical freedom is not a source of joy but of anguish. When we choose for ourselves, we are, in effect, choosing for all of humanity, setting a template for what we believe a human being should be. To deny this responsibility is "bad faith"â€”a form of self-deception where we pretend we are compelled by circumstances, society, or biology, rather than admitting we chose to yield to them.`,
                 questions: [
                     {
                         id: 1,
@@ -1712,7 +1487,7 @@ Fraction HCF = HCF(Num)/LCM(Den).`,
             {
                 id: 1702,
                 title: "Passage 2: The Utilitarian Calculus",
-                text: `Source Text: The trolley problem remains the classic litmus test for utilitarian ethics. If you could save five lives by diverting a runaway trolley onto a track where it would kill one person, would you? For a strict utilitarian, the answer is a mathematical obviousness: five is greater than one. The intended outcome—minimizing total harm—justifies the action. However, this "greatest happiness principle" faces severe criticism when it collides with individual rights. If a doctor could save five patients needing organ transplants by sacrificing one healthy visitor, utilitarian logic might endorse it. This suggests that while utilitarianism is effective for public policy (allocating limited resources), it can be morally monstrous at the personal level, potentially reducing human beings to mere numbers in a happiness calculation.`,
+                text: `Source Text: The trolley problem remains the classic litmus test for utilitarian ethics. If you could save five lives by diverting a runaway trolley onto a track where it would kill one person, would you? For a strict utilitarian, the answer is a mathematical obviousness: five is greater than one. The intended outcomeâ€”minimizing total harmâ€”justifies the action. However, this "greatest happiness principle" faces severe criticism when it collides with individual rights. If a doctor could save five patients needing organ transplants by sacrificing one healthy visitor, utilitarian logic might endorse it. This suggests that while utilitarianism is effective for public policy (allocating limited resources), it can be morally monstrous at the personal level, potentially reducing human beings to mere numbers in a happiness calculation.`,
                 questions: [
                     {
                         id: 6,
@@ -1760,7 +1535,7 @@ Fraction HCF = HCF(Num)/LCM(Den).`,
                             "There is no such thing as a correct answer."
                         ],
                         correctAnswer: 1,
-                        explanation: "It explains the decision as 'five is greater than one'—a simple quantitative comparison."
+                        explanation: "It explains the decision as 'five is greater than one'â€”a simple quantitative comparison."
                     },
                     {
                         id: 10,
@@ -1779,7 +1554,7 @@ Fraction HCF = HCF(Num)/LCM(Den).`,
             {
                 id: 1703,
                 title: "Passage 3: The Veil of Ignorance",
-                text: `Source Text: John Rawls proposed a thought experiment to determine the principles of a just society: the "Original Position." Imagine you are tasked with designing a new society, but you are behind a "Veil of Ignorance." You do not know if you will be rich or poor, talented or disabled, male or female, or of a majority or minority race. Rawls argues that a rational person in this position would choose two key principles. First, basic liberties for all (freedom of speech, religion). Second, the "Difference Principle"—inequalities are permitted only if they benefit the least advantaged members of society. Since you could end up being the poorest person, you would design the system to ensure the 'bottom' is as high as possible, rather than gambling on a system with massive inequality in hopes of being at the top.`,
+                text: `Source Text: John Rawls proposed a thought experiment to determine the principles of a just society: the "Original Position." Imagine you are tasked with designing a new society, but you are behind a "Veil of Ignorance." You do not know if you will be rich or poor, talented or disabled, male or female, or of a majority or minority race. Rawls argues that a rational person in this position would choose two key principles. First, basic liberties for all (freedom of speech, religion). Second, the "Difference Principle"â€”inequalities are permitted only if they benefit the least advantaged members of society. Since you could end up being the poorest person, you would design the system to ensure the 'bottom' is as high as possible, rather than gambling on a system with massive inequality in hopes of being at the top.`,
                 questions: [
                     {
                         id: 11,
@@ -1810,7 +1585,7 @@ Fraction HCF = HCF(Num)/LCM(Den).`,
                         question: "Why does Rawls argue a rational person would choose these principles?",
                         options: [
                             "Because humans are naturally altruistic.",
-                            "Because of risk aversion—since one 'could end up being the poorest,' one would maximize the minimum well-being.",
+                            "Because of risk aversionâ€”since one 'could end up being the poorest,' one would maximize the minimum well-being.",
                             "Because equality is the only moral goal.",
                             "Because weak people need protection."
                         ],
@@ -1846,7 +1621,7 @@ Fraction HCF = HCF(Num)/LCM(Den).`,
             {
                 id: 1704,
                 title: "Passage 4: The Cave Allegory",
-                text: `Source Text: Plato's Allegory of the Cave describes prisoners chained in a cave facing a wall, seeing only shadows cast by objects behind them. To them, these shadows are reality. One prisoner is freed and dragged outside into the sunlight. At first, the light blinds him, and he is pained and confused. Gradually, he sees the real world—the trees, the stars, and finally the sun itself (representing the Form of the Good). When he returns to the cave to free the others, they mock him and threaten to kill him, arguing that his eyes are ruined because he can no longer see the shadows clearly. The allegory illustrates the philosopher's journey from opinion (doxa) to knowledge (episteme) and the hostility that enlightenment often faces from the ignorant.`,
+                text: `Source Text: Plato's Allegory of the Cave describes prisoners chained in a cave facing a wall, seeing only shadows cast by objects behind them. To them, these shadows are reality. One prisoner is freed and dragged outside into the sunlight. At first, the light blinds him, and he is pained and confused. Gradually, he sees the real worldâ€”the trees, the stars, and finally the sun itself (representing the Form of the Good). When he returns to the cave to free the others, they mock him and threaten to kill him, arguing that his eyes are ruined because he can no longer see the shadows clearly. The allegory illustrates the philosopher's journey from opinion (doxa) to knowledge (episteme) and the hostility that enlightenment often faces from the ignorant.`,
                 questions: [
                     {
                         id: 16,
@@ -2087,45 +1862,7 @@ Fraction HCF = HCF(Num)/LCM(Den).`,
             }
         ]
     },
-    20: {
-        day: 20,
-        title: "English: Final Comprehension Mock",
-        vocabulary: [],
-        passages: [
-            {
-                id: 2001,
-                title: "Mock Passage 1: The Future of Work",
-                text: "Source Text: Automation...",
-                questions: [
-                    { id: 1, question: "Q1", options: ["A", "B", "C", "D"], correctAnswer: 0, explanation: "Exp" }
-                ]
-            },
-            {
-                id: 2002,
-                title: "Mock Passage 2: Climate Justice",
-                text: "Source Text: Climate...",
-                questions: [
-                    { id: 1, question: "Q1", options: ["A", "B", "C", "D"], correctAnswer: 0, explanation: "Exp" }
-                ]
-            },
-            {
-                id: 2003,
-                title: "Mock Passage 3: Urbanization",
-                text: "Source Text: Cities...",
-                questions: [
-                    { id: 1, question: "Q1", options: ["A", "B", "C", "D"], correctAnswer: 0, explanation: "Exp" }
-                ]
-            },
-            {
-                id: 2004,
-                title: "Mock Passage 4: Globalization",
-                text: "Source Text: Trade...",
-                questions: [
-                    { id: 1, question: "Q1", options: ["A", "B", "C", "D"], correctAnswer: 0, explanation: "Exp" }
-                ]
-            }
-        ]
-    },
+
     19: {
         day: 19,
         title: "English: PYQ Analysis",
@@ -2150,6 +1887,1027 @@ Fraction HCF = HCF(Num)/LCM(Den).`,
             { id: 1904, title: "Passage 4", text: "Simulated Text...", questions: [] }
             // Note: Keeping Day 19 brief as placeholder for user to fill with real PYQs if needed. 
             // The file structure is the priority.
+        ]
+    },
+    20: {
+        day: 20,
+        title: "CSAT Practice - Day 20",
+        vocabulary: [
+            {
+                word: "Algorithmic Bias",
+                context: "...concerns regarding algorithmic bias in hiring processes...",
+                definition: "Systematic and repeatable errors in a computer system that create unfair outcomes, such as privileging one arbitrary group of users over others.",
+                synonyms: ["AI bias", "Machine learning bias"],
+                antonyms: ["Algorithmic fairness"],
+                toneIndicator: "negative"
+            },
+            {
+                word: "Urban Heat Island",
+                context: "...cities suffering from the urban heat island effect...",
+                definition: "An urban area that is significantly warmer than its surrounding rural areas due to human activities.",
+                synonyms: ["Heat island"],
+                antonyms: [],
+                toneIndicator: "negative"
+            }
+        ],
+        passages: [
+            {
+                id: 2001,
+                title: "Passage 1: Allocative Efficiency of AI",
+                text: "Source Text: Artificial Intelligence (AI) promises to revolutionize the allocative efficiency of resources in the economy. By predicting demand with high precision, AI can reduce wastage in supply chains and optimize energy grids. However, this efficiency comes at a cost of transparency. â€˜Black boxâ€™ algorithms make decisions that even their creators cannot fully explain. When these systems are applied to social sectors like credit scoring or hiring, â€˜Allocative Efficiencyâ€™ may turn into â€˜Allocative Discriminationâ€™, reinforcing historical biases under the guise of mathematical objectivity.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "The author implies that the 'Black box' nature of AI:",
+                        options: [
+                            "Is necessary to protect trade secrets.",
+                            "Undermines the accountability of decisions in social sectors.",
+                            "Increases the speed of processing data.",
+                            "Prevents hackers from manipulating the system."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text says black box algorithms make decisions creators can't explain, leading to potential discrimination in social sectors."
+                    },
+                    {
+                        id: 2,
+                        question: "What is the 'Allocative Discrimination' mentioned in the text?",
+                        options: [
+                            "The refusal of AI to allocate resources to poor people.",
+                            "The reinforcement of historical biases by opaque algorithms.",
+                            "The efficient allocation of resources to the most profitable sectors.",
+                            "The bias of AI against rural areas."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text explicitly defines it as 'reinforcing historical biases under the guise of mathematical objectivity'."
+                    }
+                ]
+            },
+            {
+                id: 2002,
+                title: "Passage 2: Urban Heat Islands",
+                text: "Source Text: As Indian cities concrete over their green cover, they are becoming heat traps. The Urban Heat Island (UHI) effect causes cities to be 3-4 degrees Celsius warmer than peri-urban areas. This is not just a comfort issue but a public health crisis. Night-time temperatures remain high, preventing the human body from recovering. The solution lies in 'Blue-Green Infrastructure'â€”integrating water bodies and vegetation into urban planning. However, real estate pressure treats every inch of land as a commodity, making such integration a regulatory battle.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "According to the passage, why is the UHI effect termed a 'public health crisis'?",
+                        options: [
+                            "It causes heat strokes during the day only.",
+                            "It prevents the body from recovering due to high night-time temperatures.",
+                            "It leads to increased air pollution.",
+                            "It causes shortage of drinking water."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text states: 'Night-time temperatures remain high, preventing the human body from recovering.'"
+                    }
+                ]
+            }
+        ]
+    },
+    21: {
+        day: 21,
+        title: "CSAT Practice - Day 21",
+        vocabulary: [
+            {
+                word: "Strategic Autonomy",
+                context: "...India's pursuit of strategic autonomy in the semiconductor sector...",
+                definition: "The ability of a country to pursue its national interests and foreign policy without being constrained by other states.",
+                synonyms: ["Sovereignty", "Independence"],
+                antonyms: ["Dependency"],
+                toneIndicator: "positive"
+            }
+        ],
+        passages: [
+            {
+                id: 2101,
+                title: "Passage 1: The Semiconductor Race",
+                text: "Source Text: The global race for semiconductors is no longer just about economics; it is about national security. 'Oil of the 21st century', chips power everything from missiles to toasters. India's Semiconductor Mission aims to reduce reliance on imports, particularly from geopolitical hotspots. However, building a fabrication ecosystem requires three things India has historically struggled to align: massive capital, ultra-pure water/power reliability, and a specialized workforce. Success depends not on just subsidies, but on creating an industrial culture of precision.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "Why are semiconductors referred to as the 'Oil of the 21st century'?",
+                        options: [
+                            "They are extracted from the ground like oil.",
+                            "They are the critical resource powering the modern economy and security.",
+                            "They cause pollution similar to fossil fuels.",
+                            "They are traded in barrels."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Use of 'power everything from missiles to toasters' implies they are the foundational energy/resource of the modern age."
+                    }
+                ]
+            }
+        ]
+    },
+    22: {
+        day: 22,
+        title: "CSAT Practice - Day 22",
+        vocabulary: [
+            {
+                word: "Simultaneous Elections",
+                context: "...debate around simultaneous elections for Lok Sabha and Assemblies...",
+                definition: "Holding elections to the House of the People and State Legislative Assemblies together.",
+                synonyms: ["One Nation One Election"],
+                antonyms: [],
+                toneIndicator: "neutral"
+            },
+            {
+                word: "Green Shipping",
+                context: "...transition to green shipping corridors...",
+                definition: "Using zero-emission fuels and technologies in the maritime shipping industry.",
+                synonyms: ["Sustainable maritime transport"],
+                antonyms: [],
+                toneIndicator: "positive"
+            }
+        ],
+        passages: [
+            {
+                id: 2201,
+                title: "Passage 1: One Nation, One Election",
+                text: "Source Text: The proposal for 'One Nation, One Election' argues that continuous election cycles keep the country in a permanent campaign mode, hindering governance due to the Model Code of Conduct. Proponents claim it will reduce costs and administrative burden. However, critics argue it strikes at the heart of federalism. Local issues, which dominate state elections, might be overshadowed by national narratives in a simultaneous poll. The voter's judgment is nuanced; they often vote differently for state and center. Forcing a synchronization could homogenize this distinct political expression, potentially weakening, rather than strengthening, democracy.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "The central criticism of 'One Nation, One Election' presented in the passage is:",
+                        options: [
+                            "It is too expensive to implement.",
+                            "It violates the Constitution's basic structure.",
+                            "It might overshadow local issues with national narratives, undermining federalism.",
+                            "It requires Electronic Voting Machines (EVMs) which are unreliable."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Text argues: 'Local issues... overshadowed by national narratives... weakening federalism.'"
+                    },
+                    {
+                        id: 2,
+                        question: "What is the primary argument used by proponents of simultaneous elections?",
+                        options: [
+                            "It allows the Prime Minister to campaign everywhere.",
+                            "It reduces the hindrance to governance caused by the Model Code of Conduct.",
+                            "It increases voter turnout significantly.",
+                            "It ensures the same party rules both Centre and State."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'argues that continuous election cycles... hindering governance due to Model Code of Conduct.'"
+                    }
+                ]
+            },
+            {
+                id: 2202,
+                title: "Passage 2: The Mental Health Shadow",
+                text: "Source Text: India's demographic dividend is often celebrated, but a shadow looms over it: the mental health crisis among youth. Academic pressure, social media anxiety, and employment uncertainty have created a toxic cocktail. The National Mental Health Survey indicates a spike in anxiety disorders. Yet, the stigma remains a barrier to seeking help. We have more coaching centers than counseling centers. Unless mental health is integrated into the educational curriculum as a life skill, we risk raising a generation that is economically productive but emotionally fragile.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "The author uses the phrase 'economically productive but emotionally fragile' to warn against:",
+                        options: [
+                            "The lack of vocational training in schools.",
+                            "Focusing solely on academic/economic success while neglecting mental well-being.",
+                            "The high cost of mental health treatment.",
+                            "The overuse of social media by teenagers."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The contrast is between economic output (dividend) and emotional health (fragile)."
+                    }
+                ]
+            },
+            {
+                id: 2203,
+                title: "Passage 3: Green Shipping Corridors",
+                text: "Source Text: The maritime sector contributes nearly 3% of global greenhouse gas emissions. As trade volumes grow, so does the pollution. 'Green Shipping Corridors'â€”specific trade routes between major port hubs where zero-emission solutions are supportedâ€”are the new frontier. India's plan to develop green hydrogen hubs at ports aligns with this. However, the technology for zero-emission vessels (methanol/ammonia engines) is still maturing. The transition requires not just port infrastructure but a complete overhaul of ship engines and fuel supply chains.",
+                questions: [
+                    {
+                        id: 4,
+                        question: "Which of the following describes the concept of a 'Green Shipping Corridor'?",
+                        options: [
+                            "A shipping lane where no ships are allowed to safeguard marine life.",
+                            "A trade route where zero-emission shipping solutions are specifically supported and demonstrated.",
+                            "A canal painted green to reflect sunlight.",
+                            "A route reserved only for sailing ships."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text defines it as: 'specific trade routes... where zero-emission solutions are supported'."
+                    }
+                ]
+            },
+            {
+                id: 2204,
+                title: "Passage 4: Space Tourism & debris",
+                text: "Source Text: As private companies race to offer space tourism, the Low Earth Orbit (LEO) is becoming crowded. While it opens space to civilians, it exacerbates the Kessler Syndrome riskâ€”a chain reaction of collisions creating a debris belt that traps us on Earth. The thrill of a ten-minute weightless experience for the wealthy must be weighed against the long-term sustainability of space activities. Regulation is currently a 'wild west'. Without binding international traffic rules, space tourism could unintentionally close the door to future space exploration.",
+                questions: [
+                    {
+                        id: 5,
+                        question: "The 'Kessler Syndrome' mentioned in the text refers to:",
+                        options: [
+                            "The physical sickness experienced by space tourists.",
+                            "A cascading chain reaction of collisions in orbit creating an impenetrable debris belt.",
+                            "The psychological effect of seeing Earth from space.",
+                            "The financial bankruptcy of space companies."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text defines it as: 'chain reaction of collisions creating a debris belt that traps us on Earth'."
+                    }
+                ]
+            }
+        ]
+    },
+    23: {
+        day: 23,
+        title: "CSAT Practice - Day 23",
+        vocabulary: [
+            {
+                word: "Uniform Civil Code (UCC)",
+                context: "...deliberations on the implementation of a Uniform Civil Code...",
+                definition: "A proposal in India to formulate and implement a personal law which applies to all citizens regardless of their religion, gender and sexual orientation.",
+                synonyms: ["Common civil code"],
+                antonyms: ["Personal laws"],
+                toneIndicator: "neutral"
+            },
+            {
+                word: "Antimicrobial Resistance (AMR)",
+                context: "...rising threat of Antimicrobial Resistance in ICU patients...",
+                definition: "When bacteria, viruses, fungi and parasites change over time and no longer respond to medicines making infections harder to treat.",
+                synonyms: ["Drug resistance"],
+                antonyms: [],
+                toneIndicator: "negative"
+            }
+        ],
+        passages: [
+            {
+                id: 2301,
+                title: "Passage 1: Uniform Civil Code (UCC)",
+                text: "Source Text: Article 44 of the Directive Principles lays down that the State shall endeavor to secure a Uniform Civil Code (UCC) for the citizens. The debate, however, has often been polarized. Supporters argue it is essential for gender justice, as many personal laws discriminate against women in matters of inheritance and divorce. Opponents fear it is a tool to erode the cultural identity of minorities. The challenge lies in drafting a code that unifies legal rights without enforcing cultural uniformity. A 'voluntary' UCC, as seen in Goa or the Special Marriage Act, offers a template, but a mandatory nationwide rollout faces deep political and social fissures.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "The author suggests that the primary distinction to be made in the UCC debate is between:",
+                        options: [
+                            "Religious laws and Secular laws.",
+                            "Unifying legal rights versus enforcing cultural uniformity.",
+                            "The Constitution and the Sharia.",
+                            "Men's rights and Women's rights."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text explicitly states: 'The challenge lies in drafting a code that unifies legal rights without enforcing cultural uniformity.'"
+                    }
+                ]
+            },
+            {
+                id: 2302,
+                title: "Passage 2: Generative AI & Copyright",
+                text: "Source Text: Generative AI models are trained on vast datasets scraped from the internet, often including copyrighted art, books, and code. Creators argue this is 'high-tech plagiarism', as these models can reproduce their style without attribution or compensation. Tech companies defend this as 'fair use', akin to a student learning from a library. The legal system is playing catch-up. If courts rule against fair use, the AI boom could hit a paywall. If they rule for it, human creativity might become economically unviable.",
+                questions: [
+                    {
+                        id: 2,
+                        question: "The central legal conflict described in the passage is:",
+                        options: [
+                            "Whether AI can legally own a patent.",
+                            "Whether training AI on copyrighted data constitutes 'fair use' or 'plagiarism'.",
+                            "Whether AI art is better than human art.",
+                            "Whether the internet should be free."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "The text frames the debate: 'Creators argue this is high-tech plagiarism... Tech companies defend this as fair use'."
+                    }
+                ]
+            },
+            {
+                id: 2303,
+                title: "Passage 3: Antimicrobial Resistance (AMR)",
+                text: "Source Text: We are entering a 'post-antibiotic era'. Routine surgeries like C-sections or hip replacements could soon become life-threatening due to Antimicrobial Resistance (AMR). Overuse of antibiotics in humans and, more critically, in livestock for growth promotion, has bred 'superbugs'. The pharmaceutical pipeline for new antibiotics has run dry because they are not profitable to develop compared to chronic disease drugs. Without a 'push-pull' funding mechanism from governments, the market will not solve this existential crisis.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "Why does the author state that the market will not solve the AMR crisis?",
+                        options: [
+                            "Because antibiotics are too cheap to manufacture.",
+                            "Because developing new antibiotics is not profitable compared to chronic disease drugs.",
+                            "Because doctors refuse to prescribe new antibiotics.",
+                            "Because the government has banned private research."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'not profitable to develop compared to chronic disease drugs... market will not solve this'."
+                    }
+                ]
+            },
+            {
+                id: 2304,
+                title: "Passage 4: India-Middle East-Europe Corridor (IMEC)",
+                text: "Source Text: The IMEC, announced at the G20, is touted as a counter to China's Belt and Road Initiative. By linking India to Europe via the UAE, Saudi Arabia, and Israel, it aims to cut transit times by 40%. However, the corridor is fraught with geopolitical fragility. The recent conflict in Israel has put a question mark on the vital Mediterranean link. While the economic logic is soundâ€”integrating energy grids and digital cables alongside railâ€”the political stability of the Middle East remains the single biggest risk factor for this grand ambition.",
+                questions: [
+                    {
+                        id: 4,
+                        question: "What is identified as the 'single biggest risk factor' for the IMEC?",
+                        options: [
+                            "The lack of funding from the World Bank.",
+                            "The political stability of the Middle East.",
+                            "The refusal of European countries to participate.",
+                            "The high cost of shipping insurance."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text explicitly states: 'political stability of the Middle East remains the single biggest risk factor'."
+                    }
+                ]
+            }
+        ]
+    },
+    24: {
+        day: 24,
+        title: "CSAT Practice - Day 24",
+        vocabulary: [
+            {
+                word: "Quantum Superposition",
+                context: "...harnessing the principle of quantum superposition...",
+                definition: "The ability of a quantum system to exist in multiple states at the same time until it is measured.",
+                synonyms: [],
+                antonyms: [],
+                toneIndicator: "neutral"
+            },
+            {
+                word: "Deepfake",
+                context: "...regulation of deepfake technology...",
+                definition: "Synthetic media in which a person in an existing image or video is replaced with someone else's likeness using AI.",
+                synonyms: ["Synthetic media", "AI manipulation"],
+                antonyms: ["Authentic media"],
+                toneIndicator: "negative"
+            }
+        ],
+        passages: [
+            {
+                id: 2401,
+                title: "Passage 1: National Quantum Mission",
+                text: "Source Text: India's National Quantum Mission aims to scale up scientific and industrial R&D. Unlike classical computers which use bits (0 or 1), quantum computers use qubits, which can exist in a state of superposition. This allows them to solve complex problems like drug discovery and climate modeling exponentially faster. However, the 'Quantum Threat' is real: future quantum computers could crack the encryption that secures global banking and defense communications. The race is not just to build a quantum computer, but to build 'Quantum-Resilient' cryptography before the current encryption becomes obsolete.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "What is the 'Quantum Threat' mentioned in the passage?",
+                        options: [
+                            "The risk of quantum computers becoming self-aware.",
+                            "The potential for quantum computers to break current encryption standards used in banking and defense.",
+                            "The high energy consumption of quantum computers.",
+                            "The radiation emitted by qubits."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text Explicitly states: 'future quantum computers could crack the encryption that secures global banking...'"
+                    }
+                ]
+            },
+            {
+                id: 2402,
+                title: "Passage 2: Deepfakes & Democracy",
+                text: "Source Text: The proliferation of deepfakes poses a novel threat to democratic processes. A realistic video of a political leader making inflammatory remarks can spread faster than the fact-check. Current IT Rules require intermediaries to remove such content within 24 hours of reporting. But in an election, 24 hours is a lifetime. Experts suggest watermarking AI-generated content and holding platforms liable. However, excessive regulation risks stifling innovation in legitimate AI applications like entertainment and education.",
+                questions: [
+                    {
+                        id: 2,
+                        question: "The author argues that the current 24-hour removal window for deepfakes is insufficient because:",
+                        options: [
+                            "Platforms do not have enough staff to check content.",
+                            "The damage to public opinion can be irreversible within that timeframe during an election.",
+                            "It violates the Freedom of Speech.",
+                            "Most deepfakes are uploaded from foreign servers."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'in an election, 24 hours is a lifetime' implying the damage is done quickly."
+                    }
+                ]
+            },
+            {
+                id: 2403,
+                title: "Passage 3: Genome India Project",
+                text: "Source Text: The Genome India Project has sequenced 10,000 genomes to create a 'Reference Genome' for the Indian population. Historically, medical research relied on Caucasian genomes, leading to drugs that were less effective for Indians. This distinct genetic map helps in understanding diseases unique to our population. However, genetic data is sensitive. Without a robust Data Protection Law specifically addressing genetic privacy, this treasure trove could be misused by insurance companies to deny coverage based on predisposition to diseases.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "What is the primary benefit of the Genome India Project mentioned in the text?",
+                        options: [
+                            "To prove the ancestry of Indians.",
+                            "To create a genetic map that aids in developing drugs and treatments specific to the Indian population's genetic makeup.",
+                            "To clone endangered species.",
+                            "To provide data to foreign pharmaceutical companies."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'leads to drugs less effective... distinct genetic map helps in understanding diseases unique to our population'."
+                    }
+                ]
+            },
+            {
+                id: 2404,
+                title: "Passage 4: The Millet Mission",
+                text: "Source Text: Millets are termed 'Shree Anna' or superfoods. They are climate-resilient, requiring 70% less water than rice and growing in poor soil. As climate change makes monsoons erratic, millets offer food security. Nutritionally, they are rich in iron and calcium, combating India's high anemia rates. The challenge is consumer preference; decades of Green Revolution wheat/rice dominance have changed palates. The Mission aims to bring millets back not just to farms, but to plates.",
+                questions: [
+                    {
+                        id: 4,
+                        question: "According to the passage, why are millets considered crucial for food security in the context of climate change?",
+                        options: [
+                            "They are subsidized by the government.",
+                            "They require significantly less water and can grow in poor soil conditions.",
+                            "They can be stored for 100 years.",
+                            "They are the only crop that can be exported."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text explicitly states: 'climate-resilient, requiring 70% less water... growing in poor soil'."
+                    }
+                ]
+            }
+        ]
+    },
+    25: {
+        day: 25,
+        title: "CSAT Practice - Day 25",
+        vocabulary: [
+            {
+                word: "Delimitation",
+                context: "...implementation of women's reservation is contingent upon delimitation...",
+                definition: "The act or process of fixing limits or boundaries of territorial constituencies in a country or a province having a legislative body.",
+                synonyms: ["Redistricting"],
+                antonyms: [],
+                toneIndicator: "neutral"
+            },
+            {
+                word: "Lagrange Point",
+                context: "...Aditya-L1 placed at Lagrange Point 1...",
+                definition: "A point in space where the gravitational forces of two large bodies balance the centrifugal force felt by a smaller body, allowing it to 'hover' in a fixed position.",
+                synonyms: ["L-point"],
+                antonyms: [],
+                toneIndicator: "neutral"
+            }
+        ],
+        passages: [
+            {
+                id: 2501,
+                title: "Passage 1: Nari Shakti Vandan Adhiniyam",
+                text: "Source Text: The passing of the Women's Reservation Bill is a historic milestone, reserving 33% of seats in the Lok Sabha and State Assemblies. Critics argue the 'delimitation clause' pushes its implementation to an uncertain future, possibly 2029 or later. Proponents counter that a Census and Delimitation are constitutional necessities to ensure fair representation before reservation applies. The debate is not on the 'why'â€”which is the political empowerment of womenâ€”but on the 'when'. Immediate implementation without updated data could lead to legal quagmires.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "Why do critics term the 'delimitation clause' as problematic?",
+                        options: [
+                            "It reduces the number of seats available for men.",
+                            "It delays the implementation of the reservation to an indefinite future date.",
+                            "It requires women to only contest from specific constituencies.",
+                            "It violates the basic structure of the constitution."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'Critics argue the delimitation clause pushes its implementation to an uncertain future'."
+                    }
+                ]
+            },
+            {
+                id: 2502,
+                title: "Passage 2: Project Cheetah",
+                text: "Source Text: bringing the Cheetah back to India is the world's first intercontinental large wild carnivore translocation project. The goal is to restore the open forest and grassland ecosystems. However, the initial deaths of several cheetahs raised alarms. Experts point to 'spatial mismatch'â€”African cheetahs are used to large, competitor-free territories, whereas Kuno National Park has a high density of leopards. The project faces the classic conservation dilemma: balancing the romanticism of rewilding with the harsh realities of ecological carrying capacity.",
+                questions: [
+                    {
+                        id: 2,
+                        question: "What is the 'spatial mismatch' mentioned by experts regarding Project Cheetah?",
+                        options: [
+                            "The difference in climate between Namibia and India.",
+                            "The lack of prey base in Kuno National Park.",
+                            "The difference in territory size and predator density between their African home and Kuno.",
+                            "The inability of Cheetahs to climb Indian trees."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Text details it as: 'African cheetahs are used to large... territories, whereas Kuno... has high density of leopards'."
+                    }
+                ]
+            },
+            {
+                id: 2503,
+                title: "Passage 3: Aditya-L1 Mission",
+                text: "Source Text: Aditya-L1 is India's first solar mission, placed at Lagrange Point 1, 1.5 million km from Earth. From this vantage point, it can observe the Sun continuously without eclipses. Understanding 'Coronal Mass Ejections' (CMEs) is critical because space weather can disrupt satellite communications and power grids on Earth. While the James Webb Telescope looks into the deep past of the universe, Aditya-L1 looks at the immediate present of our star, which dictates the safety of our technological civilization.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "Why is Lagrange Point 1 (L1) chosen for the Aditya mission?",
+                        options: [
+                            "It is the closest point to the Sun.",
+                            "It allows for continuous observation of the Sun without eclipses.",
+                            "It is the coldest point in space, protecting the instruments.",
+                            "It has zero gravity, saving fuel."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'From this vantage point, it can observe the Sun continuously without eclipses.'"
+                    }
+                ]
+            },
+            {
+                id: 2504,
+                title: "Passage 4: PM Vishwakarma Scheme",
+                text: "Source Text: The PM Vishwakarma Scheme targets the 'guru-shishya parampara' of traditional artisans. By providing collateral-free loans, skill upgradation, and toolkits to huge sections like carpenters, blacksmiths, and potters, it aims to integrate them into the global value chain. The economic logic is to formalize the informal. However, the cultural logic is equally strong: preserving the intangible heritage of craftsmanship which is threatened by mass manufacturing. The success will depend on market linkageâ€”can a purely handmade pot compete with a factory-made ceramic?",
+                questions: [
+                    {
+                        id: 4,
+                        question: "The PM Vishwakarma Scheme aims to address which dual objectives?",
+                        options: [
+                            "Providing free housing and electricity to artisans.",
+                            "Formalizing the informal artisan economy and preserving cultural heritage.",
+                            "Replacing traditional tools with automated robots.",
+                            "Exporting all traditional crafts to Europe."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text argues: 'economic logic is to formalize the informal... cultural logic... preserving intangible heritage'."
+                    }
+                ]
+            }
+        ]
+    },
+    26: {
+        day: 26,
+        title: "CSAT Practice - Day 26",
+        vocabulary: [
+            {
+                word: "Carbon Leakage",
+                context: "...CBAM aims to prevent carbon leakage...",
+                definition: "The situation where companies transfer production to countries with laxer emission constraints to avoid costs.",
+                synonyms: [],
+                antonyms: [],
+                toneIndicator: "negative"
+            },
+            {
+                word: "Gig Economy",
+                context: "...social security for gig economy workers...",
+                definition: "A labor market characterized by short-term contracts or freelance work as opposed to permanent jobs.",
+                synonyms: ["Platform economy"],
+                antonyms: ["Traditional employment"],
+                toneIndicator: "neutral"
+            }
+        ],
+        passages: [
+            {
+                id: 2601,
+                title: "Passage 1: Carbon Border Adjustment Mechanism (CBAM)",
+                text: "Source Text: The EU's CBAM is a landmark policy to put a fair price on carbon emitted during the production of carbon-intensive goods that are entering the EU. It is designed to prevent 'carbon leakage'. While the EU frames it as a climate tool, developing nations like India view it as 'protectionism disguised as environmentalism'. It could hit India's steel and aluminum exports hard. The challenge for India is twofold: decarbonizing its heavy industry to stay competitive, and negotiating mutual recognition of its own carbon credit trading scheme.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "Why do developing nations criticize the CBAM?",
+                        options: [
+                            "They believe climate change is a hoax.",
+                            "They see it as a trade barrier (protectionism) that unfairly penalizes their exports.",
+                            "They want to join the EU.",
+                            "They prefer to pay higher taxes."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'developing nations like India view it as protectionism disguised as environmentalism'."
+                    }
+                ]
+            },
+            {
+                id: 2602,
+                title: "Passage 2: Digital Personal Data Protection Act",
+                text: "Source Text: The DPDP Act represents a paradigm shift from 'privacy as a fundamental right' to 'data as a tradeable asset with safeguards'. It introduces the concept of 'Data Fiduciaries' who must obtain consent. However, exemptions for the government on grounds of national security and public order are sweeping. Critics argue this creates a surveillance state. Proponents argue that without such exemptions, delivering welfare to a billion people would be bureaucratically impossible. The balance between privacy and state efficiency remains delicate.",
+                questions: [
+                    {
+                        id: 2,
+                        question: "The 'Data Fiduciary' concept introduced in the DPDP Act refers to:",
+                        options: [
+                            "The person whose data is being collected.",
+                            "The entity (company/organization) that determines the purpose and means of processing personal data.",
+                            "The government regulator.",
+                            "The software used to encrypt data."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Standard definition implied by text: 'Data Fiduciaries who must obtain consent' (i.e., the ones collecting/using data)."
+                    }
+                ]
+            },
+            {
+                id: 2603,
+                title: "Passage 3: Gig Economy & Social Security",
+                text: "Source Text: Platform aggregators like Zomato and Uber have created millions of jobs, but these 'partners' lack the safety net of employeesâ€”PF, insurance, and leave. The Code on Social Security, 2020 tries to bridge this gap by forcing platforms to contribute to a welfare fund. However, the definition of 'gig worker' remains fluid. Are they independent contractors or disguised employees? If they are treated as employees, the low-cost model of the gig economy collapses. If ignored, we create a class of 'cyber-coolies'.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "What is the core dilemma regarding the regulation of the gig economy mentioned in the text?",
+                        options: [
+                            "Whether to ban apps like Uber.",
+                            "Balancing the low-cost business model with the need for worker social security.",
+                            "Whether to allow drones for delivery.",
+                            "Whether gig workers should pay taxes."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text contrasts: 'If treated as employees, low-cost model collapses' vs 'If ignored, we create cyber-coolies'."
+                    }
+                ]
+            },
+            {
+                id: 2604,
+                title: "Passage 4: Sickle Cell Anaemia Elimination",
+                text: "Source Text: The mission to eliminate Sickle Cell Anaemia by 2047 focuses on tribal populations where the trait is endemic. It is a genetic blood disorder causing red blood cells to become sickle-shaped, blocking blood flow. The strategy involves screening 7 crore people. However, sensitization is key. Labeling someone as a 'carrier' in a marriage market can lead to social ostracization. The medical challenge is straightforward (screening/counseling); the sociological challenge of stigma is the harder hurdle.",
+                questions: [
+                    {
+                        id: 4,
+                        question: "According to the passage, what is the 'harder hurdle' in the mission to eliminate Sickle Cell Anaemia?",
+                        options: [
+                            "The lack of testing kits.",
+                            "The cost of the medical treatment.",
+                            "The sociological stigma and potential ostracization of those identified as carriers.",
+                            "The remote location of tribal areas."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Text says: 'medical challenge is straightforward... sociological challenge of stigma is the harder hurdle'."
+                    }
+                ]
+            }
+        ]
+    },
+    27: {
+        day: 27,
+        title: "CSAT Practice - Day 27",
+        vocabulary: [
+            {
+                word: "Quantum Key Distribution (QKD)",
+                context: "...QKD ensures unbreakable encryption...",
+                definition: "A secure communication method which implements a cryptographic protocol involving components of quantum mechanics.",
+                synonyms: ["Quantum cryptography"],
+                antonyms: [],
+                toneIndicator: "neutral"
+            },
+            {
+                word: "Organoid Intelligence",
+                context: "...biocomputers powered by organoid intelligence...",
+                definition: "An emerging field that uses lab-grown brain models (organoids) as biological hardware for computing.",
+                synonyms: ["Biocomputing"],
+                antonyms: ["Silicon computing"],
+                toneIndicator: "neutral"
+            }
+        ],
+        passages: [
+            {
+                id: 2701,
+                title: "Passage 1: Quantum Key Distribution (QKD)",
+                text: "Source Text: In an era of cyber warfare, Quantum Key Distribution (QKD) offers the 'holy grail' of secrecy. Unlike classical encryption which relies on complex math (which quantum computers can crack), QKD relies on the laws of physics. It uses photons to transmit data. If a hacker tries to intercept the key, the quantum state of the photon changes, instantly alerting the users. India's recent demonstration of QKD over 100km is a strategic win. However, the technology is currently limited by distance (requires repeaters) and cost. The race is to build a 'Quantum Internet'.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "The primary advantage of QKD over classical encryption is based on:",
+                        options: [
+                            "The complexity of the mathematical algorithms used.",
+                            "The use of fundamental laws of physics which makes interception detectable.",
+                            "The speed of light transmission.",
+                            "The low cost of implementation."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'Unlike classical encryption... QKD relies on the laws of physics... If hacker attempts... state changes, instantly alerting'."
+                    }
+                ]
+            },
+            {
+                id: 2702,
+                title: "Passage 2: Biocomputers & Organoids",
+                text: "Source Text: Scientists are exploring 'Organoid Intelligence' (OI) to build biocomputers. By growing clusters of brain cells (organoids) in labs and interfacing them with electrodes, they aim to create hardware that learns like a human brain. While silicon computers are faster at math, biological brains are vastly more energy-efficient and better at complex decision-making with limited data. The vision is to create 'bio-hybrid' systems. But this raises profound ethical questions: if an organoid gains sentience or consciousness, does it have rights? Can we switch it off?",
+                questions: [
+                    {
+                        id: 2,
+                        question: "What is the key advantage of biological brains over silicon computers mentioned in the passage?",
+                        options: [
+                            "They are faster at calculating prime numbers.",
+                            "They are more energy-efficient and better at complex decision-making with limited data.",
+                            "They do not require electricity.",
+                            "They are easier to manufacture."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text explicity states: 'biological brains are vastly more energy-efficient and better at complex decision-making'."
+                    }
+                ]
+            },
+            {
+                id: 2703,
+                title: "Passage 3: Ethanol Blending (E20)",
+                text: "Source Text: India's target of 20% ethanol blending (E20) by 2025 is a masterstroke for energy security and farmers. By diverting surplus sugar and grains to fuel, it reduces the crude import bill and stabilizes sugar prices. However, the 'food vs fuel' debate looms. Critics argue that incentivizing water-guzzling crops like sugarcane for fuel in a water-stressed nation is ecological suicide. The focus must shift to 'Second Generation (2G)' ethanol made from agricultural waste (stubble), which solves the pollution problem without compromising food security.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "Why do critics argue against focusing solely on sugarcane for ethanol production?",
+                        options: [
+                            "Sugarcane does not produce good quality ethanol.",
+                            "It diverts a water-guzzling food crop for fuel in a water-stressed nation.",
+                            "It will increase the price of petrol.",
+                            "Farmers refuse to grow sugarcane."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'Critics argue that incentivizing water-guzzling crops like sugarcane... is ecological suicide'."
+                    }
+                ]
+            },
+            {
+                id: 2704,
+                title: "Passage 4: Agneepath Scheme",
+                text: "Source Text: The Agneepath scheme completely revamps military recruitment, hiring 'Agniveers' for a 4-year tour of duty. The government argues it will lower the average age of the armed forces and reduce the ballooning pension bill, freeing up funds for modernization. Critics fear it will degrade combat effectiveness by replacing experienced soldiers with short-term conscripts. The bigger societal challenge is the reintegration of thousands of weapon-trained, unemployed youth back into civil society every year. The success of the scheme depends on the post-service 'exit velocity' provided to these Agniveers.",
+                questions: [
+                    {
+                        id: 4,
+                        question: "What is the main government rationale for the Agneepath scheme mentioned in the text?",
+                        options: [
+                            "To privatize the army.",
+                            "To lower the average age of forces and reduce the pension bill to fund modernization.",
+                            "To increase the total number of soldiers.",
+                            "To provide employment to all youth."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'argues it will lower the average age... and reduce the ballooning pension bill'."
+                    }
+                ]
+            }
+        ]
+    },
+    28: {
+        day: 28,
+        title: "CSAT Practice - Day 28",
+        vocabulary: [
+            {
+                word: "Green Hydrogen",
+                context: "...transition to green hydrogen economy...",
+                definition: "Hydrogen produced by splitting water via electrolysis using renewable energy sources like solar or wind.",
+                synonyms: ["Clean hydrogen"],
+                antonyms: ["Grey hydrogen (from fossil fuels)"],
+                toneIndicator: "positive"
+            },
+            {
+                word: "Blue Economy",
+                context: "...sustainable use of ocean resources for the blue economy...",
+                definition: "The sustainable use of ocean resources for economic growth, improved livelihoods, and jobs while preserving the health of ocean ecosystems.",
+                synonyms: [],
+                antonyms: [],
+                toneIndicator: "positive"
+            }
+        ],
+        passages: [
+            {
+                id: 2801,
+                title: "Passage 1: National Green Hydrogen Mission",
+                text: "Source Text: Green Hydrogen is touted as the 'fuel of the future' for hard-to-abate sectors like steel and shipping. India's Mission aims to produce 5 MMT by 2030, positioning India as a global export hub. The challenge is cost: green hydrogen is currently twice as expensive as grey (fossil-based) hydrogen. The key lies in the cost of electrolyzers and solar power. If India can replicate its solar cost-reduction story here, it could redraw the global energy map, shifting power from oil-rich nations to sun-rich nations.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "What is the primary obstacle to the widespread adoption of Green Hydrogen mentioned in the passage?",
+                        options: [
+                            "The lack of water.",
+                            "The danger of explosion.",
+                            "The high production cost compared to fossil-based hydrogen.",
+                            "Lack of government interest."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Text states: 'The challenge is cost: green hydrogen is currently twice as expensive as grey hydrogen'."
+                    }
+                ]
+            },
+            {
+                id: 2802,
+                title: "Passage 2: Deep Ocean Mission",
+                text: "Source Text: While space is the final frontier, the deep ocean remains our least explored territory. India's ‘Samudrayaan’ project aims to send humans 6000m deep in a submersible 'Matsya 6000'. The goal is not just scientific prestige but strategic resource hunting—seeking Polymetallic Nodules (manganese, cobalt, nickel) critical for the EV battery revolution. However, deep-sea mining poses severe risks to fragile marine ecosystems. The International Seabed Authority is struggling to write the rules for this underwater gold rush.",
+                questions: [
+                    {
+                        id: 2,
+                        question: "What is the strategic economic motivation behind the Deep Ocean Mission?",
+                        options: [
+                            "To find new fishing grounds.",
+                            "To locate lost ships.",
+                            "To access Polymetallic Nodules containing critical minerals like cobalt and nickel for batteries.",
+                            "To build underwater cities."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Text says: 'strategic resource hunting—seeking Polymetallic Nodules... critical for EV battery revolution'."
+                    }
+                ]
+            },
+            {
+                id: 2803,
+                title: "Passage 3: AI Anchors (Lisa)",
+                text: "Source Text: The debut of 'Lisa', an AI news anchor, marks a disruption in media. AI anchors don't tire, don't demand raises, and can speak any language fluently. For newsrooms, this cuts costs dramatically. But for journalism, it raises questions of credibility. A news anchor is not just a reader; they are a trusted intermediary. If the face of news is synthetic, will the news itself be perceived as synthetic? Furthermore, it creates a job crisis for entry-level journalists. The human connection, the subtle empathy in a voice breaking bad news, is something AI cannot yet replicate.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "What 'human' element does the author argue AI anchors lack?",
+                        options: [
+                            "Perfect pronunciation.",
+                            "The ability to work 24/7.",
+                            "The subtle empathy and human connection, especially when delivering difficult news.",
+                            "Knowledge of current affairs."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Text says: 'The human connection, the subtle empathy... is something AI cannot yet replicate'."
+                    }
+                ]
+            },
+            {
+                id: 2804,
+                title: "Passage 4: Tele-MANAS",
+                text: "Source Text: Tele-MANAS is a 24/7 mental health tele-counseling service launched to tackle India's silent mental health epidemic. It bridges the 'access gap'—connecting a rural patient with a psychiatrist in a metro via a toll-free number. The anonymity it offers is its biggest strength, bypassing the stigma associated with visiting a clinic. However, tele-health has limits. Serious conditions requiring medication or therapy cannot be fully managed over a phone. It is a first-aid kit, not a hospital.",
+                questions: [
+                    {
+                        id: 4,
+                        question: "What is highlighted as the 'biggest strength' of the Tele-MANAS initiative?",
+                        options: [
+                            "It is free of cost.",
+                            "It allows for prescription of medicines.",
+                            "The anonymity it offers, which helps bypass social stigma.",
+                            "It uses video calling."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Text says: 'The anonymity it offers is its biggest strength, bypassing the stigma'."
+                    }
+                ]
+            }
+        ]
+    },
+    29: {
+        day: 29,
+        title: "CSAT Practice - Day 29",
+        vocabulary: [
+            {
+                word: "Multidimensional Poverty",
+                context: "...reduction in multidimensional poverty...",
+                definition: "A measure of poverty that captures deprivations in health, education, and living standards, not just income.",
+                synonyms: ["MPI"],
+                antonyms: [],
+                toneIndicator: "negative"
+            },
+            {
+                word: "Circular Economy",
+                context: "...promoting a circular economy...",
+                definition: "An economic system aimed at eliminating waste and the continual use of resources.",
+                synonyms: ["Sustainable economy"],
+                antonyms: ["Linear economy (Take-make-dispose)"],
+                toneIndicator: "positive"
+            }
+        ],
+        passages: [
+            {
+                id: 2901,
+                title: "Passage 1: India-EFTA Trade Deal (TEPA)",
+                text: "Source Text: The Trade and Economic Partnership Agreement (TEPA) with the European Free Trade Association (EFTA) is unique. Unlike typical Free Trade Agreements (FTAs) based on tariff cuts, this one includes a binding investment commitment: EFTA nations (Switzerland, Norway, etc.) have pledged to invest $100 billion in India over 15 years. In return, India has lowered duties on high-end Swiss chocolates, watches, and machinery. This marks a shift in India’s trade strategy—leveraging its large market access not just for lower import duties, but for hard capital and technology transfer.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "How does the India-EFTA TEPA differ from typical Free Trade Agreements according to the passage?",
+                        options: [
+                            "It involves no tariff reductions.",
+                            "It is the first agreement with European countries.",
+                            "It includes a binding commitment of $100 billion investment in India, unlike standard tariff-centric deals.",
+                            "It focuses solely on the export of mangoes."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Text says: 'Unlike typical FTAs based on tariff cuts, this one includes a binding investment commitment'."
+                    }
+                ]
+            },
+            {
+                id: 2902,
+                title: "Passage 2: Multidimensional Poverty Index (MPI)",
+                text: "Source Text: NITI Aayog's latest report claims that 24.8 crore Indians escaped multidimensional poverty in the last 9 years. The MPI considers health, education, and standard of living (sanitation, cooking fuel, etc.). Critics argue that 'escaping poverty' doesn't mean becoming prosperous; it just means crossing a very low bar of deprivation. While infrastructure gaps (toilets, electricity) have been plugged, the quality of services—learning outcomes in schools or malnutrition levels—remains a concern. The quantitative success mocks the qualitative stagnation.",
+                questions: [
+                    {
+                        id: 2,
+                        question: "What is the primary criticism leveled against the MPI success figures in the passage?",
+                        options: [
+                            "The data is fabricated.",
+                            "It focuses on quantitative infrastructure gaps (toilets, electricity) while ignoring the qualitative stagnation in services like education and nutrition.",
+                            "It only measures income poverty.",
+                            "It excludes rural areas."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'quantitative success mocks the qualitative stagnation... quality of services... remains a concern'."
+                    }
+                ]
+            },
+            {
+                id: 2903,
+                title: "Passage 3: PM-PRANAM Scheme",
+                text: "Source Text: The PM-PRANAM scheme aims to save the soil by incentivizing states to reduce the use of chemical fertilizers. The subsidy burden for fertilizers has crossed ₹2.25 lakh crore. The scheme grants 50% of the subsidy savings back to the state that reduces consumption. This is a 'nudge' policy. It promotes alternative fertilizers like nano-urea and bio-fertilizers. The ultimate goal is to break the vicious cycle where cheap urea leads to overuse, which degrades soil health, forcing farmers to use even more urea.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "The 'vicious cycle' mentioned in the text refers to:",
+                        options: [
+                            "The government printing money to pay subsidies.",
+                            "Cheap urea leading to overuse, degrading soil, which in turn necessitates even more urea.",
+                            "Farmers taking loans to buy tractors.",
+                            "States fighting with the Centre for funds."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text explicitly describes the cycle: 'cheap urea leads to overuse -> degrades soil -> forcing farmers to use even more'."
+                    }
+                ]
+            },
+            {
+                id: 2904,
+                title: "Passage 4: Mission LiFE",
+                text: "Source Text: Prime Minister Modi launched Mission LiFE (Lifestyle for Environment) at COP26. It shifts the climate narrative from government policy to individual behavior. The premise is that small changes—switching off lights, carrying cloth bags, eating millet—can have a massive aggregate impact. It targets the 'throwaway culture' of consumerism. While policies regulate supply (industry), LiFE attempts to regulate demand (citizens). However, critics argue this shifts the guilt and responsibility onto individuals, absolving large corporations who are the biggest polluters.",
+                questions: [
+                    {
+                        id: 4,
+                        question: "Mission LiFE attempts to shift the focus of climate action from:",
+                        options: [
+                            "Solar power to Wind power.",
+                            "Government policy/Industry regulation to Individual behavior/Demand.",
+                            "Developed nations to Developing nations.",
+                            "Carbon credits to Carbon tax."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text says: 'shifts the climate narrative from government policy to individual behavior'."
+                    }
+                ]
+            }
+        ]
+    },
+    30: {
+        day: 30,
+        title: "CSAT Practice - Day 30",
+        vocabulary: [
+            {
+                word: "Biofuel",
+                context: "...Global Biofuel Alliance...",
+                definition: "Fuel derived directly from living matter (biomass) like plants, algae, or animal waste.",
+                synonyms: ["Agrofuel"],
+                antonyms: ["Fossil fuel"],
+                toneIndicator: "positive"
+            },
+            {
+                word: "Green Credit",
+                context: "...earning green credits for planting trees...",
+                definition: "A singular unit of incentive provided for a specified activity that delivers a positive environmental impact.",
+                synonyms: [],
+                antonyms: [],
+                toneIndicator: "positive"
+            }
+        ],
+        passages: [
+            {
+                id: 3001,
+                title: "Passage 1: Global Biofuel Alliance (GBA)",
+                text: "Source Text: Launched at the G20, the GBA aims to do for biofuels what the International Solar Alliance did for solar energy. It brings together producers (India, Brazil, USA) to create standards and a global market. Biofuels are the only viable low-carbon solution for sectors like aviation where batteries are too heavy. However, the 'food security' concern persists. Brazil's success with sugarcane ethanol is due to abundant land. In land-scarce India, the GBA's success depends on technology that can convert agricultural waste (not food) into fuel efficiently.",
+                questions: [
+                    {
+                        id: 1,
+                        question: "Why are biofuels considered critical for the aviation sector?",
+                        options: [
+                            "They are cheaper than jet fuel.",
+                            "Batteries are currently too heavy for airplanes, making biofuels the only low-carbon alternative.",
+                            "Planes fly faster on biofuels.",
+                            "Biofuels prevent engines from freezing."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text states: 'only viable low-carbon solution for sectors like aviation where batteries are too heavy'."
+                    }
+                ]
+            },
+            {
+                id: 3002,
+                title: "Passage 2: Green Credit Program",
+                text: "Source Text: The Green Credit Program (GCP) goes beyond carbon credits. While carbon credits focus only on CO2 reduction, Green Credits incentivize distinct activities like water conservation, tree plantation, and waste management. Companies can earn these credits and trade them. The criticism is 'Greenwashing'. If a mining company destroys a forest but buys Green Credits from a plantation elsewhere, does it truly compensate for the ecological loss? A monoculture plantation is not a forest. The integrity of what counts as a 'Green Credit' is the linchpin.",
+                questions: [
+                    {
+                        id: 2,
+                        question: "How does the Green Credit Program differ from Carbon Credits?",
+                        options: [
+                            "It is only for farmers.",
+                            "Carbon credits focus on CO2; Green Credits incentivize a broader range of environmental activities like water and waste management.",
+                            "Green Credits are worth more money.",
+                            "Carbon credits are illegal."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text distinguishes: 'While carbon credits focus only on CO2 reduction, Green Credits incentivize distinct activities like water conservation...'."
+                    }
+                ]
+            },
+            {
+                id: 3003,
+                title: "Passage 3: Jan Vishwas Bill",
+                text: "Source Text: The Jan Vishwas (Amendment of Provisions) Act aims to decriminalize minor offences to promote 'Ease of Doing Business'. It converts fines and imprisonment into penalties for 183 provisions across 42 laws. For example, a minor weighing error by a shopkeeper led to jail time earlier; now it is just a penalty. This reduces the burden on the judiciary and ends 'inspector raj' harassment. However, detractors warn that removing the fear of imprisonment for laws related to the Environment or Pharmacy could lead to negligence that harms public health.",
+                questions: [
+                    {
+                        id: 3,
+                        question: "What is the primary objective of the Jan Vishwas Act?",
+                        options: [
+                            "To increase the number of judges.",
+                            "To build more jails.",
+                            "To decriminalize minor offences and replace imprisonment with penalties to improve Ease of Doing Business.",
+                            "To ban foreign businesses."
+                        ],
+                        correctAnswer: 2,
+                        explanation: "Text says: 'decriminalize minor offences... converts fines and imprisonment into penalties... Ease of Doing Business'."
+                    }
+                ]
+            },
+            {
+                id: 3004,
+                title: "Passage 4: Ethics in AI (Summary)",
+                text: "Source Text: As we conclude this series, the overarching theme of the technological age is 'Governance Lag'. Whether it is Generative AI, Deepfakes, or Autonomous Weapons, technology moves faster than the law. We are building systems we do not fully understand (Black Box AI) and unleashing them into societies that are not prepared. The future belongs not just to those who can code, but to those who can code ethics into the algorithm. The question is no longer 'Can we build it?', but 'Should we build it?'.",
+                questions: [
+                    {
+                        id: 4,
+                        question: "The term 'Governance Lag' refers to:",
+                        options: [
+                            "The slow internet speed in government offices.",
+                            "The phenomenon where technological advancement outpaces the legal and regulatory frameworks meant to govern it.",
+                            "The delay in election results.",
+                            "The age difference between politicians and voters."
+                        ],
+                        correctAnswer: 1,
+                        explanation: "Text defines it: 'technology moves faster than the law'."
+                    }
+                ]
+            }
         ]
     }
 };

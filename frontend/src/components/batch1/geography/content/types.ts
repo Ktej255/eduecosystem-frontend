@@ -1,7 +1,7 @@
 
 export type ContentBlockType = 'text' | 'image' | 'video' | 'callout' | 'quiz' | 'simulation';
 
-export type SimulationType = 'ganga-river' | 'monsoon' | 'plate-tectonics' | 'volcano';
+export type SimulationType = 'ganga-river' | 'brahmaputra-river' | 'monsoon' | 'plate-tectonics' | 'volcano' | 'glacial-landforms';
 
 export interface ContentBlock {
     id: string;

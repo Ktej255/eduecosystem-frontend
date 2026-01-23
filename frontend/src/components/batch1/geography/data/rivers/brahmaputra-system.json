@@ -1,0 +1,258 @@
+{
+    "name": "Brahmaputra River System",
+    "description": "Trans-boundary river known as Yarlung Tsangpo in Tibet, Siang/Dihang in Arunachal, and Jamuna in Bangladesh",
+    "source": {
+        "name": "Chemayungdung Glacier",
+        "origin": "Kailash Range, Tibet",
+        "coordinates": [
+            30.50,
+            82.00
+        ],
+        "elevation": 5200
+    },
+    "destination": {
+        "name": "Bay of Bengal (Meghna)",
+        "coordinates": [
+            22.80,
+            90.50
+        ]
+    },
+    "length": 2900,
+    "nodes": [
+        {
+            "id": "source",
+            "name": "Chemayungdung Glacier",
+            "type": "source",
+            "coordinates": [
+                30.50,
+                82.00
+            ],
+            "description": "Source of Yarlung Tsangpo"
+        },
+        {
+            "id": "namcha-barwa",
+            "name": "Namcha Barwa",
+            "type": "landmark",
+            "coordinates": [
+                29.60,
+                95.05
+            ],
+            "description": "Great Bend where it enters India"
+        },
+        {
+            "id": "pasighat",
+            "name": "Pasighat",
+            "type": "city",
+            "coordinates": [
+                28.06,
+                95.33
+            ],
+            "description": "Enters plains, known as Dihang/Siang"
+        },
+        {
+            "id": "dibrugarh",
+            "name": "Dibrugarh",
+            "type": "city",
+            "coordinates": [
+                27.47,
+                94.91
+            ],
+            "description": "Major city in Assam"
+        },
+        {
+            "id": "sadiya",
+            "name": "Sadiya",
+            "type": "confluence",
+            "coordinates": [
+                27.82,
+                95.66
+            ],
+            "description": "Dibang + Lohit join here to form Brahmaputra",
+            "tributaryJoining": "Lohit & Dibang"
+        },
+        {
+            "id": "majuli",
+            "name": "Majuli Island",
+            "type": "landmark",
+            "coordinates": [
+                26.95,
+                94.20
+            ],
+            "description": "World's largest river island"
+        },
+        {
+            "id": "tezpur",
+            "name": "Tezpur",
+            "type": "confluence",
+            "coordinates": [
+                26.63,
+                92.79
+            ],
+            "tributaryJoining": "Kameng"
+        },
+        {
+            "id": "guwahati",
+            "name": "Guwahati",
+            "type": "city",
+            "coordinates": [
+                26.14,
+                91.73
+            ],
+            "description": "Major urban center on the banks"
+        },
+        {
+            "id": "dhubri",
+            "name": "Dhubri",
+            "type": "landmark",
+            "coordinates": [
+                26.02,
+                89.97
+            ],
+            "description": "River leaves India, enters Bangladesh"
+        },
+        {
+            "id": "chilmari",
+            "name": "Chilmari (Bangladesh)",
+            "type": "confluence",
+            "coordinates": [
+                25.55,
+                89.67
+            ],
+            "tributaryJoining": "Teesta"
+        }
+    ],
+    "tributaries": {
+        "leftBank": [
+            {
+                "id": "dibang",
+                "name": "Dibang",
+                "origin": "Arunachal Pradesh",
+                "joinsAt": "sadiya"
+            },
+            {
+                "id": "lohit",
+                "name": "Lohit",
+                "origin": "Eastern Tibet",
+                "joinsAt": "sadiya"
+            },
+            {
+                "id": "dhansiri",
+                "name": "Dhansiri",
+                "origin": "Nagaland",
+                "joinsAt": "golaghat"
+            }
+        ],
+        "rightBank": [
+            {
+                "id": "subansiri",
+                "name": "Subansiri",
+                "origin": "Tibet",
+                "joinsAt": "lakhimpur"
+            },
+            {
+                "id": "kameng",
+                "name": "Kameng",
+                "origin": "Tawang",
+                "joinsAt": "tezpur"
+            },
+            {
+                "id": "manas",
+                "name": "Manas",
+                "origin": "Bhutan",
+                "joinsAt": "jogighopa"
+            },
+            {
+                "id": "teesta",
+                "name": "Teesta",
+                "origin": "Sikkim (Pahunri)",
+                "joinsAt": "chilmari (Bangladesh)"
+            }
+        ]
+    },
+    "flowPath": [
+        [
+            30.50,
+            82.00
+        ],
+        [
+            29.50,
+            84.00
+        ],
+        [
+            29.20,
+            86.00
+        ],
+        [
+            29.10,
+            88.00
+        ],
+        [
+            29.30,
+            90.00
+        ],
+        [
+            29.40,
+            92.00
+        ],
+        [
+            29.60,
+            94.00
+        ],
+        [
+            29.60,
+            95.05
+        ],
+        [
+            29.00,
+            95.20
+        ],
+        [
+            28.06,
+            95.33
+        ],
+        [
+            27.82,
+            95.66
+        ],
+        [
+            27.47,
+            94.91
+        ],
+        [
+            26.95,
+            94.20
+        ],
+        [
+            26.63,
+            92.79
+        ],
+        [
+            26.14,
+            91.73
+        ],
+        [
+            26.02,
+            89.97
+        ],
+        [
+            25.80,
+            89.80
+        ],
+        [
+            25.55,
+            89.67
+        ],
+        [
+            25.00,
+            89.70
+        ],
+        [
+            24.00,
+            89.80
+        ],
+        [
+            23.00,
+            90.00
+        ]
+    ]
+}

@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 interface SyllabusListViewProps {
     activeModuleId: string;
     onSelectTopic: (topic: MicroTopic) => void;
+    completedTopics?: string[];
 }
 
-export default function SyllabusListView({ activeModuleId, onSelectTopic }: SyllabusListViewProps) {
+export default function SyllabusListView({ activeModuleId, onSelectTopic, completedTopics = [] }: SyllabusListViewProps) {
     const activeModule = GEOGRAPHY_SYLLABUS.find(m => m.id === activeModuleId) || GEOGRAPHY_SYLLABUS[0];
 
     return (
@@ -48,47 +49,50 @@ export default function SyllabusListView({ activeModuleId, onSelectTopic }: Syll
                                     </h2>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        {topic.microTopics.map((micro) => (
-                                            <div
-                                                key={micro.id}
-                                                onClick={() => onSelectTopic(micro)}
-                                                className="bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 rounded-xl p-4 cursor-pointer transition-all group/card flex items-center gap-4"
-                                            >
-                                                <div className="shrink-0">
-                                                    {micro.status === 'locked' ? (
-                                                        <div className="w-10 h-10 rounded-full bg-black/40 flex items-center justify-center text-slate-600">
-                                                            <Lock className="w-5 h-5" />
-                                                        </div>
-                                                    ) : micro.status === 'mastered' ? (
-                                                        <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
-                                                            <CheckCircle className="w-5 h-5" />
-                                                        </div>
-                                                    ) : (
-                                                        <div
-                                                            className="w-10 h-10 rounded-full flex items-center justify-center"
-                                                            style={{ backgroundColor: `${activeModule.color}30`, color: activeModule.color }}
-                                                        >
-                                                            <Unlock className="w-5 h-5" />
-                                                        </div>
-                                                    )}
-                                                </div>
+                                        {topic.microTopics.map((micro) => {
+                                            const isCompleted = completedTopics.includes(micro.id) || micro.status === 'mastered';
+                                            return (
+                                                <div
+                                                    key={micro.id}
+                                                    onClick={() => onSelectTopic(micro)}
+                                                    className="bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 rounded-xl p-4 cursor-pointer transition-all group/card flex items-center gap-4"
+                                                >
+                                                    <div className="shrink-0">
+                                                        {micro.status === 'locked' ? (
+                                                            <div className="w-10 h-10 rounded-full bg-black/40 flex items-center justify-center text-slate-600">
+                                                                <Lock className="w-5 h-5" />
+                                                            </div>
+                                                        ) : isCompleted ? (
+                                                            <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
+                                                                <CheckCircle className="w-5 h-5" />
+                                                            </div>
+                                                        ) : (
+                                                            <div
+                                                                className="w-10 h-10 rounded-full flex items-center justify-center"
+                                                                style={{ backgroundColor: `${activeModule.color}30`, color: activeModule.color }}
+                                                            >
+                                                                <Unlock className="w-5 h-5" />
+                                                            </div>
+                                                        )}
+                                                    </div>
 
-                                                <div className="flex-1 min-w-0">
-                                                    <h3 className="font-medium text-slate-200 truncate group-hover/card:text-white transition-colors">
-                                                        {micro.title}
-                                                    </h3>
-                                                    <div className="flex items-center gap-2 mt-1 text-xs text-slate-500">
-                                                        <span>15 mins</span>
-                                                        <span>•</span>
-                                                        <span>Video & Notes</span>
+                                                    <div className="flex-1 min-w-0">
+                                                        <h3 className="font-medium text-slate-200 truncate group-hover/card:text-white transition-colors">
+                                                            {micro.title}
+                                                        </h3>
+                                                        <div className="flex items-center gap-2 mt-1 text-xs text-slate-500">
+                                                            <span>15 mins</span>
+                                                            <span>•</span>
+                                                            <span>Video & Notes</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="opacity-0 group-hover/card:opacity-100 transition-opacity transform translate-x-2 group-hover/card:translate-x-0">
+                                                        <ChevronRight className="w-5 h-5 text-slate-400" />
                                                     </div>
                                                 </div>
-
-                                                <div className="opacity-0 group-hover/card:opacity-100 transition-opacity transform translate-x-2 group-hover/card:translate-x-0">
-                                                    <ChevronRight className="w-5 h-5 text-slate-400" />
-                                                </div>
-                                            </div>
-                                        ))}
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </div>

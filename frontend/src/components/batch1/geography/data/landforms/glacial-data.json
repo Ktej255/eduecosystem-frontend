@@ -1,0 +1,70 @@
+{
+    "name": "Glacial Landforms",
+    "description": "Landforms created by the action of moving ice (Erosional & Depositional)",
+    "stages": [
+        {
+            "id": "pre-glaciation",
+            "name": "Pre-Glaciation (V-Shape)",
+            "description": "River valley before glacier takes over",
+            "features": [
+                "V-shaped valley",
+                "Interlocking spurs",
+                "River channel"
+            ]
+        },
+        {
+            "id": "glaciation",
+            "name": "Active Glaciation",
+            "description": "Glacier moving down the valley",
+            "features": [
+                "Ice mass",
+                "Crevasses",
+                "Lateral moraines"
+            ]
+        },
+        {
+            "id": "post-glaciation",
+            "name": "Post-Glaciation (U-Shape)",
+            "description": "Landscape after glacier melts",
+            "features": [
+                "U-shaped valley (Trough)",
+                "Hanging valleys",
+                "Truncated spurs",
+                "Cirques",
+                "Pater noster lakes"
+            ]
+        }
+    ],
+    "features": [
+        {
+            "id": "cirque",
+            "name": "Cirque/Corrie",
+            "type": "erosional",
+            "description": "Armchair-shaped hollow with steep back wall"
+        },
+        {
+            "id": "arete",
+            "name": "Arête",
+            "type": "erosional",
+            "description": "Knife-edged ridge between two cirques"
+        },
+        {
+            "id": "horn",
+            "name": "Pyramidal Peak (Horn)",
+            "type": "erosional",
+            "description": "Peak formed by 3+ cirques (e.g., Matterhorn)"
+        },
+        {
+            "id": "moraine",
+            "name": "Moraines",
+            "type": "depositional",
+            "description": "Debris deposited by glacier (Terminal, Lateral, Medial)"
+        },
+        {
+            "id": "esker",
+            "name": "Esker",
+            "type": "depositional",
+            "description": "Sinuous ridges of sand/gravel"
+        }
+    ]
+}

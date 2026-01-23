@@ -100,6 +100,12 @@ export const GLACIAL_LANDFORMS_CONTENT: LessonContent = {
                     id: 'u-valley',
                     type: 'text',
                     content: `**U-Shaped Valley:** Formed by glacial trough modifying a V-shaped valley.`
+                },
+                {
+                    id: 'glacial-sim',
+                    type: 'simulation',
+                    content: 'Interactive transformation: Watch a river valley (V-shape) evolve into a glacial trough (U-shape) with moraines and lakes!',
+                    simulationType: 'glacial-landforms'
                 }
             ]
         },
