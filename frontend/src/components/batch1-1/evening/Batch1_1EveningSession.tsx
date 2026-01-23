@@ -594,7 +594,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                     Evening Revision Session
                 </h1>
                 <p className="text-gray-600 dark:text-gray-400">
-                    Week {weekId}, Day {dayId} • Consolidate today&apos;s learning
+                    Week {weekId}, Day {dayId} • Consolidate today&apos;s learning • <span className="text-xs font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">v2.1 Strict</span>
                 </p>
             </div>
 
