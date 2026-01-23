@@ -508,20 +508,7 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
         flashcards: CHAPTER_29_FLASHCARDS,
         mcqs: CHAPTER_29_MCQS
     },
-    {
-        id: 27,
-        title: "Parliamentary Forums",
-        content: CHAPTER_27_CONTENT,
-        flashcards: CHAPTER_27_FLASHCARDS,
-        mcqs: CHAPTER_27_MCQS
-    },
-    {
-        id: 28,
-        title: "Parliamentary Group",
-        content: CHAPTER_28_CONTENT,
-        flashcards: CHAPTER_28_FLASHCARDS,
-        mcqs: CHAPTER_28_MCQS
-    },
+
     {
         id: 29,
         title: "Supreme Court",
