@@ -540,7 +540,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                 </Button>
 
                 <CSATPracticeView
-                    dayNumber={Number(dayId)}
+                    dayNumber={absoluteDayNumber}
                     onComplete={(score, total) => {
                         console.log(`CSAT Day ${dayId} Complete: ${score}/${total}`);
                         awardXP('csat_complete', undefined, `Completed CSAT Practice Day ${dayId}`);
@@ -626,6 +626,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
             <div className="bg-white dark:bg-gray-900 p-2 rounded-xl border shadow-sm items-center justify-between overflow-x-auto flex gap-2">
                 {DAYS.map((day) => {
                     const isActive = Number(dayId) === day.id;
+                    const absoluteDay = (Number(weekId) - 1) * 7 + day.id;
                     return (
                         <Button
                             key={day.id}
@@ -635,7 +636,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                         >
                             <div className="flex flex-col items-center">
                                 <span className="text-xs font-semibold">{day.label}</span>
-                                <span className="text-[10px] opacity-70">Day {day.id}</span>
+                                <span className="text-[10px] opacity-70">Day {absoluteDay}</span>
                             </div>
                         </Button>
                     );
