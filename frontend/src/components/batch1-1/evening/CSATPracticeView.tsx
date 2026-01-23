@@ -240,8 +240,8 @@ export default function CSATPracticeView({ dayNumber, onComplete }: CSATPractice
                                                 <h4 className="text-xl font-black text-gray-900 dark:text-white group-hover:text-purple-600 transition-colors">{item.word}</h4>
                                                 {item.toneIndicator && (
                                                     <span className={`text-[10px] uppercase font-black px-3 py-1 rounded-full ${item.toneIndicator === 'positive' ? 'bg-emerald-100 text-emerald-700' :
-                                                            item.toneIndicator === 'negative' ? 'bg-rose-100 text-rose-700' :
-                                                                'bg-slate-200 text-slate-700'
+                                                        item.toneIndicator === 'negative' ? 'bg-rose-100 text-rose-700' :
+                                                            'bg-slate-200 text-slate-700'
                                                         }`}>
                                                         {item.toneIndicator}
                                                     </span>
@@ -353,7 +353,7 @@ export default function CSATPracticeView({ dayNumber, onComplete }: CSATPractice
                         {/* MCQ Content */}
                         <div className="flex-1 overflow-y-auto p-6 flex flex-col custom-scrollbar">
                             <div className="bg-white dark:bg-gray-950 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-800 mb-6 transition-all">
-                                <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-relaxed">
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-relaxed whitespace-pre-wrap">
                                     {currentQuestion?.question}
                                 </h3>
                             </div>
@@ -366,8 +366,8 @@ export default function CSATPracticeView({ dayNumber, onComplete }: CSATPractice
                                             key={idx}
                                             onClick={() => handleAnswerSelect(idx)}
                                             className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-4 group ${isSelected
-                                                    ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 shadow-md ring-4 ring-indigo-500/5'
-                                                    : 'bg-white dark:bg-gray-950 border-slate-100 dark:border-slate-800 hover:border-indigo-300'
+                                                ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-500 shadow-md ring-4 ring-indigo-500/5'
+                                                : 'bg-white dark:bg-gray-950 border-slate-100 dark:border-slate-800 hover:border-indigo-300'
                                                 }`}
                                         >
                                             <div className={`w-10 h-10 shrink-0 rounded-lg flex items-center justify-center font-black transition-all ${isSelected ? 'bg-indigo-600 text-white scale-110 shadow-lg' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 group-hover:bg-indigo-100 group-hover:text-indigo-600'
@@ -400,8 +400,8 @@ export default function CSATPracticeView({ dayNumber, onComplete }: CSATPractice
                                             disabled={selectedAnswer === null}
                                             onClick={() => handleConfidenceSelect(conf.id as ConfidenceLevel)}
                                             className={`p-2.5 rounded-xl border-2 flex flex-col items-center gap-1 transition-all ${confidence === conf.id
-                                                    ? `bg-${conf.color}-50 border-${conf.color}-500 text-${conf.color}-700 ring-4 ring-${conf.color}-500/5 scale-105`
-                                                    : selectedAnswer === null ? 'opacity-40 cursor-not-allowed bg-slate-50' : 'bg-white border-slate-100 hover:border-indigo-200'
+                                                ? `bg-${conf.color}-50 border-${conf.color}-500 text-${conf.color}-700 ring-4 ring-${conf.color}-500/5 scale-105`
+                                                : selectedAnswer === null ? 'opacity-40 cursor-not-allowed bg-slate-50' : 'bg-white border-slate-100 hover:border-indigo-200'
                                                 }`}
                                         >
                                             <conf.icon className={`h-4 w-4 ${confidence === conf.id ? `text-${conf.color}-600` : 'text-slate-400'}`} />
@@ -459,7 +459,7 @@ export default function CSATPracticeView({ dayNumber, onComplete }: CSATPractice
                                 setConfidence(att?.confidence ?? null);
                             }}
                             className={`h-2.5 rounded-full cursor-pointer transition-all ${idx === currentIndex ? 'w-8 bg-indigo-600' :
-                                    attempts[allQuestions[idx].id] ? 'w-2.5 bg-emerald-400' : 'w-2.5 bg-slate-200'
+                                attempts[allQuestions[idx].id] ? 'w-2.5 bg-emerald-400' : 'w-2.5 bg-slate-200'
                                 }`}
                         />
                     ))}

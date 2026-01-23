@@ -140,16 +140,11 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
     const router = useRouter();
     const [morningProgress, setMorningProgress] = useState<MorningProgress | null>(null);
     const [activeSection, setActiveSection] = useState<'menu' | 'flashcards' | 'mcqs' | 'csat'>('menu');
-    const [showMorningReport, setShowMorningReport] = useState(false);
 
     useEffect(() => {
         const progress = getMorningProgress(weekId, dayId);
         setMorningProgress(progress);
-
-        // Show report if there is any progress
-        if (progress && progress.cycleHistory.length > 0) {
-            setShowMorningReport(true);
-        }
+        // Morning report is now available in Deep Report Center only - no popup
     }, [weekId, dayId]);
 
     const eveningContent = useMemo(() => generateEveningContent(morningProgress), [morningProgress]);
@@ -563,64 +558,7 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
     return (
         <div className="max-w-4xl mx-auto p-6 space-y-6">
-            {/* Morning Report Dialog */}
-            <Dialog open={showMorningReport} onOpenChange={setShowMorningReport}>
-                <DialogContent className="max-w-lg">
-                    <DialogHeader>
-                        <DialogTitle className="flex items-center gap-2 text-xl">
-                            <Brain className="h-6 w-6 text-indigo-600" />
-                            Morning Performance Report
-                        </DialogTitle>
-                        <DialogDescription>
-                            Here is a summary of your study session from this morning.
-                        </DialogDescription>
-                    </DialogHeader>
-
-                    {morningStats && (
-                        <div className="space-y-6 py-4">
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-xl text-center">
-                                    <div className="text-3xl font-bold text-indigo-700 dark:text-indigo-300">{morningStats.efficiency}%</div>
-                                    <div className="text-xs uppercase font-semibold text-indigo-600 dark:text-indigo-400 mt-1">Efficiency</div>
-                                </div>
-                                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl text-center">
-                                    <div className="text-3xl font-bold text-green-700 dark:text-green-300">{morningStats.accuracy}%</div>
-                                    <div className="text-xs uppercase font-semibold text-green-600 dark:text-green-400 mt-1">Accuracy</div>
-                                </div>
-                            </div>
-
-                            <div className="space-y-2">
-                                <div className="flex justify-between text-sm">
-                                    <span className="text-gray-500">Topics Mastered</span>
-                                    <span className="font-medium text-gray-900 dark:text-gray-100">{morningStats.totalSubtopics} Subtopics</span>
-                                </div>
-                                <Progress value={(morningStats.totalSubtopics / 20) * 100} className="h-2" />
-                            </div>
-
-                            <div className="space-y-2">
-                                <div className="flex justify-between text-sm">
-                                    <span className="text-gray-500">Sessions Completed</span>
-                                    <span className="font-medium text-gray-900 dark:text-gray-100">{morningStats.totalSessions}/12 Sessions</span>
-                                </div>
-                                <Progress value={(morningStats.totalSessions / 12) * 100} className="h-2" />
-                            </div>
-
-                            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-sm text-gray-600 dark:text-gray-300">
-                                <p>
-                                    Your evening content has been customized based on your morning performance.
-                                    Recommended focus: <strong>Recall & Elaboration</strong>.
-                                </p>
-                            </div>
-                        </div>
-                    )}
-
-                    <div className="flex justify-end">
-                        <Button onClick={() => setShowMorningReport(false)} className="w-full sm:w-auto">
-                            Let&apos;s Begin Evening Session
-                        </Button>
-                    </div>
-                </DialogContent>
-            </Dialog>
+            {/* Morning Report is now available in Deep Report Center only */}
 
             {/* === DAY NAVIGATION BAR === */}
             <div className="bg-white dark:bg-gray-900 p-2 rounded-xl border shadow-sm items-center justify-between overflow-x-auto flex gap-2">
@@ -658,8 +596,8 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
 
             {/* Morning Progress Summary */}
             {hasMorningProgress ? (
-                <Card className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-green-200" onClick={() => setShowMorningReport(true)}>
-                    <CardContent className="p-4 cursor-pointer hover:bg-green-100/50 transition-colors">
+                <Card className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-green-200">
+                    <CardContent className="p-4">
                         <div className="flex items-center justify-between mb-3">
                             <div className="flex items-center gap-3">
                                 <CheckCircle2 className="h-5 w-5 text-green-600" />
@@ -667,9 +605,6 @@ export default function Batch1_1EveningSession({ weekId, dayId }: EveningSession
                                     {morningProgress ? "Morning Session Complete" : "Ready for Revision"}
                                 </span>
                             </div>
-                            <Button variant="ghost" size="sm" className="text-green-700 hover:text-green-800 hover:bg-green-100 p-0 h-auto font-normal">
-                                View Report
-                            </Button>
                         </div>
                         <div className="grid grid-cols-3 gap-4">
                             <div className="text-center">

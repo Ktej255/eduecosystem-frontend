@@ -260,7 +260,7 @@ const SaturdayTestSession: React.FC<SaturdayTestSessionProps> = ({
                         </div>
 
                         <div className="mb-10">
-                            <h2 className="text-xl font-medium leading-relaxed text-slate-100 mb-2">
+                            <h2 className="text-xl font-medium leading-relaxed text-slate-100 mb-2 whitespace-pre-wrap">
                                 {currentQuestion.question}
                             </h2>
                             <div className="flex gap-2 text-xs text-slate-500 italic">

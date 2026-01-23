@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Timer, CheckCircle2, Flame, Trophy, Repeat, BookOpen, ArrowRight, Target } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { useAuth } from "@/contexts/auth-context";
 import PomodoroTimer from "./PomodoroTimer";
 import SubtopicSelector from "./SubtopicSelector";
 import CycleFlashcards from "./CycleFlashcards";
@@ -130,9 +131,7 @@ function syncProgressToStore(
 
 export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionViewProps) {
     const router = useRouter();
-
-
-    // --- Constants for 6-Hour Schedule ---
+    const { user } = useAuth();
     const TOTAL_BLOCKS = 3;         // 3 Blocks of 2 hours each
     const SESSIONS_PER_BLOCK = 4;   // 4 Sessions per block (25m each)
     const TOTAL_SESSIONS = TOTAL_BLOCKS * SESSIONS_PER_BLOCK; // 12 Sessions total
@@ -743,14 +742,29 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
                     )}
 
                     {sessionState === 'pomodoro' && (
-                        <PomodoroTimer
-                            duration={POMODORO_DURATION}
-                            onComplete={handleTimerComplete}
-                            sessionNumber={currentSessionGlobal}
-                            totalSessions={TOTAL_SESSIONS}
-                            isStrict={true}
-                            focusTask={sessionGoal}
-                        />
+                        <>
+                            <PomodoroTimer
+                                duration={POMODORO_DURATION}
+                                onComplete={handleTimerComplete}
+                                sessionNumber={currentSessionGlobal}
+                                totalSessions={TOTAL_SESSIONS}
+                                isStrict={true}
+                                focusTask={sessionGoal}
+                            />
+                            {/* Admin Testing Skip Button */}
+                            {user?.email === 'ktej255@gmail.com' && (
+                                <div className="mt-4 flex justify-center">
+                                    <Button
+                                        variant="destructive"
+                                        size="sm"
+                                        onClick={handleTimerComplete}
+                                        className="bg-red-500/10 text-red-500 hover:bg-red-500/20 border-red-200 border shadow-none"
+                                    >
+                                        [TESTING] Skip Timer
+                                    </Button>
+                                </div>
+                            )}
+                        </>
                     )}
 
                     {sessionState === 'timer_options' && (

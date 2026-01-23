@@ -11,35 +11,32 @@ import { useState, useEffect } from "react";
 export default function ProductivityPage() {
     const [showMoodModal, setShowMoodModal] = useState(false);
 
+    // Mood Tracker: Only show after 3 hours of continuous use
+    // No automatic popup on page load - user can open manually
     useEffect(() => {
-        const checkSchedule = () => {
-            const now = new Date();
-            const hour = now.getHours();
-            const dateStr = now.toISOString().split('T')[0];
+        const checkCooldown = () => {
+            const lastMoodLog = localStorage.getItem('last_mood_log');
+            const sessionStart = localStorage.getItem('batch11_session_start');
 
-            // Define strict slots
-            const slots = [0, 6, 9, 12, 15, 18, 21];
+            if (!sessionStart) {
+                localStorage.setItem('batch11_session_start', new Date().toISOString());
+                return;
+            }
 
-            // Find the current active slot (e.g., if it's 10:30, the slot is 9)
-            // We look for the largest slot <= current hour
-            // But user listed 6am, 9am... so we target those blocks.
-            const currentSlot = slots.map(s => s).reverse().find(s => hour >= s);
+            const sessionStartTime = new Date(sessionStart).getTime();
+            const now = Date.now();
+            const threeHours = 3 * 60 * 60 * 1000;
 
-            if (currentSlot !== undefined) {
-                const slotKey = `mood_log_${dateStr}_${currentSlot}`; // e.g., mood_log_2026-01-20_9
-                const hasLogged = localStorage.getItem(slotKey);
+            const sessionDuration = now - sessionStartTime;
+            const lastLogTime = lastMoodLog ? new Date(lastMoodLog).getTime() : 0;
+            const timeSinceLastLog = now - lastLogTime;
 
-                // Only show if NOT logged for this specific slot
-                if (!hasLogged) {
-                    setShowMoodModal(true);
-                }
+            if (sessionDuration >= threeHours && timeSinceLastLog >= threeHours) {
+                setShowMoodModal(true);
             }
         };
 
-        checkSchedule();
-
-        // Optional: Check every minute in case the hour changes while valid
-        const interval = setInterval(checkSchedule, 60000);
+        const interval = setInterval(checkCooldown, 5 * 60 * 1000);
         return () => clearInterval(interval);
     }, []);
 

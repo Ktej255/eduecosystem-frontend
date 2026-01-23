@@ -47,29 +47,37 @@ export default function Batch11Page() {
         }
     }, []);
 
-    // Strict Mood Tracker Schedule
+    // Mood Tracker: Only show after 3 hours of continuous use
+    // No automatic popup on page load - user can open manually via button
     useEffect(() => {
-        const checkSchedule = () => {
-            const now = new Date();
-            const hour = now.getHours();
-            const dateStr = now.toISOString().split('T')[0];
+        const checkCooldown = () => {
+            const lastMoodLog = localStorage.getItem('last_mood_log');
+            const sessionStart = localStorage.getItem('batch11_session_start');
 
-            // Define strict slots
-            const slots = [0, 6, 9, 12, 15, 18, 21];
-            const currentSlot = slots.map(s => s).reverse().find(s => hour >= s);
+            // Track session start time if not set
+            if (!sessionStart) {
+                localStorage.setItem('batch11_session_start', new Date().toISOString());
+                return; // Don't show popup on first visit
+            }
 
-            if (currentSlot !== undefined) {
-                const slotKey = `mood_log_${dateStr}_${currentSlot}`;
-                const hasLogged = localStorage.getItem(slotKey);
+            const sessionStartTime = new Date(sessionStart).getTime();
+            const now = Date.now();
+            const threeHours = 3 * 60 * 60 * 1000; // 3 hours in milliseconds
 
-                if (!hasLogged) {
-                    setShowMoodModal(true);
-                }
+            // Only show popup if:
+            // 1. User has been in session for 3+ hours
+            // 2. Haven't logged mood in last 3 hours
+            const sessionDuration = now - sessionStartTime;
+            const lastLogTime = lastMoodLog ? new Date(lastMoodLog).getTime() : 0;
+            const timeSinceLastLog = now - lastLogTime;
+
+            if (sessionDuration >= threeHours && timeSinceLastLog >= threeHours) {
+                setShowMoodModal(true);
             }
         };
 
-        checkSchedule();
-        const interval = setInterval(checkSchedule, 60000);
+        // Check every 5 minutes instead of every minute
+        const interval = setInterval(checkCooldown, 5 * 60 * 1000);
         return () => clearInterval(interval);
     }, []);
 
