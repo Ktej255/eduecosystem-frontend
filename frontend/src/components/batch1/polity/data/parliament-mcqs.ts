@@ -1282,5 +1282,448 @@ export const PARLIAMENT_MCQS: MCQ[] = [
         correctIndex: 3,
         explanation: 'Froze number (84th), but allowed remixing boundaries based on 1991 (84th) then 2001 (87th).',
         difficulty: 'Tough'
+    },
+
+    // PART 2 MCQs (Q91-Q120)
+
+    // Topic 29: Constitutional Position & Inter-House Relations
+    {
+        id: '22.4.8_2', // Language in Parliament
+        subtopicId: '22.4.8',
+        question: 'Language in Parliament correct statement:',
+        options: [
+            'Mother tongue only with President permission.',
+            'Official Languages Act allows English.',
+            'Bills must be Hindi only.',
+            'Presiding Officer cannot permit mother tongue if fluent in others.'
+        ],
+        correctIndex: 1,
+        explanation: 'Statement A wrong (Presiding Officer permission). C wrong (English used). D wrong (can permit). B correct.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.6.4_4', // Joint Sitting
+        subtopicId: '22.6.4',
+        question: 'Joint Sitting (Art 108): 1. Applies Ordinary/Financial. 2. Not Money/Const Amd. 3. Passed by majority of TOTAL members. 4. Speaker presides, then Chairman RS.',
+        options: [
+            '1 and 2 only',
+            '2 and 3 only',
+            '1, 2, and 3 only',
+            '1, 2, 3, and 4'
+        ],
+        correctIndex: 0,
+        explanation: '3 is wrong (Present and voting, not total membership). 4 is wrong (Chairman RS never presides).',
+        difficulty: 'Tough'
+    },
+
+    // Topic 30: Disqualifications
+    {
+        id: '22.1.4.3_7', // Vacation of Seats
+        subtopicId: '22.1.4.3',
+        question: 'Computing 60 days absence for disqualification excludes:',
+        options: [
+            'Adjourned > 4 days.',
+            'Prorogued > 4 days.',
+            'Both A and B.',
+            'Neither, all days counted.'
+        ],
+        correctIndex: 2,
+        explanation: 'Excludes periods of adjournment or prorogation of more than 4 consecutive days.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.1.4.2_5', // Disqualifications
+        subtopicId: '22.1.4.2',
+        question: 'Disqualification for election offences/corrupt practices determined by:',
+        options: [
+            'Constitution.',
+            'RPA 1951.',
+            'Delimitation Act.',
+            'Rules of Procedure.'
+        ],
+        correctIndex: 1,
+        explanation: 'Found in Representation of the People Act, 1951.',
+        difficulty: 'Moderate'
+    },
+
+    // Topic 31: Advanced Nuances
+    {
+        id: '22.5.3_8', // Motion of Thanks
+        subtopicId: '22.5.3',
+        question: 'Motion of Thanks on President Address:',
+        options: [
+            'Discussed in LS only.',
+            'Amendments can express regret.',
+            'If not passed, govt safe.',
+            'Voted only in RS.'
+        ],
+        correctIndex: 1,
+        explanation: 'Amendments accepted. Must pass in both houses else govt falls.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.5.9_2', // Expunction (General devices)
+        subtopicId: '22.5.9', // Using Misc/General ID
+        question: 'Expunction of Words:',
+        options: [
+            'President expunges.',
+            'Only Speaker/Presiding Officer expunges.',
+            'Never expunged once recorded.',
+            'Remain in record with asterisk.'
+        ],
+        correctIndex: 1,
+        explanation: 'Sole authority of Presiding Officer. Expunged portions removed from record.',
+        difficulty: 'Easy'
+    },
+
+    // Topic 32: President & Rights
+    {
+        id: '22.1.1_Pres', // President integral part
+        subtopicId: '22.1', // General Organisation
+        question: 'President is integral part of Parliament because: 1. Summons/Prorogues. 2. Dissolves LS. 3. Addresses House. 4. Assent needed.',
+        options: [
+            '1, 2, 4',
+            '1, 3, 4',
+            '2, 4',
+            '1, 2, 3, 4'
+        ],
+        correctIndex: 3,
+        explanation: 'All functions justify President as integral part.',
+        difficulty: 'Easy'
+    },
+    {
+        id: '22.4.9_2', // Rights of Ministers
+        subtopicId: '22.4.9',
+        question: 'Minister not member of either House:',
+        options: [
+            'Cannot participate.',
+            'Can participate both, vote neither.',
+            'Must join in 3 months.',
+            'No privileges.'
+        ],
+        correctIndex: 1,
+        explanation: 'Can participate (Art 88) but cannot vote. Must join in 6 months.',
+        difficulty: 'Moderate'
+    },
+
+    // Topic 33: Financial Bills
+    {
+        id: '22.6.3_5', // Financial Bill II
+        subtopicId: '22.6.3',
+        question: 'Financial Bill (II) characteristic:',
+        options: [
+            'Cannot introduce RS.',
+            'Need President rec for Intro.',
+            'Ordinary except needs President rec for Consideration.',
+            'Passed by LS alone if RS rejects.'
+        ],
+        correctIndex: 2,
+        explanation: 'Ordinary bill character, but needs recommendation for consideration stage.',
+        difficulty: 'Tough'
+    },
+    {
+        id: '22.12_Sovereignty_Quote', // Sovereignty
+        subtopicId: '22.12',
+        question: '"British Parliament can do everything except make woman a man...":',
+        options: [
+            'A.V. Dicey',
+            'De Lolme',
+            'Ivor Jennings',
+            'Laski'
+        ],
+        correctIndex: 1,
+        explanation: 'Quote by De Lolme.',
+        difficulty: 'Tough'
+    },
+
+    // New Topics: 106th Amendment & New Parliament
+    {
+        id: '22.1.2_106th', // 106th Amendment (Lok Sabha Composition)
+        subtopicId: '22.1.2',
+        question: '106th Amendment (Nari Shakti Vandan): 1. 1/3rd Women Reservation LS/State/Delhi. 2. Effect after delimitation/census. 3. For 25 years.',
+        options: [
+            '1 and 2 only',
+            '2 and 3 only',
+            '1 and 3 only',
+            '1, 2, 3'
+        ],
+        correctIndex: 0,
+        explanation: 'For 15 years, not 25. Can be extended.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.1.2_106th_2',
+        subtopicId: '22.1.2',
+        question: '106th Amendment reservation applies to:',
+        options: [
+            'General seats only.',
+            'SC/ST seats only.',
+            'General + SC/ST seats.',
+            'UT seats only.'
+        ],
+        correctIndex: 2,
+        explanation: 'Applies to total seats including those reserved for SC/STs.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.1_NewParl_1', // New Parliament (General Organisation)
+        subtopicId: '22.1',
+        question: 'New Parliament Features (8th Ed): 1. LS Theme Lotus. 2. RS Theme Peacock. 3. Sengol near Speaker. 4. Foucault Pendulum.',
+        options: [
+            '1 and 2',
+            '3 and 4',
+            '1, 3, 4',
+            '2, 3, 4'
+        ],
+        correctIndex: 1,
+        explanation: 'LS is Peacock, RS is Lotus (Reverse of option 1, 2).',
+        difficulty: 'Easy'
+    },
+    {
+        id: '22.1_NewParl_2',
+        subtopicId: '22.1',
+        question: 'Seating Capacity New Parliament:',
+        options: [
+            'LS 888, RS 384.',
+            'Separate Central Hall.',
+            'Joint Sitting in LS chamber (1272 capacity).',
+            'Both A and C.'
+        ],
+        correctIndex: 3,
+        explanation: 'No Central Hall. A and C are correct.',
+        difficulty: 'Moderate'
+    },
+
+    // Voting & Courts
+    {
+        id: '22.4.7_1', // Voting
+        subtopicId: '22.4.7',
+        question: 'Art 100 Voting:',
+        options: [
+            'Speaker votes first instance financial.',
+            'Determine by majority including Speaker.',
+            'Speaker no first vote, casting vote on ties.',
+            'Casting vote even if no tie.'
+        ],
+        correctIndex: 2,
+        explanation: 'Vote only in case of equality of votes.',
+        difficulty: 'Easy'
+    },
+    {
+        id: '22.12.1_Courts', // Courts (Sovereignty/Privileges)
+        subtopicId: '22.12.1',
+        question: 'Art 122 Judicial Interference:',
+        options: [
+            'Validity of proceedings not questioned on irregularity.',
+            'Officers regulating procedure not subject to court jurisdiction.',
+            'SC can strike down procedure if basic structure violated.',
+            'Both A and B.'
+        ],
+        correctIndex: 3,
+        explanation: 'Both A and B strictly from Art 122.',
+        difficulty: 'Moderate'
+    },
+
+    // Budget Nuances
+    {
+        id: '22.7.3_Guillotine', // Budget Stages
+        subtopicId: '22.7.3',
+        question: 'Budget Guillotine meaning:',
+        options: [
+            'Motion to reduce to Re 1.',
+            'Speaker puts all remaining demands to vote last day.',
+            'Stop Appropriation Bill.',
+            'RS return Money Bill.'
+        ],
+        correctIndex: 1,
+        explanation: 'Putting undiscussed demands to vote due to time limit.',
+        difficulty: 'Easy'
+    },
+
+    // Lapsing & Whip Final
+    {
+        id: '22.4.5_5', // Lapsing
+        subtopicId: '22.4.5',
+        question: 'Bill NOT lapsing on dissolution:',
+        options: [
+            'Originated RS, sent LS, pending LS.',
+            'Originated LS, pending LS.',
+            'Pending RS, not passed LS.',
+            'Passed LS, pending RS.'
+        ],
+        correctIndex: 2,
+        explanation: 'Pending in RS and not passed by LS does not lapse.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.3.3_Whip_Penalty', // Whip
+        subtopicId: '22.3.3',
+        question: 'Defying party whip without permission:',
+        options: [
+            'Expelled by President.',
+            'Disqualification under 10th Schedule.',
+            'Fined Rs 500.',
+            'No action (freedom of speech).'
+        ],
+        correctIndex: 1,
+        explanation: '10th Schedule disqualification.',
+        difficulty: 'Easy'
+    },
+    {
+        id: '22.4.8_Language_2', // Language
+        subtopicId: '22.4.8',
+        question: 'Member cannot express in Hindi/English (Art 120):',
+        options: [
+            'Written translation 24h.',
+            'Presiding Officer can permit mother tongue.',
+            'Prohibited.',
+            'Any 8th sched language.'
+        ],
+        correctIndex: 1,
+        explanation: 'Discretion of Presiding Officer.',
+        difficulty: 'Moderate'
+    },
+
+    // Mastery Set
+    {
+        id: '22.11.2_Privilege_Speech', // Privileges
+        subtopicId: '22.11.2',
+        question: 'Freedom of Speech (Art 105):',
+        options: [
+            'Absolute.',
+            'Not liable in court for anything said/voted in House.',
+            'Available to President.',
+            'Can be sued for speech outside referring to House.'
+        ],
+        correctIndex: 1,
+        explanation: 'Immunity from court proceedings for speech/vote in House.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.12.1_Court_Prohibit', // Sovereignty/Courts
+        subtopicId: '22.12.1',
+        question: 'Art 122 prohibits Courts from:',
+        options: [
+            'Striking down law.',
+            'Inquiring validity of proceedings on irregularity.',
+            'Issuing writ against Speaker.',
+            'Reviewing disqualification.'
+        ],
+        correctIndex: 1,
+        explanation: 'Specific prohibition on inquiring into procedural irregularities.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.3.1_Leader', // Leader of House
+        subtopicId: '22.3.1',
+        question: 'Leader of the House:',
+        options: [
+            'PM always Leader in LS.',
+            'If PM in RS, nominates Minister in LS.',
+            'Constitutional office Art 74.',
+            'No role in RS.'
+        ],
+        correctIndex: 1,
+        explanation: 'PM nominates if not member of that house.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.2.8_SecGen_2', // Secretariat
+        subtopicId: '22.2.8',
+        question: 'Secretary-General:',
+        options: [
+            'Permanent, appointed by Presiding Officer.',
+            'Rank of Cabinet Secretary.',
+            'Remains after dissolution.',
+            'All of the above.'
+        ],
+        correctIndex: 3,
+        explanation: 'All statements correct.',
+        difficulty: 'Tough'
+    },
+    {
+        id: '22.7.2_Charged_2', // Charged Exp
+        subtopicId: '22.7.2',
+        question: 'Charged Expenditure vs Voted:',
+        options: [
+            'Charged not discussed.',
+            'Charged discussed but not voted.',
+            'Neither discussed nor voted.',
+            'Voted after Appropriation.'
+        ],
+        correctIndex: 1,
+        explanation: 'Can be discussed, but not voted.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.5.3_Motion_Admissibility', // Motions
+        subtopicId: '22.5.3',
+        question: 'Condition for Motion admissibility:',
+        options: [
+            'More than one issue.',
+            'No conduct of persons except official.',
+            'Deal with sub-judice.',
+            '500 words length.'
+        ],
+        correctIndex: 1,
+        explanation: 'Focus on official capacity.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.1.1.1_Nominated', // RS Composition
+        subtopicId: '22.1.1.1',
+        question: 'Nominated Members RS fields:',
+        options: [
+            'Lit, Sci, Art, Social Svc.',
+            'Lit, Sci, Art, Social Svc, Coop.',
+            'Sci, Art, Social Svc, Coop.',
+            'All 5.'
+        ],
+        correctIndex: 0,
+        explanation: 'Cooperative Movement is for State Legislative Council, not RS.',
+        difficulty: 'Moderate'
+    },
+    {
+        id: '22.1.1.1_Election_System', // RS Election
+        subtopicId: '22.1.1.1',
+        question: 'RS Election System:',
+        options: [
+            'List System.',
+            'Single Transferable Vote (Proportional).',
+            'Cumulative.',
+            'FPTP.'
+        ],
+        correctIndex: 1,
+        explanation: 'Prop Rep via Single Transferable Vote.',
+        difficulty: 'Easy'
+    },
+    {
+        id: '22.1_NewParl_Sengol', // Sengol
+        subtopicId: '22.1',
+        question: 'Sengol originally presented to:',
+        options: [
+            'Rajendra Prasad.',
+            'Jawaharlal Nehru (Transfer of Power).',
+            'Constituent Assembly.',
+            'Speaker First LS.'
+        ],
+        correctIndex: 1,
+        explanation: 'Presented to Nehru on Aug 14, 1947.',
+        difficulty: 'Easy'
+    },
+    {
+        id: '22.1_NewParl_ConstHall', // Constitutional Hall
+        subtopicId: '22.1',
+        question: 'Constitutional Hall in New Parliament:',
+        options: [
+            'RS meetings.',
+            'Digital museum & original Constitution.',
+            'Joint Sittings.',
+            'Outside structure.'
+        ],
+        correctIndex: 1,
+        explanation: 'Houses heritage/museum.',
+        difficulty: 'Easy'
     }
 ];
+
