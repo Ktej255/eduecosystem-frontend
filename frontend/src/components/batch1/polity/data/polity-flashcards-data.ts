@@ -1,8 +1,11 @@
 export interface Flashcard {
     id: string;
-    subtopicId: string;
-    question: string;
-    answer: string;
+    subtopicId?: string;
+    question?: string;
+    answer?: string;
+    front?: string;
+    back?: string;
+    [key: string]: any;
 }
 
 import { PARLIAMENT_FLASHCARDS } from './parliament-flashcards';
@@ -356,5 +359,5 @@ export const POLITY_FLASHCARDS_DATA: Flashcard[] = [
 ];
 
 export function getFlashcardsForSubtopics(subtopicIds: string[]): Flashcard[] {
-    return POLITY_FLASHCARDS_DATA.filter(fc => subtopicIds.includes(fc.subtopicId));
+    return POLITY_FLASHCARDS_DATA.filter(fc => fc.subtopicId && subtopicIds.includes(fc.subtopicId));
 }
