@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
     BookOpen,
     Calendar,
@@ -14,15 +14,21 @@ import {
     Sun,
     Brain,
     Moon,
-    Play
+    Play,
+    ArrowLeft,
+    CheckCircle
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { RAS_PRELIMS_SYLLABUS } from "./data/ras-syllabus-data";
 
 export default function RASDashboard() {
+    const router = useRouter();
+    const [activeSession, setActiveSession] = useState<{ id: number; videoUrl: string; title: string; nextPath?: string } | null>(null);
+
     // Phases Configuration
     const phases = [
         {
@@ -35,7 +41,11 @@ export default function RASDashboard() {
             color: "amber",
             bg: "bg-amber-500/10",
             border: "border-amber-500/20",
-            action: { label: "Watch Recording", link: "https://www.youtube.com/watch?v=-kv1TaiCf14", isExternal: true },
+            action: {
+                label: "Start Session",
+                videoUrl: "https://www.youtube.com/embed/-kv1TaiCf14?autoplay=1&modestbranding=1&rel=0",
+                nextPath: "/student/graphotherapy"
+            },
             linkText: "Guided Vizualization"
         },
         {
@@ -88,10 +98,63 @@ export default function RASDashboard() {
             color: "indigo",
             bg: "bg-indigo-500/10",
             border: "border-indigo-500/20",
-            action: { label: "Watch Recording", link: "https://www.youtube.com/watch?v=hzNKZN4YQXs", isExternal: true },
+            action: {
+                label: "Start Class",
+                videoUrl: "https://www.youtube.com/embed/hzNKZN4YQXs?autoplay=1&modestbranding=1&rel=0"
+            },
             linkText: "Night Session Video"
         }
     ];
+
+    // Video Player View
+    if (activeSession) {
+        return (
+            <div className="min-h-screen bg-black text-white flex flex-col">
+                {/* Header */}
+                <div className="flex items-center justify-between p-4 border-b border-neutral-800">
+                    <Button variant="ghost" onClick={() => setActiveSession(null)} className="text-neutral-400 hover:text-white">
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to HQ
+                    </Button>
+                    <span className="font-bold text-lg hidden md:block">{activeSession.title}</span>
+                    <div className="w-24" /> {/* Spacer */}
+                </div>
+
+                {/* Main Player Area */}
+                <div className="flex-1 flex flex-col items-center justify-center p-4 md:p-8">
+                    <div className="w-full max-w-5xl aspect-video bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 mb-8 relative">
+                        <iframe
+                            src={activeSession.videoUrl}
+                            className="absolute inset-0 w-full h-full"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        />
+                    </div>
+
+                    <div className="flex flex-col items-center gap-4">
+                        <h2 className="text-2xl font-bold text-white">{activeSession.title}</h2>
+                        <p className="text-neutral-400 max-w-md text-center">
+                            Focus completely on the session. Do not switch tabs. Once completed, verify your progress below.
+                        </p>
+
+                        <Button
+                            size="lg"
+                            className="bg-green-600 hover:bg-green-700 text-white min-w-[200px] h-14 text-lg font-bold shadow-lg shadow-green-900/20"
+                            onClick={() => {
+                                if (activeSession.nextPath) {
+                                    router.push(activeSession.nextPath);
+                                } else {
+                                    setActiveSession(null);
+                                }
+                            }}
+                        >
+                            <CheckCircle className="mr-2 h-5 w-5" />
+                            Mark as Completed
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-[#050505] text-white">
@@ -105,7 +168,7 @@ export default function RASDashboard() {
                             <div className="flex items-center gap-2 text-amber-500 font-bold tracking-wider text-xs uppercase mb-2">
                                 <span className="px-2 py-1 bg-amber-500/10 rounded-full border border-amber-500/20">RAS 2026 Cycle 1</span>
                                 <span className="flex items-center gap-1"><Flame className="w-3 h-3" /> Day 12 of 28</span>
-                                <span className="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] rounded-full border border-green-500/20 font-bold ml-2">v2.3 VIDEO LINKS</span>
+                                <span className="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] rounded-full border border-green-500/20 font-bold ml-2">v2.4 EMBEDDED</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
                                 Officer's <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Headquarters</span>
@@ -230,16 +293,21 @@ export default function RASDashboard() {
                                                     <p className="text-neutral-400 text-sm mb-4">{phase.desc}</p>
 
                                                     <div className="flex items-center justify-between mt-auto">
-                                                        {phase.action.isExternal ? (
+                                                        {phase.action.videoUrl ? (
                                                             <Button
                                                                 size="sm"
-                                                                onClick={() => window.open(phase.action.link, '_blank')}
+                                                                onClick={() => setActiveSession({
+                                                                    id: phase.id,
+                                                                    videoUrl: phase.action.videoUrl!,
+                                                                    title: phase.title,
+                                                                    nextPath: phase.action.nextPath
+                                                                })}
                                                                 className={`bg-${phase.color}-600 hover:bg-${phase.color}-700 text-white border-none`}
                                                             >
                                                                 {phase.action.label} <Play className="ml-1 h-3 w-3" />
                                                             </Button>
                                                         ) : (
-                                                            <Link href={phase.action.link}>
+                                                            <Link href={phase.action.link || '#'}>
                                                                 <Button size="sm" className={`bg-${phase.color}-600 hover:bg-${phase.color}-700 text-white border-none`}>
                                                                     {phase.action.label} <ChevronRight className="ml-1 h-3 w-3" />
                                                                 </Button>
