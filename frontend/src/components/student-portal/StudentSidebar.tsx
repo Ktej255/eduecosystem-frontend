@@ -54,7 +54,7 @@ const menuItems = [
     },
     {
         name: "RAS Revision",
-        href: "/student/antigravity",
+        href: "/student/ras",
         icon: CalendarDays,
         accessKey: "rasRevision", // Maps to UserAccess.rasRevision
     },
