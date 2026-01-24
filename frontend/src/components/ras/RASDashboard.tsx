@@ -34,7 +34,7 @@ export default function RASDashboard() {
             color: "amber",
             bg: "bg-amber-500/10",
             border: "border-amber-500/20",
-            action: { label: "Watch Recording", link: "https://www.youtube.com/watch?v=placeholder", isExternal: true },
+            action: { label: "Watch Recording", link: "https://www.youtube.com/watch?v=-kv1TaiCf14", isExternal: true },
             linkText: "Guided Vizualization"
         },
         {
@@ -87,7 +87,7 @@ export default function RASDashboard() {
             color: "indigo",
             bg: "bg-indigo-500/10",
             border: "border-indigo-500/20",
-            action: { label: "Watch Recording", link: "https://www.youtube.com/watch?v=placeholder_night", isExternal: true },
+            action: { label: "Watch Recording", link: "https://www.youtube.com/watch?v=hzNKZN4YQXs", isExternal: true },
             linkText: "Night Session Video"
         }
     ];
@@ -104,7 +104,7 @@ export default function RASDashboard() {
                             <div className="flex items-center gap-2 text-amber-500 font-bold tracking-wider text-xs uppercase mb-2">
                                 <span className="px-2 py-1 bg-amber-500/10 rounded-full border border-amber-500/20">RAS 2026 Cycle 1</span>
                                 <span className="flex items-center gap-1"><Flame className="w-3 h-3" /> Day 12 of 28</span>
-                                <span className="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] rounded-full border border-green-500/20 font-bold ml-2">v2.2 UPDATED</span>
+                                <span className="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] rounded-full border border-green-500/20 font-bold ml-2">v2.3 VIDEO LINKS</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
                                 Officer's <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Headquarters</span>
