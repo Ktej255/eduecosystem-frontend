@@ -23,7 +23,9 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { RAS_PRELIMS_SYLLABUS } from "./data/ras-syllabus-data";
+import { markRASTopicComplete } from "@/services/progressStorage";
 
 export default function RASDashboard() {
     const router = useRouter();
@@ -140,6 +142,9 @@ export default function RASDashboard() {
                             size="lg"
                             className="bg-green-600 hover:bg-green-700 text-white min-w-[200px] h-14 text-lg font-bold shadow-lg shadow-green-900/20"
                             onClick={() => {
+                                // Mark for streak
+                                markRASTopicComplete(activeSession.title);
+
                                 if (activeSession.nextPath) {
                                     router.push(activeSession.nextPath);
                                 } else {

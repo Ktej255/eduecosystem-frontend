@@ -60,6 +60,13 @@ export interface GraphotherapyProgress {
     lastCompleted: string | null;
 }
 
+export interface RASProgress {
+    currentDay: number;
+    topicsCompleted: string[];
+    streakDays: number;
+    lastCompleted: string | null;
+}
+
 export interface AnalysisReport {
     segmentKey: string; // "cycle-day-part-segment"
     recallScore: number;
@@ -80,6 +87,7 @@ export interface LearningProgress {
     prelims: PrelimsSession | null;
     meditation: MeditationProgress;
     graphotherapy: GraphotherapyProgress;
+    ras: RASProgress;
     completedSegments: string[]; // ["1-1-1-1", "1-1-1-2"]
     completedMeditation: string[]; // ["1-1", "1-2"]
     completedGraphotherapy: string[]; // ["1-1", "1-2"]
@@ -105,6 +113,10 @@ export interface StudentStats {
         currentDay: number;
         streakDays: number;
     };
+    ras: {
+        currentDay: number;
+        streakDays: number;
+    };
     overallStreak: number;
 }
 
@@ -121,6 +133,12 @@ const DEFAULT_PROGRESS: LearningProgress = {
     graphotherapy: {
         currentLevel: 1,
         currentDay: 1,
+        streakDays: 0,
+        lastCompleted: null,
+    },
+    ras: {
+        currentDay: 1,
+        topicsCompleted: [],
         streakDays: 0,
         lastCompleted: null,
     },
@@ -146,6 +164,10 @@ const DEFAULT_STATS: StudentStats = {
     },
     graphotherapy: {
         currentLevel: 1,
+        currentDay: 1,
+        streakDays: 0,
+    },
+    ras: {
         currentDay: 1,
         streakDays: 0,
     },
@@ -342,6 +364,42 @@ export function markGraphotherapyDayComplete(level: number, day: number): void {
 }
 
 // ============================================
+// RAS PROGRESS
+// ============================================
+
+export function getRASProgress(): RASProgress {
+    const progress = getLearningProgress();
+    return progress.ras || DEFAULT_PROGRESS.ras;
+}
+
+export function markRASTopicComplete(topic: string): void {
+    const progress = getLearningProgress();
+    const currentRAS = progress.ras || DEFAULT_PROGRESS.ras;
+
+    if (!currentRAS.topicsCompleted.includes(topic)) {
+        const today = new Date().toDateString();
+        const lastCompleted = currentRAS.lastCompleted;
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
+        let newStreak = currentRAS.streakDays;
+
+        if (lastCompleted === yesterday) {
+            newStreak += 1;
+        } else if (lastCompleted !== today) {
+            newStreak = 1;
+        }
+
+        saveLearningProgress({
+            ras: {
+                ...currentRAS,
+                topicsCompleted: [...currentRAS.topicsCompleted, topic],
+                streakDays: newStreak > 0 ? newStreak : 1, // Ensure at least 1 if active today
+                lastCompleted: today,
+            }
+        });
+    }
+}
+
+// ============================================
 // ANALYSIS REPORTS
 // ============================================
 
@@ -431,6 +489,7 @@ function updatePrelimsStats(report: AnalysisReport): void {
 function calculateStatsFromProgress(): StudentStats {
     const progress = getLearningProgress();
     const reports = getAnalysisReports();
+    const ras = progress.ras || DEFAULT_PROGRESS.ras;
 
     // Calculate prelims stats
     const scores = Object.values(reports).map(r => r.recallScore);
@@ -457,9 +516,14 @@ function calculateStatsFromProgress(): StudentStats {
             currentDay: progress.graphotherapy.currentDay,
             streakDays: progress.graphotherapy.streakDays,
         },
+        ras: {
+            currentDay: ras.currentDay,
+            streakDays: ras.streakDays,
+        },
         overallStreak: Math.max(
             progress.meditation.streakDays,
-            progress.graphotherapy.streakDays
+            progress.graphotherapy.streakDays,
+            ras.streakDays
         ),
     };
 }
