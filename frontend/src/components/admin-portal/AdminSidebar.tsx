@@ -94,6 +94,11 @@ const menuItems = [
         icon: Activity,
     },
     {
+        name: "Master Resume",
+        href: "/resume",
+        icon: FileText,
+    },
+    {
         name: "Settings",
         href: "/admin/settings",
         icon: Settings,
