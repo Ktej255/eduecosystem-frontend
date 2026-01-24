@@ -34,7 +34,7 @@ export default function RASDashboard() {
             color: "amber",
             bg: "bg-amber-500/10",
             border: "border-amber-500/20",
-            action: { label: "Start Session", link: `/student/meditation` },
+            action: { label: "Watch Recording", link: "https://www.youtube.com/watch?v=placeholder", isExternal: true },
             linkText: "Guided Vizualization"
         },
         {
@@ -76,6 +76,19 @@ export default function RASDashboard() {
             border: "border-emerald-500/20",
             action: { label: "Practice", link: `/student/ras/mains` },
             linkText: "2 Questions Today"
+        },
+        {
+            id: 5,
+            title: "Night Class & Meditation",
+            subtitle: "Phase 5: Night",
+            time: "60 min",
+            desc: "End your day with a specialized night class and relaxation.",
+            icon: <Moon className="h-6 w-6 text-indigo-500" />,
+            color: "indigo",
+            bg: "bg-indigo-500/10",
+            border: "border-indigo-500/20",
+            action: { label: "Watch Recording", link: "https://www.youtube.com/watch?v=placeholder_night", isExternal: true },
+            linkText: "Night Session Video"
         }
     ];
 
@@ -90,8 +103,8 @@ export default function RASDashboard() {
                         <div>
                             <div className="flex items-center gap-2 text-amber-500 font-bold tracking-wider text-xs uppercase mb-2">
                                 <span className="px-2 py-1 bg-amber-500/10 rounded-full border border-amber-500/20">RAS 2026 Cycle 1</span>
-                                <span className="flex items-center gap-1"><Flame className="w-3 h-3" /> Day 12 of 70</span>
-                                <span className="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] rounded-full border border-green-500/20 font-bold ml-2">v2.1 TIMELINE</span>
+                                <span className="flex items-center gap-1"><Flame className="w-3 h-3" /> Day 12 of 28</span>
+                                <span className="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] rounded-full border border-green-500/20 font-bold ml-2">v2.2 UPDATED</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
                                 Officer's <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Headquarters</span>
@@ -216,11 +229,21 @@ export default function RASDashboard() {
                                                     <p className="text-neutral-400 text-sm mb-4">{phase.desc}</p>
 
                                                     <div className="flex items-center justify-between mt-auto">
-                                                        <Link href={phase.action.link}>
-                                                            <Button size="sm" className={`bg-${phase.color}-600 hover:bg-${phase.color}-700 text-white border-none`}>
-                                                                {phase.action.label} <ChevronRight className="ml-1 h-3 w-3" />
+                                                        {phase.action.isExternal ? (
+                                                            <Button
+                                                                size="sm"
+                                                                onClick={() => window.open(phase.action.link, '_blank')}
+                                                                className={`bg-${phase.color}-600 hover:bg-${phase.color}-700 text-white border-none`}
+                                                            >
+                                                                {phase.action.label} <Play className="ml-1 h-3 w-3" />
                                                             </Button>
-                                                        </Link>
+                                                        ) : (
+                                                            <Link href={phase.action.link}>
+                                                                <Button size="sm" className={`bg-${phase.color}-600 hover:bg-${phase.color}-700 text-white border-none`}>
+                                                                    {phase.action.label} <ChevronRight className="ml-1 h-3 w-3" />
+                                                                </Button>
+                                                            </Link>
+                                                        )}
                                                         <span className="text-xs text-neutral-600 font-mono">{phase.linkText}</span>
                                                     </div>
                                                 </div>
