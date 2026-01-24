@@ -33,22 +33,22 @@ export const RAS_REVISION_PLAN: RASDayPlan[] = [
         date: getDate(i + 1),
         title: `Phase 1: Physics & Reasoning (Day ${i + 1})`,
         targetHours: 7.75, // 2h45 + 3h + 2h
-        status: i === 0 ? "active" : "locked",
+        status: (i === 0 ? "active" : "locked") as RASDayPlan['status'],
         sessions: [
             {
-                type: "Classwork",
+                type: "Classwork" as const,
                 topic: "Live Class Revision",
                 description: "Math (10 Qs) + Medieval History (Recall Notes).",
                 durationMinutes: 165 // 2h 45m
             },
             {
-                type: "Deep Work",
+                type: "Deep Work" as const,
                 topic: "Physics: Mechanics & Light",
                 description: "Focus on Pre-specific topics (Gravitation, Optics).",
                 durationMinutes: 180 // 3h
             },
             {
-                type: "Practice",
+                type: "Practice" as const,
                 topic: "Reasoning: Logical & Analytical",
                 description: "Coding-Decoding, Blood Relations. Practice only.",
                 durationMinutes: 120 // 2h
@@ -63,22 +63,22 @@ export const RAS_REVISION_PLAN: RASDayPlan[] = [
         date: getDate(11 + i),
         title: `Phase 2: Biology Sprint (Day ${i + 1})`,
         targetHours: 7.75,
-        status: "locked",
+        status: "locked" as RASDayPlan['status'],
         sessions: [
             {
-                type: "Classwork",
+                type: "Classwork" as const,
                 topic: "Live Class Revision",
                 description: "Math + History Revision.",
                 durationMinutes: 165
             },
             {
-                type: "Deep Work",
+                type: "Deep Work" as const,
                 topic: "Biology: Systems & Diseases",
                 description: "Digestive, Circulatory, Human Diseases.",
                 durationMinutes: 180
             },
             {
-                type: "Practice",
+                type: "Practice" as const,
                 topic: "Reasoning / Hindi",
                 description: "Maintain flow.",
                 durationMinutes: 120
@@ -93,22 +93,22 @@ export const RAS_REVISION_PLAN: RASDayPlan[] = [
         date: getDate(13 + i),
         title: `Phase 3: Economy & Core (Day ${i + 1})`,
         targetHours: 7.75,
-        status: "locked",
+        status: "locked" as RASDayPlan['status'],
         sessions: [
             {
-                type: "Classwork",
+                type: "Classwork" as const,
                 topic: "Live Class Revision",
                 description: "Math + History Revision.",
                 durationMinutes: 165
             },
             {
-                type: "Deep Work",
+                type: "Deep Work" as const,
                 topic: "Rajasthan History / Polity",
                 description: "1 New Chapter Daily (Mewar, Marwar, Governor, etc.).",
                 durationMinutes: 180
             },
             {
-                type: "Deep Work",
+                type: "Deep Work" as const,
                 topic: "Economic Survey 2024-25",
                 description: "Data memorization. High scoring area.",
                 durationMinutes: 120
@@ -122,10 +122,10 @@ export const RAS_REVISION_PLAN: RASDayPlan[] = [
         date: getDate(41 + i),
         title: `Phase 4: Full Throttle (Day ${i + 1})`,
         targetHours: 8,
-        status: "locked",
+        status: "locked" as RASDayPlan['status'],
         sessions: [
-            { type: "Deep Work", topic: "Full Syllabus Revision", description: "Consolidation phase.", durationMinutes: 240 },
-            { type: "Test", topic: "Full Length Tests", description: "Daily FLT practice.", durationMinutes: 180 }
+            { type: "Deep Work" as const, topic: "Full Syllabus Revision", description: "Consolidation phase.", durationMinutes: 240 },
+            { type: "Test" as const, topic: "Full Length Tests", description: "Daily FLT practice.", durationMinutes: 180 }
         ]
     }))
 ];
