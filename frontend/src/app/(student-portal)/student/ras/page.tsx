@@ -1,7 +1,7 @@
 "use client";
 
-import RASDashboard from "@/components/ras/RASDashboard";
+import AntiGravityPage from "../antigravity/page";
 
 export default function RASPortalPage() {
-    return <RASDashboard />;
+    return <AntiGravityPage />;
 }

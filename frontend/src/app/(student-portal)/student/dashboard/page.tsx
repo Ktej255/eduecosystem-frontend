@@ -13,9 +13,8 @@ import { getCompletedStepsForDay } from "@/lib/journey/completion-tracker";
 import { getUserAccess } from "@/config/user-access-config";
 import { RefreshCw, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 // Import the RAS Dashboard (Anti-Gravity)
-import AntiGravityPage from "../antigravity/page";
+import RASDashboard from "@/components/ras/RASDashboard";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
@@ -26,7 +25,7 @@ export default function StudentDashboard() {
     const isChitra = user?.email?.toLowerCase() === "chitrakumawat33@gmail.com";
 
     if (isChitra) {
-        return <AntiGravityPage />;
+        return <RASDashboard />;
     }
     // --------------------------------
 

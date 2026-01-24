@@ -43,7 +43,7 @@ export default function RASDashboard() {
             border: "border-amber-500/20",
             action: {
                 label: "Start Session",
-                videoUrl: "https://www.youtube.com/embed/-kv1TaiCf14?autoplay=1&modestbranding=1&rel=0",
+                videoUrl: "https://www.youtube.com/embed/-kv1TaiCf14?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1",
                 nextPath: "/student/graphotherapy"
             },
             linkText: "Guided Vizualization"
@@ -100,7 +100,7 @@ export default function RASDashboard() {
             border: "border-indigo-500/20",
             action: {
                 label: "Start Class",
-                videoUrl: "https://www.youtube.com/embed/hzNKZN4YQXs?autoplay=1&modestbranding=1&rel=0"
+                videoUrl: "https://www.youtube.com/embed/hzNKZN4YQXs?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1"
             },
             linkText: "Night Session Video"
         }
