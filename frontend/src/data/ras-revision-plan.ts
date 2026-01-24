@@ -18,7 +18,7 @@ export interface RASDayPlan {
 }
 
 // Helper to generate dates
-const startDate = new Date("2026-01-15");
+const startDate = new Date("2026-01-20");
 const getDate = (dayOffset: number) => {
     const d = new Date(startDate);
     d.setDate(d.getDate() + dayOffset - 1); // Day 1 is offset 0
