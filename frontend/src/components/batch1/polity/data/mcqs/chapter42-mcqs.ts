@@ -4,106 +4,155 @@ export const CHAPTER_42_MCQS: MCQ[] = [
     {
         id: 1,
         chapterId: 42,
-        question: "The UPSC is mentioned in which part of the Constitution?",
-        options: ["Part XII", "Part XIII", "Part XIV", "Part XV"],
-        correctAnswer: 2,
-        explanation: "Part XIV deals with Services under Union and States, including PSCs.",
-        difficulty: "easy"
+        question: "Which statement is strictly correct regarding UPSC?",
+        options: [
+            "Constitution specifies strength as 11.",
+            "President determines conditions of service.",
+            "All members must have 10 years administrative experience.",
+            "Members hold office during pleasure of President."
+        ],
+        correctAnswer: 1,
+        explanation: "Strength is not fixed (Option 1 wrong). Only one-half need experience (Option 3 wrong). Security of tenure exists (Option 4 wrong).",
+        difficulty: "medium"
     },
     {
         id: 2,
         chapterId: 42,
-        question: "The power to determine the number of members in UPSC lies with:",
-        options: ["The Parliament", "The President", "The CJI", "The UPSC Chairman"],
-        correctAnswer: 1,
-        explanation: "There is no fixed strength in the Constitution; the President determines it.",
-        difficulty: "medium"
+        question: "When can President appoint an 'Acting Chairman'?",
+        options: [
+            "Office of Chairman is vacant.",
+            "Chairman is unable to perform duties.",
+            "Vacancy caused by resignation.",
+            "1 and 2 only."
+        ],
+        correctAnswer: 3,
+        explanation: "Both vacancy and inability to perform duties allow for Acting Chairman appointment.",
+        difficulty: "easy"
     },
     {
         id: 3,
         chapterId: 42,
-        question: "A member of UPSC can be removed for 'misbehaviour' only after an enquiry by:",
-        options: ["The Parliament", "The President", "The Supreme Court", "The CBI"],
+        question: "Procedure for removal on ground of 'misbehaviour':",
+        options: [
+            "Summary inquiry by Cabinet.",
+            "Reference to SC; advice is advisory.",
+            "Reference to SC; advice is binding.",
+            "Impeachment by Parliament."
+        ],
         correctAnswer: 2,
-        explanation: "Article 317 requires the President to refer the matter to the SC for enquiry.",
-        difficulty: "medium"
+        explanation: "Reference to Supreme Court is mandatory and its advice is binding.",
+        difficulty: "hard"
     },
     {
         id: 4,
         chapterId: 42,
-        question: "Which of the following expenditures of UPSC are 'Charged' on the Consolidated Fund of India?",
-        options: ["Salaries", "Allowances", "Pensions", "All of the above"],
-        correctAnswer: 3,
-        explanation: "The entire expense is non-votable and charged on the CFI.",
-        difficulty: "easy"
+        question: "Which are correct regarding Independence?\n1. Expenses charged on Consolidated Fund of India.\n2. Member eligible for SPSC Chairman.\n3. Chairman eligible for second term.\n4. Consulted on all recruitment methods.",
+        options: [
+            "1, 2, and 4 only",
+            "2, 3, and 4 only",
+            "1 and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        correctAnswer: 0,
+        explanation: "Chairman is NOT eligible for a second term.",
+        difficulty: "medium"
     },
     {
         id: 5,
         chapterId: 42,
-        question: "A member of UPSC (other than chairman) is eligible for appointment as:",
+        question: "UPSC is consulted on:",
         options: [
-            "Chairman of UPSC",
-            "Chairman of a State PSC",
-            "Member of another State PSC",
-            "Both 1 and 2"
+            "Recruitment methods for civil services.",
+            "Principles for appointments/transfers.",
+            "Pension claims for injuries.",
+            "All of the above."
         ],
         correctAnswer: 3,
-        explanation: "Article 319 allows them to become Chairman of UPSC or any SPSC.",
-        difficulty: "hard"
+        explanation: "All listed matters are within UPSC consultation purview.",
+        difficulty: "easy"
     },
     {
         id: 6,
         chapterId: 42,
-        question: "UPSC is the 'Watchdog of Merit System' in India. This role was slightly undermined by the creation of:",
-        options: ["SSC", "DoPT", "CVC", "NITI Aayog"],
-        correctAnswer: 2,
-        explanation: "CVC (Central Vigilance Commission) handled disciplinary matters which overlapped with UPSC's role.",
-        difficulty: "hard"
+        question: "UPSC is NOT consulted on:",
+        options: [
+            "Reservations for backward classes.",
+            "Claims of SCs/STs in appointments.",
+            "Selections for Tribunals membership.",
+            "All of the above."
+        ],
+        correctAnswer: 3,
+        explanation: "These are specific exemptions where UPSC consultation is not required.",
+        difficulty: "medium"
     },
     {
         id: 7,
         chapterId: 42,
-        question: "Can the Parliament extend the functions of UPSC?",
+        question: "UPSC consultation is not required for temporary appointments less than:",
         options: [
-            "No, only Constitution can",
-            "Yes, by an Act of Parliament",
-            "Only by Constitutional Amendment",
-            "Only if the President allows"
+            "6 months",
+            "1 year",
+            "2 years",
+            "3 years"
         ],
         correctAnswer: 1,
-        explanation: "Parliament can confer additional functions on UPSC regarding services of the Union (Art 321).",
-        difficulty: "medium"
+        explanation: "One year limit for exemption.",
+        difficulty: "easy"
     },
     {
         id: 8,
         chapterId: 42,
-        question: "Which of the following is NOT a function of UPSC?",
+        question: "Disciplinary matters consulted include:",
         options: [
-            "Conduct exam for All-India Services",
-            "Advise on disciplinary matters",
-            "Conduct training for recruits",
-            "Advise on recruitment principles"
+            "Censure",
+            "Withholding increments",
+            "Compulsory retirement",
+            "All of the above"
         ],
-        correctAnswer: 2,
-        explanation: "Recruits are trained by specified training institutes (like LBSNAA), not by UPSC.",
+        correctAnswer: 3,
+        explanation: "Includes all major penalties.",
         difficulty: "easy"
     },
     {
         id: 9,
         chapterId: 42,
-        question: "Who can exclude posts from the purview of UPSC?",
-        options: ["The Parliament", "The President", "The Chairman of UPSC", "The Cabinet"],
+        question: "Regarding consultation in disciplinary matters, SC has ruled:",
+        options: [
+            "Mandatory; failure invalidates order.",
+            "Directory; irregularity does not invalidate.",
+            "Government must follow advice.",
+            "UPSC is appellate authority."
+        ],
         correctAnswer: 1,
-        explanation: "The President can make regulations specifying matters where it's not necessary to consult UPSC (Art 320).",
+        explanation: "Provision is directory, not mandatory.",
         difficulty: "hard"
     },
     {
         id: 10,
         chapterId: 42,
-        question: "The annual report of UPSC is laid before each House of Parliament by:",
-        options: ["The Chairman", "The President", "The PM", "The Speaker/Chairman"],
+        question: "Role of Appointments Committee of Cabinet (ACC):",
+        options: [
+            "Appoints members.",
+            "Resolves non-acceptance of UPSC advice.",
+            "Determines salary.",
+            "Conducts interviews."
+        ],
         correctAnswer: 1,
-        explanation: "The President causes it to be laid before Parliament with a memorandum explaining cases where advice was not accepted.",
+        explanation: "Cases of non-acceptance must be approved by ACC.",
+        difficulty: "medium"
+    },
+    {
+        id: 11,
+        chapterId: 42,
+        question: "Conflict between UPSC and CVC:",
+        options: [
+            "CVC prevails.",
+            "UPSC prevails.",
+            "PM decides.",
+            "Consensus required."
+        ],
+        correctAnswer: 1,
+        explanation: "UPSC (Constitutional) has a legal edge over CVC (Statutory).",
         difficulty: "medium"
     }
 ];

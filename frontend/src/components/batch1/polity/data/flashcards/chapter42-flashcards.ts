@@ -4,82 +4,82 @@ export const CHAPTER_42_FLASHCARDS: RevisionFlashcard[] = [
     {
         id: 1,
         chapterId: 42,
-        question: "Which Articles deal with the UPSC?",
-        answer: "Articles 315 to 323 in Part XIV.",
-        category: "General",
+        question: "Constitution Part and Articles for UPSC?",
+        answer: "Part XIV, Articles 315 to 323.",
+        category: "Constitutional",
         difficulty: "easy"
     },
     {
         id: 2,
         chapterId: 42,
-        question: "Who appoints the Chairman and members of the UPSC?",
-        answer: "The President of India.",
-        category: "Appointment",
-        difficulty: "easy"
+        question: "Who determines the strength of the UPSC?",
+        answer: "The President (Constitution does not specify).",
+        category: "Composition",
+        difficulty: "medium"
     },
     {
         id: 3,
         chapterId: 42,
-        question: "What is the tenure of UPSC members?",
-        answer: "6 years or until they reach 65 years of age.",
-        category: "Tenure",
-        difficulty: "easy"
+        question: "What is the qualification 'One-half rule'?",
+        answer: "One-half members must have held office for at least 10 years under Govt of India/State.",
+        category: "Composition",
+        difficulty: "medium"
     },
     {
         id: 4,
         chapterId: 42,
-        question: "What is the qualification required for UPSC members?",
-        answer: "The Constitution only says that at least half (1/2) the members should have 10 years of government service experience.",
-        category: "Qualifications",
-        difficulty: "medium"
+        question: "Tenure of UPSC Chairman/Members?",
+        answer: "6 years or 65 years of age, whichever is earlier.",
+        category: "Tenure",
+        difficulty: "easy"
     },
     {
         id: 5,
         chapterId: 42,
-        question: "Is the advice of the Supreme Court binding on the President regarding removal for misbehaviour?",
-        answer: "Yes, the President must remove the chairman/member if the SC recommends it after enquiry.",
-        category: "Removal",
-        difficulty: "hard"
+        question: "Can UPSC Chairman be reappointed?",
+        answer: "No, ineligible for further employment under Govt.",
+        category: " Independence",
+        difficulty: "medium"
     },
     {
         id: 6,
         chapterId: 42,
-        question: "From where are the expenses of UPSC paid?",
-        answer: "The Consolidated Fund of India (Charged expenditure).",
-        category: "Independence",
-        difficulty: "medium"
+        question: "Removal ground 'Misbehaviour' requires?",
+        answer: "Mandatory inquiry by Supreme Court; advice is binding.",
+        category: "Removal",
+        difficulty: "hard"
     },
     {
         id: 7,
         chapterId: 42,
-        question: "Can the Chairman of UPSC be reappointed for a second term?",
-        answer: "No, he is ineligible for reappointment to that office.",
+        question: "Is UPSC expenses votable by Parliament?",
+        answer: "No, they are charged on Consolidated Fund of India.",
         category: "Independence",
         difficulty: "medium"
     },
     {
         id: 8,
         chapterId: 42,
-        question: "Is UPSC consulted while making reservations of appointments?",
-        answer: "No, reservation matters are outside UPSC's purview.",
-        category: "Functions",
-        difficulty: "hard"
+        question: "Is UPSC consulted on reservations for backward classes?",
+        answer: "No.",
+        category: "Limitations",
+        difficulty: "medium"
     },
     {
         id: 9,
         chapterId: 42,
-        question: "To whom does the UPSC submit its annual report?",
-        answer: "To the President.",
-        category: "General",
-        difficulty: "easy"
+        question: "Who resolves conflict between UPSC and CVC?",
+        answer: "UPSC advice prevails (Constitutional body).",
+        category: "Functioning",
+        difficulty: "hard"
     },
     {
         id: 10,
         chapterId: 42,
-        question: "Which ministry/department handles 'Placement' and 'Training' in India?",
-        answer: "Department of Personnel and Training (DoPT), Ministry of Personnel.",
-        category: "General",
-        difficulty: "medium"
+        question: "Who approves non-acceptance of UPSC advice?",
+        answer: "Appointments Committee of the Cabinet (ACC).",
+        category: "Functioning",
+        difficulty: "hard"
     }
 ];
 

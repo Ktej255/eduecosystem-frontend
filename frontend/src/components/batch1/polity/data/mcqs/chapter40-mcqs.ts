@@ -1,100 +1,207 @@
 import { MCQ } from '../RevisionRegistry';
 
 export const CHAPTER_40_MCQS: MCQ[] = [
+    // Phase 1: Evolution
     {
         id: 1,
         chapterId: 40,
-        question: "The 12th Schedule of the Constitution of India contains functional items for:",
-        options: ["Panchayats", "Municipalities", "Governor", "State Legislature"],
-        correctAnswer: 1,
-        explanation: "The 12th Schedule (74th Amendment) lists 18 items for the Municipalities.",
-        difficulty: "easy"
+        question: "Chronological order of Urban Local Govt milestones:\n1. Lord Ripon's Resolution\n2. First Municipal Corp (Madras)\n3. Municipal Corps (Bombay/Calcutta)\n4. Provincial Subject (GoI Act 1935)",
+        options: [
+            "2-3-1-4",
+            "2-1-3-4",
+            "1-2-3-4",
+            "3-2-1-4"
+        ],
+        correctAnswer: 0,
+        explanation: "Madras (1688) -> Bombay/Calcutta (1726) -> Ripon (1882) -> 1935 Act.",
+        difficulty: "medium"
     },
     {
         id: 2,
         chapterId: 40,
-        question: "Which type of municipality is constituted for a smaller urban area?",
-        options: ["Nagar Panchayat", "Municipal Council", "Municipal Corporation", "Wards Committee"],
+        question: "Father of Local Self-Government in India?",
+        options: [
+            "Lord Mayo",
+            "Lord Ripon",
+            "Lord Dalhousie",
+            "Lord Mountbatten"
+        ],
         correctAnswer: 1,
-        explanation: "Municipal Council is for smaller urban areas, while Corporation is for larger ones.",
+        explanation: "Lord Ripon (Resolution of 1882) is the Magna Carta of Local Self-Government.",
         difficulty: "easy"
     },
+    // Phase 2: 74th Amendment
     {
         id: 3,
         chapterId: 40,
-        question: "What is the proportion of seats reserved for women in Municipalities?",
-        options: ["1/4", "1/2", "1/3", "Based on population"],
-        correctAnswer: 2,
-        explanation: "Not less than one-third (1/3) of the total seats are reserved for women.",
-        difficulty: "easy"
+        question: "Regarding 74th Amendment:\n1. Added Part IX-A & 12th Schedule.\n2. Three types: Nagar Panchayat, Council, Corporation.\n3. Governor specifies transition areas based on criteria.\n4. Industrial townships can be exempt.",
+        options: [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1, 2, and 3 only",
+            "1, 2, 3, and 4"
+        ],
+        correctAnswer: 3,
+        explanation: "All statements are correct salient features of the Act.",
+        difficulty: "medium"
     },
     {
         id: 4,
         chapterId: 40,
-        question: "The power of superintending elections to the Municipalities is vested in:",
+        question: "Regarding Composition (Art 243-R):",
         options: [
-            "Election Commission of India",
-            "State Government",
-            "State Election Commission",
-            "Supreme Court"
+            "All members elected indirectly.",
+            "All members elected directly from Wards.",
+            "Chairperson always elected directly.",
+            "Nominated members have right to vote."
         ],
-        correctAnswer: 2,
-        explanation: "Article 243-ZA states that the State Election Commission performs these duties.",
-        difficulty: "easy"
+        correctAnswer: 1,
+        explanation: "Members elected directly from Wards. Nominated members do NOT have voting rights.",
+        difficulty: "medium"
     },
     {
         id: 5,
         chapterId: 40,
-        question: "Under Article 243-ZE, what proportion of members of the Metropolitan Planning Committee are elected by local body members?",
-        options: ["1/3", "1/2", "2/3", "4/5"],
-        correctAnswer: 2,
-        explanation: "2/3rd members are elected, while 4/5th is the ratio for DPC.",
-        difficulty: "hard"
+        question: "Mandatory provision(s) of 74th Amendment:\n1. 1/3rd reservation for women.\n2. SC/ST reservation (Pop based).\n3. Ward Committees (Pop > 3 Lakhs).\n4. OBC Reservation.",
+        options: [
+            "1 and 2 only",
+            "1, 2, and 3 only",
+            "2 and 4 only",
+            "1, 2, 3, and 4"
+        ],
+        correctAnswer: 1,
+        explanation: "OBC Reservation is voluntary. Others are mandatory.",
+        difficulty: "medium"
     },
+    // Phase 3: Technical Committees
     {
         id: 6,
         chapterId: 40,
-        question: "Which of the following bodies is NOT part of the structure of Municipalities under the 74th Amendment?",
-        options: ["Wards Committees", "District Planning Committee", "District Industrial Center", "Metropolitan Planning Committee"],
-        correctAnswer: 2,
-        explanation: "DIC is a government administrative center, not a constitutional planning body under the 74th Amendment.",
-        difficulty: "medium"
+        question: "Primary function of District Planning Committee (DPC)?",
+        options: [
+            "Conduct judicial inquiries.",
+            "Consolidate plans of Panchayats and Municipalities.",
+            "Manage state urban budget.",
+            "Recruit municipal commissioners."
+        ],
+        correctAnswer: 1,
+        explanation: "Core mandate is to consolidate rural and urban plans into a draft development plan.",
+        difficulty: "easy"
     },
     {
         id: 7,
         chapterId: 40,
-        question: "Municipalities were first granted constitutional status through which bill?",
-        options: ["64th Amendment Bill", "65th Amendment Bill", "73rd Amendment Bill", "74th Amendment Bill"],
-        correctAnswer: 1,
-        explanation: "The 65th Bill (Rajiv Gandhi govt) first tried but failed; the 74th Amendment (P.V. Narasimha Rao govt) succeeded.",
+        question: "DPC vs MPC Composition:\n1. DPC: 4/5ths elected from elected members.\n2. MPC: 2/3rds elected from elected members.",
+        options: [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        correctAnswer: 2,
+        explanation: "Both ratios are correct: 4/5ths for DPC, 2/3rds for MPC.",
         difficulty: "hard"
     },
+    // Phase 4: Types of ULBs
     {
         id: 8,
         chapterId: 40,
-        question: "The executive head of the Municipal Corporation is:",
-        options: ["The Mayor", "The Municipal Commissioner", "The Speaker", "The Governor"],
-        correctAnswer: 1,
-        explanation: "The Mayor is the decorative head (political), while the Commissioner (usually an IAS) is the real executive.",
+        question: "Match Urban Body:\nA. Notified Area: 1. Military areas (Ministry of Defence)\nB. Cantonment: 2. Fast-developing / Not yet fit for municipality\nC. Port Trust: 3. PSU townships\nD. Township: 4. Port areas (Act of Parliament)",
+        options: [
+            "A-2, B-1, C-4, D-3",
+            "A-1, B-2, C-3, D-4",
+            "A-2, B-4, C-1, D-3",
+            "A-4, B-1, C-2, D-3"
+        ],
+        correctAnswer: 0,
+        explanation: "Notified Area (2), Cantonment (1), Port Trust (4), Township (3).",
         difficulty: "medium"
     },
     {
         id: 9,
         chapterId: 40,
-        question: "Which Article deals with the Finance Commission for Municipalities?",
-        options: ["Article 243-I", "Article 243-Y", "Article 243-K", "Article 243-ZA"],
-        correctAnswer: 1,
-        explanation: "Art 243-Y parallels Art 243-I (Panchayats) for Municipalities.",
-        difficulty: "medium"
+        question: "Chief Executive Authority of Municipal Corporation?",
+        options: [
+            "The Mayor",
+            "Standing Committee Chairman",
+            "The Municipal Commissioner",
+            "The Governor"
+        ],
+        correctAnswer: 2,
+        explanation: "Municipal Commissioner (appointed by State, usually IAS) is the executive authority.",
+        difficulty: "easy"
     },
     {
         id: 10,
         chapterId: 40,
-        question: "A Nagar Panchayat is constituted for a:",
-        options: ["Larger urban area", "Smaller urban area", "Transitional area", "Industrial township"],
-        correctAnswer: 2,
-        explanation: "A transitional area is one which is transitioning from rural to urban.",
+        question: "True about 'Special Purpose Agency':",
+        options: [
+            "Area-based body.",
+            "Function-based body (e.g. Water Board).",
+            "Part of Municipal structure.",
+            "Chaired by Mayor."
+        ],
+        correctAnswer: 1,
+        explanation: "It is a Function-based body, independent of the municipal corporation.",
+        difficulty: "medium"
+    },
+    // Phase 5: Powers & Finance
+    {
+        id: 11,
+        chapterId: 40,
+        question: "NOT a 12th Schedule item?",
+        options: [
+            "Urban poverty alleviation.",
+            "Fire services.",
+            "Regulation of slaughterhouses.",
+            "Technical training and vocational education."
+        ],
+        correctAnswer: 3,
+        explanation: "Technical training/Vocational education is an 11th Schedule (Panchayat) item.",
+        difficulty: "hard"
+    },
+    {
+        id: 12,
+        chapterId: 40,
+        question: "Regarding Disqualifications (Art 243-V):",
+        options: [
+            "Min age to contest is 25.",
+            "No disqualification if < 25 but attained 21 years.",
+            "Disputes referred to SEC decision.",
+            "Disqualified by Governor."
+        ],
+        correctAnswer: 1,
+        explanation: "Minimum age for Municipality elections is 21 years.",
+        difficulty: "medium"
+    },
+    {
+        id: 13,
+        chapterId: 40,
+        question: "State Finance Commission makes recommendations on:",
+        options: [
+            "Distribution of taxes.",
+            "Assignment of taxes/duties.",
+            "Measures to improve financial position.",
+            "All of the above."
+        ],
+        correctAnswer: 3,
+        explanation: "All three are core mandates of the SFC.",
         difficulty: "easy"
+    },
+    // Adding Q11 from user set (Ministries)
+    {
+        id: 14,
+        chapterId: 40,
+        question: "Central Ministries associated with Urban Local Govt:\n1. Housing and Urban Affairs.\n2. Defence.\n3. Home Affairs.",
+        options: [
+            "1 only",
+            "1 and 2 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        correctAnswer: 3,
+        explanation: "MoHUA (States), Defence (Cantonments), Home Affairs (UTs).",
+        difficulty: "medium"
     }
 ];
 

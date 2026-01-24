@@ -4,81 +4,81 @@ export const CHAPTER_50_FLASHCARDS: RevisionFlashcard[] = [
     {
         id: 1,
         chapterId: 50,
-        question: "Which Article provides for the office of CAG?",
+        question: "Which Article establishes the CAG?",
         answer: "Article 148.",
-        category: "General",
+        category: "Establishment",
         difficulty: "easy"
     },
     {
         id: 2,
         chapterId: 50,
-        question: "Who is known as the 'Guardian of the Public Purse'?",
-        answer: "The Comptroller and Auditor General (CAG) of India.",
-        category: "General",
+        question: "Who called the CAG 'the most important officer under the Constitution'?",
+        answer: "Dr. B.R. Ambedkar.",
+        category: "Significance",
         difficulty: "easy"
     },
     {
         id: 3,
         chapterId: 50,
-        question: "Who appoints the CAG?",
-        answer: "The President of India (by warrant under his hand and seal).",
-        category: "Appointment",
-        difficulty: "easy"
+        question: "What is the tenure of the CAG?",
+        answer: "6 years or up to 65 years of age.",
+        category: "Tenure",
+        difficulty: "medium"
     },
     {
         id: 4,
         chapterId: 50,
-        question: "What is the tenure of the CAG?",
-        answer: "6 years or until the age of 65, whichever is earlier.",
-        category: "Tenure",
-        difficulty: "easy"
+        question: "Can the CAG hold further office under the Government of India after retirement?",
+        answer: "No, he is ineligible for further office.",
+        category: "Independence",
+        difficulty: "medium"
     },
     {
         id: 5,
         chapterId: 50,
-        question: "On what grounds can the CAG be removed?",
-        answer: "Same grounds and manner as a judge of the Supreme Court.",
-        category: "Independence",
+        question: "To whom is the CAG responsible?",
+        answer: "To the Parliament (he is an agent of the Parliament).",
+        category: "Accountability",
         difficulty: "medium"
     },
     {
         id: 6,
         chapterId: 50,
-        question: "Can a retired CAG take up any other government office?",
-        answer: "No, he is ineligible for any further office under the Govt of India or any state.",
-        category: "Independence",
-        difficulty: "medium"
+        question: "Does the CAG control the issue of money from the Consolidated Fund?",
+        answer: "No, unlike the UK, the Indian CAG has no control over the withdrawal of money.",
+        category: "Powers",
+        difficulty: "hard"
     },
     {
         id: 7,
         chapterId: 50,
-        question: "Which Articles deal with the duties and reports of the CAG?",
-        answer: "Articles 149, 150, and 151.",
-        category: "Functions",
-        difficulty: "medium"
+        question: "Does CAG audit the Reserve Bank of India (RBI)?",
+        answer: "No, RBI is audited by private auditors (CAG has no role).",
+        category: "Audit Scope",
+        difficulty: "hard"
     },
     {
         id: 8,
         chapterId: 50,
-        question: "To whom does the CAG submit the audit reports?",
-        answer: "To the President of India (at the Center) and to the Governor (at the State level).",
-        category: "Reports",
+        question: "What happens to the CAG's reports?",
+        answer: "Submitted to President -> Laid before Parliament -> Examined by Public Accounts Committee (PAC).",
+        category: "Process",
         difficulty: "medium"
     },
     {
         id: 9,
         chapterId: 50,
-        question: "Who is known as the 'guide, friend and philosopher' of the Public Accounts Committee?",
-        answer: "The CAG.",
-        category: "Functions",
+        question: "Which Article deals with the duties and powers of the CAG?",
+        answer: "Article 149.",
+        category: "Constitutional",
         difficulty: "hard"
     },
     {
         id: 10,
         chapterId: 50,
-        question: "Are the salaries of the CAGvotable in Parliament?",
-        answer: "No, they are 'Charged' on the Consolidated Fund of India and are non-votable.",
-        category: "Independence",
+        question: "What is 'Propriety Audit'?",
+        answer: "Auditing the 'wisdom, faithfulness, and economy' of expenditure (checking against wastefulness).",
+        category: "Audit Type",
         difficulty: "medium"
     }
 ];

@@ -4,106 +4,71 @@ export const CHAPTER_43_MCQS: MCQ[] = [
     {
         id: 1,
         chapterId: 43,
-        question: "Members of the State Public Service Commission are appointed by:",
-        options: ["The President", "The Governor", "The State Legislature", "The Chief Justice of HC"],
-        correctAnswer: 1,
-        explanation: "Article 316 states that the Governor appoints the Chairman and members of SPSC.",
-        difficulty: "easy"
+        question: "Regarding SPSC, which is strictly correct?",
+        options: [
+            "Chairman appointed by Governor.",
+            "Members hold office during pleasure of Governor.",
+            "Removed by Governor after HC inquiry.",
+            "Retirement age is 65."
+        ],
+        correctAnswer: 0,
+        explanation: "Tenure Security exists (No 'pleasure'). Removal by President (not Governor). Retirement is 62.",
+        difficulty: "medium"
     },
     {
         id: 2,
         chapterId: 43,
-        question: "The Chairman of SPSC can be removed only by:",
-        options: ["The Governor", "The State Legislature", "The President", "The Supreme Court"],
-        correctAnswer: 2,
-        explanation: "Unlike appointment, removal is the exclusive power of the President (Art 317).",
+        question: "Who removes the Chairman of an SPSC?",
+        options: [
+            "Governor",
+            "President",
+            "Chief Justice of High Court",
+            "State Legislature"
+        ],
+        correctAnswer: 1,
+        explanation: "Although appointed by Governor, removal is only by the President.",
         difficulty: "medium"
     },
     {
         id: 3,
         chapterId: 43,
-        question: "What is the retirement age for members of UPSC and SPSC respectively?",
-        options: ["65 and 65", "62 and 62", "65 and 62", "62 and 65"],
-        correctAnswer: 2,
-        explanation: "UPSC members retire at 65; SPSC members at 62.",
-        difficulty: "easy"
+        question: "Which of the following describes the Independence of SPSC?\n1. Conditions not varied to disadvantage.\n2. Expenses charged on Consolidated Fund of India.\n3. Chairman eligible for UPSC Chairman.",
+        options: [
+            "1 only",
+            "1 and 3 only",
+            "2 and 3 only",
+            "1, 2, and 3"
+        ],
+        correctAnswer: 1,
+        explanation: "Expenses charged on Consolidated Fund of the STATE. 1 and 3 are correct.",
+        difficulty: "hard"
     },
     {
         id: 4,
         chapterId: 43,
-        question: "A Joint State Public Service Commission is:",
-        options: ["A Constitutional body", "A Statutory body", "An Executive body", "A Judicial body"],
-        correctAnswer: 1,
-        explanation: "JSPSC is created by an Act of Parliament, making it statutory, not constitutional like UPSC/SPSC.",
-        difficulty: "medium"
+        question: "SPSC is consulted on:",
+        options: [
+            "State service recruitment methods.",
+            "Disciplinary matters.",
+            "Principles of appointment.",
+            "All of the above."
+        ],
+        correctAnswer: 3,
+        explanation: "Same consultation scope as UPSC but for state services.",
+        difficulty: "easy"
     },
     {
         id: 5,
         chapterId: 43,
-        question: "In which of the following cases must the Governor consult the SPSC?",
+        question: "Can Governor suspend an SPSC member?",
         options: [
-            "On all matters relating to methods of recruitment",
-            "On making reservations in favor of any backward class",
-            "On whether a member of legislature has become disqualified",
-            "On all of the above"
+            "No, only President can.",
+            "Yes, pending final removal order by President.",
+            "Yes, indefinitely.",
+            "Only on CM's advice."
         ],
-        correctAnswer: 0,
-        explanation: "SPSC is consulted on recruitment methods/principles. Reservation matters are outside its purview.",
-        difficulty: "medium"
-    },
-    {
-        id: 6,
-        chapterId: 43,
-        question: "Who can authorize the UPSC to serve the needs of a state?",
-        options: [
-            "The President on request of Governor",
-            "The Governor with approval of President",
-            "The Parliament",
-            "The CJI"
-        ],
-        correctAnswer: 0,
-        explanation: "If requested by the Governor and approved by the President, UPSC can serve a state (Art 315).",
-        difficulty: "hard"
-    },
-    {
-        id: 7,
-        chapterId: 43,
-        question: "The power to make regulations specifying posts excluded from SPSC purview rests with:",
-        options: ["The President", "The Governor", "The State Legislature", "The Chairman of SPSC"],
         correctAnswer: 1,
-        explanation: "The Governor makes such regulations at the state level (Art 320).",
-        difficulty: "medium"
-    },
-    {
-        id: 8,
-        chapterId: 43,
-        question: "A retired member of SPSC (other than chairman) is eligible for appointment as:",
-        options: [
-            "Chairman/Member of UPSC",
-            "Chairman of that SPSC or any other SPSC",
-            "Any further employment under Govt of India",
-            "Both 1 and 2"
-        ],
-        correctAnswer: 3,
-        explanation: "Art 319 deals with these eligibility routes.",
-        difficulty: "hard"
-    },
-    {
-        id: 9,
-        chapterId: 43,
-        question: "Which of the following bodies is the 'Watchdog of merit system' at the state level?",
-        options: ["State Vigilance Commission", "State Public Service Commission", "Governor", "State Information Commission"],
-        correctAnswer: 1,
-        explanation: "SPSC is the constitutional watchdog of the merit system in state services.",
-        difficulty: "easy"
-    },
-    {
-        id: 10,
-        chapterId: 43,
-        question: "The annual report of SPSC is laid before the State Legislature by:",
-        options: ["The CM", "The Speaker", "The Governor", "The Chairman"],
-        correctAnswer: 2,
-        explanation: "The Governor causes the report to be laid before the House(s).",
+        explanation: "Governor has the power to suspend during the inquiry.",
         difficulty: "medium"
     }
 ];

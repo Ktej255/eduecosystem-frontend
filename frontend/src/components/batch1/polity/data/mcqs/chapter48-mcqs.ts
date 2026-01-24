@@ -4,97 +4,58 @@ export const CHAPTER_48_MCQS: MCQ[] = [
     {
         id: 1,
         chapterId: 48,
-        question: "The National Commission for Backward Classes was originally a statutory body set up in:",
-        options: ["1950", "1993", "2014", "2018"],
+        question: "Which Amendment granted constitutional status to NCBC?",
+        options: [
+            "101st Amendment, 2016",
+            "102nd Amendment, 2018",
+            "103rd Amendment, 2019",
+            "104th Amendment, 2019"
+        ],
         correctAnswer: 1,
-        explanation: "It was established under NCBC Act, 1993 following the Mandal case verdict.",
-        difficulty: "medium"
+        explanation: "102nd Amendment Act, 2018 gave NCBC constitutional status.",
+        difficulty: "easy"
     },
     {
         id: 2,
         chapterId: 48,
-        question: "Which Article was newly inserted into the Constitution by the 102nd Amendment Act?",
-        options: ["Article 338-A", "Article 338-B", "Article 340", "Article 342"],
-        correctAnswer: 1,
-        explanation: "338-B was inserted for NCBC; 338-A was for NCST.",
-        difficulty: "easy"
+        question: "Correct statements regarding NCBC:\n1. Originally statutory (1993).\n2. 102nd Amd inserted Art 338-B.\n3. Structure 1+1+5.\n4. Term is 3 years.",
+        options: [
+            "1, 2, and 4 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, 3, and 4"
+        ],
+        correctAnswer: 0,
+        explanation: "Statement 3 is incorrect; structure is 1+1+3 (5 members total, not 7).",
+        difficulty: "medium"
     },
     {
         id: 3,
         chapterId: 48,
-        question: "The 105th Constitutional Amendment Act of 2021 is significant because:",
+        question: "Significance of 105th Constitutional Amendment (2021):",
         options: [
-            "It created NCBC",
-            "It gave states the power to identify SEBCs",
-            "It increased OBC reservation",
-            "It removed creamy layer"
+            "Power to punish for discrimination.",
+            "Restored State power to identify SEBCs.",
+            "Increased reservation to 33%.",
+            "Made recommendations binding."
         ],
         correctAnswer: 1,
-        explanation: "It clarified that states and UTs have the authority to maintain their own lists of SEBCs.",
+        explanation: "It restored the power of State Governments to maintain their own SEBC lists.",
         difficulty: "hard"
     },
     {
         id: 4,
         chapterId: 48,
-        question: "Who appoints the Vice-Chairperson of the NCBC?",
-        options: ["The PM", "The President", "The Finance Minister", "The SC"],
+        question: "Civil Court powers of NCBC include:\n1. Summoning attendance.\n2. Discovery of documents.\n3. Issuing arrest warrants.\n4. Receiving evidence on affidavits.",
+        options: [
+            "1, 2, and 3 only",
+            "1, 2, and 4 only",
+            "2 and 4 only",
+            "1, 2, 3, and 4"
+        ],
         correctAnswer: 1,
-        explanation: "All members including VC are appointed by the President.",
-        difficulty: "easy"
-    },
-    {
-        id: 5,
-        chapterId: 48,
-        question: "The Commission is mandatory to be consulted on all policy matters affecting SEBCs by:",
-        options: ["The Union Government only", "The State Government only", "Both Union and State Governments", "The President only"],
-        correctAnswer: 2,
-        explanation: "Article 338-B(9) requires both govts to consult the Commission.",
+        explanation: "NCBC cannot issue arrest warrants or exercise criminal jurisdiction.",
         difficulty: "medium"
-    },
-    {
-        id: 6,
-        chapterId: 48,
-        question: "NCBC is responsible for protecting the interests of:",
-        options: ["SCs", "STs", "SEBCs", "EWS"],
-        correctAnswer: 2,
-        explanation: "NCBC specifically deals with Socially and Educationally Backward Classes.",
-        difficulty: "easy"
-    },
-    {
-        id: 7,
-        chapterId: 48,
-        question: "How many members are in the NCBC including Chairperson?",
-        options: ["3", "5", "7", "9"],
-        correctAnswer: 1,
-        explanation: "It consists of Chairman, Vice-Chairman and 3 members (Total 5).",
-        difficulty: "medium"
-    },
-    {
-        id: 8,
-        chapterId: 48,
-        question: "The tenure of NCBC members is determined by:",
-        options: ["The Parliament", "The President", "The NCBC Act", "The Constitution"],
-        correctAnswer: 1,
-        explanation: "Like NC-SC/ST, the President determines tenure and service conditions.",
-        difficulty: "hard"
-    },
-    {
-        id: 9,
-        chapterId: 48,
-        question: "Waiters of which court are available to the Commission during inquiry?",
-        options: ["Supreme Court", "High Court", "Civil Court", "Criminal Court"],
-        correctAnswer: 2,
-        explanation: "The Commission has all powers of a Civil Court trying a suit.",
-        difficulty: "medium"
-    },
-    {
-        id: 10,
-        chapterId: 48,
-        question: "In which year did NCBC receive constitutional status?",
-        options: ["1993", "2003", "2018", "2021"],
-        correctAnswer: 2,
-        explanation: "It received constitutional status via 102nd Amendment in 2018.",
-        difficulty: "easy"
     }
 ];
 

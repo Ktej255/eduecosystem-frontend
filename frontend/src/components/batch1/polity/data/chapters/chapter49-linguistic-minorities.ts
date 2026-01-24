@@ -1,40 +1,31 @@
 export const CHAPTER_49_CONTENT = {
     id: 49,
     title: "Special Officer for Linguistic Minorities",
-    introduction: "In pursuance of the recommendation of the States Reorganisation Commission (SRC), the Seventh Constitutional Amendment Act of 1956 inserted a new Article 350-B in Part XVII of the Constitution. This article provides for a Special Officer for Linguistic Minorities.",
+    introduction: "The Special Officer for Linguistic Minorities is a constitutional body designated as the 'Commissioner for Linguistic Minorities' (CLM).",
     sections: [
         {
-            title: "ORIGIN AND APPOINTMENT",
+            title: "1. Constitutional Background",
             features: [
-                "Originally: The Constitution of India did not make any provision for a Special Officer for Linguistic Minorities.",
-                "Art 350-B: Established after SRC recommendation in 1956.",
-                "Appointment: Appointed by the President of India.",
-                "Qualifications/Tenure: Not specified in the Constitution."
+                "Article 350-B: Inserted by 7th Constitutional Amendment Act (1956).",
+                "Context: Recommendation of States Reorganisation Commission (1953-55).",
+                "Constitution Definition: The term 'Linguistic Minority' is NOT defined in the Constitution."
             ]
         },
         {
-            title: "COMMISSIONER FOR LINGUISTIC MINORITIES",
+            title: "2. Appointment and Organization",
             features: [
-                "Designation: The special officer is designated as the Commissioner for Linguistic Minorities.",
-                "Headquarters: Allahabad (Prayagraj), Uttar Pradesh.",
-                "Regional Offices: Belgaum (Karnataka), Chennai (Tamil Nadu), and Kolkata (West Bengal).",
-                "Hierarchy: At the central level, the Commissioner falls under the Ministry of Minority Affairs."
+                "Appointment: By the President of India.",
+                "Designation: Commissioner for Linguistic Minorities.",
+                "Ministry: Falls under Ministry of Minority Affairs (NOT Home Affairs).",
+                "Headquarters: Originally Allahabad (Prayagraj).",
+                "Regional Offices: Belgaum (Karnataka), Chennai (TN), Kolkata (WB)."
             ]
         },
         {
-            title: "FUNCTIONS",
+            title: "3. Functions",
             features: [
-                "Investigates all matters relating to the safeguards provided for linguistic minorities under the Constitution.",
-                "Reports to the President upon those matters at such intervals as the President may direct.",
-                "The President lays all such reports before each House of Parliament and sends them to the governments of states concerned."
-            ]
-        },
-        {
-            title: "OBJECTIVES",
-            features: [
-                "To provide equal opportunities to linguistic minorities for inclusive development and national integration.",
-                "To spread awareness amongst the linguistic minorities about the safeguards available to them.",
-                "To ensure effective implementation of the safeguards through coordination with state governments."
+                "Investigate: All matters relating to safeguards for linguistic minorities.",
+                "Reporting: Submits annual reports to President -> Parliament + State Governments."
             ]
         }
     ]

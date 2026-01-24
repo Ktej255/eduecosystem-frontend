@@ -1,54 +1,80 @@
 export const CHAPTER_41_CONTENT = {
     id: 41,
     title: "Election Commission",
-    introduction: "The Election Commission is a permanent and independent body established by the Constitution of India directly to ensure free and fair elections in the country. Article 324 of the Constitution provides that the power of superintendence, direction and control of elections to Parliament, state legislatures, the office of president of India and the office of vice-president of India shall be vested in the election commission.",
+    introduction: "The Election Commission is a permanent and independent body established by the Constitution of India directly to ensure free and fair elections in the country. Rule of Law and Democratic Process depend heavily on its independent functioning.",
     sections: [
         {
-            title: "COMPOSITION",
+            title: "1. Establishment and Scope",
             features: [
-                "Membership: Since 1993, it has been a multi-member body consisting of the Chief Election Commissioner (CEC) and two Election Commissioners (ECs).",
-                "Appointment: By the President of India.",
-                "Terms: President determines the number of ECs (currently 3 total).",
-                "Powers: CEC and other ECs have equal powers and receive equal salary, allowances and other perquisites (similar to SC judge)."
+                "Constitutional Basis: Article 324.",
+                "Nature: Permanent and independent constitutional body.",
+                "Jurisdiction: Conducts elections to Parliament, State Legislatures, and offices of President and Vice-President.",
+                "Exclusion: Elections to Panchayats and Municipalities are conducted by State Election Commissions (Arts 243-K and 243-ZA)."
             ]
         },
         {
-            title: "INDEPENDENCE",
+            title: "2. Composition",
             features: [
-                "Removal: CEC is provided with the security of tenure. He cannot be removed from his office except in same manner and on same grounds as a judge of the Supreme Court.",
-                "Service Conditions: Service conditions of the CEC cannot be varied to his disadvantage after his appointment.",
-                "ECs Removal: Any other EC or a regional commissioner cannot be removed from office except on the recommendation of the CEC."
+                "Current Structure: Multi-member body consisting of Chief Election Commissioner (CEC) and 2 other Election Commissioners (ECs).",
+                "Evolution: Was a single-member body until 1989. Became multi-member after 61st Amendment (lowering voting age).",
+                "Status: CEC and ECs have equal powers and receive equal salary/allowances (same as SC Judge).",
+                "Decision Making: By majority vote in case of difference of opinion."
             ]
         },
         {
-            title: "POWERS AND FUNCTIONS",
+            title: "3. Appointment and Tenure",
             subsections: [
                 {
-                    title: "Administrative Powers",
+                    title: "Appointment Process (2023 Act)",
                     features: [
-                        "Determine the territorial areas of the electoral constituencies throughout the country (Delimitation Commission Act).",
-                        "Prepare and periodically revise electoral rolls and register all eligible voters.",
-                        "Notify the dates and schedules of elections and scrutinize nomination papers.",
-                        "Grant recognition to political parties and allot election symbols to them.",
-                        "Disqualify members of Parliament (advice to President) and State Legislatures (advice to Governor)."
+                        "Appointed by the President on the recommendation of a Selection Committee.",
+                        "Selection Committee Members: Prime Minister (Chair), Leader of Opposition in Lok Sabha, and a Union Cabinet Minister nominated by the PM.",
+                        "Search Committee: Headed by Law Minister; prepares a panel of 5 persons."
                     ]
                 },
                 {
-                    title: "Advisory/Quasi-Judicial Powers",
+                    title: "Tenure",
                     features: [
-                        "Advise the President on matters relating to the disqualification of MPs.",
-                        "Advise the Governor on matters relating to the disqualification of MLAs.",
-                        "Act as a court for settling disputes relating to recognition and symbols."
+                        "Term: 6 years or until the age of 65 years, whichever is earlier.",
+                        "Resignation: Can resign at any time by writing to the President."
                     ]
                 }
             ]
         },
         {
-            title: "LIMITATIONS",
+            title: "4. Independence and Safeguards",
             features: [
-                "The Constitution has not prescribed the qualifications (legal, educational, administrative or judicial) of the members of the Election Commission.",
-                "The Constitution has not specified the term of the members of the Election Commission (prescribed by President - currently 6 years or 65 age).",
-                "The Constitution has not debarred the retiring election commissioners from any further appointment by the government."
+                "Security of Tenure (CEC): Can be removed only in the manner and on grounds of a Supreme Court Judge.",
+                "Removal of ECs: They *do not* have the same security of tenure; can be removed by President on recommendation of CEC.",
+                "Service Conditions: Cannot be varied to the disadvantage of the CEC after appointment.",
+                "Flaw: Constitution has not prescribed qualifications nor debarred retiring ECs from further government employment."
+            ]
+        },
+        {
+            title: "5. Powers and Functions",
+            subsections: [
+                {
+                    title: "Administrative",
+                    features: [
+                        "Delimitation of allocation of seats.",
+                        "Preparing electoral rolls and registering voters.",
+                        "Recognition of political parties and allotment of symbols.",
+                        "Enforcing Model Code of Conduct (MCC)."
+                    ]
+                },
+                {
+                    title: "Advisory",
+                    features: [
+                        "Advising President/Governor on disqualification of members of Parliament/State Legislature.",
+                        "Advising on whether elections can be held in a state under President's Rule."
+                    ]
+                },
+                {
+                    title: "Quasi-Judicial",
+                    features: [
+                        "Settling disputes relating to granting of recognition to political parties and allotment of election symbols."
+                    ]
+                }
             ]
         }
     ]

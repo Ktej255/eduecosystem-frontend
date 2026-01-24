@@ -1,41 +1,60 @@
 export const CHAPTER_44_CONTENT = {
     id: 44,
     title: "Finance Commission",
-    introduction: "Article 280 of the Constitution provides for a Finance Commission as a quasi-judicial body. It is constituted by the president of India every fifth year or at such earlier time as he considers necessary.",
+    introduction: "The Finance Commission is a quasi-judicial body constituted by the President of India every fifth year under Article 280 to define the financial relationship between the Centre and the States.",
     sections: [
         {
-            title: "COMPOSITION",
+            title: "1. Constitutional Provision & Composition",
             features: [
-                "Membership: Consists of a chairman and four other members appointed by the President.",
-                "Qualifications: The Constitution authorizes the Parliament to determine the qualifications of members and the manner of their selection.",
-                "Specified Qualifications (by Parliament): Chairman (Experience in public affairs); Members (Judge of HC, Special knowledge of finance/accounts, Wide experience in financial matters/administration, Special knowledge of economics).",
-                "Reappointment: All members are eligible for reappointment."
+                "Article: 280.",
+                "Structure: Chairman + 4 Members.",
+                "Appointment: By President.",
+                "Tenure: Specified by President in his order.",
+                "Qualifications: Determined by Parliament (Finance Commission Act, 1951)."
             ]
         },
         {
-            title: "FUNCTIONS",
-            content: "The Finance Commission is required to make recommendations to the President on the following matters:",
+            title: "2. Qualifications (1951 Act)",
             features: [
-                "1. Distribution of the net proceeds of taxes between the Centre and the States and the allocation between the States of the respective shares of such proceeds.",
-                "2. Principles that should govern the grants-in-aid to the States by the Centre out of the Consolidated Fund of India.",
-                "3. Measures needed to augment the Consolidated Fund of a State to supplement the resources of the Panchayats and Municipalities (based on state finance commission's recommendations).",
-                "4. Any other matter referred to it by the President in the interests of sound finance."
+                "Chairman: Experience in public affairs.",
+                "Members: 1. HC Judge/Qualified. 2. Special knowledge of govt finance/accounts. 3. Wide experience in financial matters/admin. 4. Special knowledge of economics.",
+                "Disqualifications: Unsound mind, undischarged insolvent, convicted of moral turpitude."
             ]
         },
         {
-            title: "ADVISORY ROLE",
-            content: "The recommendations of the Finance Commission are only of an advisory nature and hence, not binding on the government. It is up to the Union government to implement its recommendations on granting money to the states.",
+            title: "3. Functions",
             features: [
-                "It balances the 'Vertical' and 'Horizontal' fiscal imbalances.",
-                "Its role was slightly affected by the erstwhile Planning Commission (now NITI Aayog), but it remains the primary body for constitutional fiscal devolution."
+                "Vertical Devolution: Distribution of net proceeds of taxes between Centre and States.",
+                "Horizontal Devolution: Allocation between the States.",
+                "Grants-in-Aid: Principles governing Article 275 grants.",
+                "Local Bodies: Measures to augment Consolidated Fund of State (based on State Finance Commission recs).",
+                "Advisory: Other matters referred by President."
             ]
         },
         {
-            title: "IMPORTANT REPORTS",
+            title: "4. Advisory Nature",
             features: [
-                "First FC (1951): KC Neogy.",
-                "15th FC (Recent): NK Singh (covering 2021-2026).",
-                "The President lays the report before each House of Parliament along with an explanatory memorandum."
+                "Nature: Recommendations are advisory, NOT binding.",
+                "Fiscal Federalism: 'Balancing Wheel of Fiscal Federalism'. Role restored after abolition of Planning Commission."
+            ]
+        },
+        {
+            title: "5. Recent Developments",
+            subsections: [
+                {
+                    title: "15th Finance Commission",
+                    features: [
+                        "Chair: N.K. Singh.",
+                        "Criteria: Intro of 'Demographic Performance' (12.5%)."
+                    ]
+                },
+                {
+                    title: "16th Finance Commission (2026-2031)",
+                    features: [
+                        "Chairman: Dr. Arvind Panagariya.",
+                        "Context: Recommendations for period 2026-31."
+                    ]
+                }
             ]
         }
     ]

@@ -1,50 +1,82 @@
 export const CHAPTER_50_CONTENT = {
     id: 50,
-    title: "Comptroller and Auditor General of India (CAG)",
-    introduction: "The Constitution of India (Article 148) provides for an independent office of the Comptroller and Auditor General of India (CAG). He is the head of the Indian Audit and Accounts Department. He is the guardian of the public purse and controls the entire financial system of the country at both the levels—the Centre and the states.",
+    title: "Comptroller and Auditor General",
+    introduction: "Article 148 provides for an independent office of the Comptroller and Auditor General of India (CAG). He is the head of the Indian Audit and Accounts Department and guardian of the public purse.",
     sections: [
         {
-            title: "APPOINTMENT AND TERM",
+            title: "1. Constitutional Basis and Nature",
             features: [
-                "Appointment: By the President of India by a warrant under his hand and seal.",
-                "Oath: To bear true faith and allegiance to the Constitution; uphold sovereignty.",
-                "Tenure: 6 years or until he attains the age of 65 years, whichever is earlier.",
-                "Resignation: Can resign at any time by addressing the letter to the President."
+                "Article 148: Establishment of CAG.",
+                "Importance: Dr. B.R. Ambedkar called CAG 'the most important officer under the Constitution of India'.",
+                "Duty: Upholds the Constitution and laws of Parliament in the field of financial administration."
             ]
         },
         {
-            title: "INDEPENDENCE",
+            title: "2. Appointment and Tenure",
             features: [
-                "Removal: Can be removed by the President only on the same grounds and in the same manner as a judge of the Supreme Court.",
-                "Further Office: He is not eligible for further office, either under the Government of India or any state government, after he ceases to hold his office.",
-                "Expenses: Salaries and administrative expenses are charged on the Consolidated Fund of India (not subject to vote).",
-                "Service Conditions: Fixed by Parliament; cannot be varied to disadvantage after appointment."
+                "Appointment: By the President by warrant under his hand and seal.",
+                "Tenure: 6 years or up to 65 years of age, whichever is earlier.",
+                "Removal: Same manner and grounds as a Judge of the Supreme Court (Proved misbehaviour or incapacity).",
+                "Oath: Before the President."
             ]
         },
         {
-            title: "DUTIES AND POWERS (Art 149)",
-            content: "The Parliament has enacted the CAG’s (Duties, Powers and Conditions of Service) Act, 1971. His duties include:",
+            title: "3. Independence Safeguards",
             features: [
-                "Audit of all expenditure from the Consolidated Fund of India, each state, and each UT having a Legislative Assembly.",
-                "Audit of all expenditure from the Contingency Fund of India and the Public Account of India, as well as those of states.",
-                "Audit of all trading, manufacturing, profit and loss accounts, balance sheets and other subsidiary accounts kept by any department of the Central Government and state governments.",
-                "Audit of receipts and expenditure of bodies substantially financed from Central or State revenues.",
-                "Advising the President with regard to the prescription of the form in which the accounts of the Centre and the states shall be kept (Art 150)."
+                "Security of Tenure: No 'Pleasure of President'. Removal requires special majority.",
+                "Post-Retirement Ban: Ineligible for further office under Central/State Govt.",
+                "Salary: Equal to SC Judge. Cannot be varied to his disadvantage.",
+                "Charged Expenditure: Administrative expenses charged on Consolidated Fund of India (Non-votable)."
             ]
         },
         {
-            title: "AUDIT REPORTS (Art 151)",
-            content: "The CAG submits three audit reports to the President:",
-            features: [
-                "1. Audit report on appropriation accounts.",
-                "2. Audit report on finance accounts.",
-                "3. Audit report on public undertakings.",
-                "The President lays these reports before both Houses of Parliament. The Public Accounts Committee (PAC) examines them and reports its findings."
+            title: "4. Duties and Powers (Article 149)",
+            subsections: [
+                {
+                    title: "Scope of Audit",
+                    features: [
+                        "Audits all expenditure from Consolidated Fund of India, States, and UTs.",
+                        "Audits Contingency Fund and Public Account of India and States.",
+                        "Audits all bodies substantially financed from revenues of Centre/State.",
+                        "Audits Government companies and corporations (Directly or Supplementary)."
+                    ]
+                },
+                {
+                    title: "CAG's Act, 1971",
+                    features: [
+                        "Since the Constitution did not detailed the duties, Parliament enacted this Act to define them."
+                    ]
+                }
             ]
         },
         {
-            title: "ROLE IN PARLIAMENT",
-            content: "CAG is an agent of the Parliament and conducts audit of expenditure on behalf of the Parliament. Therefore, he is responsible only to the Parliament. He acts as a 'guide, friend and philosopher' of the Public Accounts Committee of the Parliament."
+            title: "5. Reports (Article 151)",
+            features: [
+                "Submits 3 reports to the President/Governor:",
+                "1. Audit Report on Appropriation Accounts.",
+                "2. Audit Report on Finance Accounts.",
+                "3. Audit Report on Public Undertakings.",
+                "PAC Linkage: Reports are examined by Public Accounts Committee (CAG acts as 'Friend, Philosopher, and Guide' to PAC)."
+            ]
+        },
+        {
+            title: "6. Limitations",
+            features: [
+                "Propriety Audit: Discretionary, not mandatory. (Checking wisdom/economy of expenditure).",
+                "Secret Service Expenditure: CAG cannot call for particulars; must accept certificate from executive.",
+                "Misnomer: CAG is only an 'Auditor', not a 'Comptroller'. Money can be withdrawn without his prior approval (unlike UK)."
+            ]
+        },
+        {
+            title: "7. Audit of Corporations",
+            table: {
+                headers: ["Type", "Examples", "Role of CAG"],
+                rows: [
+                    ["Direct/Total Audit", "ONGC, Damodar Valley Corp, Air India", "Audit done entirely by CAG"],
+                    ["Supplementary Audit", "Central Warehousing Corp", "Private audit + CAG supplementary test audit"],
+                    ["Private Audit Only", "RBI, SBI, LIC, FCI", "CAG has NO role (reports to Parliament directly)"]
+                ]
+            }
         }
     ]
 };

@@ -96,6 +96,8 @@ import CHAPTER_92_CONTENT from './chapters/chapter92-fssai-bis';
 import CHAPTER_93_CONTENT from './chapters/chapter93-ncrwc';
 import CHAPTER_94_CONTENT from './chapters/chapter94-appendices';
 import CHAPTER_95_CONTENT from './chapters/chapter95-summary';
+import CHAPTER_96_CONTENT from './chapters/chapter96-attorney-general';
+import CHAPTER_97_CONTENT from './chapters/chapter97-advocate-general';
 
 import CHAPTER_1_FLASHCARDS from './flashcards/chapter1-flashcards';
 import CHAPTER_2_FLASHCARDS from './flashcards/chapter2-flashcards';
@@ -192,6 +194,8 @@ import CHAPTER_92_FLASHCARDS from './flashcards/chapter92-flashcards';
 import CHAPTER_93_FLASHCARDS from './flashcards/chapter93-flashcards';
 import CHAPTER_94_FLASHCARDS from './flashcards/chapter94-flashcards';
 import CHAPTER_95_FLASHCARDS from './flashcards/chapter95-flashcards';
+import CHAPTER_96_FLASHCARDS from './flashcards/chapter96-flashcards';
+import CHAPTER_97_FLASHCARDS from './flashcards/chapter97-flashcards';
 
 import { CHAPTER_1_MCQS } from './mcqs/chapter1-mcqs';
 import { CHAPTER_2_MCQS } from './mcqs/chapter2-mcqs';
@@ -288,6 +292,8 @@ import { CHAPTER_92_MCQS } from './mcqs/chapter92-fssai-bis';
 import { CHAPTER_93_MCQS } from './mcqs/chapter93-ncrwc';
 import { CHAPTER_94_MCQS } from './mcqs/chapter94-appendices';
 import { CHAPTER_95_MCQS } from './mcqs/chapter95-summary';
+import { CHAPTER_96_MCQS } from './mcqs/chapter96-mcqs';
+import { CHAPTER_97_MCQS } from './mcqs/chapter97-mcqs';
 
 import {
     IMPORTANT_DATES,
@@ -1004,6 +1010,41 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
         content: CHAPTER_95_CONTENT,
         flashcards: CHAPTER_95_FLASHCARDS,
         mcqs: CHAPTER_95_MCQS
+    },
+    {
+        id: 96,
+        title: "Attorney General of India",
+        content: CHAPTER_96_CONTENT,
+        flashcards: CHAPTER_96_FLASHCARDS,
+        mcqs: CHAPTER_96_MCQS
+    },
+    {
+        id: 97,
+        title: "Advocate General of the State",
+        content: CHAPTER_97_CONTENT,
+        flashcards: CHAPTER_97_FLASHCARDS,
+        mcqs: CHAPTER_97_MCQS
+    },
+    {
+        id: 98,
+        title: "Union Territories (Administration)",
+        content: CHAPTER_98_CONTENT,
+        flashcards: CHAPTER_98_FLASHCARDS,
+        mcqs: CHAPTER_98_MCQS
+    },
+    {
+        id: 99,
+        title: "Scheduled and Tribal Areas",
+        content: CHAPTER_99_CONTENT,
+        flashcards: CHAPTER_99_FLASHCARDS,
+        mcqs: CHAPTER_99_MCQS
+    },
+    {
+        id: 100,
+        title: "Special Provisions for Some States",
+        content: CHAPTER_100_CONTENT,
+        flashcards: CHAPTER_100_FLASHCARDS,
+        mcqs: CHAPTER_100_MCQS
     }
 ];
 

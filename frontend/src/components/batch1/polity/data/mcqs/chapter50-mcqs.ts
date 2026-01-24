@@ -4,112 +4,128 @@ export const CHAPTER_50_MCQS: MCQ[] = [
     {
         id: 1,
         chapterId: 50,
-        question: "The power to audit the accounts of the Union and the States is derived by CAG from:",
-        options: ["Article 148", "Article 149", "Article 150", "Article 151"],
+        question: "Regarding CAG, which is strictly correct?\n1. Holds office during pleasure of President.\n2. Eligible for further office to ensure continuity.\n3. Administrative expenses charged on Consolidated Fund of India.\n4. Constitution has not prescribed qualifications.",
+        options: [
+            "1, 2, and 3 only",
+            "3 and 4 only",
+            "1 and 4 only",
+            "2, 3, and 4 only"
+        ],
         correctAnswer: 1,
-        explanation: "Article 149 authorizes Parliament to prescribe the duties and powers of the CAG.",
-        difficulty: "easy"
+        explanation: "1 is incorrect (Tenure security). 2 is incorrect (Ban on further office). 3 and 4 are correct.",
+        difficulty: "medium"
     },
     {
         id: 2,
         chapterId: 50,
-        question: "The CAG of India acts as an agent of:",
-        options: ["The President", "The Parliament", "The Finance Minister", "The Cabinet"],
+        question: "Regarding removal of CAG, consider:\n1. Removed by President at any time.\n2. Removed only by process identical to SC Judge.\n3. Governor can remove for state audits.\n4. Removed by simple majority.",
+        options: [
+            "1 only",
+            "2 only",
+            "3 only",
+            "4 only"
+        ],
         correctAnswer: 1,
-        explanation: "The CAG is responsible only to the Parliament as he audits expenditure on their behalf.",
-        difficulty: "medium"
+        explanation: "CAG Removal requires special majority in Parliament, same as SC Judge. Governor has no power.",
+        difficulty: "easy"
     },
     {
         id: 3,
         chapterId: 50,
-        question: "Which of the following expenditures are NOT audited by the CAG?",
+        question: "CAG audits accounts related to expenditure from:",
         options: [
-            "Consolidated Fund of India",
-            "Consolidated Fund of States",
-            "Contingency Fund of India",
-            "Private funds of the PM"
+            "Consolidated Fund of India & States.",
+            "Contingency Fund of India & States.",
+            "Public Account of India & States.",
+            "All of the above."
         ],
         correctAnswer: 3,
-        explanation: "The CAG only audits public funds and government-financed bodies.",
+        explanation: "Mandate covers all these funds.",
         difficulty: "easy"
     },
     {
         id: 4,
         chapterId: 50,
-        question: "The audit reports of CAG on state accounts are submitted to:",
-        options: ["The President", "The Governor", "The CM", "The Speaker of Assembly"],
-        correctAnswer: 1,
-        explanation: "Reports relating to states are submitted to the Governor, who lays them before the state legislature (Art 151).",
-        difficulty: "easy"
+        question: "Which is NOT one of the 3 Audit Reports submitted by CAG?",
+        options: [
+            "Audit report on appropriation accounts",
+            "Audit report on finance accounts",
+            "Audit report on PPP projects",
+            "Audit report on public undertakings"
+        ],
+        correctAnswer: 2,
+        explanation: "CAG submits reports on Appropriation, Finance, and Public Undertakings. PPP is not a constitutional category.",
+        difficulty: "medium"
     },
     {
         id: 5,
         chapterId: 50,
-        question: "In the context of CAGR's office, 'Appropriation Accounts' refers to:",
+        question: "Article 150 deals with:",
         options: [
-            "Accounts of tax collection",
-            "Comparison of actual expenditure with sanctioned grants",
-            "Accounts of public debt",
-            "Accounts of foreign aid"
+            "Audit of Local Bodies.",
+            "Form of accounts of Centre and States.",
+            "Legal advice to Finance Minister.",
+            "Directions to RBI."
         ],
         correctAnswer: 1,
-        explanation: "Appropriation accounts compare the actual expenditure with the amount sanctioned by Parliament through Appropriation Act.",
+        explanation: "President prescribes the form of accounts on advice of CAG (Art 150).",
         difficulty: "hard"
     },
     {
         id: 6,
         chapterId: 50,
-        question: "The CAG's independence is ensured by which of the following?",
+        question: "What does 'Propriety Audit' imply?",
         options: [
-            "Ineligibility for further office",
-            "Salary charged on CFI",
-            "Tenure of 6 years",
-            "All of the above"
+            "Checking rules and regulations.",
+            "Examining wisdom, faithfulness, and economy of expenditure.",
+            "Checking authority of sanction.",
+            "Verifying math."
         ],
-        correctAnswer: 3,
-        explanation: "All these features safeguard the independent functioning of CAG.",
+        correctAnswer: 1,
+        explanation: "Propriety appeals to 'wisdom' and 'economy' beyond just legal regularity.",
         difficulty: "medium"
     },
     {
         id: 7,
         chapterId: 50,
-        question: "Who was the first CAG of India?",
-        options: ["V. Narahari Rao", "A.K. Chanda", "S. Ranganathan", "G.C. Murmu"],
-        correctAnswer: 0,
-        explanation: "V. Narahari Rao served as the first CAG (1948-1954).",
-        difficulty: "hard"
+        question: "Why is 'Comptroller' a misnomer in India?",
+        options: [
+            "No power to audit states.",
+            "No power to control issue of money; only audits after expenditure.",
+            "Cannot audit secret service.",
+            "Not a Cabinet member."
+        ],
+        correctAnswer: 1,
+        explanation: "In UK, CAG controls money release. In India, he is only an Auditor.",
+        difficulty: "easy"
     },
     {
         id: 8,
         chapterId: 50,
-        question: "The CAG's (Duties, Powers and Conditions of Service) Act was passed in:",
-        options: ["1950", "1971", "1991", "2001"],
-        correctAnswer: 1,
-        explanation: "The Act was passed in 1971 to prescribe her duties and powers.",
-        difficulty: "medium"
+        question: "Match Audit Nature to Body:\n1. Direct/Total Audit\n2. Supplementary Audit\n3. Private Audit (No CAG)\n\n(a) LIC, RBI\n(b) ONGC, DVC\n(c) Central Warehousing Corp",
+        options: [
+            "1-(b), 2-(c), 3-(a)",
+            "1-(a), 2-(b), 3-(c)",
+            "1-(c), 2-(a), 3-(b)",
+            "1-(b), 2-(a), 3-(c)"
+        ],
+        correctAnswer: 0,
+        explanation: "ONGC = Total; CWC = Supplementary; RBI/LIC = Private only.",
+        difficulty: "hard"
     },
     {
         id: 9,
         chapterId: 50,
-        question: "If a body is 'substantially financed' by the govt, can CAG audit it?",
+        question: "Limitation regarding 'Secret Service Expenditure':",
         options: [
-            "No, only government departments",
-            "Yes, if govt grants/loans are above a threshold",
-            "Only if it is a PSU",
-            "Only if the PM orders"
+            "No authority to audit at all.",
+            "Cannot call for particulars; must accept certificate.",
+            "needs CJI permission.",
+            "Audited by Parliament committee."
         ],
         correctAnswer: 1,
-        explanation: "He audits bodies 'substantially financed' from Central or State revenues.",
+        explanation: "CAG cannot ask for details of how secret service money was spent, accepts executive certificate.",
         difficulty: "medium"
-    },
-    {
-        id: 10,
-        chapterId: 50,
-        question: "The form in which accounts of Union and States are kept is advised to President by:",
-        options: ["Finance Minister", "PAC", "CAG", "Governor"],
-        correctAnswer: 2,
-        explanation: "Article 150 says the President shall prescribe the form based on CAG's advice.",
-        difficulty: "hard"
     }
 ];
 

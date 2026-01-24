@@ -4,102 +4,142 @@ export const CHAPTER_44_MCQS: MCQ[] = [
     {
         id: 1,
         chapterId: 44,
-        question: "The Finance Commission is constituted by the President under Article:",
-        options: ["Article 275", "Article 280", "Article 282", "Article 360"],
-        correctAnswer: 1,
-        explanation: "Article 280 deals with the Finance Commission.",
-        difficulty: "easy"
+        question: "Regarding Finance Commission, strictly correct:",
+        options: [
+            "Permanent constitutional body.",
+            "Members hold office during pleasure of President.",
+            "Qualifications specified by Parliament.",
+            "Not eligible for reappointment."
+        ],
+        correctAnswer: 2,
+        explanation: "Qualifications are determined by Parliament (FC Act 1951), not Constitution. Not permanent (every 5 years).",
+        difficulty: "medium"
     },
     {
         id: 2,
         chapterId: 44,
-        question: "The Chairman of the Finance Commission should be a person having experience in:",
-        options: ["Economics", "Public Affairs", "Law", "Administration"],
+        question: "Qualifications for FC Members include:",
+        options: [
+            "SC Judge qualified.",
+            "Special knowledge of economics.",
+            "RBI Governor.",
+            "Cabinet Secretary."
+        ],
         correctAnswer: 1,
-        explanation: "Parliament has prescribed that the Chairman should be someone with experience in public affairs.",
+        explanation: "HC Judge (not SC), Economics knowledge, Financial/Admin experience.",
         difficulty: "medium"
     },
     {
         id: 3,
         chapterId: 44,
-        question: "Which of the following is NOT a recommendation made by the Finance Commission?",
+        question: "Functions include recommending:",
         options: [
-            "Distribution of taxes between Centre and States",
-            "Principles of grants-in-aid to States",
-            "Drafting the Union Budget",
-            "Augmenting Consolidated Fund of States for Local Bodies"
+            "Distribution of net tax proceeds.",
+            "Principles for grants-in-aid.",
+            "Measures to augment State Fund for Panchayats.",
+            "All of the above."
         ],
-        correctAnswer: 2,
-        explanation: "The Budget is drafted by the Finance Ministry, not the Finance Commission.",
+        correctAnswer: 3,
+        explanation: "All are core functions under Art 280.",
         difficulty: "easy"
     },
     {
         id: 4,
         chapterId: 44,
-        question: "The recommendations of the Finance Commission are laid before Parliament by:",
-        options: ["The PM", "The President", "The Finance Minister", "The Speaker"],
+        question: "Procedure for Report:",
+        options: [
+            "Submitted to Parliament.",
+            "Laid before Parliament by President with memo.",
+            "Binding on President.",
+            "Approved by NITI Aayog."
+        ],
         correctAnswer: 1,
-        explanation: "The President causes the report to be laid before both houses of Parliament.",
+        explanation: "President lays it before Houses with explanatory memorandum.",
         difficulty: "medium"
     },
     {
         id: 5,
         chapterId: 44,
-        question: "Which of the following bodies was described as the 'Economic Cabinet' in its early years, often overlapping with FC?",
-        options: ["Finance Commission", "Planning Commission", "NITI Aayog", "Zonal Council"],
+        question: "15th FC Criteria with 12.5% weightage:",
+        options: [
+            "Income Distance",
+            "Demographic Performance",
+            "Forest Cover",
+            "Fiscal Effort"
+        ],
         correctAnswer: 1,
-        explanation: "The Planning Commission's role in grants often overshadowed the Finance Commission's role.",
+        explanation: "Demographic Performance was introduced.",
         difficulty: "hard"
     },
     {
         id: 6,
         chapterId: 44,
-        question: "The qualification of the members of Finance Commission is determined by:",
-        options: ["The Constitution", "The President", "The Parliament", "The CJI"],
-        correctAnswer: 2,
-        explanation: "The Constitution leaves the determination of qualifications to the Parliament (Art 280).",
-        difficulty: "medium"
+        question: "Chairman of 16th Finance Commission:",
+        options: [
+            "Arvind Panagariya",
+            "Raghuram Rajan",
+            "Shaktikanta Das",
+            "Bibek Debroy"
+        ],
+        correctAnswer: 0,
+        explanation: "Dr. Arvind Panagariya appointed for 16th FC.",
+        difficulty: "easy"
     },
     {
         id: 7,
         chapterId: 44,
-        question: "How many members (excluding Chairman) are in a Finance Commission?",
-        options: ["2", "3", "4", "5"],
-        correctAnswer: 2,
-        explanation: "The Commission consists of a Chairman and 4 other members.",
-        difficulty: "easy"
+        question: "The body that 'reduced role of FC' historically:",
+        options: [
+            "NDC",
+            "Planning Commission",
+            "Inter-State Council",
+            "Zonal Council"
+        ],
+        correctAnswer: 1,
+        explanation: "Planning Commission handled plan grants, overshadowing FC.",
+        difficulty: "medium"
     },
     {
         id: 8,
         chapterId: 44,
-        question: "Who was the Chairman of the 14th Finance Commission?",
-        options: ["Vijay Kelkar", "Y.V. Reddy", "C. Rangarajan", "N.K. Singh"],
+        question: "Measures to augment State Consolidated Fund for local bodies are based on:",
+        options: [
+            "Governor's report",
+            "State Finance Commission recommendations",
+            "NITI Aayog",
+            "State Planning Board"
+        ],
         correctAnswer: 1,
-        explanation: "Y.V. Reddy was the chair of the 14th FC; NK Singh is for the 15th.",
+        explanation: "Central FC looks at State FC recommendations.",
         difficulty: "medium"
     },
     {
         id: 9,
         chapterId: 44,
-        question: "The Finance Commission acts as a balancing wheel of:",
-        options: ["Fiscal Federalism", "Political Federalism", "Judicial Independence", "Administrative efficiency"],
-        correctAnswer: 0,
-        explanation: "It manages the financial relations between the Union and the States.",
+        question: "Advisory nature means:",
+        options: [
+            "Binding on Govt.",
+            "Quasi-judicial and binding.",
+            "Up to Union Govt to implment.",
+            "States have legal right to money."
+        ],
+        correctAnswer: 2,
+        explanation: "Recommendations are advisory; Govt decides implementation.",
         difficulty: "easy"
     },
     {
         id: 10,
         chapterId: 44,
-        question: "The net proceeds of any tax mentioned in FC recommendations means:",
+        question: "Disqualifications for Finance Commission member (1951 Act):",
         options: [
-            "Total collection",
-            "Collection minus cost of collection",
-            "Collection plus center's share",
-            "Discretionary revenue"
+            "Unsound mind",
+            "Undischarged insolvent",
+            "Convicted of offence involving moral turpitude",
+            "All of the above"
         ],
-        correctAnswer: 1,
-        explanation: "Article 279 defines net proceeds as the proceeds reduced by the cost of collection.",
-        difficulty: "hard"
+        correctAnswer: 3,
+        explanation: "All listed grounds are disqualifications under the Act.",
+        difficulty: "easy"
     }
 ];
 

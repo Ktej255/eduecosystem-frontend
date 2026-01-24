@@ -4,132 +4,142 @@ export const CHAPTER_41_MCQS: MCQ[] = [
     {
         id: 1,
         chapterId: 41,
-        question: "The power to superintend, direct and control elections is vested in the Election Commission by:",
-        options: ["Article 320", "Article 324", "Article 352", "Article 356"],
+        question: "With reference to Article 324, consider the following:\n1. EC is responsible for Panchayats and Municipalities elections.\n2. President determines number of ECs.\n3. When other EC appointed, CEC acts as Chairman.\n4. Constitution prescribes 10 years administrative experience for ECs.",
+        options: [
+            "1, 2, and 3 only",
+            "2 and 3 only",
+            "1 and 4 only",
+            "2, 3, and 4 only"
+        ],
         correctAnswer: 1,
-        explanation: "Article 324 provides for the establishment and powers of the Election Commission.",
-        difficulty: "easy"
+        explanation: "Statement 1 is incorrect: State ECs handle local bodies. Statement 4 is incorrect: Constitution is silent on qualifications. Statements 2 and 3 are correct.",
+        difficulty: "medium"
     },
     {
         id: 2,
         chapterId: 41,
-        question: "The Election Commission of India is responsible for the conduct of elections to:",
+        question: "Regarding 'Evolution of Multi-member Commission':",
         options: [
-            "Parliament and State Legislatures",
-            "Office of President and Vice President",
-            "Panchayats and Municipalities",
-            "Both 1 and 2"
+            "EC has been multi-member since inception.",
+            "Became multi-member first in 1989 following lowering of voting age.",
+            "SC ruled CEC is superior to other ECs.",
+            "President can increase ECs only after Parliament law."
         ],
-        correctAnswer: 3,
-        explanation: "ECI conducts 4 sets: Parliament, State Legislature, President, and VP.",
-        difficulty: "medium"
+        correctAnswer: 1,
+        explanation: "The 61st Amendment lowered voting age to 18, prompting the appointment of two more commissioners in 1989.",
+        difficulty: "easy"
     },
     {
         id: 3,
         chapterId: 41,
-        question: "Which of the following is NOT specified by the Constitution regarding the Election Commission members?",
+        question: "Regarding 'Independence', which is strictly a constitutional safeguard?",
         options: [
-            "Qualifications",
-            "Number of members",
-            "Debarring from further appointments",
-            "All of the above"
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1 and 3 only",
+            "1, 2, 3, and 4"
         ],
-        correctAnswer: 3,
-        explanation: "The Constitution is silent on qualifications, exact number (President decides), and future employment.",
+        correctAnswer: 0,
+        explanation: "Refers to: 1. CEC removal like SC Judge. 2. Service conditions not varied. 3. EC removal on CEC recommendation. Statement 4 (Debarment) is NOT in the Constitution.",
         difficulty: "hard"
     },
     {
         id: 4,
         chapterId: 41,
-        question: "The Election Commission became a multi-member body for the first time in:",
+        question: "If a difference of opinion arises between CEC and other ECs, how is it settled?",
         options: [
-            "1950",
-            "1989",
-            "1993",
-            "2001"
+            "CEC opinion prevails.",
+            "Referred to President.",
+            "Decided by majority.",
+            "Referred to CJI."
         ],
-        correctAnswer: 1,
-        explanation: "It was single-member till 1989, then multi-member for a brief period, and permanently multi-member since Oct 1993.",
+        correctAnswer: 2,
+        explanation: "They have equal powers; decisions are taken by majority.",
         difficulty: "medium"
     },
     {
         id: 5,
         chapterId: 41,
-        question: "The salary and allowances of the ECs are same as those of:",
+        question: "ECI has 'Advisory Jurisdiction' in which matters?\n1. Disqualification of MPs.\n2. Disqualification of State Legislators.\n3. Extension of President's Rule.\n4. Validity of election petition.",
         options: [
-            "A Cabinet Minister",
-            "A Judge of the Supreme Court",
-            "A Judge of the High Court",
-            "A Secretary to Govt of India"
+            "1 and 2 only",
+            "2, 3, and 4 only",
+            "1, 2, and 3 only",
+            "1, 2, 3, and 4"
         ],
-        correctAnswer: 1,
-        explanation: "The salary, status and perquisites are equal to those of a Supreme Court judge.",
+        correctAnswer: 2,
+        explanation: "Advising SC on election petitions is NOT a function; election petitions go to High Court/SC directly.",
         difficulty: "medium"
     },
     {
         id: 6,
         chapterId: 41,
-        question: "In case of a difference of opinion between the CEC and other ECs:",
+        question: "Which is a 'Quasi-Judicial' function of the EC?",
         options: [
-            "CEC's opinion prevails",
-            "Matter is referred to the President",
-            "Matter is decided by majority",
-            "Matter is referred to the SC"
+            "Preparing electoral rolls.",
+            "Settling disputes regarding recognition of parties and symbols.",
+            "Allotting time on radio/TV.",
+            "Determining territorial areas (Delimitation)."
         ],
-        correctAnswer: 2,
-        explanation: "Decisions are taken by a majority vote among the three commissioners.",
-        difficulty: "medium"
+        correctAnswer: 1,
+        explanation: "Settling disputes acts as a court/tribunal function.",
+        difficulty: "easy"
     },
     {
         id: 7,
         chapterId: 41,
-        question: "Who notifies the general schedule for elections?",
+        question: "According to the 2023 Act, who are the members of the Selection Committee?\n1. PM (Chair)\n2. Leader of Opposition\n3. CJI\n4. Cabinet Minister nominated by PM",
         options: [
-            "The President",
-            "The Prime Minister",
-            "The Election Commission",
-            "The Speaker"
+            "1, 2, and 3 only",
+            "1, 2, and 4 only",
+            "1 and 2 only",
+            "1, 2, 3, and 4"
         ],
-        correctAnswer: 2,
-        explanation: "The ECI notifies the dates and schedules of elections.",
-        difficulty: "easy"
+        correctAnswer: 1,
+        explanation: "The 2023 Act removed the CJI from the committee and replaced him with a Cabinet Minister nominated by the PM.",
+        difficulty: "hard"
     },
     {
         id: 8,
         chapterId: 41,
-        question: "The tenure of 6 years or 65 years age for ECs is prescribed by:",
+        question: "What is the role of the 'Search Committee' in the 2023 appointment process?",
         options: [
-            "The Constitution",
-            "An Act of Parliament",
-            "A Presidential Order",
-            "The Model Code of Conduct"
+            "Conduct final interview.",
+            "Prepare a panel of five persons for Selection Committee.",
+            "Vet criminal records.",
+            "Recommend salaries."
         ],
         correctAnswer: 1,
-        explanation: "It is prescribed by the Election Commission (Conditions of Service) Act, 1991.",
-        difficulty: "hard"
+        explanation: "Headed by Law Minister, creates the shortlist.",
+        difficulty: "medium"
     },
     {
         id: 9,
         chapterId: 41,
-        question: "Can the EC cancel polls in a constituency due to rigging?",
+        question: "Which are 'flaws' in the constitutional provisions regarding EC?\n1. No qualifications prescribed.\n2. No term specified.\n3. No debarment from further employment.\n4. Equal security of tenure for all ECs.",
         options: [
-            "Yes, it has the power to cancel polls",
-            "No, only HC can do that",
-            "Only if the President directs",
-            "Only if the PM directs"
+            "1, 2, and 3 only",
+            "2, 3, and 4 only",
+            "1 and 3 only",
+            "1, 2, 3, and 4"
         ],
         correctAnswer: 0,
-        explanation: "The EC can cancel polls in the event of rigging or booth capturing (quasi-judicial power).",
-        difficulty: "medium"
+        explanation: "Statement 4 is incorrect; it is a flaw that ECs DO NOT have equal security of tenure (only CEC does).",
+        difficulty: "hard"
     },
     {
         id: 10,
         chapterId: 41,
-        question: "Recognition to political parties and allotment of symbols is a ________ function of ECI.",
-        options: ["Administrative", "Advisory", "Quasi-judicial", "None"],
-        correctAnswer: 0,
-        explanation: "This is an administrative function (though disputes regarding symbols are quasi-judicial).",
-        difficulty: "medium"
+        question: "Guiding Principles of ECI include:",
+        options: [
+            "Uphold equality, equity, impartiality.",
+            "Integrity and transparency.",
+            "Informed and ethical voting.",
+            "All of the above."
+        ],
+        correctAnswer: 3,
+        explanation: "All are part of ECI's vision/mission statement.",
+        difficulty: "easy"
     }
 ];
 
