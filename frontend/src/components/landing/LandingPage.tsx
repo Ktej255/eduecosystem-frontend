@@ -183,10 +183,10 @@ export default function LandingPage() {
                         delay={0.4}
                     />
                     <PortalCard
-                        title="UPSC Revision"
-                        description="Scientific spaced repetition for civil services preparation."
+                        title="UPSC Store"
+                        description="Comprehensive resources, books, and automated plans."
                         icon={Target}
-                        href="/upsc"
+                        href="/student/upsc"
                         color="bg-orange-500"
                         delay={0.45}
                     />
@@ -205,6 +205,14 @@ export default function LandingPage() {
                         href="/auth/sso"
                         color="bg-primary-indigo"
                         delay={0.55}
+                    />
+                    <PortalCard
+                        title="Global Revision Hub"
+                        description="Deep analytics and funnel-based revision for all exams."
+                        icon={Zap}
+                        href="/student/revision"
+                        color="bg-rose-600"
+                        delay={0.6}
                     />
                 </div>
             </section>

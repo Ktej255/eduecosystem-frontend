@@ -9,7 +9,8 @@ import {
     Coins,
     Leaf,
     Palette,
-    Atom
+    Atom,
+    ShoppingBag
 } from 'lucide-react';
 import FocusPortal from '@/components/batch1/FocusPortal';
 import PolityHome from '@/components/batch1/polity/PolityHome';
@@ -21,9 +22,12 @@ import ScienceTechHome from '@/components/batch1/science-tech/ScienceTechHome';
 import ArtCultureHome from '@/components/batch1/art-culture/ArtCultureHome';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { useRouter } from 'next/navigation';
+
 type Batch1Tab = 'focus' | 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science' | 'art';
 
 export default function Batch1Hub() {
+    const router = useRouter();
     const [activeTab, setActiveTab] = useState<Batch1Tab>('focus');
 
     const tabs = [
@@ -70,6 +74,15 @@ export default function Batch1Hub() {
                                 </button>
                             );
                         })}
+
+                        {/* UPSC Store Button (Global) */}
+                        <button
+                            onClick={() => router.push('/student/upsc')}
+                            className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg hover:shadow-purple-500/30 transform hover:-translate-y-0.5 transition-all flex items-center gap-2 ml-2"
+                        >
+                            <ShoppingBag className="w-4 h-4" />
+                            <span>UPSC Store</span>
+                        </button>
                     </div>
                 </div>
             </div>

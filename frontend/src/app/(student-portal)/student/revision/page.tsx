@@ -154,7 +154,18 @@ export default function RevisionPortalPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
+                        className="relative"
                     >
+                        <div className="absolute left-0 top-0 -ml-20 hidden lg:block">
+                            <Button
+                                variant="ghost"
+                                onClick={() => window.location.href = '/student/dashboard'}
+                                className="text-slate-400 hover:text-indigo-600"
+                            >
+                                <ArrowLeft className="w-5 h-5" />
+                            </Button>
+                        </div>
+
                         <Badge variant="outline" className="mb-4 px-4 py-1.5 rounded-full border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase text-[10px]">
                             Universal Learning Vision 2.0
                         </Badge>

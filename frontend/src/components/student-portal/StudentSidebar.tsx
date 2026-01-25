@@ -41,7 +41,7 @@ const menuItems = [
         accessKey: "studyPlanner", // Maps to UserAccess.studyPlanner
     },
     {
-        name: "Batch 1",
+        name: "UPSC",
         href: "/student/batch1",
         icon: BookOpen,
         accessKey: "batch1", // Maps to UserAccess.batch1
@@ -117,7 +117,7 @@ const bottomMenuItems = [
 
 const batchItems = [
     {
-        name: "Batch 1",
+        name: "UPSC",
         href: "/student/batch1",
         icon: BookOpen,
     },
