@@ -9,6 +9,7 @@ export interface UPSCBook {
     discountedPrice: number;
     coverImage?: string;
     isNCERT?: boolean;
+    category?: string; // For grouping like "Modern India", "Ancient", etc.
 }
 
 export interface UPSCSubject {
@@ -74,14 +75,16 @@ export const UPSC_CATALOG: UPSCSubject[] = [
         color: 'text-amber-600',
         bgColor: 'bg-amber-50',
         books: [
+            // Modern History
             {
                 id: 'spectrum',
                 title: 'A Brief History of Modern India',
-                author: 'Rajiv Ahir (Spectrum)',
+                author: 'Rajiv Ahir',
                 description: 'Comprehensive coverage of modern Indian history from 1707 to Independence.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
+                isNCERT: false,
+                category: 'Modern History'
             },
             {
                 id: 'bipin-chandra',
@@ -90,24 +93,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Detailed account of the Indian freedom movement.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
-            },
-            {
-                id: 'ancient-india-rs-sharma',
-                title: 'India\'s Ancient Past',
-                author: 'R.S. Sharma',
-                description: 'Comprehensive study of Ancient India from prehistoric times to 1200 AD.',
-                price: 2999,
-                discountedPrice: 299,
-                isNCERT: false
-            },
-            {
-                id: 'ncert-history-6',
-                title: 'Our Pasts I (Class 6)',
-                description: 'Introduction to Indian History - Ancient and Medieval.',
-                price: 0,
-                discountedPrice: 0,
-                isNCERT: true
+                isNCERT: false,
+                category: 'Modern History'
             },
             {
                 id: 'ncert-history-12-3',
@@ -115,7 +102,90 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Modern India - Colonial period to Independence.',
                 price: 0,
                 discountedPrice: 0,
-                isNCERT: true
+                isNCERT: true,
+                category: 'Modern History'
+            },
+
+            // Ancient History
+            {
+                id: 'ancient-india-rs-sharma',
+                title: 'India\'s Ancient Past',
+                author: 'R.S. Sharma',
+                description: 'Comprehensive study of Ancient India from prehistoric times to 1200 AD.',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false,
+                category: 'Ancient History'
+            },
+            {
+                id: 'ncert-history-12-1',
+                title: 'Themes in Indian History I (Class 12)',
+                description: 'Ancient India - Harappan to Mauryan Empire.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: true,
+                category: 'Ancient History'
+            },
+            {
+                id: 'ncert-history-6',
+                title: 'Our Pasts I (Class 6)',
+                description: 'Introduction to Ancient Indian History.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: true,
+                category: 'Ancient History'
+            },
+
+            // Medieval History
+            {
+                id: 'medieval-india-satish-chandra',
+                title: 'History of Medieval India',
+                author: 'Satish Chandra',
+                description: 'Detailed analysis of medieval Indian history (800-1700 AD).',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false,
+                category: 'Medieval History'
+            },
+            {
+                id: 'ncert-history-12-2',
+                title: 'Themes in Indian History II (Class 12)',
+                description: 'Medieval India - Mughals and Bhakti movement.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: true,
+                category: 'Medieval History'
+            },
+            {
+                id: 'ncert-history-7',
+                title: 'Our Pasts II (Class 7)',
+                description: 'Introduction to Medieval Indian History.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: true,
+                category: 'Medieval History'
+            },
+
+            // World History
+            {
+                id: 'modern-world-history-norman-lowe',
+                title: 'Mastering Modern World History',
+                author: 'Norman Lowe',
+                description: 'Essential for Mains GS1: World History from 1900s.',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false,
+                category: 'World History'
+            },
+            {
+                id: 'history-world-arjun-dev',
+                title: 'History of the World',
+                author: 'Arjun Dev',
+                description: 'NCERT based world history covering major revolutions and wars.',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false,
+                category: 'World History'
             }
         ]
     },

@@ -89,28 +89,49 @@ export default function SubjectStorePage() {
             </header>
 
             <div className="space-y-10">
-                {standardBooks.length > 0 && (
-                    <section>
+                {/* Dynamic Category Sections (Priority) */}
+                {[...new Set(subject.books.map(b => b.category).filter(Boolean))].map(category => (
+                    <section key={category}>
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                             <ShieldCheck className="w-5 h-5 text-indigo-500" />
-                            Standard Reference Books
+                            {category}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                            {standardBooks.map(book => <BookCard key={book.id} book={book} />)}
+                            {subject.books
+                                .filter(b => b.category === category)
+                                .map(book => <BookCard key={book.id} book={book} />)
+                            }
                         </div>
                     </section>
-                )}
+                ))}
 
-                {ncertBooks.length > 0 && (
-                    <section>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                            <Book className="w-5 h-5 text-emerald-500" />
-                            NCERT Foundations
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                            {ncertBooks.map(book => <BookCard key={book.id} book={book} />)}
-                        </div>
-                    </section>
+                {/* Fallback to Standard vs NCERT if no categories exist */}
+                {!subject.books.some(b => b.category) && (
+                    <>
+                        {standardBooks.length > 0 && (
+                            <section>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                    <ShieldCheck className="w-5 h-5 text-indigo-500" />
+                                    Standard Reference Books
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                                    {standardBooks.map(book => <BookCard key={book.id} book={book} />)}
+                                </div>
+                            </section>
+                        )}
+
+                        {ncertBooks.length > 0 && (
+                            <section>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                    <Book className="w-5 h-5 text-emerald-500" />
+                                    NCERT Foundations
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                                    {ncertBooks.map(book => <BookCard key={book.id} book={book} />)}
+                                </div>
+                            </section>
+                        )}
+                    </>
                 )}
             </div>
         </div>

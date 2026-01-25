@@ -98,10 +98,25 @@ export const UPSC_BOOKS_CHAPTERS: Record<string, UPSCChapter[]> = {
     ],
 
 
-    // History Books (Placeholder - will be populated with actual data later)
-    'spectrum': generatePlaceholderChapters(25, 'Modern India'),
-    'bipin-chandra': generatePlaceholderChapters(30, 'Freedom Struggle'),
-    'ancient-india-rs-sharma': generatePlaceholderChapters(20, 'Ancient India'),
+    // History Books
+    // Modern India
+    'spectrum': generatePlaceholderChapters(32, 'Modern India'),
+    'bipin-chandra': generatePlaceholderChapters(38, 'Independence Movement'),
+    'ncert-history-12-3': generatePlaceholderChapters(6, 'Modern India Theme'),
+
+    // Ancient India
+    'ancient-india-rs-sharma': generatePlaceholderChapters(29, 'Ancient India'),
+    'ncert-history-12-1': generatePlaceholderChapters(4, 'Ancient Theme'),
+    'ncert-history-6': generatePlaceholderChapters(12, 'Ancient Past'),
+
+    // Medieval India
+    'medieval-india-satish-chandra': generatePlaceholderChapters(22, 'Medieval India'),
+    'ncert-history-12-2': generatePlaceholderChapters(5, 'Medieval Theme'),
+    'ncert-history-7': generatePlaceholderChapters(10, 'Medieval Past'),
+
+    // World History
+    'modern-world-history-norman-lowe': generatePlaceholderChapters(25, 'World History'),
+    'history-world-arjun-dev': generatePlaceholderChapters(15, 'World Revolutions'),
 
     // Geography Books
     'gc-leong': generatePlaceholderChapters(35, 'Physical Geography'),
