@@ -21,13 +21,21 @@ export default function UPSCLandingPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] p-4 md:p-8">
-            <header className="mb-10">
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                    UPSC Preparation Store
-                </h1>
-                <p className="text-gray-600 dark:text-gray-400">
-                    Comprehensive resources, books, and automated plans for your success.
-                </p>
+            <header className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                        UPSC Preparation Store
+                    </h1>
+                    <p className="text-gray-600 dark:text-gray-400">
+                        Comprehensive resources, books, and automated plans for your success.
+                    </p>
+                </div>
+                <button
+                    onClick={() => router.push('/student/upsc/progress')}
+                    className="flex items-center gap-2 bg-white dark:bg-[#111] px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors shadow-sm"
+                >
+                    <Activity className="w-4 h-4 text-blue-600" /> My Progress
+                </button>
             </header>
 
             <UPSCOnboarding />
