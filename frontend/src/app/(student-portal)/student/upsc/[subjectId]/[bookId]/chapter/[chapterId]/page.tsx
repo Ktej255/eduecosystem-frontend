@@ -7,9 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, BookOpen, BrainCircuit, PlayCircle, ChevronLeft, ChevronRight, AlertCircle } from 'lucide-react';
 import SecurePDFViewer from '@/components/upsc/SecurePDFViewer';
 import LockedVideoPlayer from '@/components/upsc/LockedVideoPlayer';
-import AdvancedMCQTest from '@/components/upsc/AdvancedMCQTest'; // New Component
-import { getChapter } from '@/data/upsc-chapter-registry';
-import { POLITY_REVISION_CHAPTERS, ChapterRevisionData } from '@/components/batch1/polity/data/RevisionRegistry';
+import { getVisualization } from '@/data/upsc-visualization-registry';
 
 // Simple Content Viewer for text-based chapter content
 function ChapterContent({ content }: { content: any }) {
@@ -41,7 +39,7 @@ function ChapterContent({ content }: { content: any }) {
                         )}
                         {section.subSections && section.subSections.map((sub: any, sIdx: number) => (
                             <div key={sIdx} className="ml-4">
-                                h3&gt;{sub.title}&lt;/h3
+                                <h3 className="text-lg font-bold mt-4">{sub.title}</h3>
                                 <p>{sub.content}</p>
                             </div>
                         ))}
@@ -71,6 +69,9 @@ export default function ChapterViewPage() {
     const [activeTab, setActiveTab] = useState("read");
     const [chapterData, setChapterData] = useState<ChapterRevisionData | null>(null);
     const [loading, setLoading] = useState(true);
+
+    // Check for visualization
+    const VisualizationComponent = getVisualization(bookId, chapterId);
 
     useEffect(() => {
         // Load chapter data from registry
@@ -109,8 +110,8 @@ export default function ChapterViewPage() {
                 </div>
 
                 <div className="hidden md:block">
-                    <Tabs value={activeTab} onValueChange={setActiveTab} className="w-[400px]">
-                        <TabsList className="grid w-full grid-cols-3">
+                    <Tabs value={activeTab} onValueChange={setActiveTab} className="w-[500px]">
+                        <TabsList className={`grid w-full ${VisualizationComponent ? 'grid-cols-4' : 'grid-cols-3'}`}>
                             <TabsTrigger value="read" className="flex items-center gap-2">
                                 <BookOpen className="w-4 h-4" /> Notes
                             </TabsTrigger>
@@ -120,6 +121,11 @@ export default function ChapterViewPage() {
                             <TabsTrigger value="mcq" className="flex items-center gap-2">
                                 <BrainCircuit className="w-4 h-4" /> Test
                             </TabsTrigger>
+                            {VisualizationComponent && (
+                                <TabsTrigger value="simulation" className="flex items-center gap-2">
+                                    <BrainCircuit className="w-4 h-4 text-purple-500" /> Simulation
+                                </TabsTrigger>
+                            )}
                         </TabsList>
                     </Tabs>
                 </div>
@@ -128,10 +134,11 @@ export default function ChapterViewPage() {
             {/* Mobile Tabs */}
             <div className="md:hidden p-4 pb-0">
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                    <TabsList className="grid w-full grid-cols-3">
+                    <TabsList className={`grid w-full ${VisualizationComponent ? 'grid-cols-4' : 'grid-cols-3'}`}>
                         <TabsTrigger value="read">Read</TabsTrigger>
                         <TabsTrigger value="video">Video</TabsTrigger>
                         <TabsTrigger value="mcq">Test</TabsTrigger>
+                        {VisualizationComponent && <TabsTrigger value="simulation">Sim</TabsTrigger>}
                     </TabsList>
                 </Tabs>
             </div>
@@ -155,7 +162,7 @@ export default function ChapterViewPage() {
                             onUnlockRequest={() => alert("Keep studying consistently to unlock video lectures!")}
                         />
                     </div>
-                ) : (
+                ) : activeTab === 'mcq' ? (
                     <div className="max-w-4xl mx-auto w-full">
                         {/* New Advanced MCQ Component */}
                         {chapterData?.mcqs && chapterData.mcqs.length > 0 ? (
@@ -171,6 +178,10 @@ export default function ChapterViewPage() {
                                 <p>No MCQs available for this chapter yet.</p>
                             </div>
                         )}
+                    </div>
+                ) : (
+                    <div className="max-w-5xl mx-auto w-full h-[600px]">
+                        {VisualizationComponent && <VisualizationComponent />}
                     </div>
                 )}
             </main>
