@@ -494,5 +494,33 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 category: 'Module'
             }
         ]
+    },
+    {
+        id: 'csat',
+        title: 'CSAT (Paper II)',
+        description: 'Aptitude, Reasoning & Reading Comprehension',
+        icon: BrainCircuit,
+        color: 'text-amber-600',
+        bgColor: 'bg-amber-50',
+        books: [
+            {
+                id: 'csat-comprehension',
+                title: 'Reading Comprehension Masterclass',
+                description: 'Advanced techniques for UPSC CSAT passages with practice sets.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: false,
+                category: 'Paper II'
+            },
+            {
+                id: 'csat-qa-lr',
+                title: 'Quantitative Aptitude & Logical Reasoning',
+                description: 'Comprehensive coverage of math and logic for Prelims Paper II.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: false,
+                category: 'Paper II'
+            }
+        ]
     }
 ];

@@ -22,6 +22,12 @@ const CircularFlowViz = dynamic(() => import('@/components/batch1/economy/visual
     ssr: false
 });
 
+const PlateTectonicsViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/PlateTectonicsViz'), { ssr: false });
+const VolcanoViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/VolcanoViz'), { ssr: false });
+const RiverSystemViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/RiverSystemViz'), { ssr: false });
+const MonsoonViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/MonsoonViz'), { ssr: false });
+const GlacialViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/GlacialViz'), { ssr: false });
+
 // Map "bookId:chapterId" to Component
 export const VISUALIZATION_REGISTRY: Record<string, React.ComponentType<any>> = {
     // Science & Tech
@@ -41,6 +47,11 @@ export const VISUALIZATION_REGISTRY: Record<string, React.ComponentType<any>> = 
     'savinder-singh:1': GeographyGlobe,
     'gc-leong:1': GeographyGlobe,
     'ncert-geography-11:1': GeographyGlobe,
+    'savinder-singh:2': PlateTectonicsViz,
+    'savinder-singh:3': VolcanoViz,
+    'savinder-singh:4': GlacialViz,
+    'savinder-singh:5': RiverSystemViz,
+    'ncert-geography-11:4': MonsoonViz,
 };
 
 export const getVisualization = (bookId: string, chapterId: number) => {

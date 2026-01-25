@@ -161,6 +161,11 @@ export default function Batch11Page() {
                     >
                         <Smile className="h-5 w-5" />
                     </Button>
+                    <Link href="/student/upsc">
+                        <Button variant="ghost" size="icon" className="text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-full" title="Resource Library">
+                            <BookOpen className="h-5 w-5" />
+                        </Button>
+                    </Link>
                     <Link href="/student/batch1-1/deep-report">
                         <Button variant="ghost" size="icon" className="text-gray-500 hover:text-purple-600 hover:bg-purple-50 rounded-full">
                             <BarChart3 className="h-5 w-5" />

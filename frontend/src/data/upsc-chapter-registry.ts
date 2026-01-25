@@ -155,6 +155,10 @@ export const UPSC_BOOKS_CHAPTERS: Record<string, UPSCChapter[]> = {
     'pavneet-singh': generatePlaceholderChapters(22, 'IR & Foreign Policy'),
     'rajiv-sikri': generatePlaceholderChapters(18, 'Strategic Challenges'),
     'ir-module': generatePlaceholderChapters(55, 'IR Current Affairs'),
+
+    // CSAT
+    'csat-comprehension': generatePlaceholderChapters(30, 'Reading Comprehension'),
+    'csat-qa-lr': generatePlaceholderChapters(50, 'Quant & Reasoning'),
 };
 
 // Helper to generate placeholder chapters for non-Polity books
