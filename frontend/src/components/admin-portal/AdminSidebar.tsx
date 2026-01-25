@@ -76,6 +76,14 @@ const menuItems = [
         ],
     },
     {
+        name: "UPSC Content",
+        icon: BookOpen,
+        children: [
+            { name: "PDF Uploads", href: "/admin/upsc-content", icon: FileText },
+            { name: "Registry", href: "/admin/upsc-registry", icon: Brain },
+        ],
+    },
+    {
         name: "Analytics",
         href: "/admin/analytics",
         icon: TrendingUp,

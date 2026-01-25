@@ -31,6 +31,65 @@ interface DevelopmentLog {
 // Static development history data - will be replaced by API
 const developmentHistory: DevelopmentLog[] = [
     {
+        id: "101",
+        date: "2026-01-25",
+        title: "Complete Polity Chapter System",
+        description: "Fully populated Polity section with 100+ chapters for Laxmikanth, DD Basu, and NCERTs.",
+        features: [
+            "Implemented UPSC Chapter Registry with 154+ chapters",
+            "Added DD Basu (35 chapters) and NCERT (19 chapters)",
+            "Connected UPSC Store to dynamic RevisionRegistry",
+            "Enabled Chapter MCQ tab with real practice questions",
+            "Fixed 404 errors on chapter navigation"
+        ],
+        challenges: ["Mapping existing revision data to new store structure"],
+        batch: "UPSC"
+    },
+    {
+        id: "102",
+        date: "2026-01-24",
+        title: "UPSC Store Implementation",
+        description: "Built the core Amazon-like store interface for UPSC study materials.",
+        features: [
+            "Designed Subject & Book Detail Pages",
+            "Implemented Pricing Logic (₹2999 -> ₹299)",
+            "Added Start/Stop Purchase Flow with LocalStorage",
+            "Created Price Countdown Component",
+            "Integrated Onboarding Video & User Survey"
+        ],
+        challenges: ["Responsive grid layout for varied book covers"],
+        batch: "UPSC"
+    },
+    {
+        id: "103",
+        date: "2026-01-23",
+        title: "Secure PDF Viewer & Tracking",
+        description: "Implemented secure document viewer with anti-download features and progress tracking.",
+        features: [
+            "Built SecurePDFViewer component with canvas rendering",
+            "Disabled right-click, print, and copy shortcuts",
+            "Added time-spent tracking hook",
+            "Integrated scroll progress indicators"
+        ],
+        challenges: ["Ensuring canvas clarity while preventing save-as"],
+        batch: "UPSC"
+    },
+    {
+        id: "104",
+        date: "2026-01-22",
+        title: "Global Navigation & Branding",
+        description: "Refactored global navigation to feature UPSC branding prominently.",
+        features: [
+            "Renamed 'Batch 1' to 'UPSC' globally",
+            "Added Global Revision Hub to landing page",
+            "Updated Sidebar navigation structure",
+            "Created clear entry points for Store vs Dashboard"
+        ],
+        challenges: [],
+        batch: "UPSC"
+    },
+    // Previous logs...
+    {
         id: "1",
         date: "2026-01-17",
         title: "Admin Portal Enhancement Phase 1",

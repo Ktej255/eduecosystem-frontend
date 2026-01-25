@@ -98,6 +98,12 @@ const teacherRoutes: Route[] = [
         badge: "ACTIVE",
     },
     {
+        label: "UPSC Resources",
+        icon: FolderOpen,
+        href: "/teacher/upsc-resources",
+        color: "text-orange-400",
+    },
+    {
         label: "Content Library",
         icon: FolderOpen,
         href: "/teacher/content",
