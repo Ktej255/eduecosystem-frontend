@@ -1,20 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { UPSC_CATALOG } from '@/data/upsc-catalog';
-import { ArrowLeft, PlayCircle, FileText, Lock, CheckCircle } from 'lucide-react';
+import { getBookChapters, UPSCChapter } from '@/data/upsc-chapter-registry';
+import { ArrowLeft, PlayCircle, FileText, Lock, CheckCircle, BookOpen, BrainCircuit } from 'lucide-react';
 import PriceCountdown from '@/components/upsc/PriceCountdown';
-
-// Mock Chapter Data (In real app, fetch from backend/registry)
-const MOCK_CHAPTERS = [
-    { id: 1, title: "Historical Background", duration: "45 mins", isFree: true },
-    { id: 2, title: "Making of the Constitution", duration: "60 mins", isFree: false },
-    { id: 3, title: "Salient Features of Constitution", duration: "50 mins", isFree: false },
-    { id: 4, title: "Preamble of the Constitution", duration: "40 mins", isFree: false },
-    { id: 5, title: "Union and its Territory", duration: "35 mins", isFree: false },
-    { id: 6, title: "Citizenship", duration: "45 mins", isFree: false },
-];
 
 export default function BookDetailPage() {
     const params = useParams();
@@ -25,11 +16,16 @@ export default function BookDetailPage() {
     const subject = UPSC_CATALOG.find(s => s.id === subjectId);
     const book = subject?.books.find(b => b.id === bookId);
 
-    // Simulate purchase state
+    // Get chapters from registry
+    const [chapters, setChapters] = useState<UPSCChapter[]>([]);
     const [isPurchased, setIsPurchased] = useState(false);
 
-    // Check for previous purchase on mount
-    React.useEffect(() => {
+    useEffect(() => {
+        // Load chapters from registry
+        const bookChapters = getBookChapters(bookId);
+        setChapters(bookChapters);
+
+        // Check for previous purchase
         const purchased = localStorage.getItem(`upsc_purchased_${bookId}`);
         if (purchased === 'true') {
             setIsPurchased(true);
@@ -40,11 +36,8 @@ export default function BookDetailPage() {
 
     const handleChapterClick = (chapterId: number, isFree: boolean) => {
         if (isPurchased || isFree) {
-            // Navigate to Chapter View (content consumption)
-            // For now, we'll implement this route in next step
             router.push(`/student/upsc/${subjectId}/${bookId}/chapter/${chapterId}`);
         } else {
-            // Shake the buy button or scroll to it?
             alert("Please purchase the book to access this chapter.");
         }
     };
@@ -61,7 +54,6 @@ export default function BookDetailPage() {
                 </button>
                 <div className="absolute -bottom-12 left-8 md:left-12 flex items-end gap-6">
                     <div className="w-32 h-48 bg-white shadow-xl rounded-lg p-2 flex items-center justify-center text-center border border-gray-200">
-                        {/* Placeholder Cover */}
                         <div>
                             <div className="w-20 h-2 bg-gray-200 mb-2 mx-auto rounded"></div>
                             <div className="font-serif font-bold text-gray-900 text-sm">{book.title}</div>
@@ -81,47 +73,65 @@ export default function BookDetailPage() {
                     <div className="bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
                         <div className="p-4 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 flex justify-between items-center">
                             <h3 className="font-bold text-gray-900 dark:text-white">Table of Contents</h3>
-                            <span className="text-sm text-gray-500">{MOCK_CHAPTERS.length} Chapters</span>
+                            <span className="text-sm text-gray-500">{chapters.length} Chapters</span>
                         </div>
-                        <div className="divide-y divide-gray-100 dark:divide-gray-800">
-                            {MOCK_CHAPTERS.map((chapter) => (
-                                <div
-                                    key={chapter.id}
-                                    onClick={() => handleChapterClick(chapter.id, chapter.isFree)}
-                                    className={`p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer group
-                                        ${!isPurchased && !chapter.isFree ? 'opacity-70' : ''}
-                                    `}
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold
-                                            ${(isPurchased || chapter.isFree) ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-400'}
-                                        `}>
-                                            {chapter.id}
-                                        </div>
-                                        <div>
-                                            <h4 className="font-medium text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">
-                                                {chapter.title}
-                                            </h4>
-                                            <p className="text-xs text-gray-500 flex items-center gap-2 mt-1">
-                                                <FileText className="w-3 h-3" /> Reading • 10 pages
-                                                <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                                                <PlayCircle className="w-3 h-3" /> Quiz Available
-                                            </p>
-                                        </div>
-                                    </div>
 
-                                    <div>
-                                        {(isPurchased || chapter.isFree) ? (
-                                            <button className="text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                                                Start
-                                            </button>
-                                        ) : (
-                                            <Lock className="w-4 h-4 text-gray-400" />
-                                        )}
+                        {chapters.length === 0 ? (
+                            <div className="p-8 text-center text-gray-500">
+                                <BookOpen className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                                <p className="font-medium">Coming Soon</p>
+                                <p className="text-sm">Chapters are being prepared for this book.</p>
+                            </div>
+                        ) : (
+                            <div className="divide-y divide-gray-100 dark:divide-gray-800 max-h-[600px] overflow-y-auto">
+                                {chapters.map((chapter) => (
+                                    <div
+                                        key={chapter.id}
+                                        onClick={() => handleChapterClick(chapter.id, chapter.isFree)}
+                                        className={`p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer group
+                                            ${!isPurchased && !chapter.isFree ? 'opacity-70' : ''}
+                                        `}
+                                    >
+                                        <div className="flex items-center gap-4">
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold
+                                                ${(isPurchased || chapter.isFree) ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-400'}
+                                            `}>
+                                                {chapter.id}
+                                            </div>
+                                            <div>
+                                                <h4 className="font-medium text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                                                    {chapter.title}
+                                                </h4>
+                                                <p className="text-xs text-gray-500 flex items-center gap-2 mt-1">
+                                                    <FileText className="w-3 h-3" /> {chapter.duration}
+                                                    {chapter.hasMCQ && (
+                                                        <>
+                                                            <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+                                                            <BrainCircuit className="w-3 h-3" /> MCQs
+                                                        </>
+                                                    )}
+                                                    {chapter.isFree && (
+                                                        <span className="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded font-bold ml-2">
+                                                            FREE
+                                                        </span>
+                                                    )}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            {(isPurchased || chapter.isFree) ? (
+                                                <button className="text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    Start
+                                                </button>
+                                            ) : (
+                                                <Lock className="w-4 h-4 text-gray-400" />
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -132,10 +142,9 @@ export default function BookDetailPage() {
                         <PriceCountdown
                             bookId={bookId}
                             basePrice={book.price}
-                            offerPrice={299} // 299 as per request
-                            expiredPrice={499} // 499 as per request
+                            offerPrice={299}
+                            expiredPrice={499}
                             onPurchase={() => {
-                                // Mock purchase - in real app, would call payment API
                                 setIsPurchased(true);
                                 localStorage.setItem(`upsc_purchased_${bookId}`, 'true');
                                 alert('🎉 Purchase Successful! All chapters are now unlocked.');
@@ -152,7 +161,7 @@ export default function BookDetailPage() {
                             <div className="flex items-start gap-3">
                                 <CheckCircle className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                                    <strong className="text-gray-900 dark:text-white">Chapter-wise MCQs</strong> for practice
+                                    <strong className="text-gray-900 dark:text-white">{chapters.length} Chapters</strong> with MCQs
                                 </p>
                             </div>
                             <div className="flex items-start gap-3">
