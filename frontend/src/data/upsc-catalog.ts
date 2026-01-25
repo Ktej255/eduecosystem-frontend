@@ -455,5 +455,44 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 isNCERT: true
             }
         ]
+    },
+    {
+        id: 'ir',
+        title: 'International Relations',
+        description: 'Foreign Policy & Global Issues (GS 2)',
+        icon: Globe,
+        color: 'text-cyan-600',
+        bgColor: 'bg-cyan-50',
+        books: [
+            {
+                id: 'pavneet-singh',
+                title: 'International Relations',
+                author: 'Pavneet Singh',
+                description: 'Comprehensive coverage of India\'s foreign policy and bilateral relations.',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false,
+                category: 'Standard Reference'
+            },
+            {
+                id: 'rajiv-sikri',
+                title: 'Challenge and Strategy: Rethinking India\'s Foreign Policy',
+                author: 'Rajiv Sikri',
+                description: 'Strategic analysis of India\'s foreign relations.',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false,
+                category: 'Standard Reference'
+            },
+            {
+                id: 'ir-module',
+                title: 'Eduecosystem IR Module',
+                description: 'Dynamic current affairs and static concepts module for GS 2.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: false,
+                category: 'Module'
+            }
+        ]
     }
 ];

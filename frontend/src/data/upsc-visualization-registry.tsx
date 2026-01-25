@@ -17,6 +17,11 @@ const GeographyGlobe = dynamic(() => import('@/components/batch1/geography/3d/Ge
     ssr: false
 });
 
+const CircularFlowViz = dynamic(() => import('@/components/batch1/economy/visualizations/CircularFlowViz'), {
+    loading: () => <div className="h-[400px] flex items-center justify-center bg-gray-50 rounded-xl">Loading Economy Model...</div>,
+    ssr: false
+});
+
 // Map "bookId:chapterId" to Component
 export const VISUALIZATION_REGISTRY: Record<string, React.ComponentType<any>> = {
     // Science & Tech
@@ -27,6 +32,10 @@ export const VISUALIZATION_REGISTRY: Record<string, React.ComponentType<any>> = 
     'pmf-ias:1': CarbonCycleViz,
     'shankar-ias:1': CarbonCycleViz,
     'ncert-biology-12:1': CarbonCycleViz,
+
+    // Economy
+    'ramesh-singh:1': CircularFlowViz,
+    'sriram-ias:1': CircularFlowViz,
 
     // Geography
     'savinder-singh:1': GeographyGlobe,

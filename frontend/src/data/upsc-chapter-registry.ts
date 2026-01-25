@@ -145,8 +145,16 @@ export const UPSC_BOOKS_CHAPTERS: Record<string, UPSCChapter[]> = {
     'ncert-chemistry-11': generatePlaceholderChapters(14, 'Chemistry'),
 
     // Art & Culture Books
+    // Art & Culture Books
     'nitin-singhania': generatePlaceholderChapters(20, 'Art & Culture'),
     'ccrt': generatePlaceholderChapters(12, 'Indian Art'),
+    'ncert-fine-arts-11': generatePlaceholderChapters(8, 'Indian Art Intro'),
+    'ncert-fine-arts-12': generatePlaceholderChapters(10, 'Craft Traditions'),
+
+    // International Relations
+    'pavneet-singh': generatePlaceholderChapters(22, 'IR & Foreign Policy'),
+    'rajiv-sikri': generatePlaceholderChapters(18, 'Strategic Challenges'),
+    'ir-module': generatePlaceholderChapters(55, 'IR Current Affairs'),
 };
 
 // Helper to generate placeholder chapters for non-Polity books
