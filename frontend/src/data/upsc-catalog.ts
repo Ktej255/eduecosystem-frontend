@@ -268,6 +268,7 @@ export const UPSC_CATALOG: UPSCSubject[] = [
         color: 'text-indigo-600',
         bgColor: 'bg-indigo-50',
         books: [
+            // Indian Economy
             {
                 id: 'ramesh-singh',
                 title: 'Indian Economy',
@@ -275,7 +276,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'The most comprehensive book on Indian Economy for UPSC.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
+                isNCERT: false,
+                category: 'Indian Economy'
             },
             {
                 id: 'sriram-ias',
@@ -284,7 +286,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Concise notes on Indian Economy with current affairs.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
+                isNCERT: false,
+                category: 'Indian Economy'
             },
             {
                 id: 'ncert-economy-11',
@@ -292,15 +295,19 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Foundation of Indian Economy and development policies.',
                 price: 0,
                 discountedPrice: 0,
-                isNCERT: true
+                isNCERT: true,
+                category: 'Indian Economy'
             },
+
+            // Macroeconomics
             {
                 id: 'ncert-economy-12',
                 title: 'Macroeconomics (Class 12)',
                 description: 'Understanding macroeconomic concepts and policies.',
                 price: 0,
                 discountedPrice: 0,
-                isNCERT: true
+                isNCERT: true,
+                category: 'Macroeconomics'
             }
         ]
     },

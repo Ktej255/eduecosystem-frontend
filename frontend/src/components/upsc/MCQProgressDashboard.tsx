@@ -5,8 +5,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Target, TrendingUp, Calendar, Clock } from 'lucide-react';
 
+interface HistoryItem {
+    score: number;
+    totalQuestions: number;
+    date: string;
+    chapterTitle: string;
+    bookId?: string;
+    chapterId?: string | number;
+}
+
 export default function MCQProgressDashboard() {
-    const [history, setHistory] = useState<any[]>([]);
+    const [history, setHistory] = useState<HistoryItem[]>([]);
 
     useEffect(() => {
         const stored = localStorage.getItem('upsc_mcq_history');
@@ -14,7 +23,7 @@ export default function MCQProgressDashboard() {
             try {
                 const parsed = JSON.parse(stored);
                 // Sort by date ascending
-                setHistory(parsed.sort((a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime()));
+                setHistory(parsed.sort((a: HistoryItem, b: HistoryItem) => new Date(a.date).getTime() - new Date(b.date).getTime()));
             } catch (e) {
                 console.error("Failed to parse history", e);
             }

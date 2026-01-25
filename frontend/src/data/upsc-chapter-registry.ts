@@ -123,10 +123,14 @@ export const UPSC_BOOKS_CHAPTERS: Record<string, UPSCChapter[]> = {
     'gc-leong': generatePlaceholderChapters(35, 'Physical Geography'),
     'majid-husain': generatePlaceholderChapters(28, 'Indian Geography'),
     'khullar': generatePlaceholderChapters(32, 'Geography'),
+    'ncert-geography-11': generatePlaceholderChapters(16, 'Physical Geo Fundamentals'),
+    'ncert-geography-12': generatePlaceholderChapters(12, 'India People & Economy'),
 
     // Economy Books
     'ramesh-singh': generatePlaceholderChapters(40, 'Economy'),
     'sriram-ias': generatePlaceholderChapters(25, 'Economy'),
+    'ncert-economy-11': generatePlaceholderChapters(10, 'Indian Economic Dev'),
+    'ncert-economy-12': generatePlaceholderChapters(6, 'Macroeconomics'),
 
     // Environment Books
     'shankar-ias': generatePlaceholderChapters(18, 'Environment'),
