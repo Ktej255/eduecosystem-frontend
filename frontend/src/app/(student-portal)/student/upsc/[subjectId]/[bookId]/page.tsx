@@ -137,6 +137,18 @@ export default function BookDetailPage() {
 
                 {/* Right Column: Pricing & Meta */}
                 <div className="space-y-6">
+                    {/* Progress Entry */}
+                    <div onClick={() => router.push('/student/upsc/progress')} className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-6 text-white cursor-pointer hover:shadow-lg transition-all transform hover:-translate-y-1">
+                        <div className="flex items-center gap-3 mb-2">
+                            <BrainCircuit className="w-6 h-6 text-blue-200" />
+                            <h3 className="font-bold text-lg">My Performance</h3>
+                        </div>
+                        <p className="text-blue-100 text-sm mb-4">View your MCQ test history, accuracy trends, and chapter-wise analysis.</p>
+                        <button className="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg text-sm font-bold w-full transition-colors">
+                            Check Dashboard
+                        </button>
+                    </div>
+
                     {/* Price Card */}
                     <div className="bg-white dark:bg-[#111] rounded-xl shadow-lg sticky top-24">
                         <PriceCountdown

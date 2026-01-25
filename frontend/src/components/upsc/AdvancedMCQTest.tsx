@@ -92,6 +92,35 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
                 setSelectedOption(null);
                 setSelectedConfidence(null);
             } else {
+                // Save Result to LocalStorage
+                const finalAnswers = {
+                    ...answers,
+                    [currentQIndex]: {
+                        questionIndex: currentQIndex,
+                        selectedOption,
+                        confidence: selectedConfidence,
+                        isCorrect,
+                        timeTaken: 0
+                    }
+                };
+
+                const resultData = {
+                    chapterId,
+                    bookId,
+                    chapterTitle,
+                    date: new Date().toISOString(),
+                    score: Object.values(finalAnswers).filter(a => a.isCorrect).length,
+                    totalQuestions: questions.length,
+                    answers: finalAnswers
+                };
+
+                try {
+                    const existingHistory = JSON.parse(localStorage.getItem('upsc_mcq_history') || '[]');
+                    localStorage.setItem('upsc_mcq_history', JSON.stringify([...existingHistory, resultData]));
+                } catch (e) {
+                    console.error("Failed to save progress", e);
+                }
+
                 setMode('result');
             }
         }
