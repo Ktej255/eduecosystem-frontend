@@ -7,107 +7,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, BookOpen, BrainCircuit, PlayCircle, ChevronLeft, ChevronRight, AlertCircle } from 'lucide-react';
 import SecurePDFViewer from '@/components/upsc/SecurePDFViewer';
 import LockedVideoPlayer from '@/components/upsc/LockedVideoPlayer';
+import AdvancedMCQTest from '@/components/upsc/AdvancedMCQTest'; // New Component
 import { getChapter } from '@/data/upsc-chapter-registry';
 import { POLITY_REVISION_CHAPTERS, ChapterRevisionData } from '@/components/batch1/polity/data/RevisionRegistry';
-
-// Simple MCQ Component for UPSC Store
-function ChapterMCQs({ mcqs }: { mcqs: any[] }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-    const [showExplanation, setShowExplanation] = useState(false);
-
-    if (!mcqs || mcqs.length === 0) {
-        return (
-            <div className="text-center py-12 text-gray-500">
-                <BrainCircuit className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                <p>No MCQs available for this chapter yet.</p>
-            </div>
-        );
-    }
-
-    const currentMCQ = mcqs[currentIndex];
-
-    const handleAnswer = (index: number) => {
-        setSelectedAnswer(index);
-        setShowExplanation(true);
-    };
-
-    const nextQuestion = () => {
-        if (currentIndex < mcqs.length - 1) {
-            setCurrentIndex(prev => prev + 1);
-            setSelectedAnswer(null);
-            setShowExplanation(false);
-        }
-    };
-
-    const prevQuestion = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex(prev => prev - 1);
-            setSelectedAnswer(null);
-            setShowExplanation(false);
-        }
-    };
-
-    return (
-        <div className="bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-gray-800 p-6">
-            <div className="flex justify-between items-center mb-6">
-                <span className="text-sm text-gray-500">Question {currentIndex + 1} of {mcqs.length}</span>
-                <span className={`px-2 py-1 rounded text-xs font-bold ${currentMCQ.difficulty === 'easy' ? 'bg-green-100 text-green-600' :
-                        currentMCQ.difficulty === 'medium' ? 'bg-yellow-100 text-yellow-600' :
-                            'bg-red-100 text-red-600'
-                    }`}>
-                    {currentMCQ.difficulty?.toUpperCase() || 'MEDIUM'}
-                </span>
-            </div>
-
-            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-6">
-                {currentMCQ.question}
-            </h3>
-
-            <div className="space-y-3">
-                {currentMCQ.options.map((option: string, index: number) => (
-                    <button
-                        key={index}
-                        onClick={() => handleAnswer(index)}
-                        disabled={showExplanation}
-                        className={`w-full text-left p-4 rounded-lg border-2 transition-all ${showExplanation
-                                ? index === currentMCQ.correctAnswer
-                                    ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
-                                    : selectedAnswer === index
-                                        ? 'border-red-500 bg-red-50 dark:bg-red-900/20'
-                                        : 'border-gray-200 dark:border-gray-700'
-                                : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/10'
-                            }`}
-                    >
-                        <div className="flex items-center gap-3">
-                            <span className="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold">
-                                {String.fromCharCode(65 + index)}
-                            </span>
-                            <span>{option}</span>
-                        </div>
-                    </button>
-                ))}
-            </div>
-
-            {showExplanation && (
-                <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                    <p className="text-sm text-blue-900 dark:text-blue-100">
-                        <strong>Explanation:</strong> {currentMCQ.explanation}
-                    </p>
-                </div>
-            )}
-
-            <div className="flex justify-between mt-6">
-                <Button variant="outline" onClick={prevQuestion} disabled={currentIndex === 0}>
-                    <ChevronLeft className="w-4 h-4 mr-1" /> Previous
-                </Button>
-                <Button onClick={nextQuestion} disabled={currentIndex === mcqs.length - 1}>
-                    Next <ChevronRight className="w-4 h-4 ml-1" />
-                </Button>
-            </div>
-        </div>
-    );
-}
 
 // Simple Content Viewer for text-based chapter content
 function ChapterContent({ content }: { content: any }) {
@@ -139,7 +41,7 @@ function ChapterContent({ content }: { content: any }) {
                         )}
                         {section.subSections && section.subSections.map((sub: any, sIdx: number) => (
                             <div key={sIdx} className="ml-4">
-                                <h3>{sub.title}</h3>
+                                h3&gt;{sub.title}&lt;/h3
                                 <p>{sub.content}</p>
                             </div>
                         ))}
@@ -216,7 +118,7 @@ export default function ChapterViewPage() {
                                 <PlayCircle className="w-4 h-4" /> Video
                             </TabsTrigger>
                             <TabsTrigger value="mcq" className="flex items-center gap-2">
-                                <BrainCircuit className="w-4 h-4" /> MCQs
+                                <BrainCircuit className="w-4 h-4" /> Test
                             </TabsTrigger>
                         </TabsList>
                     </Tabs>
@@ -229,7 +131,7 @@ export default function ChapterViewPage() {
                     <TabsList className="grid w-full grid-cols-3">
                         <TabsTrigger value="read">Read</TabsTrigger>
                         <TabsTrigger value="video">Video</TabsTrigger>
-                        <TabsTrigger value="mcq">Practice</TabsTrigger>
+                        <TabsTrigger value="mcq">Test</TabsTrigger>
                     </TabsList>
                 </Tabs>
             </div>
@@ -255,7 +157,20 @@ export default function ChapterViewPage() {
                     </div>
                 ) : (
                     <div className="max-w-4xl mx-auto w-full">
-                        <ChapterMCQs mcqs={chapterData?.mcqs || []} />
+                        {/* New Advanced MCQ Component */}
+                        {chapterData?.mcqs && chapterData.mcqs.length > 0 ? (
+                            <AdvancedMCQTest
+                                questions={chapterData.mcqs}
+                                chapterId={chapterId}
+                                bookId={bookId}
+                                chapterTitle={title}
+                            />
+                        ) : (
+                            <div className="text-center py-12 text-gray-500">
+                                <BrainCircuit className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                                <p>No MCQs available for this chapter yet.</p>
+                            </div>
+                        )}
                     </div>
                 )}
             </main>

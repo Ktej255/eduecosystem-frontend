@@ -197,6 +197,17 @@ export const UPSC_CATALOG: UPSCSubject[] = [
         color: 'text-emerald-600',
         bgColor: 'bg-emerald-50',
         books: [
+            // Physical Geography
+            {
+                id: 'savinder-singh',
+                title: 'Physical Geography',
+                author: 'Savinder Singh',
+                description: 'The standard textbook for Physical Geography concepts.',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false,
+                category: 'Physical Geography'
+            },
             {
                 id: 'gc-leong',
                 title: 'Certificate Physical and Human Geography',
@@ -204,8 +215,20 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Most trusted book for Physical Geography fundamentals.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
+                isNCERT: false,
+                category: 'Physical Geography'
             },
+            {
+                id: 'ncert-geography-11',
+                title: 'Fundamentals of Physical Geography (Class 11)',
+                description: 'Core concepts of Physical Geography.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: true,
+                category: 'Physical Geography'
+            },
+
+            // Indian Geography
             {
                 id: 'majid-husain',
                 title: 'Geography of India',
@@ -213,7 +236,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Comprehensive coverage of Indian Geography for UPSC.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
+                isNCERT: false,
+                category: 'Indian Geography'
             },
             {
                 id: 'khullar',
@@ -222,15 +246,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Detailed study of Indian Geography with maps and data.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
-            },
-            {
-                id: 'ncert-geography-11',
-                title: 'Fundamentals of Physical Geography (Class 11)',
-                description: 'Core concepts of Physical Geography.',
-                price: 0,
-                discountedPrice: 0,
-                isNCERT: true
+                isNCERT: false,
+                category: 'Indian Geography'
             },
             {
                 id: 'ncert-geography-12',
@@ -238,7 +255,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Human and Economic Geography of India.',
                 price: 0,
                 discountedPrice: 0,
-                isNCERT: true
+                isNCERT: true,
+                category: 'Indian Geography'
             }
         ]
     },

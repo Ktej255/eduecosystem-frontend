@@ -119,6 +119,7 @@ export const UPSC_BOOKS_CHAPTERS: Record<string, UPSCChapter[]> = {
     'history-world-arjun-dev': generatePlaceholderChapters(15, 'World Revolutions'),
 
     // Geography Books
+    'savinder-singh': generatePlaceholderChapters(40, 'Physical Geography'),
     'gc-leong': generatePlaceholderChapters(35, 'Physical Geography'),
     'majid-husain': generatePlaceholderChapters(28, 'Indian Geography'),
     'khullar': generatePlaceholderChapters(32, 'Geography'),
