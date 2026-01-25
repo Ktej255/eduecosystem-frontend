@@ -134,10 +134,15 @@ export const UPSC_BOOKS_CHAPTERS: Record<string, UPSCChapter[]> = {
 
     // Environment Books
     'shankar-ias': generatePlaceholderChapters(18, 'Environment'),
+    'pmf-ias': generatePlaceholderChapters(22, 'Environment'),
     'pd-sharma': generatePlaceholderChapters(22, 'Ecology'),
+    'ncert-biology-12': generatePlaceholderChapters(4, 'Ecology Unit'),
 
     // Science & Tech Books
     'science-tech-tmh': generatePlaceholderChapters(15, 'Science & Tech'),
+    'ncert-science-10': generatePlaceholderChapters(16, 'General Science'),
+    'ncert-physics-11': generatePlaceholderChapters(15, 'Physics'),
+    'ncert-chemistry-11': generatePlaceholderChapters(14, 'Chemistry'),
 
     // Art & Culture Books
     'nitin-singhania': generatePlaceholderChapters(20, 'Art & Culture'),

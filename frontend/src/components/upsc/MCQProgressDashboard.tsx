@@ -102,8 +102,8 @@ export default function MCQProgressDashboard() {
                             <YAxis domain={[0, 100]} stroke="#888" fontSize={12} />
                             <Tooltip
                                 contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
-                                formatter={(value: number) => [`${value}%`, 'Score']}
-                                labelFormatter={(label) => chartData.find(d => d.name === label)?.title || label}
+                                formatter={(value: number | undefined) => [`${value ?? 0}%`, 'Score']}
+                                labelFormatter={(label: string) => chartData.find(d => d.name === label)?.title || label}
                             />
                             <Line
                                 type="monotone"

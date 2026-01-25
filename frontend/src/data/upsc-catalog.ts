@@ -319,6 +319,7 @@ export const UPSC_CATALOG: UPSCSubject[] = [
         color: 'text-green-600',
         bgColor: 'bg-green-50',
         books: [
+            // Standard Reference
             {
                 id: 'shankar-ias',
                 title: 'Environment by Shankar IAS',
@@ -326,8 +327,21 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'The definitive guide for Environment & Ecology for UPSC.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
+                isNCERT: false,
+                category: 'Standard Reference'
             },
+            {
+                id: 'pmf-ias',
+                title: 'Environment by PMF IAS',
+                author: 'PMF IAS',
+                description: 'Visually rich environment notes, highly recommended for concepts.',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false,
+                category: 'Standard Reference'
+            },
+
+            // NCERT/Textbooks
             {
                 id: 'pd-sharma',
                 title: 'Ecology and Environment',
@@ -335,7 +349,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Comprehensive textbook on Ecology and Environmental Science.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
+                isNCERT: false,
+                category: 'Textbooks'
             },
             {
                 id: 'ncert-biology-12',
@@ -343,7 +358,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Chapters on Ecology, Biodiversity, and Environmental Issues.',
                 price: 0,
                 discountedPrice: 0,
-                isNCERT: true
+                isNCERT: true,
+                category: 'NCERT'
             }
         ]
     },
@@ -355,6 +371,7 @@ export const UPSC_CATALOG: UPSCSubject[] = [
         color: 'text-violet-600',
         bgColor: 'bg-violet-50',
         books: [
+            // Science & Tech
             {
                 id: 'science-tech-tmh',
                 title: 'Science & Technology for Civil Services',
@@ -362,15 +379,19 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Comprehensive coverage of S&T topics for UPSC.',
                 price: 2999,
                 discountedPrice: 299,
-                isNCERT: false
+                isNCERT: false,
+                category: 'Technology & Current Affairs'
             },
+
+            // General Science NCERTs
             {
                 id: 'ncert-science-10',
                 title: 'Science (Class 10)',
                 description: 'Foundation of Physics, Chemistry, and Biology.',
                 price: 0,
                 discountedPrice: 0,
-                isNCERT: true
+                isNCERT: true,
+                category: 'General Science Fundamentals'
             },
             {
                 id: 'ncert-physics-11',
@@ -378,7 +399,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Fundamental concepts of Physics.',
                 price: 0,
                 discountedPrice: 0,
-                isNCERT: true
+                isNCERT: true,
+                category: 'General Science Fundamentals'
             },
             {
                 id: 'ncert-chemistry-11',
@@ -386,7 +408,8 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 description: 'Basic concepts of Chemistry.',
                 price: 0,
                 discountedPrice: 0,
-                isNCERT: true
+                isNCERT: true,
+                category: 'General Science Fundamentals'
             }
         ]
     },
