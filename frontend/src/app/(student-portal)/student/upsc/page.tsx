@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { UPSC_CATALOG } from '@/data/upsc-catalog';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, Star, Activity, CheckCircle, AlertTriangle } from 'lucide-react';
+import UPSCGlobalSearch from '@/components/upsc/UPSCGlobalSearch';
 import UPSCOnboarding from '@/components/upsc/OnboardingModal';
 import PeerGroupCard from '@/components/upsc/PeerGroupCard';
 
@@ -21,7 +22,7 @@ export default function UPSCLandingPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] p-4 md:p-8">
-            <header className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <header className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
                         UPSC Preparation Store
@@ -30,13 +31,20 @@ export default function UPSCLandingPage() {
                         Comprehensive resources, books, and automated plans for your success.
                     </p>
                 </div>
-                <button
-                    onClick={() => router.push('/student/upsc/progress')}
-                    className="flex items-center gap-2 bg-white dark:bg-[#111] px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors shadow-sm"
-                >
-                    <Activity className="w-4 h-4 text-blue-600" /> My Progress
-                </button>
+                <div className="flex items-center gap-3 w-full md:w-auto">
+                    <button
+                        onClick={() => router.push('/student/upsc/progress')}
+                        className="flex items-center gap-2 bg-white dark:bg-[#111] px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors shadow-sm whitespace-nowrap"
+                    >
+                        <Activity className="w-4 h-4 text-blue-600" /> My Progress
+                    </button>
+                </div>
             </header>
+
+            {/* Global Search Bar */}
+            <div className="mb-10 flex justify-center">
+                <UPSCGlobalSearch />
+            </div>
 
             <UPSCOnboarding />
 
