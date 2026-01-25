@@ -34,7 +34,16 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 id: 'laxmikanth',
                 title: 'Indian Polity by M. Laxmikanth',
                 author: 'M. Laxmikanth',
-                description: 'The bible of Indian Polity for UPSC aspirants.',
+                description: 'The bible of Indian Polity for UPSC aspirants. 8th Edition with 100+ chapters.',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false
+            },
+            {
+                id: 'dd-basu',
+                title: 'Introduction to the Constitution of India',
+                author: 'D.D. Basu',
+                description: 'Comprehensive constitutional law reference with detailed analysis.',
                 price: 2999,
                 discountedPrice: 299,
                 isNCERT: false
@@ -42,7 +51,7 @@ export const UPSC_CATALOG: UPSCSubject[] = [
             {
                 id: 'ncert-polity-11',
                 title: 'Indian Constitution at Work (Class 11)',
-                description: 'Fundamental understanding of the Indian Constitution.',
+                description: 'Fundamental understanding of the Indian Constitution. 10 chapters.',
                 price: 0,
                 discountedPrice: 0,
                 isNCERT: true
@@ -50,7 +59,7 @@ export const UPSC_CATALOG: UPSCSubject[] = [
             {
                 id: 'ncert-polity-12',
                 title: 'Politics in India Since Independence (Class 12)',
-                description: 'Post-independence political developments in India.',
+                description: 'Post-independence political developments in India. 9 chapters.',
                 price: 0,
                 discountedPrice: 0,
                 isNCERT: true
