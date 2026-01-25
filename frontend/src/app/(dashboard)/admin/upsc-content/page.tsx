@@ -204,19 +204,27 @@ export default function AdminUPSCPDFUpload() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
                             <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Total Chapters</p>
-                            <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">154</p>
+                            <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+                                {UPSC_CATALOG.reduce((acc, subj) => acc + subj.books.reduce((bAcc, book) => bAcc + getBookChapters(book.id).length, 0), 0)}
+                            </p>
                         </div>
                         <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-100 dark:border-green-800">
                             <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Active PDFs</p>
-                            <p className="text-2xl font-bold text-green-700 dark:text-green-300">42</p>
+                            <p className="text-2xl font-bold text-green-700 dark:text-green-300">
+                                {UPSC_CATALOG.reduce((acc, subj) => acc + subj.books.reduce((bAcc, book) => bAcc + getBookChapters(book.id).filter(c => c.pdfUrl).length, 0), 0)}
+                            </p>
                         </div>
                         <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-100 dark:border-amber-800">
                             <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Pending Uploads</p>
-                            <p className="text-2xl font-bold text-amber-700 dark:text-amber-300">112</p>
+                            <p className="text-2xl font-bold text-amber-700 dark:text-amber-300">
+                                {UPSC_CATALOG.reduce((acc, subj) => acc + subj.books.reduce((bAcc, book) => bAcc + getBookChapters(book.id).filter(c => !c.pdfUrl).length, 0), 0)}
+                            </p>
                         </div>
                         <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
                             <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Books</p>
-                            <p className="text-2xl font-bold text-purple-700 dark:text-purple-300">4</p>
+                            <p className="text-2xl font-bold text-purple-700 dark:text-purple-300">
+                                {UPSC_CATALOG.reduce((acc, subj) => acc + subj.books.length, 0)}
+                            </p>
                         </div>
                     </div>
                 </CardContent>

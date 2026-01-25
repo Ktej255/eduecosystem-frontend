@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, BookOpen, FileText, BrainCircuit, CheckCircle, AlertCircle, FolderOpen } from 'lucide-react';
 import { UPSC_CATALOG } from '@/data/upsc-catalog';
 import { getBookChapters, UPSCChapter } from '@/data/upsc-chapter-registry';
@@ -20,13 +21,15 @@ const getResourceStatus = (chapter: UPSCChapter) => {
 
 export default function TeacherUPSCResourcesPage() {
     const [searchQuery, setSearchQuery] = useState("");
-    const [selectedBook, setSelectedBook] = useState('laxmikanth');
+    const [selectedSubject, setSelectedSubject] = useState<string>("");
+    const [selectedBook, setSelectedBook] = useState<string>("");
 
-    const activeBook = UPSC_CATALOG
-        .flatMap(s => s.books)
-        .find(b => b.id === selectedBook);
+    const subject = UPSC_CATALOG.find(s => s.id === selectedSubject);
+    const books = subject?.books || [];
 
-    const chapters = getBookChapters(selectedBook);
+    const activeBook = books.find(b => b.id === selectedBook);
+
+    const chapters = selectedBook ? getBookChapters(selectedBook) : [];
 
     // Filter logic
     const filteredChapters = chapters.filter(c =>
@@ -57,45 +60,82 @@ export default function TeacherUPSCResourcesPage() {
                 </div>
             </div>
 
-            {/* Book Tabs */}
-            <Tabs value={selectedBook} onValueChange={setSelectedBook} className="w-full">
-                <TabsList className="mb-6 flex flex-wrap h-auto gap-2 bg-transparent p-0">
-                    <TabsTrigger value="laxmikanth" className="border border-gray-200 dark:border-gray-800 data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-                        Laxmikanth
-                    </TabsTrigger>
-                    <TabsTrigger value="dd-basu" className="border border-gray-200 dark:border-gray-800 data-[state=active]:bg-purple-600 data-[state=active]:text-white">
-                        DD Basu
-                    </TabsTrigger>
-                    <TabsTrigger value="ncert-polity-11" className="border border-gray-200 dark:border-gray-800 data-[state=active]:bg-green-600 data-[state=active]:text-white">
-                        NCERT 11th
-                    </TabsTrigger>
-                    <TabsTrigger value="ncert-polity-12" className="border border-gray-200 dark:border-gray-800 data-[state=active]:bg-teal-600 data-[state=active]:text-white">
-                        NCERT 12th
-                    </TabsTrigger>
-                </TabsList>
+            {/* Filters */}
+            <div className="bg-white dark:bg-[#111] p-4 rounded-lg border border-gray-200 dark:border-gray-800 flex flex-wrap gap-4 items-end">
+                <div className="space-y-2 min-w-[200px]">
+                    <label className="text-sm font-medium">Subject</label>
+                    <Select value={selectedSubject} onValueChange={(val) => {
+                        setSelectedSubject(val);
+                        // Auto-select first book
+                        const subj = UPSC_CATALOG.find(s => s.id === val);
+                        if (subj && subj.books.length > 0) {
+                            setSelectedBook(subj.books[0].id);
+                        } else {
+                            setSelectedBook("");
+                        }
+                    }}>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Select Subject" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {UPSC_CATALOG.map(subj => (
+                                <SelectItem key={subj.id} value={subj.id}>{subj.title}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
 
-                <TabsContent value={selectedBook}>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle className="flex items-center justify-between">
-                                <span>{activeBook?.title}</span>
-                                <span className="text-sm font-normal text-gray-500">{filteredChapters.length} Chapters Found</span>
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="rounded-md border border-gray-200 dark:border-gray-800 overflow-hidden">
-                                <table className="w-full text-sm">
-                                    <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-                                        <tr>
-                                            <th className="px-4 py-3 text-left font-medium text-gray-500">#</th>
-                                            <th className="px-4 py-3 text-left font-medium text-gray-500">Chapter Title</th>
-                                            <th className="px-4 py-3 text-center font-medium text-gray-500">PDF Notes</th>
-                                            <th className="px-4 py-3 text-center font-medium text-gray-500">MCQs</th>
-                                            <th className="px-4 py-3 text-center font-medium text-gray-500">Flashcards</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
-                                        {filteredChapters.map((chapter) => {
+                <div className="space-y-2 min-w-[200px]">
+                    <label className="text-sm font-medium">Book</label>
+                    <Select value={selectedBook} onValueChange={setSelectedBook} disabled={!selectedSubject}>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Select Book" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {books.map(book => (
+                                <SelectItem key={book.id} value={book.id}>{book.title}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+
+                <div className="flex-1 min-w-[200px]">
+                    <div className="relative">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <Input
+                            placeholder="Search chapters..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="pl-9"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/* Results Table */}
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                        <span>{activeBook?.title || "Select a Book"}</span>
+                        <span className="text-sm font-normal text-gray-500">{filteredChapters.length} Chapters Found</span>
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    {selectedBook ? (
+                        <div className="rounded-md border border-gray-200 dark:border-gray-800 overflow-hidden">
+                            <table className="w-full text-sm">
+                                <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+                                    <tr>
+                                        <th className="px-4 py-3 text-left font-medium text-gray-500">#</th>
+                                        <th className="px-4 py-3 text-left font-medium text-gray-500">Chapter Title</th>
+                                        <th className="px-4 py-3 text-center font-medium text-gray-500">PDF Notes</th>
+                                        <th className="px-4 py-3 text-center font-medium text-gray-500">MCQs</th>
+                                        <th className="px-4 py-3 text-center font-medium text-gray-500">Flashcards</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                                    {filteredChapters.length > 0 ? (
+                                        filteredChapters.map((chapter) => {
                                             const status = getResourceStatus(chapter);
                                             return (
                                                 <tr key={chapter.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
@@ -142,14 +182,25 @@ export default function TeacherUPSCResourcesPage() {
                                                     </td>
                                                 </tr>
                                             );
-                                        })}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </TabsContent>
-            </Tabs>
+                                        })
+                                    ) : (
+                                        <tr>
+                                            <td colSpan={5} className="px-4 py-8 text-center text-gray-500">
+                                                No chapters found matching "{searchQuery}"
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+                    ) : (
+                        <div className="text-center py-12 text-gray-500">
+                            <BookOpen className="w-12 h-12 mx-auto mb-3 opacity-20" />
+                            <p>Please select a subject and book to view resources.</p>
+                        </div>
+                    )}
+                </CardContent>
+            </Card>
         </div>
     );
 }
