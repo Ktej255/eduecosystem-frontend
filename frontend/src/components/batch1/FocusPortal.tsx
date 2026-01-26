@@ -29,13 +29,26 @@ import FocusAnalyticsDashboard from '@/components/batch1/FocusAnalyticsDashboard
 
 // Helper to get current schedule
 import { generateWeeklySchedule } from '@/components/batch1/polity/data/polity-schedule-data';
+import DailyProtocolTimeline from '@/components/batch1/components/DailyProtocolTimeline';
 
 type FocusTab = 'pomodoro' | 'study' | 'analytics' | 'retention';
 type Subject = 'polity' | 'history' | 'geography' | 'science';
 
 export default function FocusPortal() {
     const [activeTab, setActiveTab] = useState<FocusTab>('pomodoro');
+    const [pomodoroView, setPomodoroView] = useState<'overview' | 'session'>('overview');
     const [selectedSubject, setSelectedSubject] = useState<Subject>('polity');
+
+    const handleTimelineAction = (phaseId: number, link: string) => {
+        // If "Start Session" (Phase 3) is clicked, switch to session view within this portal
+        if (phaseId === 3) {
+            setPomodoroView('session');
+        } else {
+            // Otherwise navigate to link (Evening, etc)
+            window.location.href = link;
+        }
+    };
+
 
     // Calculate Week/Day for Pomodoro (Same logic as PolityScheduleView)
     const { weekId, dayId } = useMemo(() => {
@@ -113,18 +126,52 @@ export default function FocusPortal() {
                     >
                         {activeTab === 'pomodoro' && (
                             <div className="space-y-6">
-                                <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-xl p-4 flex items-center gap-4">
-                                    <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
-                                        <Timer className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                                    </div>
+                                {pomodoroView === 'overview' ? (
                                     <div>
-                                        <h2 className="font-bold text-orange-900 dark:text-orange-100">Live Focus Session</h2>
-                                        <p className="text-sm text-orange-700 dark:text-orange-300">
-                                            Accessing 8 AM - 2 PM Schedule (Unlimited Access Mode)
-                                        </p>
+                                        <div className="flex justify-between items-center mb-6">
+                                            <div>
+                                                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Daily Protocol</h2>
+                                                <p className="text-gray-500">Select a phase to begin</p>
+                                            </div>
+                                            <Button
+                                                variant="outline"
+                                                onClick={() => setPomodoroView('session')}
+                                                className="hidden md:flex"
+                                            >
+                                                <Timer className="mr-2 h-4 w-4" /> Go to Timer
+                                            </Button>
+                                        </div>
+                                        <DailyProtocolTimeline
+                                            weekId={weekId}
+                                            dayId={dayId}
+                                            onPhaseAction={handleTimelineAction}
+                                        />
                                     </div>
-                                </div>
-                                <PomodoroSessionView weekId={weekId} dayId={dayId} showBackButton={false} />
+                                ) : (
+                                    <div>
+                                        <div className="mb-4">
+                                            <Button
+                                                variant="ghost"
+                                                onClick={() => setPomodoroView('overview')}
+                                                className="text-gray-500 hover:text-gray-900"
+                                            >
+                                                &larr; Back to Schedule
+                                            </Button>
+                                        </div>
+                                        <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-xl p-4 flex items-center gap-4 mb-6">
+                                            <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                                                <Timer className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                                            </div>
+                                            <div>
+                                                <h2 className="font-bold text-orange-900 dark:text-orange-100">Live Focus Session</h2>
+                                                <p className="text-sm text-orange-700 dark:text-orange-300">
+                                                    Accessing 8 AM - 2 PM Schedule (Unlimited Access Mode)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <PomodoroSessionView weekId={weekId} dayId={dayId} showBackButton={false} />
+                                    </div>
+                                )}
                             </div>
                         )}
 

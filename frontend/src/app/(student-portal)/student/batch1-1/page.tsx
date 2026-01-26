@@ -29,6 +29,7 @@ const WEEKDAYS = [
 ];
 
 import { MoodTrackerModal } from "@/components/batch1-1/productivity/MoodTrackerModal";
+import DailyProtocolTimeline from "@/components/batch1/components/DailyProtocolTimeline";
 
 export default function Batch11Page() {
     const router = useRouter();
@@ -196,75 +197,8 @@ export default function Batch11Page() {
                 {/* Vertical Line */}
                 <div className="absolute left-[27px] md:left-[50px] top-8 bottom-8 w-0.5 bg-indigo-100 dark:bg-gray-800 -z-10" />
 
-                {phases.map((phase, index) => (
-                    <div key={phase.id} className="relative flex flex-col md:flex-row gap-6 md:gap-8 group">
-
-                        {/* Number/Icon Indicator */}
-                        <div className="absolute left-0 md:relative md:left-auto flex-shrink-0 z-10 bg-white dark:bg-gray-900 py-2">
-                            <div className={`w-14 h-14 rounded-full border-[3px] flex items-center justify-center text-xl font-bold shadow-sm transition-transform group-hover:scale-110 
-                                ${phase.id === 4  // Example logic: highlighting current phase could go here
-                                    ? `border-${phase.color}-500 text-${phase.color}-600 bg-${phase.color}-50`
-                                    : `border-indigo-200 text-indigo-400 bg-white dark:bg-gray-800`
-                                }`}>
-                                {phase.id}
-                            </div>
-                        </div>
-
-                        {/* Content Card */}
-                        <div className="flex-1 ml-16 md:ml-0">
-                            <Card className="border-0 shadow-lg shadow-indigo-100/40 dark:shadow-none ring-1 ring-slate-100 dark:ring-slate-800 hover:ring-indigo-200 transition-all overflow-hidden">
-                                <CardContent className="p-0 flex flex-col md:flex-row">
-
-                                    {/* Icon Box */}
-                                    <div className={`p-6 flex flex-col items-center justify-center gap-3 min-w-[120px] 
-                                        bg-gradient-to-br from-${phase.color}-50 to-white dark:from-gray-800 dark:to-gray-900`}>
-                                        <div className={`w-12 h-12 rounded-xl ${phase.bg} flex items-center justify-center shadow-inner`}>
-                                            {phase.icon}
-                                        </div>
-                                    </div>
-
-                                    {/* Text Content */}
-                                    <div className="flex-1 p-5 md:p-6 flex flex-col justify-center">
-                                        <div className="flex flex-wrap items-center gap-3 mb-2">
-                                            <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-${phase.color}-100 text-${phase.color}-700`}>
-                                                {phase.subtitle}
-                                            </span>
-                                            <span className="flex items-center text-xs text-gray-400 font-medium">
-                                                <Clock className="w-3 h-3 mr-1" /> {phase.time}
-                                            </span>
-                                        </div>
-
-                                        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                                            {phase.title}
-                                        </h3>
-
-                                        <div className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-2">
-                                            {phase.linkText}
-                                        </div>
-
-                                        <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 leading-relaxed">
-                                            {phase.desc}
-                                        </p>
-
-                                        <div className="mt-auto">
-                                            {phase.action.link !== "#" ? (
-                                                <Link href={phase.action.link}>
-                                                    <Button className={`w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-200 dark:shadow-none`}>
-                                                        {phase.action.label} <ChevronRight className="ml-2 h-4 w-4" />
-                                                    </Button>
-                                                </Link>
-                                            ) : (
-                                                <Button disabled className="w-full md:w-auto opacity-80">
-                                                    Coming Soon
-                                                </Button>
-                                            )}
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </div>
-                ))}
+                {/* Daily Protocol Timeline */}
+                <DailyProtocolTimeline weekId={selectedWeek} dayId={selectedDay} />
             </div>
 
         </div>
