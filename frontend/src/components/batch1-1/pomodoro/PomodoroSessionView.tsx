@@ -40,6 +40,7 @@ type SessionState =
 interface PomodoroSessionViewProps {
     weekId: number;
     dayId: number;
+    showBackButton?: boolean;
 }
 
 interface MCQResult {
@@ -130,7 +131,7 @@ function syncProgressToStore(
     }
 }
 
-export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionViewProps) {
+export default function PomodoroSessionView({ weekId, dayId, showBackButton = true }: PomodoroSessionViewProps) {
     const router = useRouter();
     const { user } = useAuth();
     const TOTAL_BLOCKS = 3;         // 3 Blocks of 2 hours each
@@ -579,12 +580,14 @@ export default function PomodoroSessionView({ weekId, dayId }: PomodoroSessionVi
         <div className="max-w-6xl mx-auto p-4 md:p-6">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
-                <Link href="/student/batch1-1">
-                    <Button variant="ghost">
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        Back
-                    </Button>
-                </Link>
+                {showBackButton && (
+                    <Link href="/student/batch1-1">
+                        <Button variant="ghost">
+                            <ArrowLeft className="mr-2 h-4 w-4" />
+                            Back
+                        </Button>
+                    </Link>
+                )}
                 <div className="text-center">
                     <h1 className="text-xl font-bold text-gray-800 dark:text-gray-200">
                         Week {weekId}, Day {dayId}
