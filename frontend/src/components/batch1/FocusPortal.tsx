@@ -169,7 +169,7 @@ export default function FocusPortal() {
                                                 </p>
                                             </div>
                                         </div>
-                                        <PomodoroSessionView weekId={weekId} dayId={dayId} showBackButton={false} />
+                                        <PomodoroSessionView weekId={weekId} dayId={dayId} />
                                     </div>
                                 )}
                             </div>
