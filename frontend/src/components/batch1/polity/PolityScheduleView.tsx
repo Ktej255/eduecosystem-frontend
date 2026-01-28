@@ -47,10 +47,10 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
         if (stored) setCompletedChapters(JSON.parse(stored));
 
         if (!isAdmin) {
-            // BATCH 1.1 START DATE: January 12, 2026 (Monday)
+            // BATCH 1.1 START DATE: January 1, 2026 (Thursday)
             // Force this date for all students to ensure consistency
-            const BATCH_START_DATE = '2026-01-12T00:00:00';
-            const CALENDAR_VERSION = 'v2'; // Increment this to force reset for all users
+            const BATCH_START_DATE = '2026-01-01T00:00:00';
+            const CALENDAR_VERSION = 'v3'; // Increment this to force reset for all users
 
             const storedVersion = localStorage.getItem('polity_calendar_version');
             let startDate: Date;

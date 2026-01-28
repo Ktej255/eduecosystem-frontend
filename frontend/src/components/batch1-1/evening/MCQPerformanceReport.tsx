@@ -179,6 +179,8 @@ export default function MCQPerformanceReport({ results, onClose }: MCQPerformanc
                                 <div className="space-y-3">
                                     {stats.criticalWeaknesses.map(w => {
                                         const subtopic = CHAPTER_SUBTOPICS[Number(w.subtopicId?.split('.')[0])]?.find(s => s.id === w.subtopicId);
+                                        const chapterId = w.subtopicId?.split('.')[0];
+
                                         return (
                                             <div key={w.questionId} className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-red-100 dark:border-red-900/30 flex items-center justify-between">
                                                 <div className="text-xs">
@@ -187,7 +189,16 @@ export default function MCQPerformanceReport({ results, onClose }: MCQPerformanc
                                                     </span>
                                                     <span className="text-slate-600 dark:text-slate-400 italic">Conceptual Gap identified.</span>
                                                 </div>
-                                                <Button variant="ghost" size="sm" className="h-8 text-[10px] text-indigo-600 hover:text-indigo-700">
+                                                <Button
+                                                    variant="ghost"
+                                                    size="sm"
+                                                    className="h-8 text-[10px] text-indigo-600 hover:text-indigo-700"
+                                                    onClick={() => {
+                                                        if (chapterId) {
+                                                            window.location.href = `/student/batch1/polity/topic/${chapterId}`;
+                                                        }
+                                                    }}
+                                                >
                                                     Revise Now <ArrowRight size={10} className="ml-1" />
                                                 </Button>
                                             </div>

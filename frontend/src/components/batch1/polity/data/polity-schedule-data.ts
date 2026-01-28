@@ -12,123 +12,126 @@ export interface ChapterSchedule {
 export const SLOTS_PER_DAY = 6;
 
 export const LAXMIKANTH_CHAPTERS: ChapterSchedule[] = [
-    // INTRODUCTORY BLOCK (Week 1)
-    { chapter: 11, part: 'I', topic: "Amendment of the Constitution", pages: 6, slots: 1 },
-    { chapter: 12, part: 'I', topic: "Basic Structure of the Constitution", pages: 6, slots: 1 },
-    { chapter: 13, part: 'II', topic: "Parliamentary System", pages: 12, slots: 2 },
-    { chapter: 14, part: 'II', topic: "Federal System", pages: 12, slots: 2 },
-    { chapter: 15, part: 'II', topic: "Centre–State Relations", pages: 32, slots: 6 },
-    { chapter: 16, part: 'II', topic: "Inter-State Relations", pages: 12, slots: 2 },
-    { chapter: 17, part: 'II', topic: "Emergency Provisions", pages: 20, slots: 4 },
-    { chapter: 18, part: 'III', topic: "President", pages: 24, slots: 4 },
-    { chapter: 31, part: 'IV', topic: "Governor", pages: 18, slots: 3, comparativeWith: 18 },
-    // End of Week 1 approx.
-
-    // WEEK 2 ALIGNMENT (Strictly as per Visual Plan)
-    // Monday
-    { chapter: 19, part: 'III', topic: "Vice-President", pages: 8, slots: 2 },
-
-    // Monday (part) -> Tuesday -> Wednesday (part)
-    // Parliament (ID 22 in subtopics)
-    { chapter: 22, part: 'III', topic: "Parliament", pages: 90, slots: 15 },
-
-    // Wednesday (part) -> Thursday (part)
-    // State Legislature (ID 36 in subtopics)
-    { chapter: 36, part: 'IV', topic: "State Legislature", pages: 36, slots: 6, comparativeWith: 22 },
-
-    // Thursday (part)
-    // Parliamentary Committees (ID 23 in subtopics)
-    { chapter: 23, part: 'III', topic: "Parliamentary Committees", pages: 22, slots: 4 },
-
-    // Friday
-    // Cabinet Committees (ID 21 usually, but creating alias ch 21 for now or using 21 if fits)
-    { chapter: 21, part: 'III', topic: "Cabinet Committees", pages: 6, slots: 1 },
-    // Supreme Court (ID 26 in subtopics)
-    { chapter: 26, part: 'III', topic: "Supreme Court", pages: 24, slots: 4 },
-    // High Court (ID 34 in subtopics)
-    { chapter: 34, part: 'IV', topic: "High Court", pages: 18, slots: 3, comparativeWith: 26 },
-
-    // Next Modules (Shifted)
-    { chapter: 20, part: 'III', topic: "Prime Minister", pages: 8, slots: 2 },
-    { chapter: 32, part: 'IV', topic: "Chief Minister", pages: 8, slots: 2, comparativeWith: 20 },
-    { chapter: 33, part: 'IV', topic: "State Council of Ministers", pages: 10, slots: 2, comparativeWith: 21 },
-
-    { chapter: 37, part: 'IV', topic: "Subordinate Courts (District)", pages: 12, slots: 2 },
-    { chapter: 36, part: 'IV', topic: "Tribunals", pages: 10, slots: 2 },
-    { chapter: 28, part: 'III', topic: "Judicial Review", pages: 8, slots: 2 },
-    { chapter: 29, part: 'III', topic: "Judicial Activism", pages: 6, slots: 1 },
-    { chapter: 30, part: 'IV', topic: "Public Interest Litigation", pages: 10, slots: 2 },
-
-    // MODULE 4: The "Federal Axis" Extensions
-    { chapter: 47, part: 'VII', topic: "GST Council", pages: 8, slots: 2 },
-    { chapter: 55, part: 'VIII', topic: "NITI Aayog", pages: 14, slots: 3 },
-
-    // MODULE 5: The "Philosophy" Extensions
+    // PART I: Constitutional Framework
+    { chapter: 1, part: 'I', topic: "Historical Background", pages: 15, slots: 3 },
+    { chapter: 2, part: 'I', topic: "Making of the Constitution", pages: 12, slots: 2 },
+    { chapter: 3, part: 'I', topic: "Concept of the Constitution", pages: 8, slots: 2 },
+    { chapter: 4, part: 'I', topic: "Salient Features of the Constitution", pages: 15, slots: 3 },
+    { chapter: 5, part: 'I', topic: "Preamble of the Constitution", pages: 10, slots: 2 },
+    { chapter: 6, part: 'I', topic: "Union and Its Territory", pages: 10, slots: 2 },
+    { chapter: 7, part: 'I', topic: "Citizenship", pages: 12, slots: 2 },
+    { chapter: 8, part: 'I', topic: "Fundamental Rights", pages: 40, slots: 8 },
     { chapter: 9, part: 'I', topic: "Directive Principles of State Policy", pages: 15, slots: 3 },
     { chapter: 10, part: 'I', topic: "Fundamental Duties", pages: 6, slots: 1 },
+    { chapter: 11, part: 'I', topic: "Amendment of the Constitution", pages: 10, slots: 2 },
+    { chapter: 12, part: 'I', topic: "Basic Structure of the Constitution", pages: 10, slots: 2 },
 
-    // MODULE 6: Constitutional Bodies
-    { chapter: 43, part: 'VII', topic: "Election Commission", pages: 12, slots: 2 },
-    { chapter: 52, part: 'VII', topic: "Comptroller and Auditor General of India", pages: 12, slots: 2 },
-    { chapter: 44, part: 'VII', topic: "UPSC", pages: 12, slots: 2 },
-    { chapter: 45, part: 'VII', topic: "SPSC", pages: 8, slots: 2, comparativeWith: 44 },
-    { chapter: 46, part: 'VII', topic: "Finance Commission", pages: 8, slots: 2 },
-    { chapter: 48, part: 'VII', topic: "National Commission for SCs", pages: 6, slots: 1 },
-    { chapter: 49, part: 'VII', topic: "National Commission for STs", pages: 6, slots: 1 },
-    { chapter: 50, part: 'VII', topic: "National Commission for BCs", pages: 6, slots: 1 },
-    { chapter: 51, part: 'VII', topic: "Special Officer for Linguistic Minorities", pages: 4, slots: 1 },
-    { chapter: 53, part: 'VII', topic: "Attorney General of India", pages: 8, slots: 2 },
-    { chapter: 54, part: 'VII', topic: "Advocate General of the State", pages: 6, slots: 1, comparativeWith: 53 },
+    // PART II: System of Government
+    { chapter: 13, part: 'II', topic: "Parliamentary System", pages: 12, slots: 2 },
+    { chapter: 14, part: 'II', topic: "Federal System", pages: 12, slots: 2 },
+    { chapter: 15, part: 'II', topic: "Centre-State Relations", pages: 25, slots: 5 },
+    { chapter: 16, part: 'II', topic: "Inter-State Relations", pages: 12, slots: 2 },
+    { chapter: 17, part: 'II', topic: "Emergency Provisions", pages: 20, slots: 4 },
 
-    // MODULE 7: Local & Special Governance
-    { chapter: 39, part: 'V', topic: "Panchayati Raj", pages: 30, slots: 5 },
-    { chapter: 40, part: 'V', topic: "Municipalities", pages: 18, slots: 3 },
+    // PART III: Central Government
+    { chapter: 18, part: 'III', topic: "President", pages: 30, slots: 6 },
+    { chapter: 19, part: 'III', topic: "Vice-President", pages: 10, slots: 2 },
+    { chapter: 20, part: 'III', topic: "Prime Minister", pages: 12, slots: 2 },
+    { chapter: 21, part: 'III', topic: "Central Council of Ministers", pages: 10, slots: 2 },
+    { chapter: 22, part: 'III', topic: "Cabinet Committees", pages: 8, slots: 2 },
+    { chapter: 23, part: 'III', topic: "Parliament", pages: 45, slots: 9 },
+    { chapter: 24, part: 'III', topic: "Parliamentary Committees", pages: 20, slots: 4 },
+    { chapter: 25, part: 'III', topic: "Indian Parliamentary Group", pages: 8, slots: 2 },
+    { chapter: 26, part: 'III', topic: "Supreme Court", pages: 25, slots: 5 },
+    { chapter: 27, part: 'III', topic: "Judicial Review", pages: 10, slots: 2 },
+    { chapter: 28, part: 'III', topic: "Judicial Activism", pages: 8, slots: 2 },
+    { chapter: 29, part: 'III', topic: "Public Interest Litigation", pages: 10, slots: 2 },
+
+    // PART IV: State Government
+    { chapter: 30, part: 'IV', topic: "Governor", pages: 25, slots: 5, comparativeWith: 18 },
+    { chapter: 31, part: 'IV', topic: "Chief Minister", pages: 10, slots: 2, comparativeWith: 20 },
+    { chapter: 32, part: 'IV', topic: "State Council of Ministers", pages: 10, slots: 2, comparativeWith: 21 },
+    { chapter: 33, part: 'IV', topic: "State Legislature", pages: 35, slots: 7, comparativeWith: 23 },
+    { chapter: 34, part: 'IV', topic: "High Court", pages: 20, slots: 4, comparativeWith: 26 },
+    { chapter: 35, part: 'IV', topic: "Subordinate Courts", pages: 10, slots: 2 },
+    { chapter: 36, part: 'IV', topic: "Tribunals", pages: 12, slots: 2 },
+    { chapter: 37, part: 'IV', topic: "Consumer Commissions", pages: 10, slots: 2 },
+    { chapter: 38, part: 'IV', topic: "Lok Adalats and Other Courts", pages: 10, slots: 2 },
+
+    // PART V: Local Government
+    { chapter: 39, part: 'V', topic: "Panchayati Raj", pages: 25, slots: 5 },
+    { chapter: 40, part: 'V', topic: "Municipalities", pages: 20, slots: 4 },
+
+    // PART VI: Union Territories and Special Areas
     { chapter: 41, part: 'VI', topic: "Union Territories", pages: 10, slots: 2 },
-    { chapter: 42, part: 'VI', topic: "Scheduled and Tribal Areas", pages: 8, slots: 2 },
-    { chapter: 38, part: 'IV', topic: "Special Provisions for Some States", pages: 12, slots: 2 },
+    { chapter: 42, part: 'VI', topic: "Scheduled and Tribal Areas", pages: 10, slots: 2 },
 
-    // MODULE 8: Current Affairs & Updates (8th Edition Specials)
-    { chapter: 94, part: 'XI', topic: "Bharatiya Nyaya Sanhita (Criminal Law Reforms)", pages: 20, slots: 4 },
-    { chapter: 95, part: 'XI', topic: "One Nation One Election", pages: 10, slots: 2 },
-    { chapter: 92, part: 'XI', topic: "National Commission for Persons with Disabilities", pages: 10, slots: 2 },
-    { chapter: 93, part: 'XI', topic: "Model Code of Conduct", pages: 10, slots: 2 },
+    // PART VII: Constitutional Bodies
+    { chapter: 43, part: 'VII', topic: "Election Commission", pages: 12, slots: 2 },
+    { chapter: 44, part: 'VII', topic: "Union Public Service Commission", pages: 12, slots: 2 },
+    { chapter: 45, part: 'VII', topic: "State Public Service Commission", pages: 8, slots: 2, comparativeWith: 44 },
+    { chapter: 46, part: 'VII', topic: "Finance Commission", pages: 10, slots: 2 },
+    { chapter: 47, part: 'VII', topic: "Goods and Services Tax Council", pages: 8, slots: 2 },
+    { chapter: 48, part: 'VII', topic: "National Commission for SCs", pages: 8, slots: 2 },
+    { chapter: 49, part: 'VII', topic: "National Commission for STs", pages: 8, slots: 2 },
+    { chapter: 50, part: 'VII', topic: "National Commission for BCs", pages: 8, slots: 2 },
+    { chapter: 51, part: 'VII', topic: "Special Officer for Linguistic Minorities", pages: 5, slots: 1 },
+    { chapter: 52, part: 'VII', topic: "Comptroller and Auditor General of India", pages: 12, slots: 2 },
+    { chapter: 53, part: 'VII', topic: "Attorney General of India", pages: 10, slots: 2 },
+    { chapter: 54, part: 'VII', topic: "Advocate General of the State", pages: 8, slots: 2, comparativeWith: 53 },
 
-    // REMAINING CHAPTERS
-    { chapter: 56, part: 'VIII', topic: "National Human Rights Commission", pages: 10, slots: 2 },
-    { chapter: 57, part: 'VIII', topic: "State Human Rights Commission", pages: 6, slots: 1, comparativeWith: 56 },
-    { chapter: 58, part: 'VIII', topic: "Central Information Commission", pages: 8, slots: 2 },
-    { chapter: 59, part: 'VIII', topic: "State Information Commission", pages: 6, slots: 1, comparativeWith: 58 },
-    { chapter: 60, part: 'VIII', topic: "Central Vigilance Commission", pages: 8, slots: 2 },
-    { chapter: 61, part: 'VIII', topic: "Central Bureau of Investigation", pages: 10, slots: 2 },
-    { chapter: 62, part: 'VIII', topic: "Lokpal and Lokayuktas", pages: 12, slots: 2 },
-    { chapter: 63, part: 'VIII', topic: "National Investigation Agency", pages: 6, slots: 1 },
-    { chapter: 64, part: 'VIII', topic: "National Disaster Management Authority", pages: 6, slots: 1 },
-    { chapter: 65, part: 'VIII', topic: "National Commission for Women", pages: 6, slots: 1 },
-    { chapter: 66, part: 'VIII', topic: "NCPCR", pages: 6, slots: 1 },
-    { chapter: 67, part: 'VIII', topic: "National Commission for Minorities", pages: 6, slots: 1 },
-    { chapter: 68, part: 'VIII', topic: "Tribunals", pages: 10, slots: 2 },
-    { chapter: 69, part: 'VIII', topic: "Law Commission", pages: 6, slots: 1 },
-    { chapter: 70, part: 'VIII', topic: "Delimitation Commission", pages: 6, slots: 1 },
-    { chapter: 71, part: 'VIII', topic: "Consumer Commissions", pages: 8, slots: 2 },
-    { chapter: 72, part: 'IX', topic: "Official Language", pages: 12, slots: 2 },
-    { chapter: 73, part: 'IX', topic: "Public Services", pages: 14, slots: 3 },
-    { chapter: 74, part: 'IX', topic: "Rights and Liabilities of Government", pages: 10, slots: 2 },
-    { chapter: 75, part: 'IX', topic: "Special Provisions for Certain Classes", pages: 12, slots: 2 },
-    { chapter: 76, part: 'IX', topic: "Bar Council of India", pages: 6, slots: 1 },
-    { chapter: 77, part: 'IX', topic: "Competition Commission of India", pages: 6, slots: 1 },
-    { chapter: 79, part: 'X', topic: "Role of Regional Parties", pages: 8, slots: 2 },
-    { chapter: 80, part: 'X', topic: "Elections", pages: 14, slots: 3 },
-    { chapter: 81, part: 'X', topic: "Election Laws", pages: 10, slots: 2 },
-    { chapter: 82, part: 'X', topic: "Electoral Reforms", pages: 12, slots: 2 },
-    { chapter: 83, part: 'X', topic: "Voting Behaviour", pages: 8, slots: 2 },
-    { chapter: 84, part: 'X', topic: "Anti-Defection Law", pages: 10, slots: 2 },
-    { chapter: 85, part: 'X', topic: "Pressure Groups", pages: 8, slots: 2 },
-    { chapter: 86, part: 'X', topic: "National Integration", pages: 8, slots: 2 },
-    { chapter: 87, part: 'X', topic: "Foreign Policy", pages: 10, slots: 2 },
-    { chapter: 88, part: 'X', topic: "Public Policy", pages: 8, slots: 2 },
-    { chapter: 89, part: 'XI', topic: "Landmark Judgements and their Impact", pages: 20, slots: 4 },
-    { chapter: 90, part: 'XI', topic: "Important Doctrines of Constitutional Interpretation", pages: 12, slots: 2 },
-    { chapter: 91, part: 'XI', topic: "World Constitutions comparison", pages: 30, slots: 5 },
+    // PART VIII: Non-Constitutional Bodies
+    // Note: Chapter 55 is skipped in the provided source material
+    { chapter: 56, part: 'VIII', topic: "NITI Aayog", pages: 12, slots: 2 },
+    { chapter: 57, part: 'VIII', topic: "National Human Rights Commission", pages: 10, slots: 2 },
+    { chapter: 58, part: 'VIII', topic: "State Human Rights Commission", pages: 8, slots: 2, comparativeWith: 57 },
+    { chapter: 59, part: 'VIII', topic: "National Commission for Women", pages: 8, slots: 2 },
+    { chapter: 60, part: 'VIII', topic: "National Commission for Protection of Child Rights", pages: 8, slots: 2 },
+    { chapter: 61, part: 'VIII', topic: "National Commission for Minorities", pages: 8, slots: 2 },
+    { chapter: 62, part: 'VIII', topic: "Central Information Commission", pages: 10, slots: 2 },
+    { chapter: 63, part: 'VIII', topic: "State Information Commission", pages: 8, slots: 2, comparativeWith: 62 },
+    { chapter: 64, part: 'VIII', topic: "Central Vigilance Commission", pages: 10, slots: 2 },
+    { chapter: 65, part: 'VIII', topic: "Central Bureau of Investigation", pages: 12, slots: 2 },
+    { chapter: 66, part: 'VIII', topic: "Lokpal and Lokayuktas", pages: 15, slots: 3 },
+    { chapter: 67, part: 'VIII', topic: "National Investigation Agency", pages: 8, slots: 2 },
+    { chapter: 68, part: 'VIII', topic: "National Disaster Management Authority", pages: 8, slots: 2 },
+    { chapter: 69, part: 'VIII', topic: "Bar Council of India", pages: 6, slots: 1 },
+    { chapter: 70, part: 'VIII', topic: "Law Commission of India", pages: 8, slots: 2 },
+    { chapter: 71, part: 'VIII', topic: "Delimitation Commission of India", pages: 8, slots: 2 },
+    { chapter: 72, part: 'VIII', topic: "North Eastern Council", pages: 6, slots: 1 },
+
+    // PART IX: Other Constitutional Dimensions
+    { chapter: 73, part: 'IX', topic: "Co-operative Societies", pages: 8, slots: 2 },
+    { chapter: 74, part: 'IX', topic: "Official Language", pages: 12, slots: 2 },
+    { chapter: 75, part: 'IX', topic: "Public Services", pages: 15, slots: 3 },
+    { chapter: 76, part: 'IX', topic: "Rights and Liabilities of Government", pages: 10, slots: 2 },
+    { chapter: 77, part: 'IX', topic: "Special Provisions Relating to Certain Classes", pages: 12, slots: 2 },
+    { chapter: 78, part: 'IX', topic: "Special Provisions for Some States", pages: 12, slots: 2 },
+
+    // PART X: Political Dynamics
+    { chapter: 79, part: 'X', topic: "Political Parties", pages: 12, slots: 2 },
+    { chapter: 80, part: 'X', topic: "Role of Regional Parties", pages: 10, slots: 2 },
+    { chapter: 81, part: 'X', topic: "Elections", pages: 15, slots: 3 },
+    { chapter: 82, part: 'X', topic: "Election Laws", pages: 12, slots: 2 },
+    { chapter: 83, part: 'X', topic: "Electoral Reforms", pages: 15, slots: 3 },
+    { chapter: 84, part: 'X', topic: "Voting Behaviour", pages: 10, slots: 2 },
+    { chapter: 85, part: 'X', topic: "Coalition Government", pages: 8, slots: 2 },
+    { chapter: 86, part: 'X', topic: "Anti-Defection Law", pages: 12, slots: 2 },
+    { chapter: 87, part: 'X', topic: "Pressure Groups", pages: 10, slots: 2 },
+    { chapter: 88, part: 'X', topic: "National Integration", pages: 10, slots: 2 },
+    { chapter: 89, part: 'X', topic: "Foreign Policy", pages: 12, slots: 2 },
+
+    // PART XI: Working of the Constitution
+    { chapter: 90, part: 'XI', topic: "National Commission to Review the Working of the Constitution", pages: 15, slots: 3 },
+
+    // PART XII: Judgements & Doctrines
+    { chapter: 91, part: 'XII', topic: "Landmark Judgements and Their Impact", pages: 20, slots: 4 },
+    { chapter: 92, part: 'XII', topic: "Judgements Expanding the Scope of Article 21", pages: 10, slots: 2 },
+    { chapter: 93, part: 'XII', topic: "Judgements Relating to the Amendments", pages: 12, slots: 2 },
+    { chapter: 94, part: 'XII', topic: "Important Doctrines of Constitutional Interpretation", pages: 15, slots: 3 },
+
+    // PART XIII: Comparison of the Constitutions
+    { chapter: 95, part: 'XIII', topic: "World Constitutions", pages: 30, slots: 5 },
 ];
 
 export interface WeeklySchedule {

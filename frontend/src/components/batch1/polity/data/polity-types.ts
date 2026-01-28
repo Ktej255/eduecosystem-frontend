@@ -1,6 +1,6 @@
 // UPSC Polity Module - Type Definitions
 
-export type ModuleId = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII' | 'VIII' | 'IX' | 'X' | 'XI';
+export type ModuleId = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII' | 'VIII' | 'IX' | 'X' | 'XI' | 'XII' | 'XIII';
 export type PartId = ModuleId;
 export type Priority = 'High' | 'Medium' | 'Low';
 export type PointerCategory = 'Article' | 'Amendment' | 'Case' | 'Year' | 'Commission' | 'Act' | 'Person' | 'Body' | 'Fact' | 'Committee';
@@ -93,10 +93,12 @@ export const POLITY_MODULES: PolityModule[] = [
     { id: 'V', title: 'Local Government', description: 'Grassroots Democracy', color: 'green', topicRange: [39, 40], icon: '🏘️' },
     { id: 'VI', title: 'UTs and Special Areas', description: 'Specific Regions', color: 'rose', topicRange: [41, 42], icon: '🗺️' },
     { id: 'VII', title: 'Constitutional Bodies', description: 'Watchdogs', color: 'amber', topicRange: [43, 54], icon: '🔰' },
-    { id: 'VIII', title: 'Non-Constitutional Bodies', description: 'Statutory/Executive', color: 'orange', topicRange: [55, 71], icon: '🛡️' },
-    { id: 'IX', title: 'Other Dimensions', description: 'Specific Aspects', color: 'teal', topicRange: [72, 77], icon: '📦' },
-    { id: 'X', title: 'Political Dynamics', description: 'Elections & Parties', color: 'pink', topicRange: [78, 88], icon: '🗳️' },
-    { id: 'XI', title: 'Working of the Constitution', description: 'Latest Updates', color: 'cyan', topicRange: [89, 95], icon: '🔄' },
+    { id: 'VIII', title: 'Non-Constitutional Bodies', description: 'Statutory/Executive', color: 'orange', topicRange: [56, 72], icon: '🛡️' },
+    { id: 'IX', title: 'Other Dimensions', description: 'Specific Aspects', color: 'teal', topicRange: [73, 78], icon: '📦' },
+    { id: 'X', title: 'Political Dynamics', description: 'Elections & Parties', color: 'pink', topicRange: [79, 89], icon: '🗳️' },
+    { id: 'XI', title: 'Working of the Constitution', description: 'Latest Updates', color: 'cyan', topicRange: [90, 90], icon: '🔄' },
+    { id: 'XII', title: 'Judgements & Doctrines', description: 'Key Rulings', color: 'red', topicRange: [91, 94], icon: '⚖️' },
+    { id: 'XIII', title: 'Comparison of Constitutions', description: 'Global Context', color: 'slate', topicRange: [95, 95], icon: '🌍' },
 ];
 
 // Get module by ID

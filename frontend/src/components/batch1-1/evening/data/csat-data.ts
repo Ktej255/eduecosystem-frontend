@@ -5799,13 +5799,13 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                 content: "Source Text: The Trade and Economic Partnership Agreement (TEPA) with the European Free Trade Association (EFTA) is unique. Unlike typical Free Trade Agreements (FTAs) based on tariff cuts, this one includes a binding investment commitment: EFTA nations (Switzerland, Norway, etc.) have pledged to invest $100 billion in India over 15 years. In return, India has lowered duties on high-end Swiss chocolates, watches, and machinery. This marks a shift in India’s trade strategy—leveraging its large market access not just for lower import duties, but for hard capital and technology transfer.",
                 questions: [
                     {
-                        id: 1,
+                        id: 2901,
                         question: "How does the India-EFTA TEPA differ from typical Free Trade Agreements according to the passage?",
                         options: [
-                            "It involves no tariff reductions.",
-                            "It is the first agreement with European countries.",
+                            "It primarily focuses on eliminating tariffs for agricultural products like mangoes without any investment clauses.",
+                            "It is a standard trade deal that relies exclusively on tariff reductions to boost bilateral trade volume.",
                             "It includes a binding commitment of $100 billion investment in India, unlike standard tariff-centric deals.",
-                            "It focuses solely on the export of mangoes."
+                            "It mandates European countries to import $100 billion worth of goods from India annually."
                         ],
                         correctAnswer: 2,
                         explanation: "Text says: 'Unlike typical FTAs based on tariff cuts, this one includes a binding investment commitment'."
@@ -5819,13 +5819,13 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                 content: "Source Text: NITI Aayog's latest report claims that 24.8 crore Indians escaped multidimensional poverty in the last 9 years. The MPI considers health, education, and standard of living (sanitation, cooking fuel, etc.). Critics argue that 'escaping poverty' doesn't mean becoming prosperous; it just means crossing a very low bar of deprivation. While infrastructure gaps (toilets, electricity) have been plugged, the quality of services—learning outcomes in schools or malnutrition levels—remains a concern. The quantitative success mocks the qualitative stagnation.",
                 questions: [
                     {
-                        id: 2,
+                        id: 2902,
                         question: "What is the primary criticism leveled against the MPI success figures in the passage?",
                         options: [
-                            "The data is fabricated.",
+                            "The report relies on outdated data from 9 years ago and does not account for recent inflation.",
                             "It focuses on quantitative infrastructure gaps (toilets, electricity) while ignoring the qualitative stagnation in services like education and nutrition.",
-                            "It only measures income poverty.",
-                            "It excludes rural areas."
+                            "It incorrectly counts people as \"non-poor\" even if they lack basic access to sanitation and cooking fuel.",
+                            "It prioritizes rural poverty reduction while completely neglecting the rise in urban poverty."
                         ],
                         correctAnswer: 1,
                         explanation: "Text says: 'quantitative success mocks the qualitative stagnation... quality of services... remains a concern'."
@@ -5839,13 +5839,13 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                 content: "Source Text: The PM-PRANAM scheme aims to save the soil by incentivizing states to reduce the use of chemical fertilizers. The subsidy burden for fertilizers has crossed ₹2.25 lakh crore. The scheme grants 50% of the subsidy savings back to the state that reduces consumption. This is a 'nudge' policy. It promotes alternative fertilizers like nano-urea and bio-fertilizers. The ultimate goal is to break the vicious cycle where cheap urea leads to overuse, which degrades soil health, forcing farmers to use even more urea.",
                 questions: [
                     {
-                        id: 3,
+                        id: 2903,
                         question: "The 'vicious cycle' mentioned in the text refers to:",
                         options: [
-                            "The government printing money to pay subsidies.",
+                            "The increasing subsidy burden leading to higher taxes, which in turn reduces farmer income.",
                             "Cheap urea leading to overuse, degrading soil, which in turn necessitates even more urea.",
-                            "Farmers taking loans to buy tractors.",
-                            "States fighting with the Centre for funds."
+                            "The shift from chemical fertilizers to bio-fertilizers causing a temporary drop in crop yields.",
+                            "States competing for federal grants, leading to a neglect of agricultural infrastructure."
                         ],
                         correctAnswer: 1,
                         explanation: "Text explicitly describes the cycle: 'cheap urea leads to overuse -> degrades soil -> forcing farmers to use even more'."
@@ -5859,13 +5859,13 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                 content: "Source Text: Prime Minister Modi launched Mission LiFE (Lifestyle for Environment) at COP26. It shifts the climate narrative from government policy to individual behavior. The premise is that small changes—switching off lights, carrying cloth bags, eating millet—can have a massive aggregate impact. It targets the 'throwaway culture' of consumerism. While policies regulate supply (industry), LiFE attempts to regulate demand (citizens). However, critics argue this shifts the guilt and responsibility onto individuals, absolving large corporations who are the biggest polluters.",
                 questions: [
                     {
-                        id: 4,
+                        id: 2904,
                         question: "Mission LiFE attempts to shift the focus of climate action from:",
                         options: [
-                            "Solar power to Wind power.",
+                            "Regulating demand (citizens) to strictly regulating supply (industrial pollution).",
                             "Government policy/Industry regulation to Individual behavior/Demand.",
-                            "Developed nations to Developing nations.",
-                            "Carbon credits to Carbon tax."
+                            "Domestic climate action to international climate finance obligations.",
+                            "Consumer culture to a corporate-led sustainability model."
                         ],
                         correctAnswer: 1,
                         explanation: "Text says: 'shifts the climate narrative from government policy to individual behavior'."
@@ -5904,13 +5904,13 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                 content: "Source Text: Launched at the G20, the GBA aims to do for biofuels what the International Solar Alliance did for solar energy. It brings together producers (India, Brazil, USA) to create standards and a global market. Biofuels are the only viable low-carbon solution for sectors like aviation where batteries are too heavy. However, the 'food security' concern persists. Brazil's success with sugarcane ethanol is due to abundant land. In land-scarce India, the GBA's success depends on technology that can convert agricultural waste (not food) into fuel efficiently.",
                 questions: [
                     {
-                        id: 1,
+                        id: 3001,
                         question: "Why are biofuels considered critical for the aviation sector?",
                         options: [
-                            "They are cheaper than jet fuel.",
+                            "They are the only fuel source that can exceed the speed and efficiency of traditional jet fuel.",
                             "Batteries are currently too heavy for airplanes, making biofuels the only low-carbon alternative.",
-                            "Planes fly faster on biofuels.",
-                            "Biofuels prevent engines from freezing."
+                            "The GBA mandates that all G20 nations must switch to 100% biofuel for aviation by 2030.",
+                            "They effectively solve the food security concern by utilizing abundant agricultural land globally."
                         ],
                         correctAnswer: 1,
                         explanation: "Text states: 'only viable low-carbon solution for sectors like aviation where batteries are too heavy'."
@@ -5924,13 +5924,13 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                 content: "Source Text: The Green Credit Program (GCP) goes beyond carbon credits. While carbon credits focus only on CO2 reduction, Green Credits incentivize distinct activities like water conservation, tree plantation, and waste management. Companies can earn these credits and trade them. The criticism is 'Greenwashing'. If a mining company destroys a forest but buys Green Credits from a plantation elsewhere, does it truly compensate for the ecological loss? A monoculture plantation is not a forest. The integrity of what counts as a 'Green Credit' is the linchpin.",
                 questions: [
                     {
-                        id: 2,
+                        id: 3002,
                         question: "How does the Green Credit Program differ from Carbon Credits?",
                         options: [
-                            "It is only for farmers.",
-                            "Carbon credits focus on CO2; Green Credits incentivize a broader range of environmental activities like water and waste management.",
-                            "Green Credits are worth more money.",
-                            "Carbon credits are illegal."
+                            "Green Credits allow companies to destroy forests without penalty, whereas carbon credits do not.",
+                            "Carbon credits focus only on CO2 reduction, Green Credits incentivize distinct activities like water conservation and waste management.",
+                            "Green Credits are strictly for government agencies, while carbon credits are traded by private companies.",
+                            "Carbon credits are focused on monoculture plantations, while Green Credits prevent greenwashing."
                         ],
                         correctAnswer: 1,
                         explanation: "Text distinguishes: 'While carbon credits focus only on CO2 reduction, Green Credits incentivize distinct activities like water conservation...'."
@@ -5944,13 +5944,13 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                 content: "Source Text: The Jan Vishwas (Amendment of Provisions) Act aims to decriminalize minor offences to promote 'Ease of Doing Business'. It converts fines and imprisonment into penalties for 183 provisions across 42 laws. For example, a minor weighing error by a shopkeeper led to jail time earlier; now it is just a penalty. This reduces the burden on the judiciary and ends 'inspector raj' harassment. However, detractors warn that removing the fear of imprisonment for laws related to the Environment or Pharmacy could lead to negligence that harms public health.",
                 questions: [
                     {
-                        id: 3,
+                        id: 3003,
                         question: "What is the primary objective of the Jan Vishwas Act?",
                         options: [
-                            "To increase the number of judges.",
-                            "To build more jails.",
+                            "To increase the stringency of environmental laws to prevent public health negligence.",
+                            "To build a specialized judiciary that handles only minor business offences.",
                             "To decriminalize minor offences and replace imprisonment with penalties to improve Ease of Doing Business.",
-                            "To ban foreign businesses."
+                            "To reinstate 'inspector raj' to ensure stricter compliance with weighing standards."
                         ],
                         correctAnswer: 2,
                         explanation: "Text says: 'decriminalize minor offences... converts fines and imprisonment into penalties... Ease of Doing Business'."
@@ -5964,13 +5964,13 @@ Instead of a blanket reduction that could open doors to predators disguising coe
                 content: "Source Text: As we conclude this series, the overarching theme of the technological age is 'Governance Lag'. Whether it is Generative AI, Deepfakes, or Autonomous Weapons, technology moves faster than the law. We are building systems we do not fully understand (Black Box AI) and unleashing them into societies that are not prepared. The future belongs not just to those who can code, but to those who can code ethics into the algorithm. The question is no longer 'Can we build it?', but 'Should we build it?'.",
                 questions: [
                     {
-                        id: 4,
+                        id: 3004,
                         question: "The term 'Governance Lag' refers to:",
                         options: [
-                            "The slow internet speed in government offices.",
+                            "The inability of society to understand 'Black Box AI' systems.",
                             "The phenomenon where technological advancement outpaces the legal and regulatory frameworks meant to govern it.",
-                            "The delay in election results.",
-                            "The age difference between politicians and voters."
+                            "The delay in coding ethical algorithms due to a lack of skilled programmers.",
+                            "The hesitation of governments to use autonomous weapons in warfare."
                         ],
                         correctAnswer: 1,
                         explanation: "Text defines it: 'technology moves faster than the law'."
