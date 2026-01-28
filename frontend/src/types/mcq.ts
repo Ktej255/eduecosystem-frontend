@@ -1,3 +1,13 @@
+export interface MCQ {
+    id: string;
+    question: string;
+    options: string[];
+    correctAnswer: number;
+    explanation?: string;
+    chapterId?: number | string;
+    mediaUrl?: string;
+}
+
 export type ConfidenceLevel = 'sure-shot' | '50-50' | 'one-option-known' | 'blind-guess';
 
 export interface AnswerState {
