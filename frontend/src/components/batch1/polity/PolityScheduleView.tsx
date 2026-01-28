@@ -301,45 +301,59 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
                                                 );
                                             })
                                         ) : (
-                                            (contents as any[]).map((chapter) => {
+                                            (contents as any[]).map((chapter, idx, arr) => {
                                                 const module = getModuleById(chapter.part);
                                                 const colors = getModuleColors(module?.color || 'blue');
                                                 const isDone = completedChapters.includes(chapter.chapter);
 
+                                                // Group Header Logic
+                                                const currentGroup = chapter.group;
+                                                const prevGroup = idx > 0 ? arr[idx - 1].group : null;
+                                                const showGroupHeader = currentGroup && currentGroup !== prevGroup;
+
                                                 return (
-                                                    <div
-                                                        key={chapter.chapter}
-                                                        onClick={() => toggleCompletion(chapter.chapter)}
-                                                        className={`group relative bg-white dark:bg-[#111] rounded-2xl border p-4 transition-all cursor-pointer shadow-sm ${isDone
-                                                            ? 'border-green-500 bg-green-50/30 dark:bg-green-900/10'
-                                                            : 'border-gray-200 dark:border-gray-800 hover:border-blue-400 hover:shadow-md'
-                                                            }`}
-                                                    >
-                                                        <div className="flex items-center justify-between gap-2 mb-2">
-                                                            <div className="flex items-center gap-2">
-                                                                <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase ${isDone ? 'bg-green-600' : colors.bg} text-white`}>
-                                                                    CH {chapter.chapter}
-                                                                </span>
-                                                                <span className="text-[9px] text-gray-400 font-semibold uppercase truncate max-w-[60px]">{module?.title}</span>
+                                                    <React.Fragment key={chapter.chapter}>
+                                                        {showGroupHeader && (
+                                                            <div className="pt-2 pb-1 border-b border-gray-100 dark:border-gray-800">
+                                                                <h5 className="text-[10px] font-black uppercase tracking-widest text-indigo-500/80 flex items-center gap-1.5">
+                                                                    <Layers size={10} />
+                                                                    {currentGroup}
+                                                                </h5>
                                                             </div>
-                                                            {isDone && <ShieldCheck className="w-4 h-4 text-green-600" />}
-                                                        </div>
+                                                        )}
+                                                        <div
+                                                            onClick={() => toggleCompletion(chapter.chapter)}
+                                                            className={`group relative bg-white dark:bg-[#111] rounded-2xl border p-4 transition-all cursor-pointer shadow-sm ${isDone
+                                                                ? 'border-green-500 bg-green-50/30 dark:bg-green-900/10'
+                                                                : 'border-gray-200 dark:border-gray-800 hover:border-blue-400 hover:shadow-md'
+                                                                }`}
+                                                        >
+                                                            <div className="flex items-center justify-between gap-2 mb-2">
+                                                                <div className="flex items-center gap-2">
+                                                                    <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase ${isDone ? 'bg-green-600' : colors.bg} text-white`}>
+                                                                        CH {chapter.chapter}
+                                                                    </span>
+                                                                    <span className="text-[9px] text-gray-400 font-semibold uppercase truncate max-w-[60px]">{module?.title}</span>
+                                                                </div>
+                                                                {isDone && <ShieldCheck className="w-4 h-4 text-green-600" />}
+                                                            </div>
 
-                                                        <h4 className={`text-sm font-bold mb-3 transition-colors ${isDone ? 'text-green-800 dark:text-green-300 line-through opacity-70' : 'text-gray-800 dark:text-gray-200 group-hover:text-blue-600'}`}>
-                                                            {chapter.topic}
-                                                        </h4>
+                                                            <h4 className={`text-sm font-bold mb-3 transition-colors ${isDone ? 'text-green-800 dark:text-green-300 line-through opacity-70' : 'text-gray-800 dark:text-gray-200 group-hover:text-blue-600'}`}>
+                                                                {chapter.topic}
+                                                            </h4>
 
-                                                        <div className="flex items-center justify-between mt-auto">
-                                                            <div className="flex items-center gap-1.5">
-                                                                <BookOpen className="w-3 h-3 text-gray-400" />
-                                                                <span className="text-[11px] font-medium text-gray-600 dark:text-gray-400">{chapter.pages} Pgs</span>
-                                                            </div>
-                                                            <div className="flex items-center gap-1.5">
-                                                                <Clock className="w-3 h-3 text-gray-400" />
-                                                                <span className="text-[11px] font-medium text-gray-600 dark:text-gray-400">{chapter.slots} Slots</span>
+                                                            <div className="flex items-center justify-between mt-auto">
+                                                                <div className="flex items-center gap-1.5">
+                                                                    <BookOpen className="w-3 h-3 text-gray-400" />
+                                                                    <span className="text-[11px] font-medium text-gray-600 dark:text-gray-400">{chapter.pages} Pgs</span>
+                                                                </div>
+                                                                <div className="flex items-center gap-1.5">
+                                                                    <Clock className="w-3 h-3 text-gray-400" />
+                                                                    <span className="text-[11px] font-medium text-gray-600 dark:text-gray-400">{chapter.slots} Slots</span>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </React.Fragment>
                                                 );
                                             })
                                         )}
