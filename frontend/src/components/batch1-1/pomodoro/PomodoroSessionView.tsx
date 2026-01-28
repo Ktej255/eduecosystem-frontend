@@ -630,18 +630,48 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                 </div>
             </div>
 
+            {/* Daily Goal Progress Bar */}
+            <div className="mb-6 bg-white dark:bg-gray-900 rounded-xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm">
+                <div className="flex justify-between items-center mb-2">
+                    <div>
+                        <h3 className="font-bold text-gray-800 dark:text-gray-200">Today's Goal</h3>
+                        <p className="text-xs text-gray-500">
+                            {(() => {
+                                const uniqueCompletedChapters = new Set(
+                                    sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])
+                                ).size;
+                                return `${uniqueCompletedChapters} of ${todayChapters.length} Chapters Covered`;
+                            })()}
+                        </p>
+                    </div>
+                    <span className="font-mono font-bold text-indigo-600 bg-indigo-50 dark:bg-indigo-900/30 px-2 py-1 rounded">
+                        {Math.round((new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).size / Math.max(1, todayChapters.length)) * 100)}%
+                    </span>
+                </div>
+                <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div
+                        className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-500"
+                        style={{ width: `${Math.min(100, (new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).size / Math.max(1, todayChapters.length)) * 100)}%` }}
+                    />
+                </div>
+            </div>
+
             {/* Today's Chapters Info */}
             <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                 <div className="flex items-center gap-2 mb-2">
                     <BookOpen className="h-4 w-4 text-blue-600" />
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">Today&apos;s Chapters</span>
+                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">Today's Chapters ({todayChapters.length})</span>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                    {chapterNames.map((name, idx) => (
-                        <span key={idx} className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 rounded-full">
-                            {name}
-                        </span>
-                    ))}
+                <div className="flex flex-wrap gap-2 max-h-[150px] overflow-y-auto custom-scrollbar">
+                    {chapterNames.map((name, idx) => {
+                        const chapterId = todayChapters[idx];
+                        const isCompleted = new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).has(String(chapterId));
+                        return (
+                            <span key={idx} className={`text-xs px-2 py-1 rounded-full border ${isCompleted ? 'bg-green-100 text-green-700 border-green-200' : 'bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 border-blue-100'}`}>
+                                {name} {isCompleted && '✓'}
+                            </span>
+                        );
+                    })}
                 </div>
             </div>
 

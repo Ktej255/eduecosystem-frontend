@@ -18,17 +18,20 @@ interface SubtopicSelectorProps {
 const RecursiveSubtopicItem = ({
     subtopic,
     selectedIds,
+    completedIds, // Receive completedIds
     onToggle,
     level = 0
 }: {
     subtopic: SubTopic;
     selectedIds: Set<string>;
+    completedIds?: Set<string>;
     onToggle: (subtopic: SubTopic) => void;
     level?: number;
 }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const hasChildren = subtopic.children && subtopic.children.length > 0;
     const isSelected = selectedIds.has(subtopic.id);
+    const isCompleted = completedIds?.has(subtopic.id); // Check if completed
 
     const handleMainClick = () => {
         if (hasChildren) {
@@ -68,10 +71,13 @@ const RecursiveSubtopicItem = ({
                     }}
                     className={`w-5 h-5 rounded-md border flex items-center justify-center flex-shrink-0 transition-colors ${isSelected
                         ? 'bg-indigo-500 border-indigo-500 text-white'
-                        : 'bg-gray-100 border-gray-300 dark:bg-gray-800 dark:border-gray-600'
+                        : isCompleted
+                            ? 'bg-green-100 border-green-500 text-green-600' // Green tick style
+                            : 'bg-gray-100 border-gray-300 dark:bg-gray-800 dark:border-gray-600'
                         }`}
                 >
                     {isSelected && <CheckCircle2 className="h-3 w-3" />}
+                    {isCompleted && !isSelected && <CheckCircle2 className="h-3 w-3" />}
                 </div>
 
                 {/* Label Area */}
@@ -81,9 +87,10 @@ const RecursiveSubtopicItem = ({
                     ) : (
                         <FileText className="h-4 w-4 text-gray-400" />
                     )}
-                    <span className={`text-sm ${isSelected ? 'text-indigo-700 dark:text-indigo-300 font-bold' : 'text-gray-700 dark:text-gray-300'}`}>
+                    <span className={`text-sm ${isSelected ? 'text-indigo-700 dark:text-indigo-300 font-bold' : isCompleted ? 'text-green-700 line-through decoration-green-500/50' : 'text-gray-700 dark:text-gray-300'}`}>
                         {subtopic.label}
                     </span>
+                    {isCompleted && <span className="text-[10px] bg-green-100 text-green-700 px-1.5 rounded-full font-bold">DONE</span>}
                 </div>
             </div>
 
@@ -95,6 +102,7 @@ const RecursiveSubtopicItem = ({
                             key={child.id}
                             subtopic={child}
                             selectedIds={selectedIds}
+                            completedIds={completedIds}
                             onToggle={onToggle}
                             level={level + 1}
                         />
@@ -128,6 +136,7 @@ export default function SubtopicSelector({
 
     // Derived Set for O(1) lookups
     const selectedIds = useMemo(() => new Set(selectedSubtopics.map(s => s.id)), [selectedSubtopics]);
+    const completedIds = useMemo(() => new Set(previouslyCompleted.map(s => s.id)), [previouslyCompleted]);
 
     // Group by chapter for display header
     const groupedSubtopics = useMemo(() => {
@@ -230,6 +239,7 @@ export default function SubtopicSelector({
                                             key={subtopic.id}
                                             subtopic={subtopic}
                                             selectedIds={selectedIds}
+                                            completedIds={completedIds}
                                             onToggle={toggleSubtopic}
                                         />
                                     ))}
