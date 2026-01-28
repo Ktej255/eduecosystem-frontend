@@ -134,7 +134,7 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                             </div>
                         </div>
 
-                        <div className="mt-8">
+                        <div className="mt-8 flex flex-wrap gap-4">
                             <button
                                 onClick={() => setView('map')}
                                 className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all"
@@ -142,6 +142,14 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                                 <TrendingUp className="w-5 h-5" />
                                 View Syllabus Tracker & Content Map
                             </button>
+
+                            <Link
+                                href="/student/pyq"
+                                className="bg-blue-800/80 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all border border-blue-400/30 backdrop-blur-sm"
+                            >
+                                <Book className="w-5 h-5" />
+                                Access PYQ Portal
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -60,12 +60,12 @@ interface CycleData {
     mcqResults: { correct: number; total: number };
 }
 
-// Get chapters for the day based on Unified Schedule (Synced with Evening Session)
-function getChaptersForDay(weekId: number, dayId: number): number[] {
-    const dayMapping = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'] as const;
+// Get schedule items for the day (Chapters and/or Tasks)
+function getDayContent(weekId: number, dayId: number): { chapters: number[], tasks: string[] } {
+    const dayMapping = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as const;
 
-    // Validate dayId (1-5)
-    if (dayId < 1 || dayId > 5) return [];
+    // Validate dayId (1-7)
+    if (dayId < 1 || dayId > 7) return { chapters: [], tasks: [] };
 
     const dayKey = dayMapping[dayId - 1];
 
@@ -74,23 +74,26 @@ function getChaptersForDay(weekId: number, dayId: number): number[] {
     const weekSchedule = allWeeks.find(w => w.week === weekId);
 
     if (!weekSchedule) {
-        // Fallback for safety, though should not happen given valid URLs
         console.warn(`No schedule found for Week ${weekId}`);
-        return [];
+        return { chapters: [], tasks: [] };
     }
 
     const dayContent = weekSchedule.days[dayKey];
 
-    // Type guard to ensure we have ChapterSchedule objects (not strings like Saturday)
+    const chapters: number[] = [];
+    const tasks: string[] = [];
+
     if (Array.isArray(dayContent)) {
-        return dayContent
-            .filter((item): item is import("@/components/batch1/polity/data/polity-schedule-data").ChapterSchedule =>
-                typeof item !== 'string' && 'chapter' in item
-            )
-            .map(c => c.chapter);
+        dayContent.forEach(item => {
+            if (typeof item === 'string') {
+                tasks.push(item);
+            } else if (item && 'chapter' in item) {
+                chapters.push(item.chapter);
+            }
+        });
     }
 
-    return [];
+    return { chapters, tasks };
 }
 
 // Sync to unified progress store (replaces old syncToStudyPlanner)
@@ -222,16 +225,30 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
     const currentBlock = Math.ceil(currentSessionGlobal / SESSIONS_PER_BLOCK);
     const currentSessionInBlock = ((currentSessionGlobal - 1) % SESSIONS_PER_BLOCK) + 1;
 
-    // Get today's chapters
-    const todayChapters = useMemo(() => getChaptersForDay(weekId, dayId), [weekId, dayId]);
+    // Get today's content (chapters & tasks)
+    const { chapters: todayChapters, tasks: todayTasks } = useMemo(() => getDayContent(weekId, dayId), [weekId, dayId]);
 
-    // Get chapter names for display
-    const chapterNames = useMemo(() => {
-        return todayChapters.map(id => {
+    // Get chapter names / task names for display
+    const scheduleItems = useMemo(() => {
+        const items = todayChapters.map(id => {
             const chapter = LAXMIKANTH_CHAPTERS.find(ch => ch.chapter === id);
-            return chapter ? `CH ${id}: ${chapter.topic}` : `Chapter ${id}`;
+            return {
+                id: `ch-${id}`,
+                label: chapter ? `CH ${id}: ${chapter.topic}` : `Chapter ${id}`,
+                isChapter: true
+            };
         });
-    }, [todayChapters]);
+
+        todayTasks.forEach((task, idx) => {
+            items.push({
+                id: `task-${idx}`,
+                label: task,
+                isChapter: false
+            });
+        });
+
+        return items;
+    }, [todayChapters, todayTasks]);
 
     // --- Persistence ---
     useEffect(() => {
@@ -457,7 +474,6 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             // Advance session if not already done in handleMCQs (we advance AFTER break usually? 
             // Logic: MCQs done -> Break Start. Counter + 1. 
             // Break Done -> Ready state for NEW counter. 
-
             // In handleMCQsComplete we actually need to increment counter? 
             // If we increment there, then 'ready' screen needs to show NEW counter.
             // Yes.
@@ -593,7 +609,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                         Week {weekId}, Day {dayId}
                     </h1>
                     <p className="text-sm text-gray-500">
-                        Session {currentSessionGlobal} of {TOTAL_SESSIONS} (Block {currentBlock}) • <span className="text-[10px] font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">v2.2</span>
+                        Session {currentSessionGlobal} of {TOTAL_SESSIONS} (Block {currentBlock}) • <span className="text-[10px] font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">v2.3</span>
                     </p>
                 </div>
                 <div className="flex items-center gap-2 text-orange-600">
@@ -634,44 +650,53 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             <div className="mb-6 bg-white dark:bg-gray-900 rounded-xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm">
                 <div className="flex justify-between items-center mb-2">
                     <div>
-                        <h3 className="font-bold text-gray-800 dark:text-gray-200">Today's Goal</h3>
+                        <h3 className="font-bold text-gray-800 dark:text-gray-200">Today's Schedule</h3>
                         <p className="text-xs text-gray-500">
                             {(() => {
                                 const uniqueCompletedChapters = new Set(
                                     sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])
                                 ).size;
-                                return `${uniqueCompletedChapters} of ${todayChapters.length} Chapters Covered`;
+                                // If tasks only, show Tasks count. If chapters, show Chapters.
+                                const totalItems = Math.max(1, todayChapters.length + todayTasks.length);
+                                const completedCount = uniqueCompletedChapters; // Tasks logic TBD, focus on chapters for completion %
+
+                                if (todayTasks.length > 0 && todayChapters.length === 0) {
+                                    return `${todayTasks.length} Tasks Scheduled`;
+                                }
+
+                                return `${completedCount} of ${todayChapters.length} Chapters Covered`;
                             })()}
                         </p>
                     </div>
-                    <span className="font-mono font-bold text-indigo-600 bg-indigo-50 dark:bg-indigo-900/30 px-2 py-1 rounded">
-                        {Math.round((new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).size / Math.max(1, todayChapters.length)) * 100)}%
-                    </span>
                 </div>
-                <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                    <div
-                        className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-500"
-                        style={{ width: `${Math.min(100, (new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).size / Math.max(1, todayChapters.length)) * 100)}%` }}
-                    />
-                </div>
+                {todayChapters.length > 0 && (
+                    <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                        <div
+                            className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-500"
+                            style={{ width: `${Math.min(100, (new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).size / Math.max(1, todayChapters.length)) * 100)}%` }}
+                        />
+                    </div>
+                )}
             </div>
 
-            {/* Today's Chapters Info */}
+            {/* Today's Chapters/Tasks Info */}
             <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                 <div className="flex items-center gap-2 mb-2">
                     <BookOpen className="h-4 w-4 text-blue-600" />
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">Today's Chapters ({todayChapters.length})</span>
+                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">Today's Plan ({scheduleItems.length})</span>
                 </div>
                 <div className="flex flex-wrap gap-2 max-h-[150px] overflow-y-auto custom-scrollbar">
-                    {chapterNames.map((name, idx) => {
-                        const chapterId = todayChapters[idx];
-                        const isCompleted = new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).has(String(chapterId));
+                    {scheduleItems.length > 0 ? scheduleItems.map((item, idx) => {
+                        // Check completion only for chapters currently
+                        const isCompleted = item.isChapter && new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).has(String(item.id.replace('ch-', '')));
                         return (
-                            <span key={idx} className={`text-xs px-2 py-1 rounded-full border ${isCompleted ? 'bg-green-100 text-green-700 border-green-200' : 'bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 border-blue-100'}`}>
-                                {name} {isCompleted && '✓'}
+                            <span key={item.id} className={`text-xs px-2 py-1 rounded-full border ${isCompleted ? 'bg-green-100 text-green-700 border-green-200' : 'bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 border-blue-100'}`}>
+                                {item.label} {isCompleted && '✓'}
                             </span>
                         );
-                    })}
+                    }) : (
+                        <span className="text-xs text-gray-400 italic">No scheduled items for this day.</span>
+                    )}
                 </div>
             </div>
 

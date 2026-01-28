@@ -1,5 +1,5 @@
 import { SubjectConfig, WeeklyScheduleData } from "../../framework/SubjectPlanner";
-import { BookOpen, Scroll, Landmark, Flag } from "lucide-react";
+import { BookOpen, Scroll, Landmark, Flag, Globe } from "lucide-react";
 import React from "react";
 
 // --- Syllabus Data ---
@@ -23,19 +23,19 @@ const HISTORY_MODULES = [
     },
     {
         id: "3",
-        title: "Modern India: Expansion", // 1757 - 1857
-        description: "European advent, British expansion, and the Revolt of 1857.",
+        title: "Modern India",
+        description: "From Advent of Europeans to Freedom Struggle (1757 - 1947).",
         icon: React.createElement(Flag),
         color: "blue",
-        topicRange: [29, 45] as [number, number]
+        topicRange: [29, 65] as [number, number]
     },
     {
         id: "4",
-        title: "Modern India: Freedom Struggle", // 1857 - 1947
-        description: "National Movement, Gandhian Era, and Independence.",
-        icon: React.createElement(BookOpen),
-        color: "orange",
-        topicRange: [46, 65] as [number, number]
+        title: "World History",
+        description: "Enlightenment, Industrial Revolution, World Wars, and Cold War Era.",
+        icon: React.createElement(Globe),
+        color: "indigo",
+        topicRange: [66, 80] as [number, number]
     }
 ];
 
@@ -189,7 +189,7 @@ The urban planning of the IVC reflects a sophisticated understanding of civil en
         currentAffairsCount: 0
     },
 
-    // --- Modern India (Module 3 & 4) ---
+    // --- Modern India (Module 3) ---
     {
         id: 29,
         title: "Advent of Europeans",
@@ -211,7 +211,7 @@ The urban planning of the IVC reflects a sophisticated understanding of civil en
     {
         id: 46,
         title: "Revolt of 1857",
-        moduleId: "4",
+        moduleId: "3",
         priority: "High",
         staticFocus: "Causes, Leaders, Failure, Queen's Proclamation.",
         keyConcepts: ["Sepoy Mutiny", "Hindu-Muslim Unity"],
@@ -223,7 +223,7 @@ The urban planning of the IVC reflects a sophisticated understanding of civil en
     {
         id: 47,
         title: "Socio-Religious Reform Movements",
-        moduleId: "4",
+        moduleId: "3",
         priority: "High",
         staticFocus: "Brahmo Samaj, Arya Samaj, Aligarh Movement.",
         keyConcepts: ["Raja Ram Mohan Roy", "Sati", "Widow Remarriage"],
@@ -235,7 +235,7 @@ The urban planning of the IVC reflects a sophisticated understanding of civil en
     {
         id: 48,
         title: "Indian National Congress (Early Phase)",
-        moduleId: "4",
+        moduleId: "3",
         priority: "Medium",
         staticFocus: "Formation, Moderates vs Extremists, Partition of Bengal.",
         keyConcepts: ["Swadeshi Movement", "Surat Split"],
@@ -244,7 +244,7 @@ The urban planning of the IVC reflects a sophisticated understanding of civil en
     {
         id: 49,
         title: "Gandhian Era (1915-1947)",
-        moduleId: "4",
+        moduleId: "3",
         priority: "High",
         staticFocus: "Champaran, Non-Cooperation, Civil Disobedience, Quit India.",
         keyConcepts: ["Satyagraha", "Salt March", "Poona Pact"],
@@ -252,6 +252,17 @@ The urban planning of the IVC reflects a sophisticated understanding of civil en
         mainsQuestions: [
             { id: "M4Q3", question: "Analyze the significance of the Quit India Movement in the freedom struggle.", marks: 15 }
         ]
+    },
+
+    // --- World History (Module 4) ---
+    {
+        id: 66,
+        title: "Industrial Revolution",
+        moduleId: "4",
+        priority: "Medium",
+        staticFocus: "Causes, Spread to other countries, Impact on society.",
+        keyConcepts: ["Capitalism", "Urbanization", "Factory System"],
+        currentAffairsCount: 0
     }
 ] as any[]; // Ensuring type capability with SubjectTopic from SubjectPlanner
 

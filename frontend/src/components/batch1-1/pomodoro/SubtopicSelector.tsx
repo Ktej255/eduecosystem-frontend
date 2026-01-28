@@ -153,18 +153,8 @@ export default function SubtopicSelector({
         return Object.values(groups);
     }, [availableSubtopics]);
 
-    const toggleSubtopic = (subtopic: SubTopic) => {
-        setSelectedSubtopics(prev => {
-            const exists = prev.find(s => s.id === subtopic.id);
-            if (exists) {
-                return prev.filter(s => s.id !== subtopic.id);
-            }
-            return [...prev, subtopic];
-        });
-    };
-
-    const handleSelectAll = () => {
-        // Flatten all available subtopics recursively
+    // Flatten all available subtopics recursively
+    const allFlatSubtopics = useMemo(() => {
         const flatten = (items: SubTopic[]): SubTopic[] => {
             let result: SubTopic[] = [];
             items.forEach(item => {
@@ -175,9 +165,27 @@ export default function SubtopicSelector({
             });
             return result;
         };
+        return flatten(availableSubtopics);
+    }, [availableSubtopics]);
 
-        const allFlat = flatten(availableSubtopics);
-        setSelectedSubtopics(allFlat);
+    const isAllSelected = selectedSubtopics.length === allFlatSubtopics.length && allFlatSubtopics.length > 0;
+
+    const toggleSubtopic = (subtopic: SubTopic) => {
+        setSelectedSubtopics(prev => {
+            const exists = prev.find(s => s.id === subtopic.id);
+            if (exists) {
+                return prev.filter(s => s.id !== subtopic.id);
+            }
+            return [...prev, subtopic];
+        });
+    };
+
+    const handleToggleAll = () => {
+        if (isAllSelected) {
+            setSelectedSubtopics([]);
+        } else {
+            setSelectedSubtopics(allFlatSubtopics);
+        }
     };
 
     const handleSubmit = () => {
@@ -215,10 +223,10 @@ export default function SubtopicSelector({
                         <Button
                             variant="ghost"
                             size="sm"
-                            onClick={handleSelectAll}
+                            onClick={handleToggleAll}
                             className="text-indigo-600 hover:text-indigo-700"
                         >
-                            Select All Nested
+                            {isAllSelected ? "Deselect All" : "Select All Nested"}
                         </Button>
                     </div>
 
