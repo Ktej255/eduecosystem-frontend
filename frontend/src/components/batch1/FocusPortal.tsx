@@ -1,72 +1,81 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Timer,
     BookOpen,
     BarChart3,
     Brain,
-    LayoutDashboard,
-    Settings,
-    ChevronDown,
     Calendar,
-    Mic
+    ChevronRight,
+    Flame,
+    Moon,
+    Trophy,
+    ArrowLeft
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 // Component Imports
 import PomodoroSessionView from '@/components/batch1-1/pomodoro/PomodoroSessionView';
 import PolityHome from '@/components/batch1/polity/PolityHome';
 import RetentionDashboard from '@/components/retention/RetentionDashboard';
 import FocusAnalyticsDashboard from '@/components/batch1/FocusAnalyticsDashboard';
-// Assuming HistoryHome exists, if not we fall back to placeholders
-// import HistoryHome from '@/components/batch1/history/HistoryHome'; 
-
-// For Analytics, we might need to import the dashboard content
-// import AnalyticsDashboard from '@/app/(student-portal)/student/batch1/analytics/page'; // This might be a page, so we handle carefullly.
-
-// Helper to get current schedule
-import { generateWeeklySchedule } from '@/components/batch1/polity/data/polity-schedule-data';
-import DailyProtocolTimeline from '@/components/batch1/components/DailyProtocolTimeline';
 
 type FocusTab = 'pomodoro' | 'study' | 'analytics' | 'retention';
 type Subject = 'polity' | 'history' | 'geography' | 'science';
 
+const WEEKS = Array.from({ length: 20 }, (_, i) => ({
+    id: i + 1,
+    label: `Week ${i + 1}`
+}));
+
+const DAYS = [
+    { id: 1, label: 'Monday', short: 'Day 1' },
+    { id: 2, label: 'Tuesday', short: 'Day 2' },
+    { id: 3, label: 'Wednesday', short: 'Day 3' },
+    { id: 4, label: 'Thursday', short: 'Day 4' },
+    { id: 5, label: 'Friday', short: 'Day 5' },
+    { id: 6, label: 'Saturday', short: 'Day 6' },
+];
+
 export default function FocusPortal() {
+    const router = useRouter();
     const [activeTab, setActiveTab] = useState<FocusTab>('pomodoro');
-    const [pomodoroView, setPomodoroView] = useState<'overview' | 'session'>('overview');
     const [selectedSubject, setSelectedSubject] = useState<Subject>('polity');
 
-    const handleTimelineAction = (phaseId: number, link: string) => {
-        // If "Start Session" (Phase 3) is clicked, switch to session view within this portal
-        if (phaseId === 3) {
-            setPomodoroView('session');
-        } else {
-            // Otherwise navigate to link (Evening, etc)
-            window.location.href = link;
-        }
-    };
+    // Pomodoro Portal State
+    const [pomodoroView, setPomodoroView] = useState<'grid' | 'session'>('grid');
+    const [selectedWeek, setSelectedWeek] = useState(1);
+    const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
-
-    // Calculate Week/Day for Pomodoro (Same logic as PolityScheduleView)
-    const { weekId, dayId } = useMemo(() => {
-        if (typeof window === 'undefined') return { weekId: 1, dayId: 1 };
-
-        const BATCH_START_DATE = '2026-01-12T00:00:00';
-        const startDateStr = localStorage.getItem('polity_start_calendar_date');
-        const startDate = startDateStr ? new Date(startDateStr) : new Date(BATCH_START_DATE);
-
-        const diffTime = (new Date().getTime() - startDate.getTime());
-        const diffDays = Math.max(0, Math.floor(diffTime / (1000 * 60 * 60 * 24)));
-        const week = Math.floor(diffDays / 7) + 1;
-        const day = (diffDays % 7) + 1;
-
-        // Ensure effective range (Mon-Fri = 1-5, Sat=6, Sun=7)
-        return { weekId: week, dayId: day > 5 ? 5 : day }; // Default to Friday if Weekend for Pomodoro context? Or handle 6/7. 
-        // PomodoroSessionView likely expects 1-5 for standard sessions.
+    // Calculate current week/day for defaults
+    const currentContext = useMemo(() => {
+        if (typeof window === 'undefined') return { week: 1, day: 1 };
+        const BATCH_START_DATE = new Date('2026-01-12T00:00:00');
+        const now = new Date();
+        const diffTime = Math.abs(now.getTime() - BATCH_START_DATE.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        const week = Math.ceil(diffDays / 7);
+        const day = (diffDays - 1) % 7 + 1;
+        return { week: Math.max(1, week), day: Math.min(6, Math.max(1, day)) };
     }, []);
+
+    // Load saved state or default
+    React.useEffect(() => {
+        const savedWeek = localStorage.getItem('batch11_portal_week');
+        if (savedWeek) setSelectedWeek(Number(savedWeek));
+        else setSelectedWeek(currentContext.week);
+    }, [currentContext]);
+
+    const handleDayClick = (dayId: number) => {
+        setSelectedDay(dayId);
+        setPomodoroView('session');
+    };
 
     const tabs = [
         { id: 'pomodoro', label: 'Pomodoro Portal', icon: Timer, color: 'text-orange-500' },
@@ -126,50 +135,133 @@ export default function FocusPortal() {
                     >
                         {activeTab === 'pomodoro' && (
                             <div className="space-y-6">
-                                {pomodoroView === 'overview' ? (
-                                    <div>
-                                        <div className="flex justify-between items-center mb-6">
+                                {pomodoroView === 'grid' ? (
+                                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                        {/* Header & Week Selector */}
+                                        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
                                             <div>
-                                                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Daily Protocol</h2>
-                                                <p className="text-gray-500">Select a phase to begin</p>
+                                                <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                                    <Timer className="w-8 h-8 text-orange-500" />
+                                                    Pomodoro Portal
+                                                </h1>
+                                                <p className="text-gray-500 dark:text-gray-400 mt-1">
+                                                    Daily Focus & Evening Revision Hub
+                                                </p>
                                             </div>
-                                            <Button
-                                                variant="outline"
-                                                onClick={() => setPomodoroView('session')}
-                                                className="hidden md:flex"
-                                            >
-                                                <Timer className="mr-2 h-4 w-4" /> Go to Timer
+
+                                            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-2 rounded-xl border shadow-sm">
+                                                <span className="text-sm font-medium text-gray-500 ml-2">Select Week:</span>
+                                                <Select
+                                                    value={selectedWeek.toString()}
+                                                    onValueChange={(v) => {
+                                                        setSelectedWeek(Number(v));
+                                                        localStorage.setItem('batch11_portal_week', v);
+                                                    }}
+                                                >
+                                                    <SelectTrigger className="w-[140px] border-none bg-transparent focus:ring-0 font-bold text-indigo-600">
+                                                        <SelectValue />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        {WEEKS.map(week => (
+                                                            <SelectItem key={week.id} value={week.id.toString()}>
+                                                                {week.label}
+                                                            </SelectItem>
+                                                        ))}
+                                                    </SelectContent>
+                                                </Select>
+                                            </div>
+                                        </div>
+
+                                        {/* Day Grid */}
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                            {DAYS.map((day) => {
+                                                const isToday = selectedWeek === currentContext.week && day.id === currentContext.day;
+                                                const absoluteDay = (selectedWeek - 1) * 7 + day.id;
+
+                                                return (
+                                                    <Card
+                                                        key={day.id}
+                                                        className={`border-2 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden
+                                                            ${isToday
+                                                                ? 'border-orange-500 bg-orange-50/50 dark:bg-orange-900/10'
+                                                                : 'border-transparent hover:border-orange-300 bg-white dark:bg-gray-800'
+                                                            }
+                                                        `}
+                                                        onClick={() => handleDayClick(day.id)}
+                                                    >
+                                                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                                            <Timer className="w-24 h-24 text-orange-500" />
+                                                        </div>
+
+                                                        <CardContent className="p-6 relative z-10">
+                                                            <div className="flex justify-between items-start mb-4">
+                                                                <div>
+                                                                    <div className="flex items-center gap-2 mb-1">
+                                                                        <span className={`px-2 py-1 rounded text-xs font-bold uppercase tracking-wide
+                                                                            ${isToday ? 'bg-orange-100 text-orange-700' : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300'}
+                                                                        `}>
+                                                                            {day.short}
+                                                                        </span>
+                                                                        {isToday && <span className="flex items-center text-xs font-bold text-green-600 animate-pulse"><Flame className="w-3 h-3 mr-1" /> TODAY</span>}
+                                                                    </div>
+                                                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                                                                        {day.label}
+                                                                    </h3>
+                                                                </div>
+                                                                <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-colors text-orange-600">
+                                                                    <Timer className="w-5 h-5" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="space-y-3 mb-6">
+                                                                <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                                                                    <BookOpen className="w-4 h-4 mr-2 text-blue-500" />
+                                                                    <span>Course Work & Study</span>
+                                                                </div>
+                                                                <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                                                                    <Moon className="w-4 h-4 mr-2 text-indigo-500" />
+                                                                    <span>Evening Revision (PYQ)</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+                                                                <span className="text-xs font-semibold text-gray-400">Day {absoluteDay}</span>
+                                                                <span className="text-sm font-bold text-orange-600 flex items-center group-hover:translate-x-1 transition-transform">
+                                                                    Open Portal <ChevronRight className="w-4 h-4 ml-1" />
+                                                                </span>
+                                                            </div>
+                                                        </CardContent>
+                                                    </Card>
+                                                );
+                                            })}
+                                        </div>
+
+                                        {/* Quick Link to UPSC Store / Other Resources */}
+                                        <div className="mt-8 flex justify-center">
+                                            <Button variant="outline" className="text-gray-500" onClick={() => router.push('/student/upsc')}>
+                                                Looking for Batch 1 Resources? Visit UPSC Store
                                             </Button>
                                         </div>
-                                        <DailyProtocolTimeline
-                                            weekId={weekId}
-                                            dayId={dayId}
-                                            onPhaseAction={handleTimelineAction}
-                                        />
                                     </div>
                                 ) : (
+                                    // SESSION VIEW (Timer)
                                     <div>
                                         <div className="mb-4">
                                             <Button
                                                 variant="ghost"
-                                                onClick={() => setPomodoroView('overview')}
-                                                className="text-gray-500 hover:text-gray-900"
+                                                onClick={() => setPomodoroView('grid')}
+                                                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                                             >
-                                                &larr; Back to Schedule
+                                                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Pomodoro Portal
                                             </Button>
                                         </div>
-                                        <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-xl p-4 flex items-center gap-4 mb-6">
-                                            <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
-                                                <Timer className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                                            </div>
-                                            <div>
-                                                <h2 className="font-bold text-orange-900 dark:text-orange-100">Live Focus Session</h2>
-                                                <p className="text-sm text-orange-700 dark:text-orange-300">
-                                                    Accessing 8 AM - 2 PM Schedule (Unlimited Access Mode)
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <PomodoroSessionView weekId={weekId} dayId={dayId} />
+                                        {selectedDay && (
+                                            <PomodoroSessionView
+                                                weekId={selectedWeek}
+                                                dayId={selectedDay}
+                                                showBackButton={false} // We handle back button above
+                                            />
+                                        )}
                                     </div>
                                 )}
                             </div>
@@ -177,21 +269,20 @@ export default function FocusPortal() {
 
                         {activeTab === 'study' && (
                             <div className="space-y-6">
+                                {/* Study Tab Content (Preserved) */}
                                 <div className="flex items-center justify-between">
                                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Subject Study</h2>
-                                    <div className="relative">
-                                        <select
-                                            value={selectedSubject}
-                                            onChange={(e) => setSelectedSubject(e.target.value as Subject)}
-                                            className="appearance-none bg-white dark:bg-[#111] border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white py-2 pl-4 pr-10 rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        >
-                                            <option value="polity">Indian Polity</option>
-                                            <option value="history">Indian History</option>
-                                            <option value="geography">Geography</option>
-                                            <option value="science">Science & Tech</option>
-                                        </select>
-                                        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
-                                    </div>
+                                    <Select value={selectedSubject} onValueChange={(v) => setSelectedSubject(v as Subject)}>
+                                        <SelectTrigger className="w-[180px]">
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="polity">Indian Polity</SelectItem>
+                                            <SelectItem value="history">Indian History</SelectItem>
+                                            <SelectItem value="geography">Geography</SelectItem>
+                                            <SelectItem value="science">Science & Tech</SelectItem>
+                                        </SelectContent>
+                                    </Select>
                                 </div>
 
                                 {selectedSubject === 'polity' ? (
@@ -202,7 +293,7 @@ export default function FocusPortal() {
                                         <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                                             {selectedSubject.charAt(0).toUpperCase() + selectedSubject.slice(1)} Module
                                         </h3>
-                                        <p className="text-gray-500">Content loading or placeholder...</p>
+                                        <p className="text-gray-500">Content loading...</p>
                                     </div>
                                 )}
                             </div>
@@ -210,21 +301,7 @@ export default function FocusPortal() {
 
                         {activeTab === 'analytics' && (
                             <div className="space-y-6">
-                                <div className="bg-purple-50 dark:bg-purple-900/10 border border-purple-200 dark:border-purple-800 rounded-xl p-6">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-full">
-                                            <BarChart3 className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                                        </div>
-                                        <div>
-                                            <h2 className="font-bold text-purple-900 dark:text-purple-100 text-xl">Deep Analytics Report</h2>
-                                            <p className="text-purple-700 dark:text-purple-300">
-                                                Consolidated view of your Flashcards, Tests, Voice Notes, and Revision history.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <FocusAnalyticsDashboard />
-                                </div>
+                                <FocusAnalyticsDashboard />
                             </div>
                         )}
 

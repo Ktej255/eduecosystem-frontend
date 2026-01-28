@@ -581,7 +581,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
                 {showBackButton && (
-                    <Link href="/student/batch1-1">
+                    <Link href="/student/batch1">
                         <Button variant="ghost">
                             <ArrowLeft className="mr-2 h-4 w-4" />
                             Back
