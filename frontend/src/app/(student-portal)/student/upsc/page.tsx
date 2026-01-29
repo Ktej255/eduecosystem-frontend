@@ -226,12 +226,18 @@ export default function UPSCLandingPage() {
                 {activeTab === 'Mains' && (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         {['GS Paper 1', 'GS Paper 2', 'GS Paper 3', 'GS Paper 4'].map((paper) => (
-                            <div key={paper} className="bg-gray-50 dark:bg-[#111] p-6 rounded-xl border border-gray-200 dark:border-gray-800 opacity-60 cursor-not-allowed">
+                            <div key={paper} className="bg-white dark:bg-[#111] p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm hover:border-blue-500/50 transition-colors group">
                                 <div className="flex items-center justify-between mb-4">
                                     <h3 className="font-bold text-gray-900 dark:text-white">{paper}</h3>
-                                    <Lock className="w-4 h-4 text-gray-400" />
+                                    <Activity className="w-4 h-4 text-blue-500" />
                                 </div>
-                                <p className="text-xs text-gray-500">Comprehensive Mains Modules coming soon.</p>
+                                <p className="text-xs text-gray-500 mb-6">Master answer writing with structural AI evaluation.</p>
+                                <button
+                                    onClick={() => router.push('/student/upsc/mains')}
+                                    className="w-full py-2 bg-gray-50 dark:bg-gray-900 rounded-lg text-xs font-bold text-gray-700 dark:text-white group-hover:bg-blue-600 group-hover:text-white transition-all"
+                                >
+                                    Practice Now
+                                </button>
                             </div>
                         ))}
                     </div>
