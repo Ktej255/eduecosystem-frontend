@@ -78,7 +78,10 @@ function AnalyticsContent() {
     // FORCE AWS URL
     const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
 
+    const [mounted, setMounted] = useState(false);
+
     useEffect(() => {
+        setMounted(true);
         fetchTestResults();
     }, []);
 
@@ -133,13 +136,24 @@ function AnalyticsContent() {
             return;
         }
 
-        const totalQuestions = validResults.reduce((sum, r) => sum + (r.total_questions || 0), 0);
-        const correctAnswers = validResults.reduce((sum, r) => sum + (r.correct_count || 0), 0);
-        const incorrectAnswers = validResults.reduce((sum, r) => sum + (r.incorrect_count || 0), 0);
+        // Helper to safely get number
+        const val = (n: any) => typeof n === 'number' && !isNaN(n) ? n : 0;
+
+        const totalQuestions = validResults.reduce((sum, r) => sum + val(r.total_questions), 0);
+        const correctAnswers = validResults.reduce((sum, r) => sum + val(r.correct_count), 0);
+        const incorrectAnswers = validResults.reduce((sum, r) => sum + val(r.incorrect_count), 0);
 
         // Calculate standardized scores (percentage)
-        const scorePercents = validResults.map(r => r.total_questions > 0 ? (r.correct_count / r.total_questions) * 100 : 0);
-        const avgScorePercent = scorePercents.reduce((a, b) => a + b, 0) / (scorePercents.length || 1);
+        const scorePercents = validResults.map(r => {
+            const total = val(r.total_questions);
+            const correct = val(r.correct_count);
+            return total > 0 ? (correct / total) * 100 : 0;
+        });
+
+        const avgScorePercent = scorePercents.length > 0
+            ? scorePercents.reduce((a, b) => a + b, 0) / scorePercents.length
+            : 0;
+
         const bestScore = scorePercents.length > 0 ? Math.max(...scorePercents) : 0;
         const worstScore = scorePercents.length > 0 ? Math.min(...scorePercents) : 0;
 
@@ -147,11 +161,16 @@ function AnalyticsContent() {
         const sortedResults = [...validResults].sort((a, b) =>
             safeDate(a.timestamp).getTime() - safeDate(b.timestamp).getTime()
         );
-        const trends = sortedResults.map(r => ({
-            date: safeDate(r.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }),
-            score: r.score,
-            scorePercent: Math.round(r.total_questions > 0 ? (r.correct_count / r.total_questions) * 100 : 0)
-        }));
+
+        const trends = sortedResults.map(r => {
+            const total = val(r.total_questions);
+            const correct = val(r.correct_count);
+            return {
+                date: safeDate(r.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }),
+                score: val(r.score),
+                scorePercent: Math.round(total > 0 ? (correct / total) * 100 : 0)
+            };
+        });
 
         // Subject breakdown (Simplified for now as real metadata is needed for accurate split)
         // Assuming current Batch 1 tests are primarily Polity based on the schedule
@@ -290,25 +309,27 @@ function AnalyticsContent() {
                                 </CardHeader>
                                 <CardContent>
                                     <div className="h-[300px]">
-                                        <ResponsiveContainer width="100%" height="100%">
-                                            <LineChart data={analytics.trends}>
-                                                <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-                                                <XAxis dataKey="date" stroke="#6B7280" fontSize={12} />
-                                                <YAxis domain={[0, 100]} stroke="#6B7280" fontSize={12} />
-                                                <Tooltip
-                                                    contentStyle={{ backgroundColor: '#fff', border: '1px solid #E5E7EB', borderRadius: '8px' }}
-                                                    formatter={(value: number | undefined) => [`${value}%`, 'Score']}
-                                                />
-                                                <Line
-                                                    type="monotone"
-                                                    dataKey="scorePercent"
-                                                    stroke="#8B5CF6"
-                                                    strokeWidth={3}
-                                                    dot={{ fill: '#8B5CF6', strokeWidth: 2, r: 4 }}
-                                                    activeDot={{ r: 6 }}
-                                                />
-                                            </LineChart>
-                                        </ResponsiveContainer>
+                                        {mounted ? (
+                                            <ResponsiveContainer width="100%" height="100%">
+                                                <LineChart data={analytics.trends}>
+                                                    <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                                                    <XAxis dataKey="date" stroke="#6B7280" fontSize={12} />
+                                                    <YAxis domain={[0, 100]} stroke="#6B7280" fontSize={12} />
+                                                    <Tooltip
+                                                        contentStyle={{ backgroundColor: '#fff', border: '1px solid #E5E7EB', borderRadius: '8px' }}
+                                                        formatter={(value: number | undefined) => [`${value}%`, 'Score']}
+                                                    />
+                                                    <Line
+                                                        type="monotone"
+                                                        dataKey="scorePercent"
+                                                        stroke="#8B5CF6"
+                                                        strokeWidth={3}
+                                                        dot={{ fill: '#8B5CF6', strokeWidth: 2, r: 4 }}
+                                                        activeDot={{ r: 6 }}
+                                                    />
+                                                </LineChart>
+                                            </ResponsiveContainer>
+                                        ) : <div className="h-full w-full flex items-center justify-center bg-gray-50 rounded-lg">Loading Chart...</div>}
                                     </div>
                                 </CardContent>
                             </Card>
@@ -323,25 +344,27 @@ function AnalyticsContent() {
                                 </CardHeader>
                                 <CardContent>
                                     <div className="h-[250px]">
-                                        <ResponsiveContainer width="100%" height="100%">
-                                            <PieChart>
-                                                <Pie
-                                                    data={getPerformancePieData()}
-                                                    cx="50%"
-                                                    cy="50%"
-                                                    innerRadius={60}
-                                                    outerRadius={80}
-                                                    paddingAngle={5}
-                                                    dataKey="value"
-                                                >
-                                                    {getPerformancePieData().map((entry, index) => (
-                                                        <Cell key={`cell-${index}`} fill={entry.color} />
-                                                    ))}
-                                                </Pie>
-                                                <Tooltip formatter={(value: number | undefined) => [value, 'Questions']} />
-                                                <Legend />
-                                            </PieChart>
-                                        </ResponsiveContainer>
+                                        {mounted ? (
+                                            <ResponsiveContainer width="100%" height="100%">
+                                                <PieChart>
+                                                    <Pie
+                                                        data={getPerformancePieData()}
+                                                        cx="50%"
+                                                        cy="50%"
+                                                        innerRadius={60}
+                                                        outerRadius={80}
+                                                        paddingAngle={5}
+                                                        dataKey="value"
+                                                    >
+                                                        {getPerformancePieData().map((entry, index) => (
+                                                            <Cell key={`cell-${index}`} fill={entry.color} />
+                                                        ))}
+                                                    </Pie>
+                                                    <Tooltip formatter={(value: number | undefined) => [value, 'Questions']} />
+                                                    <Legend />
+                                                </PieChart>
+                                            </ResponsiveContainer>
+                                        ) : <div className="h-full w-full flex items-center justify-center bg-gray-50 rounded-lg">Loading...</div>}
                                     </div>
                                 </CardContent>
                             </Card>
