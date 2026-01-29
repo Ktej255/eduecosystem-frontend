@@ -100,31 +100,48 @@ function AnalyticsContent() {
         }
     };
 
+    // Safe date parser
+    const safeDate = (dateStr: string) => {
+        try {
+            const d = new Date(dateStr);
+            return isNaN(d.getTime()) ? new Date() : d;
+        } catch {
+            return new Date();
+        }
+    };
+
     const calculateAnalytics = (results: TestResult[]) => {
-        if (results.length === 0) {
+        if (!results || results.length === 0) {
             setAnalytics(null);
             return;
         }
 
-        const totalTests = results.length;
-        const totalQuestions = results.reduce((sum, r) => sum + r.total_questions, 0);
-        const correctAnswers = results.reduce((sum, r) => sum + r.correct_count, 0);
-        const incorrectAnswers = results.reduce((sum, r) => sum + r.incorrect_count, 0);
+        const validResults = results.filter(r => r && typeof r.total_questions === 'number');
+        const totalTests = validResults.length;
+
+        if (totalTests === 0) {
+            setAnalytics(null);
+            return;
+        }
+
+        const totalQuestions = validResults.reduce((sum, r) => sum + (r.total_questions || 0), 0);
+        const correctAnswers = validResults.reduce((sum, r) => sum + (r.correct_count || 0), 0);
+        const incorrectAnswers = validResults.reduce((sum, r) => sum + (r.incorrect_count || 0), 0);
 
         // Calculate standardized scores (percentage)
-        const scorePercents = results.map(r => (r.correct_count / r.total_questions) * 100);
-        const avgScorePercent = scorePercents.reduce((a, b) => a + b, 0) / scorePercents.length;
-        const bestScore = Math.max(...scorePercents);
-        const worstScore = Math.min(...scorePercents);
+        const scorePercents = validResults.map(r => r.total_questions > 0 ? (r.correct_count / r.total_questions) * 100 : 0);
+        const avgScorePercent = scorePercents.reduce((a, b) => a + b, 0) / (scorePercents.length || 1);
+        const bestScore = scorePercents.length > 0 ? Math.max(...scorePercents) : 0;
+        const worstScore = scorePercents.length > 0 ? Math.min(...scorePercents) : 0;
 
         // Trends data (sorted by date)
-        const sortedResults = [...results].sort((a, b) =>
-            new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+        const sortedResults = [...validResults].sort((a, b) =>
+            safeDate(a.timestamp).getTime() - safeDate(b.timestamp).getTime()
         );
         const trends = sortedResults.map(r => ({
-            date: new Date(r.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }),
+            date: safeDate(r.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }),
             score: r.score,
-            scorePercent: Math.round((r.correct_count / r.total_questions) * 100)
+            scorePercent: Math.round(r.total_questions > 0 ? (r.correct_count / r.total_questions) * 100 : 0)
         }));
 
         // Subject breakdown (Simplified for now as real metadata is needed for accurate split)
