@@ -78,7 +78,11 @@ export default function PriceCountdown({
     if (timeLeft === null) return null; // Loading state
 
     const currentPrice = isExpired ? expiredPrice : offerPrice;
-    const discountPercent = Math.round(((basePrice - currentPrice) / basePrice) * 100);
+
+    // Prevent division by zero and handle invalid basePrice
+    const discountPercent = basePrice > 0
+        ? Math.round(((basePrice - currentPrice) / basePrice) * 100)
+        : 0;
 
     return (
         <div className={`rounded-xl p-6 border-2 transition-all ${isExpired ? 'border-gray-200 bg-gray-50' : 'border-red-500 bg-red-50'}`}>
@@ -87,10 +91,14 @@ export default function PriceCountdown({
                     <p className="text-sm text-gray-500 mb-1">Special Launch Offer</p>
                     <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-bold text-gray-900">₹{currentPrice}</span>
-                        <span className="text-lg text-gray-400 line-through">₹{basePrice}</span>
-                        <span className="bg-red-100 text-red-600 px-2 py-0.5 rounded text-sm font-bold">
-                            {discountPercent}% OFF
-                        </span>
+                        {basePrice > currentPrice && (
+                            <span className="text-lg text-gray-400 line-through">₹{basePrice}</span>
+                        )}
+                        {discountPercent > 0 && (
+                            <span className="bg-red-100 text-red-600 px-2 py-0.5 rounded text-sm font-bold">
+                                {discountPercent}% OFF
+                            </span>
+                        )}
                     </div>
                 </div>
 
