@@ -89,12 +89,21 @@ function AnalyticsContent() {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (res.ok) {
-                const data: TestResult[] = await res.json();
+                const rawData = await res.json();
+                console.log("Analytics Data:", rawData); // Debug log
+
+                // Defensively ensure data is an array
+                const data = Array.isArray(rawData) ? rawData : [];
                 setTestResults(data);
                 calculateAnalytics(data);
+            } else {
+                console.error("API Error:", res.status, res.statusText);
+                setTestResults([]); // Fallback to empty
+                setLoading(false);
             }
         } catch (error) {
             console.error("Error fetching test results:", error);
+            setTestResults([]); // Fallback to empty
         } finally {
             setLoading(false);
         }
