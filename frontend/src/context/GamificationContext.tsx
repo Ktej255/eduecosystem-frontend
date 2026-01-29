@@ -92,11 +92,21 @@ export function GamificationProvider({ children }: { children: ReactNode }) {
     // Load from localStorage
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            if (stored) {
-                setState(prev => ({ ...prev, ...JSON.parse(stored) }));
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    // Minimal validation to ensure essential fields exist
+                    if (parsed && typeof parsed === 'object') {
+                        setState(prev => ({ ...prev, ...parsed }));
+                    }
+                }
+            } catch (error) {
+                console.error("Failed to load gamification state:", error);
+                // Fallback to default state is already set
             }
         }
+
 
         // Subscribe to Activity Service events
         const unsubscribe = activityService.subscribe((action, details) => {
@@ -295,11 +305,15 @@ export const useGamification = () => {
 export function useXPProgress() {
     const { xp, level, streak, longestStreak } = useGamification();
     const currentThreshold = LEVEL_THRESHOLDS[level - 1] || 0;
-    const nextThreshold = LEVEL_THRESHOLDS[level] || LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1];
+    // Cap next threshold logic
+    const isMaxLevel = level >= LEVEL_THRESHOLDS.length;
+    const nextThreshold = isMaxLevel ? (currentThreshold * 1.5) : (LEVEL_THRESHOLDS[level] || LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1]);
 
     const xpInLevel = xp - currentThreshold;
     const xpNeeded = nextThreshold - currentThreshold;
-    const progress = Math.min(100, Math.max(0, (xpInLevel / xpNeeded) * 100));
+
+    // Avoid division by zero
+    const progress = xpNeeded > 0 ? Math.min(100, Math.max(0, (xpInLevel / xpNeeded) * 100)) : 100;
 
     return {
         level,
