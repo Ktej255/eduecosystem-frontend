@@ -6,10 +6,11 @@ import { HISTORY_CONFIG } from './data/history-config';
 import HistoryTimeline from './HistoryTimeline';
 import HistoryMainsPractice from './HistoryMainsPractice';
 import HistoryDashboard from './HistoryDashboard';
-import { Layout, Clock, PenTool, BookOpen } from 'lucide-react';
+import HistoryVisuals from './HistoryVisuals';
+import { Layout, Clock, PenTool, BookOpen, Map } from 'lucide-react';
 
 export default function HistoryHome() {
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'timeline' | 'mains'>('dashboard');
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'timeline' | 'mains' | 'visuals'>('dashboard');
 
     const handleTopicSelect = (topicId: number) => {
         console.log("Timeline selected topic:", topicId);
@@ -70,6 +71,16 @@ export default function HistoryHome() {
                                 <PenTool className="w-4 h-4" />
                                 Mains
                             </button>
+                            <button
+                                onClick={() => setActiveTab('visuals')}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'visuals'
+                                    ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
+                                    : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                                    }`}
+                            >
+                                <Map className="w-4 h-4" />
+                                Maps
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -99,7 +110,11 @@ export default function HistoryHome() {
                         <HistoryMainsPractice config={HISTORY_CONFIG} />
                     </div>
                 )}
+
+                {activeTab === 'visuals' && (
+                    <HistoryVisuals />
+                )}
             </div>
-        </div>
+        </div >
     );
 }

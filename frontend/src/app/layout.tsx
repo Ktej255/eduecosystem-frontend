@@ -9,6 +9,7 @@ import AIChatWidget from "@/components/chat/AIChatWidget";
 import BuildInfo from "@/components/BuildInfo";
 import { BrandingProvider } from "@/contexts/BrandingContext";
 import ServiceWorkerRegister from "@/components/pwa/ServiceWorkerRegister";
+import { GamificationProvider } from "@/context/GamificationContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,10 +60,12 @@ export default function RootLayout({
             <BrandingProvider>
               <AuthProvider>
                 <ToastProvider>
-                  <ServiceWorkerRegister />
-                  {children}
-                  <AIChatWidget />
-                  <BuildInfo />
+                  <GamificationProvider>
+                    <ServiceWorkerRegister />
+                    {children}
+                    <AIChatWidget />
+                    <BuildInfo />
+                  </GamificationProvider>
                 </ToastProvider>
               </AuthProvider>
             </BrandingProvider>

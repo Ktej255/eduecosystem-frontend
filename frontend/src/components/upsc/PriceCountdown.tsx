@@ -26,7 +26,7 @@ export default function PriceCountdown({
 
     // Uniq key for this book's timer in localStorage
     const STORAGE_KEY = `upsc_offer_start_${bookId}`;
-    const DURATION_MS = 5 * 60 * 1000; // 5 minutes
+    const DURATION_MS = 15 * 60 * 1000; // 15 minutes
 
     useEffect(() => {
         // Initialize timer logic

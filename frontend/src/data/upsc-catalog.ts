@@ -257,6 +257,19 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 discountedPrice: 0,
                 isNCERT: true,
                 category: 'Indian Geography'
+            },
+
+            // Visual Learning
+            {
+                id: 'visual-geography',
+                title: 'Eduecosystem Visual Geography',
+                author: 'Eduecosystem 3D Team',
+                description: 'Interactive 3D simulations for Physical Geography (Landforms, Tectonics).',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: false,
+                category: 'Visual Learning',
+                coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'
             }
         ]
     },
@@ -308,6 +321,19 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 discountedPrice: 0,
                 isNCERT: true,
                 category: 'Macroeconomics'
+            },
+
+            // Visual Learning
+            {
+                id: 'visual-economy',
+                title: 'Eduecosystem Visual Economy',
+                author: 'Eduecosystem 3D Team',
+                description: 'Interactive simulations: Circular Flow, Demand/Supply, Banking.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: false,
+                category: 'Visual Learning',
+                coverImage: 'https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2064&auto=format&fit=crop'
             }
         ]
     },
@@ -360,6 +386,19 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 discountedPrice: 0,
                 isNCERT: true,
                 category: 'NCERT'
+            },
+
+            // Visual Learning
+            {
+                id: 'visual-environment',
+                title: 'Eduecosystem Visual Environment',
+                author: 'Eduecosystem 3D Team',
+                description: 'Interactive simulations: Food Webs, Carbon Cycle, Ecosystems.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: false,
+                category: 'Visual Learning',
+                coverImage: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2026&auto=format&fit=crop'
             }
         ]
     },

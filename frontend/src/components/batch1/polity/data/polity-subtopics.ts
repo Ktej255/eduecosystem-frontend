@@ -316,5 +316,44 @@ export const CHAPTER_SUBTOPICS: Record<number, SubTopic[]> = {
         { id: '31.4', label: 'Ordinance-Making Power (Art 213)' },
         { id: '31.5', label: 'Pardoning Power (Art 161)' },
         { id: '31.6', label: 'Constitutional Position compared to President' }
-    ]
+    ],
+    // MODULE 7: Local & Special
+    39: [
+        { id: '39.1', label: 'Evolution (Balwant Rai, Ashok Mehta)' },
+        { id: '39.2', label: '73rd Amendment Act 1992 Features' },
+        { id: '39.3', label: 'Compulsory vs Voluntary Provisions' },
+        { id: '39.4', label: 'PESA Act 1996' }
+    ],
+    40: [
+        { id: '40.1', label: '74th Amendment Act 1992 Features' },
+        { id: '40.2', label: 'Types of Urban Governments' },
+        { id: '40.3', label: 'Municipal Personnel & Revenue' }
+    ],
+    41: [{ id: '41.1', label: 'Creation and Administration of UTs' }],
+    42: [{ id: '42.1', label: 'Administration of Scheduled Areas (5th Schedule)' }, { id: '42.2', label: 'Tribal Areas (6th Schedule)' }],
+    78: [{ id: '78.1', label: 'Provisions for Maharashtra & Gujarat' }, { id: '78.2', label: 'Nagaland & Others (Art 371-371J)' }],
+
+    // Constitutional Bodies
+    43: [{ id: '43.1', label: 'Composition & Independence of EC' }, { id: '43.2', label: 'Powers and Functions' }],
+    44: [{ id: '44.1', label: 'Composition of UPSC' }, { id: '44.2', label: 'Functions & Limitations' }],
+    45: [{ id: '45.1', label: 'Composition of SPSC' }, { id: '45.2', label: 'Functions & Limitations' }],
+    46: [{ id: '46.1', label: 'Composition of Finance Commission' }, { id: '46.2', label: 'Functions & Role' }],
+    47: [{ id: '47.1', label: 'Establishment of GST Council' }, { id: '47.2', label: 'Composition & Functions' }],
+    48: [{ id: '48.1', label: 'National Commission for SCs' }],
+    49: [{ id: '49.1', label: 'National Commission for STs' }],
+    50: [{ id: '50.1', label: 'National Commission for BCs' }],
+    51: [{ id: '51.1', label: 'Special Officer for Linguistic Minorities' }],
+    52: [{ id: '52.1', label: 'Appointment & Independence of CAG' }, { id: '52.2', label: 'Duties and Powers' }],
+    53: [{ id: '53.1', label: 'Appointment & Role of AG' }],
+    54: [{ id: '54.1', label: 'Appointment & Role of Advocate General' }],
+
+    // Non-Constitutional
+    56: [{ id: '56.1', label: 'Establishment & Objectives of NITI Aayog' }, { id: '56.2', label: 'Structure & Functions' }],
+    64: [{ id: '64.1', label: 'Administrative Tribunals (Art 323A)' }, { id: '64.2', label: 'Tribunals for Other Matters (Art 323B)' }],
+    72: [{ id: '72.1', label: 'Composition & Functions of NEC' }],
+
+    // Dynamic / Others
+    4: [{ id: '4.1', label: 'Salient Features of Constitution' }],
+    5: [{ id: '5.1', label: 'Keywords in Preamble' }, { id: '5.2', label: 'Significance & Amendability' }],
+    6: [{ id: '6.1', label: 'Union of States' }, { id: '6.2', label: 'Reorganization of States' }]
 };

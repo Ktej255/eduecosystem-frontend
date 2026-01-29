@@ -1,15 +1,51 @@
 "use client";
 
-import React from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { UPSC_CATALOG, UPSCBook } from '@/data/upsc-catalog';
 import { ArrowLeft, Book, ShieldCheck, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import TieredLevelView from '@/components/upsc/TieredLevelView';
+import { CHAPTER7_TIERED_CONTENT } from '@/components/batch1/history/data/mcqs/chapter7-tiered';
+import { POLITY_CHAPTER5_TIERED } from '@/components/batch1/polity/data/mcqs/chapter5-tiered';
+import { GEOGRAPHY_CHAPTER1_TIERED } from '@/components/batch1/geography/data/mcqs/chapter1-tiered';
+import { ENVIRONMENT_CHAPTER1_TIERED } from '@/components/batch1/environment/data/mcqs/chapter1-tiered';
+
+// Static Chapter Maps (Mocking DB)
+const HISTORY_CHAPTERS = [
+    { id: 1, title: "Advent of Europeans" },
+    { id: 2, title: "British Expansion" },
+    { id: 7, title: "The Revolt of 1857", data: CHAPTER7_TIERED_CONTENT },
+    { id: 8, title: "Socio-Religious Reform Movements" }
+];
+
+const POLITY_CHAPTERS = [
+    { id: 1, title: "Historical Background" },
+    { id: 2, title: "Making of the Constitution" },
+    { id: 5, title: "Union & Its Territory", data: POLITY_CHAPTER5_TIERED },
+    { id: 6, title: "Citizenship" }
+];
+
+const GEOGRAPHY_CHAPTERS = [
+    { id: 1, title: "The Universe & Solar System", data: GEOGRAPHY_CHAPTER1_TIERED },
+    { id: 2, title: "Geomorphology: Earth's Interior" },
+    { id: 3, title: "Climatology: Atmosphere" },
+    { id: 4, title: "Oceanography" }
+];
+
+const ENVIRONMENT_CHAPTERS = [
+    { id: 1, title: "Ecology & Ecosystem Functions", data: ENVIRONMENT_CHAPTER1_TIERED },
+    { id: 2, title: "Biodiversity & Conservation" },
+    { id: 3, title: "Climate Change & Summits" },
+    { id: 4, title: "Pollution & Acts" }
+];
 
 export default function SubjectStorePage() {
     const params = useParams();
-    const router = useRouter(); // Correct hooks usage
+    const router = useRouter();
+    const searchParams = useSearchParams();
     const subjectId = params.subjectId as string;
+    const levelParam = searchParams.get('level');
+    const activeLevel = levelParam ? parseInt(levelParam) : null;
 
     const subject = UPSC_CATALOG.find(s => s.id === subjectId);
 
@@ -22,6 +58,20 @@ export default function SubjectStorePage() {
                 </button>
             </div>
         );
+    }
+
+    if (activeLevel) {
+        const chapters = subjectId === 'history' ? HISTORY_CHAPTERS :
+            subjectId === 'polity' ? POLITY_CHAPTERS :
+                subjectId === 'geography' ? GEOGRAPHY_CHAPTERS :
+                    subjectId === 'environment' ? ENVIRONMENT_CHAPTERS : [];
+
+        return <TieredLevelView
+            subjectId={subjectId}
+            level={activeLevel}
+            onBack={() => router.back()}
+            chapters={chapters}
+        />;
     }
 
     const ncertBooks = subject.books.filter(b => b.isNCERT);

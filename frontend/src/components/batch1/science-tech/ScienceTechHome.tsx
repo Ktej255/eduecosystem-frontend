@@ -4,10 +4,11 @@ import React, { useState } from 'react';
 import SubjectPlanner from '../framework/SubjectPlanner';
 import { SCIENCE_TECH_CONFIG } from './data/science-tech-config';
 import SciTechDashboard from './SciTechDashboard';
-import { Layout, Microscope, Rocket, BookOpen } from 'lucide-react';
+import ScienceVisuals from './ScienceVisuals';
+import { Layout, Microscope, Rocket, BookOpen, Atom } from 'lucide-react';
 
 export default function ScienceTechHome() {
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner'>('dashboard');
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'visuals'>('dashboard');
 
     return (
         <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a]">
@@ -43,6 +44,16 @@ export default function ScienceTechHome() {
                                 <BookOpen className="w-4 h-4" />
                                 Planner
                             </button>
+                            <button
+                                onClick={() => setActiveTab('visuals')}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'visuals'
+                                    ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200'
+                                    : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                                    }`}
+                            >
+                                <Atom className="w-4 h-4" />
+                                Visuals
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -55,6 +66,10 @@ export default function ScienceTechHome() {
 
                 {activeTab === 'planner' && (
                     <SubjectPlanner config={SCIENCE_TECH_CONFIG} />
+                )}
+
+                {activeTab === 'visuals' && (
+                    <ScienceVisuals />
                 )}
             </div>
         </div>

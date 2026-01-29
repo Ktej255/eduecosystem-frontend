@@ -4,7 +4,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Crown, Building2, Scroll, Sword, ArrowRight, BookOpen, Globe } from 'lucide-react';
+import { Crown, Building2, Scroll, Sword, ArrowRight, BookOpen, Globe, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ModernHistoryTimeline } from './ModernHistoryTimeline';
 import Link from 'next/link';
@@ -67,12 +67,20 @@ export default function HistoryDashboard() {
                     </h1>
                     <p className="text-gray-500 dark:text-gray-400">Track your journey across Ancient, Medieval, and Modern India.</p>
                 </div>
-                <Link href="/student/pyq">
-                    <Button className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white shadow-lg">
-                        <BookOpen className="mr-2 h-4 w-4" />
-                        Access PYQ Portal
-                    </Button>
-                </Link>
+                <div className="flex gap-3">
+                    <Link href="/student/batch1/history/schedule">
+                        <Button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-lg">
+                            <Calendar className="mr-2 h-4 w-4" />
+                            30-Day Pomodoro Plan
+                        </Button>
+                    </Link>
+                    <Link href="/student/pyq">
+                        <Button variant="outline" className="border-amber-500 text-amber-700 hover:bg-amber-50 dark:text-amber-300 dark:hover:bg-amber-900/20">
+                            <BookOpen className="mr-2 h-4 w-4" />
+                            Access PYQ Portal
+                        </Button>
+                    </Link>
+                </div>
             </div>
 
             {/* Header Stats */}
