@@ -4,6 +4,7 @@ import React from 'react';
 import { BookOpen, CheckCircle, Clock } from 'lucide-react';
 import { usePurchases } from '@/context/PurchaseContext';
 import { UPSC_CATALOG } from '@/data/upsc-catalog';
+import { Progress } from "@/components/ui/progress";
 import Link from 'next/link';
 
 export default function MyLibrary() {
@@ -53,6 +54,14 @@ export default function MyLibrary() {
                                 </span>
                             </div>
                             <p className="text-xs text-gray-500 mb-2">Level {item.level} Module</p>
+
+                            <div className="mb-3">
+                                <div className="flex justify-between text-[10px] text-gray-500 mb-1">
+                                    <span>Progress</span>
+                                    <span>0%</span>
+                                </div>
+                                <Progress value={0} className="h-1" />
+                            </div>
 
                             <Link
                                 href={`/student/upsc/${item.subjectId}?level=${item.level}`}

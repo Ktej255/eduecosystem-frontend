@@ -15,6 +15,8 @@ import { RefreshCw, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // Import the RAS Dashboard (Anti-Gravity)
 import RASDashboard from "@/components/ras/RASDashboard";
+import HabitTracker from "@/components/engagement/HabitTracker";
+import StreakWidget from "@/components/engagement/StreakWidget";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
@@ -130,9 +132,18 @@ export default function StudentDashboard() {
                     </div>
 
                     <div className="flex items-center gap-3">
-                        <div className="hidden md:flex items-center gap-1.5 px-3 py-1 bg-orange-100 dark:bg-orange-900/20 rounded-full">
-                            <span className="text-lg">🔥</span>
-                            <span className="text-sm font-bold text-orange-700 dark:text-orange-400">{stats.overallStreak} Day Streak</span>
+                        <div className="hidden md:block">
+                            <StreakWidget
+                                data={{
+                                    currentStreak: stats.overallStreak,
+                                    longestStreak: stats.overallStreak, // Placeholder
+                                    freezeTokens: 1, // Placeholder
+                                    totalActiveDays: stats.overallStreak,
+                                    coinsEarned: 120, // Placeholder
+                                    milestones: { "7_day": stats.overallStreak >= 7, "30_day": stats.overallStreak >= 30, "100_day": stats.overallStreak >= 100 }
+                                }}
+                                compact={true}
+                            />
                         </div>
 
                         <Button
@@ -146,6 +157,10 @@ export default function StudentDashboard() {
                         </Button>
                     </div>
                 </div>
+            </div>
+
+            <div className="max-w-4xl mx-auto px-4 pt-6">
+                <HabitTracker />
             </div>
 
             {/* Dynamic Timeline */}
