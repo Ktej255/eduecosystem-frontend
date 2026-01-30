@@ -24,7 +24,7 @@ import {
 } from "recharts";
 
 interface QuestionResult {
-    id: number;
+    id: number | string;
     question: string;
     options: string[];
     explanation: string;
@@ -35,6 +35,8 @@ interface QuestionResult {
     confidence: 'sure' | '50-50' | 'one-option' | 'blind' | null;
     timeSpent: number;
     isCorrect: boolean;
+    visitCount?: number;
+    attemptRound?: number;
 }
 
 interface TestReportProps {
@@ -290,6 +292,38 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                         </div>
                     </Card>
                 </div>
+
+                {/* Reading Strategy Analysis (Rounds) */}
+                <Card className="mb-8 p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md">
+                    <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
+                        <Target className="w-5 h-5 text-indigo-400" />
+                        Reading Strategy Analysis (Rounds)
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {[1, 2, 3].map(round => {
+                            const roundQs = questions.filter(q => (q.attemptRound || 1) === round || (round === 3 && (q.attemptRound || 0) >= 3));
+                            const correct = roundQs.filter(q => q.isCorrect).length;
+                            const total = roundQs.length;
+                            const acc = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+                            return (
+                                <div key={round} className="p-4 rounded-xl bg-slate-800/30 border border-slate-800 flex flex-col items-center text-center">
+                                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">
+                                        {round === 3 ? '3rd+ Reading' : `${round === 1 ? '1st' : '2nd'} Reading`}
+                                    </h4>
+                                    <div className="text-3xl font-bold text-white mb-1">{acc}%</div>
+                                    <div className="text-xs text-slate-400">
+                                        Accuracy ({correct}/{total})
+                                    </div>
+                                    <div className="w-full h-1.5 bg-slate-700/50 rounded-full mt-4 overflow-hidden">
+                                        <div className={`h-full ${acc > 70 ? 'bg-emerald-500' : acc > 40 ? 'bg-amber-500' : 'bg-red-500'}`} style={{ width: `${acc}%` }} />
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </Card>
+
 
                 {/* Gap Analysis Table */}
                 <Card className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md">
