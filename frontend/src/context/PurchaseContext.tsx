@@ -26,9 +26,16 @@ export function PurchaseProvider({ children }: { children: ReactNode }) {
         const stored = localStorage.getItem('upsc_store_purchases');
         if (stored) {
             try {
-                setPurchases(JSON.parse(stored));
+                const parsed = JSON.parse(stored);
+                if (Array.isArray(parsed)) {
+                    setPurchases(parsed);
+                } else {
+                    console.warn("Corrupted purchases data (not an array), resetting.");
+                    setPurchases([]);
+                }
             } catch (e) {
                 console.error("Failed to parse purchases", e);
+                setPurchases([]);
                 localStorage.removeItem('upsc_store_purchases');
             }
         }

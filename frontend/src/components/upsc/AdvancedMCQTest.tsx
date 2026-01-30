@@ -115,7 +115,15 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
                 };
 
                 try {
-                    const existingHistory = JSON.parse(localStorage.getItem('upsc_mcq_history') || '[]');
+                    let existingHistory = [];
+                    try {
+                        const raw = localStorage.getItem('upsc_mcq_history');
+                        existingHistory = raw ? JSON.parse(raw) : [];
+                        if (!Array.isArray(existingHistory)) existingHistory = [];
+                    } catch (e) {
+                        console.error("Failed to parse upsc_mcq_history", e);
+                        existingHistory = [];
+                    }
                     localStorage.setItem('upsc_mcq_history', JSON.stringify([...existingHistory, resultData]));
                 } catch (e) {
                     console.error("Failed to save progress", e);
