@@ -192,7 +192,7 @@ export default function MainsAnswerWorkspace({ questionId = 'q1' }: { questionId
                                     <p className="font-bold text-gray-700 animate-pulse">Analyzing Structure...</p>
                                 </div>
                             </motion.div>
-                        ) : (
+                        ) : result ? (
                             <motion.div
                                 key="result"
                                 initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
@@ -263,7 +263,7 @@ export default function MainsAnswerWorkspace({ questionId = 'q1' }: { questionId
                                     </div>
                                 </div>
                             </motion.div>
-                        )}
+                        ) : null}
                     </AnimatePresence>
                 </aside>
             </div>
