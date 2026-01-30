@@ -39,13 +39,16 @@ interface QuickAction {
 
 const CHAT_STORAGE_KEY = 'ai_coach_history';
 
-// Mock response patterns for offline/fallback
+// Enhanced UPSC-focused mock response patterns for offline/fallback
 const MOCK_RESPONSES: Record<string, string> = {
-    'quiz': '🎯 **Quick Quiz!**\n\nQ: Which article of the Indian Constitution deals with the Right to Equality?\n\nA) Article 12\nB) Article 14\nC) Article 19\nD) Article 21\n\n*Think about it, then check your answer!*\n\n||Answer: B) Article 14||',
-    'explain': '📚 **Explanation Mode**\n\nI can help explain complex topics! Try asking about:\n- Constitutional provisions\n- Historical events\n- Economic concepts\n- Geography features\n\nWhat topic would you like me to explain?',
-    'weak': '📊 Based on your activity, here are suggested focus areas:\n\n1. **Polity**: Parliamentary Committees\n2. **Geography**: Monsoon Systems\n3. **History**: Constitutional Development\n\n*These are based on your recent quiz performance. Keep practicing!*',
-    'revision': '✨ **Revision Tips**:\n\n1. Use spaced repetition for facts\n2. Connect topics across subjects\n3. Practice with previous year questions\n4. Take short breaks every 45 mins\n5. Revise before sleeping for better retention',
-    'default': 'I\'m here to help with your UPSC preparation! You can ask me to:\n\n• Quiz you on a topic\n• Explain a concept\n• Suggest revision strategies\n• Identify your weak areas\n\nWhat would you like to explore?'
+    'quiz': '🎯 **Quick Quiz!**\n\nQ: Which Constitutional Amendment added Fundamental Duties?\n\nA) 42nd Amendment (1976)\nB) 44th Amendment (1978)\nC) 73rd Amendment (1992)\nD) 86th Amendment (2002)\n\n*Think about the Emergency period...*\n\n||Answer: A) 42nd Amendment, recommended by Swaran Singh Committee||',
+    'explain': '📚 **Concept Mode**\n\nI can help with any UPSC topic! Popular requests:\n\n**Polity**: Article 356, Federal Structure, Judicial Review\n**Economy**: Monetary Policy, Fiscal Deficit, GST\n**Geography**: Monsoons, Soil Types, Rivers\n**Environment**: Biodiversity Hotspots, Climate Agreements\n\nWhat would you like me to explain?',
+    'weak': '📊 **Focus Areas (Based on PYQ Trends)**:\n\n1. **Polity** (25-30 Qs): Focus on Articles 1-50, Amendments\n2. **Environment** (15-20 Qs): Biodiversity, Climate Change Acts\n3. **Economy** (12-15 Qs): RBI, Budget basics, Schemes\n\n*Pro Tip: Environment + Geography combined = 30+ questions!*',
+    'revision': '✨ **Topper Revision Tips**:\n\n📌 Use **spaced repetition** (revise on Day 1, 3, 7, 14)\n📌 Make **one-pagers** for each chapter\n📌 Solve **10 PYQs daily** before prelims\n📌 Connect static to **current affairs**\n📌 **Sleep 7 hours** - crucial for memory consolidation\n\n*"Revision is the mother of learning" - Most UPSC Toppers*',
+    'pyq': '📖 **PYQ Strategy**:\n\nPrelims PYQ patterns show:\n- 2018-2023 questions repeat concepts from 2010-2017\n- Environment weightage has increased 40%\n- Polity questions are more applicative now\n\n*Start with subject-wise PYQs, then attempt full mocks!*',
+    'current': '📰 **Current Affairs Approach**:\n\n1. Focus on **government schemes** and their features\n2. Track **international agreements** India signs\n3. Note **appointments** to constitutional posts\n4. Follow **economic data** (GDP, inflation, indices)\n\n*Link every news to a static topic for better retention!*',
+    'strategy': '🎯 **Prelims Strategy**:\n\n**3 months out**: Complete static portions\n**2 months out**: Start full-length mocks, analyze mistakes\n**1 month out**: Revise, revise, revise + current affairs\n**Last week**: Light revision, avoid new topics, stay calm\n\n*Negative marking is real - skip doubtful questions!*',
+    'default': '🧠 **UPSC Coach Ready!**\n\nI can help with:\n• 📝 Quiz you on any subject\n• 📚 Explain complex concepts\n• 📊 Identify your weak areas\n• 📖 PYQ analysis & patterns\n• ⚡ Revision strategies\n• 📰 Current affairs linkages\n\nWhat would you like to explore?'
 };
 
 export default function AIChatWidget() {
@@ -168,13 +171,16 @@ export default function AIChatWidget() {
         return baseActions;
     };
 
-    // Get mock response based on input pattern
+    // Get mock response based on input pattern - enhanced for UPSC
     const getMockResponse = (text: string): string => {
         const lower = text.toLowerCase();
-        if (lower.includes('quiz')) return MOCK_RESPONSES.quiz;
-        if (lower.includes('explain')) return MOCK_RESPONSES.explain;
-        if (lower.includes('weak')) return MOCK_RESPONSES.weak;
-        if (lower.includes('revision') || lower.includes('tips')) return MOCK_RESPONSES.revision;
+        if (lower.includes('quiz') || lower.includes('test me')) return MOCK_RESPONSES.quiz;
+        if (lower.includes('explain') || lower.includes('what is') || lower.includes('define')) return MOCK_RESPONSES.explain;
+        if (lower.includes('weak') || lower.includes('focus') || lower.includes('priority')) return MOCK_RESPONSES.weak;
+        if (lower.includes('revision') || lower.includes('tips') || lower.includes('how to study')) return MOCK_RESPONSES.revision;
+        if (lower.includes('pyq') || lower.includes('previous year') || lower.includes('past year')) return MOCK_RESPONSES.pyq;
+        if (lower.includes('current') || lower.includes('news') || lower.includes('affairs')) return MOCK_RESPONSES.current;
+        if (lower.includes('strategy') || lower.includes('plan') || lower.includes('schedule')) return MOCK_RESPONSES.strategy;
         return MOCK_RESPONSES.default;
     };
 
