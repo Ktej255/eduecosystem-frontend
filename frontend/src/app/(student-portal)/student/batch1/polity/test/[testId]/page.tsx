@@ -17,13 +17,24 @@ export default function PolityTestPage() {
     const [results, setResults] = useState<any>(null);
 
     const getTestContent = () => {
+        let rawContent: any[] = [];
         if (testId === 'paper1-jan31') {
-            return POLITY_PAPER_1_JAN_31;
+            rawContent = POLITY_PAPER_1_JAN_31;
+        } else if (testId === 'paper2-jan31') {
+            rawContent = POLITY_PAPER_2_JAN_31;
         }
-        if (testId === 'paper2-jan31') {
-            return POLITY_PAPER_2_JAN_31;
-        }
-        return [];
+
+        // Map to ensure strict type compatibility
+        return rawContent.map(q => ({
+            id: q.id,
+            question: q.question,
+            options: q.options,
+            correctIndex: q.correctIndex ?? q.correctAnswer ?? 0, // Fallback to 0 if missing
+            explanation: q.explanation || "",
+            chapter: q.chapter || "Polity",
+            subtopic: q.subtopic || q.subtopicId || "General",
+            difficulty: q.difficulty || q.level
+        }));
     };
 
     const content = getTestContent();
