@@ -232,7 +232,9 @@ export function generateWeeklySchedule(): WeeklySchedule[] {
             days: {
                 sunday: [], // Filled with previous week's chapters
                 monday: [], tuesday: [], wednesday: [], thursday: [], friday: [],
-                saturday: ["Weekly Mock Test", "Revision"],
+                saturday: weekNumber === 5
+                    ? ["UPSC Prelims 2026: Paper 1", "UPSC Prelims 2026: Paper 2"]
+                    : ["Weekly Mock Test", "Revision"],
             },
             totalPages: 0,
             totalSlots: 0,

@@ -269,22 +269,30 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
                                             'bg-white dark:bg-[#111] border-gray-100 dark:border-gray-800'
                                         }`}>
                                         {isSaturday ? (
-                                            (contents as string[]).map((paper, idx) => (
-                                                <div key={idx} className="p-3 bg-white dark:bg-gray-900 rounded-xl border border-amber-100 dark:border-amber-900/30 flex items-center justify-between group hover:border-amber-400 transition-all">
-                                                    <div className="flex items-center gap-3">
-                                                        <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-600">
-                                                            <FileText size={16} />
+                                            (contents as string[]).map((paper, idx) => {
+                                                let linkUrl = "#";
+                                                if (paper.includes("Paper 1")) linkUrl = "/student/batch1/polity/test/paper1-jan31";
+                                                if (paper.includes("Paper 2")) linkUrl = "/student/batch1/polity/test/paper2-jan31";
+
+                                                return (
+                                                    <div key={idx} className="p-3 bg-white dark:bg-gray-900 rounded-xl border border-amber-100 dark:border-amber-900/30 flex items-center justify-between group hover:border-amber-400 transition-all">
+                                                        <div className="flex items-center gap-3">
+                                                            <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-600">
+                                                                <FileText size={16} />
+                                                            </div>
+                                                            <div>
+                                                                <p className="text-sm font-bold text-gray-800 dark:text-white">{paper}</p>
+                                                                <p className="text-[10px] text-gray-500">{paper.includes("Paper") ? "100 MCQs • 2 Hours" : "Weekly Mock"}</p>
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                            <p className="text-sm font-bold text-gray-800 dark:text-white">{paper}</p>
-                                                            <p className="text-[10px] text-gray-500">100 MCQs • 2 Hours</p>
-                                                        </div>
+                                                        <Link href={linkUrl}>
+                                                            <button className="text-[10px] font-bold bg-amber-600 text-white px-3 py-1.5 rounded-lg hover:bg-amber-700 transition-colors shadow-sm">
+                                                                START
+                                                            </button>
+                                                        </Link>
                                                     </div>
-                                                    <button className="text-[10px] font-bold bg-amber-600 text-white px-3 py-1.5 rounded-lg hover:bg-amber-700 transition-colors shadow-sm">
-                                                        START
-                                                    </button>
-                                                </div>
-                                            ))
+                                                );
+                                            })
                                         ) : isSunday ? (
                                             (contents as any[]).map((chapter, idx) => {
                                                 const subtopics = CHAPTER_SUBTOPICS[chapter.chapter] || [];
