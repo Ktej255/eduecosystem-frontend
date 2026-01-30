@@ -31,8 +31,14 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
     const [viewMode, setViewMode] = useState<'student' | 'master'>(isAdmin ? 'master' : 'student');
     const [completedChapters, setCompletedChapters] = useState<number[]>([]);
     const [completedSubTopics, setCompletedSubTopics] = useState<Record<string, boolean>>(() => {
-        const saved = localStorage.getItem('polity_completed_subtopics');
-        return saved ? JSON.parse(saved) : {};
+        if (typeof window === 'undefined') return {};
+        try {
+            const saved = localStorage.getItem('polity_completed_subtopics');
+            return saved ? JSON.parse(saved) : {};
+        } catch (e) {
+            console.error("Failed to parse polity_completed_subtopics", e);
+            return {};
+        }
     });
 
     const toggleSubTopic = (subId: string) => {
@@ -44,7 +50,15 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
     // Initialize completion and week
     useEffect(() => {
         const stored = localStorage.getItem('completed_polity_chapters');
-        if (stored) setCompletedChapters(JSON.parse(stored));
+        if (stored) {
+            try {
+                setCompletedChapters(JSON.parse(stored));
+            } catch (e) {
+                console.error("Failed to parse completed_polity_chapters", e);
+                // Optional: clear corrupted data
+                localStorage.removeItem('completed_polity_chapters');
+            }
+        }
 
         if (!isAdmin) {
             // BATCH 1.1 START DATE: January 1, 2026 (Thursday)

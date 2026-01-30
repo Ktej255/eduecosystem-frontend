@@ -25,7 +25,12 @@ export function PurchaseProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         const stored = localStorage.getItem('upsc_store_purchases');
         if (stored) {
-            setPurchases(JSON.parse(stored));
+            try {
+                setPurchases(JSON.parse(stored));
+            } catch (e) {
+                console.error("Failed to parse purchases", e);
+                localStorage.removeItem('upsc_store_purchases');
+            }
         }
     }, []);
 
