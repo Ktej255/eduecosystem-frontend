@@ -2,6 +2,7 @@
 
 import React from 'react';
 import CircularFlowViz from './visualizations/CircularFlowViz';
+import DemandSupplyViz from './visualizations/DemandSupplyViz';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
@@ -84,6 +85,9 @@ export default function EconomyDashboard() {
                             </ResponsiveContainer>
                         </CardContent>
                     </Card>
+
+                    {/* Demand Supply Visualization */}
+                    <DemandSupplyViz />
                 </div>
 
                 {/* Right Panel: Sectors & Insights */}
