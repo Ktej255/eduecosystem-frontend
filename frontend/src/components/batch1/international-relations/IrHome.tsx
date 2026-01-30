@@ -5,10 +5,11 @@ import SubjectPlanner from '../framework/SubjectPlanner';
 import { IR_CONFIG } from './data/ir-config';
 import { irFlashcards as IR_FLASHCARDS } from './data/flashcards/ir-flashcards';
 import GenericFlashcardSession from '../framework/GenericFlashcardSession';
-import { Layout, Zap } from 'lucide-react';
+import IrDashboard from './IrDashboard';
+import { Layout, Zap, BarChart2 } from 'lucide-react';
 
 export default function IrHome() {
-    const [activeTab, setActiveTab] = useState<'planner' | 'flashcards'>('planner');
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'flashcards'>('dashboard');
 
     return (
         <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a]">
@@ -21,6 +22,16 @@ export default function IrHome() {
                         </div>
 
                         <div className="flex space-x-1">
+                            <button
+                                onClick={() => setActiveTab('dashboard')}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'dashboard'
+                                    ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200'
+                                    : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                                    }`}
+                            >
+                                <BarChart2 className="w-4 h-4" />
+                                Dashboard
+                            </button>
                             <button
                                 onClick={() => setActiveTab('planner')}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'planner'
@@ -47,6 +58,12 @@ export default function IrHome() {
             </div>
 
             <div className="w-full">
+                {activeTab === 'dashboard' && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <IrDashboard />
+                    </div>
+                )}
+
                 {activeTab === 'planner' && (
                     <SubjectPlanner config={IR_CONFIG} />
                 )}
@@ -72,3 +89,4 @@ export default function IrHome() {
         </div>
     );
 }
+

@@ -3,6 +3,7 @@
 import React from 'react';
 import TechTreeViz from './visualizations/TechTreeViz';
 import SpaceOrbitViz from './visualizations/SpaceOrbitViz';
+import DefenseTechViz from './visualizations/DefenseTechViz';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Atom, Microscope, Rocket } from 'lucide-react';
 
@@ -37,17 +38,10 @@ export default function SciTechDashboard() {
                     <TechTreeViz />
                 </div>
 
-                {/* Space (Span 1) */}
+                {/* Right Column: Space + Defense */}
                 <div className="space-y-6">
                     <SpaceOrbitViz />
-
-                    {/* Placeholder for Defense/Nuclear */}
-                    <Card className="h-[200px] flex items-center justify-center border-dashed">
-                        <div className="text-center text-gray-400">
-                            <h3 className="font-bold">Defense Technology</h3>
-                            <p className="text-sm">Missile Systems Visualization (Coming Soon)</p>
-                        </div>
-                    </Card>
+                    <DefenseTechViz />
                 </div>
             </div>
         </div>
