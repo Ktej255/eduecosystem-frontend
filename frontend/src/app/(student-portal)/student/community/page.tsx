@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useGamification } from '@/context/GamificationContext';
 import { useCommunity } from '@/context/CommunityContext';
+import Leaderboard from '@/components/upsc/Leaderboard';
 
 // Mock study groups
 const STUDY_GROUPS = [
@@ -212,31 +213,8 @@ export default function CommunityPage() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden"
                         >
-                            <div className="p-5 border-b border-gray-200 dark:border-gray-800">
-                                <h3 className="font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                    <Crown className="w-5 h-5 text-yellow-500" />
-                                    Weekly Leaderboard
-                                </h3>
-                            </div>
-                            <div className="divide-y divide-gray-200 dark:divide-gray-800">
-                                {LEADERBOARD.map((user) => (
-                                    <div key={user.rank} className="flex items-center gap-4 p-4 hover:bg-gray-50 dark:hover:bg-[#0a0a0a] transition-colors">
-                                        <span className="w-8 h-8 flex items-center justify-center text-xl">
-                                            {user.avatar}
-                                        </span>
-                                        <div className="flex-1">
-                                            <p className="font-bold text-gray-900 dark:text-white">{user.name}</p>
-                                            <p className="text-xs text-gray-500">{user.xp.toLocaleString()} XP</p>
-                                        </div>
-                                        <div className="text-right">
-                                            <p className="text-sm font-bold text-orange-500">🔥 {user.streak}</p>
-                                            <p className="text-xs text-gray-400">streak</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                            <Leaderboard />
                         </motion.div>
                     )}
                 </div>

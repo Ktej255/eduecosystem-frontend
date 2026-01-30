@@ -18,6 +18,8 @@ import { useGamification } from "@/context/GamificationContext";
 import RASDashboard from "@/components/ras/RASDashboard";
 import HabitTracker from "@/components/engagement/HabitTracker";
 import StreakWidget from "@/components/engagement/StreakWidget";
+import DailyChallengeWidget from "@/components/upsc/DailyChallengeWidget";
+import Leaderboard from "@/components/upsc/Leaderboard";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
@@ -167,6 +169,14 @@ export default function StudentDashboard() {
 
             <div className="max-w-4xl mx-auto px-4 pt-6">
                 <HabitTracker />
+            </div>
+
+            {/* Engagement Widgets Section */}
+            <div className="max-w-4xl mx-auto px-4 pt-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <DailyChallengeWidget />
+                    <Leaderboard />
+                </div>
             </div>
 
             {/* Dynamic Timeline */}
