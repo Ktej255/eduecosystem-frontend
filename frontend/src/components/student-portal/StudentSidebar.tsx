@@ -95,6 +95,24 @@ const menuItems = [
         accessKey: "meditation", // Maps to UserAccess.meditation
     },
     {
+        name: "Achievements",
+        href: "/student/achievements",
+        icon: Trophy,
+        accessKey: "dashboard", // Available to all users
+    },
+    {
+        name: "Reports",
+        href: "/student/reports",
+        icon: Layers,
+        accessKey: "dashboard", // Available to all users
+    },
+    {
+        name: "Community Hub",
+        href: "/student/community",
+        icon: User,
+        accessKey: "community",
+    },
+    {
         name: "Revision Portal",
         href: "/student/revision",
         icon: Layers,
