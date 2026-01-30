@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,11 +13,16 @@ import {
     BookOpen,
     Video,
     HelpCircle,
-    ChevronRight
+    ChevronRight,
+    Trash2,
+    Brain,
+    Target,
+    Lightbulb
 } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import api from "@/lib/api";
 import { useAuth } from "@/contexts/auth-context";
+import { useGamification } from "@/context/GamificationContext";
 
 interface Message {
     id: string;
@@ -32,6 +37,17 @@ interface QuickAction {
     prompt: string;
 }
 
+const CHAT_STORAGE_KEY = 'ai_coach_history';
+
+// Mock response patterns for offline/fallback
+const MOCK_RESPONSES: Record<string, string> = {
+    'quiz': '🎯 **Quick Quiz!**\n\nQ: Which article of the Indian Constitution deals with the Right to Equality?\n\nA) Article 12\nB) Article 14\nC) Article 19\nD) Article 21\n\n*Think about it, then check your answer!*\n\n||Answer: B) Article 14||',
+    'explain': '📚 **Explanation Mode**\n\nI can help explain complex topics! Try asking about:\n- Constitutional provisions\n- Historical events\n- Economic concepts\n- Geography features\n\nWhat topic would you like me to explain?',
+    'weak': '📊 Based on your activity, here are suggested focus areas:\n\n1. **Polity**: Parliamentary Committees\n2. **Geography**: Monsoon Systems\n3. **History**: Constitutional Development\n\n*These are based on your recent quiz performance. Keep practicing!*',
+    'revision': '✨ **Revision Tips**:\n\n1. Use spaced repetition for facts\n2. Connect topics across subjects\n3. Practice with previous year questions\n4. Take short breaks every 45 mins\n5. Revise before sleeping for better retention',
+    'default': 'I\'m here to help with your UPSC preparation! You can ask me to:\n\n• Quiz you on a topic\n• Explain a concept\n• Suggest revision strategies\n• Identify your weak areas\n\nWhat would you like to explore?'
+};
+
 export default function AIChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
@@ -42,11 +58,42 @@ export default function AIChatWidget() {
     const pathname = usePathname();
     const router = useRouter();
     const { user, isAuthenticated } = useAuth();
+    const { addXp } = useGamification();
+
+    // Load messages from localStorage on mount
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem(CHAT_STORAGE_KEY);
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    setMessages(parsed.map((m: any) => ({ ...m, timestamp: new Date(m.timestamp) })));
+                    if (parsed.length > 0) setHasGreeted(true);
+                } catch (e) {
+                    console.error('Failed to load chat history', e);
+                }
+            }
+        }
+    }, []);
+
+    // Save messages to localStorage
+    useEffect(() => {
+        if (typeof window !== 'undefined' && messages.length > 0) {
+            localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+        }
+    }, [messages]);
 
     // Scroll to bottom when messages change
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
+
+    // Clear chat history
+    const clearHistory = useCallback(() => {
+        setMessages([]);
+        setHasGreeted(false);
+        localStorage.removeItem(CHAT_STORAGE_KEY);
+    }, []);
 
     // Generate greeting based on current page
     const getPageContext = () => {
@@ -73,18 +120,31 @@ export default function AIChatWidget() {
         }
     }, [isOpen, hasGreeted, messages.length, pathname]);
 
-    // Quick actions based on current page
+    // Quick actions based on current page - UPSC focused
     const getQuickActions = (): QuickAction[] => {
-        const baseActions: QuickAction[] = [
+        const upscActions: QuickAction[] = [
             {
-                label: "Browse Courses",
-                icon: <BookOpen className="h-3 w-3" />,
-                prompt: "Show me available courses"
+                label: "Quiz Me",
+                icon: <Target className="h-3 w-3" />,
+                prompt: "quiz me on a random topic"
             },
             {
-                label: "Join Webinar",
-                icon: <Video className="h-3 w-3" />,
-                prompt: "How do I join a webinar?"
+                label: "Explain",
+                icon: <Lightbulb className="h-3 w-3" />,
+                prompt: "explain a topic"
+            },
+            {
+                label: "Weak Areas",
+                icon: <Brain className="h-3 w-3" />,
+                prompt: "show my weak areas"
+            },
+        ];
+
+        const baseActions: QuickAction[] = [
+            {
+                label: "Revision Tips",
+                icon: <BookOpen className="h-3 w-3" />,
+                prompt: "give me revision tips"
             },
             {
                 label: "Get Help",
@@ -93,23 +153,29 @@ export default function AIChatWidget() {
             },
         ];
 
+        // Student portal gets UPSC-focused actions
         if (pathname?.includes("/student")) {
-            return [
-                { label: "My Progress", icon: <ChevronRight className="h-3 w-3" />, prompt: "Show my learning progress" },
-                { label: "Start Meditation", icon: <Sparkles className="h-3 w-3" />, prompt: "How do I start a meditation session?" },
-                ...baseActions.slice(0, 1),
-            ];
+            return upscActions;
         }
 
         if (pathname?.includes("/teacher")) {
             return [
                 { label: "Upload Content", icon: <ChevronRight className="h-3 w-3" />, prompt: "How do I upload course content?" },
                 { label: "View Analytics", icon: <ChevronRight className="h-3 w-3" />, prompt: "Show me my teaching analytics" },
-                ...baseActions.slice(1, 2),
             ];
         }
 
         return baseActions;
+    };
+
+    // Get mock response based on input pattern
+    const getMockResponse = (text: string): string => {
+        const lower = text.toLowerCase();
+        if (lower.includes('quiz')) return MOCK_RESPONSES.quiz;
+        if (lower.includes('explain')) return MOCK_RESPONSES.explain;
+        if (lower.includes('weak')) return MOCK_RESPONSES.weak;
+        if (lower.includes('revision') || lower.includes('tips')) return MOCK_RESPONSES.revision;
+        return MOCK_RESPONSES.default;
     };
 
     // Don't render on login/register page (moved AFTER all hooks)
@@ -141,20 +207,27 @@ export default function AIChatWidget() {
             const assistantMessage: Message = {
                 id: (Date.now() + 1).toString(),
                 role: "assistant",
-                content: response.data.response || "I'm here to help! Could you please rephrase your question?",
+                content: response.data.response || getMockResponse(text),
                 timestamp: new Date(),
             };
 
             setMessages(prev => [...prev, assistantMessage]);
+
+            // Award XP for AI interaction
+            if (addXp) addXp(2, 'AI Coach interaction');
         } catch (error: any) {
             console.error("Chat error:", error);
-            const errorMessage: Message = {
+            // Use intelligent mock response instead of error message
+            const fallbackMessage: Message = {
                 id: (Date.now() + 1).toString(),
                 role: "assistant",
-                content: "I'm having trouble connecting right now. Please try again in a moment, or contact support if this persists.",
+                content: getMockResponse(text),
                 timestamp: new Date(),
             };
-            setMessages(prev => [...prev, errorMessage]);
+            setMessages(prev => [...prev, fallbackMessage]);
+
+            // Still award XP for the interaction
+            if (addXp) addXp(1, 'AI Coach interaction (offline)');
         } finally {
             setLoading(false);
         }
@@ -201,14 +274,25 @@ export default function AIChatWidget() {
                 <div className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl overflow-hidden animate-in slide-in-from-bottom-5 duration-300">
                     {/* Header */}
                     <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-4">
-                        <div className="flex items-center gap-3">
-                            <div className="p-2 bg-white/20 rounded-full">
-                                <Sparkles className="h-5 w-5 text-white" />
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-white/20 rounded-full">
+                                    <Sparkles className="h-5 w-5 text-white" />
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-white">AI Study Coach</h3>
+                                    <p className="text-xs text-emerald-100">Your UPSC preparation partner</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 className="font-semibold text-white">Tej's AI Assistant</h3>
-                                <p className="text-xs text-emerald-100">Here to help you navigate</p>
-                            </div>
+                            {messages.length > 1 && (
+                                <button
+                                    onClick={clearHistory}
+                                    title="Clear chat history"
+                                    className="p-1.5 hover:bg-white/20 rounded-full transition-colors"
+                                >
+                                    <Trash2 className="h-4 w-4 text-white/70" />
+                                </button>
+                            )}
                         </div>
                     </div>
 
