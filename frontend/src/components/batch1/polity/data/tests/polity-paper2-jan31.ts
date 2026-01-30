@@ -8,7 +8,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "3 only", "1 and 3 only", "2 and 3 only"],
         correctIndex: 1,
         explanation: "Statements 1 and 2 are conventions, not constitutional requirements. Statement 3 is correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Governor",
+        subtopic: "Appointment & Tenure"
     },
     {
         id: "p2_q2",
@@ -16,16 +18,19 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 1,
         explanation: "Governor has constitutional discretion (Art 163, 200, 356 report). President has situational discretion.",
-        difficulty: "Tough"
+        difficulty: "Tough",
+        chapter: "Governor",
+        subtopic: "Powers & Functions"
     },
     {
         id: "p2_q3",
-
         question: "Regarding the 'State Legislative Council' (Vidhan Parishad):\n1. The Parliament can create or abolish a Legislative Council by a simple majority.\n2. The resolution for creation/abolition must be passed by the State Assembly by a special majority.\n3. The maximum strength of the Council is fixed at one-third of the total strength of the Assembly, but not less than 40.\n\nWhich of the statements given above are correct?",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All statements correct (Art 169, 171).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "State Legislature",
+        subtopic: "Legislative Council"
     },
     {
         id: "p2_q4",
@@ -33,7 +38,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All statements correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "High Court",
+        subtopic: "Jurisdiction & Powers"
     },
     {
         id: "p2_q5",
@@ -41,7 +48,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1, 2 and 3 only", "1, 3 and 4 only", "2, 3 and 4 only", "1, 2, 3 and 4"],
         correctIndex: 1,
         explanation: "OBC reservation is Voluntary. Others are Compulsory.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Panchayati Raj",
+        subtopic: "Compulsory vs Voluntary Provisions"
     },
     {
         id: "p2_q6",
@@ -49,7 +58,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All listed powers are given to Gram Sabha under PESA.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Panchayati Raj",
+        subtopic: "PESA Act 1996"
     },
     {
         id: "p2_q7",
@@ -57,7 +68,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "User Key (a). Note: Statement 3 is technically true (Art 240(2)), but user key implies (a).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Union Territories",
+        subtopic: "Administration & Legislation"
     },
     {
         id: "p2_q8",
@@ -65,7 +78,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["A bill that imposes a tax on agricultural income.", "A bill that derogates from the powers of the High Court.", "A bill dealing with the salaries of the state legislators.", "A bill related to the cooperative societies."],
         correctIndex: 1,
         explanation: "Derogation of HC powers requires compulsory reservation.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Governor",
+        subtopic: "Legislative Powers"
     },
     {
         id: "p2_q9",
@@ -73,7 +88,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "User Key (d). Constitutionally removal is by President.",
-        difficulty: "Tough"
+        difficulty: "Tough",
+        chapter: "High Court",
+        subtopic: "Judges Appointment & Removal"
     },
     {
         id: "p2_q10",
@@ -81,7 +98,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
         correctIndex: 1,
         explanation: "Appointed by Gov. Removal like HC Judge. Conditions usually by Gov.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Panchayati Raj", // Linked to Panchayat elections
+        subtopic: "State Election Commission"
     },
     {
         id: "p2_q11",
@@ -89,7 +108,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1, 2 and 3 only", "2, 3 and 4 only", "1, 3 and 4 only", "1, 2, 3 and 4"],
         correctIndex: 0,
         explanation: "Cantonment Boards are excluded (Central Act).",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Municipalities",
+        subtopic: "74th Amendment Act"
     },
     {
         id: "p2_q12",
@@ -97,7 +118,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Municipalities",
+        subtopic: "Planning Committees"
     },
     {
         id: "p2_q13",
@@ -105,7 +128,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Chief Minister",
+        subtopic: "Powers & Functions"
     },
     {
         id: "p2_q14",
@@ -113,7 +138,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Nagaland", "Mizoram", "Sikkim", "Manipur"],
         correctIndex: 1,
         explanation: "Mizoram (371-G).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Special Provisions",
+        subtopic: "Article 371 Series"
     },
     {
         id: "p2_q15",
@@ -121,7 +148,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 2,
         explanation: "He CAN withdraw at any time.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Governor",
+        subtopic: "Ordinance Making Power"
     },
     {
         id: "p2_q16",
@@ -129,7 +158,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Municipalities",
+        subtopic: "Planning Committees"
     },
     {
         id: "p2_q17",
@@ -137,7 +168,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Prohibition", "Certiorari", "Mandamus", "Quo-Warranto"],
         correctIndex: 1,
         explanation: "Certiorari.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "High Court",
+        subtopic: "Writs"
     },
     {
         id: "p2_q18",
@@ -145,7 +178,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "User Key (d).",
-        difficulty: "Tough"
+        difficulty: "Tough",
+        chapter: "Advocate General",
+        subtopic: "Appointment & Rights"
     },
     {
         id: "p2_q19",
@@ -153,7 +188,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "State Council of Ministers",
+        subtopic: "Composition & Provisions"
     },
     {
         id: "p2_q20",
@@ -161,7 +198,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Subordinate Courts",
+        subtopic: "Gram Nyayalayas"
     },
     {
         id: "p2_q21",
@@ -169,7 +208,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["He should be an eminent person in some walk of life.", "He should be a person from outside the state.", "He should be removed only by an impeachment process similar to the President.", "He should be a detached figure and not too intimately connected with the local politics of the state."],
         correctIndex: 2,
         explanation: "Sarkaria Commission did NOT recommend impeachment for Governor.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Centre-State Relations",
+        subtopic: "Sarkaria Commission"
     },
     {
         id: "p2_q22",
@@ -177,7 +218,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "User Key (d). Art 243K is for Panchayats. 243ZA for Municipalities. Prep of rolls for Assembly is ECI. Key (d) implies SEC does all.",
-        difficulty: "Tough"
+        difficulty: "Tough",
+        chapter: "Panchayati Raj",
+        subtopic: "Elections"
     },
     {
         id: "p2_q23",
@@ -185,7 +228,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "High Court",
+        subtopic: "Control over Subordinate Courts"
     },
     {
         id: "p2_q24",
@@ -193,7 +238,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["The 74th Constitutional Amendment Act.", "The Cantonments Act, 2006.", "An executive resolution of the Ministry of Defence.", "The State Municipalities Act."],
         correctIndex: 1,
         explanation: "Established under Cantonments Act, 2006.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Municipalities",
+        subtopic: "Types of Urban Governments"
     },
     {
         id: "p2_q25",
@@ -201,7 +248,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "User Key (a).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Union Territories",
+        subtopic: "Special Provisions for Delhi"
     },
     {
         id: "p2_q26",
@@ -209,7 +258,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2, and 3"],
         correctIndex: 1,
         explanation: "Review financial position of Panchayats (243I) and Municipalities (243Y).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Panchayati Raj",
+        subtopic: "Finances"
     },
     {
         id: "p2_q27",
@@ -217,7 +268,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["The Speaker of the Assembly decides whether a bill is a Money Bill or not.", "A Money Bill cannot be returned by the Governor for reconsideration.", "There is no provision for a joint sitting of the two Houses to resolve a deadlock.", "The Legislative Council has no power to vote on demands for grants."],
         correctIndex: 2,
         explanation: "No Joint Sitting in State Legislature.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "State Legislature",
+        subtopic: "Legislative Procedure"
     },
     {
         id: "p2_q28",
@@ -225,7 +278,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All are part of Original Jurisdiction of HC.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "High Court",
+        subtopic: "Jurisdiction & Powers"
     },
     {
         id: "p2_q29",
@@ -233,7 +288,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Taxation disputes", "Land reforms", "Public service matters (Administrative Tribunals)", "Foreign exchange"],
         correctIndex: 2,
         explanation: "323A -> Recruitment and conditions of service (Public Service).",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Tribunals",
+        subtopic: "Administrative Tribunals"
     },
     {
         id: "p2_q30",
@@ -241,7 +298,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["He can be removed by a resolution passed by a majority of all the then members of the Assembly.", "He can be removed by the Governor on the advice of the Chief Minister.", "A resolution for removal requires special majority.", "He can be removed by the President."],
         correctIndex: 0,
         explanation: "Effective Majority (Majority of all 'then' members).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "State Legislature",
+        subtopic: "Presiding Officers"
     },
     {
         id: "p2_q31",
@@ -249,7 +308,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["A constitutional body.", "A statutory body established under the Advocates Act, 1961.", "An advisory body to the Supreme Court.", "A society registered under the Societies Registration Act."],
         correctIndex: 1,
         explanation: "Statutory body (Advocates Act 1961).",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Statutory Bodies",
+        subtopic: "Legal Bodies"
     },
     {
         id: "p2_q32",
@@ -257,7 +318,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["The Central Law always prevails.", "The State Law prevails if it has received the assent of the President.", "The Supreme Court decides which law prevails.", "The State Law becomes void to the extent of repugnancy."],
         correctIndex: 1,
         explanation: "State Law prevails if reserved for and received President's assent.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Centre-State Relations",
+        subtopic: "Legislative Relations"
     },
     {
         id: "p2_q33",
@@ -265,7 +328,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Panchayati Raj",
+        subtopic: "PESA Act 1996"
     },
     {
         id: "p2_q34",
@@ -273,7 +338,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["The State Government in consultation with the High Court.", "The Central Government.", "The Supreme Court.", "The Governor in his discretion."],
         correctIndex: 0,
         explanation: "State Govt in consultation with HC.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Subordinate Courts",
+        subtopic: "Family Courts"
     },
     {
         id: "p2_q35",
@@ -281,7 +348,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Ashok Mehta Committee", "Balwant Rai Mehta Committee", "G.V.K. Rao Committee", "L.M. Singhvi Committee"],
         correctIndex: 1,
         explanation: "Balwant Rai Mehta Committee (1957).",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Panchayati Raj",
+        subtopic: "Evaluation & Committees"
     },
     {
         id: "p2_q36",
@@ -289,15 +358,19 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Subordinate Courts",
+        subtopic: "Lok Adalats"
     },
     {
         id: "p2_q37",
         question: "The 'State Information Commission' submits its annual report to:",
         options: ["The Governor", "The State Legislature", "The State Government", "The Central Information Commission"],
-        correctIndex: 1, // User Key (b) State Legislature.
+        correctIndex: 1,
         explanation: "User Key (b).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Statutory Bodies",
+        subtopic: "State Information Commission"
     },
     {
         id: "p2_q38",
@@ -305,7 +378,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "3 and 4 only", "1, 3 and 4 only", "1, 2, 3 and 4"],
         correctIndex: 3,
         explanation: "All listed have Legislative Councils.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "State Legislature",
+        subtopic: "Legislative Council"
     },
     {
         id: "p2_q39",
@@ -313,7 +388,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "Choice NOT limited to 8th Schedule. Stmt 2 False.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Official Language",
+        subtopic: "Regional Languages"
     },
     {
         id: "p2_q40",
@@ -321,7 +398,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["The State List (Entry 41)", "The Concurrent List", "The Union Government (via Lieutenant Governor) as per the GNCTD (Amendment) Act.", "The Chief Minister exclusively."],
         correctIndex: 2,
         explanation: "Recent amendments give control to Union (LG).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Union Territories",
+        subtopic: "Services in Delhi"
     },
     {
         id: "p2_q41",
@@ -329,7 +408,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["The District Judge is appointed by the Governor in consultation with the High Court.", "The posting and promotion of District Judges are handled by the State Public Service Commission.", "The High Court has no administrative control over Subordinate Courts.", "The District Judge has no criminal jurisdiction."],
         correctIndex: 0,
         explanation: "Appointed by Gov + HC consultation.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Subordinate Courts",
+        subtopic: "District Judges"
     },
     {
         id: "p2_q42",
@@ -337,7 +418,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["The Ministry of Defence", "The Ministry of Home Affairs", "The Prime Minister's Office", "The President"],
         correctIndex: 1,
         explanation: "MHA.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Union Territories",
+        subtopic: "Administration"
     },
     {
         id: "p2_q43",
@@ -345,7 +428,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Scheduled & Tribal Areas",
+        subtopic: "Sixth Schedule"
     },
     {
         id: "p2_q44",
@@ -353,7 +438,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Finance Commission",
+        subtopic: "Functions"
     },
     {
         id: "p2_q45",
@@ -361,7 +448,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct. Removal by President.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "National Human Rights Commission", // Grouping with NHRC
+        subtopic: "SHRC"
     },
     {
         id: "p2_q46",
@@ -369,7 +458,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Article 168", "Article 169", "Article 170", "Article 171"],
         correctIndex: 1,
         explanation: "Article 169.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "State Legislature",
+        subtopic: "Legislative Council"
     },
     {
         id: "p2_q47",
@@ -377,7 +468,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 1,
         explanation: "Statutory body (created by Act of Parliament). Appointment by President.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "UPSC & SPSC",
+        subtopic: "JSPSC"
     },
     {
         id: "p2_q48",
@@ -385,7 +478,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "User Key (a). Note: Stmt 3 is also factually correct, but key excludes it.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Tribunals",
+        subtopic: "Constitutional Provisions"
     },
     {
         id: "p2_q49",
@@ -393,7 +488,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 only", "2 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "Report submitted to President, who lays it before Parliament.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Constitutional Bodies",
+        subtopic: "Linguistic Minorities Officer"
     },
     {
         id: "p2_q50",
@@ -401,7 +498,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Article 243D provides for the reservation of seats for SCs and STs in proportion to their population.", "Not less than 1/3rd for women involved SC/ST women.", "Not less than 1/3rd for women total.", "All of the above."],
         correctIndex: 3,
         explanation: "All statements regarding reservation are correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Panchayati Raj",
+        subtopic: "Reservation"
     },
     {
         id: "p2_q51",
@@ -409,7 +508,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "Decision by majority (Statement 3 incorrect).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Election Commission",
+        subtopic: "Powers & Functions"
     },
     {
         id: "p2_q52",
@@ -417,7 +518,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "UPSC & SPSC",
+        subtopic: "UPSC"
     },
     {
         id: "p2_q53",
@@ -425,7 +528,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Finance Commission",
+        subtopic: "Composition"
     },
     {
         id: "p2_q54",
@@ -433,7 +538,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "Report to President (Stmt 3 incorrect).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "NCSC",
+        subtopic: "Functions"
     },
     {
         id: "p2_q55",
@@ -441,7 +548,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "CAG", // Comptroller and Auditor General
+        subtopic: "Roles & Tenure"
     },
     {
         id: "p2_q56",
@@ -449,7 +558,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "Remuneration by President (Stmt 3 incorrect).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Attorney General",
+        subtopic: "Appointment & Salary"
     },
     {
         id: "p2_q57",
@@ -457,7 +568,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "NITI Aayog",
+        subtopic: "Nature & Role"
     },
     {
         id: "p2_q58",
@@ -465,7 +578,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "Recommendations NOT binding.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "National Human Rights Commission",
+        subtopic: "Composition & Powers"
     },
     {
         id: "p2_q59",
@@ -473,7 +588,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "Under Ministry of Personnel (Stmt 3 incorrect).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Central Information Commission",
+        subtopic: "Appointment"
     },
     {
         id: "p2_q60",
@@ -481,7 +598,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Central Vigilance Commission",
+        subtopic: "History & Structure"
     },
     {
         id: "p2_q61",
@@ -489,7 +608,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 only", "1 and 2 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 2,
         explanation: "Under Ministry of Personnel (Stmt 2 incorrect). It is not statutory (Stmt 3 correct).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "CBI",
+        subtopic: "Status & Powers"
     },
     {
         id: "p2_q62",
@@ -497,7 +618,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Lokpal & Lokayuktas",
+        subtopic: "Jurisdiction"
     },
     {
         id: "p2_q63",
@@ -505,7 +628,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "GST Council",
+        subtopic: "Composition & Functions"
     },
     {
         id: "p2_q64",
@@ -513,7 +638,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "NCBC",
+        subtopic: "Constitutional Status"
     },
     {
         id: "p2_q65",
@@ -521,7 +648,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Constitutional Bodies",
+        subtopic: "Linguistic Minorities"
     },
     {
         id: "p2_q66",
@@ -529,7 +658,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Advocate General",
+        subtopic: "Provisions"
     },
     {
         id: "p2_q67",
@@ -537,7 +668,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "UPSC & SPSC",
+        subtopic: "SPSC Provisions"
     },
     {
         id: "p2_q68",
@@ -545,7 +678,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "CAG",
+        subtopic: "Audit Duties"
     },
     {
         id: "p2_q69",
@@ -553,7 +688,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["National Commission for Scheduled Castes", "National Commission for Women", "National Commission for Scheduled Tribes", "National Commission for Backward Classes"],
         correctIndex: 1,
         explanation: "NCW is Statutory (1990 Act). Others are Constitutional.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Constitutional Bodies",
+        subtopic: "Classification"
     },
     {
         id: "p2_q70",
@@ -561,7 +698,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "National Human Rights Commission",
+        subtopic: "State Bodies (SHRC)"
     },
     {
         id: "p2_q71",
@@ -569,7 +708,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
         correctIndex: 1,
         explanation: "Statutory body (Stmt 2 incorrect).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Central Information Commission",
+        subtopic: "State Info Commission"
     },
     {
         id: "p2_q72",
@@ -577,7 +718,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Lokpal & Lokayuktas",
+        subtopic: "Composition"
     },
     {
         id: "p2_q73",
@@ -585,7 +728,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "Distinct from NIA.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "CBI",
+        subtopic: "Functions"
     },
     {
         id: "p2_q74",
@@ -593,7 +738,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Statutory Bodies",
+        subtopic: "NIA"
     },
     {
         id: "p2_q75",
@@ -601,7 +748,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Statutory Bodies",
+        subtopic: "NDMA"
     },
     {
         id: "p2_q76",
@@ -609,7 +758,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Co-operative Societies",
+        subtopic: "Constitutional Status"
     },
     {
         id: "p2_q77",
@@ -617,7 +768,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Official Language",
+        subtopic: "Legal Provisions"
     },
     {
         id: "p2_q78",
@@ -625,7 +778,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Article 323A deals with tribunals for other matters.", "Article 323B deals with administrative tribunals.", "Administrative Tribunals are set up by Parliament only.", "Tribunals under Article 323B can be set up only by State Legislatures."],
         correctIndex: 2,
         explanation: "323A (Admin) by Parliament. 323B (Other) by Parliament OR State Leg.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Tribunals",
+        subtopic: "323A vs 323B"
     },
     {
         id: "p2_q79",
@@ -633,7 +788,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "National Human Rights Commission",
+        subtopic: "2019 Amendments"
     },
     {
         id: "p2_q80",
@@ -641,7 +798,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Statutory Bodies",
+        subtopic: "Whistle Blowers Act"
     },
     {
         id: "p2_q81",
@@ -649,7 +808,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Elections",
+        subtopic: "Delimitation Commission"
     },
     {
         id: "p2_q82",
@@ -657,7 +818,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "1, 3 and 4 only", "2, 3 and 4 only", "1, 2, 3 and 4"],
         correctIndex: 3,
         explanation: "All chaired by PM.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Non-Constitutional Bodies",
+        subtopic: "PM as Judiciary"
     },
     {
         id: "p2_q83",
@@ -665,7 +828,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Regulatory Bodies",
+        subtopic: "CCI"
     },
     {
         id: "p2_q84",
@@ -673,7 +838,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "User Key (a).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Statutory Bodies",
+        subtopic: "Press Council"
     },
     {
         id: "p2_q85",
@@ -681,7 +848,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Statutory Bodies",
+        subtopic: "Minorities Commission"
     },
     {
         id: "p2_q86",
@@ -689,7 +858,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Indrajit Gupta Comm recommended partial funding.", "Dinesh Goswami Comm recommended funding in kind.", "No direct cash funding currently.", "All of the above."],
         correctIndex: 3,
         explanation: "All statements correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Electoral Reforms",
+        subtopic: "State Funding"
     },
     {
         id: "p2_q87",
@@ -697,7 +868,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Elections",
+        subtopic: "Model Code of Conduct"
     },
     {
         id: "p2_q88",
@@ -705,7 +878,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Elections",
+        subtopic: "Poll Bans"
     },
     {
         id: "p2_q89",
@@ -713,7 +888,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Anti-Defection Law",
+        subtopic: "Provisions"
     },
     {
         id: "p2_q90",
@@ -721,7 +898,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
         explanation: "All correct.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Central Vigilance Commission",
+        subtopic: "Composition"
     },
     {
         id: "p2_q91",
@@ -729,7 +908,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Tarkunde Committee", "Dinesh Goswami Committee", "Indrajit Gupta Committee", "All of the above"],
         correctIndex: 3,
         explanation: "All related to Electoral Reforms.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Electoral Reforms",
+        subtopic: "Committees"
     },
     {
         id: "p2_q92",
@@ -737,7 +918,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 only", "2 and 3 only", "2 only", "1, 2, and 3"],
         correctIndex: 1,
         explanation: "Not constitutional (Stmt 1 incorrect).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Attorney General",
+        subtopic: "Solicitor General"
     },
     {
         id: "p2_q93",
@@ -745,7 +928,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
         correctIndex: 1,
         explanation: "Strict laws NOT followed (Stmt 2 incorrect).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Subordinate Courts",
+        subtopic: "Lok Adalats"
     },
     {
         id: "p2_q94",
@@ -753,7 +938,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Determined by the Constitution.", "Determined by the Parliament.", "Determined by the State Legislature.", "Determined by the Governor."],
         correctIndex: 3,
         explanation: "Governor determines remuneration.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Advocate General",
+        subtopic: "Remuneration"
     },
     {
         id: "p2_q95",
@@ -761,7 +948,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["He is appointed by the President by warrant under his hand and seal.", "He can be removed by the President at his pleasure.", "His salary and service conditions are determined by the President.", "He is eligible for further office under the Government of India."],
         correctIndex: 0,
         explanation: "Appointed by Pres warrant. Removal independent. Salary by Parliament. No further office.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "CAG",
+        subtopic: "Independence"
     },
     {
         id: "p2_q96",
@@ -769,7 +958,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["The Parliament", "The President", "The Prime Minister", "The DoPT Minister"],
         correctIndex: 1,
         explanation: "To President, who lays it before Parliament.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "UPSC & SPSC",
+        subtopic: "UPSC Reporting"
     },
     {
         id: "p2_q97",
@@ -777,7 +968,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Under a Constitutional Amendment.", "Under the National Commission for Women Act, 1990.", "By an Executive Resolution.", "Under the Protection of Human Rights Act, 1993."],
         correctIndex: 1,
         explanation: "Under NCW Act 1990.",
-        difficulty: "Easy"
+        difficulty: "Easy",
+        chapter: "Statutory Bodies",
+        subtopic: "National Commission for Women"
     },
     {
         id: "p2_q98",
@@ -785,7 +978,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 0,
         explanation: "User Key (a).",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "Central Information Commission",
+        subtopic: "State Bodies"
     },
     {
         id: "p2_q99",
@@ -793,7 +988,9 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["The President", "The Parliament", "The Governor of each of the concerned states", "The UPSC"],
         correctIndex: 2,
         explanation: "To Governor of each state.",
-        difficulty: "Moderate"
+        difficulty: "Moderate",
+        chapter: "UPSC & SPSC",
+        subtopic: "JSPSC Report"
     },
     {
         id: "p2_q100",
@@ -801,6 +998,8 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         options: ["Article 110", "Article 112", "Article 114", "Article 116"],
         correctIndex: 1,
         explanation: "Article 112.",
-        difficulty: "Easy"
-    },
+        difficulty: "Easy",
+        chapter: "Parliament",
+        subtopic: "Budget"
+    }
 ];

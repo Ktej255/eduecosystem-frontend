@@ -411,7 +411,30 @@ function SaturdayTestsReport() {
             }
             return null;
         }).filter(Boolean);
-        setScores(results);
+
+        // Also scan for Polity Mock Tests (Jan 31)
+        const polityTests = [
+            { key: 'polity_paper1_jan31_results', id: '1', name: 'Polity Paper 1 (Jan 31)' },
+            { key: 'polity_paper2_jan31_results', id: '2', name: 'Polity Paper 2 (Jan 31)' }
+        ].map(test => {
+            const saved = localStorage.getItem(test.key);
+            if (saved) {
+                const data = JSON.parse(saved);
+                // Ensure data structure matches what SaturdayTestReport expects
+                // The saved format from PolityTestPage is directly the 'results' object
+                return {
+                    weekId: `Polity-${test.id}`,
+                    isV2: true, // It uses the new format
+                    paper1Results: data, // Treat as "Paper 1" for display purposes in the card
+                    paper2Results: null,
+                    lastUpdated: data.endTime,
+                    specialTitle: test.name
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        setScores([...results, ...polityTests]);
     }, []);
 
     if (scores.length === 0) {
@@ -460,7 +483,7 @@ function SaturdayTestsReport() {
                     <Card key={idx} className="overflow-hidden border-2 hover:border-indigo-400 transition-all shadow-md">
                         <CardHeader className="bg-gray-50 dark:bg-gray-900/50 pb-4">
                             <CardTitle className="flex justify-between items-center">
-                                <span>Week {score.weekId}</span>
+                                <span>{score.specialTitle || `Week ${score.weekId}`}</span>
                                 <span className="text-[10px] md:text-xs font-normal text-gray-500">
                                     {score.lastUpdated && new Date(score.lastUpdated).toLocaleDateString()}
                                 </span>

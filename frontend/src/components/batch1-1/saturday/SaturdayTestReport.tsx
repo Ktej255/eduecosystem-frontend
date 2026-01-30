@@ -16,7 +16,8 @@ import {
     ChevronDown,
     BarChart3,
     Search,
-    History
+    History,
+    ZoomIn
 } from "lucide-react";
 import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -183,22 +184,30 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                         </div>
                         <div className="h-[400px] w-full">
                             <ResponsiveContainer width="100%" height="100%">
-                                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={chapterData}>
-                                    <PolarGrid stroke="#334155" />
-                                    <PolarAngleAxis dataKey="name" tick={{ fill: '#94a3b8', fontSize: 10 }} />
-                                    <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fill: '#475569', fontSize: 10 }} />
-                                    <Radar
-                                        name="Accuracy"
-                                        dataKey="accuracy"
-                                        stroke="#3b82f6"
-                                        fill="#3b82f6"
-                                        fillOpacity={0.2}
+                                <BarChart
+                                    layout="vertical"
+                                    data={chapterData.sort((a, b) => b.accuracy - a.accuracy)}
+                                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                                >
+                                    <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#334155" />
+                                    <XAxis type="number" domain={[0, 100]} hide />
+                                    <YAxis
+                                        dataKey="name"
+                                        type="category"
+                                        width={120}
+                                        tick={{ fill: '#94a3b8', fontSize: 11 }}
+                                        interval={0}
                                     />
                                     <Tooltip
-                                        contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px', fontSize: '12px' }}
-                                        itemStyle={{ color: '#3b82f6' }}
+                                        cursor={{ fill: '#1e293b' }}
+                                        contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', color: '#f8fafc' }}
                                     />
-                                </RadarChart>
+                                    <Bar dataKey="accuracy" barSize={12} radius={[0, 4, 4, 0]}>
+                                        {chapterData.map((entry, index) => (
+                                            <Cell key={`cell-${index}`} fill={entry.accuracy >= 75 ? '#10b981' : entry.accuracy >= 50 ? '#f59e0b' : '#ef4444'} />
+                                        ))}
+                                    </Bar>
+                                </BarChart>
                             </ResponsiveContainer>
                         </div>
                     </Card>
@@ -355,12 +364,73 @@ const SaturdayTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                             </div>
                                         </td>
                                         <td className="py-4">
-                                            <button className="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1 group">
-                                                Auto-Schedule Revision <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                                            </button>
+                                            <td className="py-4">
+                                                <Button
+                                                    variant="ghost"
+                                                    className="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1 group p-0 h-auto font-normal hover:bg-transparent"
+                                                    onClick={() => {
+                                                        // Simple navigation to revision for now
+                                                        window.location.href = `/student/revision?topic=${encodeURIComponent(q.chapter)}`;
+                                                    }}
+                                                >
+                                                    Auto-Schedule Revision <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                                </Button>
+                                            </td>
                                         </td>
                                     </tr>
                                 ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </Card>
+
+                {/* Detailed Subtopic Analysis Table */}
+                <Card className="p-8 bg-slate-900/40 border-slate-800/80 backdrop-blur-md mb-8">
+                    <h3 className="text-lg font-semibold mb-8 flex items-center gap-2">
+                        <ZoomIn className="w-5 h-5 text-teal-400" />
+                        Detailed Subtopic Breakdown
+                    </h3>
+                    <div className="overflow-x-auto max-h-[400px]">
+                        <table className="w-full text-left border-collapse">
+                            <thead className="sticky top-0 bg-[#020617] z-10">
+                                <tr className="border-b border-slate-800 text-xs text-slate-500 uppercase tracking-widest">
+                                    <th className="pb-4 pl-4 font-semibold">Chapter</th>
+                                    <th className="pb-4 font-semibold">Subtopic</th>
+                                    <th className="pb-4 text-center font-semibold">Q Count</th>
+                                    <th className="pb-4 text-center font-semibold">Accuracy</th>
+                                    <th className="pb-4 text-right pr-4 font-semibold">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-800/50">
+                                {Object.values(questions.reduce((acc: any, q) => {
+                                    const key = `${q.chapter}-${q.subtopic}`;
+                                    if (!acc[key]) acc[key] = { chapter: q.chapter, subtopic: q.subtopic, total: 0, correct: 0 };
+                                    acc[key].total++;
+                                    if (q.isCorrect) acc[key].correct++;
+                                    return acc;
+                                }, {})).sort((a: any, b: any) => a.chapter.localeCompare(b.chapter)).map((item: any, i) => {
+                                    const acc = Math.round((item.correct / item.total) * 100);
+                                    return (
+                                        <tr key={i} className="group hover:bg-slate-800/20 transition-all">
+                                            <td className="py-3 pl-4 text-sm font-medium text-slate-300">{item.chapter}</td>
+                                            <td className="py-3 text-sm text-slate-400">{item.subtopic}</td>
+                                            <td className="py-3 text-center text-sm text-slate-500">{item.total}</td>
+                                            <td className="py-3 text-center">
+                                                <span className={`font-mono font-bold ${acc >= 75 ? 'text-emerald-400' : acc >= 40 ? 'text-amber-400' : 'text-red-400'}`}>
+                                                    {acc}%
+                                                </span>
+                                            </td>
+                                            <td className="py-3 pr-4 text-right">
+                                                <span className={`text-[10px] px-2 py-1 rounded-full font-bold uppercase ${acc >= 80 ? 'bg-emerald-500/10 text-emerald-400' :
+                                                        acc >= 50 ? 'bg-amber-500/10 text-amber-400' :
+                                                            'bg-red-500/10 text-red-400'
+                                                    }`}>
+                                                    {acc >= 80 ? 'Strong' : acc >= 50 ? 'Average' : 'Weak'}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
                             </tbody>
                         </table>
                     </div>
