@@ -7,6 +7,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Crown, Building2, Scroll, Sword, ArrowRight, BookOpen, Globe, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ModernHistoryTimeline } from './ModernHistoryTimeline';
+import FreedomMovementViz from './visuals/FreedomMovementViz';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
@@ -118,6 +119,9 @@ export default function HistoryDashboard() {
                             <ModernHistoryTimeline />
                         </CardContent>
                     </Card>
+
+                    {/* Freedom Movement Interactive Timeline */}
+                    <FreedomMovementViz />
                 </div>
 
                 {/* Ancient & Medieval Summaries (Takes 1 column) */}
