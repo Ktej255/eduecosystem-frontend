@@ -120,6 +120,8 @@ export function getModuleColors(color: string) {
         teal: { bg: 'bg-teal-600', text: 'text-teal-600', border: 'border-teal-500', light: 'bg-teal-50' },
         pink: { bg: 'bg-pink-600', text: 'text-pink-600', border: 'border-pink-500', light: 'bg-pink-50' },
         cyan: { bg: 'bg-cyan-600', text: 'text-cyan-600', border: 'border-cyan-500', light: 'bg-cyan-50' },
+        red: { bg: 'bg-red-600', text: 'text-red-600', border: 'border-red-500', light: 'bg-red-50' },
+        slate: { bg: 'bg-slate-600', text: 'text-slate-600', border: 'border-slate-500', light: 'bg-slate-50' },
     };
     return colors[color] || colors.blue;
 }
