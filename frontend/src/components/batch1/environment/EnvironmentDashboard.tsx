@@ -3,6 +3,7 @@
 import React from 'react';
 import FoodWebViz from './visualizations/FoodWebViz';
 import CarbonCycleViz from './visualizations/CarbonCycleViz';
+import ClimateAgreementsViz from './visualizations/ClimateAgreementsViz';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Leaf, Droplets, ThermometerSun } from 'lucide-react';
 
@@ -17,7 +18,7 @@ export default function EnvironmentDashboard() {
                     </div>
                     <div>
                         <h3 className="font-bold text-emerald-900 dark:text-emerald-100">Visual Environment Hub</h3>
-                        <p className="text-sm text-emerald-700 dark:text-emerald-300">Explore interactive simulations: Food Webs & Carbon Cycle.</p>
+                        <p className="text-sm text-emerald-700 dark:text-emerald-300">Explore interactive simulations: Food Webs, Carbon Cycle & Climate Agreements.</p>
                     </div>
                 </div>
                 <a
@@ -61,6 +62,9 @@ export default function EnvironmentDashboard() {
                     <CarbonCycleViz />
                 </div>
             </div>
+
+            {/* Climate Agreements - Full Width */}
+            <ClimateAgreementsViz />
         </div>
     );
 }
