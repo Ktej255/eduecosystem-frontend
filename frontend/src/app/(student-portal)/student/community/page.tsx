@@ -8,6 +8,7 @@ import {
     Heart, Share2, MoreHorizontal, Bell
 } from 'lucide-react';
 import { useGamification } from '@/context/GamificationContext';
+import { useCommunity } from '@/context/CommunityContext';
 
 // Mock study groups
 const STUDY_GROUPS = [
@@ -15,40 +16,6 @@ const STUDY_GROUPS = [
     { id: 2, name: 'UPSC 2026 Batch', members: 324, active: true, subject: 'General', streak: 30 },
     { id: 3, name: 'Geography Explorers', members: 89, active: false, subject: 'Geography', streak: 22 },
     { id: 4, name: 'Current Affairs Daily', members: 512, active: true, subject: 'Current Affairs', streak: 100 },
-];
-
-// Mock community feed
-const COMMUNITY_FEED = [
-    {
-        id: 1,
-        user: 'Priya S.',
-        avatar: '👩‍🎓',
-        content: 'Just completed the entire Laxmikanth in 45 days! Key tip: Focus on constitutional provisions first, then move to statutory bodies.',
-        likes: 89,
-        comments: 23,
-        time: '2 hours ago',
-        type: 'achievement'
-    },
-    {
-        id: 2,
-        user: 'Rahul M.',
-        avatar: '👨‍💼',
-        content: 'Can someone explain the difference between Money Bill and Financial Bill? Getting confused with the procedures.',
-        likes: 12,
-        comments: 45,
-        time: '5 hours ago',
-        type: 'question'
-    },
-    {
-        id: 3,
-        user: 'Anita K.',
-        avatar: '👩‍💻',
-        content: '🎉 Hit 100-day streak today! Consistency is indeed the key. Started with just 2 hours, now doing 6+ hours daily.',
-        likes: 234,
-        comments: 67,
-        time: '1 day ago',
-        type: 'milestone'
-    },
 ];
 
 // Mock leaderboard
@@ -62,8 +29,16 @@ const LEADERBOARD = [
 
 export default function CommunityPage() {
     const { xp, streak } = useGamification();
+    const { posts, addPost, toggleLike } = useCommunity();
     const [activeTab, setActiveTab] = useState('feed');
     const [searchQuery, setSearchQuery] = useState('');
+    const [newPostContent, setNewPostContent] = useState('');
+
+    const handlePost = () => {
+        if (!newPostContent.trim()) return;
+        addPost(newPostContent, 'general');
+        setNewPostContent('');
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-[#0a0a0a] dark:to-[#111] p-4 md:p-8">
@@ -130,16 +105,23 @@ export default function CommunityPage() {
                                     <input
                                         type="text"
                                         placeholder="Share your progress, ask questions, or motivate others..."
+                                        value={newPostContent}
+                                        onChange={(e) => setNewPostContent(e.target.value)}
+                                        onKeyDown={(e) => e.key === 'Enter' && handlePost()}
                                         className="flex-1 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl px-4 py-2 text-sm border border-gray-200 dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     />
-                                    <button className="px-4 py-2 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-colors">
+                                    <button
+                                        onClick={handlePost}
+                                        disabled={!newPostContent.trim()}
+                                        className="px-4 py-2 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                                    >
                                         <Send className="w-4 h-4" />
                                     </button>
                                 </div>
                             </motion.div>
 
                             {/* Feed Posts */}
-                            {COMMUNITY_FEED.map((post, i) => (
+                            {posts.map((post, i) => (
                                 <motion.div
                                     key={post.id}
                                     initial={{ opacity: 0, y: 20 }}
@@ -156,6 +138,7 @@ export default function CommunityPage() {
                                                 <p className="font-bold text-gray-900 dark:text-white">{post.user}</p>
                                                 {post.type === 'achievement' && <Trophy className="w-4 h-4 text-yellow-500" />}
                                                 {post.type === 'milestone' && <Flame className="w-4 h-4 text-orange-500" />}
+                                                {post.type === 'question' && <MessageSquare className="w-4 h-4 text-blue-500" />}
                                             </div>
                                             <p className="text-xs text-gray-500">{post.time}</p>
                                         </div>
@@ -165,8 +148,11 @@ export default function CommunityPage() {
                                     </div>
                                     <p className="text-gray-700 dark:text-gray-300 mb-4">{post.content}</p>
                                     <div className="flex items-center gap-6 text-sm text-gray-500">
-                                        <button className="flex items-center gap-1 hover:text-red-500 transition-colors">
-                                            <Heart className="w-4 h-4" /> {post.likes}
+                                        <button
+                                            onClick={() => toggleLike(post.id)}
+                                            className={`flex items-center gap-1 transition-colors ${post.isLikedByMe ? 'text-red-500 font-bold' : 'hover:text-red-500'}`}
+                                        >
+                                            <Heart className={`w-4 h-4 ${post.isLikedByMe ? 'fill-current' : ''}`} /> {post.likes}
                                         </button>
                                         <button className="flex items-center gap-1 hover:text-blue-500 transition-colors">
                                             <MessageSquare className="w-4 h-4" /> {post.comments}

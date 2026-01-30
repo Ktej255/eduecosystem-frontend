@@ -12,6 +12,7 @@ import ServiceWorkerRegister from "@/components/pwa/ServiceWorkerRegister";
 import { GamificationProvider } from "@/context/GamificationContext";
 import { PurchaseProvider } from "@/context/PurchaseContext";
 import { HabitProvider } from "@/context/HabitContext";
+import { CommunityProvider } from "@/context/CommunityContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,10 +66,12 @@ export default function RootLayout({
                   <PurchaseProvider>
                     <GamificationProvider>
                       <HabitProvider>
-                        <ServiceWorkerRegister />
-                        {children}
-                        <AIChatWidget />
-                        <BuildInfo />
+                        <CommunityProvider>
+                          <ServiceWorkerRegister />
+                          {children}
+                          <AIChatWidget />
+                          <BuildInfo />
+                        </CommunityProvider>
                       </HabitProvider>
                     </GamificationProvider>
                   </PurchaseProvider>
