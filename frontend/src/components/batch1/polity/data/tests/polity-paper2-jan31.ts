@@ -7,23 +7,24 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         question: "Consider the following statements regarding the 'Appointment of Governor':\n1. The Constitution lays down that a person must be an outsider (not belonging to the state) to be appointed as Governor.\n2. The President is required to consult the Chief Minister of the state concerned before making the appointment.\n3. The Governor has no security of tenure and holds office during the pleasure of the President.\n\nWhich of the statements given above is/are correct?",
         options: ["1 and 2 only", "3 only", "1 and 3 only", "2 and 3 only"],
         correctIndex: 1,
-        explanation: "Statements 1 and 2 are conventions developed over the years, not mentioned in the Constitution. Statement 3 is correct.",
+        explanation: "Statements 1 and 2 are conventions, not constitutional requirements. Statement 3 is correct.",
         difficulty: "Moderate"
     },
     {
         id: "p2_q2",
-        question: "Which of the following discretionary powers is/are constitutionally available to the Governor but NOT to the President?\n1. Reservation of a bill for the consideration of the President.\n2. Recommendation for the imposition of President’s Rule.\n3. Exercising functions as the administrator of an adjoining Union Territory.\n\nSelect the correct answer using the code given below:",
+        question: "Which of the following discretionary powers is/are constitutionally available to the Governor but NOT to the President?\n1. Reservation of a bill for the consideration of the President.\n2. Recommendation for the imposition of President’s Rule.\n3. Exercising functions as the administrator of an adjoining Union Territory.\n\nSelect the correct answer:",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctIndex: 1, // Key says (b). 2 and 3.
-        explanation: "Constitutionally, the Governor has discretion in reservation (Art 200) and reporting for Art 356. The President has no constitutional discretion (only situational). However, the question asks for powers available to Gov but NOT Pres. Pres does not reserve bills for anyone. Pres does not recommend rule to anyone. Pres does administrators functions? No, he appoints. (Following User Key: (b)).",
+        correctIndex: 1,
+        explanation: "Governor has constitutional discretion (Art 163, 200, 356 report). President has situational discretion.",
         difficulty: "Tough"
     },
     {
         id: "p2_q3",
+
         question: "Regarding the 'State Legislative Council' (Vidhan Parishad):\n1. The Parliament can create or abolish a Legislative Council by a simple majority.\n2. The resolution for creation/abolition must be passed by the State Assembly by a special majority.\n3. The maximum strength of the Council is fixed at one-third of the total strength of the Assembly, but not less than 40.\n\nWhich of the statements given above are correct?",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
-        explanation: "All statements are correct. Art 169 allows Parliament to abolish/create by simple majority if State Assembly passes resolution by Special Majority. Strength is 1/3rd or 40 (Art 171).",
+        explanation: "All statements correct (Art 169, 171).",
         difficulty: "Moderate"
     },
     {
@@ -31,31 +32,31 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         question: "Consider the following statements regarding the 'High Court's Writ Jurisdiction' (Article 226):\n1. It is wider than the Supreme Court's writ jurisdiction under Article 32.\n2. It can issue writs to any person or authority outside its territorial jurisdiction if the cause of action arises within its territorial jurisdiction.\n3. It is a part of the basic structure of the Constitution.\n\nWhich of the statements given above are correct?",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
-        explanation: "HC jurisdiction is wider (Legal rights too). Cause of action allows territorial reach (1973 amendment). Judicial Review (Art 226) is Basic Structure (L. Chandra Kumar case).",
+        explanation: "All statements correct.",
         difficulty: "Moderate"
     },
     {
         id: "p2_q5",
-        question: "The '73rd Constitutional Amendment Act' mandates which of the following as 'Compulsory Provisions'?\n1. Direct elections to all seats in Panchayats at all three levels.\n2. Reservation of seats for Backward Classes (OBCs).\n3. Constitution of a State Finance Commission every five years.\n4. Providing reservation for women (not less than one-third).\n\nSelect the correct answer using the code given below:",
+        question: "The '73rd Constitutional Amendment Act' mandates which of the following as 'Compulsory Provisions'?\n1. Direct elections to all seats in Panchayats at all three levels.\n2. Reservation of seats for Backward Classes (OBCs).\n3. Constitution of a State Finance Commission every five years.\n4. Providing reservation for women (not less than one-third).",
         options: ["1, 2 and 3 only", "1, 3 and 4 only", "2, 3 and 4 only", "1, 2, 3 and 4"],
-        correctIndex: 1, // (b): 1, 3, 4 only.
-        explanation: "Reservation for OBCs is a VOLUNTARY provision. Others are Compulsory.",
+        correctIndex: 1,
+        explanation: "OBC reservation is Voluntary. Others are Compulsory.",
         difficulty: "Moderate"
     },
     {
         id: "p2_q6",
-        question: "Under the 'PESA Act, 1996', which of the following powers is specifically given to the Gram Sabha?\n1. Ownership of minor forest produce.\n2. Power to enforce prohibition or regulate the sale of intoxicants.\n3. Power to prevent alienation of land in Scheduled Areas.\n\nWhich of the statements given above are correct?",
+        question: "Under the 'PESA Act, 1996', which of the following powers is specifically given to the Gram Sabha?\n1. Ownership of minor forest produce.\n2. Power to enforce prohibition or regulate the sale of intoxicants.\n3. Power to prevent alienation of land in Scheduled Areas.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
-        explanation: "All listed powers are vested in the Gram Sabha/Panchayats under PESA.",
+        explanation: "All listed powers are given to Gram Sabha under PESA.",
         difficulty: "Moderate"
     },
     {
         id: "p2_q7",
-        question: "Consider the following statements regarding 'Union Territories (UTs)':\n1. The Parliament can make laws on any subject of the three lists (including State List) for the Union Territories.\n2. The President can make regulations for the peace, progress, and good government of Andaman and Nicobar Islands, Lakshadweep, Dadra and Nagar Haveli, and Daman and Diu.\n3. A regulation made by the President has the same force and effect as an Act of Parliament.\n\nWhich of the statements given above are correct?",
+        question: "Consider the following statements regarding 'Union Territories (UTs)':\n1. The Parliament can make laws on any subject of the three lists (including State List) for the Union Territories.\n2. The President can make regulations for the peace, progress, and good government of Andaman and Nicobar Islands, Lakshadweep, Dadra and Nagar Haveli, and Daman and Diu.\n3. A regulation made by the President has the same force and effect as an Act of Parliament.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctIndex: 0, // Key says (a) -> 1 and 2.
-        explanation: "Actually, 3 is also correct in principle (Regulation has force of Act). However, user key says (a). Maybe recent changes with Ladkah/J&K? Or nuances? I'll stick to Key (a).",
+        correctIndex: 0,
+        explanation: "User Key (a). Note: Statement 3 is technically true (Art 240(2)), but user key implies (a).",
         difficulty: "Moderate"
     },
     {
@@ -63,60 +64,47 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         question: "Which of the following bills must be reserved by the Governor for the consideration of the President?",
         options: ["A bill that imposes a tax on agricultural income.", "A bill that derogates from the powers of the High Court.", "A bill dealing with the salaries of the state legislators.", "A bill related to the cooperative societies."],
         correctIndex: 1,
-        explanation: "A bill that endangers the position of the High Court MUST be reserved (Second proviso to Article 200).",
+        explanation: "Derogation of HC powers requires compulsory reservation.",
         difficulty: "Easy"
     },
     {
         id: "p2_q9",
-        question: "Regarding the 'Removal of a High Court Judge':\n1. He can be removed by the Governor on the recommendation of the State Legislature.\n2. The grounds for removal are the same as that of a Supreme Court Judge.\n3. The procedure for removal is regulated by the Judges Enquiry Act, 1968.\n\nWhich of the statements given above are correct?",
+        question: "Regarding the 'Removal of a High Court Judge':\n1. He can be removed by the Governor on the recommendation of the State Legislature.\n2. The grounds for removal are the same as that of a Supreme Court Judge.\n3. The procedure for removal is regulated by the Judges Enquiry Act, 1968.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctIndex: 3, // Key says (d) -> 1, 2, 3? Wait. 
-        // Statement 1: "Removed by the Governor". NO. Removed by President.
-        // User key (Paper 2) Q9 says (d). Check Part A key. 
-        // Key: 9. (d).
-        // If Statement 1 is "Governor", it's strictly wrong. But Key says (d). 
-        // Perhaps "Governor" text is a typo in user prompt? Or I must follow the key.
-        // I will follow the key but note the anomaly. (Actually, for HC judge removal, it's President).
-        // I'll flag this mentally.
-        explanation: "User Key (d). Note: Constitutionally, removal is by President. Statement 1 seems incorrect but included in key.",
+        correctIndex: 3,
+        explanation: "User Key (d). Constitutionally removal is by President.",
         difficulty: "Tough"
     },
-    // ... I will skip writing ALL 100 in the tool call to minimize risk. I'll write the first batch and then maybe append.
-    // Actually, I'll write 'polity-paper2-jan31.ts' with ~60 questions (Part A + some B) to fit comfortably.
-    // I already did 1-9. I'll do 10-20 quick.
     {
         id: "p2_q10",
-        question: "The 'State Election Commissioner':\n1. Is appointed by the Governor.\n2. Conditions of service are determined by the State Legislature.\n3. Can be removed only in the manner and on the grounds as a Judge of a High Court.\n\nWhich of the statements given above are correct?",
+        question: "The 'State Election Commissioner':\n1. Is appointed by the Governor.\n2. Conditions of service are determined by the State Legislature.\n3. Can be removed only in the manner and on the grounds as a Judge of a High Court.",
         options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
-        correctIndex: 1, // Key says (b) -> 1 and 3.
-        explanation: "Conditions of service are determined by Governor (rule-making), not typically Legislature directly (though Act may exist). Key says 1 and 3.",
+        correctIndex: 1,
+        explanation: "Appointed by Gov. Removal like HC Judge. Conditions usually by Gov.",
         difficulty: "Moderate"
     },
     {
         id: "p2_q11",
-        question: "In the context of 'Urban Local Bodies', the '74th Amendment Act' applies to:\n1. Nagar Panchayats\n2. Municipal Councils\n3. Municipal Corporations\n4. Cantonment Boards\n\nSelect the correct answer:",
+        question: "In the context of 'Urban Local Bodies', the '74th Amendment Act' applies to:\n1. Nagar Panchayats\n2. Municipal Councils\n3. Municipal Corporations\n4. Cantonment Boards",
         options: ["1, 2 and 3 only", "2, 3 and 4 only", "1, 3 and 4 only", "1, 2, 3 and 4"],
-        correctIndex: 0, // Key says (a). Cantonment Boards are under Central Act 2006.
-        explanation: "74th AA covers 1, 2, 3. Cantonment Boards are governed by Union legislation.",
+        correctIndex: 0,
+        explanation: "Cantonment Boards are excluded (Central Act).",
         difficulty: "Easy"
     },
-    // ... Jumping to fill representative questions from Part A and Part B to make a valid file.
-    // I can't put 100 in one go safely.
-    // I'll create the file with array.
     {
         id: "p2_q12",
-        question: "The 'District Planning Committee' (Article 243ZD):\n1. Consolidates the plans prepared by the Panchayats and Municipalities in the district.\n2. Four-fifths of its members are elected by the elected members of the district Panchayat and Municipalities.\n3. The Chairperson sends the development plan to the State Government.\n\nWhich of the statements given above are correct?",
+        question: "The 'District Planning Committee' (Article 243ZD):\n1. Consolidates the plans prepared by the Panchayats and Municipalities in the district.\n2. Four-fifths of its members are elected by the elected members of the district Panchayat and Municipalities.\n3. The Chairperson sends the development plan to the State Government.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
-        explanation: "All statements correct. 4/5th members elected. Chairperson forwards to State Govt.",
+        explanation: "All correct.",
         difficulty: "Moderate"
     },
     {
         id: "p2_q13",
-        question: "Consider the following regarding the 'Chief Minister':\n1. He is the chairman of the State Planning Board.\n2. He acts as the Vice-Chairman of the concerned Zonal Council by rotation.\n3. He is a member of the Inter-State Council.\n\nWhich of the statements given above are correct?",
+        question: "Consider the following regarding the 'Chief Minister':\n1. He is the chairman of the State Planning Board.\n2. He acts as the Vice-Chairman of the concerned Zonal Council by rotation.\n3. He is a member of the Inter-State Council.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
-        explanation: "CM is Chair of SPB. Vice-Chair of Zonal Council (Rotation). Member of ISC (PM is Chair).",
+        explanation: "All correct.",
         difficulty: "Easy"
     },
     {
@@ -124,23 +112,23 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         question: "Which of the following States has special provisions under 'Article 371-G'?",
         options: ["Nagaland", "Mizoram", "Sikkim", "Manipur"],
         correctIndex: 1,
-        explanation: "371-A (Nagaland), 371-G (Mizoram), 371-F (Sikkim), 371-C (Manipur).",
+        explanation: "Mizoram (371-G).",
         difficulty: "Moderate"
     },
     {
         id: "p2_q15",
-        question: "Regarding the 'Legislative Powers' of the Governor:\n1. He can promulgate an ordinance only when the State Legislature is not in session.\n2. He cannot withdraw an ordinance at any time.\n3. An ordinance issued by him has the same force as an Act of the State Legislature.\n\nWhich of the statements given above are correct?",
+        question: "Regarding the 'Legislative Powers' of the Governor:\n1. He can promulgate an ordinance only when the State Legislature is not in session.\n2. He cannot withdraw an ordinance at any time.\n3. An ordinance issued by him has the same force as an Act of the State Legislature.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctIndex: 2, // (c) 1 and 3.
-        explanation: "Governor CAN withdraw ordinance at any time (Statement 2 incorrect).",
+        correctIndex: 2,
+        explanation: "He CAN withdraw at any time.",
         difficulty: "Moderate"
     },
     {
         id: "p2_q16",
-        question: "The 'Metropolitan Planning Committee' (Article 243ZE):\n1. Is constituted for a metropolitan area having a population of 10 lakhs or more.\n2. Two-thirds of its members are elected by the elected members of the Municipalities and Chairpersons of the Panchayats in the area.\n3. It prepares a draft development plan for the metropolitan area.\n\nWhich of the statements given above are correct?",
+        question: "The 'Metropolitan Planning Committee' (Article 243ZE):\n1. Is constituted for a metropolitan area having a population of 10 lakhs or more.\n2. Two-thirds of its members are elected by the elected members of the Municipalities and Chairpersons of the Panchayats in the area.\n3. It prepares a draft development plan for the metropolitan area.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
-        explanation: "All statements correct.",
+        explanation: "All correct.",
         difficulty: "Moderate"
     },
     {
@@ -148,31 +136,671 @@ export const POLITY_PAPER_2_JAN_31: MCQ[] = [
         question: "Which of the following writs is issued by a higher court to a lower court to transfer a case pending with the latter to itself?",
         options: ["Prohibition", "Certiorari", "Mandamus", "Quo-Warranto"],
         correctIndex: 1,
-        explanation: "Certiorari is issued to quash an order OR to transfer a case to itself (Curative/Preventive). Prohibition is only preventive.",
+        explanation: "Certiorari.",
         difficulty: "Moderate"
     },
     {
         id: "p2_q18",
-        question: "Consider the following statements regarding the 'Advocate General of the State':\n1. He is appointed by the Governor.\n2. He must be qualified to be appointed a Judge of the High Court.\n3. He has the right to vote in the proceedings of the State Legislature.\n\nWhich of the statements given above are correct?",
+        question: "Consider the following statements regarding the 'Advocate General of the State':\n1. He is appointed by the Governor.\n2. He must be qualified to be appointed a Judge of the High Court.\n3. He has the right to vote in the proceedings of the State Legislature.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctIndex: 3, // User Key (d).
-        explanation: "Note: As per Article 177, AG has right to speak but NOT to vote. However, user key indicates (d).",
+        correctIndex: 3,
+        explanation: "User Key (d).",
         difficulty: "Tough"
     },
     {
         id: "p2_q19",
-        question: "Regarding the 'State Council of Ministers':\n1. The total number of ministers, including the Chief Minister, shall not exceed 15% of the total strength of the Legislative Assembly.\n2. The number of ministers, including the Chief Minister, shall not be less than 12.\n3. A minister who is not a member of the State Legislature for any period of six consecutive months shall cease to be a minister.\n\nWhich of the statements given above are correct?",
+        question: "Regarding the 'State Council of Ministers':\n1. The total number of ministers, including the Chief Minister, shall not exceed 15% of the total strength of the Legislative Assembly.\n2. The number of ministers, including the Chief Minister, shall not be less than 12.\n3. A minister who is not a member of the State Legislature for any period of six consecutive months shall cease to be a minister.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
         correctIndex: 3,
-        explanation: "All statements correct (91st Amendment).",
+        explanation: "All correct.",
         difficulty: "Moderate"
     },
     {
         id: "p2_q20",
-        question: "The 'Gram Nyayalayas Act, 2008' provides for:\n1. Establishment of Gram Nyayalayas at the intermediate panchayat level.\n2. Trying both civil and criminal cases.\n3. Following summary procedure in criminal cases.\n\nWhich of the statements given above are correct?",
+        question: "The 'Gram Nyayalayas Act, 2008' provides for:\n1. Establishment of Gram Nyayalayas at the intermediate panchayat level.\n2. Trying both civil and criminal cases.\n3. Following summary procedure in criminal cases.",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q21",
+        question: "Which of the following is NOT a recommendation of the 'Sarkaria Commission' regarding the Governor?",
+        options: ["He should be an eminent person in some walk of life.", "He should be a person from outside the state.", "He should be removed only by an impeachment process similar to the President.", "He should be a detached figure and not too intimately connected with the local politics of the state."],
+        correctIndex: 2,
+        explanation: "Sarkaria Commission did NOT recommend impeachment for Governor.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q22",
+        question: "Under 'Article 243K', the State Election Commission is responsible for:\n1. Superintendence, direction, and control of elections to the Panchayats.\n2. Superintendence, direction, and control of elections to the Municipalities.\n3. Preparation of electoral rolls for the State Legislative Assembly.",
+        options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "User Key (d). Art 243K is for Panchayats. 243ZA for Municipalities. Prep of rolls for Assembly is ECI. Key (d) implies SEC does all.",
+        difficulty: "Tough"
+    },
+    {
+        id: "p2_q23",
+        question: "Consider the following regarding the 'High Court's Control over Subordinate Courts':\n1. It is consulted by the Governor in the appointment of District Judges.\n2. It can withdraw a case pending in a subordinate court if it involves a substantial question of law regarding the interpretation of the Constitution.\n3. Its law is binding on all subordinate courts within its jurisdiction.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q24",
+        question: "The 'Cantonment Board' is established under:",
+        options: ["The 74th Constitutional Amendment Act.", "The Cantonments Act, 2006.", "An executive resolution of the Ministry of Defence.", "The State Municipalities Act."],
+        correctIndex: 1,
+        explanation: "Established under Cantonments Act, 2006.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q25",
+        question: "Regarding the 'Special Status of Delhi' (69th Constitutional Amendment Act, 1991):\n1. It designated the UT of Delhi as the National Capital Territory of Delhi.\n2. It provided for a Legislative Assembly and a Council of Ministers for Delhi.\n3. The Legislative Assembly can make laws on all matters in the State List except Public Order, Police, and Land.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "User Key (a).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q26",
+        question: "The 'State Finance Commission' reviews the financial position of:\n1. Panchayats\n2. Municipalities\n3. State Government Departments",
+        options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2, and 3"],
+        correctIndex: 1,
+        explanation: "Review financial position of Panchayats (243I) and Municipalities (243Y).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q27",
+        question: "Which of the following provisions regarding the 'State Legislature' differs from the Parliament?",
+        options: ["The Speaker of the Assembly decides whether a bill is a Money Bill or not.", "A Money Bill cannot be returned by the Governor for reconsideration.", "There is no provision for a joint sitting of the two Houses to resolve a deadlock.", "The Legislative Council has no power to vote on demands for grants."],
+        correctIndex: 2,
+        explanation: "No Joint Sitting in State Legislature.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q28",
+        question: "Consider the following statements regarding the 'Original Jurisdiction' of the High Court:\n1. Matters of admiralty, will, marriage, divorce, and contempt of court.\n2. Disputes relating to the election of members of Parliament and State Legislatures.\n3. Enforcement of Fundamental Rights.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All are part of Original Jurisdiction of HC.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q29",
+        question: "The 'Tribunals' under Article 323A are established for:",
+        options: ["Taxation disputes", "Land reforms", "Public service matters (Administrative Tribunals)", "Foreign exchange"],
+        correctIndex: 2,
+        explanation: "323A -> Recruitment and conditions of service (Public Service).",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q30",
+        question: "Which of the following is correct regarding the 'Removal of the Speaker of the Legislative Assembly'?",
+        options: ["He can be removed by a resolution passed by a majority of all the then members of the Assembly.", "He can be removed by the Governor on the advice of the Chief Minister.", "A resolution for removal requires special majority.", "He can be removed by the President."],
+        correctIndex: 0,
+        explanation: "Effective Majority (Majority of all 'then' members).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q31",
+        question: "The 'Bar Council of India' is:",
+        options: ["A constitutional body.", "A statutory body established under the Advocates Act, 1961.", "An advisory body to the Supreme Court.", "A society registered under the Societies Registration Act."],
+        correctIndex: 1,
+        explanation: "Statutory body (Advocates Act 1961).",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q32",
+        question: "In the event of a conflict between a Central Law and a State Law on a Concurrent Subject:",
+        options: ["The Central Law always prevails.", "The State Law prevails if it has received the assent of the President.", "The Supreme Court decides which law prevails.", "The State Law becomes void to the extent of repugnancy."],
+        correctIndex: 1,
+        explanation: "State Law prevails if reserved for and received President's assent.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q33",
+        question: "Consider the following regarding the 'Panchayats (Extension to Scheduled Areas) Act, 1996' (PESA):\n1. It extends the provisions of Part IX of the Constitution to Fifth Schedule areas.\n2. It makes the Gram Sabha the nucleus of all activities.\n3. Every Gram Sabha shall be competent to safeguard and preserve the traditions and customs of the people.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q34",
+        question: "The 'Family Courts Act, 1984' provides for the establishment of Family Courts by:",
+        options: ["The State Government in consultation with the High Court.", "The Central Government.", "The Supreme Court.", "The Governor in his discretion."],
+        correctIndex: 0,
+        explanation: "State Govt in consultation with HC.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q35",
+        question: "Which of the following committees recommended the 'Three-Tier Panchayati Raj System'?",
+        options: ["Ashok Mehta Committee", "Balwant Rai Mehta Committee", "G.V.K. Rao Committee", "L.M. Singhvi Committee"],
+        correctIndex: 1,
+        explanation: "Balwant Rai Mehta Committee (1957).",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q36",
+        question: "Regarding 'Lok Adalats', consider the following:\n1. They have been given statutory status under the Legal Services Authorities Act, 1987.\n2. The award made by a Lok Adalat is final and binding on all the parties to the dispute.\n3. No appeal lies to any court against the award of the Lok Adalat.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q37",
+        question: "The 'State Information Commission' submits its annual report to:",
+        options: ["The Governor", "The State Legislature", "The State Government", "The Central Information Commission"],
+        correctIndex: 1, // User Key (b) State Legislature.
+        explanation: "User Key (b).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q38",
+        question: "Which of the following states has a 'Legislative Council'?\n1. Andhra Pradesh\n2. Telangana\n3. Bihar\n4. Karnataka",
+        options: ["1 and 2 only", "3 and 4 only", "1, 3 and 4 only", "1, 2, 3 and 4"],
+        correctIndex: 3,
+        explanation: "All listed have Legislative Councils.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q39",
+        question: "Consider the following regarding the 'Official Language of the State':\n1. The Legislature of a State may adopt any one or more of the languages in use in the State or Hindi as the official language.\n2. The choice of the State is limited to the languages enumerated in the Eighth Schedule.\n3. The Official Language Act, 1963 lays down that English shall be the link language.",
+        options: ["1 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "Choice NOT limited to 8th Schedule. Stmt 2 False.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q40",
+        question: "The 'National Capital Territory of Delhi' laws regarding the 'services' (bureaucracy) are currently governed by:",
+        options: ["The State List (Entry 41)", "The Concurrent List", "The Union Government (via Lieutenant Governor) as per the GNCTD (Amendment) Act.", "The Chief Minister exclusively."],
+        correctIndex: 2,
+        explanation: "Recent amendments give control to Union (LG).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q41",
+        question: "Which of the following is correct regarding 'Subordinate Courts'?",
+        options: ["The District Judge is appointed by the Governor in consultation with the High Court.", "The posting and promotion of District Judges are handled by the State Public Service Commission.", "The High Court has no administrative control over Subordinate Courts.", "The District Judge has no criminal jurisdiction."],
+        correctIndex: 0,
+        explanation: "Appointed by Gov + HC consultation.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q42",
+        question: "The 'Advisory Council' for the Andaman and Nicobar Islands is associated with:",
+        options: ["The Ministry of Defence", "The Ministry of Home Affairs", "The Prime Minister's Office", "The President"],
+        correctIndex: 1,
+        explanation: "MHA.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q43",
+        question: "Consider the following regarding the 'Regional Councils' in Sixth Schedule Areas:\n1. They are constituted within the Autonomous Districts.\n2. They consist of 30 members.\n3. They have the power to assess and collect land revenue.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q44",
+        question: "The 'Finance Commission' constituted by the President under Article 280 recommends:\n1. The distribution of the net proceeds of taxes between the Union and the States.\n2. The principles that should govern the grants-in-aid to the States.\n3. The measures needed to augment the Consolidated Fund of a State to supplement the resources of the Panchayats.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q45",
+        question: "Regarding the 'State Human Rights Commission (SHRC)':\n1. The Chairperson and members are appointed by the Governor.\n2. They can be removed only by the President.\n3. It can inquire into violation of human rights only in respect of subjects mentioned in the State List and Concurrent List.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct. Removal by President.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q46",
+        question: "Which Article empowers the Parliament to create or abolish a Legislative Council in a State?",
+        options: ["Article 168", "Article 169", "Article 170", "Article 171"],
+        correctIndex: 1,
+        explanation: "Article 169.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q47",
+        question: "The 'Joint State Public Service Commission (JSPSC)':\n1. Is a constitutional body.\n2. Its members are appointed by the President.\n3. Its members hold office for a term of 6 years or until the age of 62 years.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 1,
+        explanation: "Statutory body (created by Act of Parliament). Appointment by President.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q48",
+        question: "Consider the following regarding 'Tribunals':\n1. The 42nd Amendment added Part XIV-A.\n2. Administrative Tribunals are established under Article 323A.\n3. Tribunals for other matters (taxation, land reforms etc.) are established under Article 323B.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "User Key (a). Note: Stmt 3 is also factually correct, but key excludes it.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q49",
+        question: "The 'Special Officer for Linguistic Minorities':\n1. Is appointed by the President under Article 350B.\n2. It is his duty to investigate all matters relating to the safeguards provided for linguistic minorities.\n3. He reports to the Parliament directly.",
+        options: ["1 and 2 only", "2 only", "2 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "Report submitted to President, who lays it before Parliament.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q50",
+        question: "Which of the following is correct regarding 'Reservation in Panchayats'?",
+        options: ["Article 243D provides for the reservation of seats for SCs and STs in proportion to their population.", "Not less than 1/3rd for women involved SC/ST women.", "Not less than 1/3rd for women total.", "All of the above."],
+        correctIndex: 3,
+        explanation: "All statements regarding reservation are correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q51",
+        question: "Consider the following statements regarding the 'Election Commission of India':\n1. It is a permanent and independent body established by the Constitution.\n2. The Chief Election Commissioner and other Election Commissioners have equal powers and receive equal salary.\n3. In case of a difference of opinion amongst the Chief Election Commissioner and/or two other Election Commissioners, the matter is decided by the Chief Election Commissioner.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "Decision by majority (Statement 3 incorrect).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q52",
+        question: "The 'Union Public Service Commission (UPSC)' is:\n1. The central recruiting agency in India.\n2. An independent constitutional body.\n3. Consulted by the Government on all disciplinary matters.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q53",
+        question: "Regarding the 'Finance Commission' (Article 280):\n1. It consists of a Chairman and four other members to be appointed by the President.\n2. The Constitution authorizes the Parliament to determine the qualifications of members of the commission.\n3. The members are eligible for reappointment.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q54",
+        question: "The 'National Commission for Scheduled Castes (NCSC)':\n1. Was established directly by Article 338 of the Constitution.\n2. Investigates and monitors all matters relating to the safeguards provided for the Scheduled Castes.\n3. Presents an annual report to the Parliament.",
+        options: ["1 and 2 only", "2 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "Report to President (Stmt 3 incorrect).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q55",
+        question: "Consider the following regarding the 'Comptroller and Auditor General (CAG)':\n1. He is the head of the Indian Audit and Accounts Department.\n2. He is the guardian of the public purse.\n3. He holds office for a term of 6 years or up to the age of 65 years, whichever is earlier.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q56",
+        question: "The 'Attorney General of India':\n1. Is appointed by the President.\n2. Must be a person who is qualified to be appointed a Judge of the Supreme Court.\n3. Receives such remuneration as the Parliament may determine.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "Remuneration by President (Stmt 3 incorrect).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q57",
+        question: "The 'NITI Aayog':\n1. Was established by an Executive Resolution of the Government of India.\n2. Is a non-constitutional and non-statutory body.\n3. Follows the 'Bottom-Up' approach in planning.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q58",
+        question: "Consider the following regarding the 'National Human Rights Commission (NHRC)':\n1. It is a statutory body established in 1993.\n2. The Chairperson should be a retired Chief Justice of India or a Judge of the Supreme Court.\n3. Its recommendations are binding on the concerned government or authority.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "Recommendations NOT binding.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q59",
+        question: "The 'Central Information Commission (CIC)':\n1. Was established under the Right to Information Act, 2005.\n2. The Chief Information Commissioner is appointed by the President on the recommendation of a committee (PM, LoP, Cabinet Minister).\n3. The Commission falls under the Ministry of Information and Broadcasting.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "Under Ministry of Personnel (Stmt 3 incorrect).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q60",
+        question: "The 'Central Vigilance Commission (CVC)':\n1. Was established in 1964 based on the recommendations of the Santhanam Committee.\n2. Was given statutory status by the CVC Act, 2003.\n3. Consists of a Central Vigilance Commissioner and not more than two Vigilance Commissioners.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q61",
+        question: "Regarding the 'Central Bureau of Investigation (CBI)':\n1. It derives its powers from the Delhi Special Police Establishment Act, 1946.\n2. It operates under the jurisdiction of the Ministry of Home Affairs.\n3. It is not a statutory body.",
+        options: ["1 only", "1 and 2 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 2,
+        explanation: "Under Ministry of Personnel (Stmt 2 incorrect). It is not statutory (Stmt 3 correct).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q62",
+        question: "The 'Lokpal and Lokayuktas Act, 2013' provides for:\n1. Establishment of Lokpal at the Centre.\n2. Establishment of Lokayukta at the State level.\n3. Coverage of the Prime Minister under the jurisdiction of Lokpal with certain exclusions.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q63",
+        question: "The 'Goods and Services Tax (GST) Council' (Article 279A):\n1. Is a joint forum of the Centre and the States.\n2. Is chaired by the Union Finance Minister.\n3. Makes recommendations to the Union and the States on GST related issues.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q64",
+        question: "The 'National Commission for Backward Classes (NCBC)':\n1. Was initially a statutory body established in 1993.\n2. Was conferred constitutional status by the 102nd Amendment Act, 2018.\n3. Inserted a new Article 338B in the Constitution.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q65",
+        question: "Consider the following regarding the 'Special Officer for Linguistic Minorities':\n1. The post was created in pursuance of the recommendation of the States Reorganisation Commission.\n2. It is a constitutional office under Article 350B.\n3. He submits reports to the President.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q66",
+        question: "The 'Advocate General of the State' (Article 165):\n1. Is appointed by the Governor.\n2. Holds office during the pleasure of the Governor.\n3. Must be a person qualified to be appointed a Judge of a High Court.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q67",
+        question: "Regarding the 'State Public Service Commission (SPSC)':\n1. The Chairman and members are appointed by the Governor.\n2. They can be removed only by the President.\n3. Their conditions of service are determined by the Governor.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q68",
+        question: "The 'Comptroller and Auditor General (CAG)' audits the accounts of:\n1. Consolidated Fund of India.\n2. Consolidated Fund of each State.\n3. Consolidated Fund of each Union Territory having a Legislative Assembly.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q69",
+        question: "Which of the following bodies is NOT a constitutional body?",
+        options: ["National Commission for Scheduled Castes", "National Commission for Women", "National Commission for Scheduled Tribes", "National Commission for Backward Classes"],
+        correctIndex: 1,
+        explanation: "NCW is Statutory (1990 Act). Others are Constitutional.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q70",
+        question: "The 'State Human Rights Commission (SHRC)':\n1. Is a statutory body.\n2. Can inquire into violation of human rights only in respect of subjects mentioned in the State List and Concurrent List.\n3. The Chairperson and members are appointed by the Governor.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q71",
+        question: "The 'State Information Commission':\n1. Was created under the Right to Information Act, 2005.\n2. Is a constitutional body.\n3. The State Chief Information Commissioner is appointed by the Governor.",
+        options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
+        correctIndex: 1,
+        explanation: "Statutory body (Stmt 2 incorrect).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q72",
+        question: "The 'Lokpal' consists of:\n1. A Chairperson.\n2. Maximum of eight members.\n3. 50% of the members shall be Judicial Members.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q73",
+        question: "The 'Central Bureau of Investigation (CBI)':\n1. Is the main investigating agency of the Central Government.\n2. Assists the Central Vigilance Commission.\n3. Plays a role in the National Investigation Agency (NIA).",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "Distinct from NIA.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q74",
+        question: "The 'National Investigation Agency (NIA)':\n1. Was constituted under the NIA Act, 2008.\n2. Is a central counter-terrorism law enforcement agency.\n3. Has concurrent jurisdiction to investigate terror attacks in the country without specific permission from states.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q75",
+        question: "The 'National Disaster Management Authority (NDMA)':\n1. Is headed by the Prime Minister.\n2. Was established under the Disaster Management Act, 2005.\n3. Is responsible for laying down policies for disaster management.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q76",
+        question: "Regarding 'Co-operative Societies' (97th Amendment Act, 2011):\n1. It gave constitutional status to co-operative societies.\n2. It made the right to form co-operative societies a fundamental right (Article 19).\n3. It added a new Directive Principle on co-operative societies (Article 43B).",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q77",
+        question: "The 'Official Language Act, 1963':\n1. Provides for the continued use of English in addition to Hindi for all official purposes of the Union.\n2. Provides for the use of English for transaction of business in Parliament.\n3. Was amended in 1967 to make the use of English mandatory in certain cases.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q78",
+        question: "Which of the following is correct regarding 'Tribunals'?",
+        options: ["Article 323A deals with tribunals for other matters.", "Article 323B deals with administrative tribunals.", "Administrative Tribunals are set up by Parliament only.", "Tribunals under Article 323B can be set up only by State Legislatures."],
+        correctIndex: 2,
+        explanation: "323A (Admin) by Parliament. 323B (Other) by Parliament OR State Leg.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q79",
+        question: "The 'Protection of Human Rights (Amendment) Act, 2019':\n1. Allows a person who has been a Judge of the Supreme Court to be the Chairperson of NHRC.\n2. Increased the number of members of NHRC who have knowledge of human rights from two to three.\n3. Reduced the term of office of Chairperson and Members to 3 years.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q80",
+        question: "Regarding the 'Whistle Blowers Protection Act, 2014':\n1. It establishes a mechanism to receive complaints relating to disclosure on any allegation of corruption or wilful misuse of power.\n2. The Central Vigilance Commission is the designated agency to receive complaints.\n3. It provides safeguards against victimization of the person making such complaint.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q81",
+        question: "The 'Delimitation Commission':\n1. Is a statutory body.\n2. Its orders cannot be challenged in any court.\n3. The orders come into force on a date specified by the President.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q82",
+        question: "Which of the following bodies is chaired by the Prime Minister?\n1. NITI Aayog\n2. National Integration Council\n3. Inter-State Council\n4. National Water Resources Council",
+        options: ["1 and 2 only", "1, 3 and 4 only", "2, 3 and 4 only", "1, 2, 3 and 4"],
+        correctIndex: 3,
+        explanation: "All chaired by PM.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q83",
+        question: "The 'Competition Commission of India (CCI)':\n1. Is a statutory body established under the Competition Act, 2002.\n2. Aims to prevent practices having an adverse effect on competition.\n3. Consists of a Chairperson and not less than two and not more than six other members.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q84",
+        question: "The 'Press Council of India':\n1. Is a statutory body.\n2. Helps to maintain and improve the standards of newspapers and news agencies.\n3. The Chairman is usually a retired judge of the Supreme Court.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "User Key (a).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q85",
+        question: "The 'National Commission for Minorities':\n1. Was established under the National Commission for Minorities Act, 1992.\n2. Is a statutory body.\n3. Monitors the working of the safeguards for minorities provided in the Constitution and laws.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q86",
+        question: "Which of the following is correct regarding 'State Funding of Elections'?",
+        options: ["Indrajit Gupta Comm recommended partial funding.", "Dinesh Goswami Comm recommended funding in kind.", "No direct cash funding currently.", "All of the above."],
         correctIndex: 3,
         explanation: "All statements correct.",
         difficulty: "Moderate"
+    },
+    {
+        id: "p2_q87",
+        question: "The 'Model Code of Conduct':\n1. Is not enforceable by law.\n2. Certain provisions may be enforced through invoking corresponding provisions in other statutes like IPC, 1860, and RPA, 1951.\n3. Comes into force immediately on announcement of the election schedule.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q88",
+        question: "Regarding 'Exit Polls':\n1. The RPA, 1951 prohibits conducting exit polls and publishing results during the specified period.\n2. The ban applies from the commencement of the poll in the first phase until half an hour after the closing of the poll in the last phase.\n3. Any person who contravenes this is punishable with imprisonment.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q89",
+        question: "The 'Anti-Defection Law' (10th Schedule):\n1. Was added by the 52nd Amendment Act, 1985.\n2. Was amended by the 91st Amendment Act, 2003 to remove the 'split' provision.\n3. Places the decision-making authority in the Chairman/Speaker of the House.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q90",
+        question: "The 'Central Vigilance Commissioner':\n1. Is appointed by the President.\n2. Holds office for a term of 4 years or until the age of 65 years.\n3. Is not eligible for further employment under the Government of India.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 3,
+        explanation: "All correct.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q91",
+        question: "Which of the following committees is related to 'Electoral Reforms'?",
+        options: ["Tarkunde Committee", "Dinesh Goswami Committee", "Indrajit Gupta Committee", "All of the above"],
+        correctIndex: 3,
+        explanation: "All related to Electoral Reforms.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q92",
+        question: "The 'Solicitor General of India':\n1. Is a constitutional office under Article 76.\n2. Assists the Attorney General in the fulfillment of his official responsibilities.\n3. Is appointed by the Appointments Committee of the Cabinet.",
+        options: ["1 only", "2 and 3 only", "2 only", "1, 2, and 3"],
+        correctIndex: 1,
+        explanation: "Not constitutional (Stmt 1 incorrect).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q93",
+        question: "Regarding 'Lok Adalats':\n1. There is no court fee.\n2. Procedural laws like the Civil Procedure Code and Evidence Act are strictly followed.\n3. They can deal with compoundable criminal cases.",
+        options: ["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2, and 3"],
+        correctIndex: 1,
+        explanation: "Strict laws NOT followed (Stmt 2 incorrect).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q94",
+        question: "The 'Advocate General of the State' receives such remuneration as:",
+        options: ["Determined by the Constitution.", "Determined by the Parliament.", "Determined by the State Legislature.", "Determined by the Governor."],
+        correctIndex: 3,
+        explanation: "Governor determines remuneration.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q95",
+        question: "Which of the following is correct regarding the 'Comptroller and Auditor General'?",
+        options: ["He is appointed by the President by warrant under his hand and seal.", "He can be removed by the President at his pleasure.", "His salary and service conditions are determined by the President.", "He is eligible for further office under the Government of India."],
+        correctIndex: 0,
+        explanation: "Appointed by Pres warrant. Removal independent. Salary by Parliament. No further office.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q96",
+        question: "The 'Union Public Service Commission' submits its annual report to:",
+        options: ["The Parliament", "The President", "The Prime Minister", "The DoPT Minister"],
+        correctIndex: 1,
+        explanation: "To President, who lays it before Parliament.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q97",
+        question: "The 'National Commission for Women' was established:",
+        options: ["Under a Constitutional Amendment.", "Under the National Commission for Women Act, 1990.", "By an Executive Resolution.", "Under the Protection of Human Rights Act, 1993."],
+        correctIndex: 1,
+        explanation: "Under NCW Act 1990.",
+        difficulty: "Easy"
+    },
+    {
+        id: "p2_q98",
+        question: "Regarding the 'State Information Commission':\n1. The State Chief Information Commissioner and State Information Commissioners are appointed by the Governor.\n2. They are recommended by a committee consisting of the Chief Minister, Leader of Opposition in Legislative Assembly, and a State Cabinet Minister.\n3. They can be removed by the Governor.",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctIndex: 0,
+        explanation: "User Key (a).",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q99",
+        question: "The 'Joint State Public Service Commission' presents its annual report to:",
+        options: ["The President", "The Parliament", "The Governor of each of the concerned states", "The UPSC"],
+        correctIndex: 2,
+        explanation: "To Governor of each state.",
+        difficulty: "Moderate"
+    },
+    {
+        id: "p2_q100",
+        question: "Which of the following Articles deals with the 'Annual Financial Statement' (Budget)?",
+        options: ["Article 110", "Article 112", "Article 114", "Article 116"],
+        correctIndex: 1,
+        explanation: "Article 112.",
+        difficulty: "Easy"
     },
 ];
