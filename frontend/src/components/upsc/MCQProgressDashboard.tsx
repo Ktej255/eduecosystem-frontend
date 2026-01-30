@@ -21,18 +21,16 @@ export default function MCQProgressDashboard() {
         const stored = localStorage.getItem('upsc_mcq_history');
         if (stored) {
             try {
-                try {
-                    const parsed = JSON.parse(stored);
-                    // Validate it's an array or expected structure
-                    return Array.isArray(parsed) ? parsed : [];
-                } catch (e) {
-                    console.warn("Failed to parse MCQ history", e);
-                    return [];
+                const parsed = JSON.parse(stored);
+                if (Array.isArray(parsed)) {
+                    // Sort by date ascending
+                    setHistory(parsed.sort((a: HistoryItem, b: HistoryItem) => new Date(a.date).getTime() - new Date(b.date).getTime()));
+                } else {
+                    setHistory([]);
                 }
-                // Sort by date ascending
-                setHistory(parsed.sort((a: HistoryItem, b: HistoryItem) => new Date(a.date).getTime() - new Date(b.date).getTime()));
             } catch (e) {
                 console.error("Failed to parse history", e);
+                setHistory([]);
             }
         }
     }, []);
