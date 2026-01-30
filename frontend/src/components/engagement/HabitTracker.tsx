@@ -14,17 +14,7 @@ import {
     Target,
     Sparkles,
 } from "lucide-react";
-
-interface Habit {
-    id: number;
-    name: string;
-    icon: string;
-    category: string;
-    currentStreak: number;
-    coinsPerCompletion: number;
-    isCompletedToday: boolean;
-    reminderTime?: string;
-}
+import { useHabits, Habit } from "@/context/HabitContext";
 
 interface HabitTrackerProps {
     habits?: Habit[];
@@ -32,72 +22,58 @@ interface HabitTrackerProps {
     onAddHabit?: () => void;
 }
 
-// Dummy data
-const DUMMY_HABITS: Habit[] = [
-    {
-        id: 1,
-        name: "Morning Meditation",
-        icon: "🧘",
-        category: "mindfulness",
-        currentStreak: 7,
-        coinsPerCompletion: 10,
-        isCompletedToday: true,
-        reminderTime: "6:00 AM",
-    },
-    {
-        id: 2,
-        name: "Spaced Recall",
-        icon: "🔄",
-        category: "study",
-        currentStreak: 5,
-        coinsPerCompletion: 12,
-        isCompletedToday: false,
-        reminderTime: "8:00 PM",
-    },
-    {
-        id: 3,
-        name: "Gratitude Journal",
-        icon: "📝",
-        category: "mindfulness",
-        currentStreak: 3,
-        coinsPerCompletion: 5,
-        isCompletedToday: false,
-        reminderTime: "Before bed",
-    },
-    {
-        id: 4,
-        name: "Water Intake",
-        icon: "💧",
-        category: "health",
-        currentStreak: 14,
-        coinsPerCompletion: 5,
-        isCompletedToday: true,
-    },
-];
-
 export default function HabitTracker({
-    habits = DUMMY_HABITS,
+    habits: propHabits,
     onComplete,
     onAddHabit,
 }: HabitTrackerProps) {
+    const { habits: contextHabits, completeHabit, addHabit } = useHabits();
+    const habits = propHabits || contextHabits;
+
     const [isExpanded, setIsExpanded] = useState(true);
     const [completingId, setCompletingId] = useState<number | null>(null);
     const [showCoinPop, setShowCoinPop] = useState<number | null>(null);
 
-    const completedCount = habits.filter((h) => h.isCompletedToday).length;
-    const progressPercent = (completedCount / habits.length) * 100;
+    // Calculate completed based on today's status
+    const today = new Date().toISOString().split('T')[0];
+    const completedCount = habits.filter((h) => h.lastCompletedDate === today).length;
+
+    // Helper to check completion status
+    const isCompletedToday = (habit: Habit) => habit.lastCompletedDate === today;
+
+    const progressPercent = habits.length > 0 ? (completedCount / habits.length) * 100 : 0;
 
     const handleComplete = (habit: Habit) => {
-        if (habit.isCompletedToday) return;
+        if (isCompletedToday(habit)) return;
 
         setCompletingId(habit.id);
         setTimeout(() => {
             setCompletingId(null);
             setShowCoinPop(habit.id);
+
+            // Call context action
+            completeHabit(habit.id);
+
             onComplete?.(habit.id);
 
             setTimeout(() => setShowCoinPop(null), 1500);
         }, 500);
+    };
+
+    const handleAddHabitDefault = () => {
+        // Simple prompt for now, or just add a placeholder
+        // In a real app, this should open a modal.
+        // For Quick Win, let's add a "Drink Water" habit if not exists
+        const name = prompt("Enter habit name (e.g., Read 10 pages):");
+        if (name) {
+            addHabit({
+                name,
+                icon: "✨",
+                category: "productivity",
+                coinsPerCompletion: 5,
+                reminderTime: ""
+            });
+        }
     };
 
     const getCategoryColor = (category: string) => {
@@ -198,7 +174,7 @@ export default function HabitTracker({
                                     transition={{ delay: index * 0.1 }}
                                     className={`
                                         flex items-center gap-3 p-3 rounded-xl
-                                        ${habit.isCompletedToday
+                                        ${isCompletedToday(habit)
                                             ? "bg-emerald-500/10 border border-emerald-500/30"
                                             : "bg-neutral-800/50 border border-neutral-700"
                                         }
@@ -210,7 +186,7 @@ export default function HabitTracker({
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.9 }}
                                         onClick={() => handleComplete(habit)}
-                                        disabled={habit.isCompletedToday}
+                                        disabled={isCompletedToday(habit)}
                                         className="flex-shrink-0"
                                     >
                                         {completingId === habit.id ? (
@@ -220,7 +196,7 @@ export default function HabitTracker({
                                             >
                                                 <Sparkles className="w-6 h-6 text-amber-400" />
                                             </motion.div>
-                                        ) : habit.isCompletedToday ? (
+                                        ) : isCompletedToday(habit) ? (
                                             <CheckCircle className="w-6 h-6 text-emerald-400" />
                                         ) : (
                                             <Circle className="w-6 h-6 text-gray-500 hover:text-gray-300" />
@@ -234,9 +210,9 @@ export default function HabitTracker({
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-2">
                                             <p
-                                                className={`font-medium ${habit.isCompletedToday
-                                                        ? "text-emerald-400 line-through"
-                                                        : "text-white"
+                                                className={`font-medium ${isCompletedToday(habit)
+                                                    ? "text-emerald-400 line-through"
+                                                    : "text-white"
                                                     }`}
                                             >
                                                 {habit.name}
@@ -292,7 +268,7 @@ export default function HabitTracker({
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                onClick={onAddHabit}
+                                onClick={onAddHabit || handleAddHabitDefault}
                                 className="w-full p-3 rounded-xl border-2 border-dashed border-neutral-700 
                                          hover:border-neutral-600 text-gray-500 hover:text-gray-400
                                          flex items-center justify-center gap-2 transition-colors"

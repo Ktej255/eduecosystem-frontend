@@ -13,6 +13,7 @@ import { getCompletedStepsForDay } from "@/lib/journey/completion-tracker";
 import { getUserAccess } from "@/config/user-access-config";
 import { RefreshCw, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useGamification } from "@/context/GamificationContext";
 // Import the RAS Dashboard (Anti-Gravity)
 import RASDashboard from "@/components/ras/RASDashboard";
 import HabitTracker from "@/components/engagement/HabitTracker";
@@ -20,6 +21,7 @@ import StreakWidget from "@/components/engagement/StreakWidget";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
+    const { streak, longestStreak, xp } = useGamification() || { streak: 0, longestStreak: 0, xp: 0 };
 
     // --- CHITRA-SPECIFIC OVERRIDE ---
     // The user 'chitrakumawat33@gmail.com' is on the specific "RAS Revision Plan" (Phases 1-3).
@@ -135,12 +137,16 @@ export default function StudentDashboard() {
                         <div className="hidden md:block">
                             <StreakWidget
                                 data={{
-                                    currentStreak: stats.overallStreak,
-                                    longestStreak: stats.overallStreak, // Placeholder
-                                    freezeTokens: 1, // Placeholder
-                                    totalActiveDays: stats.overallStreak,
-                                    coinsEarned: 120, // Placeholder
-                                    milestones: { "7_day": stats.overallStreak >= 7, "30_day": stats.overallStreak >= 30, "100_day": stats.overallStreak >= 100 }
+                                    currentStreak: streak || stats?.overallStreak || 0,
+                                    longestStreak: longestStreak || streak || 0,
+                                    freezeTokens: 1,
+                                    totalActiveDays: streak || 0,
+                                    coinsEarned: xp,
+                                    milestones: {
+                                        "7_day": (streak || 0) >= 7,
+                                        "30_day": (streak || 0) >= 30,
+                                        "100_day": (streak || 0) >= 100
+                                    }
                                 }}
                                 compact={true}
                             />
