@@ -10,6 +10,7 @@ import BuildInfo from "@/components/BuildInfo";
 import { BrandingProvider } from "@/contexts/BrandingContext";
 import ServiceWorkerRegister from "@/components/pwa/ServiceWorkerRegister";
 import { GamificationProvider } from "@/context/GamificationContext";
+import { PurchaseProvider } from "@/context/PurchaseContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,12 +61,14 @@ export default function RootLayout({
             <BrandingProvider>
               <AuthProvider>
                 <ToastProvider>
-                  <GamificationProvider>
-                    <ServiceWorkerRegister />
-                    {children}
-                    <AIChatWidget />
-                    <BuildInfo />
-                  </GamificationProvider>
+                  <PurchaseProvider>
+                    <GamificationProvider>
+                      <ServiceWorkerRegister />
+                      {children}
+                      <AIChatWidget />
+                      <BuildInfo />
+                    </GamificationProvider>
+                  </PurchaseProvider>
                 </ToastProvider>
               </AuthProvider>
             </BrandingProvider>
