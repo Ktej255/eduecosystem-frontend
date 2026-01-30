@@ -23,6 +23,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { CSAT_BATCH1_1_DATA, CSATDayData, CSATQuestion, CSATPassage } from './data/csat-data';
+import { ActivityLogger } from '@/lib/analytics/ActivityLogger';
 
 interface CSATPracticeViewProps {
     dayNumber: number;
@@ -143,6 +144,36 @@ export default function CSATPracticeView({ dayNumber, onComplete }: CSATPractice
         setShowResults(true);
         const score = Object.values(attempts).filter(a => a.isCorrect).length +
             (selectedAnswer === currentQuestion.correctAnswer ? 1 : 0);
+
+        // LOG ACTIVITY
+        Object.values(attempts).forEach(attempt => {
+            ActivityLogger.logActivity({
+                type: 'MCQ_CSAT',
+                details: {
+                    questionId: attempt.questionId.toString(),
+                    topic: 'CSAT',
+                    subtopic: 'Reading Comprehension', // Deduced from context
+                    isCorrect: attempt.isCorrect,
+                    confidence: attempt.confidence,
+                    timeSpent: 0 // Not tracked individually perfectly yet, but acceptable
+                }
+            });
+        });
+        // Log current question if not in attempts yet
+        if (selectedAnswer !== null && !attempts[currentQuestion.id]) {
+            ActivityLogger.logActivity({
+                type: 'MCQ_CSAT',
+                details: {
+                    questionId: currentQuestion.id.toString(),
+                    topic: 'CSAT',
+                    subtopic: 'Reading Comprehension',
+                    isCorrect: selectedAnswer === currentQuestion.correctAnswer,
+                    confidence: confidence,
+                    timeSpent: 0
+                }
+            });
+        }
+
         onComplete(score, allQuestions.length);
     };
 

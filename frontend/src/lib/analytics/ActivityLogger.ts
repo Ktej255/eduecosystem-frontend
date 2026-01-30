@@ -1,6 +1,6 @@
 import { ConfidenceLevel } from "@/components/batch1-1/pomodoro/CycleMCQs";
 
-export type ActivityType = 'MCQ_EVENING' | 'MCQ_PYQ' | 'MCQ_SATURDAY' | 'FLASHCARD_REVIEW';
+export type ActivityType = 'MCQ_EVENING' | 'MCQ_PYQ' | 'MCQ_SATURDAY' | 'FLASHCARD_REVIEW' | 'MCQ_CSAT' | 'MCQ_POMODORO';
 
 export interface ActivityLog {
     id: string;

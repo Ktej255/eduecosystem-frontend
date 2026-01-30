@@ -14,7 +14,9 @@ import {
     TrendingUp,
     Zap,
     Brain,
-    X
+    X,
+    BookOpen,
+    Flashlight
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -93,6 +95,10 @@ export default function Batch1DeepReport() {
                             <Brain className="w-4 h-4" />
                             <span className="hidden md:inline">Revision</span>
                         </TabsTrigger>
+                        <TabsTrigger value="daily" className="data-[state=active]:bg-teal-100 data-[state=active]:text-teal-700 py-3 rounded-xl flex items-center gap-2">
+                            <BookOpen className="w-4 h-4" />
+                            <span className="hidden md:inline">Daily Practice</span>
+                        </TabsTrigger>
                         <TabsTrigger value="mood" className="data-[state=active]:bg-pink-100 data-[state=active]:text-pink-700 py-3 rounded-xl flex items-center gap-2">
                             <Smile className="w-4 h-4" />
                             <span className="hidden md:inline">Mood</span>
@@ -124,8 +130,103 @@ export default function Batch1DeepReport() {
                     <TabsContent value="mood" className="m-0">
                         <MoodAnalyticsReport />
                     </TabsContent>
+
+                    <TabsContent value="daily" className="m-0">
+                        <DailyPracticeReport />
+                    </TabsContent>
                 </div>
             </Tabs>
+        </div>
+    );
+}
+
+function DailyPracticeReport() {
+    const [logs, setLogs] = useState<ActivityLog[]>([]);
+
+    useEffect(() => {
+        setLogs(ActivityLogger.getLogs());
+    }, []);
+
+    const csatLogs = logs.filter(l => l.type === 'MCQ_CSAT');
+    const eveningLogs = logs.filter(l => l.type === 'MCQ_EVENING');
+    const edgeLogs = logs.filter(l => l.type === 'MCQ_POMODORO');
+
+    const getAccuracy = (items: ActivityLog[]) => {
+        if (items.length === 0) return 0;
+        const correct = items.filter(l => l.details.isCorrect).length;
+        return Math.round((correct / items.length) * 100);
+    };
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-xl font-bold text-gray-800 dark:text-white">Daily Practice Analytics</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <BookOpen className="h-5 w-5 text-indigo-500" />
+                            CSAT Performance
+                        </CardTitle>
+                        <CardDescription>Reading Comprehension & Verbal Ability</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="grid grid-cols-2 gap-4 mb-4">
+                            <div className="text-center p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl">
+                                <div className="text-2xl font-bold text-indigo-600">{csatLogs.length}</div>
+                                <div className="text-xs text-indigo-400 font-bold uppercase">Questions</div>
+                            </div>
+                            <div className="text-center p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                                <div className="text-2xl font-bold text-emerald-600">{getAccuracy(csatLogs)}%</div>
+                                <div className="text-xs text-emerald-400 font-bold uppercase">Accuracy</div>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <Flashlight className="h-5 w-5 text-purple-500" />
+                            Evening Revision
+                        </CardTitle>
+                        <CardDescription>Core Subject MCQs</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="grid grid-cols-2 gap-4 mb-4">
+                            <div className="text-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                                <div className="text-2xl font-bold text-purple-600">{eveningLogs.length}</div>
+                                <div className="text-xs text-purple-400 font-bold uppercase">Questions</div>
+                            </div>
+                            <div className="text-center p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                                <div className="text-2xl font-bold text-emerald-600">{getAccuracy(eveningLogs)}%</div>
+                                <div className="text-xs text-emerald-400 font-bold uppercase">Accuracy</div>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <Zap className="h-5 w-5 text-orange-500" />
+                            Edge of Pomodoro
+                        </CardTitle>
+                        <CardDescription>Cycle MCQs</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="grid grid-cols-2 gap-4 mb-4">
+                            <div className="text-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                                <div className="text-2xl font-bold text-orange-600">{edgeLogs.length}</div>
+                                <div className="text-xs text-orange-400 font-bold uppercase">Questions</div>
+                            </div>
+                            <div className="text-center p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                                <div className="text-2xl font-bold text-emerald-600">{getAccuracy(edgeLogs)}%</div>
+                                <div className="text-xs text-emerald-400 font-bold uppercase">Accuracy</div>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
     );
 }

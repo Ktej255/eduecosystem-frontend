@@ -221,19 +221,22 @@ export function generateWeeklySchedule(): WeeklySchedule[] {
     const contentToSchedule = remainingContent;
 
     while (currentChapterIndex < contentToSchedule.length || remainingPagesInChapter > 0) {
+        const currentWeekNum = weekNumber;
+        weekNumber++; // Prepare for next iteration
+
         // Dynamic Pacing starts from Week 2 behavior
         // Growth calc: (Week 2 -> idx 0) -> 1.0, (Week 6 -> idx 1) -> 1.2
-        const pacingWeeks = weekNumber - 2; // Normalize so Week 2 is "0" for growth
+        const pacingWeeks = currentWeekNum - 2; // Normalize so Week 2 is "0" for growth
         const pacingMultiplier = 1 + (Math.floor(pacingWeeks / PACING_GROWTH_INTERVAL) * PACING_GROWTH_RATE);
         const dailyPageTarget = Math.round(BASE_PAGES_PER_DAY * pacingMultiplier);
 
         const week: WeeklySchedule = {
-            week: weekNumber++,
+            week: currentWeekNum,
             days: {
                 sunday: [], // Filled with previous week's chapters
                 monday: [], tuesday: [], wednesday: [], thursday: [], friday: [],
-                saturday: weekNumber === 5
-                    ? ["UPSC Prelims 2026: Paper 1", "UPSC Prelims 2026: Paper 2"]
+                saturday: currentWeekNum === 5
+                    ? ["UPSC Prelims 2026: Paper 1 (Polity)", "UPSC Prelims 2026: Paper 2 (Polity)"]
                     : ["Weekly Mock Test", "Revision"],
             },
             totalPages: 0,

@@ -58,6 +58,7 @@ interface CycleMCQsProps {
     canSkip?: boolean;
     skipsRemaining?: number;
     onSkip?: () => void;
+    activityType?: 'MCQ_EVENING' | 'MCQ_POMODORO';
 }
 
 export default function CycleMCQs({
@@ -67,7 +68,8 @@ export default function CycleMCQs({
     preloadedMCQs,
     canSkip = false,
     skipsRemaining = 0,
-    onSkip
+    onSkip,
+    activityType = 'MCQ_EVENING'
 }: CycleMCQsProps) {
     const mcqs = useMemo(() => {
         if (preloadedMCQs && preloadedMCQs.length > 0) return preloadedMCQs;
@@ -154,10 +156,10 @@ export default function CycleMCQs({
         // Log Activity
         if (selectedAnswer !== null) {
             ActivityLogger.logActivity({
-                type: 'MCQ_EVENING',
+                type: activityType,
                 details: {
                     questionId: String(currentMCQ.id),
-                    topic: 'Evening Session',
+                    topic: 'Session MCQ',
                     subtopic: currentMCQ.subtopicId,
                     isCorrect,
                     confidence,

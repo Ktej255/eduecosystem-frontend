@@ -890,6 +890,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                             // Skip Props
                             canSkip={skipQuota > 0}
                             skipsRemaining={skipQuota}
+                            activityType="MCQ_POMODORO"
                             onSkip={() => {
                                 setSkipQuota(prev => Math.max(0, prev - 1));
                                 // Add to pending (if not already added by FC skip? If FC done, then pending is empty. So add now)
