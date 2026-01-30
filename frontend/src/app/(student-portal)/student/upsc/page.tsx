@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { UPSC_CATALOG } from '@/data/upsc-catalog';
 import { useRouter } from 'next/navigation';
-import { ArrowRight, Star, Activity, CheckCircle, AlertTriangle, Lock } from 'lucide-react';
+import { ArrowRight, Star, Activity, CheckCircle, AlertTriangle, Lock, Brain } from 'lucide-react';
 import UPSCGlobalSearch from '@/components/upsc/UPSCGlobalSearch';
 import UPSCOnboarding from '@/components/upsc/OnboardingModal';
 import PeerGroupCard from '@/components/upsc/PeerGroupCard';
@@ -92,6 +92,12 @@ export default function UPSCLandingPage() {
                     </p>
                 </div>
                 <div className="flex items-center gap-3 w-full md:w-auto">
+                    <button
+                        onClick={() => router.push('/student/upsc/mock-tests')}
+                        className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 px-4 py-3 rounded-xl font-bold text-sm text-white transition-colors shadow-sm whitespace-nowrap"
+                    >
+                        <Brain className="w-4 h-4" /> Mock Tests
+                    </button>
                     <button
                         onClick={() => router.push('/student/upsc/progress')}
                         className="flex items-center gap-2 bg-white dark:bg-[#111] px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors shadow-sm whitespace-nowrap"
