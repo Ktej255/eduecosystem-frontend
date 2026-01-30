@@ -96,9 +96,17 @@ export function GamificationProvider({ children }: { children: ReactNode }) {
                 const stored = localStorage.getItem(STORAGE_KEY);
                 if (stored) {
                     const parsed = JSON.parse(stored);
-                    // Minimal validation to ensure essential fields exist
                     if (parsed && typeof parsed === 'object') {
-                        setState(prev => ({ ...prev, ...parsed }));
+                        // Safe merge: Ensure arrays are actually arrays
+                        setState(prev => ({
+                            ...prev,
+                            ...parsed,
+                            // Defensively ensure critical array fields are arrays if parsed value is null/invalid
+                            badges: Array.isArray(parsed.badges) ? parsed.badges : prev.badges,
+                            visitedVisuals: Array.isArray(parsed.visitedVisuals) ? parsed.visitedVisuals : prev.visitedVisuals,
+                            xpHistory: Array.isArray(parsed.xpHistory) ? parsed.xpHistory : prev.xpHistory,
+                            reviewQueue: Array.isArray(parsed.reviewQueue) ? parsed.reviewQueue : prev.reviewQueue,
+                        }));
                     }
                 }
             } catch (error) {
