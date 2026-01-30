@@ -166,8 +166,11 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
                     <div className="text-xs text-blue-800 dark:text-blue-300 font-medium">Week {currentWeek.week} Slots</div>
                 </div>
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 border border-purple-100 dark:border-purple-900/30 p-4 rounded-2xl">
-                    <div className="text-purple-600 dark:text-purple-400 font-bold text-2xl">{currentWeek.totalPages}</div>
-                    <div className="text-xs text-purple-800 dark:text-purple-300 font-medium">Target Pages</div>
+                    <div className="text-purple-600 dark:text-purple-400 font-bold text-2xl">
+                        {(currentWeek as any).dailyPageTarget || 18}
+                        <span className="text-sm text-gray-400 font-normal ml-1">pgs/day</span>
+                    </div>
+                    <div className="text-xs text-purple-800 dark:text-purple-300 font-medium">Dynamic Pacing</div>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/10 dark:to-teal-900/10 border border-emerald-100 dark:border-emerald-900/30 p-4 rounded-2xl">
                     <div className="text-emerald-600 dark:text-emerald-400 font-bold text-2xl">{currentWeek.totalSlots} h</div>
@@ -388,7 +391,7 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
                                         <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-dashed border-gray-200 dark:border-gray-800 text-center">
                                             <span className="text-[10px] font-bold text-gray-500 uppercase">Day Summary</span>
                                             <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-                                                {(contents as any[]).reduce((sum, c) => sum + (c.pages || 0), 0)} Pages • {daySlots} Hours
+                                                {(contents as any[]).reduce((sum, c) => sum + (c.pages || 0), 0)} pgs covered
                                             </div>
                                         </div>
                                     )}
