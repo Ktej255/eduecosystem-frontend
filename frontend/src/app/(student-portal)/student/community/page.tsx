@@ -5,35 +5,32 @@ import { motion } from 'framer-motion';
 import {
     Users, MessageSquare, UserPlus, Search, Crown, Star,
     BookOpen, Clock, CheckCircle, Flame, Trophy, Send,
-    Heart, Share2, MoreHorizontal, Bell
+    Heart, Share2, MoreHorizontal, Bell, MessageCircle
 } from 'lucide-react';
 import { useGamification } from '@/context/GamificationContext';
 import { useCommunity } from '@/context/CommunityContext';
+import { useAuth } from '@/contexts/auth-context';
 import Leaderboard from '@/components/upsc/Leaderboard';
+import StudyGroups from '@/components/social/StudyGroups';
+import MessageThread from '@/components/social/MessageThread';
 
-// Mock study groups
-const STUDY_GROUPS = [
-    { id: 1, name: 'Polity Champions', members: 156, active: true, subject: 'Polity', streak: 45 },
-    { id: 2, name: 'UPSC 2026 Batch', members: 324, active: true, subject: 'General', streak: 30 },
-    { id: 3, name: 'Geography Explorers', members: 89, active: false, subject: 'Geography', streak: 22 },
-    { id: 4, name: 'Current Affairs Daily', members: 512, active: true, subject: 'Current Affairs', streak: 100 },
-];
-
-// Mock leaderboard
-const LEADERBOARD = [
-    { rank: 1, name: 'Vikram S.', xp: 15420, streak: 156, avatar: '🏆' },
-    { rank: 2, name: 'Meera P.', xp: 14890, streak: 134, avatar: '🥈' },
-    { rank: 3, name: 'Arjun D.', xp: 13560, streak: 98, avatar: '🥉' },
-    { rank: 4, name: 'Sneha R.', xp: 12340, streak: 87, avatar: '⭐' },
-    { rank: 5, name: 'Karan B.', xp: 11230, streak: 76, avatar: '⭐' },
+// Mock friends for messaging
+const MOCK_FRIENDS = [
+    { id: 1, full_name: 'Vikram S.' },
+    { id: 2, full_name: 'Meera P.' },
+    { id: 3, full_name: 'Arjun D.' },
+    { id: 4, full_name: 'Sneha R.' },
+    { id: 5, full_name: 'Karan B.' },
 ];
 
 export default function CommunityPage() {
+    const { user } = useAuth();
     const { xp, streak } = useGamification();
     const { posts, addPost, toggleLike } = useCommunity();
     const [activeTab, setActiveTab] = useState('feed');
     const [searchQuery, setSearchQuery] = useState('');
     const [newPostContent, setNewPostContent] = useState('');
+    const [selectedFriend, setSelectedFriend] = useState<{ id: number; full_name: string } | null>(null);
 
     const handlePost = () => {
         if (!newPostContent.trim()) return;
@@ -70,17 +67,18 @@ export default function CommunityPage() {
                         className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
                 </div>
-                <div className="flex gap-2">
-                    {['feed', 'groups', 'leaderboard'].map((tab) => (
+                <div className="flex gap-2 flex-wrap">
+                    {['feed', 'groups', 'messages', 'leaderboard'].map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
-                            className={`px-4 py-2 rounded-xl font-medium capitalize transition-all
+                            className={`px-4 py-2 rounded-xl font-medium capitalize transition-all flex items-center gap-2
                                 ${activeTab === tab
                                     ? 'bg-indigo-600 text-white'
                                     : 'bg-white dark:bg-[#111] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800'
                                 }`}
                         >
+                            {tab === 'messages' && <MessageCircle className="w-4 h-4" />}
                             {tab}
                         </button>
                     ))}
@@ -168,45 +166,61 @@ export default function CommunityPage() {
                     )}
 
                     {activeTab === 'groups' && (
-                        <div className="space-y-4">
-                            {STUDY_GROUPS.map((group, i) => (
-                                <motion.div
-                                    key={group.id}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-indigo-500/50 transition-all cursor-pointer"
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold">
-                                                {group.name[0]}
-                                            </div>
-                                            <div>
-                                                <div className="flex items-center gap-2">
-                                                    <h3 className="font-bold text-gray-900 dark:text-white">{group.name}</h3>
-                                                    {group.active && (
-                                                        <span className="w-2 h-2 rounded-full bg-green-500" />
-                                                    )}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="h-[600px]"
+                        >
+                            <StudyGroups />
+                        </motion.div>
+                    )}
+
+                    {activeTab === 'messages' && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                        >
+                            {!selectedFriend ? (
+                                <div className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800">
+                                    <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                        <MessageCircle className="w-5 h-5 text-indigo-600" />
+                                        Messages
+                                    </h3>
+                                    <p className="text-sm text-gray-500 mb-4">Select a friend to start chatting</p>
+                                    <div className="space-y-2">
+                                        {MOCK_FRIENDS.map((friend) => (
+                                            <button
+                                                key={friend.id}
+                                                onClick={() => setSelectedFriend(friend)}
+                                                className="w-full flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-[#0a0a0a] hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors"
+                                            >
+                                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold">
+                                                    {friend.full_name[0]}
                                                 </div>
-                                                <p className="text-sm text-gray-500">
-                                                    {group.members} members • {group.subject}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <div className="text-right">
-                                                <p className="text-sm font-bold text-orange-500">🔥 {group.streak}</p>
-                                                <p className="text-xs text-gray-400">day streak</p>
-                                            </div>
-                                            <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors">
-                                                <UserPlus className="w-4 h-4" />
+                                                <div className="flex-1 text-left">
+                                                    <p className="font-medium text-gray-900 dark:text-white">{friend.full_name}</p>
+                                                    <p className="text-xs text-gray-500">Tap to message</p>
+                                                </div>
+                                                <div className="w-2 h-2 rounded-full bg-green-500" />
                                             </button>
-                                        </div>
+                                        ))}
                                     </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                                </div>
+                            ) : (
+                                <div className="h-[600px]">
+                                    <button
+                                        onClick={() => setSelectedFriend(null)}
+                                        className="mb-4 text-sm text-indigo-600 hover:underline"
+                                    >
+                                        ← Back to Contacts
+                                    </button>
+                                    <MessageThread
+                                        currentUser={{ id: user?.id || 0, full_name: user?.full_name || 'You' }}
+                                        selectedFriend={selectedFriend}
+                                    />
+                                </div>
+                            )}
+                        </motion.div>
                     )}
 
                     {activeTab === 'leaderboard' && (
