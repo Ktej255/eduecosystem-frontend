@@ -413,9 +413,10 @@ function SaturdayTestsReport() {
         }).filter(Boolean);
 
         // Also scan for Polity Mock Tests (Jan 31)
+        // Keys match the format used in PolityTestPage: polity_test_${testId}_results
         const polityTests = [
-            { key: 'polity_paper1_jan31_results', id: '1', name: 'Polity Paper 1 (Jan 31)' },
-            { key: 'polity_paper2_jan31_results', id: '2', name: 'Polity Paper 2 (Jan 31)' }
+            { key: 'polity_test_paper1-jan31_results', id: '1', name: 'Polity Paper 1 (Jan 31)' },
+            { key: 'polity_test_paper2-jan31_results', id: '2', name: 'Polity Paper 2 (Jan 31)' }
         ].map(test => {
             const saved = localStorage.getItem(test.key);
             if (saved) {
