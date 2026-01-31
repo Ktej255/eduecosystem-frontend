@@ -187,10 +187,16 @@ export const USER_ACCESS_MAP: Record<string, UserAccessConfig> = {
         isMaster: false,
         access: BATCH2_STUDENT_ACCESS,
     },
-    // New Batch 2 Student
+    // Batch 2 Students - Paid
     "hitvar040@gmail.com": {
         email: "hitvar040@gmail.com",
         name: "Hitvar",
+        isMaster: false,
+        access: BATCH2_STUDENT_ACCESS,
+    },
+    "itspanwar111@gmail.com": {
+        email: "itspanwar111@gmail.com",
+        name: "Ramesh Panwar",
         isMaster: false,
         access: BATCH2_STUDENT_ACCESS,
     },
