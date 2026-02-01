@@ -8,6 +8,7 @@ import GenericFlashcardSession from '../framework/GenericFlashcardSession';
 import { geographyFlashcards as GEOGRAPHY_FLASHCARDS } from './data/flashcards/geography-flashcards';
 import { geographyMCQs as GEOGRAPHY_MCQS } from './data/mcqs/geography-mcqs';
 import { Button } from '@/components/ui/button';
+import { getContentForTopic } from './content/content-registry';
 
 interface TopicDetailViewProps {
     node: GeographyNode;
@@ -17,17 +18,22 @@ interface TopicDetailViewProps {
 export default function TopicDetailView({ node, onBack }: TopicDetailViewProps) {
     const [activeTab, setActiveTab] = React.useState<'overview' | 'flashcards' | 'quiz'>('overview');
 
-    // Filter relevant flashcards based on node ID matching source or tags
-    // For prototype, we show all if not found, or specific ones.
-    // Ideally, we filter by topic slug or ID.
+    // Fetch content from registry
+    // We assume node.id matches the keys in the registry. 
+    // If not, we fall back to a generic placeholder or null.
+    const content = getContentForTopic(node.id);
+
+    // Filter relevant flashcards
     const relevantFlashcards = GEOGRAPHY_FLASHCARDS.filter(fc =>
-        // Simple matching logic: if flashcard source matches the node title roughly
         fc.topic?.toLowerCase().includes(node.title.toLowerCase()) ||
         fc.front.toLowerCase().includes(node.title.toLowerCase())
     );
-
-    // Fallback if none found, show a few randoms or empty
     const displayFlashcards = relevantFlashcards.length > 0 ? relevantFlashcards : GEOGRAPHY_FLASHCARDS.slice(0, 5);
+
+    // Get quizzes from content sections if available
+    const quizQuestions = content?.sections
+        .flatMap(s => s.content)
+        .filter(c => c.type === 'quiz') || [];
 
     return (
         <div className="w-full animate-in slide-in-from-right duration-500 bg-white dark:bg-[#0a0a0a] min-h-[600px] rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 flex flex-col">
@@ -45,7 +51,7 @@ export default function TopicDetailView({ node, onBack }: TopicDetailViewProps) 
                     {node.type} Level
                 </div>
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">{node.title}</h1>
-                <p className="text-white/80 max-w-2xl">{node.description || "Explore this geographical concept in depth."}</p>
+                <p className="text-white/80 max-w-2xl">{content?.description || node.description || "Explore this geographical concept in depth."}</p>
             </div>
 
             {/* Navigation Tabs */}
@@ -74,54 +80,67 @@ export default function TopicDetailView({ node, onBack }: TopicDetailViewProps) 
             <div className="flex-1 p-6 overflow-y-auto">
                 {activeTab === 'overview' && (
                     <div className="space-y-8 max-w-4xl mx-auto">
-                        {/* Micro-Lecture Placeholder */}
-                        <div className="bg-black rounded-xl overflow-hidden aspect-video flex items-center justify-center relative group cursor-pointer shadow-lg">
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
-                            <img
-                                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000&auto=format&fit=crop"
-                                alt="Lecture Thumbnail"
-                                className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
-                            />
-                            <div className="z-20 flex flex-col items-center">
-                                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 mb-4 group-hover:bg-emerald-500 group-hover:border-emerald-400 transition-colors">
-                                    <Play className="w-6 h-6 text-white ml-1" fill="currentColor" />
-                                </div>
-                                <span className="text-white font-bold tracking-wide">WATCH MICRO-LECTURE (10:00)</span>
+                        {!content ? (
+                            <div className="text-center py-12 text-neutral-500">
+                                <p>Content is being curated for this topic.</p>
+                                <p className="text-sm mt-2">Try "Origin of Universe" or "Geological Time Scale" for a demo.</p>
                             </div>
-                        </div>
-
-                        {/* UPSC Connection */}
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div className="p-6 rounded-2xl bg-amber-50 border border-amber-100 dark:bg-amber-900/10 dark:border-amber-900/30">
-                                <h3 className="font-bold text-amber-800 dark:text-amber-500 mb-3 flex items-center gap-2">
-                                    <span className="bg-amber-100 dark:bg-amber-900/40 px-2 py-0.5 rounded text-xs">PRELIMS FOCUS</span>
-                                </h3>
-                                <p className="text-amber-900/80 dark:text-amber-200/80 text-sm leading-relaxed">
-                                    Key facts about {node.title} often asked in Prelims. E.g., Major landforms, specific terminology, or associated scientists/theories.
-                                </p>
-                            </div>
-                            <div className="p-6 rounded-2xl bg-blue-50 border border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30">
-                                <h3 className="font-bold text-blue-800 dark:text-blue-500 mb-3 flex items-center gap-2">
-                                    <span className="bg-blue-100 dark:bg-blue-900/40 px-2 py-0.5 rounded text-xs">MAINS PYQ (2018)</span>
-                                </h3>
-                                <p className="text-blue-900/80 dark:text-blue-200/80 text-sm leading-relaxed italic">
-                                    "Discuss the significance of {node.title} in the context of Indian Geography."
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Concept Hierarchy */}
-                        <div>
-                            <h3 className="text-lg font-bold mb-4">Key Concepts</h3>
-                            <div className="space-y-2">
-                                {['Concept A', 'Concept B', 'Concept C'].map((c, i) => (
-                                    <div key={i} className="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 hover:border-emerald-500 transition-colors cursor-pointer flex justify-between items-center group">
-                                        <span className="font-medium group-hover:text-emerald-600">{node.title}: {c}</span>
-                                        <ArrowLeft className="w-4 h-4 rotate-180 text-neutral-400 group-hover:text-emerald-500" />
+                        ) : (
+                            <div className="space-y-12">
+                                {content.sections.map((section) => (
+                                    <div key={section.id} className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                                        <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-6 border-l-4 border-emerald-500 pl-4">
+                                            {section.title}
+                                        </h2>
+                                        <div className="space-y-6">
+                                            {section.content.map((block) => (
+                                                <div key={block.id}>
+                                                    {block.type === 'text' && (
+                                                        <div className="prose dark:prose-invert max-w-none text-neutral-600 dark:text-neutral-300 leading-relaxed whitespace-pre-line">
+                                                            {block.content}
+                                                        </div>
+                                                    )}
+                                                    {block.type === 'image' && (
+                                                        <figure className="my-6">
+                                                            <div className="rounded-xl overflow-hidden shadow-lg border border-neutral-200 dark:border-neutral-800">
+                                                                <img
+                                                                    src={block.content}
+                                                                    alt={block.alt || 'Lesson Image'}
+                                                                    className="w-full h-auto object-cover max-h-[500px]"
+                                                                />
+                                                            </div>
+                                                            {block.caption && (
+                                                                <figcaption className="text-center text-sm text-neutral-500 mt-2 italic">
+                                                                    {block.caption}
+                                                                </figcaption>
+                                                            )}
+                                                        </figure>
+                                                    )}
+                                                    {block.type === 'callout' && (
+                                                        <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-r-lg my-4">
+                                                            <div className="text-amber-900 dark:text-amber-100 font-medium whitespace-pre-line">
+                                                                {block.content}
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    {block.type === 'quiz' && (
+                                                        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-6 rounded-xl my-4">
+                                                            <div className="flex items-start gap-4">
+                                                                <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center shrink-0 font-bold">?</div>
+                                                                <div>
+                                                                    <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-2">Check Your Knowledge</h4>
+                                                                    <p className="text-blue-800 dark:text-blue-200">{block.content}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
-                        </div>
+                        )}
                     </div>
                 )}
 
@@ -144,9 +163,22 @@ export default function TopicDetailView({ node, onBack }: TopicDetailViewProps) 
                         <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
                             <CheckCircle className="w-10 h-10" />
                         </div>
-                        <h2 className="text-2xl font-bold mb-2">Quiz Mode Ready</h2>
-                        <p className="text-neutral-500 mb-8">Test your knowledge on {node.title}.</p>
-                        <Button className="bg-emerald-600 hover:bg-emerald-700">Start 5-Question Quiz</Button>
+                        <h2 className="text-2xl font-bold mb-2">Quiz Mode</h2>
+                        {quizQuestions.length > 0 ? (
+                            <div className="space-y-4 mt-8 text-left">
+                                {quizQuestions.map((q, i) => (
+                                    <div key={q.id} className="p-4 border rounded-xl bg-neutral-50 dark:bg-neutral-900">
+                                        <span className="font-bold text-emerald-600 mr-2">Q{i + 1}:</span>
+                                        {q.content}
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <p className="text-neutral-500 mb-8">No specific questions found for this topic yet. Try the Flashcards!</p>
+                        )}
+                        <Button className="bg-emerald-600 hover:bg-emerald-700 mt-6" disabled={quizQuestions.length === 0}>
+                            Start Interactive Quiz
+                        </Button>
                     </div>
                 )}
             </div>
