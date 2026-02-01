@@ -5,9 +5,14 @@ import { BookOpen, Video, Upload, Users, BarChart3, Clock, CheckCircle2, AlertCi
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
 import api from "@/lib/api";
+
+import MorningBriefing from "@/components/teacher-portal/dashboard/MorningBriefing";
+import PriorityInbox from "@/components/teacher-portal/dashboard/PriorityInbox";
+import LakshmikantKanban from "@/components/teacher-portal/dashboard/LakshmikantKanban";
+import SmartUploadWizard from "@/components/teacher-portal/dashboard/SmartUploadWizard";
+import ContentHealthScore from "@/components/teacher-portal/library/ContentHealthScore";
 
 interface StudentData {
     id: number;
@@ -17,13 +22,6 @@ interface StudentData {
     is_ras_authorized: boolean;
     streak_days: number;
     coins: number;
-}
-
-interface ContentUpload {
-    id: number;
-    type: string;
-    title: string;
-    timestamp: string;
 }
 
 export default function TeacherDashboard() {
@@ -66,6 +64,10 @@ export default function TeacherDashboard() {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchDashboardData();
+    }, []);
 
     const teacherStats = [
         { label: "Total Students", value: stats.totalStudents.toString(), icon: Users, color: "text-blue-600", bgColor: "bg-blue-100" },
@@ -115,25 +117,12 @@ export default function TeacherDashboard() {
 
     return (
         <div className="p-4 md:p-6 space-y-6 max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200">
-                        👨‍🏫 Teacher Dashboard
-                    </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
-                        Manage your courses, content, and students
-                    </p>
-                </div>
-                <div className="flex gap-2">
-                    <Link href="/teacher/batch1">
-                        <Button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700">
-                            <Upload className="mr-2 h-4 w-4" />
-                            Upload Content
-                        </Button>
-                    </Link>
-                </div>
-            </div>
+            {/* Phase 1: Dynamic Morning Briefing */}
+            <MorningBriefing />
+
+            {/* Smart Upload Wizard */}
+            <SmartUploadWizard />
+
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -154,48 +143,8 @@ export default function TeacherDashboard() {
                 ))}
             </div>
 
-            {/* Today's Priority Task */}
-            {polityTask && (
-                <Card className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white border-0 overflow-hidden relative">
-                    <div className="absolute top-0 right-0 p-4 opacity-10">
-                        <Target className="h-32 w-32" />
-                    </div>
-                    <CardContent className="p-6 relative z-10">
-                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div>
-                                <h2 className="text-xl font-bold flex items-center gap-2">
-                                    <Shield className="h-6 w-6 text-blue-400" />
-                                    Operation Lakshmikant: Today's Focus
-                                </h2>
-                                <p className="text-blue-100 mt-1">
-                                    {polityTask.status === 'completed'
-                                        ? "Mission Accomplished! All 95 chapters processed."
-                                        : `Chapter ${polityTask.chapter_number}: ${polityTask.chapter_title}`
-                                    }
-                                </p>
-                            </div>
-                            <div className="flex gap-3">
-                                {polityTask.status !== 'completed' && (
-                                    <div className="flex gap-2 text-sm bg-white/10 p-2 rounded-lg backdrop-blur-sm">
-                                        <div className="opacity-70">Next Step:</div>
-                                        <div className="font-bold text-yellow-300">
-                                            {!polityTask.research_done ? "Research" :
-                                                !polityTask.report_generated ? "Generate Report" :
-                                                    !polityTask.report_saved ? "Save to DB" :
-                                                        !polityTask.video_generated ? "Video" : "Podcast"}
-                                        </div>
-                                    </div>
-                                )}
-                                <Link href="/teacher/polity-tracker">
-                                    <Button variant="secondary" className="shadow-lg hover:shadow-xl transition-all">
-                                        {polityTask.status === 'completed' ? "View Report" : "Execute Task"}
-                                    </Button>
-                                </Link>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            )}
+            {/* Phase 3: Operation Lakshmikant Live Kanban */}
+            <LakshmikantKanban />
 
             {/* Quick Actions */}
             <div>
@@ -203,13 +152,14 @@ export default function TeacherDashboard() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {quickActions.map((action) => (
                         <Link key={action.href} href={action.href}>
-                            <Card className="cursor-pointer hover:shadow-lg transition-all h-full">
-                                <CardContent className="p-5">
-                                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${action.color} text-white flex items-center justify-center mb-3`}>
+                            <Card className="cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 h-full border-0 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 overflow-hidden group relative">
+                                <div className={`absolute top-0 right-0 p-16 rounded-full blur-3xl opacity-10 bg-gradient-to-r ${action.color} -mr-10 -mt-10 group-hover:opacity-20 transition-opacity`}></div>
+                                <CardContent className="p-6 relative z-10">
+                                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-r ${action.color} text-white flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-all`}>
                                         <action.icon className="h-6 w-6" />
                                     </div>
-                                    <h3 className="font-semibold text-gray-800 dark:text-gray-200">{action.title}</h3>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{action.description}</p>
+                                    <h3 className="font-bold text-lg text-gray-800 dark:text-gray-100 mb-1 group-hover:text-indigo-600 transition-colors">{action.title}</h3>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{action.description}</p>
                                 </CardContent>
                             </Card>
                         </Link>
@@ -217,87 +167,87 @@ export default function TeacherDashboard() {
                 </div>
             </div>
 
-            {/* Recent Students */}
-            <Card>
-                <CardHeader className="flex flex-row items-center justify-between">
-                    <CardTitle className="flex items-center gap-2">
-                        <Users className="h-5 w-5 text-blue-600" />
-                        Recent Students
-                    </CardTitle>
-                    <Link href="/teacher/students">
-                        <Button variant="outline" size="sm">View All</Button>
-                    </Link>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-3">
-                        {students.slice(0, 5).map((student) => (
-                            <div key={student.id} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-sm">
-                                        {student.full_name?.[0] || student.email[0].toUpperCase()}
-                                    </div>
-                                    <div>
-                                        <p className="font-medium text-gray-800 dark:text-gray-200">
-                                            {student.full_name || student.email.split('@')[0]}
-                                        </p>
-                                        <p className="text-xs text-gray-500">{student.email}</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    {student.is_batch1_authorized && (
-                                        <Badge className="bg-purple-100 text-purple-700 text-xs">Batch 1</Badge>
-                                    )}
-                                    {student.is_ras_authorized && (
-                                        <Badge className="bg-orange-100 text-orange-700 text-xs">RAS</Badge>
-                                    )}
-                                    <span className="text-sm text-gray-500">🔥 {student.streak_days}</span>
-                                </div>
-                            </div>
-                        ))}
-                        {students.length === 0 && (
-                            <div className="text-center py-8 text-gray-500">
-                                <Users className="h-12 w-12 mx-auto mb-3 opacity-50" />
-                                <p>No students enrolled yet</p>
-                            </div>
-                        )}
-                    </div>
-                </CardContent>
-            </Card>
+            {/* Phase 2 Layout: Priority Inbox & Secondary Widgets */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Priority Inbox - Takes 2/3 width */}
+                <PriorityInbox />
 
-            {/* Recent Activity */}
-            <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <Clock className="h-5 w-5 text-gray-600" />
-                        Recent Activity
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-3">
-                        <div className="flex items-center gap-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                            <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                            <div>
-                                <p className="font-medium text-gray-800 dark:text-gray-200">Content uploaded for Cycle 1</p>
-                                <p className="text-sm text-gray-500">Ready for student access</p>
+                {/* Side Column - Takes 1/3 width */}
+                <div className="space-y-6">
+                    {/* Recent Students */}
+                    <Card>
+                        <CardHeader className="flex flex-row items-center justify-between py-3">
+                            <CardTitle className="flex items-center gap-2 text-base">
+                                <Users className="h-4 w-4 text-blue-600" />
+                                Recent Students
+                            </CardTitle>
+                            <Link href="/teacher/students">
+                                <Button variant="ghost" size="sm" className="h-7 text-xs">View All</Button>
+                            </Link>
+                        </CardHeader>
+                        <CardContent className="p-0">
+                            <div className="divide-y divide-gray-100">
+                                {students.slice(0, 5).map((student) => (
+                                    <div key={student.id} className="flex items-center justify-between p-3 hover:bg-gray-50 transition-colors">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-xs">
+                                                {student.full_name?.[0] || student.email[0].toUpperCase()}
+                                            </div>
+                                            <div>
+                                                <p className="font-medium text-sm text-gray-800 dark:text-gray-200 truncate max-w-[120px]">
+                                                    {student.full_name || student.email.split('@')[0]}
+                                                </p>
+                                                <div className="flex items-center gap-1 text-[10px] text-gray-500">
+                                                    {student.is_batch1_authorized && <span className="text-purple-600">Batch 1</span>}
+                                                    {student.is_batch1_authorized && student.is_ras_authorized && <span>•</span>}
+                                                    {student.is_ras_authorized && <span className="text-orange-600">RAS</span>}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="text-xs font-medium text-gray-500">🔥 {student.streak_days}</div>
+                                    </div>
+                                ))}
+                                {students.length === 0 && (
+                                    <div className="text-center py-6 text-gray-400 text-sm">
+                                        No students enrolled yet
+                                    </div>
+                                )}
                             </div>
-                        </div>
-                        <div className="flex items-center gap-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                            <Video className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                            <div>
-                                <p className="font-medium text-gray-800 dark:text-gray-200">{stats.totalStudents} students enrolled</p>
-                                <p className="text-sm text-gray-500">{stats.batch1} in Batch 1, {stats.ras} in RAS</p>
+                        </CardContent>
+                    </Card>
+
+                    {/* Quick Stats / Recent Activity Mini */}
+                    <Card>
+                        <CardHeader className="py-3">
+                            <CardTitle className="flex items-center gap-2 text-base">
+                                <Clock className="h-4 w-4 text-gray-600" />
+                                Latest Actions
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-0">
+                            <div className="divide-y divide-gray-100">
+                                <div className="p-3 text-sm flex gap-3 hover:bg-gray-50">
+                                    <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5" />
+                                    <div>
+                                        <p className="font-medium">Cycle 1 Content Live</p>
+                                        <p className="text-xs text-gray-500">2 hours ago</p>
+                                    </div>
+                                </div>
+                                <div className="p-3 text-sm flex gap-3 hover:bg-gray-50">
+                                    <AlertCircle className="h-4 w-4 text-amber-600 mt-0.5" />
+                                    <div>
+                                        <p className="font-medium">Upload Reminder</p>
+                                        <p className="text-xs text-gray-500">Tomorrow's content due</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex items-center gap-4 p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
-                            <AlertCircle className="h-5 w-5 text-amber-600 flex-shrink-0" />
-                            <div>
-                                <p className="font-medium text-gray-800 dark:text-gray-200">Reminder: Upload content for upcoming days</p>
-                                <p className="text-sm text-gray-500">Keep students engaged with fresh content</p>
-                            </div>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
-        </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* Content Health Score Widget */}
+                    <ContentHealthScore />
+                </div>
+            </div>
+        </div >
     );
 }

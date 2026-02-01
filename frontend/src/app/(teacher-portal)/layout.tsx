@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import TeacherSidebar from "@/components/teacher-portal/TeacherSidebar";
 import TeacherMobileSidebar from "@/components/teacher-portal/TeacherMobileSidebar";
+import QuickCaptureFAB from "@/components/teacher-portal/QuickCaptureFAB";
 import "@/styles/teacher-theme.css";
 
 export default function TeacherLayout({
@@ -74,6 +75,8 @@ export default function TeacherLayout({
                     {children}
                 </div>
             </main>
+            {/* Quick Capture Floating Action Button */}
+            <QuickCaptureFAB />
         </div>
     );
 }

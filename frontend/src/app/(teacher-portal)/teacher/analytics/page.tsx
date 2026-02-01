@@ -16,6 +16,8 @@ import {
     Video,
     Download,
 } from "lucide-react";
+import FeedbackAggregator from "@/components/teacher-portal/analytics/FeedbackAggregator";
+import EngagementHeatmap from "@/components/teacher-portal/analytics/EngagementHeatmap";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -334,6 +336,29 @@ export default function AnalyticsPage() {
                     </div>
                 </CardContent>
             </Card>
+            {/* Engagement Heatmap */}
+            <div className="mt-8">
+                <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                        <Clock className="h-5 w-5 text-indigo-600" />
+                        Engagement Heatmap
+                    </h2>
+                    <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 33</span>
+                </div>
+                <EngagementHeatmap />
+            </div>
+
+            {/* Feedback Aggregator */}
+            <div className="mt-8">
+                <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                        <Users className="h-5 w-5 text-indigo-600" />
+                        Student Feedback
+                    </h2>
+                    <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 32</span>
+                </div>
+                <FeedbackAggregator />
+            </div>
         </div>
     );
 }

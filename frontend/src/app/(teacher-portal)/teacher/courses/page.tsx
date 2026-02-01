@@ -27,6 +27,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import CourseCreationWizard from "@/components/teacher-portal/courses/CourseCreationWizard";
 
 // Sample course data
 const courses = [
@@ -154,11 +155,9 @@ export default function MyCoursesPage() {
                     </h1>
                     <p className="text-gray-600 mt-1">Manage and track your course performance</p>
                 </div>
-                <Button className="bg-emerald-600 hover:bg-emerald-700">
-                    <Plus className="mr-2 h-4 w-4" />
-                    Create Course
-                </Button>
             </div>
+            <CourseCreationWizard />
+
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -277,6 +276,6 @@ export default function MyCoursesPage() {
                     ))}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

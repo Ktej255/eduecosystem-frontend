@@ -456,6 +456,36 @@ export default function TeacherSidebar({ isCollapsed, onToggle, onLogout }: Teac
                 </div>
             </nav>
 
+            {/* Live Pulse Section */}
+            {showExpanded && (
+                <div className="mx-4 mt-2 mb-2 p-3 bg-emerald-950/30 rounded-xl border border-emerald-500/20 backdrop-blur-sm">
+                    <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-[10px] font-bold text-emerald-100 uppercase tracking-wider flex items-center gap-2">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            Live Campus
+                        </h3>
+                        <span className="text-[10px] font-mono text-emerald-300 bg-emerald-900/50 px-1.5 py-0.5 rounded border border-emerald-500/20">12 Active</span>
+                    </div>
+                    <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-xs text-emerald-200/70">
+                            <div className="h-4 w-4 bg-purple-500/20 rounded-full flex items-center justify-center text-[9px] text-purple-300 font-bold shrink-0">RV</div>
+                            <span className="truncate text-[10px]">Rahul V. is watching <span className="text-emerald-300">Polity Class</span></span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-emerald-200/70">
+                            <div className="h-4 w-4 bg-blue-500/20 rounded-full flex items-center justify-center text-[9px] text-blue-300 font-bold shrink-0">AS</div>
+                            <span className="truncate text-[10px]">Amit S. scored 85% in <span className="text-emerald-300">CSAT</span></span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-emerald-200/70">
+                            <div className="h-4 w-4 bg-orange-500/20 rounded-full flex items-center justify-center text-[9px] text-orange-300 font-bold shrink-0">NK</div>
+                            <span className="truncate text-[10px]">Neha K. asked a doubt</span>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Footer */}
             {showExpanded && (
                 <div className="p-4 border-t border-emerald-700/50">
