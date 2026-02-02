@@ -7,6 +7,7 @@ import FlashcardSession from "./flashcard/FlashcardSession";
 import MCQTestSession from "./qa/MCQTestSession";
 import batch1Service, { SegmentData } from "@/services/batch1Service";
 import { Video as VideoIcon } from "lucide-react";
+import { useDraftContentStore } from "@/store/draftContentStore";
 
 interface EveningSessionProps {
     cycleId: number;
@@ -19,6 +20,7 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
     const [currentView, setCurrentView] = useState<SessionView>('menu');
     const [videoData, setVideoData] = useState<SegmentData | null>(null);
     const [activePaper, setActivePaper] = useState<number | null>(null); // For Day 10 Papers: 10 or 102
+    const { isPreviewMode, setPreviewMode, draftMCQs } = useDraftContentStore();
 
     useEffect(() => {
         const loadVideo = async () => {
@@ -46,6 +48,22 @@ export default function EveningSessionDayView({ cycleId, day }: EveningSessionPr
 
     return (
         <div className="space-y-6">
+            {isPreviewMode && (
+                <div className="bg-purple-600 text-white px-4 py-2 rounded-lg flex items-center justify-between shadow-lg animate-in slide-in-from-top duration-300">
+                    <div className="flex items-center gap-2">
+                        <Sparkles className="h-5 w-5 animate-pulse" />
+                        <span className="text-sm font-bold">Preview Mode Active: Testing {draftMCQs.length} new drafts</span>
+                    </div>
+                    <Button
+                        size="sm"
+                        variant="ghost"
+                        className="text-white hover:bg-white/20 h-8"
+                        onClick={() => setPreviewMode(false)}
+                    >
+                        Exit Preview
+                    </Button>
+                </div>
+            )}
             <div className="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-gray-800">
                 <div>
                     <h3 className="text-xl font-bold text-indigo-900 dark:text-indigo-100">

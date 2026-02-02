@@ -7,7 +7,8 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Crown, Building2, Scroll, Sword, ArrowRight, BookOpen, Globe, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ModernHistoryTimeline } from './ModernHistoryTimeline';
-import FreedomMovementViz from './visuals/FreedomMovementViz';
+import EmpireMapViz from './visuals/EmpireMapViz';
+import HistoryTunnelViz from './visuals/HistoryTunnelViz';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
@@ -109,7 +110,10 @@ export default function HistoryDashboard() {
             {/* Main Content Grid: Modern History (Left) + Eras (Right/Bottom) */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Modern History Detailed Timeline (Takes 2 columns) */}
-                <div className="lg:col-span-2 space-y-6">
+                <div className="lg:col-span-2 space-y-8">
+                    {/* Interactive Empire Map - Phase M */}
+                    <EmpireMapViz />
+
                     <Card className="border-amber-100 dark:border-amber-900/50 overflow-hidden">
                         <CardHeader className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30">
                             <CardTitle className="text-amber-900 dark:text-amber-100">Modern History Syllabus Tracker</CardTitle>
@@ -120,8 +124,8 @@ export default function HistoryDashboard() {
                         </CardContent>
                     </Card>
 
-                    {/* Freedom Movement Interactive Timeline */}
-                    <FreedomMovementViz />
+                    {/* 3D History Tunnel - Phase M */}
+                    <HistoryTunnelViz />
                 </div>
 
                 {/* Ancient & Medieval Summaries (Takes 1 column) */}

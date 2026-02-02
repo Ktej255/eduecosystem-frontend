@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
+import { useStudentActivityStore } from '@/store/studentActivityStore';
 import { CheckCircle2, XCircle, Target, ChevronRight, Timer, AlertCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -136,6 +137,8 @@ export default function CycleMCQs({
         setConfidence(level);
     };
 
+    const { addActivity } = useStudentActivityStore();
+
     const saveCurrentResult = () => {
         const timeSpent = Math.floor((Date.now() - questionStartTime) / 1000);
         const isCorrect = selectedAnswer === (currentMCQ.correctIndex ?? currentMCQ.correctAnswer);
@@ -165,6 +168,15 @@ export default function CycleMCQs({
                     confidence,
                     timeSpent
                 }
+            });
+
+            // Push to Live Campus Pulse (Teacher Portal)
+            addActivity({
+                studentName: 'Test Student', // Ideally from auth context
+                studentInitials: 'TS',
+                action: isCorrect ? 'solved' : 'attempted',
+                target: `MCQ: ${currentMCQ.question.substring(0, 30)}...`,
+                color: isCorrect ? 'bg-emerald-500' : 'bg-amber-500'
             });
         }
     };

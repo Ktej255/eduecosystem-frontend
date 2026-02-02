@@ -11,7 +11,8 @@ import {
     Activity,
     FileText,
     Settings,
-    Trash2
+    Trash2,
+    MessageSquare
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -92,7 +93,10 @@ const mockLogs: LogEntry[] = [
     }
 ];
 
+import { useActivityLogStore } from "@/store/activityLogStore";
+
 export default function AuditLogViewer() {
+    const { logs } = useActivityLogStore();
     const [searchTerm, setSearchTerm] = useState("");
     const [moduleFilter, setModuleFilter] = useState("all");
 
@@ -101,7 +105,8 @@ export default function AuditLogViewer() {
             case "content": return FileText;
             case "settings": return Settings;
             case "auth": return ShieldAlert;
-            case "finance": return Activity; // Dollar sign unavailable in lucide-react subset sometimes, Activity works well for finance logs
+            case "finance": return Activity;
+            case "communication": return MessageSquare;
             default: return Activity;
         }
     };
@@ -115,7 +120,7 @@ export default function AuditLogViewer() {
         }
     };
 
-    const filteredLogs = mockLogs.filter(log =>
+    const filteredLogs = logs.filter(log =>
         (moduleFilter === "all" || log.module === moduleFilter) &&
         (log.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
             log.user.toLowerCase().includes(searchTerm.toLowerCase()) ||

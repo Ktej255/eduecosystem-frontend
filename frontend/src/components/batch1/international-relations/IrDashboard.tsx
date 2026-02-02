@@ -6,6 +6,8 @@ import {
     Globe2, Building2, Handshake, Flag, Scale, Users,
     TrendingUp, AlertTriangle, CheckCircle, MapPin
 } from 'lucide-react';
+import GlobeViz from './visualizations/GlobeViz';
+import DiplomacyGraph from './visualizations/DiplomacyGraph';
 
 interface Organization {
     id: string;
@@ -48,11 +50,18 @@ export default function IrDashboard() {
     return (
         <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
             {/* Header Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <StatCard icon={<Globe2 />} label="Organizations" value="50+" color="text-blue-500" />
                 <StatCard icon={<Handshake />} label="Strategic Partners" value="12+" color="text-emerald-500" />
                 <StatCard icon={<Building2 />} label="Missions Abroad" value="180+" color="text-purple-500" />
                 <StatCard icon={<Users />} label="Diaspora" value="32M" color="text-amber-500" />
+            </div>
+
+            {/* New Phase K Visualizations */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <GlobeViz />
+                <DiplomacyGraph />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

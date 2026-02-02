@@ -63,6 +63,25 @@ export default function FlashcardGenerator() {
         setCards(cards.filter(c => c.id !== id));
     };
 
+    const handlePrepareForCommit = () => {
+        if (cards.length === 0) return;
+
+        const varName = `CHAPTER_${selectedChapterId}_FLASHCARDS`;
+        const codeBlock = `import { Flashcard } from "../RevisionRegistry";
+
+export const ${varName}: Flashcard[] = ${JSON.stringify(cards.map(c => ({
+            id: parseInt(c.id), // Converting numeric string to number
+            front: c.front,
+            back: c.back
+        })), null, 4)};`;
+
+        navigator.clipboard.writeText(codeBlock);
+        toast({
+            title: "Ready for Commit",
+            description: "TypeScript code block copied. Paste into the appropriate data file.",
+        });
+    };
+
     const handleExport = () => {
         const exportData = {
             chapterId: selectedChapterId,
@@ -171,10 +190,16 @@ export default function FlashcardGenerator() {
                         <h2 className="text-xl font-semibold">
                             Generated Cards ({cards.length})
                         </h2>
-                        <Button variant="outline" onClick={handleExport} disabled={cards.length === 0}>
-                            <FileJson className="w-4 h-4 mr-2 text-green-600" />
-                            Export JSON
-                        </Button>
+                        <div className="flex gap-2">
+                            <Button variant="default" size="sm" onClick={handlePrepareForCommit} disabled={cards.length === 0} className="bg-indigo-600 hover:bg-indigo-700">
+                                <Plus className="w-4 h-4 mr-2" />
+                                Prepare for Commit
+                            </Button>
+                            <Button variant="outline" size="sm" onClick={handleExport} disabled={cards.length === 0}>
+                                <FileJson className="w-4 h-4 mr-2 text-green-600" />
+                                Export JSON
+                            </Button>
+                        </div>
                     </div>
 
                     {cards.length === 0 ? (

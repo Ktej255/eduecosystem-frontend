@@ -1,9 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Landmark, Scroll, Scale, ArrowRight, Gavel } from 'lucide-react';
+import { Landmark, Scroll, Scale, ArrowRight, Gavel, BookOpen } from 'lucide-react';
 import activityService from '@/services/activityService';
 import ParliamentViz from './visualizations/ParliamentViz';
+import PreambleDecoder from './visualizations/PreambleDecoder';
+import JudicialHierarchy from './visualizations/JudicialHierarchy';
+import EthicsSimulator from './visualizations/EthicsSimulator';
+import ThinkersMatrix from './visualizations/ThinkersMatrix';
 
 export default function PolityVisuals() {
     const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -19,19 +23,35 @@ export default function PolityVisuals() {
         },
         {
             id: 'preamble',
-            title: 'Preamble Decoder (Coming Soon)',
+            title: 'Preamble Decoder',
             description: 'Deconstruct the keywords: Sovereign, Socialist, Secular, Democratic, Republic.',
             icon: Scroll,
             color: 'bg-rose-600',
-            component: null
+            component: <PreambleDecoder />
         },
         {
             id: 'judiciary',
-            title: 'Judicial Structure (Coming Soon)',
+            title: 'Judicial Structure',
             description: 'Hierarchy of Courts: SC, HC, and Subordinate Courts visualizer.',
             icon: Gavel,
             color: 'bg-indigo-600',
-            component: null
+            component: <JudicialHierarchy />
+        },
+        {
+            id: 'ethics',
+            title: 'Ethics Case Study',
+            description: 'Interactive decision-making tree for GS4 ethical dilemmas and case studies.',
+            icon: Scale,
+            color: 'bg-emerald-600',
+            component: <EthicsSimulator />
+        },
+        {
+            id: 'thinkers',
+            title: 'Values & Thinkers',
+            description: 'Matrix of foundational ethical values and administrative thinkers.',
+            icon: BookOpen,
+            color: 'bg-blue-600',
+            component: <ThinkersMatrix />
         }
     ];
 
@@ -40,16 +60,17 @@ export default function PolityVisuals() {
         setSelectedModule(moduleId);
     };
 
-    if (selectedModule === 'parliament') {
+    if (selectedModule) {
+        const activeModule = MODULES.find(m => m.id === selectedModule);
         return (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <button
                     onClick={() => setSelectedModule(null)}
                     className="mb-4 text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center gap-2"
                 >
-                    &larr; Back to Polity Hub
+                    &larr; Back to Governance Hub
                 </button>
-                <ParliamentViz />
+                {activeModule?.component}
             </div>
         );
     }

@@ -557,21 +557,21 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
         mcqs: CHAPTER_31_MCQS
     },
     {
-        id: 31,
+        id: 35,
         title: "Governor", // Synced with Schedule Ch 31
         content: CHAPTER_35_CONTENT,
         flashcards: CHAPTER_35_FLASHCARDS,
         mcqs: CHAPTER_35_MCQS
     },
     {
-        id: 32,
+        id: 36,
         title: "Chief Minister", // Synced with Schedule Ch 32
         content: CHAPTER_36_CONTENT,
         flashcards: CHAPTER_36_FLASHCARDS,
         mcqs: CHAPTER_36_MCQS
     },
     {
-        id: 33,
+        id: 37,
         title: "State Council of Ministers", // Synced with Schedule Ch 33
         content: CHAPTER_37_CONTENT,
         flashcards: CHAPTER_37_FLASHCARDS,
@@ -601,21 +601,21 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
         mcqs: CHAPTER_64_MCQS
     },
     {
-        id: 36,
+        id: 38,
         title: "State Legislature", // Synced with Schedule Ch 36
         content: CHAPTER_38_CONTENT,
         flashcards: CHAPTER_38_FLASHCARDS,
         mcqs: CHAPTER_38_MCQS
     },
     {
-        id: 37,
+        id: 33,
         title: "Subordinate Courts", // Synced with Schedule Ch 37
         content: CHAPTER_33_CONTENT,
         flashcards: CHAPTER_33_FLASHCARDS,
         mcqs: CHAPTER_33_MCQS
     },
     {
-        id: 38,
+        id: 34,
         title: "Special Provisions", // Moving old 34 here if needed, or just placeholder
         content: CHAPTER_34_CONTENT,
         flashcards: CHAPTER_34_FLASHCARDS,

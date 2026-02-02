@@ -34,54 +34,11 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 
-// --- Mock Data ---
-
-interface Coupon {
-    id: string;
-    code: string;
-    type: "percentage" | "fixed_amount";
-    value: number;
-    usageCount: number;
-    maxUses: number | null;
-    status: "active" | "expired" | "depleted";
-    expiry: string;
-}
-
-const mockCoupons: Coupon[] = [
-    {
-        id: "c1",
-        code: "WELCOME50",
-        type: "percentage",
-        value: 50,
-        usageCount: 124,
-        maxUses: 500,
-        status: "active",
-        expiry: "2026-12-31"
-    },
-    {
-        id: "c2",
-        code: "DIWALI20",
-        type: "percentage",
-        value: 20,
-        usageCount: 890,
-        maxUses: null,
-        status: "expired",
-        expiry: "2025-11-15"
-    },
-    {
-        id: "c3",
-        code: "FLASH100",
-        type: "fixed_amount",
-        value: 100,
-        usageCount: 50,
-        maxUses: 50,
-        status: "depleted",
-        expiry: "2026-06-01"
-    }
-];
+import { toast } from "sonner";
+import { useCouponStore, Coupon } from "@/store/couponStore";
 
 export default function DiscountEngine() {
-    const [coupons, setCoupons] = useState<Coupon[]>(mockCoupons);
+    const { coupons, addCoupon } = useCouponStore();
     const [isCreateOpen, setIsCreateOpen] = useState(false);
 
     // Form State
@@ -90,6 +47,14 @@ export default function DiscountEngine() {
     const [amount, setAmount] = useState("");
     const [maxUses, setMaxUses] = useState("");
     const [expiry, setExpiry] = useState("");
+
+    // Autopilot State
+    const [autopilotEnabled, setAutopilotEnabled] = useState(false);
+    const [revenueStatus, setRevenueStatus] = useState<"stable" | "critical">("stable");
+
+    const simulateRevenueDrop = () => {
+        setRevenueStatus("critical");
+    };
 
     const handleCreate = () => {
         const newCoupon: Coupon = {
@@ -102,7 +67,7 @@ export default function DiscountEngine() {
             status: "active",
             expiry: expiry || "No Expiry"
         };
-        setCoupons([newCoupon, ...coupons]);
+        addCoupon(newCoupon);
         setIsCreateOpen(false);
         // Reset form
         setNewCode("");
@@ -120,14 +85,6 @@ export default function DiscountEngine() {
         }
     };
 
-    // Autopilot State
-    const [autopilotEnabled, setAutopilotEnabled] = useState(false);
-    const [revenueStatus, setRevenueStatus] = useState<"stable" | "critical">("stable");
-
-    const simulateRevenueDrop = () => {
-        setRevenueStatus("critical");
-    };
-
     const activateEmergencyBoost = () => {
         const boostCoupon: Coupon = {
             id: `boost-${Date.now()}`,
@@ -139,8 +96,17 @@ export default function DiscountEngine() {
             status: "active",
             expiry: "24 Hours"
         };
-        setCoupons([boostCoupon, ...coupons]);
+        addCoupon(boostCoupon);
         setRevenueStatus("stable");
+
+        // Connectivity: Notify faculty that they should broadcast this
+        toast.success("Emergency Coupon Generated!", {
+            description: "Opening Omnichannel Broadcaster to notify students...",
+            action: {
+                label: "Send Now",
+                onClick: () => console.log("Directing to Broadcaster with BOOST24")
+            }
+        });
     };
 
     return (

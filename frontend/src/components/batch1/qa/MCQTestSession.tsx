@@ -18,12 +18,14 @@ import {
     RotateCcw,
     Flag,
     Shield,
-    ScrollText
+    ScrollText,
+    Sparkles
 } from "lucide-react";
 // Import centrally registered data loader
 import { getMCQDataForDay } from "../content-registry";
 import { MCQ } from "../polity/data/day1-mcqs"; // Retain Type Import
 import DetailedTestReport from "./DetailedTestReport";
+import { useDraftContentStore } from "@/store/draftContentStore";
 
 interface MCQTestSessionProps {
     cycleId: number;
@@ -53,6 +55,7 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
     const [showDetailedReport, setShowDetailedReport] = useState(false); // Show detailed analytics report
     const [submittedResultData, setSubmittedResultData] = useState<any>(null); // Store submitted result for report
     const [loading, setLoading] = useState(true); // New loading state for questions
+    const { draftMCQs, isPreviewMode, setPreviewMode } = useDraftContentStore();
 
     // Time tracking per question
     const [questionStartTimes, setQuestionStartTimes] = useState<{ [key: string]: number }>({}); // qId -> timestamp
@@ -119,17 +122,34 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                 return;
             }
 
-            const loadedMCQs = getMCQDataForDay(cycleId, day, selectedSubTopic || undefined);
-            if (loadedMCQs) {
+            let loadedMCQs = getMCQDataForDay(cycleId, day, selectedSubTopic || undefined) || [];
+
+            // Inject drafts if in preview mode
+            if (isPreviewMode) {
+                const dayDrafts = draftMCQs.filter(m =>
+                    // Matches day or if day is coded to chapter logic
+                    parseInt(m.chapterId) === day
+                ).map(m => ({
+                    id: m.id,
+                    question: m.question,
+                    options: m.options,
+                    correctAnswer: m.correctAnswer,
+                    explanation: m.explanation,
+                    isDraft: true // Flag for UI
+                })) as any[];
+
+                loadedMCQs = [...dayDrafts, ...loadedMCQs];
+            }
+
+            if (loadedMCQs.length > 0) {
                 setQuestions(loadedMCQs);
             } else {
-                // If registry returns undefined, questions remains empty -> triggers "No Content Found" UI
-                console.log(`No MCQs found in registry for Cycle ${cycleId}, Day ${day}`);
+                console.log(`No MCQs found for Cycle ${cycleId}, Day ${day}`);
             }
             setLoading(false);
         };
         loadQuestions();
-    }, [day, selectedSubTopic, cycleId]); // Re-load when day or sub-topic changes
+    }, [day, selectedSubTopic, cycleId, isPreviewMode, draftMCQs]); // Added isPreviewMode and draftMCQs dependencies
 
     // Track time entering each question - always call this hook
     useEffect(() => {
@@ -495,8 +515,13 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
                     <Trophy className="mr-2 h-4 w-4" /> History
                 </Button>
 
-                <div className="hidden md:block font-semibold text-gray-700 dark:text-gray-300">
+                <div className="hidden md:flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-300">
                     {day === 102 ? "Day 10 - Paper 2" : (day === 10 ? "Day 10 - Paper 1" : `Cycle ${cycleId} - Day ${day}`)}
+                    {isPreviewMode && (
+                        <span className="flex items-center gap-1 bg-purple-100 text-purple-700 text-[10px] px-2 py-0.5 rounded-full border border-purple-200 animate-pulse">
+                            <Sparkles className="h-2.5 w-2.5" /> Preview Mode
+                        </span>
+                    )}
                 </div>
 
                 {!isSubmitted && (
@@ -584,9 +609,16 @@ export default function MCQTestSession({ cycleId, day, onClose }: MCQTestSession
             <Card className="min-h-[400px] flex flex-col bg-white dark:bg-gray-900 border">
                 <CardContent className="p-6 flex-1">
                     <div className="mb-6">
-                        <span className="inline-block px-2 py-1 rounded text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 mb-2">
-                            {currentQuestion.level || "Regular"}
-                        </span>
+                        <div className="flex items-center gap-2 mb-2">
+                            <span className="inline-block px-2 py-1 rounded text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+                                {currentQuestion.level || "Regular"}
+                            </span>
+                            {(currentQuestion as any).isDraft && (
+                                <span className="bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-200">
+                                    DRAFT CONTENT
+                                </span>
+                            )}
+                        </div>
                         <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 leading-relaxed whitespace-pre-wrap">
                             {currentQuestion.question}
                         </h2>

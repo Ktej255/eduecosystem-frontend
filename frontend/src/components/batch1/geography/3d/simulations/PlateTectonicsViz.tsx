@@ -2,7 +2,7 @@
 
 import { useState, Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Html, Stars } from "@react-three/drei";
+import { OrbitControls, Html, Stars, MeshTransmissionMaterial } from "@react-three/drei";
 import * as THREE from "three";
 import tectonicsData from "../../data/tectonics/plate-tectonics.json";
 
@@ -76,7 +76,8 @@ function BoundaryLine({ boundary, isActive }: { boundary: Boundary; isActive: bo
     useFrame((_, delta) => {
         if (particlesRef.current && isActive) {
             const positions = particlesRef.current.geometry.attributes.position.array as Float32Array;
-            const speed = boundary.type === 'divergent' ? 0.15 : 0.25;
+            // Faster for convergent (magma flow), slower for divergent (plates pulling apart)
+            const speed = boundary.type === 'convergent' ? 0.3 : 0.15;
 
             for (let i = 0; i < 15; i++) {
                 particleProgress.current[i] += delta * speed;
@@ -93,6 +94,9 @@ function BoundaryLine({ boundary, isActive }: { boundary: Boundary; isActive: bo
             particlesRef.current.geometry.attributes.position.needsUpdate = true;
         }
     });
+
+    const isMagma = boundary.type === 'convergent';
+    const particleColor = isMagma ? '#ef4444' : '#22d3ee'; // Red for Magma, Cyan for Rift
 
     return (
         <group>
@@ -128,11 +132,12 @@ function BoundaryLine({ boundary, isActive }: { boundary: Boundary; isActive: bo
                         />
                     </bufferGeometry>
                     <pointsMaterial
-                        color={boundary.color}
-                        size={0.04}
+                        color={particleColor}
+                        size={isMagma ? 0.06 : 0.04}
                         transparent
                         opacity={0.9}
                         sizeAttenuation
+                        blending={THREE.AdditiveBlending}
                     />
                 </points>
             )}
@@ -151,11 +156,19 @@ function PlateMarker({ plate, isActive, onClick }: {
     return (
         <group position={pos.toArray()} onClick={(e) => { e.stopPropagation(); onClick(); }}>
             <mesh>
-                <sphereGeometry args={[isActive ? 0.06 : 0.04, 16, 16]} />
-                <meshBasicMaterial
+                <sphereGeometry args={[isActive ? 0.08 : 0.05, 32, 32]} />
+                <MeshTransmissionMaterial
+                    backside
+                    samples={4}
+                    thickness={0.5}
+                    chromaticAberration={0.02}
+                    anisotropy={0.1}
+                    distortion={0.1}
+                    distortionScale={0.1}
+                    temporalDistortion={0.1}
                     color={plate.color}
-                    opacity={isActive ? 1 : 0.7}
-                    transparent
+                    emissive={plate.color}
+                    emissiveIntensity={isActive ? 1 : 0.4}
                 />
             </mesh>
             {isActive && (
@@ -189,27 +202,36 @@ function TectonicsScene({
             <ambientLight intensity={0.5} />
             <directionalLight position={[5, 5, 5]} intensity={1} />
 
-            {/* Earth Globe */}
+            {/* Holographic Earth Globe */}
             <mesh>
                 <sphereGeometry args={[1.5, 64, 64]} />
-                <meshStandardMaterial
-                    color="#1a365d"
-                    roughness={0.9}
-                    metalness={0.1}
-                    opacity={0.8}
+                <meshPhongMaterial
+                    color="#0a1a1f"
+                    emissive="#001a1a"
+                    emissiveIntensity={0.8}
+                    shininess={100}
                     transparent
+                    opacity={0.9}
                 />
             </mesh>
-
-            {/* Land mass hints */}
-            <mesh>
-                <sphereGeometry args={[1.51, 64, 64]} />
+            {/* Atmosphere Rim Light */}
+            <mesh scale={[1.05, 1.05, 1.05]}>
+                <sphereGeometry args={[1.5, 64, 64]} />
                 <meshStandardMaterial
-                    color="#2d4739"
-                    roughness={0.9}
-                    wireframe
-                    opacity={0.2}
+                    color="#00bcd4"
                     transparent
+                    opacity={0.15}
+                    side={THREE.BackSide}
+                />
+            </mesh>
+            {/* Grid Mask */}
+            <mesh scale={[1.01, 1.01, 1.01]}>
+                <sphereGeometry args={[1.5, 64, 64]} />
+                <meshStandardMaterial
+                    color="#00e5ff"
+                    transparent
+                    opacity={0.05}
+                    wireframe
                 />
             </mesh>
 

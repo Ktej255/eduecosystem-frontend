@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Rocket, Dna, Shield, Atom, ArrowRight } from 'lucide-react';
 import activityService from '@/services/activityService';
 import OrbitSimulation from './visualizations/OrbitSimulation';
+import DefenseSystemsViz from './visualizations/DefenseSystemsViz';
 
 export default function ScienceVisuals() {
     const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -18,20 +19,20 @@ export default function ScienceVisuals() {
             component: <OrbitSimulation />
         },
         {
-            id: 'biotech',
-            title: 'CRISPR & DNA (Coming Soon)',
-            description: 'Visualize gene editing and DNA structure in 3D.',
-            icon: Dna,
-            color: 'bg-rose-600',
-            component: null
+            id: 'tech-tree',
+            title: 'Emerging Tech Tree',
+            description: 'Visualize the evolution of modern technologies from IoT to GenAI.',
+            icon: Atom,
+            color: 'bg-purple-600',
+            component: <OrbitSimulation /> // Reusing or mapping to SciTechDashboard eventually
         },
         {
             id: 'defense',
-            title: 'Missile Defense (Coming Soon)',
-            description: 'Ballistic trajectories and interceptor mechanics.',
+            title: 'Defense Systems',
+            description: 'Interactive simulation of ballistic trajectories and interceptor mechanics.',
             icon: Shield,
-            color: 'bg-slate-600',
-            component: null
+            color: 'bg-emerald-600',
+            component: <DefenseSystemsViz />
         }
     ];
 
@@ -50,6 +51,20 @@ export default function ScienceVisuals() {
                     &larr; Back to Science Hub
                 </button>
                 <OrbitSimulation />
+            </div>
+        );
+    }
+
+    if (selectedModule === 'defense') {
+        return (
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <button
+                    onClick={() => setSelectedModule(null)}
+                    className="mb-4 text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center gap-2"
+                >
+                    &larr; Back to Science Hub
+                </button>
+                <DefenseSystemsViz />
             </div>
         );
     }

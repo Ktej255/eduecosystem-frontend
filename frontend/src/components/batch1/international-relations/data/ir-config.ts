@@ -1,4 +1,4 @@
-import { SubjectConfig, WeeklyScheduleData } from "../../framework/SubjectPlanner";
+import { SubjectConfig, WeeklyScheduleData, SubjectTopic } from "../../framework/SubjectPlanner";
 import { Globe, Users, Landmark, Flag } from "lucide-react";
 import React from "react";
 
@@ -40,26 +40,26 @@ const IR_MODULES = [
 ];
 
 // Placeholder Topics
-const IR_TOPICS = Array.from({ length: 55 }, (_, i) => {
-    const id = i + 1;
-    let moduleId = "1";
-    if (id > 15) moduleId = "2";
-    if (id > 30) moduleId = "3";
-    if (id > 45) moduleId = "4";
-
-    return {
-        id: id,
-        title: `IR Topic ${id}`,
-        moduleId: moduleId,
-        priority: id % 3 === 0 ? "High" : "Medium",
-        staticFocus: "Key concepts and current affairs...",
-        keyConcepts: ["Concept A", "Concept B"],
-        currentAffairsCount: Math.floor(Math.random() * 10),
-    };
-}) as any[];
+const IR_TOPICS = ([
+    { id: 1, title: "Principles of India's Foreign Policy", moduleId: "1", priority: "High", staticFocus: "Panchsheel, Strategic Autonomy, and Neighborhood First.", keyConcepts: ["Panchsheel", "Non-Alignment"] },
+    { id: 2, title: "Evolution of Foreign Policy: Nehru to Present", moduleId: "1", priority: "Medium", staticFocus: "Shift from Idealism to Realism and Multi-alignment.", keyConcepts: ["Gujral Doctrine", "Look East to Act East"] },
+    { id: 3, title: "Neighborhood First Policy", moduleId: "1", priority: "High", staticFocus: "Connectivity, Security, and Cultural Diplomacy with neighbors.", keyConcepts: ["Bilateralism", "SAARC vs BIMSTEC"] },
+    { id: 4, title: "Sino-India Relations: Challenges & Prospects", moduleId: "1", priority: "High", staticFocus: "Border issues, Trade deficit, and String of Pearls.", keyConcepts: ["LAC", "Galwan", "CPEC"] },
+    { id: 5, title: "India-Pakistan: A History of Conflict", moduleId: "1", priority: "Medium", staticFocus: "Indus Water Treaty, Terrorism, and Kashmir issue.", keyConcepts: ["Shimla Agreement", "Lahore Declaration"] },
+    { id: 16, title: "United Nations: Reforms and Challenges", moduleId: "2", priority: "High", staticFocus: "UNSC expansion, Veto power, and Peacekeeping missions.", keyConcepts: ["G4 nations", "Coffee Club"] },
+    { id: 17, title: "WTO: Trade Wars and Dispute Resolution", moduleId: "2", priority: "Medium", staticFocus: "Doha Development Agenda, Subsidies, and Intellectual Property.", keyConcepts: ["TRIPS", "Amber Box"] },
+    { id: 18, title: "Regional Bodies: BRICS, SCO, G20", moduleId: "2", priority: "High", staticFocus: "India's presidency, Strategic importance, and Economic cooperation.", keyConcepts: ["Expansion of BRICS", "SCO Samarkand Declaration"] },
+    { id: 31, title: "India-USA: The Strategic Partnership", moduleId: "3", priority: "High", staticFocus: "Defense deals, iCET, and Indo-Pacific cooperation.", keyConcepts: ["2+2 Dialogue", "QUAD", "iCET"] },
+    { id: 32, title: "India-Russia: Legacy and Modern Ties", moduleId: "3", priority: "Medium", staticFocus: "Defense dependence, Energy security, and Multi-polar world.", keyConcepts: ["S-400", "BrahMos", "INSTC"] },
+    { id: 46, title: "Climate Diplomacy & COP Summits", moduleId: "4", priority: "High", staticFocus: "ISA, CDRI, and Net Zero targets.", keyConcepts: ["Panchamrit", "Global Biofuel Alliance"] },
+    { id: 47, title: "Global Counter-Terrorism Framework", moduleId: "4", priority: "High", staticFocus: "CCIT, FATF, and Radicalization.", keyConcepts: ["Grey List", "No Money for Terror"] }
+] as const).map(t => ({
+    ...t,
+    currentAffairsCount: Math.floor(Math.random() * 10) + 5
+} as unknown as SubjectTopic));
 
 const IR_CHAPTERS = IR_TOPICS.map(t => ({
-    chapter: t.id,
+    chapter: Number(t.id),
     topic: t.title,
     part: t.moduleId,
     pages: 8,

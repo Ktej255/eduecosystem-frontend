@@ -109,6 +109,57 @@
             }
         }
     ],
+    "minorPlates": [
+        {
+            "id": "nazca",
+            "name": "Nazca Plate",
+            "type": "oceanic",
+            "location": "Off the coast of South America",
+            "movement": "NE at 7.7 cm/yr"
+        },
+        {
+            "id": "cocos",
+            "name": "Cocos Plate",
+            "type": "oceanic",
+            "location": "Off the coast of Central America",
+            "movement": "NE at 8.0 cm/yr"
+        },
+        {
+            "id": "arabian",
+            "name": "Arabian Plate",
+            "type": "continental",
+            "location": "Arabian Peninsula",
+            "movement": "N at 2.5 cm/yr"
+        },
+        {
+            "id": "philippine",
+            "name": "Philippine Plate",
+            "type": "oceanic",
+            "location": "East of Philippines",
+            "movement": "NW at 6.0 cm/yr"
+        },
+        {
+            "id": "caroline",
+            "name": "Caroline Plate",
+            "type": "oceanic",
+            "location": "North of New Guinea",
+            "movement": "NW at 2.0 cm/yr"
+        },
+        {
+            "id": "juan-de-fuca",
+            "name": "Juan de Fuca Plate",
+            "type": "oceanic",
+            "location": "Off the coast of NE USA",
+            "movement": "NE at 2.8 cm/yr"
+        },
+        {
+            "id": "scotia",
+            "name": "Scotia Plate",
+            "type": "oceanic",
+            "location": "South Atlantic",
+            "movement": "E at 2.2 cm/yr"
+        }
+    ],
     "boundaries": [
         {
             "id": "mid-atlantic",

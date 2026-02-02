@@ -113,8 +113,8 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
 
 
     // Stats
-    const totalCA = config.topics.reduce((sum, t) => sum + t.currentAffairsCount, 0);
-    const highPriorityTopics = config.topics.filter(t => t.priority === 'High').length;
+    const totalCA = (config?.topics || []).reduce((sum, t) => sum + (t?.currentAffairsCount || 0), 0);
+    const highPriorityTopics = (config?.topics || []).filter(t => t && t.priority === 'High').length;
 
     return (
         <div className={`min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a] ${embedded ? 'min-h-0 bg-transparent' : ''}`}>
@@ -238,7 +238,7 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
 
 function TopicsView({ config, selectedModule, setSelectedModule }: { config: SubjectConfig, selectedModule: string | null, setSelectedModule: (id: string | null) => void }) {
     // Helper to get topics by module
-    const getTopics = (modId: string) => config.topics.filter(t => t.moduleId === modId);
+    const getTopics = (modId: string) => (config?.topics || []).filter(t => t && t.moduleId === modId);
 
     return (
         <div className="max-w-6xl mx-auto px-6 py-8">
@@ -247,7 +247,8 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
                 <>
                     <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white mb-6">Structured Curriculum</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {config.modules.map(module => {
+                        {(config?.modules || []).map(module => {
+                            if (!module) return null;
                             const topics = getTopics(module.id);
                             const isActive = topics.length > 0;
                             return (
@@ -256,7 +257,7 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
                                     onClick={() => isActive && setSelectedModule(module.id)}
                                     disabled={!isActive}
                                     className={`text-left p-5 rounded-2xl border-2 transition-all ${isActive
-                                        ? `hover:shadow-lg hover:border-${config.colors.primary}-500 bg-white dark:bg-[#111] border-gray-200 dark:border-gray-800`
+                                        ? `hover:shadow-lg hover:border-${config?.colors?.primary || 'blue'}-500 bg-white dark:bg-[#111] border-gray-200 dark:border-gray-800`
                                         : `opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-900 border-gray-200 dark:border-gray-800`
                                         }`}
                                 >
@@ -292,25 +293,28 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
                 <div>
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">Module {selectedModule} Topics</h2>
-                        <button onClick={() => setSelectedModule(null)} className={`text-${config.colors.primary}-600 hover:underline text-sm`}>
+                        <button onClick={() => setSelectedModule(null)} className={`text-${config?.colors?.primary || 'blue'}-600 hover:underline text-sm font-bold`}>
                             ← Back to Modules
                         </button>
                     </div>
                     <div className="space-y-3">
-                        {getTopics(selectedModule).map(topic => (
-                            <div key={topic.id} className="block bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-gray-800 p-5 hover:shadow-lg transition-all">
-                                <div className="flex items-start justify-between">
-                                    <div className="flex-1">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className={`text-xs px-2 py-0.5 rounded bg-${config.colors.primary}-100 dark:bg-${config.colors.primary}-900/30 text-${config.colors.primary}-700 font-medium`}>Topic {topic.id}</span>
-                                            {topic.priority === 'High' && <span className="text-xs px-2 py-0.5 rounded bg-red-100 text-red-700">High Priority</span>}
+                        {getTopics(selectedModule).map(topic => {
+                            if (!topic) return null;
+                            return (
+                                <div key={topic.id} className="block bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-gray-800 p-5 hover:shadow-lg transition-all">
+                                    <div className="flex items-start justify-between">
+                                        <div className="flex-1">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <span className={`text-xs px-2 py-0.5 rounded bg-${config?.colors?.primary || 'blue'}-100 dark:bg-${config?.colors?.primary || 'blue'}-900/30 text-${config?.colors?.primary || 'blue'}-700 font-medium`}>Topic {topic.id}</span>
+                                                {topic.priority === 'High' && <span className="text-xs px-2 py-0.5 rounded bg-red-100 text-red-700">High Priority</span>}
+                                            </div>
+                                            <h3 className="text-lg font-semibold text-[#1F2937] dark:text-white mb-1">{topic.title}</h3>
+                                            <p className="text-sm text-gray-600 dark:text-gray-400">{topic.staticFocus}</p>
                                         </div>
-                                        <h3 className="text-lg font-semibold text-[#1F2937] dark:text-white mb-1">{topic.title}</h3>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400">{topic.staticFocus}</p>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             )}

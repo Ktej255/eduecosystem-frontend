@@ -13,11 +13,13 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { Plus, Trash2, FileJson, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { Plus, Trash2, FileJson, ArrowLeft, CheckCircle2, Eye, Save, Code, Loader2 } from 'lucide-react';
 import { LAXMIKANTH_CHAPTERS } from '@/components/batch1/polity/data/polity-schedule-data';
 import { CHAPTER_SUBTOPICS } from '@/components/batch1/polity/data/polity-subtopics';
 import { useToast } from '@/components/ui/use-toast';
 import { useRouter } from 'next/navigation';
+import { useDraftContentStore } from '@/store/draftContentStore';
+import api from '@/lib/api';
 
 interface MCQ {
     id: string;
@@ -34,6 +36,8 @@ export default function MCQGenerator() {
     const [selectedChapterId, setSelectedChapterId] = useState<string>("");
     const [selectedSubtopicId, setSelectedSubtopicId] = useState<string>("all");
 
+    const { addDraftMCQ, setPreviewMode } = useDraftContentStore();
+
     // Form state
     const [question, setQuestion] = useState("");
     const [optionA, setOptionA] = useState("");
@@ -45,6 +49,7 @@ export default function MCQGenerator() {
 
     // List state
     const [questions, setQuestions] = useState<MCQ[]>([]);
+    const [isSaving, setIsSaving] = useState(false);
 
     // Filter subtopics
     const availableSubtopics = useMemo(() => {
@@ -99,6 +104,76 @@ export default function MCQGenerator() {
             title: "Copied to Clipboard",
             description: "JSON data ready to be pasted into codebase.",
         });
+    };
+
+    const handleSaveToDrafts = () => {
+        if (questions.length === 0) return;
+
+        questions.forEach(q => {
+            addDraftMCQ({
+                chapterId: selectedChapterId,
+                subtopicId: selectedSubtopicId,
+                question: q.question,
+                options: q.options,
+                correctAnswer: q.correctAnswer,
+                explanation: q.explanation
+            });
+        });
+
+        toast({
+            title: "Saved to Drafts",
+            description: `${questions.length} questions added to the Local Draft Store.`,
+        });
+    };
+
+    const handleSaveToCodebase = async () => {
+        if (questions.length === 0) return;
+
+        setIsSaving(true);
+        const chapterNum = parseInt(selectedChapterId) || 0;
+        const filename = `mcqs_chapter_${chapterNum}_dump.ts`;
+
+        const varName = `CHAPTER_${selectedChapterId}_MCQS`;
+        const codeBlock = `import { MCQ } from "../RevisionRegistry";
+
+export const ${varName}: MCQ[] = ${JSON.stringify(questions.map(q => ({
+            id: q.id,
+            chapterId: chapterNum,
+            question: q.question,
+            options: q.options,
+            correctAnswer: q.correctAnswer,
+            explanation: q.explanation,
+            difficulty: "medium"
+        })), null, 4)};`;
+
+        try {
+            await api.post('/admin/save-content', {
+                content: codeBlock,
+                filename: filename
+            });
+
+            toast({
+                title: "Saved Successfully",
+                description: `Questions saved to backend/frontend/src/.../generated/${filename}`,
+                variant: "default",
+            });
+        } catch (error) {
+            console.error("Save failed:", error);
+            toast({
+                title: "Save Failed",
+                description: "Could not persist content to file system.",
+                variant: "destructive",
+            });
+        } finally {
+            setIsSaving(false);
+        }
+    };
+
+    const handlePreview = () => {
+        handleSaveToDrafts();
+        setPreviewMode(true);
+        // Navigate to the appropriate polity subtopic or general page
+        router.push('/student/batch1/polity');
     };
 
     return (
@@ -225,10 +300,30 @@ export default function MCQGenerator() {
                         <h2 className="text-xl font-semibold">
                             Generated Questions ({questions.length})
                         </h2>
-                        <Button variant="outline" onClick={handleExport} disabled={questions.length === 0}>
-                            <FileJson className="w-4 h-4 mr-2 text-green-600" />
-                            Export JSON
-                        </Button>
+                        <div className="flex gap-2">
+                            <Button variant="outline" size="sm" onClick={handleSaveToDrafts} disabled={questions.length === 0}>
+                                <Save className="w-4 h-4 mr-2 text-blue-600" />
+                                Save Drafts
+                            </Button>
+                            <Button variant="outline" size="sm" onClick={handlePreview} disabled={questions.length === 0}>
+                                <Eye className="w-4 h-4 mr-2 text-purple-600" />
+                                Preview
+                            </Button>
+                            <Button
+                                variant="default"
+                                size="sm"
+                                onClick={handleSaveToCodebase}
+                                disabled={questions.length === 0 || isSaving}
+                                className="bg-indigo-600 hover:bg-indigo-700"
+                            >
+                                {isSaving ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Code className="w-4 h-4 mr-2" />}
+                                Save to Codebase
+                            </Button>
+                            <Button variant="outline" size="sm" onClick={handleExport} disabled={questions.length === 0}>
+                                <FileJson className="w-4 h-4 mr-2 text-green-600" />
+                                Export JSON
+                            </Button>
+                        </div>
                     </div>
 
                     {questions.length === 0 ? (

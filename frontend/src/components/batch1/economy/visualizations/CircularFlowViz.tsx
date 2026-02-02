@@ -1,223 +1,299 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { DollarSign, Briefcase, ShoppingBag, Home, Factory } from "lucide-react";
+import React, { useState, useRef, useMemo } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Stars, Html, Box, Sphere, Line } from '@react-three/drei';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { DollarSign, Home, Factory, Play, Pause, Layers } from 'lucide-react';
+import * as THREE from 'three';
+
+// --- 3D Components (Hardened for Production) ---
+
+function Building({ position, color, roofColor, label, icon: Icon }: { position: [number, number, number], color: string, roofColor: string, label: string, icon: any }) {
+    const isFactory = label === "Firms";
+
+    return (
+        <group position={position}>
+            {/* Base */}
+            <mesh position={[0, 0.5, 0]}>
+                <boxGeometry args={[1.5, 1, 1.5]} />
+                <meshStandardMaterial color={color} roughness={0.3} metalness={0.8} />
+            </mesh>
+
+            {/* Detailed Geometry */}
+            {isFactory ? (
+                <>
+                    {/* Chimneys */}
+                    <mesh position={[-0.4, 1.2, -0.4]}>
+                        <cylinderGeometry args={[0.2, 0.2, 0.8, 16]} />
+                        <meshStandardMaterial color="#475569" />
+                    </mesh>
+                    <mesh position={[0.4, 1.2, 0.2]}>
+                        <cylinderGeometry args={[0.15, 0.15, 0.6, 16]} />
+                        <meshStandardMaterial color="#475569" />
+                    </mesh>
+                </>
+            ) : (
+                <>
+                    {/* Roof */}
+                    <mesh position={[0, 1.25, 0]} rotation={[0, Math.PI / 4, 0]}>
+                        <coneGeometry args={[1.2, 0.8, 4]} />
+                        <meshStandardMaterial color={roofColor} />
+                    </mesh>
+                    {/* Windows */}
+                    <mesh position={[0.4, 0.5, 0.76]}>
+                        <boxGeometry args={[0.3, 0.3, 0.05]} />
+                        <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={0.5} />
+                    </mesh>
+                    <mesh position={[-0.4, 0.5, 0.76]}>
+                        <boxGeometry args={[0.3, 0.3, 0.05]} />
+                        <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={0.5} />
+                    </mesh>
+                </>
+            )}
+
+            {/* Label */}
+            <Html position={[0, 2.2, 0]} center>
+                <div className="flex flex-col items-center animate-in fade-in zoom-in duration-500">
+                    <div className="bg-white/10 backdrop-blur-xl p-2 rounded-2xl border border-white/20 shadow-2xl flex items-center gap-2 ring-1 ring-white/10">
+                        <Icon className="w-5 h-5" style={{ color: color }} />
+                        <span className="text-sm font-black text-white whitespace-nowrap tracking-tight">{label}</span>
+                    </div>
+                </div>
+            </Html>
+        </group>
+    );
+}
+
+function FlowSystem({ type, isPlaying }: { type: 'real' | 'money', isPlaying: boolean }) {
+    const particleCount = 20;
+    const particles = useMemo(() => {
+        return new Array(particleCount).fill(0).map(() => ({
+            offset: Math.random(),
+            speed: 0.2 + Math.random() * 0.1
+        }));
+    }, []);
+
+    const curveTop = new THREE.QuadraticBezierCurve3(
+        new THREE.Vector3(-3, 1, 0),
+        new THREE.Vector3(0, 4, 0),
+        new THREE.Vector3(3, 1, 0)
+    );
+
+    const curveBottom = new THREE.QuadraticBezierCurve3(
+        new THREE.Vector3(3, 1, 0),
+        new THREE.Vector3(0, -2, 0),
+        new THREE.Vector3(-3, 1, 0)
+    );
+
+    return (
+        <group>
+            {/* Paths Visuals - Volumetric Tubes */}
+            {type === 'real' ? (
+                <>
+                    <mesh>
+                        <tubeGeometry args={[curveTop, 64, 0.04, 8, false]} />
+                        <meshStandardMaterial color="#3b82f6" transparent opacity={0.4} emissive="#3b82f6" emissiveIntensity={0.5} />
+                    </mesh>
+                    <mesh>
+                        <tubeGeometry args={[curveBottom, 64, 0.04, 8, false]} />
+                        <meshStandardMaterial color="#3b82f6" transparent opacity={0.4} emissive="#3b82f6" emissiveIntensity={0.5} />
+                    </mesh>
+                    <Html position={[0, 3, 0]}>
+                        <span className="text-[10px] font-black bg-blue-600/20 text-blue-400 border border-blue-500/30 px-2 py-0.5 rounded-full backdrop-blur-md uppercase tracking-tighter shadow-lg">Factor Services</span>
+                    </Html>
+                    <Html position={[0, -1, 0]}>
+                        <span className="text-[10px] font-black bg-blue-600/20 text-blue-400 border border-blue-500/30 px-2 py-0.5 rounded-full backdrop-blur-md uppercase tracking-tighter shadow-lg">Goods & Services</span>
+                    </Html>
+                </>
+            ) : (
+                <>
+                    <mesh>
+                        <tubeGeometry args={[curveTop, 64, 0.06, 8, false]} />
+                        <meshStandardMaterial color="#22c55e" transparent opacity={0.6} emissive="#22c55e" emissiveIntensity={1} />
+                    </mesh>
+                    <mesh>
+                        <tubeGeometry args={[curveBottom, 64, 0.06, 8, false]} />
+                        <meshStandardMaterial color="#22c55e" transparent opacity={0.6} emissive="#22c55e" emissiveIntensity={1} />
+                    </mesh>
+                    <Html position={[0, 2.5, 0]}>
+                        <span className="text-[10px] font-black bg-green-600/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full backdrop-blur-md uppercase tracking-tighter shadow-lg">Factor Payments</span>
+                    </Html>
+                    <Html position={[0, -0.5, 0]}>
+                        <span className="text-[10px] font-black bg-green-600/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full backdrop-blur-md uppercase tracking-tighter shadow-lg">Consumption Exp.</span>
+                    </Html>
+                </>
+            )}
+
+            {/* Particles */}
+            {particles.map((p, i) => (
+                <Particle
+                    key={i}
+                    config={p}
+                    pathTop={curveTop}
+                    pathBottom={curveBottom}
+                    color={type === 'real' ? '#3b82f6' : '#22c55e'}
+                    reverse={type === 'money'} // Money flows opposite to Real
+                    isPlaying={isPlaying}
+                />
+            ))}
+        </group>
+    );
+}
+
+function Particle({ config, pathTop, pathBottom, color, reverse, isPlaying }: { config: { offset: number, speed: number }, pathTop: THREE.QuadraticBezierCurve3, pathBottom: THREE.QuadraticBezierCurve3, color: string, reverse: boolean, isPlaying: boolean }) {
+    const ref = useRef<THREE.Mesh>(null);
+    const [progress, setProgress] = useState(config.offset);
+
+    useFrame((state, delta) => {
+        if (!isPlaying || !ref.current) return;
+
+        const speed = config.speed * delta * 0.5;
+        let newProg = progress + speed;
+        if (newProg > 1) newProg = 0;
+        setProgress(newProg);
+
+        let pos = new THREE.Vector3();
+
+        if (reverse) {
+            if (newProg < 0.5) {
+                const t = newProg * 2;
+                pos = pathTop.getPoint(1 - t);
+            } else {
+                const t = (newProg - 0.5) * 2;
+                pos = pathBottom.getPoint(1 - t);
+            }
+        } else {
+            if (newProg < 0.5) {
+                const t = newProg * 2;
+                pos = pathTop.getPoint(t);
+            } else {
+                const t = (newProg - 0.5) * 2;
+                pos = pathBottom.getPoint(t);
+            }
+        }
+
+        ref.current.position.copy(pos);
+    });
+
+    return (
+        <mesh ref={ref}>
+            <sphereGeometry args={[0.08, 16, 16]} />
+            <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.5} />
+        </mesh>
+    );
+}
+
+function Scene({ isPlaying, showReal, showMoney }: { isPlaying: boolean, showReal: boolean, showMoney: boolean }) {
+    return (
+        <>
+            <ambientLight intensity={0.5} />
+            <pointLight position={[10, 10, 10]} intensity={1.5} />
+            <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={1} />
+
+            {/* Grid */}
+            <gridHelper args={[20, 20, '#1e293b', '#0f172a']} position={[0, -0.5, 0]} />
+
+            {/* Nodes */}
+            <Building
+                position={[-3, 0, 0]}
+                color="#6366f1"
+                roofColor="#4f46e5"
+                label="Households"
+                icon={Home}
+            />
+            <Building
+                position={[3, 0, 0]}
+                color="#f97316"
+                roofColor="#ea580c"
+                label="Firms"
+                icon={Factory}
+            />
+
+            {/* Flows */}
+            {showReal && <FlowSystem type="real" isPlaying={isPlaying} />}
+            {showMoney && <FlowSystem type="money" isPlaying={isPlaying} />}
+
+            <OrbitControls enableZoom={false} minPolarAngle={Math.PI / 4} maxPolarAngle={Math.PI / 2.2} />
+        </>
+    );
+}
 
 export default function CircularFlowViz() {
     const [isPlaying, setIsPlaying] = useState(true);
-    const [flowSpeed, setFlowSpeed] = useState(1);
+    const [showReal, setShowReal] = useState(true);
+    const [showMoney, setShowMoney] = useState(true);
 
     return (
-        <Card className="w-full bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 shadow-sm relative overflow-hidden">
-            <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
-
-            <CardHeader className="relative z-10">
-                <div className="flex justify-between items-start">
+        <Card className="w-full bg-slate-950 border-slate-800 shadow-sm relative overflow-hidden h-[500px] flex flex-col">
+            <CardHeader className="bg-slate-900/50 backdrop-blur-sm z-10 border-b border-white/10 shrink-0">
+                <div className="flex justify-between items-center">
                     <div>
-                        <CardTitle className="flex items-center gap-2">
-                            <span className="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+                        <CardTitle className="flex items-center gap-2 text-white">
+                            <span className="w-8 h-8 rounded-lg bg-emerald-900/50 flex items-center justify-center text-emerald-400">
                                 <DollarSign className="w-5 h-5" />
                             </span>
-                            Circular Flow of Income
+                            Circular Flow 3D
                         </CardTitle>
-                        <CardDescription>
-                            Real Flow (Goods/Services) vs Money Flow (Income/Expenditure) in a 2-Sector Model
+                        <CardDescription className="text-slate-400">
+                            Two-Sector Economy Model (Real vs Money Flows)
                         </CardDescription>
                     </div>
                     <div className="flex gap-2">
                         <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => setIsPlaying(!isPlaying)}
-                            className={isPlaying ? "bg-amber-100 text-amber-900 border-amber-200 hover:bg-amber-200" : ""}
+                            onClick={() => setShowReal(!showReal)}
+                            className={`border-slate-700 hover:bg-slate-800 ${showReal ? 'bg-blue-900/20 text-blue-400 border-blue-900' : 'text-slate-500'}`}
                         >
-                            {isPlaying ? "Pause Flow" : "Resume Flow"}
+                            <Layers className="w-4 h-4 mr-1" />
+                            Real Flow
+                        </Button>
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => setShowMoney(!showMoney)}
+                            className={`border-slate-700 hover:bg-slate-800 ${showMoney ? 'bg-green-900/20 text-green-400 border-green-900' : 'text-slate-500'}`}
+                        >
+                            <Layers className="w-4 h-4 mr-1" />
+                            Money Flow
+                        </Button>
+                        <Button
+                            variant="secondary"
+                            size="icon"
+                            onClick={() => setIsPlaying(!isPlaying)}
+                            className="w-8 h-8 rounded-full"
+                        >
+                            {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                         </Button>
                     </div>
                 </div>
             </CardHeader>
 
-            <CardContent className="relative z-10 p-12 min-h-[500px] flex items-center justify-center">
-                {/* Main Container */}
-                <div className="relative w-full max-w-3xl aspect-[1.8/1]">
+            <div className="flex-1 relative bg-slate-950">
+                <Canvas camera={{ position: [0, 2, 8], fov: 45 }}>
+                    <Scene isPlaying={isPlaying} showReal={showReal} showMoney={showMoney} />
+                </Canvas>
 
-                    {/* SVG Paths for Flows */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 450">
-                        {/* DEFS for Arrows */}
-                        <defs>
-                            <marker id="arrow-money" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
-                                <path d="M0,0 L0,6 L6,3 z" fill="#22c55e" />
-                            </marker>
-                            <marker id="arrow-real" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
-                                <path d="M0,0 L0,6 L6,3 z" fill="#3b82f6" />
-                            </marker>
-                        </defs>
-
-                        {/* Top Arc: Factor Services (Households -> Firms) -- REAL FLOW */}
-                        <path
-                            id="real-flow-top"
-                            d="M 200,200 C 200,50 600,50 600,200"
-                            fill="none"
-                            stroke="#3b82f6"
-                            strokeWidth="2"
-                            strokeDasharray="8 4"
-                            className="opacity-30"
-                        />
-                        {/* Bottom Arc: Goods & Services (Firms -> Households) -- REAL FLOW */}
-                        <path
-                            id="real-flow-bottom"
-                            d="M 600,250 C 600,400 200,400 200,250"
-                            fill="none"
-                            stroke="#3b82f6"
-                            strokeWidth="2"
-                            strokeDasharray="8 4"
-                            className="opacity-30"
-                        />
-
-                        {/* Top Inner Arc: Factor Payments (Firms -> Households) -- MONEY FLOW */}
-                        <path
-                            id="money-flow-top"
-                            d="M 600,200 C 600,80 200,80 200,200"
-                            fill="none"
-                            stroke="#22c55e"
-                            strokeWidth="4"
-                        />
-
-                        {/* Bottom Inner Arc: Consumption Expenditure (Households -> Firms) -- MONEY FLOW */}
-                        <path
-                            id="money-flow-bottom"
-                            d="M 200,250 C 200,370 600,370 600,250"
-                            fill="none"
-                            stroke="#22c55e"
-                            strokeWidth="4"
-                        />
-
-                        {/* Labels on Paths */}
-                        <g transform="translate(400, 70)">
-                            <rect x="-60" y="-14" width="120" height="28" rx="14" fill="white" className="dark:fill-slate-900" stroke="#22c55e" />
-                            <text x="0" y="5" textAnchor="middle" className="text-xs font-bold fill-green-600 dark:fill-green-400">Factor Payments</text>
-                        </g>
-                        <text x="400" y="40" textAnchor="middle" className="text-[10px] fill-blue-500 font-medium tracking-widest uppercase">Factor Services (Labor/Land)</text>
-
-                        <g transform="translate(400, 380)">
-                            <rect x="-70" y="-14" width="140" height="28" rx="14" fill="white" className="dark:fill-slate-900" stroke="#22c55e" />
-                            <text x="0" y="5" textAnchor="middle" className="text-xs font-bold fill-green-600 dark:fill-green-400">Consumption Exp.</text>
-                        </g>
-                        <text x="400" y="420" textAnchor="middle" className="text-[10px] fill-blue-500 font-medium tracking-widest uppercase">Goods & Services</text>
-
-                    </svg>
-
-                    {/* Animated Particles */}
-                    {isPlaying && (
-                        <>
-                            {/* Money Flow Particles (Green) */}
-                            {[0, 1, 2].map(i => (
-                                <motion.div
-                                    key={`money-${i}`}
-                                    className="absolute w-3 h-3 bg-green-500 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.6)] z-20"
-                                    initial={{ offsetDistance: "0%" }}
-                                    animate={{ offsetDistance: "100%" }}
-                                    transition={{
-                                        duration: 4 / flowSpeed,
-                                        repeat: Infinity,
-                                        ease: "linear",
-                                        delay: i * (4 / 3)
-                                    }}
-                                    style={{
-                                        offsetPath: `path("M 600,200 C 600,80 200,80 200,200")`
-                                    }}
-                                />
-                            ))}
-                            {[0, 1, 2].map(i => (
-                                <motion.div
-                                    key={`exp-${i}`}
-                                    className="absolute w-3 h-3 bg-green-500 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.6)] z-20"
-                                    initial={{ offsetDistance: "0%" }}
-                                    animate={{ offsetDistance: "100%" }}
-                                    transition={{
-                                        duration: 4 / flowSpeed,
-                                        repeat: Infinity,
-                                        ease: "linear",
-                                        delay: i * (4 / 3)
-                                    }}
-                                    style={{
-                                        offsetPath: `path("M 200,250 C 200,370 600,370 600,250")`
-                                    }}
-                                />
-                            ))}
-
-                            {/* Real Flow Particles (Blue) */}
-                            {[0, 1, 2].map(i => (
-                                <motion.div
-                                    key={`real-${i}`}
-                                    className="absolute w-2 h-2 bg-blue-500 rounded-full z-10 opacity-60"
-                                    initial={{ offsetDistance: "0%" }}
-                                    animate={{ offsetDistance: "100%" }}
-                                    transition={{
-                                        duration: 6 / flowSpeed,
-                                        repeat: Infinity,
-                                        ease: "linear",
-                                        delay: i * 2
-                                    }}
-                                    style={{
-                                        offsetPath: `path("M 200,200 C 200,50 600,50 600,200")`
-                                    }}
-                                />
-                            ))}
-                            {[0, 1, 2].map(i => (
-                                <motion.div
-                                    key={`goods-${i}`}
-                                    className="absolute w-2 h-2 bg-blue-500 rounded-full z-10 opacity-60"
-                                    initial={{ offsetDistance: "0%" }}
-                                    animate={{ offsetDistance: "100%" }}
-                                    transition={{
-                                        duration: 6 / flowSpeed,
-                                        repeat: Infinity,
-                                        ease: "linear",
-                                        delay: i * 2
-                                    }}
-                                    style={{
-                                        offsetPath: `path("M 600,250 C 600,400 200,400 200,250")`
-                                    }}
-                                />
-                            ))}
-                        </>
-                    )}
-
-                    {/* Left Node: Households */}
-                    <div className="absolute left-[120px] top-1/2 -translate-y-1/2 w-40 flex flex-col items-center gap-3 z-30">
-                        <div className="w-24 h-24 rounded-2xl bg-white dark:bg-slate-800 border-2 border-indigo-200 dark:border-indigo-900 shadow-xl flex items-center justify-center relative group cursor-pointer hover:scale-105 transition-transform">
-                            <Home className="w-10 h-10 text-indigo-600 dark:text-indigo-400" />
-                            <Badge className="absolute -top-3 bg-indigo-600 text-white border-2 border-white dark:border-slate-900">
-                                Consumers
-                            </Badge>
-                        </div>
-                        <div className="text-center">
-                            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100">Households</h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">Owners of Factors<br />(Land, Labor, Capital)</p>
-                        </div>
+                <div className="absolute bottom-4 left-4 right-4 grid grid-cols-2 gap-4 pointer-events-none">
+                    <div className={`p-3 rounded-xl border backdrop-blur-md transition-all ${showMoney ? 'bg-green-900/20 border-green-900/50 opacity-100' : 'opacity-30 border-transparent'}`}>
+                        <h4 className="text-green-400 font-bold text-xs uppercase mb-1">Money Flow (Green)</h4>
+                        <p className="text-[10px] text-green-200/70">
+                            Households → Firms: Consumption Expenditure<br />
+                            Firms → Households: Factor Payments (Rent, Wages)
+                        </p>
                     </div>
-
-                    {/* Right Node: Firms */}
-                    <div className="absolute right-[120px] top-1/2 -translate-y-1/2 w-40 flex flex-col items-center gap-3 z-30">
-                        <div className="w-24 h-24 rounded-2xl bg-white dark:bg-slate-800 border-2 border-orange-200 dark:border-orange-900 shadow-xl flex items-center justify-center relative group cursor-pointer hover:scale-105 transition-transform">
-                            <Factory className="w-10 h-10 text-orange-600 dark:text-orange-400" />
-                            <Badge className="absolute -top-3 bg-orange-600 text-white border-2 border-white dark:border-slate-900">
-                                Producers
-                            </Badge>
-                        </div>
-                        <div className="text-center">
-                            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100">Firms</h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">Hire Factors<br />Produce Goods</p>
-                        </div>
+                    <div className={`p-3 rounded-xl border backdrop-blur-md transition-all ${showReal ? 'bg-blue-900/20 border-blue-900/50 opacity-100' : 'opacity-30 border-transparent'}`}>
+                        <h4 className="text-blue-400 font-bold text-xs uppercase mb-1">Real Flow (Blue)</h4>
+                        <p className="text-[10px] text-blue-200/70">
+                            Households → Firms: Factor Services (Labor, Capital)<br />
+                            Firms → Households: Goods & Services
+                        </p>
                     </div>
-
                 </div>
-            </CardContent>
+            </div>
         </Card>
     );
 }

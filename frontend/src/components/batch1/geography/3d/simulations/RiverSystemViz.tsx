@@ -3,6 +3,7 @@
 import { useState, Suspense, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html, Stars } from "@react-three/drei";
+import * as THREE from "three";
 import FlowArrows from "../shared/FlowArrows";
 import ConfluenceMarker, { latLngToPosition } from "../shared/ConfluenceMarker";
 import gangaData from "../../data/rivers/ganga-system.json";
@@ -104,10 +105,27 @@ function RiverScene({
             <directionalLight position={[5, 5, 5]} intensity={1} />
             <pointLight position={[-5, 5, -5]} intensity={0.5} color="#4FC3F7" />
 
-            {/* India Base */}
+            {/* India Base (Holographic World) */}
             <mesh>
                 <sphereGeometry args={[1.5, 64, 64]} />
-                <meshStandardMaterial color="#1a472a" roughness={0.8} metalness={0.2} opacity={0.9} transparent />
+                <meshPhongMaterial
+                    color="#0a1a0f"
+                    emissive="#1a3a2a"
+                    emissiveIntensity={0.5}
+                    shininess={100}
+                    transparent
+                    opacity={0.9}
+                />
+            </mesh>
+            {/* Glow / Rim Light */}
+            <mesh scale={[1.02, 1.02, 1.02]}>
+                <sphereGeometry args={[1.5, 64, 64]} />
+                <meshStandardMaterial
+                    color="#2e7d32"
+                    transparent
+                    opacity={0.1}
+                    side={THREE.BackSide}
+                />
             </mesh>
 
             {/* Main River */}

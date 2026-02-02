@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { useStudentActivityStore } from "@/store/studentActivityStore";
 import { cn } from "@/lib/utils";
 import {
     LayoutDashboard,
@@ -394,6 +395,8 @@ export default function TeacherSidebar({ isCollapsed, onToggle, onLogout }: Teac
     const pathname = usePathname();
     const [openItems, setOpenItems] = useState<string[]>([]);
     const [isHovered, setIsHovered] = useState(false);
+    const [isSimulating, setIsSimulating] = useState(false);
+    const { activities, addActivity } = useStudentActivityStore();
 
     const toggleItem = (label: string) => {
         setOpenItems((prev) =>
@@ -402,6 +405,32 @@ export default function TeacherSidebar({ isCollapsed, onToggle, onLogout }: Teac
                 : [...prev, label]
         );
     };
+
+    // Activity Simulation Logic
+    useEffect(() => {
+        if (!isSimulating) return;
+
+        const mockActivities = [
+            { name: 'Priya K.', initials: 'PK', action: 'solved MCQ in', target: 'Preamble', color: 'bg-emerald-500' },
+            { name: 'Arjun M.', initials: 'AM', action: 'bookmarked', target: 'Basic Structure', color: 'bg-blue-500' },
+            { name: 'Sneha R.', initials: 'SR', action: 'completed', target: 'Day 5 Flashcards', color: 'bg-pink-500' },
+            { name: 'Vikram S.', initials: 'VS', action: 'engaged with', target: '3D Globe', color: 'bg-amber-500' },
+            { name: 'Deepa T.', initials: 'DT', action: 'asked doubt on', target: 'Art. 21', color: 'bg-purple-500' },
+        ];
+
+        const interval = setInterval(() => {
+            const randomActivity = mockActivities[Math.floor(Math.random() * mockActivities.length)];
+            addActivity({
+                studentName: randomActivity.name,
+                studentInitials: randomActivity.initials,
+                action: randomActivity.action,
+                target: randomActivity.target,
+                color: randomActivity.color
+            });
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [isSimulating, addActivity]);
 
     const showExpanded = !isCollapsed || isHovered;
 
@@ -456,32 +485,47 @@ export default function TeacherSidebar({ isCollapsed, onToggle, onLogout }: Teac
                 </div>
             </nav>
 
-            {/* Live Pulse Section */}
+
+
+            // Live Pulse Section
             {showExpanded && (
                 <div className="mx-4 mt-2 mb-2 p-3 bg-emerald-950/30 rounded-xl border border-emerald-500/20 backdrop-blur-sm">
                     <div className="flex items-center justify-between mb-2">
                         <h3 className="text-[10px] font-bold text-emerald-100 uppercase tracking-wider flex items-center gap-2">
                             <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                <span className={cn("animate-ping absolute inline-flex h-full w-full rounded-full opacity-75", isSimulating ? "bg-purple-400" : "bg-emerald-400")}></span>
+                                <span className={cn("relative inline-flex rounded-full h-2 w-2", isSimulating ? "bg-purple-500" : "bg-emerald-500")}></span>
                             </span>
                             Live Campus
                         </h3>
-                        <span className="text-[10px] font-mono text-emerald-300 bg-emerald-900/50 px-1.5 py-0.5 rounded border border-emerald-500/20">12 Active</span>
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => setIsSimulating(!isSimulating)}
+                                className={cn(
+                                    "text-[9px] px-1.5 py-0.5 rounded transition-colors border",
+                                    isSimulating
+                                        ? "bg-purple-500/20 border-purple-500/40 text-purple-300"
+                                        : "bg-emerald-500/10 border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20"
+                                )}
+                            >
+                                {isSimulating ? "Stop Sim" : "Simulate"}
+                            </button>
+                            <span className="text-[10px] font-mono text-emerald-300 bg-emerald-900/50 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                                {activities.length + (isSimulating ? 42 : 10)} Active
+                            </span>
+                        </div>
                     </div>
                     <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-xs text-emerald-200/70">
-                            <div className="h-4 w-4 bg-purple-500/20 rounded-full flex items-center justify-center text-[9px] text-purple-300 font-bold shrink-0">RV</div>
-                            <span className="truncate text-[10px]">Rahul V. is watching <span className="text-emerald-300">Polity Class</span></span>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-emerald-200/70">
-                            <div className="h-4 w-4 bg-blue-500/20 rounded-full flex items-center justify-center text-[9px] text-blue-300 font-bold shrink-0">AS</div>
-                            <span className="truncate text-[10px]">Amit S. scored 85% in <span className="text-emerald-300">CSAT</span></span>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-emerald-200/70">
-                            <div className="h-4 w-4 bg-orange-500/20 rounded-full flex items-center justify-center text-[9px] text-orange-300 font-bold shrink-0">NK</div>
-                            <span className="truncate text-[10px]">Neha K. asked a doubt</span>
-                        </div>
+                        {activities.map((activity) => (
+                            <div key={activity.id} className="flex items-center gap-2 text-xs text-emerald-200/70 animate-in fade-in slide-in-from-left-2 transition-all">
+                                <div className={cn("h-4 w-4 rounded-full flex items-center justify-center text-[9px] text-white font-bold shrink-0", activity.color)}>
+                                    {activity.studentInitials}
+                                </div>
+                                <span className="truncate text-[10px]">
+                                    <span className="font-medium text-emerald-100">{activity.studentName}</span> {activity.action} <span className="text-emerald-300">{activity.target}</span>
+                                </span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             )}

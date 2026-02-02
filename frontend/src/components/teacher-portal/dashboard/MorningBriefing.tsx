@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Sun, CloudSun, Moon, Bell, CheckCircle2, Clock, AlertTriangle } from "lucide-react";
+import { Sun, CloudSun, Moon, Bell, CheckCircle2, Clock, AlertTriangle, TrendingDown, MessageSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -82,6 +82,19 @@ export default function MorningBriefing() {
 
                     {/* Actionable Pulse Summary */}
                     <div className="flex flex-wrap gap-3 w-full lg:w-auto">
+                        <div className="flex-1 lg:flex-none bg-red-500/20 backdrop-blur-sm border border-red-500/30 rounded-xl p-3 px-4 flex items-center gap-3 hover:bg-red-500/30 transition-colors cursor-pointer group shadow-lg shadow-red-900/20 animate-pulse">
+                            <div className="h-8 w-8 rounded-full bg-red-400 flex items-center justify-center">
+                                <TrendingDown className="h-4 w-4 text-white" />
+                            </div>
+                            <div>
+                                <div className="text-xs text-red-200 uppercase tracking-wider font-bold">Sentiment Alert</div>
+                                <div className="font-bold text-sm leading-tight">Batch 1: Low Confidence</div>
+                                <div className="text-[10px] text-red-100 flex items-center gap-1 mt-0.5">
+                                    <MessageSquare className="w-2 h-2" /> Action: Send Broadcast
+                                </div>
+                            </div>
+                        </div>
+
                         <div className="flex-1 lg:flex-none bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-3 px-4 flex items-center gap-3 hover:bg-white/20 transition-colors cursor-pointer group">
                             <div className="h-8 w-8 rounded-full bg-red-400/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <AlertTriangle className="h-4 w-4 text-red-200" />

@@ -23,6 +23,14 @@ export const FLUVIAL_LANDFORMS_CONTENT: LessonContent = {
                     id: 'old',
                     type: 'text',
                     content: `**Old Stage:** Ox-bow lakes, Deltas, Floodplains. Deposition dominates.`
+                },
+                {
+                    id: 'fluvial-features',
+                    type: 'text',
+                    content: `**Key Erosional Features:**
+- **Potholes & Plunge Pools:** Formed by rocky abrasion and waterfall base impact.
+- **Incised Meanders:** Deeply cut meanders into hard rock due to rejuvenation.
+- **River Terraces:** Step-like surfaces representing former floodplains.`
                 }
             ]
         },
@@ -122,6 +130,14 @@ export const GLACIAL_LANDFORMS_CONTENT: LessonContent = {
                     id: 'drumlins',
                     type: 'text',
                     content: `**Drumlins:** "Basket of eggs" topography.`
+                },
+                {
+                    id: 'glacial-deposits',
+                    type: 'text',
+                    content: `**Glacio-Fluvial Features:**
+- **Eskers:** Long, winding ridges of sand and gravel.
+- **Kames:** Terraces or small hills of stratified drift.
+- **Outwash Plains:** Extensive depositional fans at the glacier terminus.`
                 }
             ]
         }
@@ -142,7 +158,9 @@ export const COASTAL_KARST_CONTENT: LessonContent = {
                     type: 'text',
                     content: `Formed in limestone regions by dissolution.
 - **Sinkholes:** Funnel-shaped depressions.
-- **Stalagmites/Stalactites:** Cave deposits.`
+- **Dolines & Uvalas:** Larger solution depressions formed by merged sinkholes.
+- **Poljes:** Very large, flat-bottomed karst depressions.
+- **Stalagmites/Stalactites:** Cave deposits (Calcite formations).`
                 }
             ]
         },
@@ -154,8 +172,8 @@ export const COASTAL_KARST_CONTENT: LessonContent = {
                     id: 'coastal-features',
                     type: 'text',
                     content: `Action of waves, tides, and currents.
-- **Erosional:** Cliffs, Sea Arches, Stacks.
-- **Depositional:** Beaches, Spits, Bars.`
+- **Erosional:** Cliffs, Sea Arches, Stacks, Wave-cut platforms.
+- **Depositional:** Beaches, Spits, Bars, Barrier Islands, Lagoons, Tombolos.`
                 }
             ]
         }

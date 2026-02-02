@@ -1,0 +1,132 @@
+"use client";
+
+import React from 'react';
+import TempleArchitecture3D from './visuals/TempleArchitecture3D';
+import PerformingArtsMatrix from './visuals/PerformingArtsMatrix';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Palette, Landmark, Music, Star, ScrollText, Calendar } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+
+export default function ArtCultureDashboard() {
+    return (
+        <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-500">
+            {/* Header Content */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                        <Palette className="h-8 w-8 text-rose-600" />
+                        Art & Culture Hub
+                    </h1>
+                    <p className="text-gray-500 dark:text-gray-400">Deep dive into India's vast cultural and artistic heritage.</p>
+                </div>
+                <div className="flex gap-3">
+                    <Link href="/student/batch1/art-culture/schedule">
+                        <Button className="bg-gradient-to-r from-rose-600 to-pink-700 hover:from-rose-700 hover:to-pink-800 text-white shadow-lg">
+                            <Calendar className="mr-2 h-4 w-4" />
+                            30-Day Heritage Plan
+                        </Button>
+                    </Link>
+                </div>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <StatCard
+                    label="UNESCO Sites"
+                    value="42"
+                    color="text-amber-500"
+                    icon={<Landmark className="w-5 h-5" />}
+                />
+                <StatCard
+                    label="Classical Dances"
+                    value="8"
+                    color="text-rose-500"
+                    icon={<Music className="w-5 h-5" />}
+                />
+                <StatCard
+                    label="Languages"
+                    value="Classical: 6"
+                    color="text-blue-500"
+                    icon={<ScrollText className="w-5 h-5" />}
+                />
+                <StatCard
+                    label="Exam Weightage"
+                    value="~15 Marks"
+                    color="text-emerald-500"
+                    icon={<Star className="w-5 h-5" />}
+                />
+            </div>
+
+            {/* Primary Visualizations */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <TempleArchitecture3D />
+                <PerformingArtsMatrix />
+            </div>
+
+            {/* Syllabus Overview (Secondary) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="md:col-span-2 border-gray-100 dark:border-gray-800">
+                    <CardHeader>
+                        <CardTitle className="text-xl font-bold">Visual Arts Syllabus</CardTitle>
+                        <CardDescription>Architecture, Painting, and Sculpture through the ages.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="space-y-4">
+                            {[
+                                { title: 'Ancient Era', desc: 'Indus Valley, Mauryan, Post-Mauryan and Gupta Art.' },
+                                { title: 'Medieval Era', desc: 'Delhi Sultanate, Mughal and Regional School Paintings.' },
+                                { title: 'Modern Era', desc: 'Company School, Bengal School and Progressive Artists.' }
+                            ].map((era, i) => (
+                                <div key={i} className="flex items-start gap-4 p-4 rounded-xl border border-gray-50 dark:border-gray-800 hover:bg-slate-50 dark:hover:bg-gray-800/50 transition-colors">
+                                    <div className="w-2 h-10 bg-rose-500 rounded-full" />
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 dark:text-white">{era.title}</h4>
+                                        <p className="text-sm text-gray-500">{era.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className="bg-rose-50 border-rose-200 dark:bg-rose-950/20 dark:border-rose-900/50">
+                    <CardHeader>
+                        <CardTitle className="text-rose-900 dark:text-rose-100">UPSC Focus</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <p className="text-sm text-rose-800 dark:text-rose-300">
+                            Questions frequently focus on the **Evolution** of architecture and the **Philosophical** base of performing arts.
+                        </p>
+                        <div className="pt-4 border-t border-rose-200 dark:border-rose-900">
+                            <Link href="/student/pyq?subject=art-culture">
+                                <Button className="w-full bg-rose-600 hover:bg-rose-700 text-white">
+                                    Practice PYQs
+                                </Button>
+                            </Link>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    );
+}
+
+function StatCard({ label, value, color, icon }: { label: string, value: string, color: string, icon: React.ReactNode }) {
+    return (
+        <Card className="overflow-hidden">
+            <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                    <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                        <div className={color}>{icon}</div>
+                    </div>
+                </div>
+                <div>
+                    <h3 className={`text-2xl font-bold mb-1`}>{value}</h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest">{label}</p>
+                </div>
+            </CardContent>
+        </Card>
+    );
+}

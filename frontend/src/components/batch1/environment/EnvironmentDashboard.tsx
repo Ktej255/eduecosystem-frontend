@@ -4,6 +4,7 @@ import React from 'react';
 import FoodWebViz from './visualizations/FoodWebViz';
 import CarbonCycleViz from './visualizations/CarbonCycleViz';
 import ClimateAgreementsViz from './visualizations/ClimateAgreementsViz';
+import ClimateTimeMachine from './visualizations/ClimateTimeMachine';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Leaf, Droplets, ThermometerSun } from 'lucide-react';
 
@@ -30,6 +31,7 @@ export default function EnvironmentDashboard() {
             </div>
 
             {/* Determine Header Stats */}
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <StatCard
                     label="Biodiversity Index"
@@ -50,6 +52,9 @@ export default function EnvironmentDashboard() {
                     icon={<ThermometerSun className="w-5 h-5 text-red-500" />}
                 />
             </div>
+
+            {/* Climate Time Machine - New Phase L */}
+            <ClimateTimeMachine />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Left: Food Web */}

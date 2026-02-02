@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * Interactive Demand-Supply Curve Visualization
@@ -115,6 +116,18 @@ export default function DemandSupplyViz() {
                                 Price (P)
                             </text>
 
+                            {/* Surplus Areas */}
+                            <polygon
+                                points={`${scaleX(0)},${scaleY(180)} ${eqX},${eqY} ${scaleX(0)},${eqY}`}
+                                fill="#3b82f6"
+                                fillOpacity={0.1}
+                            />
+                            <polygon
+                                points={`${scaleX(0)},${scaleY(20)} ${eqX},${eqY} ${scaleX(0)},${eqY}`}
+                                fill="#ef4444"
+                                fillOpacity={0.1}
+                            />
+
                             {/* Original curves (faded) */}
                             {(demandShift !== 0 || supplyShift !== 0) && (
                                 <>
@@ -138,8 +151,10 @@ export default function DemandSupplyViz() {
                             )}
 
                             {/* Demand Curve (Blue) */}
-                            <path
-                                d={demandPath}
+                            <motion.path
+                                initial={false}
+                                animate={{ d: demandPath }}
+                                transition={{ type: "spring", stiffness: 100, damping: 20 }}
                                 fill="none"
                                 stroke="#3b82f6"
                                 strokeWidth={3}
@@ -150,8 +165,10 @@ export default function DemandSupplyViz() {
                             </text>
 
                             {/* Supply Curve (Red) */}
-                            <path
-                                d={supplyPath}
+                            <motion.path
+                                initial={false}
+                                animate={{ d: supplyPath }}
+                                transition={{ type: "spring", stiffness: 100, damping: 20 }}
                                 fill="none"
                                 stroke="#ef4444"
                                 strokeWidth={3}
@@ -162,14 +179,30 @@ export default function DemandSupplyViz() {
                             </text>
 
                             {/* Equilibrium Point */}
-                            <circle cx={eqX} cy={eqY} r={8} fill="#22c55e" stroke="#fff" strokeWidth={2} />
+                            <motion.circle
+                                initial={false}
+                                animate={{ cx: eqX, cy: eqY }}
+                                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                                r={8}
+                                fill="#22c55e"
+                                stroke="#fff"
+                                strokeWidth={2}
+                            />
                             <text x={eqX + 12} y={eqY - 5} className="fill-green-600 text-xs font-medium">
                                 E ({Math.round(equilibriumQuantity)}, ₹{Math.round(equilibriumPrice)})
                             </text>
 
                             {/* Dotted lines to axes */}
-                            <line x1={eqX} y1={eqY} x2={eqX} y2={height - padding} stroke="#22c55e" strokeDasharray="4,2" strokeWidth={1.5} />
-                            <line x1={eqX} y1={eqY} x2={padding} y2={eqY} stroke="#22c55e" strokeDasharray="4,2" strokeWidth={1.5} />
+                            <motion.line
+                                initial={false}
+                                animate={{ x1: eqX, y1: eqY, x2: eqX }}
+                                x2={eqX} y2={height - padding} stroke="#22c55e" strokeDasharray="4,2" strokeWidth={1.5}
+                            />
+                            <motion.line
+                                initial={false}
+                                animate={{ x1: eqX, y1: eqY, y2: eqY }}
+                                x1={eqX} y1={eqY} x2={padding} y2={eqY} stroke="#22c55e" strokeDasharray="4,2" strokeWidth={1.5}
+                            />
                         </svg>
                     </div>
 

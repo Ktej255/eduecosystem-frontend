@@ -49,20 +49,37 @@ function latLngToVector3(lat: number, lng: number, radius: number = 1.6): THREE.
 function Earth() {
     return (
         <group>
-            {/* Ocean */}
+            {/* Holographic India Base */}
             <mesh>
                 <sphereGeometry args={[1.5, 64, 64]} />
-                <meshStandardMaterial color="#1e3a8a" roughness={0.6} metalness={0.1} />
+                <meshPhongMaterial
+                    color="#0a1a1f"
+                    emissive="#001a1a"
+                    emissiveIntensity={0.8}
+                    shininess={100}
+                    transparent
+                    opacity={0.9}
+                />
             </mesh>
-            {/* Landmass Hint (Simplified) */}
-            <mesh rotation={[0, -Math.PI / 2, 0]}> {/* Adjust rotation to align India roughly */}
-                {/* This is a placeholder for actual texture or geojson. 
-                     For now, we rely on the vector markers to define the region. */}
-            </mesh>
-            {/* Atmosphere Halo */}
-            <mesh scale={[1.1, 1.1, 1.1]}>
+            {/* Atmosphere Rim Light */}
+            <mesh scale={[1.05, 1.05, 1.05]}>
                 <sphereGeometry args={[1.5, 64, 64]} />
-                <meshStandardMaterial color="#4f46e5" transparent opacity={0.1} side={THREE.BackSide} />
+                <meshStandardMaterial
+                    color="#00bcd4"
+                    transparent
+                    opacity={0.15}
+                    side={THREE.BackSide}
+                />
+            </mesh>
+            {/* Glow / Rim Light Effect */}
+            <mesh scale={[1.01, 1.01, 1.01]}>
+                <sphereGeometry args={[1.5, 64, 64]} />
+                <meshStandardMaterial
+                    color="#00e5ff"
+                    transparent
+                    opacity={0.05}
+                    wireframe
+                />
             </mesh>
         </group>
     );
@@ -118,27 +135,46 @@ function WindVector({ pattern }: { pattern: WindPattern }) {
     );
 }
 
+function ITCZBand({ latitude }: { latitude: number }) {
+    // Convert latitude to 3D Y position on sphere
+    const radius = 1.58;
+    const phi = (90 - latitude) * (Math.PI / 180);
+    const yPos = radius * Math.cos(phi);
+
+    return (
+        <group position={[0, yPos, 0]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+                <torusGeometry args={[radius * Math.sin(phi), 0.02, 16, 100]} />
+                <meshBasicMaterial color="#fbbf24" transparent opacity={0.6} />
+            </mesh>
+            <mesh rotation={[Math.PI / 2, 0, 0]} scale={[1, 1, 1.5]}>
+                <torusGeometry args={[radius * Math.sin(phi), 0.05, 8, 50]} />
+                <meshBasicMaterial color="#fbbf24" transparent opacity={0.15} />
+            </mesh>
+            <Html position={[radius * 1.1, 0, 0]}>
+                <div className="bg-amber-500/20 text-amber-300 text-[10px] font-black px-2 py-0.5 rounded-full border border-amber-500/50 backdrop-blur-md whitespace-nowrap uppercase tracking-widest shadow-lg">
+                    ITCZ: {latitude}°N
+                </div>
+            </Html>
+        </group>
+    );
+}
+
 function PressureMarker({ zone }: { zone: PressureZone }) {
     const pos = latLngToVector3(zone.center[0], zone.center[1], 1.55);
-    const color = zone.type === 'high' ? '#ef4444' : '#3b82f6'; // Red for High, Blue for Low (Physics convention usually implies High=Cool/Blue, Low=Warm/Red, but Geography maps often use Red for High pressure cells like Mascarene? Actually standard maps use Blue/Red variously. Let's stick to H=Red(Strong), L=Blue(Depression) or Vica Versa. Let's use Red for HEAT (Low) and Blue for COLD (High).
-
-    // Correction: 
-    // Summer: Land is Hot (Low Pressure) -> Red
-    // Winter: Land is Cold (High Pressure) -> Blue
-    const displayColor = zone.type === 'low' ? '#ef4444' : '#3b82f6';
+    const displayColor = zone.type === 'low' ? '#f43f5e' : '#3b82f6';
 
     return (
         <group position={pos.toArray()}>
             <mesh>
-                <sphereGeometry args={[0.05, 16, 16]} />
-                <meshBasicMaterial color={displayColor} opacity={0.7} transparent />
+                <sphereGeometry args={[0.06, 16, 16]} />
+                <meshStandardMaterial color={displayColor} emissive={displayColor} emissiveIntensity={2} />
             </mesh>
-            <Html distanceFactor={5}>
-                <div className="flex flex-col items-center">
-                    <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center font-bold text-xs bg-white/10 backdrop-blur-md ${zone.type === 'low' ? 'border-red-500 text-red-500' : 'border-blue-500 text-blue-500'}`}>
+            <Html distanceFactor={5} center>
+                <div className="flex flex-col items-center group">
+                    <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center font-black text-sm bg-black/60 shadow-2xl transition-all group-hover:scale-110 ${zone.type === 'low' ? 'border-rose-500 text-rose-500 shadow-rose-900/50' : 'border-blue-500 text-blue-500 shadow-blue-900/50'}`}>
                         {zone.type === 'high' ? 'H' : 'L'}
                     </div>
-                    <span className="text-white text-[10px] mt-1 bg-black/40 px-1 rounded">{zone.label}</span>
                 </div>
             </Html>
         </group>
@@ -156,6 +192,7 @@ function MonsoonScene({ activePhaseId }: { activePhaseId: string }) {
             <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={0.5} />
 
             <Earth />
+            <ITCZBand latitude={activePhase.itczPosition} />
 
             {/* Wind Patterns */}
             {activePhase.windPatterns.map((pattern, idx) => (

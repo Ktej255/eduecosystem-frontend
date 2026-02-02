@@ -9,7 +9,9 @@ import {
     Check,
     X,
     MoreHorizontal,
-    Search
+    Search,
+    Mail,
+    Smartphone
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -85,28 +87,51 @@ const MOCK_INBOX_ITEMS: InboxItem[] = [
     }
 ];
 
+import { useCommunicationStore, Message } from "@/store/communicationStore";
+
 export default function PriorityInbox() {
+    const { messages } = useCommunicationStore();
     const [activeTab, setActiveTab] = useState("all");
     const [items, setItems] = useState<InboxItem[]>(MOCK_INBOX_ITEMS);
 
-    const getIcon = (type: InboxItemType) => {
+    const getPriorityColor = (priority: 'high' | 'medium' | 'low') => {
+        switch (priority) {
+            case 'high': return "border-rose-200 bg-rose-50 text-rose-700";
+            case 'medium': return "border-amber-200 bg-amber-50 text-amber-700";
+            case 'low': return "border-blue-200 bg-blue-50 text-blue-700";
+            default: return "border-gray-200 bg-gray-50 text-gray-700";
+        }
+    };
+
+    const getIcon = (type: InboxItemType | Message['channel']) => {
         switch (type) {
             case 'query': return <MessageSquare className="h-4 w-4 text-blue-500" />;
             case 'review': return <ClipboardCheck className="h-4 w-4 text-emerald-500" />;
             case 'alert': return <AlertTriangle className="h-4 w-4 text-red-500" />;
+            case 'whatsapp': return <MessageSquare className="h-4 w-4 text-green-500" />;
+            case 'telegram': return <Smartphone className="h-4 w-4 text-blue-500" />;
+            case 'email': return <Mail className="h-4 w-4 text-amber-500" />;
+            default: return <MessageSquare className="h-4 w-4 text-slate-400" />;
         }
     };
 
-    const getPriorityColor = (priority: string) => {
-        switch (priority) {
-            case 'high': return "bg-red-50 text-red-700 border-red-200";
-            case 'medium': return "bg-amber-50 text-amber-700 border-amber-200";
-            case 'low': return "bg-slate-50 text-slate-700 border-slate-200";
-            default: return "bg-slate-100";
-        }
-    };
+    // Merge high-priority communications into the inbox view
+    const allInboxItems = [
+        ...messages.map(m => ({
+            id: m.id,
+            type: 'query' as const, // Treat incoming messages as queries
+            title: m.sender,
+            description: m.content,
+            author: m.sender,
+            timestamp: 'Just now',
+            priority: 'medium' as const,
+            isRead: m.status === 'read',
+            channel: m.channel
+        })),
+        ...items
+    ];
 
-    const filteredItems = items.filter(item => {
+    const filteredItems = allInboxItems.filter(item => {
         if (activeTab === "all") return true;
         return item.type === activeTab;
     });

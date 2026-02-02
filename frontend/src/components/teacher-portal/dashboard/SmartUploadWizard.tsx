@@ -9,7 +9,11 @@ import {
     Sparkles,
     Loader2,
     Tag,
-    ArrowRight
+    ArrowRight,
+    Youtube,
+    Lightbulb,
+    Copy,
+    Share2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,11 +28,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent } from "@/components/ui/card";
+import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
 
 export default function SmartUploadWizard() {
+    const { toast } = useToast();
     const [isOpen, setIsOpen] = useState(false);
-    const [step, setStep] = useState<1 | 2 | 3>(1);
+    const [step, setStep] = useState<1 | 2 | 3 | 4>(1); // Step 3 is now Snippet Factory, 4 is Success
     const [file, setFile] = useState<File | null>(null);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
 
@@ -56,13 +64,20 @@ export default function SmartUploadWizard() {
             const mockTitle = file.name.split('.')[0].replace(/-/g, ' ');
             setTitle(mockTitle.charAt(0).toUpperCase() + mockTitle.slice(1));
             setDescription(`Comprehensive study material regarding ${mockTitle}. Includes key concepts, definitions, and exam-relevant points.`);
-            setTags(["UPSC", "Prelims 2026", "Important", "GS-2"]);
+            // Dynamic tags based on filename keywords mock
+            const keywords = ["History", "Polity", "Economy", "Geography", "Science"];
+            const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
+            setTags(["UPSC", "Prelims 2026", randomKeyword, "Important"]);
             setIsAnalyzing(false);
-        }, 2000);
+        }, 1500);
+    };
+
+    const handleGenerateSnippets = () => {
+        setStep(3); // Go to Snippet Factory
     };
 
     const handlePublish = () => {
-        setStep(3);
+        setStep(4);
         // Reset after delay
         setTimeout(() => {
             setIsOpen(false);
@@ -72,6 +87,15 @@ export default function SmartUploadWizard() {
             }, 300);
         }, 2000);
     };
+
+    const copyToClipboard = (text: string) => {
+        navigator.clipboard.writeText(text);
+        toast({
+            title: "Copied!",
+            description: "Snippet copied to clipboard.",
+        });
+    };
+
 
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -86,14 +110,16 @@ export default function SmartUploadWizard() {
                     <DialogTitle className="flex items-center gap-2 text-xl">
                         {step === 1 && <Upload className="h-5 w-5 text-emerald-600" />}
                         {step === 2 && <Sparkles className="h-5 w-5 text-purple-600" />}
-                        {step === 3 && <CheckCircle2 className="h-5 w-5 text-green-600" />}
+                        {step === 3 && <Lightbulb className="h-5 w-5 text-amber-500" />}
+                        {step === 4 && <CheckCircle2 className="h-5 w-5 text-green-600" />}
 
-                        {step === 1 ? "Upload Content" : step === 2 ? "AI Enhancement" : "Published!"}
+                        {step === 1 ? "Upload Content" : step === 2 ? "AI Enhancement" : step === 3 ? "Snippet Factory" : "Published!"}
                     </DialogTitle>
                     <DialogDescription>
                         {step === 1 && "Drag & drop or select a file to begin."}
                         {step === 2 && "Review AI-generated metadata before publishing."}
-                        {step === 3 && "Your content is now live for students."}
+                        {step === 3 && "Generate social clips and quick facts."}
+                        {step === 4 && "Your content is now live for students."}
                     </DialogDescription>
                 </DialogHeader>
 
@@ -173,8 +199,63 @@ export default function SmartUploadWizard() {
                         </div>
                     )}
 
-                    {/* Step 3: Success */}
+                    {/* Step 3: Snippet Factory */}
                     {step === 3 && (
+                        <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
+                            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-800 flex items-start gap-2">
+                                <Lightbulb className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                                <p>AI has analyzed your content and generated ready-to-use snippets for student engagement.</p>
+                            </div>
+
+                            <Tabs defaultValue="facts" className="w-full">
+                                <TabsList className="grid w-full grid-cols-2">
+                                    <TabsTrigger value="facts">
+                                        <Lightbulb className="h-4 w-4 mr-2" /> Quick Facts
+                                    </TabsTrigger>
+                                    <TabsTrigger value="shorts">
+                                        <Youtube className="h-4 w-4 mr-2" /> Short Script
+                                    </TabsTrigger>
+                                </TabsList>
+                                <TabsContent value="facts" className="space-y-3 mt-4">
+                                    {[1, 2, 3].map((i) => (
+                                        <Card key={i} className="group hover:border-amber-400 transition-colors">
+                                            <CardContent className="p-3 flex items-start gap-3">
+                                                <Badge variant="outline" className="mt-0.5 bg-amber-100 text-amber-700 border-amber-200">{i}</Badge>
+                                                <p className="text-sm text-slate-700 flex-grow">
+                                                    {i === 1 ? `${title} is crucial for Prelims 2026 because of recent amendments.` :
+                                                        i === 2 ? `Key statistic: 45% increase in related cases over the last decade.` :
+                                                            `Remember: Article 34 of the constitution directly impacts this concept.`}
+                                                </p>
+                                                <Button variant="ghost" size="icon" className="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity" onClick={() => copyToClipboard("Fact content...")}>
+                                                    <Copy className="h-3 w-3" />
+                                                </Button>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </TabsContent>
+                                <TabsContent value="shorts" className="mt-4">
+                                    <Card className="bg-slate-900 text-slate-100 border-slate-700">
+                                        <CardContent className="p-4 space-y-4">
+                                            <div className="flex items-center justify-between border-b border-slate-700 pb-2">
+                                                <Badge className="bg-red-600 text-white border-0"><Youtube className="h-3 w-3 mr-1" /> Shorts Script</Badge>
+                                                <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white" onClick={() => copyToClipboard("Script content...")}>
+                                                    <Copy className="h-4 w-4 mr-2" /> Copy
+                                                </Button>
+                                            </div>
+                                            <div className="space-y-4 font-mono text-sm opacity-90">
+                                                <p><span className="text-green-400">[HOOK]</span>: "Did you know {title} actually changes how we understand the Constitution? 😱"</p>
+                                                <p><span className="text-blue-400">[BODY]</span>: "Most students miss this key point: It's not just about the law, it's about the implementation. Here are 3 reasons why..."</p>
+                                                <p><span className="text-yellow-400">[CTA]</span>: "Check out the full PDF in the portal for the deep dive! Link in bio. 👇"</p>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </TabsContent>
+                            </Tabs>
+                        </div>
+                    )}
+
+                    {/* Step 4: Success */}
+                    {step === 4 && (
                         <div className="flex flex-col items-center justify-center py-6 animate-in zoom-in duration-300">
                             <div className="h-20 w-20 bg-green-100 rounded-full flex items-center justify-center mb-4">
                                 <CheckCircle2 className="h-10 w-10 text-green-600" />
@@ -193,14 +274,27 @@ export default function SmartUploadWizard() {
                             <Button variant="outline" onClick={() => { setStep(1); setFile(null); }}>
                                 Cancel
                             </Button>
+                            <Button variant="secondary" className="bg-amber-100 text-amber-800 hover:bg-amber-200 border-amber-200" onClick={handleGenerateSnippets}>
+                                <Sparkles className="mr-2 h-4 w-4" /> Generate Snippets
+                            </Button>
                             <Button className="bg-purple-600 hover:bg-purple-700" onClick={handlePublish}>
                                 Publish Now <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </>
                     )}
+                    {step === 3 && (
+                        <>
+                            <Button variant="outline" onClick={() => setStep(2)}>
+                                Back
+                            </Button>
+                            <Button className="bg-green-600 hover:bg-green-700" onClick={handlePublish}>
+                                <CheckCircle2 className="mr-2 h-4 w-4" /> Confirm & Publish
+                            </Button>
+                        </>
+                    )}
                 </div>
-            </DialogContent>
-        </Dialog>
+            </DialogContent >
+        </Dialog >
     );
 }
 

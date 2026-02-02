@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,7 +25,7 @@ interface PlanItem {
     portal: string;
     tasks: string[];
     priority: "high" | "medium" | "low";
-    estimatedHours: number;
+    estimated_hours: number;
 }
 
 interface AIInsight {
@@ -43,7 +43,7 @@ export default function AIPlanningPage() {
     const [isGenerating, setIsGenerating] = useState(false);
     const [daysToAnalyze, setDaysToAnalyze] = useState(15);
     const [planGenerated, setPlanGenerated] = useState(false);
-    const [planData, setPlanData] = useState<{ generated_plan: PlanItem[], strategic_insights: AIInsight[] } | null>(null);
+    const [planData, setPlanData] = useState<{ plan_items: PlanItem[], insights: AIInsight[] } | null>(null);
     const [isLogging, setIsLogging] = useState(false);
     const [logForm, setLogForm] = useState({
         portal: "Admin",
@@ -53,6 +53,24 @@ export default function AIPlanningPage() {
         impact: "Medium"
     });
 
+    useEffect(() => {
+        const fetchLatestPlan = async () => {
+            try {
+                const token = localStorage.getItem("access_token");
+                const response = await axios.get(`${API_URL}/api/v1/admin/ai-planning/latest`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                if (response.data) {
+                    setPlanData(response.data);
+                    setPlanGenerated(true);
+                }
+            } catch (error) {
+                console.log("No previous plan found");
+            }
+        };
+        fetchLatestPlan();
+    }, []);
+
     const handleLogDevelopment = async () => {
         if (!logForm.feature || !logForm.description) {
             toast.error("Please fill in feature name and description");
@@ -61,8 +79,14 @@ export default function AIPlanningPage() {
         setIsLogging(true);
         try {
             const token = localStorage.getItem("access_token");
-            await axios.post(`${API_URL}/api/v1/admin/ai/log-development`, null, {
-                params: logForm,
+            await axios.post(`${API_URL}/api/v1/admin/development-logs`, {
+                date: new Date().toISOString().split('T')[0],
+                title: logForm.feature,
+                description: logForm.description,
+                batch: logForm.portal,
+                features: [logForm.feature],
+                challenges: []
+            }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             toast.success("Development action logged!");
@@ -78,8 +102,8 @@ export default function AIPlanningPage() {
         setIsGenerating(true);
         try {
             const token = localStorage.getItem("access_token");
-            const response = await axios.get(`${API_URL}/api/v1/admin/ai/plan`, {
-                params: { lookback: daysToAnalyze },
+            const response = await axios.post(`${API_URL}/api/v1/admin/ai-planning/generate`, null, {
+                params: { days: daysToAnalyze },
                 headers: { Authorization: `Bearer ${token}` }
             });
             setPlanData(response.data);
@@ -111,8 +135,8 @@ export default function AIPlanningPage() {
         }
     };
 
-    const totalHours = planData?.generated_plan.reduce((acc, p) => acc + p.estimatedHours, 0) || 0;
-    const totalTasks = planData?.generated_plan.reduce((acc, p) => acc + p.tasks.length, 0) || 0;
+    const totalHours = planData?.plan_items?.reduce((acc, p) => acc + (p.estimated_hours || 0), 0) || 0;
+    const totalTasks = planData?.plan_items?.reduce((acc, p) => acc + (p.tasks?.length || 0), 0) || 0;
 
     return (
         <div className="p-8 max-w-6xl mx-auto">
@@ -209,7 +233,7 @@ export default function AIPlanningPage() {
                             <div className="flex items-center gap-3">
                                 <Lightbulb className="w-8 h-8 text-green-600" />
                                 <div>
-                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{planData?.strategic_insights.length || 0}</p>
+                                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{planData?.insights?.length || 0}</p>
                                     <p className="text-sm text-gray-500">AI Insights</p>
                                 </div>
                             </div>
@@ -223,7 +247,7 @@ export default function AIPlanningPage() {
                             AI-Generated Insights
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {planData?.strategic_insights.map((insight, idx) => (
+                            {planData?.insights?.map((insight, idx) => (
                                 <Card key={idx} className="p-4">
                                     <div className="flex items-start gap-3">
                                         {getInsightIcon(insight.type)}
@@ -249,7 +273,7 @@ export default function AIPlanningPage() {
                             7-Day Development Plan
                         </h2>
                         <div className="space-y-4">
-                            {planData?.generated_plan.map((plan) => (
+                            {planData?.plan_items?.map((plan) => (
                                 <Card key={plan.day} className="overflow-hidden">
                                     <div className="flex">
                                         {/* Day Badge */}
@@ -273,7 +297,7 @@ export default function AIPlanningPage() {
                                                 </div>
                                                 <div className="flex items-center gap-1 text-sm text-gray-500">
                                                     <Clock className="w-4 h-4" />
-                                                    {plan.estimatedHours}h
+                                                    {plan.estimated_hours}h
                                                 </div>
                                             </div>
 

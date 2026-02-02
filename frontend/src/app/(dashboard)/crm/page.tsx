@@ -17,6 +17,15 @@ import {
     Bot,
     ChevronRight,
 } from "lucide-react";
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    Tooltip as RechartsTooltip,
+    ResponsiveContainer,
+    Cell
+} from 'recharts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -65,6 +74,14 @@ const leadSources = [
     { name: "Referrals", leads: 2054, percentage: 16, color: "bg-emerald-500" },
     { name: "Events", leads: 1541, percentage: 12, color: "bg-amber-500" },
     { name: "Direct", leads: 1521, percentage: 12, color: "bg-rose-500" },
+];
+
+const funnelData = [
+    { stage: 'Leads', value: 12847, fill: '#6366f1' },
+    { stage: 'Contacted', value: 8432, fill: '#8b5cf6' },
+    { stage: 'Qualified', value: 5210, fill: '#a855f7' },
+    { stage: 'Demo', value: 3150, fill: '#d946ef' },
+    { stage: 'Enrolled', value: 1284, fill: '#ec4899' },
 ];
 
 const recentLeads = [
@@ -210,7 +227,7 @@ export default function CRMDashboardPage() {
                 ))}
             </div>
 
-            {/* Main Content Grid */}
+            {/* Main Content Grid: Row 1 */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Lead Sources */}
                 <Card className="lg:col-span-1 border-0 shadow-lg">
@@ -242,8 +259,36 @@ export default function CRMDashboardPage() {
                     </CardContent>
                 </Card>
 
-                {/* Recent Leads */}
+                {/* Conversion Funnel */}
                 <Card className="lg:col-span-2 border-0 shadow-lg">
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-lg font-semibold">Conversion Funnel</CardTitle>
+                        <CardDescription>Lead progression from inquiry to enrollment</CardDescription>
+                    </CardHeader>
+                    <CardContent className="h-[250px]">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <BarChart data={funnelData} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                                <XAxis type="number" hide />
+                                <YAxis dataKey="stage" type="category" width={80} tick={{ fontSize: 12 }} />
+                                <RechartsTooltip
+                                    cursor={{ fill: 'transparent' }}
+                                    contentStyle={{ borderRadius: '8px', border: 'none', backgroundColor: 'rgba(255, 255, 255, 0.95)' }}
+                                />
+                                <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={30}>
+                                    {funnelData.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={entry.fill} />
+                                    ))}
+                                </Bar>
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </CardContent>
+                </Card>
+            </div>
+
+            {/* Main Content Grid: Row 2 */}
+            <div className="grid grid-cols-1 gap-6">
+                {/* Recent Leads */}
+                <Card className="border-0 shadow-lg">
                     <CardHeader className="pb-4">
                         <div className="flex items-center justify-between">
                             <div>

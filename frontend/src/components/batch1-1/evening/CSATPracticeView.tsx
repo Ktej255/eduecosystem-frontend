@@ -17,7 +17,8 @@ import {
     ZoomOut,
     Lightbulb,
     Trophy,
-    ArrowRight
+    ArrowRight,
+    Sparkles
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -201,12 +202,48 @@ export default function CSATPracticeView({ dayNumber, onComplete }: CSATPractice
                         <div className="text-center">
                             <span className="text-5xl font-black text-indigo-600">{score}</span>
                             <span className="text-xl text-gray-400">/{allQuestions.length}</span>
-                            <p className="text-sm font-bold text-gray-500 mt-2">SCORE</p>
+                            <p className="text-sm font-bold text-gray-500 mt-2 uppercase tracking-widest">Score</p>
                         </div>
-                        <div className="h-16 w-[1px] bg-gray-100" />
+                        <div className="h-16 w-[1px] bg-slate-200" />
                         <div className="text-center">
                             <span className="text-5xl font-black text-emerald-500">{Math.round((score / allQuestions.length) * 100)}%</span>
-                            <p className="text-sm font-bold text-gray-500 mt-2">ACCURACY</p>
+                            <p className="text-sm font-bold text-gray-500 mt-2 uppercase tracking-widest">Accuracy</p>
+                        </div>
+                        <div className="h-16 w-[1px] bg-slate-200" />
+                        <div className="text-center">
+                            <span className="text-5xl font-black text-amber-500">{formatTime(25 * 60 - timeLeft)}</span>
+                            <p className="text-sm font-bold text-gray-500 mt-2 uppercase tracking-widest">Time Taken</p>
+                        </div>
+                    </div>
+
+                    {/* Deep Insight Analytics */}
+                    <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-200 mb-8">
+                        <h4 className="flex items-center gap-2 font-black text-slate-800 dark:text-white mb-4 uppercase tracking-tighter">
+                            <Sparkles className="h-5 w-5 text-indigo-500" />
+                            Deep Insight Analysis
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="bg-white dark:bg-black p-4 rounded-xl shadow-sm border border-slate-100">
+                                <span className="block text-[10px] font-black text-slate-400 uppercase mb-1">Consistency</span>
+                                <div className="text-xl font-black text-indigo-600">
+                                    {Math.round((Object.values(attempts).filter(a => a.confidence === 'sure' && a.isCorrect).length / Math.max(1, Object.values(attempts).filter(a => a.confidence === 'sure').length)) * 100)}%
+                                </div>
+                                <p className="text-[10px] text-slate-500 mt-1">Foundational Stability</p>
+                            </div>
+                            <div className="bg-white dark:bg-black p-4 rounded-xl shadow-sm border border-slate-100">
+                                <span className="block text-[10px] font-black text-slate-400 uppercase mb-1">Risk Factor</span>
+                                <div className="text-xl font-black text-rose-500">
+                                    {Object.values(attempts).filter(a => a.confidence === 'sure' && !a.isCorrect).length} Misconceptions
+                                </div>
+                                <p className="text-[10px] text-slate-500 mt-1">High-confidence errors</p>
+                            </div>
+                            <div className="bg-white dark:bg-black p-4 rounded-xl shadow-sm border border-slate-100">
+                                <span className="block text-[10px] font-black text-slate-400 uppercase mb-1">Intuition</span>
+                                <div className="text-xl font-black text-emerald-500">
+                                    {Math.round((Object.values(attempts).filter(a => a.confidence !== 'sure' && a.isCorrect).length / Math.max(1, Object.values(attempts).filter(a => a.confidence !== 'sure').length)) * 100)}%
+                                </div>
+                                <p className="text-[10px] text-slate-500 mt-1">Guesswork Accuracy</p>
+                            </div>
                         </div>
                     </div>
 

@@ -92,19 +92,19 @@ export default function FlowArrows({
 
     return (
         <group>
-            {/* River Path Line */}
-            <line ref={lineRef as any}>
-                <bufferGeometry>
-                    <bufferAttribute
-                        attach="attributes-position"
-                        count={positions.length / 3}
-                        array={positions}
-                        itemSize={3}
-                        args={[positions, 3]}
-                    />
-                </bufferGeometry>
-                <lineBasicMaterial color={color} linewidth={width} opacity={0.6} transparent />
-            </line>
+            {/* River Path Tube (Volumetric Line) */}
+            <mesh ref={lineRef as any}>
+                <tubeGeometry args={[curve, 100, width, 8, false]} />
+                <meshStandardMaterial
+                    color={color}
+                    emissive={color}
+                    emissiveIntensity={0.5}
+                    transparent
+                    opacity={0.4}
+                    roughness={0}
+                    metalness={1}
+                />
+            </mesh>
 
             {/* Flowing Particles */}
             <points ref={particlesRef}>

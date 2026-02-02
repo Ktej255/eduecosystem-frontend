@@ -7,6 +7,7 @@ import {
     DollarSign,
     Clock,
     CheckCircle2,
+    AlertCircle,
     Sparkles,
     ArrowRight,
     Layout,
@@ -26,6 +27,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { useActivityLogStore } from "@/store/activityLogStore";
 
 export default function CourseCreationWizard() {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,22 +40,56 @@ export default function CourseCreationWizard() {
     const [duration, setDuration] = useState("");
     const [description, setDescription] = useState("");
 
+    const [error, setError] = useState<string | null>(null);
+
+    const { addLog } = useActivityLogStore();
+
     const handleCreate = () => {
+        if (!courseName || !category) {
+            setError("Please fill in the required fields.");
+            return;
+        }
+        setError(null);
         setStep(2);
-        // Simulate "AI Structuring"
-        setTimeout(() => {
-            setStep(3);
-        }, 1500);
+
+        try {
+            // Simulate "AI Structuring"
+            setTimeout(() => {
+                setStep(3);
+            }, 1500);
+        } catch (err) {
+            console.error("Course creation failed:", err);
+            setError("Internal error during generation.");
+            setStep(1);
+        }
     };
 
     const handleFinalize = () => {
-        setIsOpen(false);
-        // Reset form
-        setTimeout(() => {
-            setStep(1);
-            setCourseName("");
-            setCategory("");
-        }, 300);
+        try {
+            // Log to Audit System
+            addLog({
+                action: 'Course Created',
+                description: `Successfully published course: ${courseName}`,
+                user: 'Faculty Alpha', // Placeholder, ideally from auth context
+                role: 'Instructor', // Placeholder
+                status: 'success',
+                module: 'content'
+            });
+
+            setIsOpen(false);
+            // Reset form
+            setTimeout(() => {
+                setStep(1);
+                setCourseName("");
+                setCategory("");
+                setPrice("");
+                setDuration("");
+                setDescription("");
+                setError(null);
+            }, 300);
+        } catch (err) {
+            setIsOpen(false);
+        }
     };
 
     return (
@@ -81,6 +117,12 @@ export default function CourseCreationWizard() {
                 </DialogHeader>
 
                 <div className="py-6">
+                    {error && (
+                        <div className="mb-4 p-3 bg-red-50 border border-red-100 rounded-lg flex items-center gap-2 text-red-600 text-sm animate-in fade-in slide-in-from-top-1">
+                            <AlertCircle className="h-4 w-4" />
+                            {error}
+                        </div>
+                    )}
                     {/* Step 1: Details */}
                     {step === 1 && (
                         <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
