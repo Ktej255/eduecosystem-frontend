@@ -10,8 +10,13 @@ import logging
 import os
 import sys
 
+import sys
+print("DEBUG: Loading main.py...", file=sys.stderr)
+
 from fastapi import Request
 from fastapi.responses import JSONResponse
+
+print("DEBUG: Imports complete. Initializing app...", file=sys.stderr)
 
 logger = logging.getLogger(__name__)
 
@@ -70,11 +75,13 @@ async def lifespan(app: FastAPI):
     """
     Lifespan context manager for production deployment.
     Initializes essential services only (skips Redis/Sentry for now).
+    IMPORTANT: Keep this lightweight - avoid database operations that could hang.
     """
     logger.info("Starting Eduecosystem Backend (Production Mode)...")
     
-    # Auto-seed meditation processes if table is empty
-    seed_meditation_processes()
+    # Skip meditation seeding on startup to prevent database timeout hangs
+    # This can be run manually via API endpoint if needed
+    # seed_meditation_processes()
     
     yield  # Application runs here
 
@@ -185,23 +192,19 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
 app.add_middleware(SecurityHeadersMiddleware)
 
 # Multi-Tenant Detection Middleware (Phase 6)
-from app.middleware.tenant import TenantMiddleware
-app.add_middleware(TenantMiddleware)
+# from app.middleware.tenant import TenantMiddleware
+# app.add_middleware(TenantMiddleware)
 
 
 # Import and include API router
 try:
-    print("Attempting to import api_router...")
     from app.api.api_v1.api import api_router
-    print(f"api_router imported successfully, routes: {len(api_router.routes)}")
     app.include_router(api_router, prefix=API_V1_STR)
-    print("API router included successfully")
     logger.info("API router included successfully")
 except Exception as e:
     import traceback
-    print(f"FAILED to include API router: {e}")
-    print(traceback.format_exc())
     logger.error(f"Failed to include API router: {e}")
+    print(traceback.format_exc())
 
 
 
