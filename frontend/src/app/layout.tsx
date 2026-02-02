@@ -13,6 +13,8 @@ import { GamificationProvider } from "@/context/GamificationContext";
 import { PurchaseProvider } from "@/context/PurchaseContext";
 import { HabitProvider } from "@/context/HabitContext";
 import { CommunityProvider } from "@/context/CommunityContext";
+import { GlobalCommandPalette } from "@/components/layout/GlobalCommandPalette";
+import NetworkStatus from "@/components/shared/offline/NetworkStatus";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,6 +70,8 @@ export default function RootLayout({
                       <HabitProvider>
                         <CommunityProvider>
                           <ServiceWorkerRegister />
+                          <NetworkStatus />
+                          <GlobalCommandPalette />
                           {children}
                           <AIChatWidget />
                           <BuildInfo />

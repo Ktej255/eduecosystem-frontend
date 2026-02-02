@@ -13,6 +13,7 @@ import PriorityInbox from "@/components/teacher-portal/dashboard/PriorityInbox";
 import LakshmikantKanban from "@/components/teacher-portal/dashboard/LakshmikantKanban";
 import SmartUploadWizard from "@/components/teacher-portal/dashboard/SmartUploadWizard";
 import ContentHealthScore from "@/components/teacher-portal/library/ContentHealthScore";
+import LiveSessionDashboard from "@/components/teacher-portal/dashboard/live/LiveSessionDashboard";
 
 interface StudentData {
     id: number;
@@ -117,6 +118,9 @@ export default function TeacherDashboard() {
 
     return (
         <div className="p-4 md:p-6 space-y-6 max-w-7xl mx-auto">
+            {/* Phase 17: Live Classroom Command Center */}
+            <LiveSessionDashboard />
+
             {/* Phase 1: Dynamic Morning Briefing */}
             <MorningBriefing />
 

@@ -1,2 +1,9 @@
-import Page_Webinars from "@/app/(dashboard)/lms/webinars/page";
-export default Page_Webinars;
+import EventManager from "@/components/lms/events/EventManager";
+
+export default function WebinarsPage() {
+    return (
+        <div className="p-6 h-[calc(100vh-64px)]">
+            <EventManager />
+        </div>
+    );
+}

@@ -1,7 +1,9 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { Book, ChevronRight, Clock, Sparkles, Target, TrendingUp, Calendar, Layout, User, ShieldCheck } from 'lucide-react';
+import { Book, ChevronRight, Clock, Sparkles, Target, TrendingUp, Calendar, Layout, User, ShieldCheck, Mic } from 'lucide-react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import OralQuizManager from '@/components/shared/voice/OralQuizManager';
+import TTSPlayer from '@/components/shared/voice/TTSPlayer';
 
 // --- Types ---
 
@@ -80,6 +82,7 @@ interface SubjectPlannerProps {
 export default function SubjectPlanner({ config, embedded = false }: SubjectPlannerProps) {
     const [selectedModule, setSelectedModule] = useState<string | null>(null);
     const [view, setView] = useState<'topics' | 'schedule' | 'map'>('map');
+    const [showOralQuiz, setShowOralQuiz] = useState(false);
     const scheduleRef = useRef<HTMLDivElement>(null);
 
     // Scroll to schedule when view changes
@@ -164,13 +167,20 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
                             </div>
                         </div>
 
-                        <div className="mt-8">
+                        <div className="mt-8 flex gap-4">
                             <button
                                 onClick={() => setView('schedule')}
                                 className={`bg-white text-${config.colors.primary}-700 hover:bg-${config.colors.primary}-50 font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all`}
                             >
                                 <TrendingUp className="w-5 h-5" />
                                 Open Planner & Schedule
+                            </button>
+                            <button
+                                onClick={() => setShowOralQuiz(true)}
+                                className="bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-lg backdrop-blur flex items-center gap-2 transition-all border border-white/30"
+                            >
+                                <Mic className="w-5 h-5" />
+                                Start Oral Quiz
                             </button>
                         </div>
                     </div>
@@ -230,6 +240,16 @@ export default function SubjectPlanner({ config, embedded = false }: SubjectPlan
                     </div>
                 )}
             </div>
+
+            <AnimatePresence>
+                {showOralQuiz && (
+                    <OralQuizManager
+                        subjectName={config.title}
+                        topics={config.topics.map(t => t.title)}
+                        onClose={() => setShowOralQuiz(false)}
+                    />
+                )}
+            </AnimatePresence>
         </div>
     );
 }
@@ -307,6 +327,7 @@ function TopicsView({ config, selectedModule, setSelectedModule }: { config: Sub
                                             <div className="flex items-center gap-2 mb-2">
                                                 <span className={`text-xs px-2 py-0.5 rounded bg-${config?.colors?.primary || 'blue'}-100 dark:bg-${config?.colors?.primary || 'blue'}-900/30 text-${config?.colors?.primary || 'blue'}-700 font-medium`}>Topic {topic.id}</span>
                                                 {topic.priority === 'High' && <span className="text-xs px-2 py-0.5 rounded bg-red-100 text-red-700">High Priority</span>}
+                                                <TTSPlayer text={`${topic.title}. ${topic.staticFocus}`} className="ml-auto" />
                                             </div>
                                             <h3 className="text-lg font-semibold text-[#1F2937] dark:text-white mb-1">{topic.title}</h3>
                                             <p className="text-sm text-gray-600 dark:text-gray-400">{topic.staticFocus}</p>

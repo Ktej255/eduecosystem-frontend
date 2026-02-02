@@ -25,9 +25,11 @@ import { Button } from '@/components/ui/button';
 import GraphoAIAnalyzer from './GraphoAIAnalyzer';
 import GraphoVoiceSync from './GraphoVoiceSync';
 import { graphotherapyService } from '@/services/graphotherapyService';
+import DigitalStrokeAnalyzer from './DigitalStrokeAnalyzer';
 
 // ... (existing helper types)
 type DrillStep =
+    | 'digital-warmup' // New Step
     | 'page-instructions'
     | 'page-writing'
     | 'page-upload'
@@ -45,7 +47,7 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
 
     // State
     const [currentPage, setCurrentPage] = useState(1);
-    const [step, setStep] = useState<DrillStep>('page-instructions');
+    const [step, setStep] = useState<DrillStep>('digital-warmup'); // Start with Warmup
     const [files, setFiles] = useState<(File | null)[]>(Array(pagesRequired).fill(null));
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showAnalyzer, setShowAnalyzer] = useState(false);
@@ -288,6 +290,21 @@ export default function DailyDrillMode({ drill, level = CLASS_CONFIG.graphothera
                         />
                     ))}
                 </div>
+
+                {step === 'digital-warmup' && (
+                    <div className="space-y-6">
+                        <div className="text-center">
+                            <h2 className="text-2xl font-bold mb-2">Digital Calibration</h2>
+                            <p className="text-neutral-400">Warm up your hand and mind before the physical drill.</p>
+                        </div>
+                        <DigitalStrokeAnalyzer onComplete={() => setStep('page-instructions')} />
+                        <div className="flex justify-center">
+                            <Button variant="ghost" className="text-neutral-500 text-xs" onClick={() => setStep('page-instructions')}>
+                                Skip Warmup
+                            </Button>
+                        </div>
+                    </div>
+                )}
 
                 {step === 'page-instructions' && (
                     <div className="bg-neutral-800 rounded-3xl p-8 border border-neutral-700 text-center">

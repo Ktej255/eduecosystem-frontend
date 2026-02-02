@@ -14,12 +14,14 @@ interface NeuroCanvasProps {
     interactive?: boolean;
     className?: string;
     onSpeedChange?: (speed: number) => void;
+    onStrokeAnalyze?: (metrics: { speed: number; pressure: number; jitter: number; flowState: string }) => void;
 }
 
 export default function NeuroCanvas({
     interactive = true,
     className = '',
-    onSpeedChange
+    onSpeedChange,
+    onStrokeAnalyze
 }: NeuroCanvasProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -161,6 +163,30 @@ export default function NeuroCanvas({
         }
     };
 
+    // Analytics State
+    const lastAngles = useRef<number[]>([]);
+
+    const calculateJitter = (x: number, y: number): number => {
+        if (points.current.length < 3) return 0;
+
+        const p1 = points.current[points.current.length - 2];
+        const p2 = points.current[points.current.length - 1];
+
+        const angle = Math.atan2(y - p2.y, x - p2.x);
+        lastAngles.current.push(angle);
+        if (lastAngles.current.length > 5) lastAngles.current.shift();
+
+        if (lastAngles.current.length < 3) return 0;
+
+        // Calculate variance in angles
+        let variance = 0;
+        for (let i = 1; i < lastAngles.current.length; i++) {
+            variance += Math.abs(lastAngles.current[i] - lastAngles.current[i - 1]);
+        }
+
+        return Math.min(variance, 1); // Normalize 0-1
+    };
+
     const handleMouseMove = (e: React.MouseEvent) => {
         if (!interactive || !containerRef.current) return;
 
@@ -170,8 +196,11 @@ export default function NeuroCanvas({
         const y = e.clientY - rect.top;
         const time = Date.now();
 
-        // Calculate Speed
+        // Calculate Speed & Pressure
         let speed = 0;
+        let pressure = 0.5;
+        let jitter = 0;
+
         if (points.current.length > 0) {
             const lastPoint = points.current[points.current.length - 1];
             const dx = x - lastPoint.x;
@@ -179,15 +208,29 @@ export default function NeuroCanvas({
             const dt = time - lastPoint.time;
             if (dt > 0) {
                 speed = Math.sqrt(dx * dx + dy * dy) / dt * 10; // Normalize speed
+                // Physics: Faster = Lighter pressure
+                pressure = Math.max(0.1, Math.min(1.0, 1 - (speed / 30)));
             }
+
+            jitter = calculateJitter(x, y);
         }
 
         if (onSpeedChange) onSpeedChange(speed);
 
-        // Add point
-        points.current.push({ x, y, pressure: 1, time });
+        // Emit Analytics
+        if (onStrokeAnalyze) {
+            onStrokeAnalyze({
+                speed,
+                pressure,
+                jitter,
+                flowState: jitter < 0.2 && speed > 5 ? 'Flowing' : jitter > 0.5 ? 'Jittery' : 'Stable'
+            });
+        }
 
-        // Add particles on movement
+        // Add point with calculated pressure
+        points.current.push({ x, y, pressure, time });
+
+        // Add particles on movement (color based on pressure/flow)
         if (Math.random() > 0.5) {
             addParticle(x, y, speed);
         }
