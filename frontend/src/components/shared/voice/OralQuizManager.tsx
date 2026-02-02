@@ -7,6 +7,7 @@ import { Mic, Volume2, X, Brain, CheckCircle, XCircle, Loader2 } from 'lucide-re
 import VoiceInput from './VoiceInput';
 import TTSPlayer from './TTSPlayer';
 import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 interface OralQuizManagerProps {
     subjectName: string;
