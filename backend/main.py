@@ -202,10 +202,13 @@ try:
     from app.api.api_v1.api import api_router
     app.include_router(api_router, prefix=API_V1_STR)
     logger.info("API router included successfully")
+    print(f"DEBUG: API Router included successfully with prefix {API_V1_STR}")
 except Exception as e:
     import traceback
-    logger.error(f"Failed to include API router: {e}")
-    print(traceback.format_exc())
+    error_msg = f"CRITICAL: Failed to include API router: {str(e)}"
+    logger.error(error_msg)
+    print(error_msg)
+    traceback.print_exc()
 
 
 
