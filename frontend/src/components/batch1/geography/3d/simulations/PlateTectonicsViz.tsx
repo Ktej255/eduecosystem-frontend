@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense, useRef } from "react";
+import React, { useState, Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Html, Stars, MeshTransmissionMaterial } from "@react-three/drei";
 import * as THREE from "three";
@@ -266,8 +266,6 @@ function TectonicsScene({
     );
 }
 
-// Need to import React for useMemo
-import React from "react";
 
 export default function PlateTectonicsViz() {
     const [selectedBoundary, setSelectedBoundary] = useState<BoundaryType | null>(null);

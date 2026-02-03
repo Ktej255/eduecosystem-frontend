@@ -179,3 +179,51 @@ export const COASTAL_KARST_CONTENT: LessonContent = {
         }
     ]
 };
+
+export const VOLCANIC_LANDFORMS_CONTENT: LessonContent = {
+    topicId: 'volcanic-landforms',
+    title: 'Volcanic Landforms',
+    description: 'Landforms resulting from the eruption and solidification of magma.',
+    sections: [
+        {
+            id: 'intrusive',
+            title: 'Intrusive Landforms (Plutonic)',
+            content: [
+                {
+                    id: 'batholiths',
+                    type: 'text',
+                    content: `**Batholiths:** Large granitic bodies, cooled deep underground. Core of many mountain ranges.`
+                },
+                {
+                    id: 'sub-volcanic',
+                    type: 'text',
+                    content: `**Hypabyssal Forms:**
+- **Laccoliths:** Dome-shaped bodies with a level base (mushroom-like).
+- **Lopoliths:** Saucer-shaped bodies.
+- **Phacoliths:** Lens-shaped masses in anticlines/synclines.
+- **Sills:** Horizontal sheets of solidified magma.
+- **Dykes:** Vertical wall-like structures (e.g., Deccan Traps).`
+                }
+            ]
+        },
+        {
+            id: 'extrusive',
+            title: 'Extrusive Landforms (Volcanic)',
+            content: [
+                {
+                    id: 'volcano-types',
+                    type: 'text',
+                    content: `**Types of Volcanoes:**
+- **Shield Volcanoes:** Low viscosity lava, broad gentle slopes (e.g., Hawaii).
+- **Composite/Stratovolcanoes:** High viscosity, explosive, steep cones (e.g., Mt. Fuji).
+- **Caldera:** Collapsed depression after a massive eruption (e.g., Lake Toba).`
+                },
+                {
+                    id: 'lava-plateaus',
+                    type: 'text',
+                    content: `**Flood Basalt Provinces:** Highly fluid lava traveling long distances forming stepped plains (Traps). Example: Deccan Traps, India.`
+                }
+            ]
+        }
+    ]
+};

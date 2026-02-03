@@ -9,6 +9,8 @@ import { geographyFlashcards as GEOGRAPHY_FLASHCARDS } from './data/flashcards/g
 import { geographyMCQs as GEOGRAPHY_MCQS } from './data/mcqs/geography-mcqs';
 import { Button } from '@/components/ui/button';
 import { getContentForTopic } from './content/content-registry';
+import { getVisualization, VISUALIZATION_REGISTRY } from '@/data/upsc-visualization-registry';
+import { Card } from '@/components/ui/card';
 
 interface TopicDetailViewProps {
     node: GeographyNode;
@@ -30,10 +32,13 @@ export default function TopicDetailView({ node, onBack }: TopicDetailViewProps) 
     );
     const displayFlashcards = relevantFlashcards.length > 0 ? relevantFlashcards : GEOGRAPHY_FLASHCARDS.slice(0, 5);
 
-    // Get quizzes from content sections if available
     const quizQuestions = content?.sections
         .flatMap(s => s.content)
         .filter(c => c.type === 'quiz') || [];
+
+    // Check for Visualization
+    const VisualizationComponent = VISUALIZATION_REGISTRY[node.id] || getVisualization(node.id, 0);
+
 
     return (
         <div className="w-full animate-in slide-in-from-right duration-500 bg-white dark:bg-[#0a0a0a] min-h-[600px] rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 flex flex-col">
@@ -80,6 +85,14 @@ export default function TopicDetailView({ node, onBack }: TopicDetailViewProps) 
             <div className="flex-1 p-6 overflow-y-auto">
                 {activeTab === 'overview' && (
                     <div className="space-y-8 max-w-4xl mx-auto">
+
+                        {/* Visualization Section */}
+                        {VisualizationComponent && (
+                            <div className="mb-8 animate-in fade-in slide-in-from-bottom-2 duration-700">
+                                <VisualizationComponent />
+                            </div>
+                        )}
+
                         {!content ? (
                             <div className="text-center py-12 text-neutral-500">
                                 <p>Content is being curated for this topic.</p>

@@ -2,14 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lock, Play, Star, Sparkles, Check } from 'lucide-react';
+import { Lock, Play, Star, Sparkles, Check, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MeditationLevel } from '../store/MeditationProgressionStore';
 
 interface MeditationLevelCardProps {
     level: MeditationLevel;
     isUnlocked: boolean;
-    userCoins: number;
     onUnlock: (id: number) => void;
     onPlay: (id: number) => void;
 }
@@ -17,11 +16,21 @@ interface MeditationLevelCardProps {
 export default function MeditationLevelCard({
     level,
     isUnlocked,
-    userCoins,
     onUnlock,
     onPlay
 }: MeditationLevelCardProps) {
-    const canAfford = userCoins >= level.unlockPrice;
+    // Pricing configuration based on Phase 2 decisions
+    const getPrice = (id: number) => {
+        switch (id) {
+            case 1: return 999;
+            case 2: return 1499;
+            case 3: return 1999;
+            case 4: return 2499;
+            default: return 999;
+        }
+    };
+
+    const price = getPrice(level.id);
 
     return (
         <motion.div
@@ -81,20 +90,15 @@ export default function MeditationLevelCard({
                 ) : (
                     <Button
                         onClick={() => onUnlock(level.id)}
-                        disabled={!canAfford}
                         className={`
                             w-full h-12 rounded-xl font-bold border-2 transition-all
-                            ${canAfford
-                                ? 'bg-transparent border-white/20 text-white hover:bg-white/5 hover:border-white/40'
-                                : 'bg-neutral-900 border-neutral-800 text-neutral-600 cursor-not-allowed'
-                            }
+                            bg-neutral-900 border-neutral-800 text-white hover:bg-neutral-800 hover:border-neutral-600
                         `}
                     >
                         <div className="flex items-center justify-between w-full px-4">
-                            <span>Unlock</span>
+                            <span>Unlock Access</span>
                             <div className="flex items-center gap-1.5">
-                                <Star className={`w-4 h-4 ${canAfford ? 'text-yellow-400' : 'text-neutral-600'}`} fill="currentColor" />
-                                <span>{level.unlockPrice}</span>
+                                <span className="text-yellow-400 font-bold">₹{price}</span>
                             </div>
                         </div>
                     </Button>

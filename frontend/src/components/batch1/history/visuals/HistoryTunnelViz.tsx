@@ -47,9 +47,10 @@ function TimeParticles({ count = 1000 }) {
 
 function Tunnel() {
     const scroll = useScroll();
-    const group = useRef<THREE.Group>(null!);
+    const group = useRef<THREE.Group>(null);
 
     useFrame((state) => {
+        if (!group.current) return;
         const offset = scroll.offset;
         group.current.position.z = offset * 70; // Map scroll to depth
     });

@@ -1,0 +1,66 @@
+﻿
+> frontend@0.1.0 build
+> next build --webpack
+
+node.exe : ΓÜá Warning: Next.js inferred your 
+workspace root, but it may not be correct.
+At C:\Program Files\nodejs\npm.ps1:29 char:3
++   & $NODE_EXE $NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ΓÜá W 
+   arning: Ne...not be correct.:String) [], Remot  
+  eException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ We detected multiple lockfiles and selected the 
+directory of D:\Graphology\Master 
+Software\Eduecosystem\package-lock.json as the 
+root directory.
+ To silence this warning, set 
+`outputFileTracingRoot` in your Next.js config, or 
+consider removing one of the lockfiles if it's not 
+needed.
+   See https://nextjs.org/docs/app/api-reference/co
+nfig/next-config-js/output#caveats for more 
+information.
+ Detected additional lockfiles: 
+   * D:\Graphology\Master 
+Software\Eduecosystem\frontend\package-lock.json
+
+Γû▓ Next.js 16.1.1 (webpack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 3.0min
+  Running TypeScript ...
+Failed to compile.
+
+./src/components/batch1/science-tech/visualizations
+/TechTreeViz.tsx:76:38
+Type error: Property 'opacity' does not exist on 
+type 'Material | Material[]'.
+  Property 'opacity' does not exist on type 
+'Material[]'.
+
+[0m [90m 74 |[39m     useFrame((state) 
+[33m=>[39m {
+ [90m 75 |[39m         [36mif[39m 
+(lineRef[33m.[39mcurrent) {
+[31m[1m>[22m[39m[90m 76 |[39m             lin
+eRef[33m.[39mcurrent[33m.[39mmaterial[33m.[39
+mopacity [33m=[39m isHighlighted [33m?[39m 
+[35m0.8[39m [33m:[39m [35m0.2[39m[33m;[39m
+ [90m    |[39m                                   
+   [31m[1m^[22m[39m
+ [90m 77 |[39m             [90m// Pulse 
+effect[39m
+ [90m 78 |[39m             [36mif[39m 
+(isHighlighted) {
+ [90m 79 |[39m                 lineRef[33m.[39m
+current[33m.[39mmaterial[33m.[39mopacity 
+[33m+=[39m [33mMath[39m[33m.[39msin(state[33
+m.[39mclock[33m.[39melapsedTime [33m*[39m 
+[35m4[39m) [33m*[39m 
+[35m0.1[39m[33m;[39m[0m
+Next.js build worker exited with code: 1 and 
+signal: null

@@ -101,6 +101,13 @@ export function DashboardHeader({ phase, dailyProgress, mode, onToggleMode, onSt
                             </button>
                         )}
 
+                        <a
+                            href="/student/meditation"
+                            className="flex items-center gap-2 text-xs font-bold text-emerald-400 hover:text-white bg-emerald-400/10 hover:bg-emerald-400 px-3 py-1.5 rounded-full transition-all border border-emerald-400/20 group"
+                        >
+                            <Wind size={14} className="group-hover:animate-spin-slow" /> Inner Sanctum
+                        </a>
+
                         {/* Soundscape Selector */}
                         <div className="relative">
                             <button

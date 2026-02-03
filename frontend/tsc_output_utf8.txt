@@ -1,1 +1,18 @@
-﻿src/components/batch1-1/data/saturday-test-data.ts(794,9): error TS2353: Object literal may only specify known properties, and 'professional_tax' does not exist in type 'ModuleMCQ'.
+﻿src/components/meditation/experiences/Level1_Breathing.tsx(114,21): error TS2322: Type '{ inhale: { scale: number; opacity: number; transition: { duration: number; ease: string; }; }; hold: { scale: number; opacity: number; transition: { duration: number; ease: string; }; }; exhale: { scale: number; opacity: number; transition: { ...; }; }; hold2: { ...; }; }' is not assignable to type 'Variants'.
+  Property 'inhale' is incompatible with index signature.
+    Type '{ scale: number; opacity: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ scale: number; opacity: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ scale: number; opacity: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues$1 | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/meditation/experiences/Level1_Breathing.tsx(187,22): error TS2741: Property 'preSessionData' is missing in type '{ experienceId: number; onComplete: () => void; }' but required in type 'PostSessionExperienceFormProps'.
+src/components/meditation/experiences/Level2ZenGarden.tsx(166,22): error TS2741: Property 'preSessionData' is missing in type '{ experienceId: number; onComplete: () => void; }' but required in type 'PostSessionExperienceFormProps'.
+src/components/meditation/experiences/Level3_Resonance.tsx(93,26): error TS2741: Property 'preSessionData' is missing in type '{ experienceId: number; onComplete: () => void; }' but required in type 'PostSessionExperienceFormProps'.
+src/components/meditation/experiences/Level4_Transcendence.tsx(55,18): error TS2741: Property 'args' is missing in type '{ attach: string; count: number; array: Float32Array<ArrayBuffer>; itemSize: number; }' but required in type 'Mutable<Overwrite<Partial<Overwrite<BufferAttribute, MathProps<BufferAttribute> & ReactProps<BufferAttribute>>>, Omit<...>>>'.
+src/components/meditation/experiences/Level4_Transcendence.tsx(61,18): error TS2741: Property 'args' is missing in type '{ attach: string; count: number; array: Float32Array<ArrayBuffer>; itemSize: number; }' but required in type 'Mutable<Overwrite<Partial<Overwrite<BufferAttribute, MathProps<BufferAttribute> & ReactProps<BufferAttribute>>>, Omit<...>>>'.
+src/components/meditation/experiences/Level4_Transcendence.tsx(213,22): error TS2741: Property 'preSessionData' is missing in type '{ experienceId: number; onComplete: () => void; }' but required in type 'PostSessionExperienceFormProps'.
+src/services/ai/meditationInsights.ts(1,35): error TS2307: Cannot find module '../types/meditation' or its corresponding type declarations.

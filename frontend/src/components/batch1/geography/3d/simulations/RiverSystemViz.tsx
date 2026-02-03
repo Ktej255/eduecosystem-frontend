@@ -56,10 +56,31 @@ function RiverScene({
                     ] as [number, number][]
                 },
                 {
-                    id: 'kosi',
-                    color: '#26C6DA',
+                    id: 'ramganga',
+                    color: '#81D4FA',
                     path: [
-                        [27.98, 87.00], [27.00, 87.20], [26.50, 87.00], [26.00, 86.80], [25.25, 86.98]
+                        [30.08, 79.28], [29.50, 79.00], [28.50, 79.50], [27.50, 79.80], [26.45, 80.35]
+                    ] as [number, number][]
+                },
+                {
+                    id: 'gomti',
+                    color: '#4FC3F7',
+                    path: [
+                        [28.58, 80.17], [28.00, 80.50], [27.00, 81.50], [26.00, 82.50], [25.50, 83.20]
+                    ] as [number, number][]
+                },
+                {
+                    id: 'ghaghara',
+                    color: '#0288D1',
+                    path: [
+                        [30.67, 81.33], [29.50, 81.00], [28.00, 81.50], [27.00, 82.50], [26.00, 83.80], [25.77, 84.73]
+                    ] as [number, number][]
+                },
+                {
+                    id: 'son',
+                    color: '#D4E157',
+                    path: [
+                        [22.67, 81.75], [23.50, 82.00], [24.50, 83.50], [25.20, 84.50], [25.60, 85.10]
                     ] as [number, number][]
                 },
                 {
@@ -67,6 +88,13 @@ function RiverScene({
                     color: '#00BCD4',
                     path: [
                         [28.50, 84.50], [27.50, 84.20], [26.80, 84.50], [26.20, 84.80], [25.60, 85.10]
+                    ] as [number, number][]
+                },
+                {
+                    id: 'kosi',
+                    color: '#26C6DA',
+                    path: [
+                        [27.98, 87.00], [27.00, 87.20], [26.50, 87.00], [26.00, 86.80], [25.25, 86.98]
                     ] as [number, number][]
                 }
             ];
@@ -209,7 +237,7 @@ export default function RiverSystemViz({ systemId = 'ganga' }: { systemId?: 'gan
                                 <p className="text-slate-400 text-sm">{selectedNode.node.description}</p>
                             )}
                             <div className="mt-2 text-xs text-slate-500">
-                                📍 {selectedNode.node.coordinates[0].toFixed(2)}°N, {selectedNode.node.coordinates[1].toFixed(2)}°E
+                                Loc: {selectedNode.node.coordinates[0].toFixed(2)}°N, {selectedNode.node.coordinates[1].toFixed(2)}°E
                             </div>
                         </div>
                         <button onClick={() => setSelectedNode(null)} className="text-slate-500 hover:text-white transition-colors">✕</button>

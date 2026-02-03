@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { meditationService } from '@/services/meditationService'; // Import service
 
 export interface MeditationLevel {
     id: 1 | 2 | 3 | 4;
@@ -54,6 +55,8 @@ interface MeditationState {
     lastSessionDate: string | null;
 
     unlockLevel: (levelId: number) => boolean;
+    grantLevel: (levelId: number) => void; // New action for payment unlocks
+    syncPurchases: () => Promise<void>;   // New action to sync with backend
     completeSession: (minutes: number) => void;
     addCoins: (amount: number) => void;
 }
@@ -81,6 +84,30 @@ export const useMeditationStore = create<MeditationState>()(
                     currentLevel: levelId // Auto-switch to newly unlocked
                 });
                 return true;
+            },
+
+            grantLevel: (levelId) => {
+                const { unlockedLevels } = get();
+                if (!unlockedLevels.includes(levelId)) {
+                    set({
+                        unlockedLevels: [...unlockedLevels, levelId],
+                        currentLevel: levelId
+                    });
+                }
+            },
+
+            syncPurchases: async () => {
+                try {
+                    const history = await meditationService.getPurchaseHistory();
+                    if (history && history.levels_owned) {
+                        const { unlockedLevels } = get();
+                        // Merge existing unlocks with purchased ones
+                        const newUnlocks = Array.from(new Set([...unlockedLevels, ...history.levels_owned]));
+                        set({ unlockedLevels: newUnlocks as number[] });
+                    }
+                } catch (error) {
+                    console.error("Failed to sync purchases:", error);
+                }
             },
 
             completeSession: (minutes) => {

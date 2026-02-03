@@ -51,7 +51,7 @@ function FiscalPillar({
     position: [number, number, number],
     heightScale: number
 }) {
-    const meshRef = useRef<THREE.Mesh>(null!);
+    const meshRef = useRef<THREE.Mesh>(null);
     const height = item.size * heightScale;
 
     useFrame((state) => {
@@ -99,7 +99,7 @@ function FiscalPillar({
 }
 
 function CurrencyFlow({ color, mode }: { color: string, mode: 'inflow' | 'outflow' }) {
-    const pointsRef = useRef<THREE.Points>(null!);
+    const pointsRef = useRef<THREE.Points>(null);
     const count = 500;
 
     const [positions, speeds] = useMemo(() => {

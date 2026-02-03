@@ -65,6 +65,9 @@ class User(Base):
     meditation_sessions = relationship(
         "MeditationSession", back_populates="owner", cascade="all, delete-orphan"
     )
+    meditation_purchases = relationship(
+        "MeditationLevelPurchase", back_populates="user", cascade="all, delete-orphan"
+    )
     activity_logs = relationship(
         "ActivityLog", back_populates="user", cascade="all, delete-orphan"
     )
@@ -180,6 +183,13 @@ class User(Base):
         "MeditationProgress",
         back_populates="user",
         uselist=False,
+        cascade="all, delete-orphan",
+    )
+    
+    # Meditation Experiences (AI Progress Tracking)
+    meditation_experiences = relationship(
+        "MeditationExperience",
+        back_populates="user",
         cascade="all, delete-orphan",
     )
 

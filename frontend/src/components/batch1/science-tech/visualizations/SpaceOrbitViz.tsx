@@ -7,39 +7,48 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Rocket, Info } from "lucide-react";
 import * as THREE from "three";
 
+// Enhanced Earth Component with Shader Material placeholder
 function Earth() {
     return (
         <group>
-            {/* Holographic Base */}
+            {/* Core Earth Sphere */}
             <mesh>
                 <sphereGeometry args={[1, 64, 64]} />
-                <meshPhongMaterial
-                    color="#0a1a1f"
-                    emissive="#001a1a"
-                    emissiveIntensity={0.8}
-                    shininess={100}
-                    transparent
-                    opacity={0.9}
+                <meshStandardMaterial
+                    color="#1e3a8a" // Ocean Blue
+                    roughness={0.6}
+                    metalness={0.1}
                 />
             </mesh>
-            {/* Atmosphere Rim Light */}
-            <mesh scale={[1.08, 1.08, 1.08]}>
+            {/* Continents (Procedural Noise Facade - Simplified for Viz) */}
+            <mesh scale={[1.001, 1.001, 1.001]}>
                 <sphereGeometry args={[1, 64, 64]} />
                 <meshStandardMaterial
-                    color="#00bcd4"
+                    color="#15803d" // Land Green
                     transparent
-                    opacity={0.15}
+                    opacity={0.3}
+                    roughness={0.8}
+                />
+            </mesh>
+            {/* Atmosphere Halo */}
+            <mesh scale={[1.1, 1.1, 1.1]}>
+                <sphereGeometry args={[1, 64, 64]} />
+                <meshStandardMaterial
+                    color="#38bdf8"
+                    transparent
+                    opacity={0.2}
                     side={THREE.BackSide}
+                    blending={THREE.AdditiveBlending}
                 />
             </mesh>
-            {/* Data Grid Mask */}
-            <mesh scale={[1.02, 1.02, 1.02]}>
+            {/* Clouds */}
+            <mesh scale={[1.01, 1.01, 1.01]}>
                 <sphereGeometry args={[1, 64, 64]} />
                 <meshStandardMaterial
-                    color="#00e5ff"
+                    color="#ffffff"
                     transparent
-                    opacity={0.05}
-                    wireframe
+                    opacity={0.4}
+                    alphaMap={null!} // Placeholder for future texture
                 />
             </mesh>
         </group>
@@ -160,9 +169,9 @@ export default function SpaceOrbitViz() {
                     <div className="absolute inset-x-4 bottom-4 z-20 bg-slate-900/90 border border-slate-700 p-4 rounded-xl text-sm text-slate-300 animate-in slide-in-from-bottom-2">
                         <h4 className="font-bold text-white mb-2">Key Exam Points:</h4>
                         <ul className="space-y-1 text-xs list-disc pl-4">
-                            <li><strong className="text-cyan-400">LEO:</strong> Remote Sensing, ISS. Fast period (90 mins).</li>
-                            <li><strong className="text-purple-400">MEO:</strong> Navigation (GPS, Galileo). ~12hr period.</li>
-                            <li><strong className="text-amber-400">GEO:</strong> Telecomm. Matches Earth's rotation (24hrs). Stationary from ground.</li>
+                            <li><strong className="text-cyan-400">LEO (160-2000km):</strong> Remote Sensing (Cartosat), Spy Satellites, ISS. Period: ~90 mins. <span className="text-xs text-slate-500 block">Advantages: High resolution imaging, low latency.</span></li>
+                            <li><strong className="text-purple-400">MEO (2000-35786km):</strong> Navigation (GPS, GLONASS, Galileo). Period: ~12 hrs. <span className="text-xs text-slate-500 block">Advantages: Covered larger area than LEO, fewer hops for signals.</span></li>
+                            <li><strong className="text-amber-400">GEO (35,786km):</strong> Telecommunications, Weather (INSAT). Period: 24 hrs. <span className="text-xs text-slate-500 block">Advantages: Fixed position relative to ground, continuous coverage of one area.</span></li>
                         </ul>
                     </div>
                 )}

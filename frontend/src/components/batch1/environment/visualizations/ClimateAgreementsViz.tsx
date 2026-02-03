@@ -165,7 +165,7 @@ function AgreementCard({ agreement, isSelected, onClick, position }: {
 }
 
 function MiniGlobe({ location }: { location: string }) {
-    const meshRef = useRef<THREE.Mesh>(null!);
+    const meshRef = useRef<THREE.Mesh>(null);
     useFrame(() => {
         if (meshRef.current) meshRef.current.rotation.y += 0.01;
     });

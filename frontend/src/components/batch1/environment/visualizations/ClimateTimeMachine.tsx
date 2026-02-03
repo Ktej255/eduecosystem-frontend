@@ -56,7 +56,7 @@ function Atmosphere({ temp, scale, opacity, color }: { temp: number, scale: numb
 }
 
 function TemperatureSmoke({ temp }: { temp: number }) {
-    const pointsRef = useRef<THREE.Points>(null!);
+    const pointsRef = useRef<THREE.Points>(null);
     const particleCount = 200;
     const isActive = temp > 2.0;
 
@@ -110,7 +110,7 @@ function TemperatureSmoke({ temp }: { temp: number }) {
 }
 
 function HolographicGlobe({ temp }: { temp: number }) {
-    const meshRef = useRef<THREE.Mesh>(null!);
+    const meshRef = useRef<THREE.Mesh>(null);
     const glowColor = getColorForTemp(temp);
 
     useFrame((state) => {

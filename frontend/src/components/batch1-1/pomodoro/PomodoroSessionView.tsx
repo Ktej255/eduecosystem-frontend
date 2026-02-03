@@ -17,6 +17,8 @@ import BreakTimer from "./BreakTimer";
 // Removed old module import to enforce strict schedule sync
 import { CHAPTER_SUBTOPICS, SubTopic } from "@/components/batch1/polity/data/polity-subtopics";
 import { LAXMIKANTH_CHAPTERS, generateWeeklySchedule } from "@/components/batch1/polity/data/polity-schedule-data";
+import { getFabDayContent, FAB_MONTH_START } from "./FabScheduleData";
+// import { HISTORY_SCHEDULE } from "../../batch1/history/data/history-schedule-data";
 import { markChapterComplete, markSubtopicsComplete, updateDayProgress, recordMCQScore } from "@/lib/polity-progress-store";
 import { ambientSoundManager, NoiseType } from "@/lib/ambient-sound-manager";
 import { Slider } from "@/components/ui/slider";
@@ -61,12 +63,44 @@ interface CycleData {
 }
 
 // Get schedule items for the day (Chapters and/or Tasks)
-function getDayContent(weekId: number, dayId: number): { chapters: number[], tasks: string[] } {
+function getDayContent(weekId: number, dayId: number): { chapters: number[], tasks: string[], isFabSchedule?: boolean, morningTopic?: string, eveningTopic?: string, liveClassLink?: string } {
     const dayMapping = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as const;
 
     // Validate dayId (1-7)
     if (dayId < 1 || dayId > 7) return { chapters: [], tasks: [] };
 
+    // --- FAB MONTH LOGIC (Feb 9+) ---
+    // Calculate if this week/day falls into the Fab Month Plan.
+    // Assuming Week 1 of Fab Month starts on Feb 9.
+    // For now, let's assume specific Week IDs are assigned to Fab Month (e.g., Week 6+) OR
+    // we calculate based on a logical mapping.
+    // Let's assume Week 1 passed via props IS the Fab Month Week 1 for simplicity if the user is in that mode?
+    // User Context: "From 9 Feb we start...". 
+    // Let's check dates relative to Feb 9.
+
+    // Simplification: We map the input (weekId, dayId) to a linear day from start of Fab Month.
+    // This allows the user to see the schedule even if "today" isn't Feb 9 yet, for planning.
+    const linearDay = (weekId - 1) * 7 + (dayId);
+
+    // We check if this linear day exists in our Fab Schedule
+    const fabDate = new Date(FAB_MONTH_START);
+    fabDate.setDate(fabDate.getDate() + (linearDay - 1));
+
+    const fabContent = getFabDayContent(fabDate);
+
+    if (fabContent && fabContent.morning.schedule) {
+        // We found a history schedule!
+        return {
+            chapters: fabContent.morning.schedule.chapters,
+            tasks: fabContent.morning.schedule.topics,
+            isFabSchedule: true,
+            morningTopic: fabContent.morning.schedule.title,
+            eveningTopic: fabContent.evening.topic,
+            liveClassLink: fabContent.liveClassLink
+        };
+    }
+
+    // --- FALLBACK TO OLD POLYITY SCHEDULE ---
     const dayKey = dayMapping[dayId - 1];
 
     // Use the official schedule generator
@@ -226,10 +260,21 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
     const currentSessionInBlock = ((currentSessionGlobal - 1) % SESSIONS_PER_BLOCK) + 1;
 
     // Get today's content (chapters & tasks)
-    const { chapters: todayChapters, tasks: todayTasks } = useMemo(() => getDayContent(weekId, dayId), [weekId, dayId]);
+    const { chapters: todayChapters, tasks: todayTasks, isFabSchedule, morningTopic, eveningTopic, liveClassLink } = useMemo(() => getDayContent(weekId, dayId), [weekId, dayId]);
 
     // Get chapter names / task names for display
     const scheduleItems = useMemo(() => {
+        if (isFabSchedule) {
+            // For Fab Schedule, 'tasks' contains the Topics (Unit X...), chapters are Spectrum IDs
+            // We can map chapters to Labels if needed, or just show tasks.
+            // The History Schedule has 'topics' array which are descriptive.
+            return todayTasks.map((t, idx) => ({
+                id: `task-${idx}`,
+                label: t,
+                isChapter: false
+            }));
+        }
+
         const items = todayChapters.map(id => {
             const chapter = LAXMIKANTH_CHAPTERS.find(ch => ch.chapter === id);
             return {
@@ -248,7 +293,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
         });
 
         return items;
-    }, [todayChapters, todayTasks]);
+    }, [todayChapters, todayTasks, isFabSchedule]);
 
     // --- Persistence ---
     useEffect(() => {
@@ -653,6 +698,27 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                         <h3 className="font-bold text-gray-800 dark:text-gray-200">Today's Schedule</h3>
                         <p className="text-xs text-gray-500">
                             {(() => {
+                                if (isFabSchedule) {
+                                    return (
+                                        <div className="flex flex-col gap-1">
+                                            <span className="font-semibold text-indigo-600 dark:text-indigo-400">{morningTopic}</span>
+                                            {eveningTopic && (
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-orange-600 py-0.5 px-1.5 bg-orange-50 dark:bg-orange-900/20 rounded-md w-fit text-[10px] font-bold uppercase">
+                                                        Evening: {eveningTopic}
+                                                    </span>
+                                                    {liveClassLink && (
+                                                        <Link href={liveClassLink} target="_blank">
+                                                            <Button size="sm" variant="destructive" className="h-6 text-[10px] animate-pulse px-2">
+                                                                🔴 CLASS IS LIVE
+                                                            </Button>
+                                                        </Link>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                }
                                 const uniqueCompletedChapters = new Set(
                                     sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])
                                 ).size;

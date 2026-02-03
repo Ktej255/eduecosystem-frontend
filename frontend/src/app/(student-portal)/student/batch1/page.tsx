@@ -20,11 +20,16 @@ import EconomyHome from '@/components/batch1/economy/EconomyHome';
 import EnvironmentHome from '@/components/batch1/environment/EnvironmentHome';
 import ScienceTechHome from '@/components/batch1/science-tech/ScienceTechHome';
 import ArtCultureHome from '@/components/batch1/art-culture/ArtCultureHome';
+import EthicsDashboard from '@/components/batch1/ethics/EthicsDashboard';
+import SecurityDashboard from '@/components/batch1/security/SecurityDashboard';
+import SocietyDashboard from '@/components/batch1/society/SocietyDashboard';
+import ValueAdditionDashboard from '@/components/batch1/value-addition/ValueAdditionDashboard';
+import IrHome from '@/components/batch1/international-relations/IrHome';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { useRouter } from 'next/navigation';
 
-type Batch1Tab = 'focus' | 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science' | 'art';
+type Batch1Tab = 'focus' | 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science' | 'art' | 'ethics' | 'ir' | 'security' | 'society' | 'value';
 
 export default function Batch1Hub() {
     const router = useRouter();
@@ -39,6 +44,11 @@ export default function Batch1Hub() {
         { id: 'environment', label: 'Environment', icon: Leaf, color: 'text-green-600' },
         { id: 'science', label: 'S&T', icon: Atom, color: 'text-violet-600' },
         { id: 'art', label: 'Art', icon: Palette, color: 'text-pink-600' },
+        { id: 'ethics', label: 'Ethics', icon: BrainCircuit, color: 'text-slate-600' },
+        { id: 'ir', label: 'IR', icon: (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2.05 12h20" /><path d="M12 2.05v20" /><path d="m4.93 4.93 14.14 14.14" /><path d="m19.07 4.93-14.14 14.14" /></svg>, color: 'text-indigo-500' },
+        { id: 'security', label: 'Security', icon: (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /></svg>, color: 'text-red-600' },
+        { id: 'society', label: 'Society', icon: (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>, color: 'text-pink-600' },
+        { id: 'value', label: 'Fab Month', icon: (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z" /><path d="M11 3 8 9l4 13 4-13-3-6" /></svg>, color: 'text-yellow-600' },
     ];
 
     return (
@@ -105,6 +115,11 @@ export default function Batch1Hub() {
                         {activeTab === 'environment' && <EnvironmentHome />}
                         {activeTab === 'science' && <ScienceTechHome />}
                         {activeTab === 'art' && <ArtCultureHome />}
+                        {activeTab === 'ethics' && <EthicsDashboard />}
+                        {activeTab === 'ir' && <IrHome />}
+                        {activeTab === 'security' && <SecurityDashboard />}
+                        {activeTab === 'society' && <SocietyDashboard />}
+                        {activeTab === 'value' && <ValueAdditionDashboard />}
                     </motion.div>
                 </AnimatePresence>
             </div>

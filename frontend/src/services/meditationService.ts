@@ -86,6 +86,66 @@ export interface DayCompleteResponse {
     next_level_unlocked: boolean;
 }
 
+// ============================================================================
+// Experience Recording Types (AI Progress Tracking)
+// ============================================================================
+
+export interface ExperienceResponse {
+    id: number;
+    user_id: number;
+    day_completion_id: number;
+
+    // Pre-session
+    pre_stress_level: number;
+    pre_anxiety_level: number;
+    pre_focus_level: number;
+    pre_emotional_state: string;
+    pre_concerns?: string;
+    pre_recorded_at: string;
+
+    // Post-session
+    post_stress_level?: number;
+    post_anxiety_level?: number;
+    post_focus_level?: number;
+    post_emotional_state?: string;
+    post_insights?: string;
+    post_effectiveness_rating?: number;
+    post_recorded_at?: string;
+
+    // Improvements
+    stress_improvement?: number;
+    anxiety_improvement?: number;
+    focus_improvement?: number;
+    overall_improvement_score?: number;
+}
+
+export interface AnalyticsResponse {
+    total_sessions: number;
+    average_stress_improvement: number;
+    average_anxiety_improvement: number;
+    average_focus_improvement: number;
+    overall_wellbeing_score: number;
+    trend_direction: 'improving' | 'stable' | 'declining';
+    best_time_of_day?: 'morning' | 'night';
+    most_effective_processes: number[];
+}
+
+export interface GraphDataPoint {
+    date: string;
+    stress_level?: number;
+    anxiety_level?: number;
+    focus_level?: number;
+    improvement_score?: number;
+}
+
+export interface GraphDataResponse {
+    pre_session_data: GraphDataPoint[];
+    post_session_data: GraphDataPoint[];
+    improvement_data: GraphDataPoint[];
+    date_range: string;
+}
+
+
 // Level configuration
 export const MEDITATION_LEVELS = {
     1: { days: 60, name: "Foundation: Breath Awareness", description: "Building daily meditation habit", color: "blue" },
@@ -151,6 +211,74 @@ export const meditationService = {
             `/meditation/level/${levelId}/day/${dayNumber}/complete`,
             { session_type: sessionType, notes }
         );
+        return response.data;
+    },
+
+    // ============================================================================
+    // Experience Recording (AI Progress Tracking)
+    // ============================================================================
+
+    async recordPreSessionExperience(data: {
+        level: number;
+        day_number: number;
+        stress_level: number;
+        anxiety_level: number;
+        focus_level: number;
+        emotional_state: string;
+        concerns?: string;
+    }): Promise<ExperienceResponse> {
+        const response = await api.post('/meditation/experience/pre-session', data);
+        return response.data;
+    },
+
+    async recordPostSessionExperience(data: {
+        experience_id: number;
+        stress_level: number;
+        anxiety_level: number;
+        focus_level: number;
+        emotional_state: string;
+        insights?: string;
+        effectiveness_rating: number;
+    }): Promise<ExperienceResponse> {
+        const response = await api.post('/meditation/experience/post-session', data);
+        return response.data;
+    },
+
+    async getAnalytics(): Promise<AnalyticsResponse> {
+        const response = await api.get('/meditation/experience/analytics');
+        return response.data;
+    },
+
+    async getGraphData(days: number = 30): Promise<GraphDataResponse> {
+        const response = await api.get(`/meditation/experience/graphs?days=${days}`);
+        return response.data;
+    },
+
+    // ========================================================================
+    // PAYMENT METHODS (Phase 2)
+    // ========================================================================
+
+    async getPricing(): Promise<any> {
+        const response = await api.get('/meditation/levels/pricing');
+        return response.data;
+    },
+
+    async initiatePurchase(levelId: number): Promise<any> {
+        const response = await api.post(`/meditation/level/${levelId}/purchase/initiate`);
+        return response.data;
+    },
+
+    async verifyPurchase(levelId: number, paymentData: {
+        razorpay_order_id: string;
+        razorpay_payment_id: string;
+        razorpay_signature: string;
+    }): Promise<any> {
+        const response = await api.post(`/meditation/level/${levelId}/purchase/verify`, paymentData);
+        return response.data;
+    },
+
+    async getPurchaseHistory(): Promise<any> {
+        const response = await api.get('/meditation/purchases');
         return response.data;
     }
 };

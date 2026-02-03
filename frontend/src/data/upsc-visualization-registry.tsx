@@ -23,6 +23,11 @@ const CircularFlowViz = dynamic(() => import('@/components/batch1/economy/visual
 });
 
 const PlateTectonicsViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/PlateTectonicsViz'), { ssr: false });
+const InteriorEarthViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/InteriorEarthViz'), { ssr: false });
+const AtmosphereViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/AtmosphereViz'), { ssr: false });
+const OceanFloorViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/OceanFloorViz'), { ssr: false });
+const OceanCurrentsViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/OceanCurrentsViz'), { ssr: false });
+const GeologicalTimeScaleViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/GeologicalTimeScaleViz'), { ssr: false });
 const VolcanoViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/VolcanoViz'), { ssr: false });
 const RiverSystemViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/RiverSystemViz'), { ssr: false });
 const MonsoonViz = dynamic(() => import('@/components/batch1/geography/3d/simulations/MonsoonViz'), { ssr: false });
@@ -48,10 +53,15 @@ export const VISUALIZATION_REGISTRY: Record<string, React.ComponentType<any>> = 
     'gc-leong:1': GeographyGlobe,
     'ncert-geography-11:1': GeographyGlobe,
     'savinder-singh:2': PlateTectonicsViz,
+    'interior-earth': InteriorEarthViz,
+    'atmosphere-structure': AtmosphereViz,
+    'geo-time-scale': GeologicalTimeScaleViz,
     'savinder-singh:3': VolcanoViz,
     'savinder-singh:4': GlacialViz,
     'savinder-singh:5': RiverSystemViz,
     'ncert-geography-11:4': MonsoonViz,
+    'ocean-relief': OceanFloorViz,
+    'ocean-currents': OceanCurrentsViz,
 };
 
 export const getVisualization = (bookId: string, chapterId: number) => {

@@ -326,6 +326,27 @@ export default function AntiGravityDashboard() {
                             Start Mock Test
                         </button>
                     </CosmicCard>
+
+                    {/* Meditation Widget */}
+                    <CosmicCard className="p-6 relative overflow-hidden group" glowColor="emerald">
+                        <div className="absolute inset-0 bg-[url('/meditation-bg.jpg')] opacity-10 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
+                        <div className="relative z-10">
+                            <div className="flex items-center justify-between mb-4">
+                                <h3 className="text-lg font-bold">Inner Sanctum</h3>
+                                <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                            </div>
+                            <p className="text-sm text-gray-400 mb-6">
+                                Realign your focus. Access the void to recharge your mental cognitive load.
+                            </p>
+
+                            <a
+                                href="/student/meditation"
+                                className="w-full py-3 bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 rounded-xl font-bold transition-all flex items-center justify-center gap-2"
+                            >
+                                <span className="text-lg">🧘‍♂️</span> Enter Sanctum
+                            </a>
+                        </div>
+                    </CosmicCard>
                 </div>
             </main>
         </div>

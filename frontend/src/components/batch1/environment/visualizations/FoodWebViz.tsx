@@ -107,7 +107,7 @@ function EnergyFlow({ from, to, isBroken, dashed }: { from: [number, number, num
     }, [from, to]);
 
     const points = useMemo(() => curve.getPoints(50), [curve]);
-    const lineRef = useRef<any>(null!);
+    const lineRef = useRef<THREE.Line>(null);
 
     useFrame((state) => {
         if (lineRef.current) {
@@ -118,7 +118,7 @@ function EnergyFlow({ from, to, isBroken, dashed }: { from: [number, number, num
     });
 
     return (
-        <line ref={lineRef}>
+        <line ref={lineRef as any}>
             <bufferGeometry>
                 <bufferAttribute
                     attach="attributes-position"

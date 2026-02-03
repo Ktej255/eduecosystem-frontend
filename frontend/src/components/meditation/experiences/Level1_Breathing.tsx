@@ -1,47 +1,80 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { X, Play, Pause, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MEDITATION_THEME } from '../theme/MeditationTheme';
+import AmbientBackground from '../theme/AmbientBackground';
+import PreSessionExperienceForm from '../PreSessionExperienceForm';
+import PostSessionExperienceForm from '../PostSessionExperienceForm';
+import SessionSummary from '../features/SessionSummary';
+import { Play, Pause, RotateCw, Settings2, Wind } from 'lucide-react';
 
 interface Level1Props {
     onExit: () => void;
     onComplete: (minutes: number) => void;
+    level?: number;
+    dayNumber?: number;
 }
 
-export default function Level1_Breathing({ onExit, onComplete }: Level1Props) {
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [phase, setPhase] = useState<'Inhale' | 'Hold' | 'Exhale'>('Inhale');
+export default function Level1_Breathing({ onExit, onComplete, level = 1, dayNumber = 1 }: Level1Props) {
+    // State
+    const [phase, setPhase] = useState<'inhale' | 'hold' | 'exhale' | 'hold2'>('inhale');
     const [timeLeft, setTimeLeft] = useState(300); // 5 Minutes default
-    const [sessionComplete, setSessionComplete] = useState(false);
+    const [isActive, setIsActive] = useState(false);
+    const [showPreExperience, setShowPreExperience] = useState(true);
+    const [showPostExperience, setShowPostExperience] = useState(false);
+    const [experienceId, setExperienceId] = useState<number | null>(null);
+    const [preSessionData, setPreSessionData] = useState<any>(null);
+    const [isComplete, setIsComplete] = useState(false);
 
+    // Breathing Animation Variants
+    const circleVariants: any = {
+        inhale: { scale: 1.5, opacity: 1, transition: { duration: 4, ease: "easeInOut" } },
+        hold: { scale: 1.5, opacity: 0.8, transition: { duration: 4, ease: "linear" } },
+        exhale: { scale: 1, opacity: 0.6, transition: { duration: 4, ease: "easeInOut" } },
+        hold2: { scale: 1, opacity: 0.6, transition: { duration: 4, ease: "linear" } }
+    };
+
+    const textVariants = {
+        initial: { opacity: 0, y: 10 },
+        animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        exit: { opacity: 0, y: -10, transition: { duration: 0.5 } }
+    };
+
+    // Timer & Phase Logic
     useEffect(() => {
-        let timer: NodeJS.Timeout;
-        if (isPlaying && timeLeft > 0) {
-            timer = setInterval(() => {
-                setTimeLeft(prev => {
+        let interval: NodeJS.Timeout;
+        if (isActive && timeLeft > 0) {
+            interval = setInterval(() => {
+                setTimeLeft((prev) => {
                     if (prev <= 1) {
-                        setIsPlaying(false);
-                        setSessionComplete(true);
-                        onComplete(5); // Log 5 mins
+                        setIsActive(false);
+                        setIsComplete(true);
+                        if (experienceId) setShowPostExperience(true);
+                        onComplete(5); // 5 mins completed
                         return 0;
                     }
                     return prev - 1;
                 });
             }, 1000);
         }
-        return () => clearInterval(timer);
-    }, [isPlaying, timeLeft, onComplete]);
+        return () => clearInterval(interval);
+    }, [isActive, timeLeft, experienceId, onComplete]);
 
-    // Breath Cycle Logic (4-4-4 Box Breathing Mock)
+    // Breathing Cycle Logic (Box Breathing 4-4-4-4)
     useEffect(() => {
-        if (!isPlaying) return;
+        if (!isActive) return;
         const cycle = setInterval(() => {
-            setPhase(p => p === 'Inhale' ? 'Hold' : p === 'Hold' ? 'Exhale' : 'Inhale');
-        }, 4000); // Change every 4 seconds
+            setPhase((prev) => {
+                if (prev === 'inhale') return 'hold';
+                if (prev === 'hold') return 'exhale';
+                if (prev === 'exhale') return 'hold2';
+                return 'inhale';
+            });
+        }, 4000);
         return () => clearInterval(cycle);
-    }, [isPlaying]);
+    }, [isActive]);
 
     const formatTime = (secs: number) => {
         const m = Math.floor(secs / 60);
@@ -49,83 +82,130 @@ export default function Level1_Breathing({ onExit, onComplete }: Level1Props) {
         return `${m}:${s.toString().padStart(2, '0')}`;
     };
 
-    if (sessionComplete) {
-        return (
-            <div className="h-full w-full flex flex-col items-center justify-center bg-teal-950 text-white">
-                <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="text-center space-y-6"
-                >
-                    <div className="w-24 h-24 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto ring-4 ring-emerald-500/50">
-                        <CheckCircle className="w-12 h-12 text-emerald-400" />
-                    </div>
-                    <h2 className="text-4xl font-bold">Session Complete</h2>
-                    <p className="text-emerald-200 text-xl">+50 Karma Coins Earned</p>
-                    <Button onClick={onExit} size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white text-lg px-8 py-6 rounded-full">
-                        Return to Sanctum
-                    </Button>
-                </motion.div>
-            </div>
-        );
-    }
+    const getInstruction = () => {
+        switch (phase) {
+            case 'inhale': return "Breathe In...";
+            case 'hold': return "Hold...";
+            case 'exhale': return "Breathe Out...";
+            case 'hold2': return "Hold...";
+        }
+    };
 
     return (
-        <div className="h-full w-full relative flex flex-col items-center justify-center bg-gradient-to-b from-teal-900 to-slate-900 text-white overflow-hidden">
-            {/* Ambient Rings */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <motion.div
-                    animate={{
-                        scale: isPlaying ? [1, 1.5, 1] : 1,
-                        opacity: isPlaying ? [0.3, 0.1, 0.3] : 0.1
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-[800px] h-[800px] border border-teal-500/20 rounded-full"
-                />
-                <motion.div
-                    animate={{
-                        scale: isPlaying ? [1, 1.2, 1] : 1,
-                        opacity: isPlaying ? [0.4, 0.2, 0.4] : 0.2
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                    className="absolute w-[600px] h-[600px] border border-teal-500/30 rounded-full"
-                />
-            </div>
+        <div className={`fixed inset-0 z-50 flex flex-col items-center justify-center text-white ${MEDITATION_THEME.gradients.deepSpace}`}>
+            <AmbientBackground />
 
-            {/* Controls */}
-            <button onClick={onExit} className="absolute top-8 right-8 p-3 bg-white/5 hover:bg-white/10 rounded-full transition z-50">
-                <X className="w-6 h-6 text-white" />
-            </button>
-
-            {/* Central Breather */}
-            <div className="relative z-10 flex flex-col items-center space-y-12">
-                <div className="text-xl font-medium tracking-[0.2em] text-teal-200 uppercase opacity-80">
-                    {isPlaying ? phase : "Ready"}
+            {/* Header */}
+            <div className="absolute top-8 left-0 w-full flex justify-between px-8 z-20">
+                <Button variant="ghost" className="text-white/60 hover:text-white" onClick={onExit}>
+                    <Settings2 className="w-6 h-6" /> {/* Placeholder for 'Back' or 'Close' if needed */}
+                </Button>
+                <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full backdrop-blur-md border border-white/10">
+                    <Wind className="w-4 h-4 text-emerald-400" />
+                    <span className="text-xs font-medium tracking-wide opacity-80">LEVEL 1 • BREATHING</span>
                 </div>
-
-                <motion.div
-                    animate={{
-                        scale: isPlaying ? (phase === 'Inhale' ? 1.5 : phase === 'Exhale' ? 1 : 1.5) : 1,
-                        rotate: isPlaying ? 360 : 0
-                    }}
-                    transition={{
-                        duration: 4,
-                        ease: "easeInOut"
-                    }}
-                    className="w-48 h-48 rounded-full bg-gradient-to-br from-teal-400 to-emerald-600 shadow-[0_0_80px_rgba(45,212,191,0.4)] flex items-center justify-center backdrop-blur-md"
-                >
-                    <div className="text-4xl font-bold font-mono tracking-wider">
-                        {formatTime(timeLeft)}
-                    </div>
-                </motion.div>
-
-                <Button
-                    onClick={() => setIsPlaying(!isPlaying)}
-                    className="w-20 h-20 rounded-full bg-white text-teal-900 hover:scale-105 transition-transform flex items-center justify-center shadow-lg"
-                >
-                    {isPlaying ? <Pause className="w-8 h-8 fill-current" /> : <Play className="w-8 h-8 fill-current ml-1" />}
+                <Button variant="ghost" className="text-white/60 hover:text-white" onClick={onExit}>
+                    Close
                 </Button>
             </div>
+
+            {/* Central Breathing Element */}
+            <div className="relative z-10 flex flex-col items-center">
+                <motion.div
+                    variants={circleVariants}
+                    animate={isActive ? phase : "exhale"}
+                    className="w-64 h-64 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 backdrop-blur-3xl border border-white/10 flex items-center justify-center relative shadow-[0_0_100px_rgba(16,185,129,0.2)]"
+                >
+                    <motion.div
+                        className="absolute inset-0 rounded-full border border-emerald-400/30"
+                        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    <AnimatePresence mode="wait">
+                        <motion.p
+                            key={phase}
+                            variants={textVariants}
+                            initial="initial"
+                            animate="animate"
+                            exit="exit"
+                            className="text-2xl font-light tracking-widest text-emerald-100"
+                        >
+                            {isActive ? getInstruction() : "Ready?"}
+                        </motion.p>
+                    </AnimatePresence>
+                </motion.div>
+
+                {/* Controls */}
+                <div className="mt-16 flex flex-col items-center gap-6">
+                    <div className="text-4xl font-thin tabular-nums opacity-80">
+                        {formatTime(timeLeft)}
+                    </div>
+
+                    <div className="flex gap-4">
+                        <Button
+                            size="lg"
+                            className="rounded-full w-16 h-16 bg-white text-black hover:bg-emerald-50 hover:text-emerald-900 transition-all shadow-lg hover:shadow-emerald-500/20 hover:scale-105"
+                            onClick={() => setIsActive(!isActive)}
+                        >
+                            {isActive ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
+                        </Button>
+                        <Button
+                            size="icon"
+                            variant="ghost"
+                            className="rounded-full w-12 h-12 text-white/40 hover:text-white hover:bg-white/10"
+                            onClick={() => {
+                                setIsActive(false);
+                                setTimeLeft(300);
+                                setPhase('inhale');
+                            }}
+                        >
+                            <RotateCw className="w-5 h-5" />
+                        </Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Modals */}
+            {showPreExperience && (
+                <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+                    <PreSessionExperienceForm
+                        level={level}
+                        dayNumber={dayNumber}
+                        onComplete={async (expId, data) => {
+                            setExperienceId(expId);
+                            setPreSessionData(data);
+                            setShowPreExperience(false);
+                            // Auto-start breathing?
+                        }}
+                        onSkip={() => {
+                            setShowPreExperience(false);
+                        }}
+                    />
+                </div>
+            )}
+
+            {showPostExperience && (
+                <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+                    <PostSessionExperienceForm
+                        experienceId={experienceId || 0}
+                        preSessionData={preSessionData || { stress: 5, anxiety: 5, focus: 5, emotionalState: "Neutral" }}
+                        onComplete={() => {
+                            setShowPostExperience(false);
+                            onExit(); // Exit after form
+                        }}
+                    />
+                </div>
+            )}
+
+            {/* Session Complete Screen (Shared Component) */}
+            {!showPostExperience && isComplete && (
+                <SessionSummary
+                    durationMinutes={5}
+                    karmaEarned={50}
+                    onExit={onExit}
+                    levelName="Level 1 • Focusing"
+                />
+            )}
         </div>
     );
 }

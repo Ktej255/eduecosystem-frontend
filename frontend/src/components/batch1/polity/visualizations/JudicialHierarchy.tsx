@@ -80,7 +80,7 @@ function PyramidSection({
     topRadius: number,
     bottomRadius: number
 }) {
-    const meshRef = useRef<THREE.Mesh>(null!);
+    const meshRef = useRef<THREE.Mesh>(null);
 
     useFrame((state) => {
         if (meshRef.current) {

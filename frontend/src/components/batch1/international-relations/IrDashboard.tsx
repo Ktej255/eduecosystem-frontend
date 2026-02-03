@@ -43,14 +43,18 @@ const UPSC_IR_FACTS = [
     "India signed UNCLOS but NOT ratified",
 ];
 
+import { IR_SYLLABUS } from './data/ir-schedule-data';
+import { BookOpenCheck, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+
 export default function IrDashboard() {
     const [selectedOrg, setSelectedOrg] = React.useState<Organization | null>(null);
     const [factIndex, setFactIndex] = React.useState(0);
+    const [viewMode, setViewMode] = React.useState<'visual' | 'syllabus'>('visual');
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
+        <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-500">
             {/* Header Stats */}
-
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <StatCard icon={<Globe2 />} label="Organizations" value="50+" color="text-blue-500" />
                 <StatCard icon={<Handshake />} label="Strategic Partners" value="12+" color="text-emerald-500" />
@@ -58,101 +62,163 @@ export default function IrDashboard() {
                 <StatCard icon={<Users />} label="Diaspora" value="32M" color="text-amber-500" />
             </div>
 
-            {/* New Phase K Visualizations */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <GlobeViz />
-                <DiplomacyGraph />
+            {/* View Toggle */}
+            <div className="flex justify-end border-b border-gray-200 dark:border-gray-800 pb-1">
+                <div className="flex gap-4">
+                    <button
+                        onClick={() => setViewMode('visual')}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'visual' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+                    >
+                        Relations & Analytics
+                    </button>
+                    <button
+                        onClick={() => setViewMode('syllabus')}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'syllabus' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+                    >
+                        Syllabus & Modules
+                    </button>
+                </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* International Organizations */}
-                <div className="lg:col-span-2 bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
-                    <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                        <Globe2 className="w-5 h-5 text-indigo-600" />
-                        Key International Organizations
-                    </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                        {INTERNATIONAL_ORGS.map((org, i) => (
-                            <motion.button
-                                key={org.id}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: i * 0.05 }}
-                                onClick={() => setSelectedOrg(org)}
-                                className={`p-4 rounded-xl border text-left transition-all hover:shadow-lg ${selectedOrg?.id === org.id
-                                    ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
-                                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
-                                    }`}
-                            >
-                                <div className={`w-10 h-10 ${org.color} rounded-lg flex items-center justify-center text-white font-bold text-sm mb-2`}>
-                                    {org.name}
-                                </div>
-                                <p className="text-xs text-gray-500 truncate">{org.fullName}</p>
-                            </motion.button>
-                        ))}
+            {viewMode === 'visual' ? (
+                <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
+                    {/* New Phase K Visualizations */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <GlobeViz />
+                        <DiplomacyGraph />
                     </div>
 
-                    {/* Selected Org Details */}
-                    {selectedOrg && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="mt-4 p-4 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl"
-                        >
-                            <h4 className="font-bold text-gray-900 dark:text-white">{selectedOrg.fullName}</h4>
-                            <div className="grid grid-cols-3 gap-4 mt-3 text-sm">
-                                <div>
-                                    <p className="text-xs text-gray-500">HQ</p>
-                                    <p className="font-medium flex items-center gap-1">
-                                        <MapPin className="w-3 h-3" /> {selectedOrg.hq}
-                                    </p>
-                                </div>
-                                <div>
-                                    <p className="text-xs text-gray-500">Members</p>
-                                    <p className="font-medium">{selectedOrg.members}</p>
-                                </div>
-                                <div>
-                                    <p className="text-xs text-gray-500">India's Role</p>
-                                    <p className="font-medium text-indigo-600">{selectedOrg.indiaRole}</p>
-                                </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        {/* International Organizations */}
+                        <div className="lg:col-span-2 bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+                            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <Globe2 className="w-5 h-5 text-indigo-600" />
+                                Key International Organizations
+                            </h3>
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                {INTERNATIONAL_ORGS.map((org, i) => (
+                                    <motion.button
+                                        key={org.id}
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: i * 0.05 }}
+                                        onClick={() => setSelectedOrg(org)}
+                                        className={`p-4 rounded-xl border text-left transition-all hover:shadow-lg ${selectedOrg?.id === org.id
+                                            ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
+                                            : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                            }`}
+                                    >
+                                        <div className={`w-10 h-10 ${org.color} rounded-lg flex items-center justify-center text-white font-bold text-sm mb-2`}>
+                                            {org.name}
+                                        </div>
+                                        <p className="text-xs text-gray-500 truncate">{org.fullName}</p>
+                                    </motion.button>
+                                ))}
                             </div>
-                        </motion.div>
-                    )}
-                </div>
 
-                {/* Bilateral Relations */}
-                <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
-                    <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                        <Handshake className="w-5 h-5 text-emerald-600" />
-                        Key Bilateral Ties
-                    </h3>
-                    <div className="space-y-4">
-                        {BILATERAL_HIGHLIGHTS.map((rel, i) => (
-                            <motion.div
-                                key={rel.country}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                                className="p-3 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl"
-                            >
-                                <div className="flex items-center justify-between mb-2">
-                                    <span className="font-bold text-gray-900 dark:text-white">{rel.country}</span>
-                                    <span className="text-xs px-2 py-1 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 rounded-full">
-                                        {rel.status}
+                            {/* Selected Org Details */}
+                            {selectedOrg && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="mt-4 p-4 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl"
+                                >
+                                    <h4 className="font-bold text-gray-900 dark:text-white">{selectedOrg.fullName}</h4>
+                                    <div className="grid grid-cols-3 gap-4 mt-3 text-sm">
+                                        <div>
+                                            <p className="text-xs text-gray-500">HQ</p>
+                                            <p className="font-medium flex items-center gap-1">
+                                                <MapPin className="w-3 h-3" /> {selectedOrg.hq}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p className="text-xs text-gray-500">Members</p>
+                                            <p className="font-medium">{selectedOrg.members}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-xs text-gray-500">India's Role</p>
+                                            <p className="font-medium text-indigo-600">{selectedOrg.indiaRole}</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </div>
+
+                        {/* Bilateral Relations */}
+                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+                            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <Handshake className="w-5 h-5 text-emerald-600" />
+                                Key Bilateral Ties
+                            </h3>
+                            <div className="space-y-4">
+                                {BILATERAL_HIGHLIGHTS.map((rel, i) => (
+                                    <motion.div
+                                        key={rel.country}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="p-3 bg-gray-50 dark:bg-[#0a0a0a] rounded-xl"
+                                    >
+                                        <div className="flex items-center justify-between mb-2">
+                                            <span className="font-bold text-gray-900 dark:text-white">{rel.country}</span>
+                                            <span className="text-xs px-2 py-1 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 rounded-full">
+                                                {rel.status}
+                                            </span>
+                                        </div>
+                                        <div className="flex flex-wrap gap-1">
+                                            {rel.agreements.map(a => (
+                                                <span key={a} className="text-xs px-2 py-0.5 bg-gray-200 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                                    {a}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in slide-in-from-bottom-4 duration-500">
+                    {IR_SYLLABUS.map((topic) => (
+                        <div key={topic.id} className="group bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 hover:border-indigo-300 transition-all hover:shadow-md">
+                            <div className="pb-3">
+                                <div className="flex justify-between items-start">
+                                    <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider ${topic.category === 'Bilateral' ? 'bg-emerald-100 text-emerald-700' :
+                                            topic.category === 'Organizations' ? 'bg-amber-100 text-amber-700' :
+                                                'bg-indigo-100 text-indigo-700'
+                                        }`}>
+                                        {topic.category}
                                     </span>
+                                    <span className="text-xs font-mono text-gray-400">{topic.days} Days</span>
                                 </div>
-                                <div className="flex flex-wrap gap-1">
-                                    {rel.agreements.map(a => (
-                                        <span key={a} className="text-xs px-2 py-0.5 bg-gray-200 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
-                                            {a}
-                                        </span>
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors mt-2">
+                                    {topic.title}
+                                </h3>
+                                <p className="text-sm text-gray-500 line-clamp-2 mt-1">
+                                    {topic.description}
+                                </p>
+                            </div>
+                            <div>
+                                <div className="space-y-2 mb-4">
+                                    {topic.subtopics.slice(0, 3).map((sub, i) => (
+                                        <div key={i} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                            <BookOpenCheck className="w-3 h-3 text-indigo-400" />
+                                            <span className="truncate">{sub}</span>
+                                        </div>
                                     ))}
                                 </div>
-                            </motion.div>
-                        ))}
-                    </div>
+                                <Link href={`/student/batch1/international-relations/${topic.id}`}>
+                                    <button className="w-full py-2 bg-gray-50 dark:bg-[#0a0a0a] hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
+                                        Start Module <ChevronRight className="w-4 h-4" />
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            </div>
+            )}
+
 
             {/* UPSC Fact Strip */}
             <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl p-4 flex items-center gap-4">

@@ -56,11 +56,12 @@ function CarbonFlow({ from, to, color, count = 20 }: { from: [number, number, nu
         }));
     }, [count]);
 
-    const pointsRef = useRef<THREE.Group>(null!);
+    const pointsRef = useRef<THREE.Group>(null);
 
     useFrame((state) => {
         particles.forEach((p, i) => {
             p.offset = (p.offset + p.speed) % 1;
+            if (!pointsRef.current) return;
             const child = pointsRef.current.children[i];
             if (child) {
                 child.position.lerpVectors(

@@ -246,7 +246,7 @@ export default function VolcanoViz() {
                 </h3>
                 <p className="text-slate-400 text-sm mb-2">{currentPhase?.description}</p>
                 <p className="text-orange-300 text-xs">
-                    🌋 Activity: {currentPhase?.activity}
+                    Activity: {currentPhase?.activity}
                 </p>
             </div>
 

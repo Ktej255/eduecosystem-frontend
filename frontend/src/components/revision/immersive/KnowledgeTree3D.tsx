@@ -27,7 +27,7 @@ interface LeafProps {
 }
 
 const Leaf = ({ leaf, position }: LeafProps) => {
-    const meshRef = useRef<THREE.Mesh>(null!);
+    const meshRef = useRef<THREE.Mesh>(null);
     const color = getLeafColor(leaf.retentionScore, leaf.status);
     const emissive = getLeafEmissive(leaf.retentionScore);
     const scale = 0.15 + (leaf.retentionScore / 100) * 0.2;
@@ -100,7 +100,7 @@ interface BranchProps {
 }
 
 const Branch = ({ branch, index, totalBranches }: BranchProps) => {
-    const groupRef = useRef<THREE.Group>(null!);
+    const groupRef = useRef<THREE.Group>(null);
 
     // Procedural Sway (Wind Effect)
     useFrame((state) => {

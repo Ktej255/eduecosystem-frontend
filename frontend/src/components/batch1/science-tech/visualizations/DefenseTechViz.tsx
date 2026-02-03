@@ -33,6 +33,17 @@ const MISSILE_SYSTEMS: MissileSystem[] = [
         maxHeight: 2.5
     },
     {
+        id: 'agni-p',
+        name: 'Agni Prime',
+        type: 'MRBM',
+        range: '1,000-2,000 km',
+        description: 'New generation canisterised missile',
+        status: 'testing',
+        developer: 'DRDO',
+        trajectory: 'ballistic',
+        maxHeight: 1.8
+    },
+    {
         id: 'brahmos',
         name: 'BrahMos',
         type: 'Cruise Missile',
@@ -42,6 +53,17 @@ const MISSILE_SYSTEMS: MissileSystem[] = [
         developer: 'BrahMos Aerospace',
         trajectory: 'cruise',
         maxHeight: 0.2 // Low altitude
+    },
+    {
+        id: 'nirbhay',
+        name: 'Nirbhay',
+        type: 'Subsonic Cruise',
+        range: '1,000 km',
+        description: 'Long range all-weather subsonic cruise missile',
+        status: 'operational',
+        developer: 'DRDO',
+        trajectory: 'cruise',
+        maxHeight: 0.15
     },
     {
         id: 'prithvi',
@@ -229,8 +251,8 @@ export default function DefenseTechViz() {
                             key={sys.id}
                             onClick={() => setSelectedSystem(sys)}
                             className={`w-full text-left p-3 rounded-lg border transition-all ${selectedSystem.id === sys.id
-                                    ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
-                                    : 'border-slate-200 dark:border-slate-800 hover:border-indigo-300'
+                                ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
+                                : 'border-slate-200 dark:border-slate-800 hover:border-indigo-300'
                                 }`}
                         >
                             <div className="flex justify-between items-start mb-1">
@@ -253,9 +275,11 @@ export default function DefenseTechViz() {
                         <span className="text-xs font-bold uppercase">Strategic Context</span>
                     </div>
                     <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                        {selectedSystem.type === 'ICBM' && "ICBMs follow a high parabolic path, exiting the atmosphere to maximize range."}
-                        {selectedSystem.type === 'Cruise Missile' && "Cruise missiles fly low to hug terrain, making them hard to detect by radar."}
-                        {selectedSystem.type === 'SAM' && "SAM systems use active radar guidance to intercept incoming aerial threats."}
+                        {selectedSystem.type.includes('ICBM') && "ICBMs (Intercontinental Ballistic Missiles) exit the atmosphere (exospheric) for maximum range, re-entering at hypersonic speeds. Agni-V puts all of China/Europe in range."}
+                        {selectedSystem.type.includes('MRBM') && "MRBM (Medium Range) bridges the gap between tactical and strategic deterrence. Agni-P is canisterised, meaning rapid deployment."}
+                        {selectedSystem.type.includes('Cruise') && "Cruise missiles (like BrahMos/Nirbhay) fly at low altitudes (endospheric) to evade radar detection, hugging the terrain."}
+                        {selectedSystem.type.includes('SAM') && "SAM systems (Surface-to-Air) are critical for air defense, creating an 'Iron Dome' type shield against incoming aircraft or missiles."}
+                        {selectedSystem.type.includes('SRBM') && "SRBMs (Short Range) are tactical battlefield weapons, used for striking immediate enemy logistics or troop concentrations."}
                     </p>
                 </div>
             </div>

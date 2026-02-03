@@ -86,42 +86,90 @@ function Earth() {
 }
 
 // Animated Wind Vector
+// Animated Wind Vector (Particle Stream)
 function WindVector({ pattern }: { pattern: WindPattern }) {
     const start = latLngToVector3(pattern.from[0], pattern.from[1], 1.55);
     const end = latLngToVector3(pattern.to[0], pattern.to[1], 1.55);
 
     // Create a curve for the wind path (arced slightly above surface)
     const mid = start.clone().lerp(end, 0.5).normalize().multiplyScalar(1.65); // Arc height
-    const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
+    const curve = useMemo(() => new THREE.QuadraticBezierCurve3(start, mid, end), [start, mid, end]);
 
-    const points = useMemo(() => curve.getPoints(20), [curve]);
-    const geometry = useMemo(() => new THREE.BufferGeometry().setFromPoints(points), [points]);
+    const particleCount = 20;
+    const speed = 0.5;
 
-    // Animated particle
-    const particleRef = useRef<THREE.Mesh>(null);
-    useFrame((state) => {
-        if (particleRef.current) {
-            const t = (state.clock.elapsedTime * 0.5) % 1; // Loop 0 to 1
-            const pos = curve.getPoint(t);
-            particleRef.current.position.copy(pos);
-            const tangent = curve.getTangent(t).normalize();
-            particleRef.current.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), tangent);
+    // Initialize particle positions
+    const particlePositions = useMemo(() => {
+        const arr = new Float32Array(particleCount * 3);
+        for (let i = 0; i < particleCount; i++) {
+            // Distribute initial positions along the curve
+            const t = Math.random();
+            const point = curve.getPoint(t);
+            arr[i * 3] = point.x;
+            arr[i * 3 + 1] = point.y;
+            arr[i * 3 + 2] = point.z;
+        }
+        return arr;
+    }, [curve, particleCount]);
+
+    // Store particle progress (0 to 1 along curve)
+    const particleProgress = useRef<number[]>(
+        Array.from({ length: particleCount }, () => Math.random())
+    );
+
+    const particlesRef = useRef<THREE.Points>(null);
+
+    // Animate particles
+    useFrame((_, delta) => {
+        if (particlesRef.current) {
+            const positions = particlesRef.current.geometry.attributes.position.array as Float32Array;
+
+            for (let i = 0; i < particleCount; i++) {
+                particleProgress.current[i] += delta * speed;
+                if (particleProgress.current[i] > 1) {
+                    particleProgress.current[i] = 0;
+                }
+
+                const point = curve.getPoint(particleProgress.current[i]);
+                positions[i * 3] = point.x;
+                positions[i * 3 + 1] = point.y;
+                positions[i * 3 + 2] = point.z;
+            }
+
+            particlesRef.current.geometry.attributes.position.needsUpdate = true;
         }
     });
 
+    // Create tube geometry for the faint path line
+    const tubeGeo = useMemo(() => new THREE.TubeGeometry(curve, 20, 0.005, 8, false), [curve]);
+
     return (
         <group>
-            {/* Trajectory Line */}
-            <line>
-                <primitive object={geometry} attach="geometry" />
-                <lineBasicMaterial color={pattern.color} opacity={0.3} transparent />
-            </line>
-
-            {/* Moving Arrow Head/Particle */}
-            <mesh ref={particleRef as any}>
-                <coneGeometry args={[0.03, 0.1, 8]} />
-                <meshBasicMaterial color={pattern.color} />
+            {/* Trajectory Guide Line (Faint Tube) */}
+            <mesh geometry={tubeGeo}>
+                <meshBasicMaterial color={pattern.color} opacity={0.1} transparent />
             </mesh>
+
+            {/* Flowing Particles */}
+            <points ref={particlesRef}>
+                <bufferGeometry>
+                    <bufferAttribute
+                        attach="attributes-position"
+                        count={particleCount}
+                        array={particlePositions}
+                        itemSize={3}
+                        args={[particlePositions, 3]}
+                    />
+                </bufferGeometry>
+                <pointsMaterial
+                    color={pattern.color}
+                    size={0.04}
+                    transparent
+                    opacity={0.8}
+                    sizeAttenuation
+                    depthWrite={false}
+                />
+            </points>
 
             {/* Label */}
             {pattern.label && (
@@ -283,7 +331,7 @@ export default function MonsoonViz() {
                 <div className="pt-4 border-t border-white/10">
                     <div className="flex justify-between items-center text-xs text-slate-500">
                         <span>ITCZ Position</span>
-                        <span className="text-white font-mono">{activePhase.itczPosition}Γ░ N</span>
+                        <span className="text-white font-mono">{activePhase.itczPosition}° N</span>
                     </div>
                 </div>
             </div>

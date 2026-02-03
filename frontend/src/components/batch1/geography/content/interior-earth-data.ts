@@ -58,20 +58,20 @@ export const INTERIOR_EARTH_CONTENT: LessonContent = {
         },
         {
             id: 'layers',
-            title: 'Structure of the Earth',
+            title: 'Structure of the Earth (Mechanical/Compositional)',
             content: [
                 {
                     id: 'crust',
                     type: 'text',
                     content: `### 1. The Crust
-- **Continental Crust:** Thicker (~30km), granitic (SiAl), lower density.
-- **Oceanic Crust:** Thinner (~5km), basaltic (SiMa), higher density.`
+- **Continental Crust:** Thicker (~30km), granitic, lower density (2.7 g/cm³).
+- **Oceanic Crust:** Thinner (~5km), basaltic, higher density (3.0 g/cm³).`
                 },
                 {
                     id: 'mantle',
                     type: 'text',
                     content: `### 2. The Mantle
-- Extends to 2900 km.
+- Extends to 2900 km. 83% of Earth's volume.
 - **Asthenosphere:** The upper portion (up to 400km), weak and semi-molten. Source of magma.`
                 },
                 {
@@ -79,7 +79,28 @@ export const INTERIOR_EARTH_CONTENT: LessonContent = {
                     type: 'text',
                     content: `### 3. The Core
 - **Outer Core:** Liquid state (Iron & Nickel). Generates Earth's magnetic field.
-- **Inner Core:** Solid state due to immense pressure.`
+- **Inner Core:** Solid state due to immense pressure. Temperature ~6000°C.`
+                }
+            ]
+        },
+        {
+            id: 'chem-comp',
+            title: 'Chemical Composition (Edward Suess)',
+            content: [
+                {
+                    id: 'sial',
+                    type: 'text',
+                    content: `**SiAl (Silica + Aluminium):** Corresponds to the Continental Crust. Low density.`
+                },
+                {
+                    id: 'sima',
+                    type: 'text',
+                    content: `**SiMa (Silica + Magnesium):** Corresponds to the Oceanic Crust and Lower Crust. Higher density.`
+                },
+                {
+                    id: 'nife',
+                    type: 'text',
+                    content: `**NiFe (Nickel + Ferrous/Iron):** Corresponds to the Core. Highest density and magnetic properties.`
                 }
             ]
         },

@@ -7,9 +7,9 @@ export const CHAPTER_38_CONTENT = {
             title: "1. Organisation of State Legislature",
             content: "There is no uniformity in the organisation of state legislatures. Most states have unicameral systems, while some have bicameral systems.",
             features: [
-                "Unicameral States: Have only Legislative Assembly (Vidhan Sabha).",
-                "Bicameral States: Have Legislative Assembly and Legislative Council (Vidhan Parishad). Current states with bicameral legislature: Andhra Pradesh, Telangana, Uttar Pradesh, Bihar, Maharashtra, Karnataka.",
-                "Creation/Abolition (Art 169): Parliament can abolish or create a Legislative Council if the Legislative Assembly passes a resolution by a special majority."
+                "**Unicameral States**: Have only Legislative Assembly (Vidhan Sabha).",
+                "**Bicameral States**: Have Legislative Assembly and Legislative Council (Vidhan Parishad). Current states with bicameral legislature: **Andhra Pradesh, Telangana, Uttar Pradesh, Bihar, Maharashtra, Karnataka**.",
+                "**Creation/Abolition (Art 169)**: Parliament can abolish or create a Legislative Council if the Legislative Assembly passes a resolution by a **Special Majority**."
             ]
         },
         {
@@ -103,18 +103,26 @@ export const CHAPTER_38_CONTENT = {
             ]
         },
         {
-            title: "8. Privileges of State Legislature",
+            title: "8. Comparison with Parliament (Unique Features)",
+            features: [
+                "**No Joint Sitting**: Unlike Parliament, there is no provision for a joint sitting in the State Legislature to resolve a deadlock.",
+                "**Council's Power**: The Rajya Sabha has substantial powers (except Money Bills), but the Legislative Council is a 'dilatory chamber'—it can only delay an ordinary bill for 4 months max. The Assembly ultimately wins.",
+                "**President's Veto**: The President is not bound to give assent to a state bill even if it is passed a second time by the state legislature (unlike his obligation for central bills)."
+            ]
+        },
+        {
+            title: "9. Privileges of State Legislature",
             features: [
                 "Collective Privileges: Right to publish reports, exclude strangers, punish for contempt/breach of privilege.",
                 "Individual Privileges: Freedom of speech in House (subject to rules), Freedom from arrest in civil cases (40 days before/after session), Exemption from jury service."
             ]
         },
         {
-            title: "9. Governor's Assent and Reservation",
+            title: "10. Governor's Assent and Reservation",
             features: [
-                "Options under Art 200: Assent, Withhold Assent, Return for Reconsideration (if not Money Bill), Reserve for President.",
-                "Obligatory Reservation: If bill endangers position of State High Court.",
-                "President's Role (Art 201): Can assent, withhold, or direct Governor to return. If returned and passed again by state legislature, President is NOT bound to give assent."
+                "**Options under Art 200**: Assent, Withhold Assent, Return for Reconsideration (if not Money Bill), Reserve for President.",
+                "**Obligatory Reservation**: If bill endangers position of State High Court.",
+                "**President's Role (Art 201)**: Can assent, withhold, or direct Governor to return. If returned and passed again by state legislature, President is **NOT bound** to give assent."
             ]
         }
     ]

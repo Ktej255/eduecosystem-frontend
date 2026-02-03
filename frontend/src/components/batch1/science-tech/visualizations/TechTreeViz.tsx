@@ -69,20 +69,20 @@ function TechConnection({ fromPos, toPos, isHighlighted }: { fromPos: [number, n
     }, [fromPos, toPos]);
 
     const points = useMemo(() => curve.getPoints(50), [curve]);
-    const lineRef = useRef<any>(null!);
+    const lineRef = useRef<THREE.Line>(null);
 
     useFrame((state) => {
         if (lineRef.current) {
-            lineRef.current.material.opacity = isHighlighted ? 0.8 : 0.2;
+            (lineRef.current.material as THREE.LineBasicMaterial).opacity = isHighlighted ? 0.8 : 0.2;
             // Pulse effect
             if (isHighlighted) {
-                lineRef.current.material.opacity += Math.sin(state.clock.elapsedTime * 4) * 0.1;
+                (lineRef.current.material as THREE.LineBasicMaterial).opacity += Math.sin(state.clock.elapsedTime * 4) * 0.1;
             }
         }
     });
 
     return (
-        <line ref={lineRef}>
+        <line ref={lineRef as any}>
             <bufferGeometry>
                 <bufferAttribute
                     attach="attributes-position"

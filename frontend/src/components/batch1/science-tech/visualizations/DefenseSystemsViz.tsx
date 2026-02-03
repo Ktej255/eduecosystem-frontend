@@ -33,7 +33,7 @@ function BallisticPath({
 }) {
     const missileRef = useRef<THREE.Mesh>(null);
     const progress = useRef(0);
-    const materialRef = useRef<THREE.LineBasicMaterial>(null!);
+    const materialRef = useRef<THREE.LineBasicMaterial>(null);
 
     const { curve, midPoint } = useMemo(() => {
         const p1 = latLngToVector3(start[0], start[1], 1.5);

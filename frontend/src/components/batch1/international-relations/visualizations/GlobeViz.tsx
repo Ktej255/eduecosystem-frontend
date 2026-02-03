@@ -135,7 +135,7 @@ function ConnectionLine({ start, end, color }: { start: string, end: string, col
         return { positions: data, count: pts.length };
     }, [curve]);
 
-    const materialRef = useRef<THREE.LineBasicMaterial>(null!);
+    const materialRef = useRef<THREE.LineBasicMaterial>(null);
     useFrame((state) => {
         if (materialRef.current) {
             // Pulse opacity based on time

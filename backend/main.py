@@ -141,6 +141,7 @@ print(f"CORS Credentials: {use_credentials}")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=all_cors_origins,
+    allow_origin_regex=r"https://eduecosystem-frontend.*\.vercel\.app",
     allow_credentials=use_credentials,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],

@@ -4,6 +4,9 @@ import React, { useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { PerspectiveCamera, OrbitControls, Stars, Html, Float } from '@react-three/drei';
 import * as THREE from 'three';
+import { Info } from 'lucide-react';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 const BELTS = [
     { name: 'Polar High', lat: 90, desc: 'High pressure due to extreme cold.', color: '#93c5fd' },
@@ -169,6 +172,4 @@ export default function AtmosphericViz() {
     );
 }
 
-import { Info } from 'lucide-react';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+
