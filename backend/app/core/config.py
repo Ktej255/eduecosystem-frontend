@@ -138,6 +138,11 @@ class Settings(BaseSettings):
     STRIPE_WEBHOOK_SECRET: str = os.getenv("STRIPE_WEBHOOK_SECRET", "whsec_placeholder")
     PREMIUM_PRICE_ID: str = os.getenv("PREMIUM_PRICE_ID", "price_placeholder")
 
+    # Razorpay Configuration (for Indian payments)
+    RAZORPAY_KEY_ID: str = os.getenv("RAZORPAY_KEY_ID", "rzp_test_placeholder")
+    RAZORPAY_KEY_SECRET: str = os.getenv("RAZORPAY_KEY_SECRET", "placeholder_secret")
+    RAZORPAY_WEBHOOK_SECRET: str = os.getenv("RAZORPAY_WEBHOOK_SECRET", "webhook_placeholder")
+
     # File Storage Configuration
     STORAGE_BACKEND: str = os.getenv("STORAGE_BACKEND", "local")  # Options: local, s3
     AWS_ACCESS_KEY_ID: str = os.getenv("AWS_ACCESS_KEY_ID", "")
