@@ -133,7 +133,26 @@
                 "id": "lohit",
                 "name": "Lohit",
                 "origin": "Eastern Tibet",
-                "joinsAt": "sadiya"
+                "joinsAt": "sadiya",
+                "color": "#BA68C8",
+                "path": [
+                    [
+                        28.50,
+                        97.00
+                    ],
+                    [
+                        28.20,
+                        96.50
+                    ],
+                    [
+                        27.90,
+                        96.20
+                    ],
+                    [
+                        27.82,
+                        95.66
+                    ]
+                ]
             },
             {
                 "id": "dhansiri",
@@ -147,7 +166,26 @@
                 "id": "subansiri",
                 "name": "Subansiri",
                 "origin": "Tibet",
-                "joinsAt": "lakhimpur"
+                "joinsAt": "lakhimpur",
+                "color": "#9575CD",
+                "path": [
+                    [
+                        28.20,
+                        93.50
+                    ],
+                    [
+                        27.80,
+                        94.00
+                    ],
+                    [
+                        27.50,
+                        94.10
+                    ],
+                    [
+                        27.00,
+                        93.90
+                    ]
+                ]
             },
             {
                 "id": "kameng",
@@ -165,7 +203,26 @@
                 "id": "teesta",
                 "name": "Teesta",
                 "origin": "Sikkim (Pahunri)",
-                "joinsAt": "chilmari (Bangladesh)"
+                "joinsAt": "chilmari (Bangladesh)",
+                "color": "#4DB6AC",
+                "path": [
+                    [
+                        27.90,
+                        88.80
+                    ],
+                    [
+                        27.00,
+                        88.50
+                    ],
+                    [
+                        26.50,
+                        88.80
+                    ],
+                    [
+                        25.55,
+                        89.67
+                    ]
+                ]
             }
         ]
     },

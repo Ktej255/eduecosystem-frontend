@@ -190,12 +190,14 @@ export default function StudentDashboard() {
                     <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                     Jump to Module
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
                         { name: 'Meditation', href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600', accessKey: 'meditation' },
                         { name: 'Graphotherapy', href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy' },
+                        { name: 'Evening Section', href: '/student/batch1-1/evening', emoji: '🔦', color: 'from-purple-500 to-pink-600', accessKey: 'batch1' },
                         { name: 'Revision', href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal' },
                         { name: 'Polity Study', href: '/student/batch1-1/polity', emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity' },
+                        { name: 'Deep Report', href: '/student/batch1-1/deep-report', emoji: '📊', color: 'from-indigo-500 to-violet-600', accessKey: 'batch1' },
                     ]
                         .filter((module) => {
                             // Filter modules based on user access

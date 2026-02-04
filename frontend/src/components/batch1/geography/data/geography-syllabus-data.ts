@@ -117,10 +117,10 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
             {
                 id: 'atmosphere-structure',
                 title: '1. Atmosphere Composition & Structure',
-                coordinates: [1.2, 0.8, 0],
                 microTopics: [
-                    { id: 'composition', title: 'Composition (Gases, Dust)', status: 'locked' },
-                    { id: 'layers', title: 'Layers (Troposphere to Thermosphere)', status: 'locked' }
+                    { id: 'atmosphere-structure', title: '1. Atmosphere Composition & Structure', status: 'active' },
+                    { id: 'composition', title: 'Composition (Gases, Dust)', status: 'active' },
+                    { id: 'layers', title: 'Layers (Troposphere to Thermosphere)', status: 'active' }
                 ]
             },
             {
@@ -128,9 +128,9 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '2. Insolation & Heat Budget',
                 coordinates: [0.8, 1.0, 0.6],
                 microTopics: [
-                    { id: 'insolation-factors', title: 'Factors affecting Insolation', status: 'locked' },
-                    { id: 'heat-budget', title: 'Heat Budget (Albedo)', status: 'locked' },
-                    { id: 'temp-distribution', title: 'Temperature Distribution', status: 'locked' }
+                    { id: 'insolation-factors', title: 'Factors affecting Insolation', status: 'active' },
+                    { id: 'heat-budget', title: 'Heat Budget (Albedo)', status: 'active' },
+                    { id: 'temp-distribution', title: 'Temperature Distribution', status: 'active' }
                 ]
             },
             {
@@ -138,11 +138,11 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '3. Atmospheric Circulation',
                 coordinates: [0, 1.2, 0.8],
                 microTopics: [
-                    { id: 'pressure-belts', title: 'Atmospheric Pressure Belts', status: 'locked' },
-                    { id: 'planetary-winds', title: 'Planetary Winds', status: 'locked' },
-                    { id: 'secondary-winds', title: 'Secondary Winds (Monsoons)', status: 'locked' },
-                    { id: 'local-winds', title: 'Local Winds', status: 'locked' },
-                    { id: 'jet-streams', title: 'Jet Streams', status: 'locked' }
+                    { id: 'pressure-belts', title: 'Atmospheric Pressure Belts', status: 'active' },
+                    { id: 'planetary-winds', title: 'Planetary Winds', status: 'active' },
+                    { id: 'secondary-winds', title: 'Secondary Winds (Monsoons)', status: 'active' },
+                    { id: 'local-winds', title: 'Local Winds', status: 'active' },
+                    { id: 'jet-streams', title: 'Jet Streams', status: 'active' }
                 ]
             },
             {
@@ -150,9 +150,9 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '4. Water in Atmosphere',
                 coordinates: [-0.8, 1.0, 0.6],
                 microTopics: [
-                    { id: 'humidity', title: 'Humidity Types', status: 'locked' },
-                    { id: 'condensation', title: 'Condensation Forms (Clouds)', status: 'locked' },
-                    { id: 'precipitation', title: 'Precipitation Types', status: 'locked' }
+                    { id: 'humidity', title: 'Humidity Types', status: 'active' },
+                    { id: 'condensation', title: 'Condensation Forms (Clouds)', status: 'active' },
+                    { id: 'precipitation', title: 'Precipitation Types', status: 'active' }
                 ]
             },
             {
@@ -160,10 +160,10 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '5. Air Masses & Cyclones',
                 coordinates: [-1.2, 0.8, 0],
                 microTopics: [
-                    { id: 'air-masses', title: 'Air Masses', status: 'locked' },
-                    { id: 'fronts', title: 'Fronts', status: 'locked' },
-                    { id: 'temperate-cyclones', title: 'Temperate Cyclones', status: 'locked' },
-                    { id: 'tropical-cyclones', title: 'Tropical Cyclones', status: 'locked' }
+                    { id: 'air-masses', title: 'Air Masses', status: 'active' },
+                    { id: 'fronts', title: 'Fronts', status: 'active' },
+                    { id: 'temperate-cyclones', title: 'Temperate Cyclones', status: 'active' },
+                    { id: 'tropical-cyclones', title: 'Tropical Cyclones', status: 'active' }
                 ]
             },
             {
@@ -188,8 +188,8 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '1. Ocean Relief',
                 coordinates: [1.2, -0.6, 0.3],
                 microTopics: [
-                    { id: 'major-relief', title: 'Major Divisions (Shelf, Slope)', status: 'locked' },
-                    { id: 'minor-relief', title: 'Minor Relief Features', status: 'locked' }
+                    { id: 'major-relief', title: 'Major Divisions (Shelf, Slope)', status: 'active' },
+                    { id: 'minor-relief', title: 'Minor Relief Features', status: 'active' }
                 ]
             },
             {
@@ -197,9 +197,9 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '2. Ocean Water Properties',
                 coordinates: [0.5, -0.8, 0.8],
                 microTopics: [
-                    { id: 'ocean-temp', title: 'Temperature Distribution', status: 'locked' },
-                    { id: 'ocean-salinity', title: 'Salinity', status: 'locked' },
-                    { id: 'ocean-density', title: 'Density & Pressure', status: 'locked' }
+                    { id: 'ocean-temp', title: 'Temperature Distribution', status: 'active' },
+                    { id: 'ocean-salinity', title: 'Salinity', status: 'active' },
+                    { id: 'ocean-density', title: 'Density & Pressure', status: 'active' }
                 ]
             },
             {
@@ -207,9 +207,9 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '3. Water Movement',
                 coordinates: [-0.5, -0.8, 0.8],
                 microTopics: [
-                    { id: 'ocean-currents', title: 'Ocean Currents', status: 'locked' },
-                    { id: 'ocean-waves', title: 'Waves', status: 'locked' },
-                    { id: 'tides', title: 'Tides', status: 'locked' }
+                    { id: 'ocean-currents', title: 'Ocean Currents', status: 'active' },
+                    { id: 'ocean-waves', title: 'Waves', status: 'active' },
+                    { id: 'tides', title: 'Tides', status: 'active' }
                 ]
             },
             {
@@ -235,9 +235,9 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '1. India: Location & Size',
                 coordinates: [0.3, 0.4, 1.4],
                 microTopics: [
-                    { id: 'lat-long', title: 'Latitudinal & Longitudinal Extent', status: 'locked' },
-                    { id: 'frontiers', title: 'Frontiers & Boundaries', status: 'locked' },
-                    { id: 'ist', title: 'Indian Standard Time', status: 'locked' }
+                    { id: 'lat-long', title: 'Latitudinal & Longitudinal Extent', status: 'active' },
+                    { id: 'frontiers', title: 'Frontiers & Boundaries', status: 'active' },
+                    { id: 'ist', title: 'Indian Standard Time', status: 'active' }
                 ]
             },
             {
@@ -245,10 +245,10 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '2. Physiography of India',
                 coordinates: [0.4, 0.5, 1.3],
                 microTopics: [
-                    { id: 'himalayas', title: 'The Himalayas', status: 'locked' },
-                    { id: 'northern-plains', title: 'The Northern Plains', status: 'locked' },
-                    { id: 'peninsular-plateau', title: 'The Peninsular Plateau', status: 'locked' },
-                    { id: 'coastal-plains-islands', title: 'Coastal Plains & Islands', status: 'locked' }
+                    { id: 'himalayas', title: 'The Himalayas', status: 'active' },
+                    { id: 'northern-plains', title: 'The Northern Plains', status: 'active' },
+                    { id: 'peninsular-plateau', title: 'The Peninsular Plateau', status: 'active' },
+                    { id: 'coastal-plains-islands', title: 'Coastal Plains & Islands', status: 'active' }
                 ]
             },
             {
@@ -256,8 +256,8 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '3. Drainage System',
                 coordinates: [0.5, 0.6, 1.2],
                 microTopics: [
-                    { id: 'himalayan-rivers', title: 'Himalayan Rivers (Indus, Ganga, Brahmaputra)', status: 'locked' },
-                    { id: 'peninsular-rivers', title: 'Peninsular Rivers', status: 'locked' }
+                    { id: 'himalayan-rivers', title: 'Himalayan Rivers (Indus, Ganga, Brahmaputra)', status: 'active' },
+                    { id: 'peninsular-rivers', title: 'Peninsular Rivers', status: 'active' }
                 ]
             },
             {
@@ -265,8 +265,8 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '4. Climate of India',
                 coordinates: [0.6, 0.7, 1.1],
                 microTopics: [
-                    { id: 'monsoon-origin', title: 'Origin of Monsoon', status: 'locked' },
-                    { id: 'seasons', title: 'Indian Seasons', status: 'locked' }
+                    { id: 'monsoon-origin', title: 'Origin of Monsoon', status: 'active' },
+                    { id: 'seasons', title: 'Indian Seasons', status: 'active' }
                 ]
             },
             {
@@ -274,8 +274,8 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
                 title: '5. Vegetation & Soils',
                 coordinates: [0.7, 0.8, 1.0],
                 microTopics: [
-                    { id: 'veg-types', title: 'Types of Natural Vegetation', status: 'locked' },
-                    { id: 'soil-types', title: 'Major Soil Types in India', status: 'locked' }
+                    { id: 'veg-types', title: 'Types of Natural Vegetation', status: 'active' },
+                    { id: 'soil-types', title: 'Major Soil Types in India', status: 'active' }
                 ]
             }
         ]

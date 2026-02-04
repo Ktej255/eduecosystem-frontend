@@ -62,23 +62,19 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
 
         if (!isAdmin) {
             // BATCH 1.1 START DATE: January 1, 2026 (Thursday)
-            // Force this date for all students to ensure consistency
+            // The first week (Week 1) starts on the Monday of that week: December 29, 2025
             const BATCH_START_DATE = '2026-01-01T00:00:00';
-            const CALENDAR_VERSION = 'v3'; // Increment this to force reset for all users
+            const WEEK_1_MONDAY = '2025-12-29T00:00:00';
+            const CALENDAR_VERSION = 'v4'; // Reset for date correction
 
             const storedVersion = localStorage.getItem('polity_calendar_version');
-            let startDate: Date;
-
             if (storedVersion !== CALENDAR_VERSION) {
-                // New version - reset to correct date
-                startDate = new Date(BATCH_START_DATE);
-                localStorage.setItem('polity_start_calendar_date', startDate.toISOString());
+                localStorage.setItem('polity_start_calendar_date', BATCH_START_DATE);
+                localStorage.setItem('polity_week1_monday', WEEK_1_MONDAY);
                 localStorage.setItem('polity_calendar_version', CALENDAR_VERSION);
-            } else {
-                const startDateStr = localStorage.getItem('polity_start_calendar_date');
-                startDate = startDateStr ? new Date(startDateStr) : new Date(BATCH_START_DATE);
             }
 
+            const startDate = new Date(BATCH_START_DATE);
             const diffTime = (new Date().getTime() - startDate.getTime());
             const diffDays = Math.max(0, Math.floor(diffTime / (1000 * 60 * 60 * 24)));
             const calculatedWeek = Math.floor(diffDays / 7);
@@ -93,6 +89,31 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
             : [...completedChapters, chapterId];
         setCompletedChapters(newSet);
         localStorage.setItem('completed_polity_chapters', JSON.stringify(newSet));
+
+        // Sync with Revision Portal
+        try {
+            const PROGRESS_KEY = 'polity_revision_progress';
+            const storedProgress = localStorage.getItem(PROGRESS_KEY);
+            const progress = storedProgress ? JSON.parse(storedProgress) : {};
+
+            if (newSet.includes(chapterId)) {
+                // If marked complete here, mark as mastered in revision portal too
+                progress[chapterId] = {
+                    ...progress[chapterId],
+                    chapterId,
+                    mastered: true,
+                    lastRevisedAt: new Date().toISOString()
+                };
+            } else {
+                // If unmarked, set mastered to false
+                if (progress[chapterId]) {
+                    progress[chapterId].mastered = false;
+                }
+            }
+            localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+        } catch (e) {
+            console.error("Failed to sync progress with revision portal", e);
+        }
     };
 
     const currentWeek: WeeklySchedule = weeklyData[selectedWeek] || weeklyData[0];
@@ -105,8 +126,8 @@ export default function PolityScheduleView({ isAdmin = false }: { isAdmin?: bool
     const days: (keyof typeof currentWeek.days)[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
     const weekStartDates = useMemo(() => {
-        const startDateStr = localStorage.getItem('polity_start_calendar_date');
-        const baseDate = startDateStr ? new Date(startDateStr) : new Date('2026-01-12T00:00:00');
+        const mondayStr = localStorage.getItem('polity_week1_monday');
+        const baseDate = mondayStr ? new Date(mondayStr) : new Date('2025-12-29T00:00:00');
         const weekStart = new Date(baseDate);
         weekStart.setDate(baseDate.getDate() + (selectedWeek * 7));
         return weekStart;

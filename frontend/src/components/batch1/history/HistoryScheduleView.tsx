@@ -195,10 +195,10 @@ function DayCard({ dayData, isCompleted, isCurrent, onToggle }: {
                 <span className="text-gray-500 italic line-clamp-1">{dayData.strategy.slice(0, 40)}...</span>
                 {dayData.chapters.length > 0 && (
                     <Link
-                        href={`/student/batch1/history?chapter=${dayData.chapters[0]}`}
+                        href={`/student/batch1/history/portal?day=${dayData.day}`}
                         className="flex items-center gap-1 text-amber-600 hover:text-amber-700 font-medium"
                     >
-                        <Play className="w-3 h-3" /> Start
+                        <Play className="w-3 h-3" /> Start Portal
                     </Link>
                 )}
             </div>

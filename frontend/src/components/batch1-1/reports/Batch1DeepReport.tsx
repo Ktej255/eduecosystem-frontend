@@ -20,12 +20,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { ActivityLogger, ActivityLog } from "@/lib/analytics/ActivityLogger";
 
 
 // Import existing report components
 import FocusAnalyticsDashboard from "@/components/batch1/FocusAnalyticsDashboard";
-import WeeklyProgressReport from "@/components/batch1-1/reports/WeeklyProgressReport";
-import RevisionDeepReports from "@/components/revision/reports/RevisionDeepReports";
 import SaturdayTestReport from "@/components/batch1-1/saturday/SaturdayTestReport";
 import {
     LineChart,
@@ -74,34 +73,26 @@ export default function Batch1DeepReport() {
 
             <Tabs value={activeTab} onValueChange={handleTabChange} className="space-y-8">
                 <div className="sticky top-0 z-20 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl p-1 rounded-2xl border shadow-sm">
-                    <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 h-auto p-1 gap-1 bg-transparent">
+                    <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 h-auto p-1 gap-1 bg-transparent">
                         <TabsTrigger value="pomodoro" className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-700 py-3 rounded-xl flex items-center gap-2">
                             <Clock className="w-4 h-4" />
-                            <span className="hidden md:inline">Pomodoro</span>
+                            <span>Pomodoro</span>
                         </TabsTrigger>
-                        <TabsTrigger value="weekly" className="data-[state=active]:bg-blue-100 data-[state=active]:text-blue-700 py-3 rounded-xl flex items-center gap-2">
-                            <Calendar className="w-4 h-4" />
-                            <span className="hidden md:inline">Weekly</span>
-                        </TabsTrigger>
-                        <TabsTrigger value="activity" className="data-[state=active]:bg-indigo-100 data-[state=active]:text-indigo-700 py-3 rounded-xl flex items-center gap-2">
-                            <Zap className="w-4 h-4" />
-                            <span className="hidden md:inline">Activity</span>
-                        </TabsTrigger>
-                        <TabsTrigger value="tests" className="data-[state=active]:bg-green-100 data-[state=active]:text-green-700 py-3 rounded-xl flex items-center gap-2">
-                            <Trophy className="w-4 h-4" />
-                            <span className="hidden md:inline">Sat Tests</span>
-                        </TabsTrigger>
-                        <TabsTrigger value="revision" className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-700 py-3 rounded-xl flex items-center gap-2">
-                            <Brain className="w-4 h-4" />
-                            <span className="hidden md:inline">Revision</span>
-                        </TabsTrigger>
-                        <TabsTrigger value="daily" className="data-[state=active]:bg-teal-100 data-[state=active]:text-teal-700 py-3 rounded-xl flex items-center gap-2">
+                        <TabsTrigger value="csat" className="data-[state=active]:bg-blue-100 data-[state=active]:text-blue-700 py-3 rounded-xl flex items-center gap-2">
                             <BookOpen className="w-4 h-4" />
-                            <span className="hidden md:inline">Daily Practice</span>
+                            <span>CSAT</span>
                         </TabsTrigger>
-                        <TabsTrigger value="mood" className="data-[state=active]:bg-pink-100 data-[state=active]:text-pink-700 py-3 rounded-xl flex items-center gap-2">
-                            <Smile className="w-4 h-4" />
-                            <span className="hidden md:inline">Mood</span>
+                        <TabsTrigger value="evening" className="data-[state=active]:bg-indigo-100 data-[state=active]:text-indigo-700 py-3 rounded-xl flex items-center gap-2">
+                            <Flashlight className="w-4 h-4" />
+                            <span>Evening</span>
+                        </TabsTrigger>
+                        <TabsTrigger value="mcq" className="data-[state=active]:bg-indigo-100 data-[state=active]:text-indigo-700 py-3 rounded-xl flex items-center gap-2">
+                            <Zap className="w-4 h-4" />
+                            <span>MCQ</span>
+                        </TabsTrigger>
+                        <TabsTrigger value="saturday" className="data-[state=active]:bg-green-100 data-[state=active]:text-green-700 py-3 rounded-xl flex items-center gap-2">
+                            <Trophy className="w-4 h-4" />
+                            <span>Saturday</span>
                         </TabsTrigger>
                     </TabsList>
                 </div>
@@ -111,28 +102,20 @@ export default function Batch1DeepReport() {
                         <FocusAnalyticsDashboard />
                     </TabsContent>
 
-                    <TabsContent value="weekly" className="m-0">
-                        <WeeklyProgressReport />
+                    <TabsContent value="csat" className="m-0">
+                        <CSATReport />
                     </TabsContent>
 
-                    <TabsContent value="activity" className="m-0">
+                    <TabsContent value="evening" className="m-0">
+                        <EveningReport />
+                    </TabsContent>
+
+                    <TabsContent value="mcq" className="m-0">
                         <ActivityReport />
                     </TabsContent>
 
-                    <TabsContent value="tests" className="m-0">
+                    <TabsContent value="saturday" className="m-0">
                         <SaturdayTestsReport />
-                    </TabsContent>
-
-                    <TabsContent value="revision" className="m-0">
-                        <RevisionDeepReports />
-                    </TabsContent>
-
-                    <TabsContent value="mood" className="m-0">
-                        <MoodAnalyticsReport />
-                    </TabsContent>
-
-                    <TabsContent value="daily" className="m-0">
-                        <DailyPracticeReport />
                     </TabsContent>
                 </div>
             </Tabs>
@@ -140,7 +123,7 @@ export default function Batch1DeepReport() {
     );
 }
 
-function DailyPracticeReport() {
+function CSATReport() {
     const [logs, setLogs] = useState<ActivityLog[]>([]);
 
     useEffect(() => {
@@ -148,8 +131,6 @@ function DailyPracticeReport() {
     }, []);
 
     const csatLogs = logs.filter(l => l.type === 'MCQ_CSAT');
-    const eveningLogs = logs.filter(l => l.type === 'MCQ_EVENING');
-    const edgeLogs = logs.filter(l => l.type === 'MCQ_POMODORO');
 
     const getAccuracy = (items: ActivityLog[]) => {
         if (items.length === 0) return 0;
@@ -159,68 +140,67 @@ function DailyPracticeReport() {
 
     return (
         <div className="space-y-6">
-            <h2 className="text-xl font-bold text-gray-800 dark:text-white">Daily Practice Analytics</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            <BookOpen className="h-5 w-5 text-indigo-500" />
-                            CSAT Performance
-                        </CardTitle>
-                        <CardDescription>Reading Comprehension & Verbal Ability</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="grid grid-cols-2 gap-4 mb-4">
-                            <div className="text-center p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl">
-                                <div className="text-2xl font-bold text-indigo-600">{csatLogs.length}</div>
-                                <div className="text-xs text-indigo-400 font-bold uppercase">Questions</div>
-                            </div>
-                            <div className="text-center p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                                <div className="text-2xl font-bold text-emerald-600">{getAccuracy(csatLogs)}%</div>
-                                <div className="text-xs text-emerald-400 font-bold uppercase">Accuracy</div>
-                            </div>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-white">CSAT Performance Analytics</h2>
+            <Card className="max-w-md">
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <BookOpen className="h-5 w-5 text-indigo-500" />
+                        CSAT Breakdown
+                    </CardTitle>
+                    <CardDescription>Reading Comprehension & Verbal Ability</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="text-center p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl">
+                            <div className="text-3xl font-bold text-indigo-600">{csatLogs.length}</div>
+                            <div className="text-xs text-indigo-400 font-bold uppercase">Total Questions</div>
                         </div>
-                    </CardContent>
-                </Card>
+                        <div className="text-center p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl">
+                            <div className="text-3xl font-bold text-emerald-600">{getAccuracy(csatLogs)}%</div>
+                            <div className="text-xs text-emerald-400 font-bold uppercase">Accuracy</div>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+        </div>
+    );
+}
 
+function EveningReport() {
+    const [logs, setLogs] = useState<ActivityLog[]>([]);
+
+    useEffect(() => {
+        setLogs(ActivityLogger.getLogs());
+    }, []);
+
+    const eveningLogs = logs.filter(l => l.type === 'MCQ_EVENING');
+
+    const getAccuracy = (items: ActivityLog[]) => {
+        if (items.length === 0) return 0;
+        const correct = items.filter(l => l.details.isCorrect).length;
+        return Math.round((correct / items.length) * 100);
+    };
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-xl font-bold text-gray-800 dark:text-white">Evening Session Analytics</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card>
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <Flashlight className="h-5 w-5 text-purple-500" />
-                            Evening Revision
+                            Core Subject Revision
                         </CardTitle>
-                        <CardDescription>Core Subject MCQs</CardDescription>
+                        <CardDescription>MCQs from special focus areas</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <div className="grid grid-cols-2 gap-4 mb-4">
-                            <div className="text-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-                                <div className="text-2xl font-bold text-purple-600">{eveningLogs.length}</div>
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-2xl">
+                                <div className="text-3xl font-bold text-purple-600">{eveningLogs.length}</div>
                                 <div className="text-xs text-purple-400 font-bold uppercase">Questions</div>
                             </div>
-                            <div className="text-center p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                                <div className="text-2xl font-bold text-emerald-600">{getAccuracy(eveningLogs)}%</div>
-                                <div className="text-xs text-emerald-400 font-bold uppercase">Accuracy</div>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            <Zap className="h-5 w-5 text-orange-500" />
-                            Edge of Pomodoro
-                        </CardTitle>
-                        <CardDescription>Cycle MCQs</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="grid grid-cols-2 gap-4 mb-4">
-                            <div className="text-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
-                                <div className="text-2xl font-bold text-orange-600">{edgeLogs.length}</div>
-                                <div className="text-xs text-orange-400 font-bold uppercase">Questions</div>
-                            </div>
-                            <div className="text-center p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                                <div className="text-2xl font-bold text-emerald-600">{getAccuracy(edgeLogs)}%</div>
+                            <div className="text-center p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl">
+                                <div className="text-3xl font-bold text-emerald-600">{getAccuracy(eveningLogs)}%</div>
                                 <div className="text-xs text-emerald-400 font-bold uppercase">Accuracy</div>
                             </div>
                         </div>
@@ -231,7 +211,6 @@ function DailyPracticeReport() {
     );
 }
 
-import { ActivityLogger, ActivityLog } from "@/lib/analytics/ActivityLogger";
 
 function ActivityReport() {
     const [stats, setStats] = useState<any>(null);
@@ -373,8 +352,6 @@ function ActivityReport() {
     );
 }
 
-// Ensure end of previous function block
-function SaturdayTestsReportStub() { return null; }
 
 // --- Sub-components for specialized reports ---
 
@@ -542,138 +519,3 @@ function SaturdayTestsReport() {
     );
 }
 
-function MoodAnalyticsReport() {
-    const [entries, setEntries] = useState<any[]>([]);
-
-    useEffect(() => {
-        const saved = localStorage.getItem('mood_tracker_entries');
-        if (saved) {
-            setEntries(JSON.parse(saved));
-        }
-    }, []);
-
-    const chartData = entries.map(e => ({
-        ...e,
-        date: new Date(e.timestamp).toLocaleDateString(),
-        time: new Date(e.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-    }));
-
-    // Calculate averages
-    const avgEnergy = entries.length > 0
-        ? Math.round(entries.reduce((acc, curr) => acc + curr.energy, 0) / entries.length * 10) / 10
-        : 0;
-
-    const moodCounts = entries.reduce((acc: any, curr: any) => {
-        acc[curr.mood] = (acc[curr.mood] || 0) + 1;
-        return acc;
-    }, {});
-
-    const topMood = Object.entries(moodCounts).sort((a: any, b: any) => b[1] - a[1])[0];
-
-    return (
-        <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <Card className="bg-gradient-to-br from-pink-50 to-rose-50 border-pink-200">
-                    <CardContent className="p-6">
-                        <div className="flex items-center gap-3 mb-2 text-pink-700">
-                            <Smile className="w-5 h-5" />
-                            <span className="font-semibold">Mood Logs</span>
-                        </div>
-                        <div className="text-4xl font-bold text-gray-900">{entries.length}</div>
-                        <p className="text-xs text-pink-600/70 mt-2">Total entries recorded</p>
-                    </CardContent>
-                </Card>
-
-                <Card className="bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200">
-                    <CardContent className="p-6">
-                        <div className="flex items-center gap-3 mb-2 text-orange-700">
-                            <Zap className="w-5 h-5" />
-                            <span className="font-semibold">Avg. Energy</span>
-                        </div>
-                        <div className="text-4xl font-bold text-gray-900">{avgEnergy}/10</div>
-                        <p className="text-xs text-orange-600/70 mt-2">Energy level consistency</p>
-                    </CardContent>
-                </Card>
-
-                <Card className="bg-gradient-to-br from-indigo-50 to-blue-50 border-indigo-200">
-                    <CardContent className="p-6">
-                        <div className="flex items-center gap-3 mb-2 text-indigo-700">
-                            <TrendingUp className="w-5 h-5" />
-                            <span className="font-semibold">Dominant Mood</span>
-                        </div>
-                        <div className="text-4xl font-bold text-gray-900 capitalize">
-                            {topMood ? topMood[0] : '—'}
-                        </div>
-                        <p className="text-xs text-indigo-600/70 mt-2">Most frequent state</p>
-                    </CardContent>
-                </Card>
-            </div>
-
-            <Card className="p-6">
-                <CardHeader className="px-0 pt-0">
-                    <CardTitle>Energy Trends</CardTitle>
-                    <CardDescription>Visualizing your energy levels over time</CardDescription>
-                </CardHeader>
-                <div className="h-[300px] w-full mt-4">
-                    <ResponsiveContainer width="100%" height="100%">
-                        <LineChart data={chartData}>
-                            <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
-                            <XAxis
-                                dataKey="timestamp"
-                                tickFormatter={(ts) => new Date(ts).toLocaleDateString([], { month: 'short', day: 'numeric' })}
-                                style={{ fontSize: 12 }}
-                            />
-                            <YAxis domain={[0, 10]} />
-                            <Tooltip
-                                labelFormatter={(label) => new Date(label).toLocaleString()}
-                                contentStyle={{ borderRadius: '0.75rem', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                            />
-                            <Line
-                                type="monotone"
-                                dataKey="energy"
-                                stroke="#f97316"
-                                strokeWidth={3}
-                                dot={{ r: 4 }}
-                                activeDot={{ r: 6 }}
-                            />
-                        </LineChart>
-                    </ResponsiveContainer>
-                </div>
-            </Card>
-
-            <Card>
-                <CardHeader>
-                    <CardTitle>Recent Logs</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-4">
-                        {[...entries].reverse().slice(0, 10).map((entry, i) => (
-                            <div key={i} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                <div className="flex flex-col">
-                                    <span className="font-bold capitalize text-gray-800">{entry.mood}</span>
-                                    <span className="text-xs text-gray-400">
-                                        {new Date(entry.timestamp).toLocaleString(undefined, {
-                                            weekday: 'short', month: 'short', day: 'numeric',
-                                            hour: '2-digit', minute: '2-digit'
-                                        })}
-                                    </span>
-                                </div>
-                                <div className="flex items-center gap-4">
-                                    <span className="text-sm italic text-gray-500 mr-2 max-w-[200px] truncate hidden md:block">{entry.note}</span>
-                                    <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-bold">
-                                        Energy: {entry.energy}
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
-                        {entries.length === 0 && (
-                            <div className="text-center text-gray-400 py-8">
-                                No mood data available yet.
-                            </div>
-                        )}
-                    </div>
-                </CardContent>
-            </Card>
-        </div>
-    );
-}

@@ -18,6 +18,7 @@ import {
     CalendarDays,
     Layers,
     GraduationCap,
+    BarChart3,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -101,10 +102,10 @@ const menuItems = [
         accessKey: "dashboard", // Available to all users
     },
     {
-        name: "Reports",
-        href: "/student/reports",
-        icon: Layers,
-        accessKey: "dashboard", // Available to all users
+        name: "Deep Report",
+        href: "/student/batch1-1/deep-report",
+        icon: BarChart3,
+        accessKey: "batch1", // Linked to UPSC access
     },
     {
         name: "Community Hub",

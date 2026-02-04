@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Timer, CheckCircle2, Flame, Trophy, Repeat, BookOpen, ArrowRight, Target } from "lucide-react";
+import { ArrowLeft, Timer, CheckCircle2, Flame, Trophy, Repeat, BookOpen, ArrowRight, Target, Flashlight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { useAuth } from "@/contexts/auth-context";
@@ -657,9 +657,17 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                         Session {currentSessionGlobal} of {TOTAL_SESSIONS} (Block {currentBlock}) • <span className="text-[10px] font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">v2.3</span>
                     </p>
                 </div>
-                <div className="flex items-center gap-2 text-orange-600">
-                    <Flame className="h-5 w-5" />
-                    <span className="font-semibold">{totalSubtopicsCompleted} subtopics</span>
+                <div className="flex items-center gap-3">
+                    <Link href={`/student/batch1-1/${weekId}/${dayId}/evening`}>
+                        <Button variant="outline" size="sm" className="hidden md:flex items-center gap-2 border-indigo-200 text-indigo-600 hover:bg-indigo-50">
+                            <Flashlight className="h-4 w-4" />
+                            Evening Session
+                        </Button>
+                    </Link>
+                    <div className="flex items-center gap-2 text-orange-600">
+                        <Flame className="h-5 w-5" />
+                        <span className="font-semibold">{totalSubtopicsCompleted} subtopics</span>
+                    </div>
                 </div>
             </div>
 

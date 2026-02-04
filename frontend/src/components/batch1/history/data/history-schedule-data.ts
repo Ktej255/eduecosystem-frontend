@@ -11,7 +11,7 @@ export interface HistoryDaySchedule {
     chapters: number[]; // References to Spectrum Chapters
 }
 
-export const HISTORY_START_DATE = new Date('2026-02-09');
+export const HISTORY_START_DATE = new Date('2026-02-06');
 export const SLOTS_PER_DAY = 6;
 
 export const HISTORY_SCHEDULE: HistoryDaySchedule[] = [

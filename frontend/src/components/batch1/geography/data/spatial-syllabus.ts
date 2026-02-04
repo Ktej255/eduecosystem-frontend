@@ -70,19 +70,19 @@ export const SPATIAL_SYLLABUS: GeographyNode = {
                     type: "continent",
                     description: "The Atmosphere",
                     coordinates: [-2, 0, 0],
-                    status: "locked",
+                    status: "active",
                     children: [
-                        { id: "node-atmosphere", title: "Structure of Atmosphere", type: "node", status: "locked", coordinates: [0, 0, 0], slug: "/geography/physical/atmosphere" },
-                        { id: "node-insolation", title: "Insolation & Heat Budget", type: "node", status: "locked", coordinates: [0.5, 0, 0], slug: "/geography/physical/insolation" },
+                        { id: "node-atmosphere", title: "Structure of Atmosphere", type: "node", status: "active", coordinates: [0, 0, 0], slug: "/geography/physical/atmosphere" },
+                        { id: "node-insolation", title: "Insolation & Heat Budget", type: "node", status: "active", coordinates: [0.5, 0, 0], slug: "/geography/physical/insolation" },
                         { id: "node-temp-dist", title: "Temperature Distribution", type: "node", status: "locked", coordinates: [1, 0, 0], slug: "/geography/physical/temperature" },
                         { id: "node-pressure-belts", title: "Pressure Belts", type: "node", status: "locked", coordinates: [-0.5, 0, 0], slug: "/geography/physical/pressure-belts" },
                         { id: "node-winds", title: "Planetary Winds", type: "node", status: "locked", coordinates: [-1, 0, 0], slug: "/geography/physical/winds" },
                         { id: "node-jet-streams", title: "Jet Streams", type: "node", status: "locked", coordinates: [0, 0.5, 0], slug: "/geography/physical/jet-streams" },
                         { id: "node-air-masses", title: "Air Masses & Fronts", type: "node", status: "locked", coordinates: [0, -0.5, 0], slug: "/geography/physical/air-masses" },
-                        { id: "node-cyclones", title: "Cyclones", type: "node", status: "locked", coordinates: [0, 1, 0], slug: "/geography/physical/cyclones" },
+                        { id: "node-cyclones", title: "Cyclones", type: "node", status: "active", coordinates: [0, 1, 0], slug: "/geography/physical/cyclones" },
                         { id: "node-humidity", title: "Humidity & Precipitation", type: "node", status: "locked", coordinates: [0, -1, 0], slug: "/geography/physical/precipitation" },
                         { id: "node-clouds", title: "Clouds", type: "node", status: "locked", coordinates: [0.5, 0.5, 0], slug: "/geography/physical/clouds" },
-                        { id: "node-climatic-regions", title: "World Climatic Regions", type: "node", status: "locked", coordinates: [-0.5, -0.5, 0], slug: "/geography/physical/climatic-regions" },
+                        { id: "node-climatic-regions", title: "World Climatic Regions", type: "node", status: "active", coordinates: [-0.5, -0.5, 0], slug: "/geography/physical/climatic-regions" },
                         { id: "node-climate-change", title: "Climate Change", type: "node", status: "locked", coordinates: [1, 1, 0], slug: "/geography/physical/climate-change" }
                     ]
                 },
@@ -92,11 +92,11 @@ export const SPATIAL_SYLLABUS: GeographyNode = {
                     type: "continent",
                     description: "The Hydrosphere",
                     coordinates: [0, 2, 0],
-                    status: "locked",
+                    status: "active",
                     children: [
-                        { id: "node-bottom-relief", title: "Bottom Relief of Oceans", type: "node", status: "locked", coordinates: [0, 0, 0], slug: "/geography/physical/bottom-relief" },
-                        { id: "node-temp-salinity", title: "Temp & Salinity", type: "node", status: "locked", coordinates: [0.5, 0, 0], slug: "/geography/physical/ocean-properties" },
-                        { id: "node-currents", title: "Ocean Currents", type: "node", status: "locked", coordinates: [-0.5, 0, 0], slug: "/geography/physical/ocean-currents" },
+                        { id: "node-bottom-relief", title: "Bottom Relief of Oceans", type: "node", status: "active", coordinates: [0, 0, 0], slug: "/geography/physical/bottom-relief" },
+                        { id: "node-temp-salinity", title: "Temp & Salinity", type: "node", status: "active", coordinates: [0.5, 0, 0], slug: "/geography/physical/ocean-properties" },
+                        { id: "node-currents", title: "Ocean Currents", type: "node", status: "active", coordinates: [-0.5, 0, 0], slug: "/geography/physical/ocean-currents" },
                         { id: "node-tides", title: "Tides & Waves", type: "node", status: "locked", coordinates: [0, 0.5, 0], slug: "/geography/physical/tides" },
                         { id: "node-coral", title: "Coral Reefs", type: "node", status: "locked", coordinates: [0, -0.5, 0], slug: "/geography/physical/coral-reefs" },
                         { id: "node-deposits", title: "Ocean Deposits", type: "node", status: "locked", coordinates: [0.5, 0.5, 0], slug: "/geography/physical/ocean-deposits" },
@@ -126,8 +126,14 @@ export const SPATIAL_SYLLABUS: GeographyNode = {
             type: "satellite",
             description: "The Core Focus",
             coordinates: [-10, 0, 0],
-            status: "locked",
-            children: [] // Placeholder
+            status: "active",
+            children: [
+                { id: "node-india-location", title: "Location & Extent", type: "node", status: "active", coordinates: [0, 0, 0], slug: "/geography/indian/location" },
+                { id: "node-india-physiography", title: "Physiography", type: "node", status: "active", coordinates: [0.5, 0.5, 0], slug: "/geography/indian/physiography" },
+                { id: "node-india-drainage", title: "Drainage System", type: "node", status: "active", coordinates: [-0.5, 0.5, 0], slug: "/geography/indian/drainage" },
+                { id: "node-india-climate", title: "Climate & Monsoons", type: "node", status: "active", coordinates: [0, -0.8, 0], slug: "/geography/indian/climate" },
+                { id: "node-india-vegetation", title: "Natural Vegetation", type: "node", status: "active", coordinates: [-0.5, -0.5, 0], slug: "/geography/indian/vegetation" }
+            ]
         },
         {
             id: "sat-human",

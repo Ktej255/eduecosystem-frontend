@@ -13,8 +13,12 @@ import {
     Coins,
     Target,
     Sparkles,
+    Trash2,
+    ShieldAlert,
 } from "lucide-react";
 import { useHabits, Habit } from "@/context/HabitContext";
+import { useAuth } from "@/contexts/auth-context";
+import { isMasterUser } from "@/config/user-access-config";
 
 interface HabitTrackerProps {
     habits?: Habit[];
@@ -27,7 +31,9 @@ export default function HabitTracker({
     onComplete,
     onAddHabit,
 }: HabitTrackerProps) {
-    const { habits: contextHabits, completeHabit, addHabit } = useHabits();
+    const { habits: contextHabits, completeHabit, addHabit, deleteHabit } = useHabits();
+    const { user } = useAuth();
+    const isAdmin = isMasterUser(user?.email);
     const habits = propHabits || contextHabits;
 
     const [isExpanded, setIsExpanded] = useState(true);
@@ -239,12 +245,27 @@ export default function HabitTracker({
                                         </div>
                                     </div>
 
-                                    {/* Coins */}
-                                    <div className="flex items-center gap-1 text-amber-400">
-                                        <Coins className="w-4 h-4" />
-                                        <span className="text-sm font-medium">
-                                            +{habit.coinsPerCompletion}
-                                        </span>
+                                    {/* Action Buttons */}
+                                    <div className="flex items-center gap-2">
+                                        {/* Coins */}
+                                        <div className="flex items-center gap-1 text-amber-400 mr-2">
+                                            <Coins className="w-4 h-4" />
+                                            <span className="text-sm font-medium">
+                                                +{habit.coinsPerCompletion}
+                                            </span>
+                                        </div>
+
+                                        <button
+                                            onClick={() => {
+                                                if (confirm(`Delete habit "${habit.name}"?`)) {
+                                                    deleteHabit(habit.id);
+                                                }
+                                            }}
+                                            className="p-2 text-gray-500 hover:text-red-400 transition-colors"
+                                            title="Remove Habit"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
                                     </div>
 
                                     {/* Coin pop animation */}
@@ -276,6 +297,25 @@ export default function HabitTracker({
                                 <Plus className="w-5 h-5" />
                                 Add New Habit
                             </motion.button>
+                            {/* Admin Actions */}
+                            {isAdmin && (
+                                <div className="pt-4 mt-2 border-t border-neutral-800">
+                                    <button
+                                        onClick={() => {
+                                            if (confirm("Admin: Clear ALL meditation logs and progress? This cannot be undone.")) {
+                                                localStorage.removeItem("meditation_progress");
+                                                localStorage.removeItem("mood_tracker_entries");
+                                                alert("Meditation logs cleared locally. Please refresh.");
+                                                window.location.reload();
+                                            }
+                                        }}
+                                        className="w-full p-2 rounded-lg bg-red-500/10 text-red-500 hover:bg-red-500/20 text-xs font-bold border border-red-500/20 flex items-center justify-center gap-2"
+                                    >
+                                        <ShieldAlert className="w-3 h-3" />
+                                        Admin: Clear Meditation Logs
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </motion.div>
                 )}

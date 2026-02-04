@@ -59,7 +59,7 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
         const startDateStr = localStorage.getItem('polity_start_calendar_date');
 
         // Use Jan 1, 2026 as the base to match Scheduler
-        const baseDate = startDateStr ? new Date(startDateStr) : new Date('2026-01-01T00:00:00');
+        const baseDate = new Date('2026-01-01T00:00:00');
 
         const now = new Date();
         const diffTime = (now.getTime() - baseDate.getTime());

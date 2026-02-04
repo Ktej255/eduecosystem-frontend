@@ -45,86 +45,20 @@ function RiverScene({
 
     // Tributaries definition (visual paths)
     const tributaries = useMemo(() => {
-        if (systemId === 'ganga') {
-            return [
-                {
-                    id: 'yamuna',
-                    color: '#29B6F6',
-                    path: [
-                        [30.98, 78.45], [30.50, 78.30], [29.80, 78.00], [28.50, 77.50],
-                        [28.61, 77.21], [27.20, 78.00], [26.85, 80.90], [25.43, 81.85]
-                    ] as [number, number][]
-                },
-                {
-                    id: 'ramganga',
-                    color: '#81D4FA',
-                    path: [
-                        [30.08, 79.28], [29.50, 79.00], [28.50, 79.50], [27.50, 79.80], [26.45, 80.35]
-                    ] as [number, number][]
-                },
-                {
-                    id: 'gomti',
-                    color: '#4FC3F7',
-                    path: [
-                        [28.58, 80.17], [28.00, 80.50], [27.00, 81.50], [26.00, 82.50], [25.50, 83.20]
-                    ] as [number, number][]
-                },
-                {
-                    id: 'ghaghara',
-                    color: '#0288D1',
-                    path: [
-                        [30.67, 81.33], [29.50, 81.00], [28.00, 81.50], [27.00, 82.50], [26.00, 83.80], [25.77, 84.73]
-                    ] as [number, number][]
-                },
-                {
-                    id: 'son',
-                    color: '#D4E157',
-                    path: [
-                        [22.67, 81.75], [23.50, 82.00], [24.50, 83.50], [25.20, 84.50], [25.60, 85.10]
-                    ] as [number, number][]
-                },
-                {
-                    id: 'gandak',
-                    color: '#00BCD4',
-                    path: [
-                        [28.50, 84.50], [27.50, 84.20], [26.80, 84.50], [26.20, 84.80], [25.60, 85.10]
-                    ] as [number, number][]
-                },
-                {
-                    id: 'kosi',
-                    color: '#26C6DA',
-                    path: [
-                        [27.98, 87.00], [27.00, 87.20], [26.50, 87.00], [26.00, 86.80], [25.25, 86.98]
-                    ] as [number, number][]
-                }
-            ];
-        } else {
-            // Brahmaputra Tributaries
-            return [
-                {
-                    id: 'lohit',
-                    color: '#BA68C8',
-                    path: [
-                        [28.50, 97.00], [28.20, 96.50], [27.90, 96.20], [27.82, 95.66]
-                    ] as [number, number][]
-                },
-                {
-                    id: 'subansiri',
-                    color: '#9575CD',
-                    path: [
-                        [28.20, 93.50], [27.80, 94.00], [27.50, 94.10], [27.00, 93.90]
-                    ] as [number, number][]
-                },
-                {
-                    id: 'teesta',
-                    color: '#4DB6AC',
-                    path: [
-                        [27.90, 88.80], [27.00, 88.50], [26.50, 88.80], [25.55, 89.67]
-                    ] as [number, number][]
-                }
-            ];
-        }
-    }, [systemId]);
+        const leftBank = (data.tributaries?.leftBank || []) as any[];
+        const rightBank = (data.tributaries?.rightBank || []) as any[];
+
+        const allTribs = [...leftBank, ...rightBank];
+
+        // Filter those with paths and map to required format
+        return allTribs
+            .filter(t => t.path && t.path.length > 0)
+            .map(t => ({
+                id: t.id,
+                color: t.color || '#4FC3F7',
+                path: t.path as [number, number][]
+            }));
+    }, [data]);
 
     return (
         <>

@@ -34,9 +34,14 @@ import { humanDevelopmentData } from "./content/human-development-data";
 import { economicActivitiesData } from "./content/economic-activities-data";
 import { transportTradeData } from "./content/transport-trade-data";
 
-export default function GeographyHome() {
-    const [view, setView] = useState<'dashboard' | 'syllabus' | 'globe' | 'lesson'>('dashboard');
-    const [activeModuleId, setActiveModuleId] = useState<string>('geomorphology');
+interface GeographyHomeProps {
+    initialModuleId?: string;
+    initialView?: 'dashboard' | 'syllabus' | 'globe' | 'lesson';
+}
+
+export default function GeographyHome({ initialModuleId = 'geomorphology', initialView = 'dashboard' }: GeographyHomeProps) {
+    const [view, setView] = useState<'dashboard' | 'syllabus' | 'globe' | 'lesson'>(initialView);
+    const [activeModuleId, setActiveModuleId] = useState<string>(initialModuleId);
     const [lessonContent, setLessonContent] = useState<LessonContent | null>(null);
 
     const handleStartLearning = (topic: MicroTopic) => {
@@ -47,57 +52,141 @@ export default function GeographyHome() {
         // This is a simplified lookup for brevity.
 
         switch (topic.id) {
-            case 'origin-universe': content = ORIGIN_OF_UNIVERSE_CONTENT; break;
-            case 'geo-time-scale': content = GEO_TIME_SCALE_CONTENT; break;
-            case 'origin-earth': content = ORIGIN_OF_EARTH_CONTENT; break;
-            case 'evolution-spheres': content = EVOLUTION_SPHERES_CONTENT; break;
+            // --- GEOMORPHOLOGY ---
+            case 'origin-universe':
+            case 'star-formation':
+            case 'solar-system':
+            case 'moon': content = ORIGIN_OF_UNIVERSE_CONTENT; break;
+
+            case 'geo-time-scale':
+            case 'origin-earth':
+            case 'evolution-spheres': content = ORIGIN_OF_EARTH_CONTENT; break;
 
             case 'sources-info':
             case 'seismic-waves':
             case 'earth-layers':
             case 'discontinuities': content = INTERIOR_EARTH_CONTENT; break;
 
-            case 'continental-drift': content = CONTINENTAL_DRIFT_CONTENT; break;
-            case 'plate-tectonics': content = PLATE_TECTONICS_CONTENT; break;
+            case 'continental-drift':
+            case 'convectional-current':
+            case 'sea-floor-spreading':
+            case 'plate-tectonics':
+            case 'plate-boundaries': content = PLATE_TECTONICS_CONTENT; break;
 
+            case 'diastrophism':
             case 'folding':
             case 'faulting': content = ENDOGENIC_PROCESSES_CONTENT; break;
+
             case 'volcanism': content = VOLCANISM_CONTENT; break;
             case 'earthquakes': content = EARTHQUAKE_CONTENT; break;
 
-            case 'weathering': content = EXOGENIC_PROCESSES_CONTENT; break;
+            case 'weathering':
+            case 'mass-movements':
+            case 'soil-formation': content = EXOGENIC_PROCESSES_CONTENT; break;
 
             case 'fluvial-landforms': content = FLUVIAL_LANDFORMS_CONTENT; break;
             case 'aeolian-landforms': content = AEOLIAN_LANDFORMS_CONTENT; break;
             case 'glacial-landforms': content = GLACIAL_LANDFORMS_CONTENT; break;
-            case 'karst-topography': content = COASTAL_KARST_CONTENT; break;
+            case 'karst-topography':
+            case 'coastal-landforms': content = COASTAL_KARST_CONTENT; break;
 
-            case 'atmosphere-structure': content = ATMOSPHERE_STRUCTURE_CONTENT; break;
-            case 'insolation-heat': content = INSOLATION_HEAT_CONTENT; break;
-            case 'atmospheric-circulation': content = ATMOSPHERIC_CIRCULATION_CONTENT; break;
-            case 'water-atmosphere': content = WATER_ATMOSPHERE_CONTENT; break;
-            case 'cyclones': content = CYCLONES_CONTENT; break;
-            case 'climatic-regions': content = CLIMATIC_REGIONS_CONTENT; break;
+            // --- CLIMATOLOGY ---
+            case 'atmosphere-structure':
+            case 'composition':
+            case 'layers': content = ATMOSPHERE_STRUCTURE_CONTENT; break;
 
-            case 'ocean-relief': content = OCEAN_RELIEF_CONTENT; break;
-            case 'temp-salinity': content = OCEAN_PROPERTIES_CONTENT; break;
-            case 'ocean-currents': content = WATER_MOVEMENT_CONTENT; break;
-            case 'marine-resources': content = MARINE_RESOURCES_CONTENT; break;
+            case 'insolation-heat':
+            case 'insolation-factors':
+            case 'heat-budget':
+            case 'temp-distribution': content = INSOLATION_HEAT_CONTENT; break;
 
-            // Updated Indian Geography Mappings
-            case 'india-location': content = indiaLocationData; break;
-            case 'india-physiography': content = indiaPhysiographyData; break;
-            case 'drainage-system': content = indiaDrainageData; break;
-            case 'climate-monsoon': content = indiaClimateData; break;
-            case 'soils-vegetation': content = indiaVegetationData; break;
-            case 'resources-agriculture': content = economicActivitiesData; break; // Fallback
-            case 'industry-transport': content = transportTradeData; break; // Fallback
+            case 'atmospheric-circulation':
+            case 'pressure-belts':
+            case 'planetary-winds':
+            case 'secondary-winds':
+            case 'local-winds':
+            case 'jet-streams': content = ATMOSPHERIC_CIRCULATION_CONTENT; break;
 
-            // Human Geography
-            case 'world-population': content = worldPopData; break;
-            case 'human-development': content = humanDevelopmentData; break;
-            case 'economic-activities': content = economicActivitiesData; break;
-            case 'transport-trade': content = transportTradeData; break;
+            case 'water-atmosphere':
+            case 'humidity':
+            case 'condensation':
+            case 'precipitation': content = WATER_ATMOSPHERE_CONTENT; break;
+
+            case 'air-masses-cyclones':
+            case 'air-masses':
+            case 'fronts':
+            case 'temperate-cyclones':
+            case 'tropical-cyclones': content = CYCLONES_CONTENT; break;
+
+            case 'climatic-regions':
+            case 'koppen':
+            case 'global-zones': content = CLIMATIC_REGIONS_CONTENT; break;
+
+            // --- OCEANOGRAPHY ---
+            case 'ocean-relief':
+            case 'major-relief':
+            case 'minor-relief': content = OCEAN_RELIEF_CONTENT; break;
+
+            case 'ocean-properties':
+            case 'ocean-temp':
+            case 'ocean-salinity':
+            case 'ocean-density': content = OCEAN_PROPERTIES_CONTENT; break;
+
+            case 'water-movement':
+            case 'ocean-currents':
+            case 'ocean-waves':
+            case 'tides': content = WATER_MOVEMENT_CONTENT; break;
+
+            case 'marine-resources':
+            case 'coral-reefs':
+            case 'resources':
+            case 'unclos': content = MARINE_RESOURCES_CONTENT; break;
+
+            // --- INDIAN GEOGRAPHY ---
+            case 'india-location':
+            case 'lat-long':
+            case 'frontiers':
+            case 'ist': content = indiaLocationData; break;
+
+            case 'india-physiography':
+            case 'himalayas':
+            case 'northern-plains':
+            case 'peninsular-plateau':
+            case 'coastal-plains-islands': content = indiaPhysiographyData; break;
+
+            case 'india-drainage':
+            case 'drainage-system':
+            case 'himalayan-rivers':
+            case 'peninsular-rivers': content = indiaDrainageData; break;
+
+            case 'india-climate':
+            case 'climate-monsoon':
+            case 'monsoon-origin':
+            case 'seasons': content = indiaClimateData; break;
+
+            case 'india-vegetation-soils':
+            case 'soils-vegetation':
+            case 'veg-types':
+            case 'soil-types': content = indiaVegetationData; break;
+
+            // --- HUMAN GEOGRAPHY ---
+            case 'world-population':
+            case 'pop-distribution':
+            case 'pop-growth':
+            case 'pop-composition': content = worldPopData; break;
+
+            case 'human-development':
+            case 'migration-types':
+            case 'hdi-concept': content = humanDevelopmentData; break;
+
+            case 'economic-activities':
+            case 'primary-activities':
+            case 'secondary-activities':
+            case 'tertiary-quaternary': content = economicActivitiesData; break;
+
+            case 'transport-trade':
+            case 'land-water-air-transport':
+            case 'intl-trade-patterns': content = transportTradeData; break;
 
             default:
                 // Fallback for sub-topics mapping to same parent content
