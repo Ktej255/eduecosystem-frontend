@@ -28,7 +28,8 @@ export type XPEventType =
     | 'session_complete'
     | 'mains_submit'
     | 'drill_complete'
-    | 'csat_complete';
+    | 'csat_complete'
+    | 'mcq_session_complete';
 
 
 export interface Achievement {
@@ -97,6 +98,7 @@ export const XP_REWARDS: Record<XPEventType, number> = {
     session_complete: 50,
     mains_submit: 75,      // UPSC Mains answer submission
     drill_complete: 30,    // Completing a full drill session
-    csat_complete: 50      // Completing a daily CSAT practice session
+    csat_complete: 50,      // Completing a daily CSAT practice session
+    mcq_session_complete: 40 // Completing a full MCQ session
 };
 
