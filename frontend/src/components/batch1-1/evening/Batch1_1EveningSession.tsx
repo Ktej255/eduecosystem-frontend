@@ -75,11 +75,327 @@ interface EveningSessionViewProps {
     onDayChange?: (dayId: number) => void;
 }
 
-// ... (existing code)
+// Get morning progress from localStorage
+function getMorningProgress(weekId: number, dayId: number): MorningProgress | null {
+    if (typeof window === 'undefined') return null;
+
+    // UPDATED KEY: match PomodoroSessionView
+    const savedKey = `batch11_pomodoro_${weekId}_${dayId}`;
+    const saved = localStorage.getItem(savedKey);
+
+    if (saved) {
+        const parsed = JSON.parse(saved);
+        // Map sessionHistory to cycleHistory for compatibility definition
+        // PomodoroSessionView saves: { currentSessionGlobal, sessionHistory, lastUpdated }
+        return {
+            currentCycle: parsed.currentSessionGlobal || 0,
+            cycleHistory: parsed.sessionHistory || [],
+            lastUpdated: parsed.lastUpdated
+        };
+    }
+    return null;
+}
+
+// Calculate evening session data based on morning progress
+function generateEveningContent(morningProgress: MorningProgress | null) {
+    const completedSubtopics: SubTopic[] = [];
+
+    if (morningProgress?.cycleHistory) {
+        morningProgress.cycleHistory.forEach(cycle => {
+            completedSubtopics.push(...cycle.selectedSubtopics);
+        });
+    }
+
+    // Remove duplicates
+    const uniqueSubtopics = completedSubtopics.filter((subtopic, index, self) =>
+        index === self.findIndex(s => s.id === subtopic.id)
+    );
+
+    // Calculate flashcard split: 80% new, 20% repeat
+    const repeatCount = Math.ceil(uniqueSubtopics.length * 0.2);
+    const newCount = Math.ceil(uniqueSubtopics.length * 0.8);
+
+    // For MCQs: aim for 60 total, moderate to tough
+    const mcqCount = 60;
+
+    return {
+        totalSubtopics: uniqueSubtopics.length,
+        repeatFlashcards: repeatCount,
+        newFlashcards: newCount,
+        totalMCQs: mcqCount,
+        cyclesCompleted: morningProgress?.cycleHistory?.length || 0
+    };
+}
+
+const DAYS = [
+    { id: 1, label: 'Mon', full: 'Monday' },
+    { id: 2, label: 'Tue', full: 'Tuesday' },
+    { id: 3, label: 'Wed', full: 'Wednesday' },
+    { id: 4, label: 'Thu', full: 'Thursday' },
+    { id: 5, label: 'Fri', full: 'Friday' },
+    { id: 6, label: 'Sat', full: 'Saturday' },
+    { id: 7, label: 'Sun', full: 'Sunday' },
+];
 
 export default function Batch1_1EveningSession({ weekId, dayId, onDayChange }: EveningSessionViewProps) {
     const router = useRouter();
-    // ... (existing code)
+    const [morningProgress, setMorningProgress] = useState<MorningProgress | null>(null);
+    const [activeSection, setActiveSection] = useState<'menu' | 'flashcards' | 'mcqs' | 'csat'>('menu');
+
+    useEffect(() => {
+        const progress = getMorningProgress(weekId, dayId);
+        setMorningProgress(progress);
+        // Morning report is now available in Deep Report Center only - no popup
+    }, [weekId, dayId]);
+
+    const eveningContent = useMemo(() => generateEveningContent(morningProgress), [morningProgress]);
+
+    // UNBLOCK: Always allow evening session
+    const hasMorningProgress = true; // Was: isDay1Bypass || (morningProgress && morningProgress.cycleHistory.length > 0);
+
+    // Calculate Morning Stats
+    const morningStats = useMemo(() => {
+        if (!morningProgress || !morningProgress.cycleHistory.length) return null;
+
+        const totalSessions = morningProgress.cycleHistory.length;
+        const totalSubtopics = morningProgress.cycleHistory.reduce((sum: number, c: CycleData) => sum + c.selectedSubtopics.length, 0);
+
+        let totalCorrect = 0;
+        let totalQuestions = 0;
+
+        morningProgress.cycleHistory.forEach(c => {
+            if (Array.isArray(c.mcqResults)) {
+                totalCorrect += c.mcqResults.filter(r => r.isCorrect).length;
+                totalQuestions += c.mcqResults.length;
+            } else {
+                // Legacy support
+                const legacy = c.mcqResults as any;
+                totalCorrect += legacy.correct || 0;
+                totalQuestions += legacy.total || 0;
+            }
+        });
+
+        const accuracy = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+
+        // Efficiency metric
+        const efficiency = accuracy; // Simplified for now
+
+        return { totalSessions, totalSubtopics, accuracy, efficiency };
+    }, [morningProgress]);
+
+    // Content Generation Logic - Use content-registry for complete day content
+    const sessionContent = useMemo(() => {
+        // STRICT MODE: Always load scheduled chapters first (User Request)
+        // Ignored morningProgress for topic selection to ensure "Plan of the Day" alignment.
+        const schedule = generateWeeklySchedule();
+        const weekSchedule = schedule.find(w => w.week === Number(weekId));
+        const plannedSubtopics: SubTopic[] = [];
+
+        if (weekSchedule) {
+            const dayKeyMap: Record<number, keyof typeof weekSchedule.days> = {
+                1: 'monday', 2: 'tuesday', 3: 'wednesday', 4: 'thursday', 5: 'friday', 6: 'saturday', 7: 'sunday'
+            };
+
+            const dayKey = dayKeyMap[Number(dayId)] || 'monday';
+            const chapters = weekSchedule.days[dayKey];
+
+            if (Array.isArray(chapters)) {
+                chapters.forEach(ch => {
+                    if (typeof ch !== 'string') {
+                        const subtopics = CHAPTER_SUBTOPICS[ch.chapter];
+                        if (subtopics) {
+                            plannedSubtopics.push(...subtopics);
+                        }
+                    }
+                });
+            }
+        }
+
+        // Use planned subtopics as primary context
+        let activeSubtopics = plannedSubtopics;
+
+        // If morning progress exists, we can append, but PRIMARY focus is the Plan.
+        // For now, we strictly follow the plan as requested.
+
+        // ===== USE CONTENT REGISTRY FOR FULL DAY CONTENT =====
+        // Fix: Use absoluteDayNumber instead of relative dayId
+        const absoluteDay = (Number(weekId) - 1) * 7 + Number(dayId);
+
+        // getFlashcardsForSubtopics will filter from the HUGE list using the subtopic IDs
+        // But we also check the registry for manually assigned blocks
+        const registryFlashcards = FLASHCARD_CONTENT_REGISTRY[absoluteDay] || [];
+        const registryMCQs = MCQ_CONTENT_REGISTRY[absoluteDay] || [];
+
+        // If registry is empty (dynamic content), we generate from subtopics
+        // For Parliament (Week 2), we expect registry content or dynamic generation
+
+        console.log(`Day ${absoluteDay} Content Loaded: ${registryFlashcards.length} Flashcards, ${registryMCQs.length} MCQs`);
+
+        return {
+            flashcards: registryFlashcards,
+            mcqs: registryMCQs,
+            subtopics: activeSubtopics
+        };
+    }, [morningProgress, weekId, dayId]);
+
+    // DAY 3 SPECIFIC LOGIC
+    const isDay3 = Number(weekId) === 1 && Number(dayId) === 3;
+
+    // Calculate Absolute Day Number for Dashboard Tracking
+    // Week 1 starts at Day 1. Week 1 Day 1 = 1. Week 2 Day 1 = 8.
+    const absoluteDayNumber = (Number(weekId) - 1) * 7 + Number(dayId);
+
+    const [sessionResults, setSessionResults] = useState<MCQResult[] | null>(null);
+    const [showResultsReport, setShowResultsReport] = useState(false);
+    const [pendingGuidance, setPendingGuidance] = useState<{ type: 'to-next-chapter' | 'finish', nextChapter?: '16' | '17' } | null>(null);
+
+    // Update SRS/Retention cards based on MCQ results
+    const syncWithRetention = (results: MCQResult[]) => {
+        const srsData = getSRSData();
+
+        results.forEach(res => {
+            if (!res.subtopicId) return;
+
+            // Map MCQ performance to SRS quality (0-5)
+            // 5: Perfect response (Sure + Correct)
+            // 4: Correct after hesitation (50-50 + Correct)
+            // 3: Correct but guessed (Blind + Correct)
+            // 2: Incorrect but almost right (50-50 + Incorrect) OR (Blind + Incorrect)
+            // 1: Incorrect with high confidence (Sure + Incorrect) - Misconception!
+            // 0: Complete blackout
+
+            let quality = 3;
+            if (res.isCorrect) {
+                if (res.confidence === 'sure') quality = 5;
+                else if (res.confidence === '50-50') quality = 4;
+                else quality = 3;
+            } else {
+                if (res.confidence === 'sure') quality = 1; // Major penalty for confident wrong answer
+                else if (res.confidence === '50-50') quality = 2;
+                else quality = 2;
+            }
+
+            // Find or create card for this subtopic
+            // Note: SRS usually works on card level, but we can aggregate by subtopicId
+            // for the knowledge tree observer.
+            const cardId = `mcq_sync_${res.subtopicId}`;
+            const existingCard = srsData.cards[cardId] || {
+                id: cardId,
+                subtopicId: res.subtopicId,
+                question: `Mastery of Subtopic ${res.subtopicId}`,
+                answer: '',
+                reps: 0,
+                interval: 0,
+                easeFactor: 2.5,
+                dueDate: new Date().toISOString().split('T')[0],
+                tags: ['mcq-sync', 'auto-generated']
+            } as any;
+
+            const updatedCard = processReview(existingCard, 'easy', 0); // Default 'easy' for sync, 0ms response
+            srsData.cards[cardId] = updatedCard.updatedCard;
+        });
+
+        saveSRSData(srsData);
+
+        // Sync with WeakTopicAnalyzer for general tracking
+        const analyzerResults = results.map(res => {
+            const subtopic = CHAPTER_SUBTOPICS[parseInt(res.subtopicId?.split('.')[0] || '0')]?.find(s => s.id === res.subtopicId);
+            return {
+                topicId: res.subtopicId || 'unknown',
+                topicName: subtopic?.label || 'Unknown Topic',
+                isCorrect: res.isCorrect
+            };
+        });
+        recordBatchMCQResults(analyzerResults);
+
+        // Award XP for each question
+        results.forEach(res => {
+            if (res.isCorrect) {
+                awardXP('mcq_correct', undefined, `Correct answer in Evening Session (${res.confidence || 'unknown'} confidence)`);
+            } else {
+                awardXP('mcq_attempt', undefined, `Attempted in Evening Session`);
+            }
+        });
+
+        console.log("Retention, Weak Topic analytics, and XP updated.");
+    };
+
+    const handleSessionComplete = (results: MCQResult[]) => {
+        setSessionResults(results);
+        setShowResultsReport(true);
+        syncWithRetention(results);
+
+        // Mark the dashboard step as complete
+        markStepComplete(absoluteDayNumber, `evening-${absoluteDayNumber}`);
+    };
+
+    const [activeChapter, setActiveChapter] = useState<'16' | '17' | null>(null);
+    const [completedChapters, setCompletedChapters] = useState<Set<string>>(new Set());
+    const [showDay3Guidance, setShowDay3Guidance] = useState<{ type: 'to-mcq' | 'to-next-chapter' | 'finish', nextChapter?: '16' | '17' } | null>(null);
+
+    // Persistence for Day 3 Progress
+    useEffect(() => {
+        if (isDay3) {
+            const storageKey = `batch1_1_evening_progress_${weekId}_${dayId}`;
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    setCompletedChapters(new Set(parsed));
+                } catch (e) {
+                    console.error("Failed to load evening progress", e);
+                }
+            }
+        }
+    }, [isDay3, weekId, dayId]);
+
+    const saveProgress = (chapters: Set<string>) => {
+        const storageKey = `batch1_1_evening_progress_${weekId}_${dayId}`;
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(chapters)));
+    };
+
+    const handleDay3CardClick = (chapterId: '16' | '17') => {
+        setActiveChapter(chapterId);
+        setActiveSection('flashcards'); // Start with Flashcards
+    };
+
+    const handleDay3FlashcardComplete = () => {
+        // Prompt to go to MCQs
+        setShowDay3Guidance({ type: 'to-mcq' });
+    };
+
+    const handleDay3MCQComplete = (results: MCQResult[]) => {
+        setSessionResults(results);
+        setShowResultsReport(true);
+        syncWithRetention(results);
+
+        // Calculate progress but don't show dialog yet
+        if (activeChapter) {
+            const newCompleted = new Set(completedChapters);
+            newCompleted.add(activeChapter);
+            setCompletedChapters(newCompleted);
+            saveProgress(newCompleted);
+
+            const otherChapter = activeChapter === '16' ? '17' : '16';
+            if (!newCompleted.has(otherChapter)) {
+                setPendingGuidance({ type: 'to-next-chapter', nextChapter: otherChapter });
+            } else {
+                setPendingGuidance({ type: 'finish' });
+                markStepComplete(absoluteDayNumber, `evening-${absoluteDayNumber}`);
+            }
+        }
+    };
+
+    // Filter content based on active chapter
+    const activeDay3Flashcards = useMemo(() => {
+        if (!isDay3 || !activeChapter || !sessionContent) return [];
+        return sessionContent.flashcards.filter((fc: { subtopicId?: string }) => fc.subtopicId && fc.subtopicId.startsWith(`${activeChapter}.`));
+    }, [isDay3, activeChapter, sessionContent]);
+
+    const activeDay3MCQs = useMemo(() => {
+        if (!isDay3 || !activeChapter || !sessionContent) return [];
+        return sessionContent.mcqs.filter((mcq: { subtopicId?: string }) => mcq.subtopicId && mcq.subtopicId.startsWith(`${activeChapter}.`));
+    }, [isDay3, activeChapter, sessionContent]);
 
     // Handle Day Navigation
     const handleDayChange = (newDayId: number) => {
@@ -510,4 +826,3 @@ export default function Batch1_1EveningSession({ weekId, dayId, onDayChange }: E
         </div >
     );
 }
-
