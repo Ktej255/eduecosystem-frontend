@@ -26,7 +26,10 @@ import PolityHome from '@/components/batch1/polity/PolityHome';
 import RetentionDashboard from '@/components/retention/RetentionDashboard';
 import FocusAnalyticsDashboard from '@/components/batch1/FocusAnalyticsDashboard';
 
-type FocusTab = 'pomodoro' | 'study' | 'analytics' | 'retention';
+import Batch1DeepReport from '@/components/batch1-1/reports/Batch1DeepReport';
+import Batch1_1EveningSession from '@/components/batch1-1/evening/Batch1_1EveningSession';
+
+type FocusTab = 'pomodoro' | 'study' | 'analytics' | 'retention' | 'evening';
 type Subject = 'polity' | 'history' | 'geography' | 'science';
 
 const WEEKS = Array.from({ length: 20 }, (_, i) => ({
@@ -79,6 +82,7 @@ export default function FocusPortal() {
 
     const tabs = [
         { id: 'pomodoro', label: 'Pomodoro Portal', icon: Timer, color: 'text-orange-500' },
+        { id: 'evening', label: 'Evening Session', icon: Moon, color: 'text-indigo-500' },
         { id: 'study', label: 'Subject Study', icon: BookOpen, color: 'text-blue-500' },
         { id: 'analytics', label: 'Deep Reports', icon: BarChart3, color: 'text-purple-500' },
         { id: 'retention', label: 'Retention Tracker', icon: Brain, color: 'text-green-500' }
@@ -267,6 +271,16 @@ export default function FocusPortal() {
                             </div>
                         )}
 
+                        {activeTab === 'evening' && (
+                            <div className="space-y-6">
+                                <Batch1_1EveningSession
+                                    weekId={selectedWeek}
+                                    dayId={selectedDay || currentContext.day}
+                                    onDayChange={(dayId) => setSelectedDay(dayId)}
+                                />
+                            </div>
+                        )}
+
                         {activeTab === 'study' && (
                             <div className="space-y-6">
                                 {/* Study Tab Content (Preserved) */}
@@ -301,7 +315,7 @@ export default function FocusPortal() {
 
                         {activeTab === 'analytics' && (
                             <div className="space-y-6">
-                                <FocusAnalyticsDashboard />
+                                <Batch1DeepReport embedded={true} />
                             </div>
                         )}
 

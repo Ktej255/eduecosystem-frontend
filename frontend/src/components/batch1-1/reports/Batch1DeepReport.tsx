@@ -36,7 +36,7 @@ import {
     ResponsiveContainer
 } from 'recharts';
 
-export default function Batch1DeepReport() {
+export default function Batch1DeepReport({ embedded = false }: { embedded?: boolean }) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const defaultTab = searchParams.get('tab') || 'pomodoro';
@@ -45,31 +45,35 @@ export default function Batch1DeepReport() {
     // Update URL when tab changes without full reload
     const handleTabChange = (value: string) => {
         setActiveTab(value);
-        router.push(`/student/batch1-1/deep-report?tab=${value}`, { scroll: false });
+        if (!embedded) {
+            router.push(`/student/batch1-1/deep-report?tab=${value}`, { scroll: false });
+        }
     };
 
     return (
-        <div className="space-y-6 max-w-7xl mx-auto p-4 md:p-6 pb-20">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
-                <div>
-                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
-                            <BarChart3 className="h-6 w-6" />
-                        </div>
-                        Deep Report Center
-                    </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1 ml-1">
-                        Centralized analytics for your Batch 1 journey
-                    </p>
+        <div className={`space-y-6 ${embedded ? '' : 'max-w-7xl mx-auto p-4 md:p-6 pb-20'}`}>
+            {/* Header - Only show if not embedded */}
+            {!embedded && (
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+                    <div>
+                        <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
+                                <BarChart3 className="h-6 w-6" />
+                            </div>
+                            Deep Report Center
+                        </h1>
+                        <p className="text-gray-600 dark:text-gray-400 mt-1 ml-1">
+                            Centralized analytics for your Batch 1 journey
+                        </p>
+                    </div>
+                    <Link href="/student/batch1-1">
+                        <Button variant="outline" className="gap-2">
+                            <ArrowLeft className="h-4 w-4" />
+                            Back to Dashboard
+                        </Button>
+                    </Link>
                 </div>
-                <Link href="/student/batch1-1">
-                    <Button variant="outline" className="gap-2">
-                        <ArrowLeft className="h-4 w-4" />
-                        Back to Dashboard
-                    </Button>
-                </Link>
-            </div>
+            )}
 
             <Tabs value={activeTab} onValueChange={handleTabChange} className="space-y-8">
                 <div className="sticky top-0 z-20 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl p-1 rounded-2xl border shadow-sm">
