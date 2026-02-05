@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Book, ChevronRight, Clock, Sparkles, Target, TrendingUp, PenTool } from 'lucide-react';
+import { Book, ChevronRight, Clock, Sparkles, Target, TrendingUp, PenTool, BookOpen, BrainCircuit } from 'lucide-react';
 import Link from 'next/link';
 import { POLITY_MODULES, POLITY_TOPICS, getModuleColors, getTopicsByModule } from './data/polity-registry';
 import PolityScheduleView from './PolityScheduleView';
@@ -14,6 +14,13 @@ import Batch1ContentMap from './Batch1ContentMap';
 import MainsPractice from '../history/HistoryMainsPractice';
 import PolityVisuals from './PolityVisuals';
 import { createPolitySubjectConfig } from './data/polity-mains-adapter';
+import GapAnalysisReport from './analytics/GapAnalysisReport';
+import PolityLogicModules from './PolityLogicModules';
+import PolityExamSimulator from './PolityExamSimulator';
+
+import PolityResultDashboard from './PolityResultDashboard';
+import UnlockModal from './modals/UnlockModal';
+import { upscSynapseService, CognitiveProfile, GapAnalysisEntry } from '@/services/upscSynapseService';
 
 export default function PolityHome({ embedded = false }: { embedded?: boolean }) {
     const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -21,10 +28,82 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
     const initialView = searchParams?.get('view') as 'topics' | 'schedule' | 'map' | 'mains' | 'visuals' | null;
 
     const [view, setView] = useState<'topics' | 'schedule' | 'map' | 'mains' | 'visuals'>(initialView || 'map');
+
+    // Adaptive Learning Levels State
+    const [adaptiveLevel, setAdaptiveLevel] = useState<'level1' | 'level2' | 'level3'>('level1');
+    const [isLevel2Unlocked, setIsLevel2Unlocked] = useState(false); // Default Locked
+    const [isLevel3Unlocked, setIsLevel3Unlocked] = useState(false); // Default Locked
+    const [showDiagnostic, setShowDiagnostic] = useState(false); // Diagnostic State
+
+    // Backend Data State
+    const [cognitiveProfile, setCognitiveProfile] = useState<CognitiveProfile | null>(null);
+    const [heatmapData, setHeatmapData] = useState<GapAnalysisEntry[]>([]);
+
+    // Modal State
+    const [unlockModal, setUnlockModal] = useState<{ isOpen: boolean; level: 'level2' | 'level3' }>({
+        isOpen: false,
+        level: 'level2'
+    });
+    const [activeAuditChapter, setActiveAuditChapter] = useState<number | null>(null);
+
     const scheduleRef = React.useRef<HTMLDivElement>(null);
 
     // Create adapted config for Mains Practice
-    const polityConfig = useMemo(() => createPolitySubjectConfig(POLITY_TOPICS), []);
+    const polityConfig = useMemo(() => createPolitySubjectConfig(POLITY_TOPICS), []); // ... existing code ...
+
+    // CALLBACKS
+    const handleStartAudit = (chapterId: number) => {
+        setActiveAuditChapter(chapterId);
+    };
+
+    const handleAuditComplete = async (score: number, metrics: any) => {
+        if (!activeAuditChapter || !cognitiveProfile) return;
+
+        // Calculate pass/fail (simple logic for now)
+        // Audit is passed if score > 70% (e.g., 7/10)
+        // In our sim, max score is 10 (5 Qs * 2).
+        const percentage = (score / 10) * 100;
+        const status = percentage >= 70 ? 'mastered' : 'knowledge_gap';
+
+        try {
+            await upscSynapseService.logGapAnalysis({
+                chapter_id: activeAuditChapter,
+                status: status,
+                recall_accuracy: percentage,
+                profile_id: cognitiveProfile.id,
+                gap_details: status === 'knowledge_gap' ? { missingConcept: "General Precision" } : undefined
+            });
+
+            // Refresh Data
+            const heatmap = await upscSynapseService.getHeatmap();
+            setHeatmapData(heatmap);
+
+            alert(`Audit Complete! You scored ${percentage}%. Status updated.`);
+        } catch (e) {
+            console.error("Failed to save audit", e);
+            alert("Failed to save results. Please try again.");
+        }
+        setActiveAuditChapter(null);
+    };
+
+    // FETCH BACKEND DATA
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const profile = await upscSynapseService.getProfile();
+                setCognitiveProfile(profile);
+                setAdaptiveLevel(profile.current_level);
+                setIsLevel2Unlocked(profile.is_level2_unlocked);
+                setIsLevel3Unlocked(profile.is_level3_unlocked);
+
+                const heatmap = await upscSynapseService.getHeatmap();
+                setHeatmapData(heatmap);
+            } catch (err) {
+                console.error("Failed to load Synapse Profile:", err);
+            }
+        };
+        fetchData();
+    }, []);
 
     useEffect(() => {
         if (view === 'schedule' && scheduleRef.current) {
@@ -41,10 +120,34 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
     }, []);
 
     // Check for "Master ID" (simulated)
-    const isAdmin = typeof window !== 'undefined' &&
-        (localStorage.getItem('userRole') === 'teacher' ||
-            localStorage.getItem('userEmail')?.includes('admin') ||
-            localStorage.getItem('userEmail') === 'test001@gmail.com');
+    const isAdmin = typeof window !== 'undefined' && localStorage.getItem('user_role') === 'admin';
+
+    const handleUnlockRequest = (level: 'level2' | 'level3') => {
+        setUnlockModal({ isOpen: true, level });
+    };
+
+    const handleUnlockConfirm = async () => {
+        try {
+            await upscSynapseService.unlockLevel(
+                cognitiveProfile?.id || '',
+                unlockModal.level,
+                499
+            );
+
+            // Optimistic UI Update
+            if (unlockModal.level === 'level2') {
+                setIsLevel2Unlocked(true);
+                setAdaptiveLevel('level2');
+            } else {
+                setIsLevel3Unlocked(true);
+                setAdaptiveLevel('level3');
+            }
+        } catch (error) {
+            console.error("Unlock failed:", error);
+            alert("Payment failed. Please try again.");
+        }
+        setUnlockModal({ ...unlockModal, isOpen: false });
+    };
 
     // Calculate overall stats
     const totalChapters = LAXMIKANTH_CHAPTERS.length;
@@ -87,6 +190,49 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
         };
     }, []);
 
+    // Mock Unlock Function (Simulates Purchase)
+    const handleUnlockLevel2 = () => {
+        const confirm = window.confirm("Mock Payment: Pay ₹499 to unlock Level 2?");
+        if (confirm) setIsLevel2Unlocked(true);
+    };
+
+    // MOCK DATA FOR GAP ANALYSIS
+    const mockErrors = [
+        {
+            questionId: 1,
+            isKnowledgeGap: true,
+            mcq: {
+                id: 1,
+                question: "Mock Q1",
+                options: [],
+                source_mapping: { book: "M. Laxmikanth", chapter: "Historical Background", page_ref: 4 },
+                cognitive_tag: "Knowledge"
+            }
+        },
+        {
+            questionId: 2,
+            isUnderstandingGap: true,
+            mcq: {
+                id: 2,
+                question: "Mock Q2",
+                options: [],
+                source_mapping: { book: "M. Laxmikanth", chapter: "Preamble", page_ref: 45 },
+                cognitive_tag: "Understanding"
+            }
+        },
+        {
+            questionId: 3,
+            isAccuracyGap: true,
+            mcq: {
+                id: 3,
+                question: "Mock Q3",
+                options: [],
+                source_mapping: { book: "M. Laxmikanth", chapter: "FR", page_ref: 80 },
+                cognitive_tag: "Accuracy"
+            }
+        }
+    ];
+
     return (
         <div className={`min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a] ${embedded ? 'min-h-0 bg-transparent' : ''}`}>
             {/* Hero Section - Hidden in embedded mode */}
@@ -103,443 +249,241 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                             <span>UPSC Prelims 2026 • Cycle 1</span>
                         </div>
                         <h1 className="text-4xl md:text-5xl font-bold mb-3">
-                            Indian Polity & Governance
+                            Polity (M. Laxmikanth Edition)
                         </h1>
                         <p className="text-xl text-blue-100 mb-6">
                             The Smart 50 Module: Laxmikanth + Current Affairs (Jan 2024 – May 2026)
                         </p>
 
-                        {/* Stats */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                            <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
-                                <div className="text-3xl font-bold">{totalChapters}</div>
-                                <div className="text-blue-200 text-sm">Chapters</div>
-                            </div>
-                            <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
-                                <div className="text-3xl font-bold">11</div>
-                                <div className="text-blue-200 text-sm">Parts</div>
-                            </div>
-                            <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                                <div className="text-3xl font-bold flex items-center gap-1">
-                                    {totalCA}
-                                    <Sparkles className="w-5 h-5 text-yellow-400" />
-                                </div>
-                                <div className="text-blue-200 text-sm">Current Affairs</div>
-                            </div>
-                            <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                                <div className="text-3xl font-bold flex items-center gap-1">
-                                    {highPriorityTopics}
-                                    <Target className="w-5 h-5 text-red-400" />
-                                </div>
-                                <div className="text-blue-200 text-sm">High Priority</div>
-                            </div>
-                        </div>
-
-                        <div className="mt-8 flex flex-wrap gap-4">
+                        {/* ADAPTIVE LEVEL TABS */}
+                        <div className="flex flex-wrap gap-2 mt-8 bg-white/10 backdrop-blur p-1.5 rounded-xl border border-white/10 w-fit">
                             <button
-                                onClick={() => setView('map')}
-                                className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all"
+                                onClick={() => setAdaptiveLevel('level1')}
+                                className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all ${adaptiveLevel === 'level1'
+                                    ? 'bg-blue-500 text-white shadow-lg'
+                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5'
+                                    }`}
                             >
-                                <TrendingUp className="w-5 h-5" />
-                                View Syllabus Tracker & Content Map
+                                <BookOpen className="w-4 h-4" />
+                                Level 1: The Book
                             </button>
-
-                            <Link
-                                href="/student/pyq"
-                                className="bg-blue-800/80 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all border border-blue-400/30 backdrop-blur-sm"
+                            <button
+                                onClick={() => isLevel2Unlocked ? setAdaptiveLevel('level2') : handleUnlockRequest('level2')}
+                                className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all ${adaptiveLevel === 'level2'
+                                    ? 'bg-amber-500 text-white shadow-lg'
+                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5'
+                                    } ${!isLevel2Unlocked && 'opacity-70'}`}
                             >
-                                <Book className="w-5 h-5" />
-                                Access PYQ Portal
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Today's Target Widget - NEW */}
-            {!embedded && todayTarget && (
-                <div className="max-w-6xl mx-auto px-6 -mt-8 relative z-10">
-                    <div className="bg-white dark:bg-[#111] rounded-3xl border border-blue-200 dark:border-blue-900 shadow-2xl p-6 flex flex-col md:flex-row items-center gap-6">
-                        <div className="flex-shrink-0 w-20 h-20 bg-blue-100 dark:bg-blue-900/40 rounded-2xl flex flex-col items-center justify-center text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800">
-                            <span className="text-[10px] uppercase font-black opacity-60">Day</span>
-                            <span className="text-3xl font-black">{todayTarget.day.substring(0, 3)}</span>
+                                <BrainCircuit className="w-4 h-4" />
+                                {isLevel2Unlocked ? 'Level 2: The Logic' : 'Level 2: Locked 🔒'}
+                            </button>
+                            <button
+                                onClick={() => isLevel3Unlocked ? setAdaptiveLevel('level3') : handleUnlockRequest('level3')}
+                                className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all ${adaptiveLevel === 'level3'
+                                    ? 'bg-red-600 text-white shadow-lg'
+                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5'
+                                    } ${!isLevel3Unlocked && 'opacity-70'}`}
+                            >
+                                <Target className="w-4 h-4" />
+                                {isLevel3Unlocked ? 'Level 3: Exam Mode' : 'Level 3: Locked 🔒'}
+                            </button>
                         </div>
 
-                        <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                                <span className={`text-white text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ${todayTarget.type === 'MCQ' ? 'bg-amber-600' :
-                                    todayTarget.type === 'Revision' ? 'bg-indigo-600' :
-                                        'bg-blue-600'
-                                    }`}>
-                                    Today's {todayTarget.type}
-                                </span>
-                                <span className="text-sm text-gray-500 font-medium">Week {todayTarget.week} Schedule</span>
+
+                        {/* Stats Card */}
+                        <div className="bg-white dark:bg-[#111] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl min-w-[280px] mt-8 hidden md:block absolute top-12 right-6 w-72">
+                            <div className="flex items-center justify-between mb-4">
+                                <h3 className="font-bold text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Overall Progress</h3>
+                                <TrendingUp className="w-4 h-4 text-green-500" />
                             </div>
-                            <h3 className="text-xl font-black text-gray-900 dark:text-white">
-                                {todayTarget.type === 'MCQ'
-                                    ? (todayTarget.data as string[]).join(' • ')
-                                    : (todayTarget.data as any[]).length > 0
-                                        ? (todayTarget.data as any[]).map(c => `CH ${c.chapter}: ${c.topic}`).join(' • ')
-                                        : "Revision / Buffer Day"
-                                }
-                            </h3>
-                            <div className="flex items-center gap-4 mt-2">
-                                <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                                    <Clock className="w-3.5 h-3.5" /> {todayTarget.slots} Pomodoros
-                                </div>
-                                {todayTarget.type === 'Study' && (
-                                    <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                                        <Book className="w-3.5 h-3.5" /> {(todayTarget.data as any[]).reduce((s, c) => s + (c.pages || 0), 0)} pages
-                                    </div>
-                                )}
+                            <div className="flex items-end gap-2 mb-2">
+                                <span className="text-4xl font-black text-[#1F2937] dark:text-white">12%</span>
+                                <span className="text-sm text-green-500 font-bold mb-1.5">+2.4%</span>
+                            </div>
+                            <div className="w-full bg-gray-100 dark:bg-gray-800 h-2 rounded-full overflow-hidden">
+                                <div className="bg-blue-500 h-full rounded-full" style={{ width: '12%' }}></div>
+                            </div>
+                            <div className="mt-4 flex items-center justify-between text-xs text-gray-500">
+                                <span>32/280 Topics</span>
+                                <span>45h 20m spent</span>
                             </div>
                         </div>
 
-                        <button
-                            onClick={() => setView('schedule')}
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-2xl font-bold shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2"
-                        >
-                            Open Planner <ChevronRight className="w-4 h-4" />
-                        </button>
-                    </div>
-                </div>
-            )}
+                        <UnlockModal
+                            isOpen={unlockModal.isOpen}
+                            onClose={() => setUnlockModal({ ...unlockModal, isOpen: false })}
+                            onUnlock={handleUnlockConfirm}
+                            level={unlockModal.level}
+                        />
 
-            {/* One-Stop Revision Section - NEW */}
-            <div className="max-w-6xl mx-auto px-6 pt-10">
-                <div className="flex items-center justify-between mb-6">
-                    <div>
-                        <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">
-                            One-Stop Revision Solution
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm">
-                            Master Laxmikanth Chapters 1-95 with Flashcards & MCQs
-                        </p>
-                    </div>
-                    <Link href="/student/batch1/polity/revision" className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1">
-                        View All <ChevronRight className="w-4 h-4" />
-                    </Link>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {[
-                        { id: 1, title: "Historical Background", icon: "🏛️", color: "from-blue-500 to-indigo-600" },
-                        { id: 2, title: "Making of Constitution", icon: "✍️", color: "from-purple-500 to-pink-600" },
-                        { id: 3, title: "Concept of Constitution", icon: "💡", color: "from-amber-500 to-orange-600" },
-                        { id: 4, title: "Salient Features", icon: "✨", color: "from-emerald-500 to-teal-600" },
-                        { id: 5, title: "Preamble", icon: "📜", color: "from-rose-500 to-red-600" },
-                        { id: 6, title: "Union and Its Territory", icon: "🗺️", color: "from-cyan-500 to-blue-600" },
-                        { id: 7, title: "Citizenship", icon: "🇮🇳", color: "from-orange-500 to-red-600" },
-                        { id: 8, title: "Fundamental Rights (I)", icon: "⚖️", color: "from-blue-600 to-cyan-600" },
-                        { id: 9, title: "Fundamental Rights (II)", icon: "🛡️", color: "from-indigo-600 to-purple-600" },
-                        { id: 10, title: "Fundamental Rights (III)", icon: "🔓", color: "from-violet-600 to-fuchsia-600" },
-                        { id: 11, title: "Directive Principles", icon: "🏗️", color: "from-teal-600 to-emerald-600" },
-                        { id: 12, title: "Fundamental Duties", icon: "🤝", color: "from-green-600 to-lime-600" },
-                        { id: 13, title: "Amendment", icon: "🔄", color: "from-red-600 to-orange-600" },
-                        { id: 14, title: "Basic Structure", icon: "🏗️", color: "from-slate-600 to-gray-600" },
-                        { id: 15, title: "Parliamentary System", icon: "🏛️", color: "from-blue-400 to-indigo-500" },
-                        { id: 16, title: "Federal System", icon: "⚖️", color: "from-purple-400 to-pink-500" },
-                        { id: 17, title: "Centre-State Relations", icon: "🤝", color: "from-amber-400 to-orange-500" },
-                        { id: 18, title: "Inter-State Relations", icon: "🌐", color: "from-emerald-400 to-teal-500" },
-                        { id: 19, title: "Emergency Provisions", icon: "🚨", color: "from-rose-400 to-red-500" },
-                        { id: 20, title: "President", icon: "👤", color: "from-indigo-500 to-blue-600" },
-                        { id: 21, title: "Vice-President", icon: "🥈", color: "from-slate-500 to-gray-600" },
-                        { id: 22, title: "Prime Minister", icon: "👔", color: "from-blue-600 to-indigo-700" },
-                        { id: 23, title: "Council of Ministers", icon: "👥", color: "from-teal-500 to-emerald-600" },
-                        { id: 24, title: "Cabinet Committees", icon: "📋", color: "from-amber-500 to-yellow-600" },
-                        { id: 25, title: "Parliament", icon: "🏛️", color: "from-red-500 to-rose-600" },
-                        { id: 26, title: "Parliamentary Committees", icon: "📋", color: "from-orange-500 to-amber-600" },
-                        { id: 27, title: "Parliamentary Forums", icon: "🗣️", color: "from-green-500 to-teal-600" },
-                        { id: 28, title: "Parliamentary Group", icon: "🤝", color: "from-blue-500 to-cyan-600" },
-                        { id: 29, title: "Supreme Court", icon: "⚖️", color: "from-purple-500 to-indigo-600" },
-                        { id: 30, title: "Judicial Review", icon: "🔍", color: "from-rose-500 to-pink-600" },
-                        { id: 31, title: "PIL", icon: "📢", color: "from-teal-500 to-emerald-600" },
-                        { id: 32, title: "High Court", icon: "⚖️", color: "from-blue-500 to-indigo-600" },
-                        { id: 33, title: "Subordinate Courts", icon: "🏛️", color: "from-slate-500 to-gray-600" },
-                        { id: 34, title: "Special Provisions", icon: "📜", color: "from-amber-500 to-orange-600" },
-                        { id: 35, title: "Governor", icon: "👤", color: "from-indigo-400 to-blue-500" },
-                        { id: 36, title: "Chief Minister", icon: "👔", color: "from-blue-400 to-indigo-500" },
-                        { id: 37, title: "State Council of Ministers", icon: "👥", color: "from-teal-400 to-emerald-500" },
-                        { id: 38, title: "State Legislature", icon: "🏛️", color: "from-red-400 to-rose-500" },
-                        { id: 39, title: "Panchayati Raj", icon: "🚜", color: "from-green-400 to-lime-500" },
-                        { id: 40, title: "Municipalities", icon: "🏙️", color: "from-cyan-400 to-blue-500" },
-                        { id: 41, title: "Election Commission", icon: "🗳️", color: "from-blue-600 to-indigo-700" },
-                        { id: 42, title: "UPSC", icon: "🎖️", color: "from-rose-600 to-red-700" },
-                        { id: 43, title: "SPSC", icon: "🎓", color: "from-amber-600 to-orange-700" },
-                        { id: 44, title: "Finance Commission", icon: "💰", color: "from-emerald-600 to-teal-700" },
-                        { id: 45, title: "GST Council", icon: "🧾", color: "from-violet-600 to-purple-700" },
-                        { id: 46, title: "NC-SC", icon: "🛡️", color: "from-indigo-500 to-blue-600" },
-                        { id: 47, title: "NC-ST", icon: "🏔️", color: "from-emerald-500 to-teal-600" },
-                        { id: 48, title: "NC-BC", icon: "🤝", color: "from-amber-500 to-orange-600" },
-                        { id: 49, title: "Linguistic Minorities", icon: "🗣️", color: "from-rose-500 to-pink-600" },
-                        { id: 50, title: "CAG", icon: "🔍", color: "from-slate-600 to-gray-600" },
-                        { id: 51, title: "NITI Aayog", icon: "💡", color: "from-blue-500 to-cyan-600" },
-                        { id: 52, title: "NHRC", icon: "⚖️", color: "from-rose-500 to-red-600" },
-                        { id: 53, title: "SHRC", icon: "🏛️", color: "from-orange-500 to-amber-600" },
-                        { id: 54, title: "CIC", icon: "ℹ️", color: "from-blue-600 to-indigo-700" },
-                        { id: 55, title: "SIC", icon: "📄", color: "from-emerald-500 to-teal-600" },
-                        { id: 56, title: "CVC", icon: "🛡️", color: "from-indigo-600 to-blue-700" },
-                        { id: 57, title: "CBI", icon: "🔍", color: "from-slate-500 to-gray-600" },
-                        { id: 58, title: "Lokpal", icon: "⚖️", color: "from-amber-600 to-orange-700" },
-                        { id: 59, title: "NIA", icon: "🔫", color: "from-rose-600 to-red-700" },
-                        { id: 60, title: "NDMA", icon: "🆘", color: "from-cyan-500 to-blue-600" },
-                        { id: 61, title: "NCW", icon: "👩", color: "from-purple-500 to-pink-600" },
-                        { id: 62, title: "NCPCR", icon: "👶", color: "from-emerald-500 to-teal-600" },
-                        { id: 63, title: "NCM", icon: "🕌", color: "from-amber-500 to-orange-600" },
-                        { id: 64, title: "Tribunals", icon: "⚖️", color: "from-blue-500 to-indigo-600" },
-                        { id: 65, title: "Law & Delimitation", icon: "📜", color: "from-rose-500 to-red-600" },
-                        { id: 66, title: "Political Parties", icon: "🚩", color: "from-indigo-600 to-blue-700" },
-                        { id: 67, title: "Regional Parties", icon: "🏘️", color: "from-amber-600 to-orange-700" },
-                        { id: 68, title: "Elections", icon: "🗳️", color: "from-rose-600 to-red-700" },
-                        { id: 69, title: "Election Laws", icon: "⚖️", color: "from-cyan-600 to-blue-700" },
-                        { id: 70, title: "Electoral Reforms", icon: "🔄", color: "from-emerald-600 to-teal-700" },
-                        { id: 71, title: "Voting Behaviour", icon: "📉", color: "from-blue-500 to-indigo-600" },
-                        { id: 72, title: "Anti-Defection", icon: "🚫", color: "from-purple-500 to-pink-600" },
-                        { id: 73, title: "Pressure Groups", icon: "📢", color: "from-amber-500 to-orange-600" },
-                        { id: 74, title: "Nat. Integration", icon: "🤝", color: "from-emerald-500 to-teal-600" },
-                        { id: 75, title: "Foreign Policy", icon: "🌎", color: "from-rose-500 to-red-600" },
-                        { id: 76, title: "Official Language", icon: "🗣️", color: "from-blue-600 to-indigo-700" },
-                        { id: 77, title: "Public Services", icon: "🎖️", color: "from-teal-600 to-emerald-700" },
-                        { id: 78, title: "Rights & Liability", icon: "⚖️", color: "from-amber-600 to-orange-700" },
-                        { id: 79, title: "Spec. Prov. Classes", icon: "👥", color: "from-rose-600 to-red-700" },
-                        { id: 80, title: "Consumer Comm.", icon: "🛒", color: "from-cyan-600 to-blue-700" },
-                        { id: 81, title: "Bar Council", icon: "⚖️", color: "from-blue-500 to-indigo-600" },
-                        { id: 82, title: "Landmark Judgements", icon: "📜", color: "from-purple-500 to-pink-600" },
-                        { id: 83, title: "Const. Doctrines", icon: "💡", color: "from-amber-500 to-orange-600" },
-                        { id: 84, title: "World Const.", icon: "🌎", color: "from-emerald-500 to-teal-600" },
-                        { id: 85, title: "Adv. Services", icon: "🎖️", color: "from-rose-500 to-red-600" },
-                        { id: 86, title: "Public Policy", icon: "📊", color: "from-indigo-600 to-blue-700" },
-                        { id: 87, title: "Nat. Sec. Council", icon: "🛡️", color: "from-rose-600 to-red-700" },
-                        { id: 88, title: "Competition Comm.", icon: "⚖️", color: "from-amber-600 to-orange-700" },
-                        { id: 89, title: "UIDAI (Aadhaar)", icon: "🆔", color: "from-cyan-600 to-blue-700" },
-                        { id: 90, title: "PFRDA & IRDAI", icon: "💰", color: "from-emerald-600 to-teal-700" },
-                        { id: 91, title: "Health Auth. (NHA)", icon: "🏥", color: "from-blue-600 to-indigo-700" },
-                        { id: 92, title: "FSSAI & BIS", icon: "🛡️", color: "from-teal-600 to-emerald-700" },
-                        { id: 93, title: "NCRWC", icon: "🏛️", color: "from-blue-500 to-indigo-600" },
-                        { id: 94, title: "Const. Appendices", icon: "📜", color: "from-purple-500 to-pink-600" },
-                        { id: 95, title: "Final Summary", icon: "✨", color: "from-amber-500 to-orange-600" },
-                    ].map((ch) => (
-                        <Link
-                            key={ch.id}
-                            href={`/student/batch1/polity/revision/${ch.id}`}
-                            className="group relative overflow-hidden bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                        >
-                            <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${ch.color} opacity-10 group-hover:opacity-20 transition-opacity rounded-bl-[100px]`} />
-
-                            <div className="flex items-center gap-4 mb-4">
-                                <div className="text-3xl">{ch.icon}</div>
-                                <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Chapter {ch.id}</span>
-                            </div>
-
-                            <h3 className="text-lg font-bold text-[#1F2937] dark:text-white group-hover:text-blue-600 transition-colors mb-2">
-                                {ch.title}
-                            </h3>
-
-                            <div className="flex items-center gap-3 mt-4">
-                                <div className="flex flex-col">
-                                    <span className="text-[10px] text-gray-400 uppercase font-semibold">Content</span>
-                                    <span className="text-xs font-medium text-gray-600 dark:text-gray-300">Ready</span>
-                                </div>
-                                <div className="w-px h-6 bg-gray-200 dark:bg-gray-800" />
-                                <div className="flex flex-col">
-                                    <span className="text-[10px] text-gray-400 uppercase font-semibold">Flashcards</span>
-                                    <span className="text-xs font-medium text-gray-600 dark:text-gray-300">15-25</span>
-                                </div>
-                                <div className="w-px h-6 bg-gray-200 dark:bg-gray-800" />
-                                <div className="flex flex-col">
-                                    <span className="text-[10px] text-gray-400 uppercase font-semibold">MCQs</span>
-                                    <span className="text-xs font-medium text-gray-600 dark:text-gray-300">30-50</span>
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-            </div>
-
-            {/* Tab Navigation */}
-            <div className="max-w-6xl mx-auto px-6 mt-12">
-                <div className="flex border-b border-gray-200 dark:border-gray-800">
-                    <button
-                        onClick={() => setView('topics')}
-                        className={`px-8 py-4 text-sm font-bold transition-all border-b-2 ${view === 'topics'
-                            ? 'text-blue-600 border-blue-600'
-                            : 'text-gray-500 border-transparent hover:text-gray-700'
-                            }`}
-                    >
-                        Detailed Syllabus (95 Topics)
-                    </button>
-                    <button
-                        onClick={() => setView('schedule')}
-                        className={`px-8 py-4 text-sm font-bold transition-all border-b-2 flex items-center gap-2 ${view === 'schedule'
-                            ? 'text-blue-600 border-blue-600'
-                            : 'text-gray-500 border-transparent hover:text-gray-700'
-                            }`}
-                    >
-                        Study Planner & Schedule
-                        <span className="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full uppercase">New</span>
-                    </button>
-                    <button
-                        onClick={() => setView('mains')}
-                        className={`px-8 py-4 text-sm font-bold transition-all border-b-2 flex items-center gap-2 ${view === 'mains'
-                            ? 'text-purple-600 border-purple-600'
-                            : 'text-gray-500 border-transparent hover:text-gray-700'
-                            }`}
-                    >
-                        <PenTool className="w-4 h-4" />
-                        Mains Practice
-                    </button>
-                    <button
-                        onClick={() => setView('visuals')}
-                        className={`px-8 py-4 text-sm font-bold transition-all border-b-2 flex items-center gap-2 ${view === 'visuals'
-                            ? 'text-amber-600 border-amber-600'
-                            : 'text-gray-500 border-transparent hover:text-gray-700'
-                            }`}
-                    >
-                        <Sparkles className="w-4 h-4" />
-                        Visual Hub
-                    </button>
-                </div>
-            </div>
-
-            {
-                view === 'topics' ? (
-                    <>
-                        {/* Module Navigation */}
-                        <div className="max-w-6xl mx-auto px-6 py-8">
-                            <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white mb-6">
-                                Structured Curriculum
-                            </h2>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {POLITY_MODULES.map((module) => {
-                                    const colors = getModuleColors(module.color);
-                                    const topics = getTopicsByModule(module.id);
-                                    const [start, end] = module.topicRange;
-                                    const totalTopics = end - start + 1;
-                                    const isActive = topics.length > 0;
-
-                                    return (
-                                        <button
-                                            key={module.id}
-                                            onClick={() => isActive && setSelectedModule(module.id)}
-                                            disabled={!isActive}
-                                            className={`text-left p-5 rounded-2xl border-2 transition-all ${isActive
-                                                ? `hover:shadow-lg hover:border-blue-500 bg-white dark:bg-[#111] border-gray-200 dark:border-gray-800`
-                                                : `opacity-50 cursor-not-allowed bg-gray-100 dark:bg-gray-900 border-gray-200 dark:border-gray-800`
-                                                }`}
-                                        >
-                                            <div className="flex items-center gap-3 mb-3">
-                                                <div className={`w-12 h-12 rounded-xl ${colors.bg} flex items-center justify-center text-2xl text-white`}>
-                                                    {module.icon}
-                                                </div>
-                                                <div>
-                                                    <div className="text-xs text-gray-500 dark:text-gray-400">Module {module.id}</div>
-                                                    <div className="font-bold text-[#1F2937] dark:text-white">{module.title}</div>
-                                                </div>
-                                            </div>
-                                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{module.description}</p>
-                                            <div className="flex items-center justify-between text-sm">
-                                                <span className="text-gray-500 dark:text-gray-400">
-                                                    Topics {start}-{end}
-                                                </span>
-                                                {isActive ? (
-                                                    <span className="flex items-center gap-1 text-green-600">
-                                                        <TrendingUp className="w-4 h-4" />
-                                                        {topics.length}/{totalTopics} Ready
-                                                    </span>
-                                                ) : (
-                                                    <span className="text-gray-400">Coming Soon</span>
-                                                )}
-                                            </div>
-                                        </button>
-                                    );
-                                })}
-                            </div>
-                        </div>
-
-                        {/* Selected Module Topics */}
-                        {selectedModule && (
-                            <div className="max-w-6xl mx-auto px-6 pb-12">
-                                <div className="flex items-center justify-between mb-6">
-                                    <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">
-                                        Module {selectedModule} Topics
-                                    </h2>
+                        {/* Navigation Tabs */}
+                        {!selectedModule && (
+                            <div className="flex items-center gap-1 mt-12 border-b border-gray-200 dark:border-gray-800">
+                                {[
+                                    { id: 'map', label: 'Content Map', icon: PenTool },
+                                    { id: 'topics', label: 'Adaptive Modules', icon: Book },
+                                    { id: 'schedule', label: 'Your Schedule', icon: Clock },
+                                    { id: 'mains', label: 'Mains Practice', icon: PenTool },
+                                    { id: 'visuals', label: 'Visual Library', icon: Sparkles },
+                                ].map((tab) => (
                                     <button
-                                        onClick={() => setSelectedModule(null)}
-                                        className="text-blue-600 hover:underline text-sm"
+                                        key={tab.id}
+                                        onClick={() => setView(tab.id as any)}
+                                        className={`px-6 py-4 text-sm font-bold flex items-center gap-2 border-b-2 transition-all ${view === tab.id
+                                            ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20'
+                                            : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 hover:dark:text-gray-200'
+                                            }`}
                                     >
-                                        ← Back to Modules
+                                        <tab.icon className="w-4 h-4" />
+                                        {tab.label}
                                     </button>
-                                </div>
-
-                                <div className="space-y-3">
-                                    {getTopicsByModule(selectedModule).map((topic) => (
-                                        <Link
-                                            key={topic.id}
-                                            href={`/student/batch1/polity/topic/${topic.id}`}
-                                            className="block bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-gray-800 p-5 hover:shadow-lg hover:border-blue-500 transition-all"
-                                        >
-                                            <div className="flex items-start justify-between">
-                                                <div className="flex-1">
-                                                    <div className="flex items-center gap-2 mb-2">
-                                                        <span className="text-xs px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-medium">
-                                                            Topic {topic.id}
-                                                        </span>
-                                                        {topic.priority === 'High' && (
-                                                            <span className="text-xs px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300">
-                                                                High Priority
-                                                            </span>
-                                                        )}
-                                                        {topic.currentAffairs.length > 0 && (
-                                                            <span className="text-xs px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 flex items-center gap-1">
-                                                                <Sparkles className="w-3 h-3" />
-                                                                {topic.currentAffairs.length} CA
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                    <h3 className="text-lg font-semibold text-[#1F2937] dark:text-white mb-1">
-                                                        {topic.title}
-                                                    </h3>
-                                                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                                                        {topic.staticFocus}
-                                                    </p>
-                                                </div>
-                                                <ChevronRight className="w-5 h-5 text-gray-400 mt-2" />
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
+                                ))}
                             </div>
                         )}
+                    </div>
+                </div>
+            )}
 
-                        {/* Quick Access - All Topics */}
-                        {!selectedModule && (
-                            <div className="max-w-6xl mx-auto px-6 pb-12">
-                                <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white mb-6">
-                                    Recently Added Topics
-                                </h2>
+            {/* Content Area */}
+            <div className="min-h-screen">
+                {view === 'map' ? (
+                    <div className="max-w-7xl mx-auto px-6 py-12">
+                        <Batch1ContentMap onBack={() => setView('topics')} />
+                    </div>
+                ) : view === 'topics' ? (
+                    <>
+                        {adaptiveLevel === 'level1' && (
+                            <>
+                                {/* NEW: RESULT DASHBOARD (Replaces Revision Grid & Diagnostic Report) */}
+                                <PolityResultDashboard
+                                    score={cognitiveProfile?.wps_score ?? 72}
+                                    stressIndex={cognitiveProfile?.stress_index ?? 6.5}
+                                    accuracy={65} // Need accurate field in backend later
+                                    gapData={heatmapData}
+                                    onUnlockLevel2={handleUnlockConfirm} // Use standard unlock for flow
+                                    onRetakeAudit={() => window.location.reload()}
+                                    onStartAudit={handleStartAudit}
+                                />
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                    {POLITY_TOPICS.slice(0, 6).map((topic) => (
-                                        <Link
-                                            key={topic.id}
-                                            href={`/student/batch1/polity/topic/${topic.id}`}
-                                            className="flex items-center gap-4 bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-gray-800 p-4 hover:shadow-lg hover:border-blue-500 transition-all"
-                                        >
-                                            <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-300 font-bold">
-                                                {topic.id}
+                                {/* AUDIT SIMULATOR OVERLAY */}
+                                {activeAuditChapter && (
+                                    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+                                        <div className="bg-white dark:bg-[#0a0a0a] w-full max-w-4xl rounded-3xl max-h-[90vh] overflow-y-auto shadow-2xl">
+                                            <PolityExamSimulator
+                                                title={`Chapter ${activeAuditChapter} Audit`}
+                                                description="Rapid Fire Audit. 5 Questions. Prove you read the book."
+                                                mode="audit"
+                                                onComplete={handleAuditComplete}
+                                                onClose={() => setActiveAuditChapter(null)}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Today's Target Widget - NEW */}
+                                {!embedded && todayTarget && (
+                                    <div className="max-w-6xl mx-auto px-6 -mt-8 relative z-10">
+                                        <div className="bg-white dark:bg-[#111] rounded-3xl border border-blue-200 dark:border-blue-900 shadow-2xl p-6 flex flex-col md:flex-row items-center gap-6">
+                                            <div className="flex-shrink-0 w-20 h-20 bg-blue-100 dark:bg-blue-900/40 rounded-2xl flex flex-col items-center justify-center text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800">
+                                                <span className="text-[10px] uppercase font-black opacity-60">Day</span>
+                                                <span className="text-3xl font-black">{todayTarget.day.substring(0, 3)}</span>
                                             </div>
+
                                             <div className="flex-1">
-                                                <div className="font-semibold text-[#1F2937] dark:text-white">{topic.title}</div>
-                                                <div className="text-sm text-gray-500 dark:text-gray-400">
-                                                    {topic.keyConcepts.length} concepts • {topic.currentAffairs.length} CA updates
+                                                <div className="flex items-center gap-2 mb-1">
+                                                    <span className={`text-white text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ${todayTarget.type === 'MCQ' ? 'bg-amber-600' :
+                                                        todayTarget.type === 'Revision' ? 'bg-indigo-600' :
+                                                            'bg-blue-600'
+                                                        }`}>
+                                                        Today's {todayTarget.type}
+                                                    </span>
+                                                    <span className="text-sm text-gray-500 font-medium">Week {todayTarget.week} Schedule</span>
+                                                </div>
+                                                <h3 className="text-xl font-black text-gray-900 dark:text-white">
+                                                    {todayTarget.type === 'MCQ'
+                                                        ? (todayTarget.data as string[]).join(' • ')
+                                                        : (todayTarget.data as any[]).length > 0
+                                                            ? (todayTarget.data as any[]).map(c => `CH ${c.chapter}: ${c.topic}`).join(' • ')
+                                                            : "Revision / Buffer Day"
+                                                    }
+                                                </h3>
+                                                <div className="flex items-center gap-4 mt-2">
+                                                    <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                                        <Clock className="w-3.5 h-3.5" /> {todayTarget.slots} Pomodoros
+                                                    </div>
+                                                    {todayTarget.type === 'Study' && (
+                                                        <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                                                            <Book className="w-3.5 h-3.5" /> {(todayTarget.data as any[]).reduce((s, c) => s + (c.pages || 0), 0)} pages
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </div>
-                                            <ChevronRight className="w-5 h-5 text-gray-400" />
-                                        </Link>
-                                    ))}
+
+                                            <button
+                                                onClick={() => setView('schedule')}
+                                                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-2xl font-bold shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2"
+                                            >
+                                                Open Planner <ChevronRight className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* One-Stop Revision Grid */}
+                                {/* Tab Navigation for Syllabus List */}
+
+                                {/* Tab Navigation for Syllabus List */}
+                                <div className="max-w-6xl mx-auto px-6 mt-12">
+                                    <div className="flex border-b border-gray-200 dark:border-gray-800">
+                                        <button
+                                            onClick={() => setView('topics')}
+                                            className={`px-8 py-4 text-sm font-bold transition-all border-b-2 ${view === 'topics'
+                                                ? 'text-blue-600 border-blue-600'
+                                                : 'text-gray-500 border-transparent hover:text-gray-700'
+                                                }`}
+                                        >
+                                            Detailed Syllabus (95 Topics)
+                                        </button>
+                                        <button
+                                            onClick={() => setView('schedule')}
+                                            className={`px-8 py-4 text-sm font-bold transition-all border-b-2 flex items-center gap-2 text-gray-500 border-transparent hover:text-gray-700`}
+                                        >
+                                            <Clock className="w-4 h-4" />
+                                            Full Schedule
+                                        </button>
+                                    </div>
+
+                                    {/* Detailed Syllabus List */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pb-12">
+                                        {POLITY_TOPICS.map((topic) => (
+                                            <Link
+                                                key={topic.id}
+                                                href={`/student/batch1/polity/topic/${topic.id}`}
+                                                className="flex items-center gap-4 bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-gray-800 p-4 hover:shadow-lg hover:border-blue-500 transition-all"
+                                            >
+                                                <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-300 font-bold">
+                                                    {topic.id}
+                                                </div>
+                                                <div className="flex-1">
+                                                    <div className="font-semibold text-[#1F2937] dark:text-white">{topic.title}</div>
+                                                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                                                        {topic.keyConcepts.length} concepts • {topic.currentAffairs.length} CA updates
+                                                    </div>
+                                                </div>
+                                                <ChevronRight className="w-5 h-5 text-gray-400" />
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
+                            </>
+                        )}
+
+                        {adaptiveLevel === 'level2' && (
+                            <PolityLogicModules />
+                        )}
+
+                        {adaptiveLevel === 'level3' && (
+                            <PolityExamSimulator />
                         )}
                     </>
                 ) : view === 'schedule' ? (
@@ -556,8 +500,8 @@ export default function PolityHome({ embedded = false }: { embedded?: boolean })
                     <div className="max-w-7xl mx-auto px-6 py-12">
                         <Batch1ContentMap onBack={() => setView('topics')} />
                     </div>
-                )
-            }
-        </div >
+                )}
+            </div>
+        </div>
     );
 }

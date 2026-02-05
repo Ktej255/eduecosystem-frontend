@@ -19,6 +19,7 @@ import {
     Layers,
     GraduationCap,
     BarChart3,
+    ShoppingBag,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -112,6 +113,12 @@ const menuItems = [
         href: "/student/community",
         icon: User,
         accessKey: "community",
+    },
+    {
+        name: "UPSC Store",
+        href: "/student/upsc-store",
+        icon: ShoppingBag,
+        accessKey: "dashboard",
     },
     {
         name: "Revision Portal",

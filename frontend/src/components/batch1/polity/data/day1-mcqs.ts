@@ -13,7 +13,15 @@ export const DAY1_MCQS: MCQ[] = [
             "Charter Act of 1853"
         ],
         correctAnswer: 1, // B
-        level: "Easy"
+        level: "Easy",
+        // New Adaptive Fields
+        difficulty_tier: 'Level_1',
+        cognitive_tag: 'Knowledge',
+        source_mapping: {
+            book: 'M. Laxmikanth',
+            chapter: 'Historical Background',
+            page_ref: 4
+        }
     },
     {
         id: 2,
@@ -234,7 +242,15 @@ export const DAY1_MCQS: MCQ[] = [
         level: "Moderate",
         topic: "Indian Polity",
         chapter: "Constitutional History",
-        subtopic: "Regulating Act 1773"
+        subtopic: "Regulating Act 1773",
+        // New Adaptive Fields
+        difficulty_tier: 'Level_2',
+        cognitive_tag: 'Understanding',
+        source_mapping: {
+            book: 'M. Laxmikanth',
+            chapter: 'Historical Background',
+            page_ref: 5
+        }
     },
     {
         id: 17,
@@ -447,7 +463,15 @@ export const DAY1_MCQS: MCQ[] = [
         ],
         correctAnswer: 0, // A
         explanation: "1858 [Crown Rule] -> 1861 [Portfolio] -> 1909 [Sinha] -> 1937 [Federal Court]",
-        level: "Tough"
+        level: "Tough",
+        // New Adaptive Fields
+        difficulty_tier: 'Level_3',
+        cognitive_tag: 'Understanding',
+        source_mapping: {
+            book: 'M. Laxmikanth',
+            chapter: 'Historical Background',
+            page_ref: 8
+        }
     },
     {
         id: 32,
