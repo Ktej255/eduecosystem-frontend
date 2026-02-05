@@ -75,7 +75,7 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
             });
 
             // Refresh Data
-            const heatmap = await upsceSynapseService.getHeatmap();
+            const heatmap = await upscSynapseService.getHeatmap();
             setHeatmapData(heatmap);
 
             alert(`Audit Complete! You scored ${percentage}%. Status updated.`);
