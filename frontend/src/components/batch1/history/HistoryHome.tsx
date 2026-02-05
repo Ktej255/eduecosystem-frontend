@@ -12,12 +12,12 @@ import HistorySectionPlanner from './HistorySectionPlanner';
 import { HistorySection } from './data/history-schedule-registry';
 
 export default function HistoryHome({ embedded = false }: { embedded?: boolean }) {
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'timeline' | 'mains' | 'visuals' | 'spectrum'>(embedded ? 'spectrum' : 'spectrum');
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'overview' | 'syllabus' | 'timeline' | 'mains' | 'visuals'>('dashboard');
     const [selectedSection, setSelectedSection] = useState<HistorySection>('modern');
 
     const handleTopicSelect = (topicId: number) => {
         console.log("Timeline selected topic:", topicId);
-        setActiveTab('planner');
+        setActiveTab('syllabus');
     };
 
     const sections = [
@@ -45,32 +45,31 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                                 <button
                                     onClick={() => setActiveTab('dashboard')}
                                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'dashboard'
+                                        ? 'bg-indigo-600 text-white shadow-lg'
+                                        : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                                        }`}
+                                >
+                                    Study Dashboard
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab('overview')}
+                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'overview'
                                         ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
                                         : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                                         }`}
                                 >
-                                    <Clock className="w-4 h-4" />
-                                    Dashboard
+                                    <Layout className="w-4 h-4" />
+                                    Overview
                                 </button>
                                 <button
-                                    onClick={() => setActiveTab('planner')}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'planner'
+                                    onClick={() => setActiveTab('syllabus')}
+                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'syllabus'
                                         ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
                                         : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                                         }`}
                                 >
                                     <BookOpen className="w-4 h-4" />
-                                    Resources
-                                </button>
-                                <button
-                                    onClick={() => setActiveTab('spectrum')}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'spectrum'
-                                        ? 'bg-indigo-600 text-white shadow-lg'
-                                        : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                                        }`}
-                                >
-                                    <Target className="w-4 h-4" />
-                                    15-Day Plan
+                                    Syllabus Map
                                 </button>
                                 <button
                                     onClick={() => setActiveTab('timeline')}
@@ -108,8 +107,8 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                 </div>
             )}
 
-            {/* Sub-Nav for 15-Day Plan */}
-            {activeTab === 'spectrum' && (
+            {/* Sub-Nav for Study Dashboard */}
+            {activeTab === 'dashboard' && (
                 <div className="bg-white/50 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-900/50 dark:border-neutral-800 animate-in fade-in slide-in-from-top-4 duration-300">
                     <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-center gap-8">
                         {sections.map((sec) => (
@@ -131,11 +130,7 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
             )}
 
             <div className="w-full">
-                {activeTab === 'dashboard' && (
-                    <HistoryDashboard />
-                )}
-
-                {activeTab === 'planner' && (
+                {activeTab === 'syllabus' && (
                     <SubjectPlanner config={HISTORY_CONFIG} />
                 )}
 
@@ -155,10 +150,14 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                     </div>
                 )}
 
-                {activeTab === 'spectrum' && (
+                {activeTab === 'dashboard' && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <HistorySectionPlanner section={selectedSection} />
                     </div>
+                )}
+
+                {activeTab === 'overview' && (
+                    <HistoryDashboard />
                 )}
 
                 {activeTab === 'visuals' && (

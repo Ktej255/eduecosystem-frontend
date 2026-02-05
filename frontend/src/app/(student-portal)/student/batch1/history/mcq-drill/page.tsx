@@ -84,33 +84,43 @@ function MCQDrillContent() {
                     console.log("Drill Complete:", results);
 
                     try {
-                        const profile = await upscSynapseService.getProfile();
+                        let profile = null;
+                        try {
+                            profile = await upscSynapseService.getProfile();
+                        } catch (pErr) {
+                            console.warn("Could not fetch profile for sync:", pErr);
+                        }
 
-                        // Group results by chapter
-                        const chapterStats: Record<number, { correct: number; total: number }> = {};
+                        if (profile) {
+                            // Group results by chapter
+                            const chapterStats: Record<number, { correct: number; total: number }> = {};
 
-                        results.forEach(res => {
-                            const question = questions.find(q => q.id === res.questionId);
-                            const chId = question?.chapterId ? Number(question.chapterId) : null;
+                            results.forEach(res => {
+                                const question = questions.find(q => q.id === res.questionId);
+                                const chId = question?.chapterId ? Number(question.chapterId) : null;
 
-                            if (chId) {
-                                if (!chapterStats[chId]) chapterStats[chId] = { correct: 0, total: 0 };
-                                chapterStats[chId].total++;
-                                if (res.isCorrect) chapterStats[chId].correct++;
-                            }
-                        });
-
-                        // Sync each chapter result to backend
-                        await Promise.all(Object.entries(chapterStats).map(([chId, stats]) => {
-                            const accuracy = Math.round((stats.correct / stats.total) * 100);
-                            return upscSynapseService.logGapAnalysis({
-                                profile_id: profile.id,
-                                chapter_id: Number(chId),
-                                subject: subject,
-                                status: accuracy >= 70 ? "mastered" : "knowledge_gap",
-                                recall_accuracy: accuracy
+                                if (chId) {
+                                    if (!chapterStats[chId]) chapterStats[chId] = { correct: 0, total: 0 };
+                                    chapterStats[chId].total++;
+                                    if (res.isCorrect) chapterStats[chId].correct++;
+                                }
                             });
-                        }));
+
+                            // Sync each chapter result to backend
+                            await Promise.all(Object.entries(chapterStats).map(([chId, stats]) => {
+                                const accuracy = Math.round((stats.correct / stats.total) * 100);
+                                return upscSynapseService.logGapAnalysis({
+                                    profile_id: profile.id,
+                                    chapter_id: Number(chId),
+                                    subject: subject,
+                                    status: accuracy >= 70 ? "mastered" : "knowledge_gap",
+                                    recall_accuracy: accuracy
+                                });
+                            }));
+                            alert("Drill completed! Performance synced with Synapse Engine.");
+                        } else {
+                            alert("Drill completed! (Offline Mode - Results saved locally)");
+                        }
 
                         // Also store locally for Deep Report
                         const timestamp = new Date().toISOString();
@@ -126,10 +136,9 @@ function MCQDrillContent() {
                             chapters: chapterIds
                         }));
 
-                        alert("Drill completed! Performance synced with Synapse Engine.");
                     } catch (err) {
                         console.error("Failed to sync drill results:", err);
-                        alert("Drill completed, but failed to sync results to backend.");
+                        alert("Drill completed! (Sync warning: " + (err instanceof Error ? err.message : "Unknown error") + ")");
                     }
 
                     router.push('/student/batch1/history');

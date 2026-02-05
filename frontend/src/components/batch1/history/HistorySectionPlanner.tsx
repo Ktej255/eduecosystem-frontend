@@ -207,7 +207,10 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
 
                                 {/* Timer/Session Info */}
                                 <div className="mb-6 grid grid-cols-2 gap-3">
-                                    <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-2xl border border-blue-100 dark:border-blue-800">
+                                    <div
+                                        onClick={() => router.push(`/student/batch1/history/pomodoro?mode=study&subject=${section}&day=${index + 1}`)}
+                                        className="cursor-pointer bg-blue-50 dark:bg-blue-900/20 p-3 rounded-2xl border border-blue-100 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all"
+                                    >
                                         <div className="flex items-center gap-2 mb-1">
                                             <Clock className="w-3 h-3 text-blue-600" />
                                             <span className="text-[10px] font-bold text-blue-800 dark:text-blue-300 uppercase">Study Session</span>
@@ -215,7 +218,10 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                         <div className="text-sm font-black text-blue-900 dark:text-blue-100">8AM - 1PM</div>
                                         <div className="text-[9px] text-blue-600 text-center">Intensive Reading</div>
                                     </div>
-                                    <div className="bg-orange-50 dark:bg-orange-900/20 p-3 rounded-2xl border border-orange-100 dark:border-orange-800">
+                                    <div
+                                        onClick={() => router.push(`/student/batch1/history/pomodoro?mode=drill&subject=${section}&day=${index + 1}`)}
+                                        className="cursor-pointer bg-orange-50 dark:bg-orange-900/20 p-3 rounded-2xl border border-orange-100 dark:border-orange-800 hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-all"
+                                    >
                                         <div className="flex items-center gap-2 mb-1">
                                             <FileText className="w-3 h-3 text-orange-600" />
                                             <span className="text-[10px] font-bold text-orange-800 dark:text-orange-300 uppercase">Recall Drill</span>
