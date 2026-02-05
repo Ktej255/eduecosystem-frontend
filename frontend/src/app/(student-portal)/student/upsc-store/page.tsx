@@ -52,27 +52,25 @@ export default function UPSCStorePage() {
         await new Promise(resolve => setTimeout(resolve, 1500));
 
         try {
-            // Use dummy profile ID for now, or fetch real one. 
-            // Better to assume we are unlocking for the current user.
-            // Since we don't have the profile ID readily available without fetching, 
-            // we might want to fetch it or just mock the success for the UI demo.
-            // But let's try to be real if possible. 
-            // Use a mock ID since this page is a "Mock Store".
-
-            // To be robust, we'll try to fetch, if fail, just alert success (Demo Mode)
+            // For Prototype: All purchases redirect to the Polity Synapse Engine
+            // This simulates "Unlocking" the module and going there.
             try {
-                const profile = await upscSynapseService.getProfile();
-                if (productId === 'level2') {
-                    await upscSynapseService.unlockLevel(profile.id, 'level2', price);
-                } else if (productId === 'level3') {
-                    await upscSynapseService.unlockLevel(profile.id, 'level3', price);
+                // Determine level to unlock based on product
+                let levelToUnlock: 'level2' | 'level3' | null = null;
+                if (productId === 'level2') levelToUnlock = 'level2';
+                if (productId === 'level3') levelToUnlock = 'level3';
+
+                if (levelToUnlock) {
+                    const profile = await upscSynapseService.getProfile();
+                    await upscSynapseService.unlockLevel(profile.id, levelToUnlock, price);
                 }
             } catch (e) {
                 console.warn("Backend connect failed, using mock success", e);
             }
 
-            alert(`Successfully purchased ${productId}! Access Unlocked.`);
-            router.push('/student/batch1'); // Redirect back to module
+            // Redirect to the Synapse Engine Page
+            router.push('/student/upsc-store/polity');
+
         } catch (error) {
             alert("Payment failed.");
         } finally {
