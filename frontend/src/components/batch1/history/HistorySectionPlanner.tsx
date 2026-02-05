@@ -208,7 +208,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                 {/* Timer/Session Info */}
                                 <div className="mb-6 grid grid-cols-2 gap-3">
                                     <div
-                                        onClick={() => router.push(`/student/batch1/history/pomodoro?mode=study&subject=${section}&day=${index + 1}`)}
+                                        onClick={() => router.push(`/student/batch1/history/pomodoro?mode=study&subject=${section}&day=${dayData.day}`)}
                                         className="cursor-pointer bg-blue-50 dark:bg-blue-900/20 p-3 rounded-2xl border border-blue-100 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all"
                                     >
                                         <div className="flex items-center gap-2 mb-1">
@@ -219,7 +219,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                         <div className="text-[9px] text-blue-600 text-center">Intensive Reading</div>
                                     </div>
                                     <div
-                                        onClick={() => router.push(`/student/batch1/history/pomodoro?mode=drill&subject=${section}&day=${index + 1}`)}
+                                        onClick={() => router.push(`/student/batch1/history/pomodoro?mode=drill&subject=${section}&day=${dayData.day}`)}
                                         className="cursor-pointer bg-orange-50 dark:bg-orange-900/20 p-3 rounded-2xl border border-orange-100 dark:border-orange-800 hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-all"
                                     >
                                         <div className="flex items-center gap-2 mb-1">
