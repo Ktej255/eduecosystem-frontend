@@ -5,13 +5,14 @@ import { CheckCircle2, ChevronRight, ChevronDown, BookOpen, Layers, Folder, File
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CHAPTER_SUBTOPICS, SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
-
+import { HISTORY_CHAPTER_SUBTOPICS } from '@/components/batch1/history/data/history-subtopics';
 interface SubtopicSelectorProps {
     chapterIds: number[]; // Chapters to show subtopics for
     onSubmit: (selectedSubtopics: SubTopic[]) => void;
     cycleNumber: number;
     isConsolidation?: boolean;
     previouslyCompleted?: SubTopic[];
+    subject?: 'polity' | 'history';
 }
 
 // Recursive component for rendering subtopics
@@ -118,7 +119,8 @@ export default function SubtopicSelector({
     onSubmit,
     cycleNumber,
     isConsolidation = false,
-    previouslyCompleted = []
+    previouslyCompleted = [],
+    subject = 'polity'
 }: SubtopicSelectorProps) {
     const [selectedSubtopics, setSelectedSubtopics] = useState<SubTopic[]>([]);
 
@@ -127,8 +129,9 @@ export default function SubtopicSelector({
         if (isConsolidation) return previouslyCompleted;
 
         const subtopics: SubTopic[] = [];
+        const registry = subject === 'history' ? HISTORY_CHAPTER_SUBTOPICS : CHAPTER_SUBTOPICS;
         chapterIds.forEach(chapterId => {
-            const chapterSubtopics = CHAPTER_SUBTOPICS[chapterId] || [];
+            const chapterSubtopics = registry[chapterId] || [];
             subtopics.push(...chapterSubtopics);
         });
         return subtopics;

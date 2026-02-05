@@ -58,8 +58,8 @@ export const ActivityLogger = {
     getStats: () => {
         const logs = ActivityLogger.getLogs();
         return {
-            totalMCQsSolved: logs.filter(l => l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY').length,
-            totalCorrect: logs.filter(l => (l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY') && l.details.isCorrect).length,
+            totalMCQsSolved: logs.filter(l => l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY' || l.type === 'MCQ_POMODORO').length,
+            totalCorrect: logs.filter(l => (l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY' || l.type === 'MCQ_POMODORO') && l.details.isCorrect).length,
             totalFlashcards: logs.filter(l => l.type === 'FLASHCARD_REVIEW').length,
             byTopic: logs.reduce((acc, log) => {
                 const topic = log.details.topic || 'Uncategorized';

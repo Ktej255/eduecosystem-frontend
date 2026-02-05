@@ -299,9 +299,9 @@ export default function FocusPortal() {
                                     </Select>
                                 </div>
 
-                                {selectedSubject === 'polity' ? (
-                                    <PolityHome embedded={true} />
-                                ) : (
+                                {selectedSubject === 'polity' && <PolityHome embedded={true} />}
+                                {selectedSubject === 'history' && <HistoryHome embedded={true} />}
+                                {(selectedSubject === 'geography' || selectedSubject === 'science') && (
                                     <div className="p-12 text-center bg-white dark:bg-[#111] rounded-2xl border border-dashed border-gray-300 dark:border-gray-800">
                                         <BookOpen className="w-12 h-12 text-gray-300 mx-auto mb-4" />
                                         <h3 className="text-lg font-medium text-gray-900 dark:text-white">

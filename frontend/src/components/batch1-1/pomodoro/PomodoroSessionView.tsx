@@ -20,11 +20,15 @@ import { LAXMIKANTH_CHAPTERS, generateWeeklySchedule } from "@/components/batch1
 import { getFabDayContent, FAB_MONTH_START } from "./FabScheduleData";
 // import { HISTORY_SCHEDULE } from "../../batch1/history/data/history-schedule-data";
 import { markChapterComplete, markSubtopicsComplete, updateDayProgress, recordMCQScore } from "@/lib/polity-progress-store";
+import { markHistoryChapterComplete, markHistorySubtopicsComplete, updateHistoryDayProgress, recordHistoryMCQScore } from "@/lib/history-progress-store";
+import { loadCompiledMCQs as loadHistoryMCQs } from "@/components/batch1/history/data/spectrum-mcq-loader";
+import { loadCompiledFlashcards as loadHistoryFlashcards } from "@/components/batch1/history/data/history-flashcard-loader";
 import { ambientSoundManager, NoiseType } from "@/lib/ambient-sound-manager";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { Volume2, Volume1, VolumeX, Headphones } from "lucide-react";
 import { awardXP, checkAchievements, updateStreak } from "@/lib/gamification";
+import { upscSynapseService, CognitiveProfile } from "@/lib/upsc-synapse-service";
 
 // Session states for the enhanced cycle
 type SessionState =
@@ -37,6 +41,7 @@ type SessionState =
     | 'reading'
     | 'break'
     | 'long_break'
+    | 'loading_content'
     | 'complete';
 
 interface PomodoroSessionViewProps {
@@ -63,11 +68,19 @@ interface CycleData {
 }
 
 // Get schedule items for the day (Chapters and/or Tasks)
-function getDayContent(weekId: number, dayId: number): { chapters: number[], tasks: string[], isFabSchedule?: boolean, morningTopic?: string, eveningTopic?: string, liveClassLink?: string } {
+function getDayContent(weekId: number, dayId: number): {
+    chapters: number[];
+    tasks: string[];
+    subject: 'polity' | 'history';
+    isFabSchedule?: boolean;
+    morningTopic?: string;
+    eveningTopic?: string;
+    liveClassLink?: string;
+} {
     const dayMapping = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as const;
 
     // Validate dayId (1-7)
-    if (dayId < 1 || dayId > 7) return { chapters: [], tasks: [] };
+    if (dayId < 1 || dayId > 7) return { chapters: [], tasks: [], subject: 'polity' };
 
     // --- FAB MONTH LOGIC (Feb 9+) ---
     // Calculate if this week/day falls into the Fab Month Plan.
@@ -96,7 +109,8 @@ function getDayContent(weekId: number, dayId: number): { chapters: number[], tas
             isFabSchedule: true,
             morningTopic: fabContent.morning.schedule.title,
             eveningTopic: fabContent.evening.topic,
-            liveClassLink: fabContent.liveClassLink
+            liveClassLink: fabContent.liveClassLink,
+            subject: 'history' as const
         };
     }
 
@@ -109,7 +123,7 @@ function getDayContent(weekId: number, dayId: number): { chapters: number[], tas
 
     if (!weekSchedule) {
         console.warn(`No schedule found for Week ${weekId}`);
-        return { chapters: [], tasks: [] };
+        return { chapters: [], tasks: [], subject: 'polity' };
     }
 
     const dayContent = weekSchedule.days[dayKey];
@@ -127,7 +141,7 @@ function getDayContent(weekId: number, dayId: number): { chapters: number[], tas
         });
     }
 
-    return { chapters, tasks };
+    return { chapters, tasks, subject: 'polity' as const };
 }
 
 // Sync to unified progress store (replaces old syncToStudyPlanner)
@@ -136,7 +150,9 @@ function syncProgressToStore(
     dayId: number,
     subtopics: SubTopic[],
     mcqResults?: { correct: number; total: number },
-    cyclesCompleted?: number
+    currentSessionGlobal?: number,
+    subject: 'polity' | 'history' = 'polity',
+    profileId?: string
 ) {
     // Group subtopics by chapter
     const chapterSubtopics: Record<number, string[]> = {};
@@ -148,23 +164,78 @@ function syncProgressToStore(
         chapterSubtopics[chapterId].push(s.id);
     });
 
-    // Mark subtopics complete for each chapter
-    Object.entries(chapterSubtopics).forEach(([chapterId, subtopicIds]) => {
-        markSubtopicsComplete(parseInt(chapterId), subtopicIds);
-    });
+    if (subject === 'history') {
+        // Mark subtopics complete for each chapter
+        Object.entries(chapterSubtopics).forEach(([chapterId, subtopicIds]) => {
+            markHistorySubtopicsComplete(parseInt(chapterId), subtopicIds);
 
-    // Update day progress
-    updateDayProgress(weekId, dayId, {
-        cyclesCompleted: cyclesCompleted || 0,
-        totalSubtopics: subtopics.length,
-        morningComplete: cyclesCompleted === 4
-    });
+            // Sync to backend if profile exists
+            if (profileId) {
+                const accuracy = mcqResults && mcqResults.total > 0
+                    ? Math.round((mcqResults.correct / mcqResults.total) * 100)
+                    : 100;
 
-    // Record MCQ scores if available
-    if (mcqResults) {
-        Object.keys(chapterSubtopics).forEach(chapterId => {
-            recordMCQScore(parseInt(chapterId), Math.round((mcqResults.correct / mcqResults.total) * 100));
+                upscSynapseService.logGapAnalysis({
+                    profile_id: profileId,
+                    chapter_id: parseInt(chapterId),
+                    subject: "History",
+                    status: "mastered", // History is currently pass-fail in Pomodoro
+                    recall_accuracy: accuracy
+                }).catch(err => console.error("History Backend Sync Failed:", err));
+            }
         });
+
+        // Update day progress
+        updateHistoryDayProgress(weekId, dayId, {
+            cyclesCompleted: currentSessionGlobal || 0,
+            totalSubtopics: subtopics.length,
+            morningComplete: currentSessionGlobal === 4
+        });
+
+        // Record MCQ scores if available
+        if (mcqResults) {
+            Object.keys(chapterSubtopics).forEach(chapterId => {
+                recordHistoryMCQScore(parseInt(chapterId), Math.round((mcqResults.correct / mcqResults.total) * 100));
+            });
+        }
+    } else {
+        // Mark subtopics complete for each chapter
+        Object.entries(chapterSubtopics).forEach(([chapterId, subtopicIds]) => {
+            markSubtopicsComplete(parseInt(chapterId), subtopicIds);
+
+            // Sync to backend if profile exists
+            if (profileId) {
+                const accuracy = mcqResults && mcqResults.total > 0
+                    ? Math.round((mcqResults.correct / mcqResults.total) * 100)
+                    : 100;
+
+                const status = mcqResults && mcqResults.total > 0 && (mcqResults.correct / mcqResults.total < 0.8)
+                    ? "knowledge_gap"
+                    : "mastered";
+
+                upscSynapseService.logGapAnalysis({
+                    profile_id: profileId,
+                    chapter_id: parseInt(chapterId),
+                    subject: "Polity",
+                    status: status,
+                    recall_accuracy: accuracy
+                }).catch(err => console.error("Polity Backend Sync Failed:", err));
+            }
+        });
+
+        // Update day progress
+        updateDayProgress(weekId, dayId, {
+            cyclesCompleted: currentSessionGlobal || 0,
+            totalSubtopics: subtopics.length,
+            morningComplete: currentSessionGlobal === 4
+        });
+
+        // Record MCQ scores if available
+        if (mcqResults) {
+            Object.keys(chapterSubtopics).forEach(chapterId => {
+                recordMCQScore(parseInt(chapterId), Math.round((mcqResults.correct / mcqResults.total) * 100));
+            });
+        }
     }
 }
 
@@ -184,6 +255,9 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
     const [timeLeft, setTimeLeft] = useState(POMODORO_DURATION);
     const [subtopics, setSubtopics] = useState<SubTopic[]>([]);
     const [currentSubtopics, setCurrentSubtopics] = useState<SubTopic[]>([]);
+    const [preloadedFlashcards, setPreloadedFlashcards] = useState<any[]>([]);
+    const [preloadedMCQs, setPreloadedMCQs] = useState<any[]>([]);
+    const [cognitiveProfile, setCognitiveProfile] = useState<CognitiveProfile | null>(null);
 
     // Session Goal
     const [sessionGoal, setSessionGoal] = useState("");
@@ -211,6 +285,19 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             console.log("New Cycle Start: Quota Reset to 4");
         }
     }, [currentSessionGlobal, sessionHistory]);
+
+    // Fetch cognitive profile on mount for sync
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const profile = await upscSynapseService.getProfile();
+                setCognitiveProfile(profile);
+            } catch (err) {
+                console.error("Failed to load synapse profile in pomodoro:", err);
+            }
+        };
+        fetchProfile();
+    }, []);
 
     // Save Pending Queue
     // ... persistence handled in main useEffect via JSON.stringify state ...
@@ -260,7 +347,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
     const currentSessionInBlock = ((currentSessionGlobal - 1) % SESSIONS_PER_BLOCK) + 1;
 
     // Get today's content (chapters & tasks)
-    const { chapters: todayChapters, tasks: todayTasks, isFabSchedule, morningTopic, eveningTopic, liveClassLink } = useMemo(() => getDayContent(weekId, dayId), [weekId, dayId]);
+    const { chapters: todayChapters, tasks: todayTasks, isFabSchedule, morningTopic, eveningTopic, liveClassLink, subject } = useMemo(() => getDayContent(weekId, dayId), [weekId, dayId]);
 
     // Get chapter names / task names for display
     const scheduleItems = useMemo(() => {
@@ -297,7 +384,9 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
     // --- Persistence ---
     useEffect(() => {
-        const savedNew = localStorage.getItem(`batch11_pomodoro_${weekId}_${dayId}`);
+        const primaryKey = `batch11_pomodoro_${subject}_${weekId}_${dayId}`;
+        const fallbackKey = `batch11_pomodoro_${weekId}_${dayId}`;
+        const savedNew = localStorage.getItem(primaryKey) || localStorage.getItem(fallbackKey);
 
         if (savedNew) {
             // Priority: Load new structure
@@ -352,13 +441,15 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
     // Save on updates
     useEffect(() => {
-        localStorage.setItem(`batch11_pomodoro_${weekId}_${dayId}`, JSON.stringify({
+        const key = `batch11_pomodoro_${subject}_${weekId}_${dayId}`;
+        localStorage.setItem(key, JSON.stringify({
             currentSessionGlobal,
             sessionHistory,
             sessionGoal,
+            subject, // Include subject in data for clarity
             lastUpdated: new Date().toISOString()
         }));
-    }, [currentSessionGlobal, sessionHistory, sessionGoal, weekId, dayId]);
+    }, [currentSessionGlobal, sessionHistory, sessionGoal, weekId, dayId, subject]);
 
 
     // Calculate total progress
@@ -420,7 +511,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
         }
     };
 
-    const handleSubtopicSubmit = (selected: SubTopic[]) => {
+    const handleSubtopicSubmit = async (selected: SubTopic[]) => {
         // Merge with pending (Accumulation Logic)
         const merged = [...pendingSubtopics, ...selected];
         // Remove duplicates just in case
@@ -434,7 +525,29 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
         }
 
         setCurrentSubtopics(unique);
-        setSessionState('flashcards');
+
+        if (subject === 'history') {
+            setSessionState('loading_content');
+            try {
+                // Get chapter IDs from subtopic IDs (structured as "X.Y")
+                const chapterIds = Array.from(new Set(unique.map(s => parseInt(s.id.split('.')[0]))));
+
+                // Load History specific content
+                const [fcs, mcqs] = await Promise.all([
+                    loadHistoryFlashcards(chapterIds),
+                    loadHistoryMCQs(chapterIds, 10) // Small set for Pomodoro
+                ]);
+
+                setPreloadedFlashcards(fcs);
+                setPreloadedMCQs(mcqs);
+                setSessionState('flashcards');
+            } catch (error) {
+                console.error("Failed to load history content:", error);
+                setSessionState('flashcards'); // Fallback to auto-gen
+            }
+        } else {
+            setSessionState('flashcards');
+        }
     };
 
     const handleFlashcardsComplete = (viewedCount: number) => {
@@ -476,7 +589,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
         setSessionHistory(updated);
 
         // Sync to unified progress store
-        syncProgressToStore(weekId, dayId, currentSubtopics, results, currentSessionGlobal);
+        syncProgressToStore(weekId, dayId, currentSubtopics, results, currentSessionGlobal, subject, cognitiveProfile?.id);
 
         // 2. Determine Next Step -> Reading Phase
         setSessionState('reading');
@@ -934,7 +1047,18 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                             cycleNumber={currentSessionGlobal}
                             isConsolidation={false} // No specific consolidation needed as interaction is every session
                             previouslyCompleted={allCompletedSubtopics}
+                            subject={subject}
                         />
+                    )}
+
+                    {sessionState === 'loading_content' && (
+                        <Card className="p-12 text-center bg-white">
+                            <div className="flex flex-col items-center justify-center">
+                                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mb-4"></div>
+                                <p className="text-gray-600 font-medium">Curating your customized history session...</p>
+                                <p className="text-xs text-gray-400 mt-2">Loading flashcards and MCQs for selected chapters</p>
+                            </div>
+                        </Card>
                     )}
 
                     {sessionState === 'flashcards' && (
@@ -942,6 +1066,8 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                             selectedSubtopics={currentSubtopics}
                             onComplete={handleFlashcardsComplete}
                             cycleNumber={currentSessionGlobal}
+                            preloadedCards={preloadedFlashcards}
+                            subject={subject}
                             // Skip Props
                             canSkip={skipQuota > 0}
                             skipsRemaining={skipQuota}
@@ -961,6 +1087,8 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                             selectedSubtopics={currentSubtopics}
                             onComplete={handleMCQsComplete}
                             cycleNumber={currentSessionGlobal}
+                            preloadedMCQs={preloadedMCQs}
+                            subject={subject}
                             // Skip Props
                             canSkip={skipQuota > 0}
                             skipsRemaining={skipQuota}

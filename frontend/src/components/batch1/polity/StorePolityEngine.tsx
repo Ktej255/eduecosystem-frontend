@@ -20,7 +20,7 @@ import PolityExamSimulator from './PolityExamSimulator';
 
 import PolityResultDashboard from './PolityResultDashboard';
 import UnlockModal from './modals/UnlockModal';
-import { upscSynapseService, CognitiveProfile, GapAnalysisEntry } from '@/services/upscSynapseService';
+import { upscSynapseService, CognitiveProfile, GapAnalysisEntry } from '@/lib/upsc-synapse-service';
 
 export default function StorePolityEngine({ embedded = false }: { embedded?: boolean }) {
     const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -71,6 +71,7 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                 status: status,
                 recall_accuracy: percentage,
                 profile_id: cognitiveProfile.id,
+                subject: "Polity",
                 gap_details: status === 'knowledge_gap' ? { missingConcept: "General Precision" } : undefined
             });
 
@@ -125,6 +126,14 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
     const handleUnlockRequest = (level: 'level2' | 'level3') => {
         setUnlockModal({ isOpen: true, level });
     };
+
+    // Calculate aggregate accuracy from heatmap
+    const aggregateAccuracy = useMemo(() => {
+        const attempted = heatmapData.filter(d => d.status !== 'unattempted');
+        if (attempted.length === 0) return 0;
+        const totalAccuracy = attempted.reduce((sum, entry) => sum + entry.recall_accuracy, 0);
+        return Math.round(totalAccuracy / attempted.length);
+    }, [heatmapData]);
 
     const handleUnlockConfirm = async () => {
         try {
@@ -358,7 +367,7 @@ export default function StorePolityEngine({ embedded = false }: { embedded?: boo
                                 <PolityResultDashboard
                                     score={cognitiveProfile?.wps_score ?? 72}
                                     stressIndex={cognitiveProfile?.stress_index ?? 6.5}
-                                    accuracy={65} // Need accurate field in backend later
+                                    accuracy={aggregateAccuracy}
                                     gapData={heatmapData}
                                     onUnlockLevel2={handleUnlockConfirm} // Use standard unlock for flow
                                     onRetakeAudit={() => window.location.reload()}

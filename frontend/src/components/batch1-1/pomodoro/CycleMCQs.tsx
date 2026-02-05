@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
 import { getMCQsForSubtopics, MCQ } from '@/components/batch1/polity/data/polity-mcqs-data';
+import { loadCompiledMCQs } from '@/components/batch1/history/data/spectrum-mcq-loader';
 import { useMCQShortcuts } from '@/hooks/useKeyboardShortcuts';
 import KeyboardShortcutsHelp from '@/components/common/KeyboardShortcutsHelp';
 import { recordMCQAttempt } from '@/lib/analytics';
@@ -60,6 +61,7 @@ interface CycleMCQsProps {
     skipsRemaining?: number;
     onSkip?: () => void;
     activityType?: 'MCQ_EVENING' | 'MCQ_POMODORO';
+    subject?: 'polity' | 'history';
 }
 
 export default function CycleMCQs({
@@ -70,7 +72,8 @@ export default function CycleMCQs({
     canSkip = false,
     skipsRemaining = 0,
     onSkip,
-    activityType = 'MCQ_EVENING'
+    activityType = 'MCQ_EVENING',
+    subject = 'polity'
 }: CycleMCQsProps) {
     const mcqs = useMemo(() => {
         if (preloadedMCQs && preloadedMCQs.length > 0) return preloadedMCQs;

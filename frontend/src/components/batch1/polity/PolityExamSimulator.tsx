@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AlertTriangle, Clock, Play, ShieldAlert, Trophy, Brain, XCircle, CheckCircle, Activity, ChevronLeft } from 'lucide-react';
+import Link from 'next/link';
 import { calculateStressScore, getMeditationRecommendation, StressMetrics } from './PolityStressEngine';
 
 export interface Question {
@@ -265,12 +266,19 @@ export default function PolityExamSimulator({
                         </p>
                     </div>
 
-                    <button
-                        onClick={handleMeditationComplete}
-                        className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold shadow-xl transition-transform hover:scale-105"
-                    >
-                        I'm Calm Now. Resume Question.
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                        <Link href="/student/graphotherapy">
+                            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold shadow-xl transition-transform hover:scale-105 flex items-center gap-2">
+                                <Activity className="w-4 h-4" /> Start Graphotherapy
+                            </button>
+                        </Link>
+                        <button
+                            onClick={handleMeditationComplete}
+                            className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold shadow-xl transition-transform hover:scale-105"
+                        >
+                            I'm Calm Now. Resume.
+                        </button>
+                    </div>
                 </div>
             )}
 

@@ -23,7 +23,7 @@ export interface HistoryMCQ {
     id: string;
     question: string;
     options: string[];
-    correctIndex: number;
+    correctAnswer: number;
     explanation: string;
     chapterId?: number;
 }
@@ -69,12 +69,12 @@ export default function HistoryMCQSession({
 
     const handleNext = () => {
         const timeSpent = Math.floor((Date.now() - questionStartTime) / 1000);
-        const isCorrect = selectedAnswer === currentQuestion.correctIndex;
+        const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
 
         const newResult: MCQResult = {
             questionId: currentQuestion.id,
             selectedAnswer,
-            correctAnswer: currentQuestion.correctIndex,
+            correctAnswer: currentQuestion.correctAnswer,
             isCorrect,
             confidence,
             timeSpent
@@ -174,8 +174,8 @@ export default function HistoryMCQSession({
                                     key={idx}
                                     onClick={() => setSelectedAnswer(idx)}
                                     className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-center gap-5 group ${selectedAnswer === idx
-                                            ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-500 shadow-md transform scale-[1.01]'
-                                            : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-amber-200'
+                                        ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-500 shadow-md transform scale-[1.01]'
+                                        : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-amber-200'
                                         }`}
                                 >
                                     <div className={`w-10 h-10 shrink-0 rounded-xl flex items-center justify-center font-black text-lg transition-colors ${selectedAnswer === idx ? 'bg-amber-500 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
@@ -207,8 +207,8 @@ export default function HistoryMCQSession({
                                     disabled={selectedAnswer === null}
                                     onClick={() => setConfidence(level)}
                                     className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${confidence === level
-                                            ? 'bg-white dark:bg-slate-700 text-amber-600 dark:text-amber-400 shadow-sm'
-                                            : 'text-slate-500 hover:text-slate-700 disabled:opacity-30'
+                                        ? 'bg-white dark:bg-slate-700 text-amber-600 dark:text-amber-400 shadow-sm'
+                                        : 'text-slate-500 hover:text-slate-700 disabled:opacity-30'
                                         }`}
                                 >
                                     {level === 'sure' && '✅ 100%'}
@@ -234,8 +234,8 @@ export default function HistoryMCQSession({
                             onClick={handleNext}
                             disabled={selectedAnswer === null || confidence === null}
                             className={`h-12 px-10 rounded-2xl font-black transition-all ${currentIndex === questions.length - 1
-                                    ? 'bg-orange-600 hover:bg-orange-700 text-white'
-                                    : 'bg-slate-900 dark:bg-white dark:text-slate-900'
+                                ? 'bg-orange-600 hover:bg-orange-700 text-white'
+                                : 'bg-slate-900 dark:bg-white dark:text-slate-900'
                                 }`}
                         >
                             {currentIndex === questions.length - 1 ? 'Finish Challenge' : 'Save & Next'}

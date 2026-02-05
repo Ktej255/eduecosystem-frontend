@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
 import { getFlashcardsForSubtopics } from '@/components/batch1/polity/data/polity-flashcards-data';
+import { loadCompiledFlashcards } from '@/components/batch1/history/data/history-flashcard-loader';
 import { useFlashcardShortcuts } from '@/hooks/useKeyboardShortcuts';
 import KeyboardShortcutsHelp from '@/components/common/KeyboardShortcutsHelp';
 import VoiceRecallSession from '@/components/batch1-1/voice/VoiceRecallSession';
@@ -70,6 +71,7 @@ interface CycleFlashcardsProps {
     canSkip?: boolean;
     skipsRemaining?: number;
     onSkip?: () => void;
+    subject?: 'polity' | 'history';
 }
 
 export default function CycleFlashcards({
@@ -79,7 +81,8 @@ export default function CycleFlashcards({
     preloadedCards,
     canSkip = false,
     skipsRemaining = 0,
-    onSkip
+    onSkip,
+    subject = 'polity'
 }: CycleFlashcardsProps) {
     const flashcards = useMemo(() => {
         if (preloadedCards && preloadedCards.length > 0) return preloadedCards;

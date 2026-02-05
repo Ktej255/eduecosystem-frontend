@@ -1,4 +1,5 @@
 import { getProgressStore } from "@/lib/polity-progress-store";
+import { getHistoryProgressStore } from "@/lib/history-progress-store";
 import { getAllProgress as getRevisionProgress } from "@/components/batch1/polity/revision/progress-utils";
 
 export interface DashboardStats {
@@ -15,7 +16,7 @@ export interface TestHistoryItem {
     score: number; // Percentage
     totalQuestions: number;
     correctCount: number;
-    type: 'POMODORO_MCQ' | 'RAS_MOCK';
+    type: 'POMODORO_MCQ' | 'RAS_MOCK' | 'HISTORY_DRILL';
 }
 
 export const FocusAnalyticsService = {
@@ -32,8 +33,14 @@ export const FocusAnalyticsService = {
         const polityStore = getProgressStore();
         let totalFlashcards = 0;
 
-        // From Study Sessions
+        // From Study Sessions (Polity)
         Object.values(polityStore.chapters).forEach(ch => {
+            totalFlashcards += (ch.flashcardsViewed || 0);
+        });
+
+        // From Study Sessions (History)
+        const historyStore = getHistoryProgressStore();
+        Object.values(historyStore.chapters).forEach(ch => {
             totalFlashcards += (ch.flashcardsViewed || 0);
         });
 
@@ -84,62 +91,73 @@ export const FocusAnalyticsService = {
         // 1. Scan Pomodoro/Cycle MCQ Results
         Object.keys(localStorage).forEach(key => {
             if (key.startsWith('batch11_pomodoro_')) {
-                const parts = key.split('_'); // [batch11, pomodoro, weekId, dayId]
-                if (parts.length === 4) {
-                    const weekId = parts[2];
-                    const dayId = parts[3];
+                const parts = key.split('_');
+                let weekId, dayId, subjectName = 'polity';
 
-                    try {
-                        const data = JSON.parse(localStorage.getItem(key) || '{}');
-                        const history = data.sessionHistory || [];
+                if (parts.length === 5) {
+                    // [batch11, pomodoro, subject, weekId, dayId]
+                    subjectName = parts[2];
+                    weekId = parts[3];
+                    dayId = parts[4];
+                } else if (parts.length === 4) {
+                    // Legacy: [batch11, pomodoro, weekId, dayId]
+                    weekId = parts[2];
+                    dayId = parts[3];
+                } else {
+                    return; // Unknown format
+                }
 
-                        // Aggregate MCQs for this day
-                        let totalQ = 0;
-                        let correctQ = 0;
+                try {
+                    const data = JSON.parse(localStorage.getItem(key) || '{}');
+                    const history = data.sessionHistory || [];
 
-                        history.forEach((h: any) => {
-                            totalQ += (h.mcqResults?.total || 0);
-                            correctQ += (h.mcqResults?.correct || 0);
+                    // Aggregate MCQs for this day
+                    let totalQ = 0;
+                    let correctQ = 0;
+
+                    history.forEach((h: any) => {
+                        totalQ += (h.mcqResults?.total || 0);
+                        correctQ += (h.mcqResults?.correct || 0);
+                    });
+
+                    if (totalQ > 0) {
+                        tests.push({
+                            id: parseInt(`${weekId}${dayId}${subjectName === 'history' ? '1' : '0'}`), // Adjusted ID to avoid collision
+                            title: `${subjectName.charAt(0).toUpperCase() + subjectName.slice(1)}: Week ${weekId} Day ${dayId}`,
+                            date: data.lastUpdated || new Date().toISOString(),
+                            score: Math.round((correctQ / totalQ) * 100),
+                            totalQuestions: totalQ,
+                            correctCount: correctQ,
+                            type: 'POMODORO_MCQ'
                         });
-
-                        if (totalQ > 0) {
-                            tests.push({
-                                id: parseInt(`${weekId}${dayId}`), // Simple ID generation
-                                title: `Week ${weekId} Day ${dayId} Session`,
-                                date: data.lastUpdated || new Date().toISOString(),
-                                score: Math.round((correctQ / totalQ) * 100),
-                                totalQuestions: totalQ,
-                                correctCount: correctQ,
-                                type: 'POMODORO_MCQ'
-                            });
-                        }
-                    } catch (e) {
-                        console.error("Error parsing test data", e);
                     }
+                } catch (e) {
+                    console.error("Error parsing test data", e);
                 }
             }
         });
 
-        // 2. Scan RAS Mock Results (if any stored) - using 'ras_test_results' fallback from ras-api.ts
-        try {
-            const rasData = localStorage.getItem('ras_test_results');
-            if (rasData) {
-                const results = JSON.parse(rasData);
-                results.forEach((r: any) => {
+        // 2. Scan History Drill Results
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith('history_drill_')) {
+                try {
+                    const data = JSON.parse(localStorage.getItem(key) || '{}');
                     tests.push({
-                        id: r.id,
-                        title: `RAS Mock Test ${r.id}`, // Or check r.topicId if available
-                        date: r.timestamp,
-                        score: Math.round((r.correct_count / r.total_questions) * 100),
-                        totalQuestions: r.total_questions,
-                        correctCount: r.correct_count,
-                        type: 'RAS_MOCK'
+                        id: parseInt(key.split('_')[2]),
+                        title: `Spectrum Drill: ${data.chapters?.length || 0} Chapters`,
+                        date: data.timestamp || new Date().toISOString(),
+                        score: data.score || 0,
+                        totalQuestions: data.totalQuestions || 0,
+                        correctCount: data.correctCount || 0,
+                        type: 'HISTORY_DRILL' as any // Adding a temporary type or extending TestHistoryItem
                     });
-                });
+                } catch (e) {
+                    console.error("Error parsing history drill data", e);
+                }
             }
-        } catch (e) {
-            console.error("Error parsing RAS data", e);
-        }
+        });
+
+        // 3. Scan RAS Mock Results (if any stored) - using 'ras_test_results' fallback from ras-api.ts
 
         // Sort by date descending
         return tests.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

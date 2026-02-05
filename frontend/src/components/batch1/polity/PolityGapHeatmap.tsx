@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { AlertTriangle, BookOpen, BrainCircuit, CheckCircle, ChevronRight, XCircle } from 'lucide-react';
 
 import { useRouter } from 'next/navigation';
-import { GapAnalysisEntry } from '@/services/upscSynapseService';
+import { GapAnalysisEntry } from '@/lib/upsc-synapse-service';
 
 // ... (types)
 

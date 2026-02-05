@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { Activity, ArrowRight, Brain, CheckCircle, Lock, Shield, Zap } from 'lucide-react';
+import Link from 'next/link';
 import PolityGapHeatmap from './PolityGapHeatmap';
 
-import { GapAnalysisEntry } from '@/services/upscSynapseService';
+import { GapAnalysisEntry } from '@/lib/upsc-synapse-service';
 
 interface ResultDashboardProps {
     score: number;
@@ -103,9 +104,11 @@ export default function PolityResultDashboard({
                                 <h4 className="font-bold text-red-800 dark:text-red-300 text-sm mb-2 flex items-center gap-2">
                                     <Zap className="w-4 h-4 fill-current" /> Recommended Action
                                 </h4>
-                                <button className="w-full bg-white dark:bg-black text-red-600 font-bold py-3 rounded-lg shadow-sm hover:shadow hover:scale-[1.02] transition-all text-sm">
-                                    Start 3-Min Reset Graphotherapy
-                                </button>
+                                <Link href="/student/graphotherapy" className="w-full">
+                                    <button className="w-full bg-white dark:bg-black text-red-600 font-bold py-3 rounded-lg shadow-sm hover:shadow hover:scale-[1.02] transition-all text-sm">
+                                        Start 3-Min Reset Graphotherapy
+                                    </button>
+                                </Link>
                             </div>
                         )}
                     </div>

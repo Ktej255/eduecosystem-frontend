@@ -79,9 +79,21 @@ interface EveningSessionViewProps {
 function getMorningProgress(weekId: number, dayId: number): MorningProgress | null {
     if (typeof window === 'undefined') return null;
 
-    // UPDATED KEY: match PomodoroSessionView
-    const savedKey = `batch11_pomodoro_${weekId}_${dayId}`;
-    const saved = localStorage.getItem(savedKey);
+    // Check both subject-specific keys and fallback
+    const subjects = ['history', 'polity'] as const;
+    let saved = null;
+
+    for (const sub of subjects) {
+        const key = `batch11_pomodoro_${sub}_${weekId}_${dayId}`;
+        saved = localStorage.getItem(key);
+        if (saved) break;
+    }
+
+    if (!saved) {
+        // Ultimate fallback: Legacy key (un-subjected)
+        const legacyKey = `batch11_pomodoro_${weekId}_${dayId}`;
+        saved = localStorage.getItem(legacyKey);
+    }
 
     if (saved) {
         const parsed = JSON.parse(saved);
