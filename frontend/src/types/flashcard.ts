@@ -4,6 +4,7 @@ export interface Flashcard {
     front: string;
     back: string;
     chapterId?: number | string;
+    category?: string;
     difficulty?: 'easy' | 'medium' | 'hard';
     lastReviewed?: Date;
     nextReview?: Date;

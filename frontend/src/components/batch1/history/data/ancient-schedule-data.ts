@@ -164,6 +164,8 @@ export const ANCIENT_PHASES = [
     { title: "Imperial India & Evolution", range: "Days 11-15" }
 ];
 
-export function getAncientDaySchedule(day: number): SpectrumDaySchedule | undefined {
-    return ANCIENT_SCHEDULE.find(s => s.day === day);
+export function getAncientDaySchedule(day?: number): SpectrumDaySchedule | undefined {
+    if (day) return ANCIENT_SCHEDULE.find(s => s.day === day);
+    const today = new Date().toISOString().split('T')[0];
+    return ANCIENT_SCHEDULE.find(s => s.date === today);
 }

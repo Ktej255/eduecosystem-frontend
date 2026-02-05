@@ -164,6 +164,8 @@ export const ART_CULTURE_PHASES = [
     { title: "Knowledge & Legacy", range: "Days 11-15" }
 ];
 
-export function getArtCultureDaySchedule(day: number): SpectrumDaySchedule | undefined {
-    return ART_CULTURE_SCHEDULE.find(s => s.day === day);
+export function getArtCultureDaySchedule(day?: number): SpectrumDaySchedule | undefined {
+    if (day) return ART_CULTURE_SCHEDULE.find(s => s.day === day);
+    const today = new Date().toISOString().split('T')[0];
+    return ART_CULTURE_SCHEDULE.find(s => s.date === today);
 }

@@ -164,6 +164,8 @@ export const MEDIEVAL_PHASES = [
     { title: "Marathas & Cultural Legacy", range: "Days 11-15" }
 ];
 
-export function getMedievalDaySchedule(day: number): SpectrumDaySchedule | undefined {
-    return MEDIEVAL_SCHEDULE.find(s => s.day === day);
+export function getMedievalDaySchedule(day?: number): SpectrumDaySchedule | undefined {
+    if (day) return MEDIEVAL_SCHEDULE.find(s => s.day === day);
+    const today = new Date().toISOString().split('T')[0];
+    return MEDIEVAL_SCHEDULE.find(s => s.date === today);
 }

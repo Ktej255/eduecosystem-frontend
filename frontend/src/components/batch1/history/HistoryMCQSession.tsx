@@ -24,8 +24,8 @@ export interface HistoryMCQ {
     question: string;
     options: string[];
     correctAnswer: number;
-    explanation: string;
-    chapterId?: number;
+    explanation?: string;
+    chapterId?: number | string;
 }
 
 export interface MCQResult {

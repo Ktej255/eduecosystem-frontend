@@ -23,6 +23,7 @@ import { useRouter } from 'next/navigation';
 // Component Imports
 import PomodoroSessionView from '@/components/batch1-1/pomodoro/PomodoroSessionView';
 import PolityHome from '@/components/batch1/polity/PolityHome';
+import HistoryHome from '@/components/batch1/history/HistoryHome';
 import RetentionDashboard from '@/components/retention/RetentionDashboard';
 import FocusAnalyticsDashboard from '@/components/batch1/FocusAnalyticsDashboard';
 

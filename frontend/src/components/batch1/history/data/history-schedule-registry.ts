@@ -17,7 +17,7 @@ export interface HistorySectionConfig {
     subject: string;
     schedule: any[];
     phases: any[];
-    getToday: () => any;
+    getToday: (day?: number) => any;
 }
 
 export const HISTORY_PLAN_CONFIGS: Record<HistorySection, HistorySectionConfig> = {

@@ -266,7 +266,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                             }`}
                                         disabled={!checklist.some(Boolean)}
                                         onClick={() => {
-                                            const selectedChapterIds = dayData.chapters.filter((_, i) => checklist[i]);
+                                            const selectedChapterIds = dayData.chapters.filter((_: any, i: number) => checklist[i]);
                                             router.push(`/student/batch1/history/mcq-drill?chapters=${selectedChapterIds.join(',')}&limit=${dayData.mcqCount}&subject=${encodeURIComponent(config.subject)}&section=${section}`);
                                         }}
                                     >
