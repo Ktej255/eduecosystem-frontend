@@ -9,11 +9,17 @@ import {
 
 type SessionMode = 'study' | 'flashcard' | 'mcq';
 
-export default function HistoryPomodoroPortal() {
+interface HistoryPomodoroProps {
+    initialWeekId?: number;
+    initialDayId?: number;
+}
+
+export default function HistoryPomodoroPortal({ initialWeekId, initialDayId }: HistoryPomodoroProps = {}) {
     const searchParams = useSearchParams();
     const router = useRouter();
     const subject = searchParams.get('subject') || 'General';
-    const initialMode = (searchParams.get('mode') as SessionMode) || 'study';
+    const initialMode = (searchParams.get('mode') as SessionMode) || 'study'; // day param is also available
+
 
     const [mode, setMode] = useState<SessionMode>(initialMode);
     const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes
@@ -115,8 +121,8 @@ export default function HistoryPomodoroPortal() {
                                 <button
                                     onClick={() => setIsRunning(!isRunning)}
                                     className={`p-4 rounded-full transition-all ${isRunning
-                                            ? 'bg-amber-900/50 text-amber-500 hover:bg-amber-900'
-                                            : 'bg-amber-600 text-white hover:bg-amber-500 shadow-lg shadow-amber-900/50'
+                                        ? 'bg-amber-900/50 text-amber-500 hover:bg-amber-900'
+                                        : 'bg-amber-600 text-white hover:bg-amber-500 shadow-lg shadow-amber-900/50'
                                         }`}
                                 >
                                     {isRunning ? <Pause className="w-8 h-8 fill-current" /> : <Play className="w-8 h-8 fill-current ml-1" />}
