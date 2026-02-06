@@ -25,7 +25,7 @@ export default function EmergencyHistoryPage() {
                 dayId={dayId}
                 subjectOverride={subjectOverride}
                 showBackButton={true}
-                showPrePlanner={false}
+
             />
         </Suspense>
     );

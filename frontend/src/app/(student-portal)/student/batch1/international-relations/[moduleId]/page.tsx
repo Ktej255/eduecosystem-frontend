@@ -1,5 +1,6 @@
 import IrModuleViewer from "@/components/batch1/international-relations/IrModuleViewer";
 
-export default function Page({ params }: { params: { moduleId: string } }) {
-    return <IrModuleViewer moduleId={params.moduleId} />;
+export default async function Page({ params }: { params: Promise<{ moduleId: string }> }) {
+    const { moduleId } = await params;
+    return <IrModuleViewer moduleId={moduleId} />;
 }

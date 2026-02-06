@@ -24,7 +24,7 @@ function PortalContent() {
     const weekId = Math.floor((dayId - 1) / 7) + 1;
     const relativeDayId = ((dayId - 1) % 7) + 1;
 
-    return <PomodoroSessionView weekId={weekId} dayId={relativeDayId} showPrePlanner={true} />;
+    return <PomodoroSessionView weekId={weekId} dayId={relativeDayId} />;
 }
 
 export default function HistoryPortalPage() {

@@ -130,7 +130,7 @@ function getDayContent(weekId: number, dayId: number, subjectOverride?: 'history
         return {
             chapters: fabContent.morning.schedule.chapters,
             tasks: fabContent.morning.schedule.topics,
-            chapterNames: fabContent.morning.schedule.chapterNames || [],
+            chapterNames: [],
             isFabSchedule: true,
             morningTopic: fabContent.morning.schedule.title,
             eveningTopic: fabContent.evening.topic,

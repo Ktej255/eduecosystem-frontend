@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TOPIC_TITLES, POLITY_PARTS, getPartById, getPartColors, PartId } from "@/components/batch1-1/polity/data/polity-types-95";
+import MakingConstitutionModule from "@/components/batch1-1/polity/MakingConstitutionModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
 export default function TopicViewerPage() {
@@ -122,6 +123,11 @@ export default function TopicViewerPage() {
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
+            ) : topicId === 2 ? (
+                <MakingConstitutionModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
             ) : (
                 <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
                     <CardContent className="p-6">
@@ -168,8 +174,8 @@ export default function TopicViewerPage() {
                 </Card>
             )}
 
-            {/* Content Tabs (Hidden for Topic 1 which uses HistoryModule) */}
-            {topicId !== 1 && (
+            {/* Content Tabs (Hidden for Topic 1 & 2 which use Special Modules) */}
+            {topicId !== 1 && topicId !== 2 && (
                 <Tabs defaultValue="overview" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="overview">
