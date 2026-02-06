@@ -113,14 +113,14 @@ function getDayContent(weekId: number, dayId: number, subjectOverride?: 'history
 
     const fabContent = getFabDayContent(fabDate);
 
-    if (fabContent && fabContent.morning.schedule) {
+    if (fabContent && fabContent.morning?.schedule) {
         // We found a history schedule!
         return {
-            chapters: fabContent.morning.schedule.chapters,
-            tasks: fabContent.morning.schedule.topics,
+            chapters: fabContent.morning.schedule.chapters || [],
+            tasks: fabContent.morning.schedule.topics || [],
             isFabSchedule: true,
-            morningTopic: fabContent.morning.schedule.title,
-            eveningTopic: fabContent.evening.topic,
+            morningTopic: fabContent.morning.schedule.title || "History Study",
+            eveningTopic: fabContent.evening?.topic || "Geography",
             liveClassLink: fabContent.liveClassLink,
             subject: 'history' as const
         };
@@ -133,12 +133,12 @@ function getDayContent(weekId: number, dayId: number, subjectOverride?: 'history
     const allWeeks = generateWeeklySchedule();
     const weekSchedule = allWeeks.find(w => w.week === weekId);
 
-    if (!weekSchedule) {
+    if (!weekSchedule || !weekSchedule.days) {
         console.warn(`No schedule found for Week ${weekId}`);
         return { chapters: [], tasks: [], subject: 'polity' };
     }
 
-    const dayContent = weekSchedule.days[dayKey];
+    const dayContent = weekSchedule.days[dayKey] || [];
 
     const chapters: number[] = [];
     const tasks: string[] = [];
@@ -408,9 +408,10 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             })) : [];
         }
 
-        const items = todayChapters.map(id => {
+        const safeChapters = Array.isArray(todayChapters) ? todayChapters : [];
+        const items = safeChapters.map(id => {
             // Safety check: LAXMIKANTH_CHAPTERS might be undefined if imports fail or data is missing
-            const chapter = LAXMIKANTH_CHAPTERS?.find(ch => ch.chapter === id);
+            const chapter = Array.isArray(LAXMIKANTH_CHAPTERS) ? LAXMIKANTH_CHAPTERS.find(ch => ch.chapter === id) : null;
             return {
                 id: `ch-${id}`,
                 label: chapter ? `CH ${id}: ${chapter.topic}` : `Chapter ${id}`,
@@ -420,16 +421,18 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
         if (todayTasks && Array.isArray(todayTasks)) {
             todayTasks.forEach((task, idx) => {
-                items.push({
-                    id: `task-${idx}`,
-                    label: task,
-                    isChapter: false
-                });
+                if (task) {
+                    items.push({
+                        id: `task-${idx}`,
+                        label: task,
+                        isChapter: false
+                    });
+                }
             });
         }
 
         return items;
-    }, [todayChapters, todayTasks, isFabSchedule]);
+    }, [todayChapters, todayTasks, isFabSchedule, morningTopic]);
 
     // --- Persistence ---
     useEffect(() => {
@@ -834,7 +837,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                     </Link>
                     <div className="flex items-center gap-2 text-orange-600">
                         <Flame className="h-5 w-5" />
-                        <span className="font-semibold">{totalSubtopicsCompleted} subtopics</span>
+                        <span className="font-semibold">{(totalSubtopicsCompleted || 0)} subtopics</span>
                     </div>
                 </div>
             </div>
@@ -896,26 +899,36 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                     );
                                 }
                                 const uniqueCompletedChapters = new Set(
-                                    sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])
+                                    (Array.isArray(sessionHistory) ? sessionHistory : [])
+                                        .flatMap(s => s.selectedSubtopics || [])
+                                        .map(s => s.id ? s.id.split('.')[0] : '')
+                                        .filter(Boolean)
                                 ).size;
                                 // If tasks only, show Tasks count. If chapters, show Chapters.
-                                const totalItems = Math.max(1, todayChapters.length + todayTasks.length);
+                                const totalItems = Math.max(1, (todayChapters?.length || 0) + (todayTasks?.length || 0));
                                 const completedCount = uniqueCompletedChapters; // Tasks logic TBD, focus on chapters for completion %
 
-                                if (todayTasks.length > 0 && todayChapters.length === 0) {
+                                if ((todayTasks?.length || 0) > 0 && (todayChapters?.length || 0) === 0) {
                                     return `${todayTasks.length} Tasks Scheduled`;
                                 }
 
-                                return `${completedCount} of ${todayChapters.length} Chapters Covered`;
+                                return `${completedCount} of ${todayChapters?.length || 0} Chapters Covered`;
                             })()}
                         </p>
                     </div>
                 </div>
-                {todayChapters.length > 0 && (
+                {(todayChapters?.length || 0) > 0 && (
                     <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-500"
-                            style={{ width: `${Math.min(100, (new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).size / Math.max(1, todayChapters.length)) * 100)}%` }}
+                            style={{
+                                width: `${Math.min(100, (new Set(
+                                    (Array.isArray(sessionHistory) ? sessionHistory : [])
+                                        .flatMap(s => s?.selectedSubtopics || [])
+                                        .map(s => s?.id ? s.id.split('.')[0] : '')
+                                        .filter(Boolean)
+                                ).size / Math.max(1, todayChapters?.length || 1)) * 100)}%`
+                            }}
                         />
                     </div>
                 )}
@@ -928,12 +941,18 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                     <span className="text-sm font-bold text-blue-700 dark:text-blue-300">Today's Plan ({scheduleItems.length})</span>
                 </div>
                 <div className="flex flex-wrap gap-2 max-h-[150px] overflow-y-auto custom-scrollbar">
-                    {scheduleItems.length > 0 ? scheduleItems.map((item, idx) => {
+                    {(Array.isArray(scheduleItems) && scheduleItems.length > 0) ? scheduleItems.map((item, idx) => {
                         // Check completion only for chapters currently
-                        const isCompleted = item.isChapter && new Set(sessionHistory.flatMap(s => s.selectedSubtopics).map(s => s.id.split('.')[0])).has(String(item.id.replace('ch-', '')));
+                        const completedSet = new Set(
+                            (Array.isArray(sessionHistory) ? sessionHistory : [])
+                                .flatMap(s => s?.selectedSubtopics || [])
+                                .map(s => s?.id ? s.id.split('.')[0] : '')
+                                .filter(Boolean)
+                        );
+                        const isCompleted = item.isChapter && item.id && completedSet.has(String(item.id).replace('ch-', ''));
                         return (
-                            <span key={item.id} className={`text-xs px-2 py-1 rounded-full border ${isCompleted ? 'bg-green-100 text-green-700 border-green-200' : 'bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 border-blue-100'}`}>
-                                {item.label} {isCompleted && '✓'}
+                            <span key={item?.id || idx} className={`text-xs px-2 py-1 rounded-full border ${isCompleted ? 'bg-green-100 text-green-700 border-green-200' : 'bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 border-blue-100'}`}>
+                                {item?.label || 'Topic'} {isCompleted && '✓'}
                             </span>
                         );
                     }) : (
@@ -1234,8 +1253,10 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                             </div>
                                             {isComplete && sessionData && (
                                                 <div className="text-gray-500 space-y-0.5">
-                                                    <div>{sessionData.selectedSubtopics.length} topics</div>
-                                                    <div>{Math.round((sessionData.mcqResults.correct / sessionData.mcqResults.total) * 100)}% Acc</div>
+                                                    <div>{(sessionData.selectedSubtopics?.length || 0)} topics</div>
+                                                    <div>{sessionData.mcqResults?.total > 0
+                                                        ? Math.round((sessionData.mcqResults.correct / sessionData.mcqResults.total) * 100)
+                                                        : 0}% Acc</div>
                                                 </div>
                                             )}
                                             {isActive && !isComplete && (
@@ -1250,24 +1271,22 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                 </div>
             </div>
             {/* Planner Modal */}
-            {subject !== 'history' && (
-                <PreSessionPlanner
-                    isOpen={isPlannerOpen}
-                    onClose={() => setIsPlannerOpen(false)}
-                    onStartSession={(selectedIds) => {
-                        setPlannedChapters(selectedIds);
-                        setIsPlannerOpen(false);
-                        toast({
-                            title: "Session Planned",
-                            description: `Focusing on ${selectedIds.length} chapters. Unselected items moved to backlog.`
-                        });
-                    }}
-                    scheduledChapterIds={originalChapters}
-                    weekId={weekId}
-                    dayId={dayId}
-                    subject={subject}
-                />
-            )}
+            <PreSessionPlanner
+                isOpen={isPlannerOpen}
+                onClose={() => setIsPlannerOpen(false)}
+                onStartSession={(selectedIds) => {
+                    setPlannedChapters(selectedIds);
+                    setIsPlannerOpen(false);
+                    toast({
+                        title: "Session Planned",
+                        description: `Focusing on ${selectedIds.length} chapters. Unselected items moved to backlog.`
+                    });
+                }}
+                scheduledChapterIds={Array.isArray(originalChapters) ? originalChapters : []}
+                weekId={weekId}
+                dayId={dayId}
+                subject={subject}
+            />
         </div>
     );
 }
