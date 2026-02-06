@@ -319,7 +319,6 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                                     {currentMcqIdx === mcqs.length - 1 ? (
                                         <button
                                             onClick={handleMcqSubmit}
-                                            disabled={Object.keys(answers).length < mcqs.length}
                                             className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-green-600/20 disabled:opacity-50 transition-all"
                                         >
                                             Finish Test

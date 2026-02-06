@@ -361,8 +361,8 @@ export default function CustomRevisionSession() {
                                         key={oIdx}
                                         onClick={() => handleOptionSelect(oIdx)}
                                         className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${answers[currentIdx] === oIdx
-                                                ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300'
-                                                : 'border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700'
+                                            ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300'
+                                            : 'border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700'
                                             }`}
                                     >
                                         <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold ${answers[currentIdx] === oIdx ? 'bg-indigo-600 border-indigo-600 text-white' : 'border-gray-300 text-gray-400'
@@ -386,7 +386,6 @@ export default function CustomRevisionSession() {
                             {currentIdx === mcqs.length - 1 ? (
                                 <button
                                     onClick={handleMcqSubmit}
-                                    disabled={Object.keys(answers).length < mcqs.length}
                                     className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-green-600/20 disabled:opacity-50 transition-all"
                                 >
                                     Finish Test

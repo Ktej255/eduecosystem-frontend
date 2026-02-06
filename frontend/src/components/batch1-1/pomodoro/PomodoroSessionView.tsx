@@ -388,7 +388,8 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
         }
 
         const items = todayChapters.map(id => {
-            const chapter = LAXMIKANTH_CHAPTERS.find(ch => ch.chapter === id);
+            // Safety check: LAXMIKANTH_CHAPTERS might be undefined if imports fail or data is missing
+            const chapter = LAXMIKANTH_CHAPTERS?.find(ch => ch.chapter === id);
             return {
                 id: `ch-${id}`,
                 label: chapter ? `CH ${id}: ${chapter.topic}` : `Chapter ${id}`,
@@ -396,13 +397,15 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             };
         });
 
-        todayTasks.forEach((task, idx) => {
-            items.push({
-                id: `task-${idx}`,
-                label: task,
-                isChapter: false
+        if (todayTasks && Array.isArray(todayTasks)) {
+            todayTasks.forEach((task, idx) => {
+                items.push({
+                    id: `task-${idx}`,
+                    label: task,
+                    isChapter: false
+                });
             });
-        });
+        }
 
         return items;
     }, [todayChapters, todayTasks, isFabSchedule]);
