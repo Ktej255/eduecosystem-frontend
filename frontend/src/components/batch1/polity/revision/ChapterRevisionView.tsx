@@ -23,10 +23,11 @@ interface Props {
     chapterId: number;
     subjectId?: string;
     backLink?: string;
+    backLabel?: string;
     initialTab?: 'content' | 'flashcards' | 'mcqs';
 }
 
-export default function ChapterRevisionView({ chapterId, subjectId = 'polity', backLink, initialTab = 'content' }: Props) {
+export default function ChapterRevisionView({ chapterId, subjectId = 'polity', backLink, backLabel, initialTab = 'content' }: Props) {
     const [activeTab, setActiveTab] = useState<'content' | 'flashcards' | 'mcqs'>(initialTab);
     const [revisionData, setRevisionData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
@@ -104,7 +105,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                 <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
                     <Link href={backLink || (subjectId === 'polity' ? '/student/batch1/polity' : `/student/revision/${subjectId}`)} className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
                         <ChevronLeft className="w-5 h-4" />
-                        <span className="text-sm font-medium">Back to Revision Hub</span>
+                        <span className="text-sm font-medium">{backLabel || "Back to Revision Hub"}</span>
                     </Link>
                     <div className="text-center">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600">Chapter {chapterId} Revision</span>

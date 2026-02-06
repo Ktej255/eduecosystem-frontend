@@ -15,7 +15,8 @@ export default function FlashcardsPage({ params }: FlashcardPageProps) {
         <ChapterRevisionView
             chapterId={id}
             subjectId="polity"
-            backLink="/student/batch1-1"
+            backLink="/student/batch1-1/polity"
+            backLabel="Back to Polity Home"
             initialTab="flashcards"
         />
     );
