@@ -434,13 +434,21 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
     // --- Persistence ---
     useEffect(() => {
         const primaryKey = `batch11_pomodoro_${subject}_${weekId}_${dayId}`;
-        const fallbackKey = `batch11_pomodoro_${weekId}_${dayId}`;
-        const savedNew = localStorage.getItem(primaryKey) || localStorage.getItem(fallbackKey);
+
+        // CRITICAL FIX: Do NOT load fallback (legacy Polity) data if we are in History mode.
+        // This prevents cross-contamination of incompatible state (like Chapter IDs).
+        const fallbackKey = subject === 'history' ? null : `batch11_pomodoro_${weekId}_${dayId}`;
+
+        const savedNew = localStorage.getItem(primaryKey) || (fallbackKey ? localStorage.getItem(fallbackKey) : null);
 
         if (savedNew) {
             // Priority: Load new structure
             const data = JSON.parse(savedNew);
             const history = data.sessionHistory || [];
+
+            // Validate functionality: If History mode, ensure no IDs look like "1" (Polity) if we expect "1.1"
+            // But 'history' is just an array.
+
             setSessionHistory(history);
 
             // Auto-correct current session based on history length to prevent "stuck in previous session" loop
