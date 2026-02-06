@@ -90,11 +90,14 @@ function getDayContent(weekId: number, dayId: number, subjectOverride?: 'history
     const linearDay = (weekId - 1) * 7 + (dayId);
 
     if (subjectOverride === 'history') {
+        // Safety check for import
+        if (!HISTORY_SCHEDULE) return { chapters: [], tasks: [], subject: 'history' };
+
         const historySch = HISTORY_SCHEDULE.find(d => d.day === linearDay);
         if (historySch) {
             return {
-                chapters: historySch.chapters,
-                tasks: historySch.topics,
+                chapters: historySch.chapters || [],
+                tasks: historySch.topics || [],
                 isFabSchedule: true,
                 morningTopic: historySch.title,
                 eveningTopic: "Geography (Planned)", // Placeholder
@@ -386,6 +389,9 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             // For Fab Schedule, 'tasks' contains the Topics (Unit X...), chapters are Spectrum IDs
             // We can map chapters to Labels if needed, or just show tasks.
             // The History Schedule has 'topics' array which are descriptive.
+            // Safety check for tasks array
+            if (!Array.isArray(todayTasks)) return [];
+
             return todayTasks.map((t, idx) => ({
                 id: `task-${idx}`,
                 label: t,
@@ -1244,22 +1250,24 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                 </div>
             </div>
             {/* Planner Modal */}
-            <PreSessionPlanner
-                isOpen={isPlannerOpen}
-                onClose={() => setIsPlannerOpen(false)}
-                onStartSession={(selectedIds) => {
-                    setPlannedChapters(selectedIds);
-                    setIsPlannerOpen(false);
-                    toast({
-                        title: "Session Planned",
-                        description: `Focusing on ${selectedIds.length} chapters. Unselected items moved to backlog.`
-                    });
-                }}
-                scheduledChapterIds={originalChapters}
-                weekId={weekId}
-                dayId={dayId}
-                subject={subject}
-            />
+            {subject !== 'history' && (
+                <PreSessionPlanner
+                    isOpen={isPlannerOpen}
+                    onClose={() => setIsPlannerOpen(false)}
+                    onStartSession={(selectedIds) => {
+                        setPlannedChapters(selectedIds);
+                        setIsPlannerOpen(false);
+                        toast({
+                            title: "Session Planned",
+                            description: `Focusing on ${selectedIds.length} chapters. Unselected items moved to backlog.`
+                        });
+                    }}
+                    scheduledChapterIds={originalChapters}
+                    weekId={weekId}
+                    dayId={dayId}
+                    subject={subject}
+                />
+            )}
         </div>
     );
 }

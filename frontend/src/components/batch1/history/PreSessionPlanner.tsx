@@ -72,7 +72,7 @@ export default function PreSessionPlanner({
 
     const getChapterLabel = (id: number, sub: string) => {
         if (sub === 'polity') {
-            const ch = LAXMIKANTH_CHAPTERS.find(c => c.chapter === id);
+            const ch = LAXMIKANTH_CHAPTERS?.find(c => c.chapter === id);
             return ch ? `Ch ${id}: ${ch.topic}` : `Chapter ${id}`;
         }
         // For History, we might need a lookup map, for now generic
