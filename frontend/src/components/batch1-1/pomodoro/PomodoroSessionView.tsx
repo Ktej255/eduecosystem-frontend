@@ -1234,25 +1234,24 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                     </Card>
                 </div>
             </div>
+            {/* Planner Modal */}
+            <PreSessionPlanner
+                isOpen={isPlannerOpen}
+                onClose={() => setIsPlannerOpen(false)}
+                onStartSession={(selectedIds) => {
+                    setPlannedChapters(selectedIds);
+                    setIsPlannerOpen(false);
+                    toast({
+                        title: "Session Planned",
+                        description: `Focusing on ${selectedIds.length} chapters. Unselected items moved to backlog.`
+                    });
+                }}
+                scheduledChapterIds={originalChapters}
+                weekId={weekId}
+                dayId={dayId}
+                subject={subject}
+            />
         </div>
-            
-            {/* Planner Modal */ }
-    <PreSessionPlanner
-        isOpen={isPlannerOpen}
-        onClose={() => setIsPlannerOpen(false)}
-        onStartSession={(selectedIds) => {
-            setPlannedChapters(selectedIds);
-            setIsPlannerOpen(false);
-            toast({
-                title: "Session Planned",
-                description: `Focusing on ${selectedIds.length} chapters. Unselected items moved to backlog.`
-            });
-        }}
-        scheduledChapterIds={originalChapters}
-        weekId={weekId}
-        dayId={dayId}
-        subject={subject}
-    />
     );
 }
 
