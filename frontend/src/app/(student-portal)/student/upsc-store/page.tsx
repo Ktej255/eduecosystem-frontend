@@ -33,6 +33,17 @@ export default function UPSCStorePage() {
             bestValue: false
         },
         {
+            id: 'history_modern',
+            title: "Modern History (Spectrum)",
+            price: 299,
+            originalPrice: 999,
+            description: "Beginner Friendly. Chapter-wise Pomodoro logic & Mock Tests.",
+            features: ["Spectrum Coverage", "Pomodoro Synced", "Chapter 1 Free"],
+            icon: BookOpen,
+            color: "from-indigo-500 to-blue-600",
+            bestValue: false
+        },
+        {
             id: 'grapho',
             title: "Graphotherapy Kit",
             price: 299,
@@ -68,8 +79,12 @@ export default function UPSCStorePage() {
                 console.warn("Backend connect failed, using mock success", e);
             }
 
-            // Redirect to the Synapse Engine Page
-            router.push('/student/upsc-store/polity');
+            // Redirect to the Synapse Engine Page (or History for that product)
+            if (productId === 'history_modern') {
+                router.push('/student/upsc-store/history');
+            } else {
+                router.push('/student/upsc-store/polity');
+            }
 
         } catch (error) {
             alert("Payment failed.");
