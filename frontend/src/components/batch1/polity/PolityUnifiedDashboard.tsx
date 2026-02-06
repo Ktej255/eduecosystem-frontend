@@ -20,6 +20,7 @@ interface TopicProgress {
         lastViewed?: string;
         flashcardsDone?: boolean;
         mcqsDone?: boolean;
+        readDone?: boolean;
         score?: number;
     };
 }
@@ -72,18 +73,35 @@ export default function PolityUnifiedDashboard() {
         setExpandedParts({});
     };
 
+    const updateTopicProgress = (topicId: number, updates: Partial<TopicProgress[number]>) => {
+        const current = progress[topicId] || { completed: false };
+        const updated = { ...current, ...updates, lastViewed: new Date().toISOString() };
+
+        // Auto-complete if all sections done
+        if (updated.readDone && updated.flashcardsDone && updated.mcqsDone) {
+            updated.completed = true;
+        }
+
+        const newProgress = { ...progress, [topicId]: updated };
+        setProgress(newProgress);
+        localStorage.setItem('polity_95_progress', JSON.stringify(newProgress));
+    };
+
     const navigateToTopic = (topicId: number) => {
+        updateTopicProgress(topicId, { readDone: true });
         router.push(`/student/batch1-1/polity/${topicId}`);
     };
 
     const handleAction = (e: React.MouseEvent, type: 'flashcard' | 'mcq' | 'report', topicId: number) => {
         e.stopPropagation();
+
         if (type === 'flashcard') {
+            updateTopicProgress(topicId, { flashcardsDone: true });
             router.push(`/student/batch1-1/polity/${topicId}/flashcards`);
         } else if (type === 'mcq') {
+            updateTopicProgress(topicId, { mcqsDone: true });
             router.push(`/student/batch1-1/polity/${topicId}/mcq`);
         } else if (type === 'report') {
-            // Open Modal instead of navigating
             setSelectedReportTopic(topicId);
         }
     };
@@ -91,16 +109,7 @@ export default function PolityUnifiedDashboard() {
     const toggleComplete = (e: React.MouseEvent, topicId: number) => {
         e.stopPropagation();
         const isCompleted = progress[topicId]?.completed;
-        const newProgress = {
-            ...progress,
-            [topicId]: {
-                ...progress[topicId],
-                completed: !isCompleted,
-                lastViewed: new Date().toISOString()
-            }
-        };
-        setProgress(newProgress);
-        localStorage.setItem('polity_95_progress', JSON.stringify(newProgress));
+        updateTopicProgress(topicId, { completed: !isCompleted });
     };
 
     return (
@@ -340,10 +349,10 @@ export default function PolityUnifiedDashboard() {
                                                         className="flex flex-col items-center gap-1 group/btn"
                                                         title="Read Chapter"
                                                     >
-                                                        <div className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-indigo-50 group-hover/btn:text-indigo-500 transition-colors">
+                                                        <div className={`p-2 rounded-lg transition-colors ${topicProgress?.readDone ? 'bg-indigo-100 text-indigo-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-indigo-50 group-hover/btn:text-indigo-500'}`}>
                                                             <ChevronRight className="w-4 h-4" />
                                                         </div>
-                                                        <span className="text-[9px] font-medium text-gray-400 group-hover/btn:text-indigo-500">Read</span>
+                                                        <span className={`text-[9px] font-medium group-hover/btn:text-indigo-500 ${topicProgress?.readDone ? 'text-indigo-500' : 'text-gray-400'}`}>Read</span>
                                                     </button>
 
                                                     {/* 4. Report */}

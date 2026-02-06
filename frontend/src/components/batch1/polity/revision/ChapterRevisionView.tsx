@@ -23,10 +23,11 @@ interface Props {
     chapterId: number;
     subjectId?: string;
     backLink?: string;
+    initialTab?: 'content' | 'flashcards' | 'mcqs';
 }
 
-export default function ChapterRevisionView({ chapterId, subjectId = 'polity', backLink }: Props) {
-    const [activeTab, setActiveTab] = useState<'content' | 'flashcards' | 'mcqs'>('content');
+export default function ChapterRevisionView({ chapterId, subjectId = 'polity', backLink, initialTab = 'content' }: Props) {
+    const [activeTab, setActiveTab] = useState<'content' | 'flashcards' | 'mcqs'>(initialTab);
     const [revisionData, setRevisionData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
 

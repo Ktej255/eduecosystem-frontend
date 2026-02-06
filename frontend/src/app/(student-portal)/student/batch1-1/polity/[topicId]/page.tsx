@@ -418,7 +418,7 @@ export default function TopicViewerPage() {
                                 <Button
                                     variant="outline"
                                     className="h-auto p-6 flex flex-col items-center gap-2"
-                                    onClick={() => router.push(`/student/batch1-1/polity/${topicId}/mcqs`)}
+                                    onClick={() => router.push(`/student/batch1-1/polity/${topicId}/mcq`)}
                                 >
                                     <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
                                         ✓
