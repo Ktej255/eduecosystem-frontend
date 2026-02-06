@@ -842,19 +842,6 @@ export default function Batch1_1EveningSession({ weekId, dayId, onDayChange }: E
                 </div>
             )}
 
-            {/* Bottom Links */}
-            <div className="flex justify-center gap-4 pt-4">
-                <Link href={`/student/batch1-1`}>
-                    <Button variant="outline">
-                        Back to Batch 1.1
-                    </Button>
-                </Link>
-                <Link href="/student/dashboard">
-                    <Button variant="ghost">
-                        Dashboard
-                    </Button>
-                </Link>
-            </div>
             <AIChatWidget />
         </div >
     );
