@@ -1,4 +1,4 @@
-import PolitySyllabus from "@/components/batch1/polity/PolitySyllabus";
+import PolityUnifiedDashboard from "@/components/batch1/polity/PolityUnifiedDashboard";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function PolitySyllabusPage() {
-    return <PolitySyllabus />;
+    return <PolityUnifiedDashboard />;
 }
