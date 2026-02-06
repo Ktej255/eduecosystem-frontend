@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, DM_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, DM_Sans, Kalam } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/auth-context";
 import { ToastProvider } from "@/components/ui/Toast";
@@ -39,6 +39,13 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const kalam = Kalam({
+  variable: "--font-kalam",
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Holistic Learning Ecosystem",
   description: "AI-powered learning platform with wellness and gamification",
@@ -52,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${dmSans.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${dmSans.variable} ${kalam.variable} antialiased`}
         suppressHydrationWarning
       >
         <ErrorBoundary>

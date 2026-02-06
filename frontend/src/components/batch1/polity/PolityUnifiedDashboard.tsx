@@ -88,7 +88,6 @@ export default function PolityUnifiedDashboard() {
     };
 
     const navigateToTopic = (topicId: number) => {
-        updateTopicProgress(topicId, { readDone: true });
         router.push(`/student/batch1-1/polity/${topicId}`);
     };
 
