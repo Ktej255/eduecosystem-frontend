@@ -11,7 +11,11 @@ function HistoryPomodoroContent() {
     const weekId = Math.floor((dayId - 1) / 7) + 1;
     const relativeDayId = ((dayId - 1) % 7) + 1;
 
-    return <PomodoroSessionView weekId={weekId} dayId={relativeDayId} />;
+    const subjectParam = searchParams.get('subject');
+    const isHistory = ['modern', 'medieval', 'ancient', 'art_culture', 'history'].includes(subjectParam || '');
+    const subjectOverride = isHistory ? 'history' : 'polity';
+
+    return <PomodoroSessionView weekId={weekId} dayId={relativeDayId} subjectOverride={subjectOverride} />;
 }
 
 export default function HistoryPomodoroPage() {

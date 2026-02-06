@@ -20,7 +20,7 @@ import { toast } from "@/components/ui/use-toast";
 import { CHAPTER_SUBTOPICS, SubTopic } from "@/components/batch1/polity/data/polity-subtopics";
 import { LAXMIKANTH_CHAPTERS, generateWeeklySchedule } from "@/components/batch1/polity/data/polity-schedule-data";
 import { getFabDayContent, FAB_MONTH_START } from "./FabScheduleData";
-// import { HISTORY_SCHEDULE } from "../../batch1/history/data/history-schedule-data";
+import { HISTORY_SCHEDULE } from "@/components/batch1/history/data/history-schedule-data";
 import { markChapterComplete, markSubtopicsComplete, updateDayProgress, recordMCQScore } from "@/lib/polity-progress-store";
 import { markHistoryChapterComplete, markHistorySubtopicsComplete, updateHistoryDayProgress, recordHistoryMCQScore } from "@/lib/history-progress-store";
 import { loadCompiledMCQs as loadHistoryMCQs } from "@/components/batch1/history/data/spectrum-mcq-loader";
@@ -51,6 +51,7 @@ interface PomodoroSessionViewProps {
     dayId: number;
     showBackButton?: boolean;
     showPrePlanner?: boolean;
+    subjectOverride?: 'history' | 'polity';
 }
 
 interface MCQResult {
@@ -71,7 +72,7 @@ interface CycleData {
 }
 
 // Get schedule items for the day (Chapters and/or Tasks)
-function getDayContent(weekId: number, dayId: number): {
+function getDayContent(weekId: number, dayId: number, subjectOverride?: 'history' | 'polity'): {
     chapters: number[];
     tasks: string[];
     subject: 'polity' | 'history';
@@ -85,18 +86,23 @@ function getDayContent(weekId: number, dayId: number): {
     // Validate dayId (1-7)
     if (dayId < 1 || dayId > 7) return { chapters: [], tasks: [], subject: 'polity' };
 
-    // --- FAB MONTH LOGIC (Feb 9+) ---
-    // Calculate if this week/day falls into the Fab Month Plan.
-    // Assuming Week 1 of Fab Month starts on Feb 9.
-    // For now, let's assume specific Week IDs are assigned to Fab Month (e.g., Week 6+) OR
-    // we calculate based on a logical mapping.
-    // Let's assume Week 1 passed via props IS the Fab Month Week 1 for simplicity if the user is in that mode?
-    // User Context: "From 9 Feb we start...". 
-    // Let's check dates relative to Feb 9.
-
-    // Simplification: We map the input (weekId, dayId) to a linear day from start of Fab Month.
-    // This allows the user to see the schedule even if "today" isn't Feb 9 yet, for planning.
+    // --- History Override Logic ---
     const linearDay = (weekId - 1) * 7 + (dayId);
+
+    if (subjectOverride === 'history') {
+        const historySch = HISTORY_SCHEDULE.find(d => d.day === linearDay);
+        if (historySch) {
+            return {
+                chapters: historySch.chapters,
+                tasks: historySch.topics,
+                isFabSchedule: true,
+                morningTopic: historySch.title,
+                eveningTopic: "Geography (Planned)", // Placeholder
+                liveClassLink: undefined,
+                subject: 'history'
+            };
+        }
+    }
 
     // We check if this linear day exists in our Fab Schedule
     const fabDate = new Date(FAB_MONTH_START);
@@ -243,7 +249,7 @@ async function syncProgressToStore(
     }
 }
 
-export default function PomodoroSessionView({ weekId, dayId, showBackButton = true }: PomodoroSessionViewProps) {
+export default function PomodoroSessionView({ weekId, dayId, showBackButton = true, subjectOverride }: PomodoroSessionViewProps) {
     const router = useRouter();
     const { user } = useAuth();
     const TOTAL_BLOCKS = 3;         // 3 Blocks of 2 hours each
@@ -356,7 +362,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
     const currentSessionInBlock = ((currentSessionGlobal - 1) % SESSIONS_PER_BLOCK) + 1;
 
     // Get today's content (chapters & tasks)
-    const { chapters: originalChapters, tasks: todayTasks, isFabSchedule, morningTopic, eveningTopic, liveClassLink, subject } = useMemo(() => getDayContent(weekId, dayId), [weekId, dayId]);
+    const { chapters: originalChapters, tasks: todayTasks, isFabSchedule, morningTopic, eveningTopic, liveClassLink, subject } = useMemo(() => getDayContent(weekId, dayId, subjectOverride), [weekId, dayId, subjectOverride]);
 
     // Apply User Plan (Override)
     const todayChapters = useMemo(() => {
