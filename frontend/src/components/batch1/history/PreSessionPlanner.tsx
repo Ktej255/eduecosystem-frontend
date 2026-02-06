@@ -51,22 +51,35 @@ export default function PreSessionPlanner({
     // Load any carried forward chapters from previous days
     useEffect(() => {
         if (isOpen) {
-            // Load carry forward queue
-            const queueKey = `batch1_${subject}_carry_forward_queue`;
-            const savedQueue = localStorage.getItem(queueKey);
-            let queue: number[] = savedQueue ? JSON.parse(savedQueue) : [];
+            try {
+                // Load carry forward queue
+                const queueKey = `batch1_${subject}_carry_forward_queue`;
+                const savedQueue = localStorage.getItem(queueKey);
 
-            // Map IDs to labels
-            const mappedQueue = queue.map(id => ({
-                id,
-                label: getChapterLabel(id, subject),
-                isCarryForward: true
-            }));
+                let queue: number[] = [];
+                if (savedQueue && savedQueue !== "undefined" && savedQueue !== "null") {
+                    queue = JSON.parse(savedQueue);
+                }
 
-            setCarryForwardChapters(mappedQueue);
+                if (!Array.isArray(queue)) queue = [];
 
-            // Auto-select scheduled + carry forward
-            setSelectedChapters([...scheduledChapterIds, ...queue]);
+                // Map IDs to labels
+                const mappedQueue = queue.map(id => ({
+                    id,
+                    label: getChapterLabel(id, subject),
+                    isCarryForward: true
+                }));
+
+                setCarryForwardChapters(mappedQueue);
+
+                // Auto-select scheduled + carry forward
+                const scheduledIds = Array.isArray(scheduledChapterIds) ? scheduledChapterIds : [];
+                setSelectedChapters([...scheduledIds, ...queue]);
+            } catch (err) {
+                console.error("Failed to load carry forward queue:", err);
+                setCarryForwardChapters([]);
+                setSelectedChapters(Array.isArray(scheduledChapterIds) ? scheduledChapterIds : []);
+            }
         }
     }, [isOpen, subject, scheduledChapterIds]);
 
@@ -86,58 +99,51 @@ export default function PreSessionPlanner({
     };
 
     const handleConfirm = () => {
-        // Calculate what was NOT selected from the Scheduled list
-        // These go into carry forward
-        const unselected = scheduledChapterIds.filter(id => !selectedChapters.includes(id));
+        try {
+            const subjectKey = subject || 'history';
+            const scheduledIds = Array.isArray(scheduledChapterIds) ? scheduledChapterIds : [];
+            const selectedIds = Array.isArray(selectedChapters) ? selectedChapters : [];
 
-        if (unselected.length > 0) {
-            const queueKey = `batch1_${subject}_carry_forward_queue`;
-            // Get existing, add new unique
+            // Calculate what was NOT selected from the Scheduled list
+            // These go into carry forward
+            const unselected = scheduledIds.filter(id => !selectedIds.includes(id));
+
+            const queueKey = `batch1_${subjectKey}_carry_forward_queue`;
             const saved = localStorage.getItem(queueKey);
-            const currentQueue = saved ? JSON.parse(saved) : [];
-            const newQueue = [...new Set([...currentQueue, ...unselected])];
+            let currentQueue: number[] = [];
 
-            localStorage.setItem(queueKey, JSON.stringify(newQueue));
-
-            toast({
-                title: "Schedule Updated",
-                description: `${unselected.length} chapters moved to tomorrow's carry-forward list.`,
-                variant: "default" // Blue info
-            });
-        }
-
-        // Also remove any selected "carry forward" items from the queue (since they are now being attempted)
-        // Wait, logic: If I select a carry-forward item, does it stay in queue until DONE? 
-        // Or do we assume 'planning to do' removes it from 'backlog'?
-        // Better: Remove from backlog now. If they fail, they might need to re-add manually or we auto-detect failure later.
-        // For now, assume 'Selecting' means 'Will Attempt', so remove from Carry Forward Queue.
-
-        const selectedCarryForward = carryForwardChapters
-            .map(c => c.id)
-            .filter(id => selectedChapters.includes(id));
-
-        if (selectedCarryForward.length > 0) {
-            const queueKey = `batch1_${subject}_carry_forward_queue`;
-            const saved = localStorage.getItem(queueKey);
-            if (saved) {
-                const currentQueue: number[] = JSON.parse(saved);
-                const remaining = currentQueue.filter(id => !selectedCarryForward.includes(id));
-                // Also add the unselected scheduled ones we just calculated? 
-                // Yes, we did that above. But we might have a race/overwrite if we are not careful.
-                // Correct logic: 
-                // NewQueue = (OldQueue - SelectedCF) + UnselectedScheduled
-
-                const finalQueue = [
-                    ...remaining,
-                    ...unselected
-                ];
-                const uniqueFinal = [...new Set(finalQueue)];
-                localStorage.setItem(queueKey, JSON.stringify(uniqueFinal));
+            if (saved && saved !== "undefined" && saved !== "null") {
+                currentQueue = JSON.parse(saved);
             }
-        }
+            if (!Array.isArray(currentQueue)) currentQueue = [];
 
-        onStartSession(selectedChapters);
-        onClose();
+            if (unselected.length > 0) {
+                const newQueue = [...new Set([...currentQueue, ...unselected])];
+                localStorage.setItem(queueKey, JSON.stringify(newQueue));
+
+                toast({
+                    title: "Schedule Updated",
+                    description: `${unselected.length} chapters moved to tomorrow's carry-forward list.`,
+                });
+            }
+
+            // Also remove any selected "carry forward" items from the queue
+            const carryForwardIds = Array.isArray(carryForwardChapters) ? carryForwardChapters.map(c => c.id) : [];
+            const selectedCarryForward = carryForwardIds.filter(id => selectedIds.includes(id));
+
+            if (selectedCarryForward.length > 0) {
+                const remaining = currentQueue.filter(id => !selectedCarryForward.includes(id));
+                const finalQueue = [...new Set([...remaining, ...unselected])];
+                localStorage.setItem(queueKey, JSON.stringify(finalQueue));
+            }
+
+            onStartSession(selectedIds);
+            onClose();
+        } catch (err) {
+            console.error("Planning submission failed:", err);
+            onStartSession(selectedChapters);
+            onClose();
+        }
     };
 
     if (!isOpen) return null;

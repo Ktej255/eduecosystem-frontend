@@ -129,13 +129,15 @@ export default function SubtopicSelector({
         if (isConsolidation) return previouslyCompleted;
 
         const subtopics: SubTopic[] = [];
-        const registry = subject === 'history' ? HISTORY_CHAPTER_SUBTOPICS : CHAPTER_SUBTOPICS;
+        const registry = subject === 'history' ? (HISTORY_CHAPTER_SUBTOPICS || {}) : (CHAPTER_SUBTOPICS || {});
         chapterIds.forEach(chapterId => {
             const chapterSubtopics = registry[chapterId] || [];
-            subtopics.push(...chapterSubtopics);
+            if (Array.isArray(chapterSubtopics)) {
+                subtopics.push(...chapterSubtopics);
+            }
         });
         return subtopics;
-    }, [chapterIds, isConsolidation, previouslyCompleted]);
+    }, [chapterIds, isConsolidation, previouslyCompleted, subject]);
 
     // Derived Set for O(1) lookups
     const selectedIds = useMemo(() => new Set(selectedSubtopics.map(s => s.id)), [selectedSubtopics]);
