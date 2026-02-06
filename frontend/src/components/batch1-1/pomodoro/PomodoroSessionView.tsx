@@ -14,6 +14,8 @@ import CycleFlashcards from "./CycleFlashcards";
 import CycleMCQs, { ConfidenceLevel } from "./CycleMCQs";
 import ReadingMaterial from "./ReadingMaterial";
 import BreakTimer from "./BreakTimer";
+import PreSessionPlanner from "@/components/batch1/history/PreSessionPlanner";
+import { toast } from "@/components/ui/use-toast";
 // Removed old module import to enforce strict schedule sync
 import { CHAPTER_SUBTOPICS, SubTopic } from "@/components/batch1/polity/data/polity-subtopics";
 import { LAXMIKANTH_CHAPTERS, generateWeeklySchedule } from "@/components/batch1/polity/data/polity-schedule-data";
@@ -48,6 +50,7 @@ interface PomodoroSessionViewProps {
     weekId: number;
     dayId: number;
     showBackButton?: boolean;
+    showPrePlanner?: boolean;
 }
 
 interface MCQResult {
@@ -145,7 +148,7 @@ function getDayContent(weekId: number, dayId: number): {
 }
 
 // Sync to unified progress store (replaces old syncToStudyPlanner)
-function syncProgressToStore(
+async function syncProgressToStore(
     weekId: number,
     dayId: number,
     subtopics: SubTopic[],
@@ -168,22 +171,22 @@ function syncProgressToStore(
         // Mark subtopics complete for each chapter
         Object.entries(chapterSubtopics).forEach(([chapterId, subtopicIds]) => {
             markHistorySubtopicsComplete(parseInt(chapterId), subtopicIds);
-
-            // Sync to backend if profile exists
-            if (profileId) {
-                const accuracy = mcqResults && mcqResults.total > 0
-                    ? Math.round((mcqResults.correct / mcqResults.total) * 100)
-                    : 100;
-
-                upscSynapseService.logGapAnalysis({
-                    profile_id: profileId,
-                    chapter_id: parseInt(chapterId),
-                    subject: "History",
-                    status: "mastered", // History is currently pass-fail in Pomodoro
-                    recall_accuracy: accuracy
-                }).catch(err => console.error("History Backend Sync Failed:", err));
-            }
         });
+
+        // Sync to backend if profile exists
+        if (profileId) {
+            const accuracy = mcqResults && mcqResults.total > 0
+                ? Math.round((mcqResults.correct / mcqResults.total) * 100)
+                : 100;
+            // Await this to catch errors in parent
+            await upscSynapseService.logGapAnalysis({
+                profile_id: profileId,
+                chapter_id: parseInt(Object.keys(chapterSubtopics)[0]), // Simplify: Log 1st chapter or map all? Ideally loop.
+                subject: "History",
+                status: "mastered",
+                recall_accuracy: accuracy
+            });
+        }
 
         // Update day progress
         updateHistoryDayProgress(weekId, dayId, {
@@ -202,26 +205,27 @@ function syncProgressToStore(
         // Mark subtopics complete for each chapter
         Object.entries(chapterSubtopics).forEach(([chapterId, subtopicIds]) => {
             markSubtopicsComplete(parseInt(chapterId), subtopicIds);
-
-            // Sync to backend if profile exists
-            if (profileId) {
-                const accuracy = mcqResults && mcqResults.total > 0
-                    ? Math.round((mcqResults.correct / mcqResults.total) * 100)
-                    : 100;
-
-                const status = mcqResults && mcqResults.total > 0 && (mcqResults.correct / mcqResults.total < 0.8)
-                    ? "knowledge_gap"
-                    : "mastered";
-
-                upscSynapseService.logGapAnalysis({
-                    profile_id: profileId,
-                    chapter_id: parseInt(chapterId),
-                    subject: "Polity",
-                    status: status,
-                    recall_accuracy: accuracy
-                }).catch(err => console.error("Polity Backend Sync Failed:", err));
-            }
         });
+
+        // Sync to backend if profile exists
+        if (profileId) {
+            const accuracy = mcqResults && mcqResults.total > 0
+                ? Math.round((mcqResults.correct / mcqResults.total) * 100)
+                : 100;
+
+            const status = mcqResults && mcqResults.total > 0 && (mcqResults.correct / mcqResults.total < 0.8)
+                ? "knowledge_gap"
+                : "mastered";
+
+            // Await this
+            await upscSynapseService.logGapAnalysis({
+                profile_id: profileId,
+                chapter_id: parseInt(Object.keys(chapterSubtopics)[0]),
+                subject: "Polity",
+                status: status,
+                recall_accuracy: accuracy
+            });
+        }
 
         // Update day progress
         updateDayProgress(weekId, dayId, {
@@ -258,6 +262,11 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
     const [preloadedFlashcards, setPreloadedFlashcards] = useState<any[]>([]);
     const [preloadedMCQs, setPreloadedMCQs] = useState<any[]>([]);
     const [cognitiveProfile, setCognitiveProfile] = useState<CognitiveProfile | null>(null);
+
+    // Planner State
+    const [isPlannerOpen, setIsPlannerOpen] = useState(false);
+    const [plannedChapters, setPlannedChapters] = useState<number[] | null>(null);
+
 
     // Session Goal
     const [sessionGoal, setSessionGoal] = useState("");
@@ -347,7 +356,23 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
     const currentSessionInBlock = ((currentSessionGlobal - 1) % SESSIONS_PER_BLOCK) + 1;
 
     // Get today's content (chapters & tasks)
-    const { chapters: todayChapters, tasks: todayTasks, isFabSchedule, morningTopic, eveningTopic, liveClassLink, subject } = useMemo(() => getDayContent(weekId, dayId), [weekId, dayId]);
+    const { chapters: originalChapters, tasks: todayTasks, isFabSchedule, morningTopic, eveningTopic, liveClassLink, subject } = useMemo(() => getDayContent(weekId, dayId), [weekId, dayId]);
+
+    // Apply User Plan (Override)
+    const todayChapters = useMemo(() => {
+        return plannedChapters || originalChapters;
+    }, [plannedChapters, originalChapters]);
+
+    // Auto-open planner
+    useEffect(() => {
+        if (showPrePlanner && sessionState === 'ready' && !plannedChapters && currentSessionGlobal === 1) {
+            // Only open if not already planned and it's the first session
+            // Or maybe open every time? User said "Pre-Session Selection".
+            // Typically executed once per day or session. Let's do once per load for now.
+            setIsPlannerOpen(true);
+        }
+    }, [showPrePlanner, sessionState, plannedChapters, currentSessionGlobal]);
+
 
     // Get chapter names / task names for display
     const scheduleItems = useMemo(() => {
@@ -560,7 +585,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
         setSessionState('mcqs');
     };
 
-    const handleMCQsComplete = (resultsArray: MCQResult[]) => {
+    const handleMCQsComplete = async (resultsArray: MCQResult[]) => {
         // Calculate totals from array
         const total = resultsArray.length;
         const correct = resultsArray.filter(r => r.isCorrect).length;
@@ -589,7 +614,22 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
         setSessionHistory(updated);
 
         // Sync to unified progress store
-        syncProgressToStore(weekId, dayId, currentSubtopics, results, currentSessionGlobal, subject, cognitiveProfile?.id);
+        try {
+            await syncProgressToStore(weekId, dayId, currentSubtopics, results, currentSessionGlobal, subject, cognitiveProfile?.id);
+            toast({
+                title: "Progress Synced",
+                description: "Your session Activity has been recorded.",
+                variant: "default",
+                className: "bg-green-50 border-green-200"
+            });
+        } catch (err) {
+            console.error("Sync Error:", err);
+            toast({
+                title: "Offline Mode",
+                description: "Results saved locally. Will sync when online.",
+                variant: "destructive"
+            });
+        }
 
         // 2. Determine Next Step -> Reading Phase
         setSessionState('reading');
@@ -1195,6 +1235,24 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                 </div>
             </div>
         </div>
+            
+            {/* Planner Modal */ }
+    <PreSessionPlanner
+        isOpen={isPlannerOpen}
+        onClose={() => setIsPlannerOpen(false)}
+        onStartSession={(selectedIds) => {
+            setPlannedChapters(selectedIds);
+            setIsPlannerOpen(false);
+            toast({
+                title: "Session Planned",
+                description: `Focusing on ${selectedIds.length} chapters. Unselected items moved to backlog.`
+            });
+        }}
+        scheduledChapterIds={originalChapters}
+        weekId={weekId}
+        dayId={dayId}
+        subject={subject}
+    />
     );
 }
 

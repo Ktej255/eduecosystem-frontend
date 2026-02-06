@@ -1,8 +1,21 @@
 "use client";
 
 import PomodoroSessionView from "@/components/batch1-1/pomodoro/PomodoroSessionView";
+import PreSessionPlanner from "@/components/batch1/history/PreSessionPlanner";
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useState, useEffect } from 'react';
+import { Button } from "@/components/ui/button"; // Assuming available
+
+// We need to fetch the schedule for the day to pass to PreSessionPlanner.
+// Since PomodoroSessionView handles its own data fetching, we might need a way to 
+// 1. Let PomodoroView load, but start in a "Planning" state?
+// 2. Or wrap it here.
+// Let's modify PomodoroSessionView to accept optional "plannedChapters" prop or handle the planning internal mode.
+// Actually, PomodoroSessionView is complex. It's better to let IT handle the modal if possible, 
+// OR pass a callback.
+// BUT, the user asked for "Pre-Session Selection". 
+// Let's actually put this logic INSIDE PomodoroSessionView because getting the daily schedule happens there.
+// So I will revert changes here and edit PomodoroSessionView instead.
 
 function PortalContent() {
     const searchParams = useSearchParams();
@@ -11,7 +24,7 @@ function PortalContent() {
     const weekId = Math.floor((dayId - 1) / 7) + 1;
     const relativeDayId = ((dayId - 1) % 7) + 1;
 
-    return <PomodoroSessionView weekId={weekId} dayId={relativeDayId} />;
+    return <PomodoroSessionView weekId={weekId} dayId={relativeDayId} showPrePlanner={true} />;
 }
 
 export default function HistoryPortalPage() {

@@ -35,6 +35,8 @@ import {
     Tooltip,
     ResponsiveContainer
 } from 'recharts';
+import MoodTracker from "./MoodTracker";
+import SubjectAnalytics from "./SubjectAnalytics";
 
 export default function Batch1DeepReport({ embedded = false }: { embedded?: boolean }) {
     const router = useRouter();
@@ -98,6 +100,14 @@ export default function Batch1DeepReport({ embedded = false }: { embedded?: bool
                             <Trophy className="w-4 h-4" />
                             <span>Saturday</span>
                         </TabsTrigger>
+                        <TabsTrigger value="mood" className="data-[state=active]:bg-pink-100 data-[state=active]:text-pink-700 py-3 rounded-xl flex items-center gap-2">
+                            <Smile className="w-4 h-4" />
+                            <span>Mood</span>
+                        </TabsTrigger>
+                        <TabsTrigger value="subjects" className="data-[state=active]:bg-cyan-100 data-[state=active]:text-cyan-700 py-3 rounded-xl flex items-center gap-2">
+                            <TrendingUp className="w-4 h-4" />
+                            <span>Analysis</span>
+                        </TabsTrigger>
                     </TabsList>
                 </div>
 
@@ -120,6 +130,14 @@ export default function Batch1DeepReport({ embedded = false }: { embedded?: bool
 
                     <TabsContent value="saturday" className="m-0">
                         <SaturdayTestsReport />
+                    </TabsContent>
+
+                    <TabsContent value="mood" className="m-0">
+                        <MoodTracker />
+                    </TabsContent>
+
+                    <TabsContent value="subjects" className="m-0">
+                        <SubjectAnalytics />
                     </TabsContent>
                 </div>
             </Tabs>

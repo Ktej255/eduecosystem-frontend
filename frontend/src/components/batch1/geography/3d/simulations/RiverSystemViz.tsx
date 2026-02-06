@@ -140,20 +140,46 @@ function RiverScene({
 }
 
 export default function RiverSystemViz({ systemId = 'ganga' }: { systemId?: 'ganga' | 'brahmaputra' }) {
+    const [currentSystem, setCurrentSystem] = useState<'ganga' | 'brahmaputra'>(systemId);
     const [selectedNode, setSelectedNode] = useState<SelectedNode | null>(null);
-    const title = systemId === 'ganga' ? 'Ganga River System' : 'Brahmaputra River System';
+
+    const systems = [
+        { id: 'ganga', label: 'Ganga System' },
+        { id: 'brahmaputra', label: 'Brahmaputra System' }
+    ];
+
+    const title = currentSystem === 'ganga' ? 'Ganga River System' : 'Brahmaputra River System';
 
     return (
         <div className="w-full h-full relative bg-slate-950">
             {/* 3D Canvas */}
             <Canvas
-                camera={{ position: systemId === 'ganga' ? [0, 2, 3] : [1.5, 2, 2.5], fov: 50 }}
+                camera={{ position: currentSystem === 'ganga' ? [0, 2, 3] : [1.5, 2, 2.5], fov: 50 }}
                 style={{ background: 'linear-gradient(to bottom, #0f172a, #020617)' }}
             >
                 <Suspense fallback={null}>
-                    <RiverScene systemId={systemId} onSelectNode={setSelectedNode} />
+                    <RiverScene systemId={currentSystem} onSelectNode={setSelectedNode} />
                 </Suspense>
             </Canvas>
+
+            {/* System Selector */}
+            <div className="absolute top-4 right-4 flex bg-slate-900/80 backdrop-blur-md rounded-lg p-1 border border-slate-700">
+                {systems.map((sys) => (
+                    <button
+                        key={sys.id}
+                        onClick={() => {
+                            setCurrentSystem(sys.id as any);
+                            setSelectedNode(null);
+                        }}
+                        className={`px-4 py-2 text-xs font-bold rounded-md transition-all ${currentSystem === sys.id
+                                ? 'bg-cyan-600 text-white shadow-lg'
+                                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                            }`}
+                    >
+                        {sys.label}
+                    </button>
+                ))}
+            </div>
 
             {/* Info Panel */}
             {selectedNode && (
