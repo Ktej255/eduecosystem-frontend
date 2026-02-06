@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TOPIC_TITLES, POLITY_PARTS, getPartById, getPartColors, PartId } from "@/components/batch1-1/polity/data/polity-types-95";
 import MakingConstitutionModule from "@/components/batch1-1/polity/MakingConstitutionModule";
+import MakingConstitutionModuleV2 from "@/components/batch1-1/polity/MakingConstitutionModuleV2";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
 export default function TopicViewerPage() {
@@ -124,7 +125,7 @@ export default function TopicViewerPage() {
                     isCompleted={isCompleted}
                 />
             ) : topicId === 2 ? (
-                <MakingConstitutionModule
+                <MakingConstitutionModuleV2
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
