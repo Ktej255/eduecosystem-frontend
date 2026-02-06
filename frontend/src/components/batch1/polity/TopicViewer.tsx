@@ -3,9 +3,17 @@
 import React, { useState } from 'react';
 import { ArrowLeft, BookOpen, ChevronDown, ChevronUp, Clock, ExternalLink, Lightbulb, Pin, Sparkles, Scale } from 'lucide-react';
 import Link from 'next/link';
-import { PolityTopic, getModuleById, getModuleColors } from './data/polity-registry';
-import { TOPIC_TITLES, POLITY_PARTS, PartId } from './data/polity-types-95';
+import { PolityTopic, getModuleById, getModuleColors, POLITY_MODULES as POLITY_PARTS, ModuleId as PartId } from './data/polity-types';
+import { getTopicById } from './data/polity-registry'; // Using 50-topic registry for now
+import { POLITY_REVISION_CHAPTERS } from './data/RevisionRegistry'; // For 95-topic fallback
 import EveningSessionDayView from '../EveningSessionDayView';
+
+// Adapter for TOPIC_TITLES using the 95-chapter registry
+const TOPIC_TITLES = POLITY_REVISION_CHAPTERS.map(ch => ({
+    id: ch.id,
+    title: ch.title,
+    part: 'I' as PartId // Default part for fallback, logic can be refined if needed
+}));
 
 interface TopicViewerProps {
     topic: PolityTopic;
