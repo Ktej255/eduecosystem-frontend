@@ -240,13 +240,6 @@ export default function FocusPortal() {
                                                 );
                                             })}
                                         </div>
-
-                                        {/* Quick Link to UPSC Store / Other Resources */}
-                                        <div className="mt-8 flex justify-center">
-                                            <Button variant="outline" className="text-gray-500" onClick={() => router.push('/student/upsc')}>
-                                                Looking for Batch 1 Resources? Visit UPSC Store
-                                            </Button>
-                                        </div>
                                     </div>
                                 ) : (
                                     // SESSION VIEW (Timer)

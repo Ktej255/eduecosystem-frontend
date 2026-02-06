@@ -18,7 +18,7 @@ import BreakTimer from "./BreakTimer";
 import { CHAPTER_SUBTOPICS, SubTopic } from "@/components/batch1/polity/data/polity-subtopics";
 import { LAXMIKANTH_CHAPTERS, generateWeeklySchedule } from "@/components/batch1/polity/data/polity-schedule-data";
 import { getFabDayContent, FAB_MONTH_START } from "./FabScheduleData";
-// import { HISTORY_SCHEDULE } from "../../batch1/history/data/history-schedule-data";
+import { HISTORY_PLAN_CONFIGS, HistorySection } from "@/components/batch1/history/data/history-schedule-registry";
 import { markChapterComplete, markSubtopicsComplete, updateDayProgress, recordMCQScore } from "@/lib/polity-progress-store";
 import { markHistoryChapterComplete, markHistorySubtopicsComplete, updateHistoryDayProgress, recordHistoryMCQScore } from "@/lib/history-progress-store";
 import { loadCompiledMCQs as loadHistoryMCQs } from "@/components/batch1/history/data/spectrum-mcq-loader";
@@ -48,6 +48,8 @@ interface PomodoroSessionViewProps {
     weekId: number;
     dayId: number;
     showBackButton?: boolean;
+    subjectOverride?: 'history' | 'polity';
+    historySection?: string; // 'modern' | 'medieval' | 'ancient' | 'art_culture'
 }
 
 interface MCQResult {
@@ -68,9 +70,10 @@ interface CycleData {
 }
 
 // Get schedule items for the day (Chapters and/or Tasks)
-function getDayContent(weekId: number, dayId: number): {
+function getDayContent(weekId: number, dayId: number, subjectOverride?: 'history' | 'polity', historySection: string = 'modern'): {
     chapters: number[];
     tasks: string[];
+    chapterNames: string[];
     subject: 'polity' | 'history';
     isFabSchedule?: boolean;
     morningTopic?: string;
@@ -80,32 +83,54 @@ function getDayContent(weekId: number, dayId: number): {
     const dayMapping = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as const;
 
     // Validate dayId (1-7)
-    if (dayId < 1 || dayId > 7) return { chapters: [], tasks: [], subject: 'polity' };
+    if (dayId < 1 || dayId > 7) return { chapters: [], tasks: [], chapterNames: [], subject: 'polity' };
 
-    // --- FAB MONTH LOGIC (Feb 9+) ---
-    // Calculate if this week/day falls into the Fab Month Plan.
-    // Assuming Week 1 of Fab Month starts on Feb 9.
-    // For now, let's assume specific Week IDs are assigned to Fab Month (e.g., Week 6+) OR
-    // we calculate based on a logical mapping.
-    // Let's assume Week 1 passed via props IS the Fab Month Week 1 for simplicity if the user is in that mode?
-    // User Context: "From 9 Feb we start...". 
-    // Let's check dates relative to Feb 9.
+    // Calculate linear day (1-15 for history sections, 1-42+ for polity)
+    const linearDay = (weekId - 1) * 7 + dayId;
 
-    // Simplification: We map the input (weekId, dayId) to a linear day from start of Fab Month.
-    // This allows the user to see the schedule even if "today" isn't Feb 9 yet, for planning.
-    const linearDay = (weekId - 1) * 7 + (dayId);
+    // --- HISTORY SECTION LOGIC ---
+    if (subjectOverride === 'history') {
+        const sectionKey = (historySection || 'modern') as HistorySection;
+        const config = HISTORY_PLAN_CONFIGS[sectionKey];
 
-    // We check if this linear day exists in our Fab Schedule
+        if (config && config.schedule) {
+            // Find the schedule for this linear day (1-15)
+            const daySchedule = config.schedule.find((d: any) => d.day === linearDay);
+
+            if (daySchedule) {
+                return {
+                    chapters: daySchedule.chapters || [],
+                    tasks: daySchedule.topics || [],
+                    chapterNames: daySchedule.chapterNames || [],
+                    isFabSchedule: true,
+                    morningTopic: daySchedule.title || `${config.title} - Day ${linearDay}`,
+                    eveningTopic: "Recall Drill",
+                    subject: 'history' as const
+                };
+            }
+        }
+
+        // Fallback for history when schedule not found
+        return {
+            chapters: [],
+            tasks: [],
+            chapterNames: [],
+            morningTopic: `${config?.title || 'History'} - Day ${linearDay}`,
+            subject: 'history' as const
+        };
+    }
+
+    // --- FAB MONTH LOGIC (Feb 9+) for legacy ---
     const fabDate = new Date(FAB_MONTH_START);
     fabDate.setDate(fabDate.getDate() + (linearDay - 1));
 
     const fabContent = getFabDayContent(fabDate);
 
     if (fabContent && fabContent.morning.schedule) {
-        // We found a history schedule!
         return {
             chapters: fabContent.morning.schedule.chapters,
             tasks: fabContent.morning.schedule.topics,
+            chapterNames: fabContent.morning.schedule.chapterNames || [],
             isFabSchedule: true,
             morningTopic: fabContent.morning.schedule.title,
             eveningTopic: fabContent.evening.topic,
@@ -114,22 +139,22 @@ function getDayContent(weekId: number, dayId: number): {
         };
     }
 
-    // --- FALLBACK TO OLD POLYITY SCHEDULE ---
+    // --- FALLBACK TO POLITY SCHEDULE ---
     const dayKey = dayMapping[dayId - 1];
 
-    // Use the official schedule generator
     const allWeeks = generateWeeklySchedule();
     const weekSchedule = allWeeks.find(w => w.week === weekId);
 
     if (!weekSchedule) {
         console.warn(`No schedule found for Week ${weekId}`);
-        return { chapters: [], tasks: [], subject: 'polity' };
+        return { chapters: [], tasks: [], chapterNames: [], subject: 'polity' };
     }
 
     const dayContent = weekSchedule.days[dayKey];
 
     const chapters: number[] = [];
     const tasks: string[] = [];
+    const chapterNames: string[] = [];
 
     if (Array.isArray(dayContent)) {
         dayContent.forEach(item => {
@@ -137,11 +162,13 @@ function getDayContent(weekId: number, dayId: number): {
                 tasks.push(item);
             } else if (item && 'chapter' in item) {
                 chapters.push(item.chapter);
+                const ch = LAXMIKANTH_CHAPTERS.find(c => c.chapter === item.chapter);
+                if (ch) chapterNames.push(ch.topic);
             }
         });
     }
 
-    return { chapters, tasks, subject: 'polity' as const };
+    return { chapters, tasks, chapterNames, subject: 'polity' as const };
 }
 
 // Sync to unified progress store (replaces old syncToStudyPlanner)
@@ -239,7 +266,7 @@ function syncProgressToStore(
     }
 }
 
-export default function PomodoroSessionView({ weekId, dayId, showBackButton = true }: PomodoroSessionViewProps) {
+export default function PomodoroSessionView({ weekId, dayId, showBackButton = true, subjectOverride, historySection = 'modern' }: PomodoroSessionViewProps) {
     const router = useRouter();
     const { user } = useAuth();
     const TOTAL_BLOCKS = 3;         // 3 Blocks of 2 hours each
