@@ -4,11 +4,12 @@ import { useState } from "react";
 import TerraLabLayout from "./TerraLabLayout";
 import GeographyGlobe from "./3d/GeographyGlobe";
 import GeographyDashboard from "./GeographyDashboard";
+import GeographySchedule from "./GeographySchedule";
 import SyllabusListView from "./components/SyllabusListView";
 import LessonView from "./components/LessonView";
 import { MicroTopic, GEOGRAPHY_SYLLABUS } from "./data/geography-syllabus-data";
 import { Button } from "@/components/ui/button";
-import { Compass, Globe, BookOpen, Layers, BarChart2, ArrowLeft } from "lucide-react";
+import { Compass, Globe, BookOpen, Layers, BarChart2, ArrowLeft, CalendarRange } from "lucide-react";
 import { LessonContent } from "./content/types";
 
 // Content Imports
@@ -40,7 +41,7 @@ interface GeographyHomeProps {
 }
 
 export default function GeographyHome({ initialModuleId = 'geomorphology', initialView = 'dashboard' }: GeographyHomeProps) {
-    const [view, setView] = useState<'dashboard' | 'syllabus' | 'globe' | 'lesson'>(initialView);
+    const [view, setView] = useState<'dashboard' | 'syllabus' | 'globe' | 'lesson' | 'schedule'>(initialView);
     const [activeModuleId, setActiveModuleId] = useState<string>(initialModuleId);
     const [lessonContent, setLessonContent] = useState<LessonContent | null>(null);
 
@@ -227,6 +228,15 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                             Dashboard
                         </Button>
                         <Button
+                            variant={view === 'schedule' ? 'secondary' : 'ghost'}
+                            size="sm"
+                            onClick={() => setView('schedule')}
+                            className="gap-2 text-xs font-semibold"
+                        >
+                            <CalendarRange className="h-4 w-4" />
+                            Schedule
+                        </Button>
+                        <Button
                             variant={view === 'syllabus' ? 'secondary' : 'ghost'}
                             size="sm"
                             onClick={() => setView('syllabus')}
@@ -252,6 +262,10 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                 {/* View Switching */}
                 {view === 'dashboard' && (
                     <GeographyDashboard />
+                )}
+
+                {view === 'schedule' && (
+                    <GeographySchedule />
                 )}
 
                 {view === 'syllabus' && (

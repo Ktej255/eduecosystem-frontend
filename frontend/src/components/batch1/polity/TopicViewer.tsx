@@ -4,16 +4,49 @@ import React, { useState } from 'react';
 import { ArrowLeft, BookOpen, ChevronDown, ChevronUp, Clock, ExternalLink, Lightbulb, Pin, Sparkles, Scale } from 'lucide-react';
 import Link from 'next/link';
 import { PolityTopic, getModuleById, getModuleColors } from './data/polity-registry';
+import { TOPIC_TITLES, POLITY_PARTS, PartId } from './data/polity-types-95';
 import EveningSessionDayView from '../EveningSessionDayView';
 
 interface TopicViewerProps {
     topic: PolityTopic;
+    topicId: number; // Pass the ID directly in case topic is null
 }
 
-export default function TopicViewer({ topic }: TopicViewerProps) {
+export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
+    // Fallback if topic is missing in registry (Topics 51-95)
+    let displayTopic = topic;
+    let isPlaceholder = false;
+
+    if (!topic) {
+        const meta = TOPIC_TITLES.find(t => t.id === topicId);
+        if (meta) {
+            isPlaceholder = true;
+            // Create a placeholder topic object
+            displayTopic = {
+                id: meta.id,
+                title: meta.title,
+                module: meta.part, // Using part as module ID for color mapping
+                staticFocus: "Content for this topic is currently being developed.",
+                coreArticles: [],
+                keyConcepts: [],
+                currentAffairs: [],
+                prelimsPointers: [],
+                lastUpdated: new Date().toLocaleDateString(),
+                priority: 'Medium'
+            } as any; // Cast to bypass strict type matching for placeholder
+        }
+    }
+
+    if (!displayTopic) {
+        return <div className="p-8 text-center text-gray-500">Topic not found.</div>;
+    }
+
     const [expandedSections, setExpandedSections] = useState<string[]>(['concepts', 'ca']);
-    const module = getModuleById(topic.module);
-    const colors = module ? getModuleColors(module.color) : getModuleColors('blue');
+    // For placeholder, try to map Part ID to Module/Color style
+    const module = getModuleById(displayTopic.module);
+    // Fallback color mapping based on Part ID if module is not found
+    const partColor = POLITY_PARTS.find(p => p.id === displayTopic.module)?.color || 'blue';
+    const colors = module ? getModuleColors(module.color) : getModuleColors(partColor);
 
     const toggleSection = (section: string) => {
         setExpandedSections(prev =>

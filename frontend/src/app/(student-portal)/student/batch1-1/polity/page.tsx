@@ -1,5 +1,5 @@
-import PolityHome95 from "@/components/batch1-1/polity/PolityHome95";
+import PolityUnifiedDashboard from "@/components/batch1/polity/PolityUnifiedDashboard";
 
 export default function PolityPage() {
-    return <PolityHome95 />;
+    return <PolityUnifiedDashboard />;
 }

@@ -149,7 +149,28 @@ const DAYS = [
     { id: 7, label: 'Sun', full: 'Sunday' },
 ];
 
+import EveningSessionDayView from '@/components/batch1/EveningSessionDayView';
+
 export default function Batch1_1EveningSession({ weekId, dayId, onDayChange }: EveningSessionViewProps) {
+    // GEOGRAPHY SWITCH (Week 6+)
+    // If we are in Week 6 or later, switch to the Modern Geography Interface
+    // Geography starts on Feb 6 (Week 6 Day 2 approx, or just Week 6).
+    // We map Week 6 Day 1 -> Geography Day 1.
+    if (weekId >= 6) {
+        // Calculate Geography Day (Sequential 1-21)
+        // Week 6 Day 1 = Day 1
+        // Week 6 Day 2 = Day 2...
+        // Week 7 Day 1 = Day 8...
+        const geoDay = ((weekId - 6) * 7) + dayId;
+
+        return (
+            <div className="animate-in fade-in duration-500">
+                {/* Back Link handled by parent page, but we can add specific nav if needed */}
+                <EveningSessionDayView cycleId={3} day={geoDay} />
+            </div>
+        );
+    }
+
     const router = useRouter();
     const [morningProgress, setMorningProgress] = useState<MorningProgress | null>(null);
     const [activeSection, setActiveSection] = useState<'menu' | 'flashcards' | 'mcqs' | 'csat'>('menu');
@@ -611,7 +632,7 @@ export default function Batch1_1EveningSession({ weekId, dayId, onDayChange }: E
                     Evening Revision Session
                 </h1>
                 <p className="text-gray-600 dark:text-gray-400">
-                    Week {weekId}, Day {dayId} • Consolidate today&apos;s learning • <span className="text-xs font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">v2.2 Synced</span>
+                    Week {weekId || 1}, Day {dayId} • Consolidate today&apos;s learning • <span className="text-xs font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">v2.2 Synced</span>
                 </p>
             </div>
 

@@ -7,6 +7,7 @@ import {
     TrendingUp, AlertTriangle, CheckCircle, MapPin
 } from 'lucide-react';
 import GlobeViz from './visualizations/GlobeViz';
+import RecentUpdatesWidget from './RecentUpdatesWidget';
 import DiplomacyGraph from './visualizations/DiplomacyGraph';
 
 interface Organization {
@@ -83,8 +84,16 @@ export default function IrDashboard() {
             {viewMode === 'visual' ? (
                 <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
                     {/* New Phase K Visualizations */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <GlobeViz />
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div className="lg:col-span-2">
+                            <GlobeViz />
+                        </div>
+                        <div className="lg:col-span-1 h-[500px]">
+                            <RecentUpdatesWidget />
+                        </div>
+                    </div>
+
+                    <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
                         <DiplomacyGraph />
                     </div>
 
@@ -185,8 +194,8 @@ export default function IrDashboard() {
                             <div className="pb-3">
                                 <div className="flex justify-between items-start">
                                     <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider ${topic.category === 'Bilateral' ? 'bg-emerald-100 text-emerald-700' :
-                                            topic.category === 'Organizations' ? 'bg-amber-100 text-amber-700' :
-                                                'bg-indigo-100 text-indigo-700'
+                                        topic.category === 'Organizations' ? 'bg-amber-100 text-amber-700' :
+                                            'bg-indigo-100 text-indigo-700'
                                         }`}>
                                         {topic.category}
                                     </span>

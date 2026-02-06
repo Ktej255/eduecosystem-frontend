@@ -36,12 +36,7 @@ const menuItems = [
         icon: LayoutDashboard,
         accessKey: "dashboard", // Maps to UserAccess.dashboard
     },
-    {
-        name: "Study Planner",
-        href: "/student/batch1-1/polity?tab=schedule",
-        icon: CalendarDays,
-        accessKey: "studyPlanner", // Maps to UserAccess.studyPlanner
-    },
+
     {
         name: "UPSC",
         href: "/student/batch1",

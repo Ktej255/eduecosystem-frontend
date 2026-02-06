@@ -1,10 +1,10 @@
 "use client";
 
 import React from 'react';
-import PolitySyllabus from './PolitySyllabus';
+import PolityUnifiedDashboard from './PolityUnifiedDashboard';
 
 export default function PolityHome({ embedded }: { embedded?: boolean }) {
     return (
-        <PolitySyllabus />
+        <PolityUnifiedDashboard />
     );
 }
