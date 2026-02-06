@@ -68,8 +68,8 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                 <div className="mt-8 md:absolute md:top-0 md:right-0 bg-yellow-200 p-4 shadow-lg transform rotate-2 w-64 mx-auto md:mx-0 text-left text-sm text-slate-800 font-medium">
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-12 h-4 bg-yellow-400/50 opacity-50 block"></div>
                     <p><strong>1600:</strong> EIC comes as Traders (Queen Elizabeth I Charter).</p>
-                    <p><strong>1765:</strong> Diwani Rights -> Territorial Power starts.</p>
-                    <p><strong>1858:</strong> Sepoy Mutiny -> Crown assumes responsibility.</p>
+                    <p><strong>1765:</strong> Diwani Rights → Territorial Power starts.</p>
+                    <p><strong>1858:</strong> Sepoy Mutiny → Crown assumes responsibility.</p>
                 </div>
             </div>
 
