@@ -399,6 +399,15 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             }));
         }
 
+        // Explicitly block Polity lookup if subject is history (even if isFabSchedule is false for some reason)
+        if (subject === 'history') {
+            return todayTasks ? todayTasks.map((t, idx) => ({
+                id: `task-${idx}`,
+                label: t,
+                isChapter: false
+            })) : [];
+        }
+
         const items = todayChapters.map(id => {
             // Safety check: LAXMIKANTH_CHAPTERS might be undefined if imports fail or data is missing
             const chapter = LAXMIKANTH_CHAPTERS?.find(ch => ch.chapter === id);
