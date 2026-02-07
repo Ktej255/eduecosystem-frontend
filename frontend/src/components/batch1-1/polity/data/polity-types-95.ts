@@ -159,11 +159,11 @@ export const POLITY_PARTS: PolityPart[] = [
         id: 'VIII',
         number: 8,
         title: 'Non-Constitutional Bodies',
-        description: 'NITI Aayog to National Commission for Minorities',
+        description: 'NITI Aayog to NDMA',
         color: 'orange',
-        topicRange: [50, 62],
+        topicRange: [50, 59],
         icon: '🏗️',
-        topicCount: 13
+        topicCount: 10
     },
     {
         id: 'IX',
@@ -171,29 +171,29 @@ export const POLITY_PARTS: PolityPart[] = [
         title: 'Other Constitutional Dimensions',
         description: 'Co-operative Societies to Official Language',
         color: 'rose',
-        topicRange: [63, 68],
+        topicRange: [60, 61],
         icon: '📋',
-        topicCount: 6
+        topicCount: 2
     },
     {
         id: 'X',
         number: 10,
         title: 'Political Dynamics',
-        description: 'Public Services to Coalition Government',
+        description: 'Public Services to Electoral Reforms',
         color: 'cyan',
-        topicRange: [69, 79],
+        topicRange: [62, 69],
         icon: '🗳️',
-        topicCount: 11
+        topicCount: 8
     },
     {
         id: 'XI',
         number: 11,
         title: 'Working of the Constitution',
-        description: 'Anti-Defection Law to Civil Service Reforms Report',
+        description: 'Anti-Defection Law to Civil Service Reforms',
         color: 'emerald',
-        topicRange: [80, 95],
+        topicRange: [70, 95],
         icon: '⚖️',
-        topicCount: 16
+        topicCount: 26
     },
 ];
 
@@ -273,48 +273,37 @@ export const TOPIC_TITLES: { id: number; title: string; part: PartId }[] = [
     { id: 57, title: 'Lokpal and Lokayuktas', part: 'VIII' },
     { id: 58, title: 'National Investigation Agency (NIA)', part: 'VIII' },
     { id: 59, title: 'National Disaster Management Authority (NDMA)', part: 'VIII' },
-    { id: 60, title: 'National Commission for Women (NCW)', part: 'VIII' },
-    { id: 61, title: 'National Commission for Protection of Child Rights (NCPCR)', part: 'VIII' },
-    { id: 62, title: 'National Commission for Minorities', part: 'VIII' },
 
-    // Part IX: Other Constitutional Dimensions (63-68)
-    { id: 63, title: 'Bar Council of India', part: 'IX' },
-    { id: 64, title: 'Law Commission of India', part: 'IX' },
-    { id: 65, title: 'Delimitation Commission of India', part: 'IX' },
-    { id: 66, title: 'Consumer Commissions', part: 'IX' },
-    { id: 67, title: 'Co-operative Societies', part: 'IX' },
-    { id: 68, title: 'Official Language', part: 'IX' },
+    // Part IX: Other Constitutional Dimensions (60-61)
+    { id: 60, title: 'Co-operative Societies', part: 'IX' },
+    { id: 61, title: 'Official Language', part: 'IX' },
 
-    // Part X: Political Dynamics (69-79)
-    { id: 69, title: 'Public Services', part: 'X' },
-    { id: 70, title: 'Rights and Liabilities of the Government', part: 'X' },
-    { id: 71, title: 'Special Provisions Relating to Certain Classes', part: 'X' },
-    { id: 72, title: 'Constitutional Prescriptions', part: 'X' },
-    { id: 73, title: 'Political Parties', part: 'X' },
-    { id: 74, title: 'Role of Regional Parties', part: 'X' },
-    { id: 75, title: 'Elections', part: 'X' },
-    { id: 76, title: 'Election Laws', part: 'X' },
-    { id: 77, title: 'Electoral Reforms', part: 'X' },
-    { id: 78, title: 'Voting Behaviour', part: 'X' },
-    { id: 79, title: 'Coalition Government', part: 'X' },
+    // Part X: Political Dynamics (62-74)
+    { id: 62, title: 'Tribunals', part: 'X' },
+    { id: 63, title: 'Authoritative Text in Hindi', part: 'X' },
 
-    // Part XI: Working of the Constitution (80-95)
-    { id: 80, title: 'Anti-Defection Law', part: 'XI' },
-    { id: 81, title: 'Pressure Groups', part: 'XI' },
-    { id: 82, title: 'National Integration', part: 'XI' },
-    { id: 83, title: 'Foreign Policy', part: 'XI' },
-    { id: 84, title: 'Landmark Judgements and their Impact', part: 'XI' },
-    { id: 85, title: 'Important Doctrines of Constitutional Interpretation', part: 'XI' },
-    { id: 86, title: 'World Constitutions', part: 'XI' },
-    { id: 87, title: 'National Commission for Persons with Disabilities', part: 'XI' },
-    { id: 88, title: 'Model Code of Conduct', part: 'XI' },
-    { id: 89, title: 'Bharatiya Nyaya Sanhita (Criminal Law Reforms)', part: 'XI' },
-    { id: 90, title: 'One Nation One Election', part: 'XI' },
-    { id: 91, title: 'Constitutional Review Commissions', part: 'XI' },
-    { id: 92, title: 'Right to Education (Art 21A) Evolution', part: 'XI' },
-    { id: 93, title: 'GST & Federalism Nuances', part: 'XI' },
-    { id: 94, title: 'Role of Technology in Elections', part: 'XI' },
-    { id: 95, title: 'Civil Service Reforms Report', part: 'XI' },
+    // Part XI: Working of the Constitution (70-95)
+    { id: 75, title: 'Public Services', part: 'XI' },
+    { id: 76, title: 'Rights and Liabilities of the Government', part: 'XI' },
+    { id: 77, title: 'Special Provisions Relating to Certain Classes', part: 'XI' },
+    { id: 78, title: 'Special Provisions for Some States', part: 'XI' },
+    { id: 79, title: 'Political Parties', part: 'XI' },
+    { id: 80, title: 'Role of Regional Parties', part: 'XI' },
+    { id: 81, title: 'Elections', part: 'XI' },
+    { id: 82, title: 'Election Laws', part: 'XI' },
+    { id: 83, title: 'Electoral Reforms', part: 'XI' },
+    { id: 84, title: 'Voting Behaviour', part: 'XI' },
+    { id: 85, title: 'Coalition Government', part: 'XI' },
+    { id: 86, title: 'Anti-Defection Law', part: 'XI' },
+    { id: 87, title: 'Pressure Groups', part: 'XI' },
+    { id: 88, title: 'National Integration', part: 'XI' },
+    { id: 89, title: 'Foreign Policy', part: 'XI' },
+    { id: 90, title: 'National Commission to Review the Working of the Constitution (NCRWC)', part: 'XI' },
+    { id: 91, title: 'Landmark Judgements and their Impact', part: 'XI' },
+    { id: 92, title: 'Important Doctrines of Constitutional Interpretation', part: 'XI' },
+    { id: 93, title: 'World Constitutions', part: 'XI' },
+    { id: 94, title: 'Constitutional Doctrines', part: 'XI' },
+    { id: 95, title: 'World Constitutions', part: 'XI' },
 ];
 
 // Helper functions
