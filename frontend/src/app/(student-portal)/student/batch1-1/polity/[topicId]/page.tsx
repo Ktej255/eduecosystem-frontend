@@ -39,6 +39,7 @@ import PubIntLitigationModule from "@/components/batch1-1/polity/PubIntLitigatio
 import GovernorModule from "@/components/batch1-1/polity/GovernorModule";
 import ChiefMinisterModule from "@/components/batch1-1/polity/ChiefMinisterModule";
 import StateCouncilModule from "@/components/batch1-1/polity/StateCouncilModule";
+import StateLegislatureModule from "@/components/batch1-1/polity/StateLegislatureModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
 export default function TopicViewerPage() {
@@ -285,6 +286,11 @@ export default function TopicViewerPage() {
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
+            ) : topicId === 30 ? (
+                <StateLegislatureModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
             ) : (
                 <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
                     <CardContent className="p-6">
@@ -331,8 +337,8 @@ export default function TopicViewerPage() {
                 </Card>
             )}
 
-            {/* Content Tabs (Hidden for Topic 1-20, 22-29 which use Special Modules) */}
-            {(topicId > 20 && topicId !== 22 && topicId !== 23 && topicId !== 24 && topicId !== 25 && topicId !== 26 && topicId !== 27 && topicId !== 28 && topicId !== 29) && (
+            {/* Content Tabs (Hidden for Topic 1-20, 22-30 which use Special Modules) */}
+            {(topicId > 20 && topicId !== 22 && topicId !== 23 && topicId !== 24 && topicId !== 25 && topicId !== 26 && topicId !== 27 && topicId !== 28 && topicId !== 29 && topicId !== 30) && (
                 <Tabs defaultValue="overview" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="overview">
