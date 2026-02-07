@@ -5,7 +5,7 @@ import {
     Scale, Gavel, Shield, Book, Scroll,
     Phone, Map, UserCheck, AlertTriangle,
     CheckCircle2, XCircle, Landmark, Swords,
-    BookOpen, Search, FileText
+    BookOpen, Search, FileText, Users
 } from "lucide-react";
 
 interface SupremeCourtModuleProps {
@@ -85,7 +85,7 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                     </div>
 
                     {/* BENCH STRENGTH */}
-                    <MarbleCard title="Organization (Art 124)" icon={Users2}>
+                    <MarbleCard title="Organization (Art 124)" icon={Users}>
                         <div className="grid grid-cols-2 gap-4 text-center">
                             <div className="p-4 bg-slate-50 rounded border border-slate-200">
                                 <span className="block text-xs text-slate-400 font-bold uppercase">Original (1950)</span>

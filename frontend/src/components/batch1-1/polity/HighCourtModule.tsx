@@ -5,7 +5,7 @@ import {
     Scale, Shield, Map, Gavel,
     Scroll, BookOpen, Landmark,
     ArrowUpRight, AlertCircle,
-    DollarSign, Briefcase
+    DollarSign, Briefcase, UserPlus
 } from "lucide-react";
 
 interface HighCourtModuleProps {

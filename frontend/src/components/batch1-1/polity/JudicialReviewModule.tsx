@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import {
     Search, Scroll, FileText, XCircle, Shield,
-    Scale, Lock, Unlock, AlertTriangle, Pillar,
+    Scale, Lock, Unlock, AlertTriangle, Landmark,
     Stamp, Gavel, FolderOpen, History
 } from "lucide-react";
 
@@ -217,7 +217,7 @@ export default function JudicialReviewModule({ onComplete, isCompleted }: Judici
 
             {/* FOOTER */}
             <div className="mt-16 bg-white p-8 border-t-4 border-slate-900 shadow-xl max-w-3xl mx-auto rounded-b-xl text-center">
-                <Pillar size={48} className="mx-auto text-slate-800 mb-4" />
+                <Landmark size={48} className="mx-auto text-slate-800 mb-4" />
                 <h3 className="text-2xl font-black font-serif mb-6">WHY IT MATTERS?</h3>
                 <div className="flex flex-wrap justify-center gap-4 text-sm font-bold font-handwriting">
                     <span className="px-4 py-2 bg-slate-100 rounded-full border border-slate-300 shadow-sm">Uphold Constitution Supremacy</span>

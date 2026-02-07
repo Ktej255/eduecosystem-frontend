@@ -6,7 +6,7 @@ import {
     Calendar, Clock, AlertOctagon, FileText, Banknote,
     Handshake, Briefcase, Calculator, Lock, Search,
     Mic2, Bell, Ban, Scale, ArrowRight, CheckCircle2,
-    Users2, BookOpen
+    BookOpen
 } from "lucide-react";
 
 interface ParliamentModuleProps {
@@ -129,7 +129,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                                 </div>
                                 <div className="text-4xl font-black text-slate-300">+</div>
                                 <div className="bg-green-100 p-4 rounded-lg border-2 border-green-500 w-32 h-32 flex flex-col items-center justify-center shadow-lg">
-                                    <Users2 size={32} className="text-green-700 mb-1" />
+                                    <Users size={32} className="text-green-700 mb-1" />
                                     <strong className="text-green-900">Lok Sabha</strong>
                                     <span className="text-[10px]">House of People</span>
                                 </div>
@@ -152,7 +152,7 @@ export default function ParliamentModule({ onComplete, isCompleted }: Parliament
                             </ul>
                         </SketchCard>
 
-                        <SketchCard title="Lok Sabha (Green Chamber)" icon={Users2} color="green">
+                        <SketchCard title="Lok Sabha (Green Chamber)" icon={Users} color="green">
                             <ul className="space-y-3 font-handwriting text-sm">
                                 <li><strong>Max Strength:</strong> 550 (530 States + 20 UTs)</li>
                                 <li className="text-xs italic bg-white/50 p-1 rounded">

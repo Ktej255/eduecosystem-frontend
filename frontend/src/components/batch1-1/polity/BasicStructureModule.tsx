@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import {
-    Scale, Gavel, Shield, LandPlot, Pillar, History,
+    Scale, Gavel, Shield, LandPlot, Landmark, History,
     ScrollText, AlertTriangle, CheckCircle2, XCircle,
-    Building2, Sword, Balance
+    Building2, Sword
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

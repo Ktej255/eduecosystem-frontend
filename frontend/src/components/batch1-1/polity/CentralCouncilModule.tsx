@@ -4,7 +4,7 @@ import React from "react";
 import {
     Orbit, Users, Anchor, Circle, User,
     ShieldAlert, FileText, Scale, Coffee,
-    Sailboat, AlertTriangle, Users2
+    Sailboat, AlertTriangle
 } from "lucide-react";
 
 interface CentralCouncilModuleProps {
@@ -141,7 +141,7 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                         <div className="absolute -inset-1 bg-blue-100 rounded-xl transform rotate-1 transition-transform group-hover:rotate-0"></div>
                         <div className="relative bg-white border-2 border-blue-500 p-6 rounded-xl shadow-lg">
                             <h3 className="text-xl font-bold text-blue-900 flex items-center gap-2 mb-4 font-serif">
-                                <Users2 size={24} /> Collective Responsibility
+                                <Users size={24} /> Collective Responsibility
                             </h3>
                             <div className="mb-4 flex justify-center text-blue-300">
                                 <Sailboat size={64} />

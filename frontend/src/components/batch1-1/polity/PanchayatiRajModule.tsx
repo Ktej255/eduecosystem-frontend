@@ -6,7 +6,7 @@ import {
     Gavel, CheckCircle2, HelpCircle,
     DollarSign, Users, AlertCircle,
     ArrowRight, ChevronRight, Scale,
-    Calendar, ShieldCheck, Info
+    Calendar, ShieldCheck, Info, UserPlus
 } from "lucide-react";
 
 interface PanchayatiRajModuleProps {

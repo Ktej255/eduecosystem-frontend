@@ -1,4 +1,5 @@
 from typing import Optional, List
+from datetime import datetime
 from uuid import UUID
 from sqlalchemy.orm import Session
 from app.models.upsc_synapse import UPSCCognitiveProfile, UPSCGapAnalysis, UPSCUnlockTransaction
