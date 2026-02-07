@@ -53,8 +53,8 @@ const MapCard = ({ title, icon: Icon, children, color = "bg-white", className = 
 );
 
 const TimelineNode = ({ year, title, desc, isLeft = false }: { year: string, title: string, desc: string, isLeft?: boolean }) => (
-    <div className={`flex items-center gap-4 ${isLeft ? 'flex-row-reverse text-right' : ''} group`}>
-        <div className={`flex-1 ${isLeft ? '' : 'text-right'}`}>
+    <div className={`flex items-center gap-4 ${isLeft ? 'flex-row-reverse' : ''} group`}>
+        <div className={`flex-1 ${isLeft ? 'text-left' : 'text-right'}`}>
             <div className="font-bold text-slate-800 group-hover:text-green-700 transition-colors">{title}</div>
             <div className="text-xs text-slate-500">{desc}</div>
         </div>
