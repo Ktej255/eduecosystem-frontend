@@ -32,6 +32,7 @@ import VicePresidentModule from "@/components/batch1-1/polity/VicePresidentModul
 import PrimeMinisterModule from "@/components/batch1-1/polity/PrimeMinisterModule";
 import CentralCouncilModule from "@/components/batch1-1/polity/CentralCouncilModule";
 import ParliamentModule from "@/components/batch1-1/polity/ParliamentModule";
+import SupremeCourtModule from "@/components/batch1-1/polity/SupremeCourtModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
 export default function TopicViewerPage() {
@@ -243,6 +244,11 @@ export default function TopicViewerPage() {
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
+            ) : topicId === 23 ? (
+                <SupremeCourtModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
             ) : (
                 <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
                     <CardContent className="p-6">
@@ -289,8 +295,8 @@ export default function TopicViewerPage() {
                 </Card>
             )}
 
-            {/* Content Tabs (Hidden for Topic 1-20 and 22 which use Special Modules) */}
-            {(topicId > 20 && topicId !== 22) && (
+            {/* Content Tabs (Hidden for Topic 1-20, 22, 23 which use Special Modules) */}
+            {(topicId > 20 && topicId !== 22 && topicId !== 23) && (
                 <Tabs defaultValue="overview" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="overview">
