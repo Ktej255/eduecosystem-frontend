@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TOPIC_TITLES, POLITY_PARTS, getPartById, getPartColors, PartId } from "@/components/batch1-1/polity/data/polity-types-95";
-import MakingConstitutionModule from "@/components/batch1-1/polity/MakingConstitutionModule";
 import MakingConstitutionModuleV2 from "@/components/batch1-1/polity/MakingConstitutionModuleV2";
 import SalientFeaturesModule from "@/components/batch1-1/polity/SalientFeaturesModule";
 import PreambleModule from "@/components/batch1-1/polity/PreambleModule";
@@ -59,6 +58,13 @@ import LinguisticMinoritiesModule from "@/components/batch1-1/polity/LinguisticM
 import CAGModule from "@/components/batch1-1/polity/CAGModule";
 import AttorneyGeneralModule from "@/components/batch1-1/polity/AttorneyGeneralModule";
 import AdvocateGeneralModule from "@/components/batch1-1/polity/AdvocateGeneralModule";
+import NITIAayogModule from "@/components/batch1-1/polity/NITIAayogModule";
+import NHRCModule from "@/components/batch1-1/polity/NHRCModule";
+import SHRCModule from "@/components/batch1-1/polity/SHRCModule";
+import CICModule from "@/components/batch1-1/polity/CICModule";
+import SICModule from "@/components/batch1-1/polity/SICModule";
+import CVCModule from "@/components/batch1-1/polity/CVCModule";
+import CBIModule from "@/components/batch1-1/polity/CBIModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
 export default function TopicViewerPage() {
@@ -405,6 +411,41 @@ export default function TopicViewerPage() {
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
+            ) : topicId === 50 ? (
+                <NITIAayogModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 51 ? (
+                <NHRCModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 52 ? (
+                <SHRCModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 53 ? (
+                <CICModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 54 ? (
+                <SICModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 55 ? (
+                <CVCModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 56 ? (
+                <CBIModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
             ) : (
                 <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
                     <CardContent className="p-6">
@@ -452,7 +493,7 @@ export default function TopicViewerPage() {
             )}
 
             {/* Content Tabs (Hidden for Topic 1-20, 22-35 which use Special Modules) */}
-            {(topicId > 20 && topicId !== 22 && topicId !== 23 && topicId !== 24 && topicId !== 25 && topicId !== 26 && topicId !== 27 && topicId !== 28 && topicId !== 29 && topicId !== 30 && topicId !== 31 && topicId !== 32 && topicId !== 33 && topicId !== 34 && topicId !== 35 && topicId !== 36 && topicId !== 37 && topicId !== 38 && topicId !== 39 && topicId !== 40 && topicId !== 41 && topicId !== 42 && topicId !== 43 && topicId !== 44 && topicId !== 45 && topicId !== 46 && topicId !== 47 && topicId !== 48 && topicId !== 49) && (
+            {(topicId > 20 && topicId !== 22 && topicId !== 23 && topicId !== 24 && topicId !== 25 && topicId !== 26 && topicId !== 27 && topicId !== 28 && topicId !== 29 && topicId !== 30 && topicId !== 31 && topicId !== 32 && topicId !== 33 && topicId !== 34 && topicId !== 35 && topicId !== 36 && topicId !== 37 && topicId !== 38 && topicId !== 39 && topicId !== 40 && topicId !== 41 && topicId !== 42 && topicId !== 43 && topicId !== 44 && topicId !== 45 && topicId !== 46 && topicId !== 47 && topicId !== 48 && topicId !== 49 && topicId !== 50 && topicId !== 51 && topicId !== 52 && topicId !== 53 && topicId !== 54 && topicId !== 55 && topicId !== 56) && (
                 <Tabs defaultValue="overview" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="overview">

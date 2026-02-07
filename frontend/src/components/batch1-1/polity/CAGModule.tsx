@@ -6,7 +6,8 @@ import {
     Info, BadgeCheck, BookOpen, UserCheck,
     SearchCheck, ShieldAlert, FileText, Landmark,
     ArrowBigUpDash, History, Eye, Watch,
-    Calculator, ReceiptText, Scale
+    Calculator, ReceiptText, Scale, Lock,
+    AlertTriangle, MessageSquare, Handshake
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,31 +17,21 @@ interface CAGModuleProps {
     isCompleted?: boolean;
 }
 
-const FinanceContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-[#fcf8f0] min-h-screen p-4 md:p-8 font-sans selection:bg-amber-100">
-        <div className="max-w-6xl mx-auto space-y-12">
+const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
+    <div className="bg-[#f3f4f6] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-red-100">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/70 rounded-3xl p-6 shadow-2xl border-2 border-slate-200 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#b91c1c] via-[#b45309] to-[#1e40af] opacity-40"></div>
             {children}
         </div>
     </div>
 );
 
-const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
-    <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
-            <Icon className={color.replace('border-', 'text-')} size={24} />
+const AuditCard = ({ title, children, color = "border-[#b91c1c]", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
+    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(185,28,28,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+        <div className="absolute top-0 right-0 p-2 opacity-5">
+            <Calculator size={48} />
         </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
-            {title}
-        </h2>
-        <div className={`h-[2px] flex-1 ${color.replace('border-', 'bg-')} opacity-20`}></div>
-    </div>
-);
-
-const FinanceCard = ({ title, children, color = "border-amber-700", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
-        <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(90deg,transparent,transparent_10px,#000_10px,#000_11px)] opacity-10"></div>
-
-        <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
+        <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
         <div className="space-y-4 text-slate-700 relative z-10 font-medium">
@@ -49,176 +40,217 @@ const FinanceCard = ({ title, children, color = "border-amber-700", className = 
     </div>
 );
 
+const PhaseHeader = ({ number, title, color }: { number: string, title: string, color: string }) => (
+    <div className="flex items-center gap-4 my-8">
+        <div className={`w-12 h-12 rounded-full flex items-center justify-center font-black text-xl text-white shadow-lg ${color}`}>
+            {number}
+        </div>
+        <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('bg-', 'text-')}`}>
+            {title}
+        </h2>
+        <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
+    </div>
+);
+
 export default function CAGModule({ onComplete, isCompleted }: CAGModuleProps) {
     return (
-        <FinanceContainer>
+        <ScrapbookContainer>
             {/* HERO SECTION */}
-            <div className="relative bg-[#a16207] border-4 border-amber-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(161,98,7,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-2xl"></div>
+            <div className="relative bg-[#b91c1c] border-4 border-slate-900 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(185,28,28,0.3)] overflow-hidden text-white">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-amber-950 text-amber-200 font-['Kalam'] px-4 py-1 text-lg">Chapter 47</Badge>
+                        <Badge className="bg-[#b45309] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 47</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
-                        <span className="text-amber-100 font-bold uppercase tracking-widest text-sm">Guardian of the Public Purse</span>
+                        <span className="text-red-50 font-bold uppercase tracking-widest text-sm italic">Guardian of the Public Purse</span>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-6 font-['Kalam'] leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
                         CAG of India <br />
-                        <span className="text-amber-900 drop-shadow-md">The Watchdog of Public Purse</span>
+                        <span className="text-[#b45309] drop-shadow-md underline decoration-wavy decoration-[#1e40af]">The Financial Watchdog</span>
                     </h1>
-                    <p className="text-xl text-amber-50 max-w-2xl leading-relaxed italic">
-                        "The most important officer in the Constitution of India" — Dr. B.R. Ambedkar. Article 148 ensures the fiscal accountability of the executive to the legislature.
+                    <p className="text-xl text-red-50 max-w-2xl leading-relaxed italic opacity-90">
+                        "The most important officer under the Constitution" — Dr. Ambedkar. An eye over the safe, ensuring fiscal accountability.
                     </p>
                 </div>
-                <div className="absolute bottom-4 right-4 opacity-10 animate-pulse">
-                    <Eye size={160} />
+                <div className="absolute bottom-4 right-4 opacity-10 rotate-12">
+                    <Eye size={180} />
                 </div>
             </div>
 
-            {/* PHASE 1: INDEPENDENCE & TENURE */}
-            <SectionHeader title="Phase 1: The Strong Shield" icon={ShieldCheck} color="border-amber-700" />
+            {/* PHASE 1: INDEPENDENCE */}
+            <PhaseHeader number="1" title="Appointment & Independence (The Shield)" color="bg-[#1e40af]" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <FinanceCard title="Appointment & Removal [PYQ]" color="border-amber-700">
+                <AuditCard title="Article 148 (The Officer)" color="border-[#b45309]">
                     <div className="space-y-4">
-                        <div className="p-4 bg-amber-50 rounded-xl border border-amber-200">
-                            <h4 className="font-black text-amber-900 flex items-center gap-2">
-                                <BadgeCheck className="text-amber-700" /> Presidential Warrant
-                            </h4>
-                            <p className="text-xs text-slate-600 mt-1 italic font-bold">"Under his hand and seal."</p>
+                        <div className="flex items-center gap-4 p-4 bg-orange-50 border-2 border-[#b45309] rounded-2xl relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-1 h-full bg-[#b45309]"></div>
+                            <BadgeCheck className="text-[#b45309]" size={32} />
+                            <div>
+                                <p className="text-xs font-black uppercase text-orange-400">Appointment</p>
+                                <p className="text-sm font-black italic">By President by warrant under his hand and seal.</p>
+                            </div>
                         </div>
-                        <div className="p-4 bg-red-50 border-2 border-red-200 rounded-xl">
-                            <h4 className="font-black text-red-900 flex items-center gap-2 text-xs uppercase">
-                                <Gavel size={14} /> Removal Process
-                            </h4>
-                            <p className="text-[10px] text-red-700 mt-1 font-bold">
-                                Same as <span className="underline italic">Supreme Court Judge</span>. On grounds of proved misbehaviour or incapacity. [PYQ]
-                            </p>
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="p-3 bg-white border-2 border-slate-100 rounded-xl text-center shadow-sm">
+                                <p className="text-[10px] font-black text-slate-400">TERM [PYQ]</p>
+                                <p className="text-lg font-black text-[#b91c1c]">6 Years</p>
+                            </div>
+                            <div className="p-3 bg-white border-2 border-slate-100 rounded-xl text-center shadow-sm">
+                                <p className="text-[10px] font-black text-slate-400">OR AGE</p>
+                                <p className="text-lg font-black text-[#b91c1c]">65 Years</p>
+                            </div>
                         </div>
-                        <div className="flex gap-4">
-                            <div className="flex-1 p-3 bg-slate-50 text-center rounded-lg font-black text-amber-900">6 YEARS</div>
-                            <div className="flex-1 p-3 bg-slate-50 text-center rounded-lg font-black text-amber-900">65 YEARS</div>
-                        </div>
+                        <p className="text-[10px] font-bold text-slate-500 text-center italic">Resignation: To President. | Oath: Before President.</p>
                     </div>
-                </FinanceCard>
+                </AuditCard>
 
-                <FinanceCard title="Bulletproof Independence" color="border-slate-800">
-                    <ul className="text-xs space-y-2 font-bold">
-                        <li className="flex gap-3 items-center">
-                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
-                            <span>No further office under Central/State Govt after retirement. [PYQ]</span>
-                        </li>
-                        <li className="flex gap-3 items-center">
-                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
-                            <span>Salary & conditions of service fixed by <span className="underline italic">PARLIAMENT</span>.</span>
-                        </li>
-                        <li className="flex gap-3 items-center">
-                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
-                            <span>Expenses are <span className="bg-amber-100 px-1 rounded">CHARGED</span> on Consolidated Fund.</span>
-                        </li>
-                        <li className="flex gap-3 items-center text-red-700 uppercase italic tracking-tighter">
-                            <ShieldAlert size={14} className="shrink-0" />
-                            <span>NO MINISTER can represent the CAG in Parliament.</span>
-                        </li>
-                    </ul>
-                </FinanceCard>
-            </div>
-
-            {/* PHASE 2: THE MANDATE */}
-            <SectionHeader title="Phase 2: Functions (Art 149)" icon={Calculator} color="border-amber-900" />
-
-            <div className="grid md:grid-cols-3 gap-8">
-                <FinanceCard title="Audit Toolbox" color="border-amber-900" className="md:col-span-1">
-                    <div className="space-y-3">
-                        <div className="p-3 bg-white border border-slate-100 rounded-xl shadow-sm text-[10px] font-black uppercase text-amber-700">
-                            Audit Objects:
-                        </div>
-                        <ul className="text-[10px] space-y-2 list-none font-bold text-slate-600">
-                            <li className="flex gap-2"><div className="w-1 h-1 bg-amber-400 mt-1.5 rounded-full"></div> Consolidated Fund (C/S)</li>
-                            <li className="flex gap-2"><div className="w-1 h-1 bg-amber-400 mt-1.5 rounded-full"></div> Contingency Fund</li>
-                            <li className="flex gap-2"><div className="w-1 h-1 bg-amber-400 mt-1.5 rounded-full"></div> Public Account</li>
-                            <li className="flex gap-2"><div className="w-1 h-1 bg-amber-400 mt-1.5 rounded-full"></div> All Govt Depts Trading</li>
+                <AuditCard title="Security Features (4 Bolts)" color="border-[#1e40af]">
+                    <div className="p-4 bg-indigo-50 border-4 border-double border-[#1e40af] rounded-2xl relative">
+                        <Lock size={48} className="absolute top-2 right-2 text-[#1e40af] opacity-10" />
+                        <ul className="space-y-3">
+                            {[
+                                { t: "Removal:", d: "Only on grounds of Proved Misbehavior or Incapacity. (Same as SC Judge). [PYQ]" },
+                                { t: "No Further Office:", d: "Ineligible for further office under GOI or State Govt after retirement." },
+                                { t: "Salary:", d: "Charged on Consolidated Fund of India. (Non-votable)." },
+                                { t: "Conditions:", d: "Cannot be varied to his disadvantage after appointment." }
+                            ].map((bolt, i) => (
+                                <li key={i} className="flex gap-3 items-start group">
+                                    <div className="w-4 h-4 rounded bg-white border-2 border-[#1e40af] flex items-center justify-center shrink-0 mt-1 shadow-sm font-black text-[8px] group-hover:bg-[#1e40af] group-hover:text-white transition-colors">{i + 1}</div>
+                                    <p className="text-[11px] font-bold leading-relaxed italic"><span className="text-[#1e40af] font-black">{bolt.t}</span> {bolt.d}</p>
+                                </li>
+                            ))}
                         </ul>
                     </div>
-                </FinanceCard>
+                </AuditCard>
+            </div>
 
-                <FinanceCard title="Net Proceeds (Art 279)" color="border-amber-950" className="md:col-span-2">
-                    <div className="grid grid-cols-2 gap-6 h-full items-center">
-                        <div className="text-center">
-                            <div className="w-24 h-24 rounded-full border-4 border-dashed border-amber-300 flex items-center justify-center mx-auto mb-2">
-                                <Calculator size={48} className="text-amber-700" />
-                            </div>
-                            <h4 className="text-xs font-black uppercase">Tax Calculator</h4>
+            {/* PHASE 2: DUTIES */}
+            <PhaseHeader number="2" title="Duties & Powers (The Watchdog)" color="bg-[#b91c1c]" />
+
+            <div className="grid md:grid-cols-2 gap-8">
+                <HandwrittenCard title="Article 149 (The Scope)" color="border-[#b45309]">
+                    <div className="p-4 bg-[#fff7ed] border-2 border-dashed border-[#b45309] rounded-2xl relative overflow-hidden">
+                        <div className="absolute -bottom-4 -right-4 opacity-10 -rotate-12">
+                            <Landmark size={80} />
                         </div>
-                        <div className="space-y-4">
-                            <p className="text-xs italic font-bold text-slate-600">
-                                "Calculates and certifies the <span className="text-amber-800 underline">Net Proceeds</span> of any tax or duty. His certificate is <span className="text-red-700 uppercase underline text-shadow-sm font-black">FINAL</span>." [PYQ]
+                        <h4 className="text-xs font-black text-[#b45309] uppercase mb-4 tracking-widest flex items-center gap-2">
+                            <Coins size={16} /> Audits Expenditure from:
+                        </h4>
+                        <div className="grid grid-cols-1 gap-2">
+                            {[
+                                "Consolidated Fund of India & States. [PYQ]",
+                                "Consolidated Fund of UTs (with Assembly).",
+                                "Contingency Fund & Public Account (India & States).",
+                                "All Trading, Manufacturing, Profit & Loss accounts."
+                            ].map((dept, i) => (
+                                <div key={i} className="flex gap-3 items-center bg-white p-2 rounded border border-orange-100 shadow-sm">
+                                    <div className="w-1.5 h-1.5 bg-[#b45309] rounded-full"></div>
+                                    <p className="text-[10px] font-bold italic">{dept}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <p className="text-[9px] mt-4 font-black text-[#b45309] underline">Compiles accounts of State Govts (but not Central since 1976).</p>
+                    </div>
+                </HandwrittenCard>
+
+                <HandwrittenCard title="The 3 Reports (Art 151)" color="border-[#b91c1c]">
+                    <div className="space-y-4">
+                        <div className="flex flex-col gap-2">
+                            {[
+                                { t: "Appropriation Accounts", d: "Did money go to intended purpose?" },
+                                { t: "Finance Accounts", d: "Overall Income vs Expenditure." },
+                                { t: "Public Undertakings", d: "PSU performance check." }
+                            ].map((rep, i) => (
+                                <div key={i} className="flex items-center gap-4 p-3 bg-white border-2 border-slate-100 rounded-xl hover:border-[#b91c1c] transition-colors group">
+                                    <FileText className="text-slate-300 group-hover:text-[#b91c1c]" size={20} />
+                                    <div>
+                                        <h5 className="text-[10px] font-black uppercase tracking-tighter text-[#b91c1c]">{rep.t}</h5>
+                                        <p className="text-[9px] font-bold text-slate-500 italic">{rep.d}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="p-3 bg-red-50 border-2 border-[#b91c1c] border-dotted rounded-xl text-center">
+                            <p className="text-[10px] font-black uppercase text-red-800">Route: To President -> Parliament -> PAC [PYQ]</p>
+                        </div>
+                    </div>
+                </HandwrittenCard>
+            </div>
+
+            {/* PHASE 3: LIMITATIONS */}
+            <PhaseHeader number="3" title="Limitations & Corps (The Gray Area)" color="bg-[#b91c1c]" />
+
+            <div className="grid md:grid-cols-2 gap-8">
+                <HandwrittenCard title="Audit of Corporations" color="border-slate-400">
+                    <div className="space-y-3">
+                        <div className="flex items-center gap-4 p-3 bg-red-50 border-l-4 border-[#b91c1c] rounded shadow-sm">
+                            <div className="w-8 h-8 rounded-full bg-[#b91c1c] flex items-center justify-center text-white font-black text-[8px]">DIRECT</div>
+                            <p className="text-[10px] font-bold italic text-red-900 leading-tight">ONGC, Air India, DVC. (CAG Audits Directly)</p>
+                        </div>
+                        <div className="flex items-center gap-4 p-3 bg-yellow-50 border-l-4 border-yellow-600 rounded shadow-sm">
+                            <div className="w-8 h-8 rounded-full bg-yellow-600 flex items-center justify-center text-white font-black text-[8px]">SUPP</div>
+                            <p className="text-[10px] font-bold italic text-yellow-900 leading-tight">SBI, LIC, FCI. (Private + CAG Supp Check)</p>
+                        </div>
+                        <div className="flex items-center gap-4 p-3 bg-green-50 border-l-4 border-green-600 rounded shadow-sm">
+                            <div className="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white font-black text-[8px]">NONE</div>
+                            <p className="text-[10px] font-bold italic text-green-900 leading-tight">RBI, SBI. (Total Private Audit; No CAG role) [PYQ Trap]</p>
+                        </div>
+                    </div>
+                </HandwrittenCard>
+
+                <HandwrittenCard title="Limitations & Critics" color="border-[#b91c1c]">
+                    <div className="space-y-4">
+                        <div className="p-4 bg-white border border-slate-200 rounded-xl relative">
+                            <AlertTriangle className="text-red-500 mb-2" size={20} />
+                            <h5 className="text-[10px] font-black uppercase text-slate-400">Post-Mortem Nature:</h5>
+                            <p className="text-[11px] font-bold italic text-slate-600 leading-relaxed">
+                                Audit is <span className="underline decoration-red-500 decoration-2">Post-Facto</span>. Money is already spent.
                             </p>
-                            <div className="p-2 bg-amber-50 rounded border border-amber-200 text-[10px] text-center font-bold">
-                                NET = Gross Collected - Collection Cost
-                            </div>
+                        </div>
+                        <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl italic">
+                            <p className="text-[10px] font-bold leading-relaxed">
+                                <span className="text-[#1e40af] font-black uppercase mr-2">Appleby's Critique:</span>
+                                Called CAG a "colonial inheritance" and an "impediment" to administration.
+                            </p>
                         </div>
                     </div>
-                </FinanceCard>
+                </HandwrittenCard>
             </div>
 
-            {/* PHASE 3: THE REPORTS */}
-            <SectionHeader title="Phase 3: The Three Reports" icon={ScrollText} color="border-slate-800" />
-
-            <div className="grid md:grid-cols-3 gap-6">
-                {[
-                    { title: "Audit Report on Appropriation Accounts", icon: ReceiptText },
-                    { title: "Audit Report on Finance Accounts", icon: Coins },
-                    { title: "Audit Report on Public Undertakings", icon: Landmark }
-                ].map((item, i) => (
-                    <div key={i} className="bg-white border-2 border-slate-900 rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative group">
-                        <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <item.icon className="text-amber-800" size={24} />
+            {/* FOOTER: THE PAC FRIEND */}
+            <div className="bg-[#1e40af] text-white border-4 border-slate-900 rounded-3xl p-8 relative overflow-hidden shadow-2xl">
+                <div className="absolute top-0 right-0 p-4 opacity-10">
+                    <Handshake size={120} />
+                </div>
+                <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
+                    <div className="text-center group">
+                        <div className="w-24 h-24 bg-white border-4 border-[#b91c1c] rounded-full flex items-center justify-center shadow-xl group-hover:rotate-12 transition-transform">
+                            <Eye size={40} className="text-[#b91c1c]" />
                         </div>
-                        <h4 className="text-xs font-black leading-tight uppercase text-slate-800">{item.title}</h4>
+                        <p className="text-[10px] font-black uppercase mt-2">CAG</p>
                     </div>
-                ))}
-            </div>
 
-            <div className="mt-8 flex flex-col md:flex-row items-center gap-8 p-8 bg-amber-50 rounded-3xl border-2 border-amber-200 border-dashed">
-                <div className="flex-1 space-y-4">
-                    <h5 className="font-black text-amber-900 flex items-center gap-2">
-                        The PAC Link [PYQ]
-                        <Badge className="bg-amber-700 text-white uppercase">Guide & Friend</Badge>
-                    </h5>
-                    <p className="text-sm font-medium italic text-slate-600">
-                        The CAG acts as a <span className="font-bold underline">Guide, Philosopher and Friend</span> of the Public Accounts Committee (PAC) of Parliament. He assists them in examining the reports.
-                    </p>
-                </div>
-                <div className="shrink-0 flex items-center gap-4">
-                    <div className="p-4 bg-white rounded-full border-2 border-slate-900 font-black text-xs">CAG</div>
-                    <ArrowBigUpDash className="rotate-90 text-slate-300" />
-                    <div className="p-6 bg-amber-700 rounded-2xl text-white font-black text-lg shadow-lg">PAC</div>
-                </div>
-            </div>
-
-            {/* COMPARISON TRAP */}
-            <div className="bg-white border-4 border-slate-900 rounded-2xl p-6 flex items-center gap-6 shadow-md border-b-8 border-slate-800 relative">
-                <div className="p-4 bg-rose-50 rounded-xl border-2 border-rose-200">
-                    <Scale size={48} className="text-rose-700" />
-                </div>
-                <div className="flex-1">
-                    <h5 className="font-black text-rose-900 text-lg flex items-center gap-2">
-                        Indian vs British CAG [PYQ]
-                    </h5>
-                    <p className="text-xs text-rose-800 mt-2 font-bold leading-relaxed">
-                        <span className="bg-rose-100 p-0.5">India</span>: CAG is ONLY an Auditor. Money can be withdrawn without his permission. <br />
-                        <span className="bg-green-100 p-0.5">UK</span>: CAG is both Comptroller AND Auditor. No money can be withdrawn from Treasury without his approval.
-                    </p>
+                    <div className="flex-1 space-y-4">
+                        <h4 className="text-2xl font-black italic underline decoration-[#b45309]">The "PAC Friend"</h4>
+                        <p className="text-sm font-bold leading-relaxed italic opacity-90">
+                            CAG acts as a <span className="text-[#b45309] font-black uppercase">"Friend, Philosopher, and Guide"</span> of the Public Accounts Committee (PAC). [PYQ]
+                        </p>
+                        <p className="text-xs font-medium text-indigo-100 flex items-center gap-2">
+                            <BadgeCheck size={14} className="text-[#b45309]" />
+                            Relationship: PAC examines CAG reports and calls officials to explain irregularities.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12">
+            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12 font-['Kalam']">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
                             ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-amber-700 hover:bg-amber-800 text-white shadow-[0_10px_40px_-10px_rgba(161,98,7,0.5)]"
+                            : "bg-[#b91c1c] hover:bg-red-900 text-white shadow-[0_10px_40px_-10px_rgba(185,28,28,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -233,8 +265,19 @@ export default function CAGModule({ onComplete, isCompleted }: CAGModuleProps) {
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold font-['Kalam']">The Most Important Officer. — Ambedkar</p>
+                <p className="mt-4 text-slate-400 font-bold italic">The Most Important Officer. — Ambedkar</p>
             </div>
-        </FinanceContainer>
+        </ScrapbookContainer>
     );
 }
+
+const HandwrittenCard = ({ title, children, color = "border-slate-800", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
+    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+        <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
+            {title}
+        </h3>
+        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+            {children}
+        </div>
+    </div>
+);

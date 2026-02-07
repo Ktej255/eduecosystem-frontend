@@ -6,7 +6,8 @@ import {
     Info, BadgeCheck, BookOpen, UserCheck,
     SearchCheck, ShieldAlert, FileText, Landmark,
     ArrowBigUpDash, History, Map, Briefcase,
-    Building2, Scale
+    Building2, Scale, Balance, MapPin,
+    Users, MessageSquare, Handshake, Shield
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,166 +17,203 @@ interface AdvocateGeneralModuleProps {
     isCompleted?: boolean;
 }
 
-const StateLegalContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-[#fff7ed] min-h-screen p-4 md:p-8 font-sans selection:bg-orange-100">
-        <div className="max-w-6xl mx-auto space-y-12">
+const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
+    <div className="bg-[#fffcf9] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-orange-100">
+        <div className="max-w-5xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/80 rounded-3xl p-6 shadow-2xl border-4 border-[#c2410c] relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-2 h-full bg-[#c2410c] opacity-10"></div>
             {children}
         </div>
     </div>
 );
 
-const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
-    <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
-            <Icon className={color.replace('border-', 'text-')} size={24} />
-        </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
-            {title}
-        </h2>
-        <div className={`h-[2px] flex-1 ${color.replace('border-', 'bg-')} opacity-20`}></div>
-    </div>
-);
-
-const SectionCard = ({ title, children, color = "border-orange-700", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
-        <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(90deg,transparent,transparent_10px,#000_10px,#000_11px)] opacity-10"></div>
-
-        <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
+const RegionalCard = ({ title, children, color = "border-[#c2410c]", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
+    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(194,65,12,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+        <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
-        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+        <div className="space-y-4 text-slate-700 relative z-10 font-bold">
             {children}
         </div>
+    </div>
+);
+
+const PhaseHeader = ({ number, title, color }: { number: string, title: string, color: string }) => (
+    <div className="flex items-center gap-4 my-8">
+        <div className={`w-12 h-12 bg-[#c2410c] text-white rounded-lg shadow-xl flex items-center justify-center font-black text-xl -rotate-2`}>
+            {number}
+        </div>
+        <h2 className={`text-2xl font-black uppercase tracking-tight text-[#c2410c]`}>
+            {title}
+        </h2>
+        <div className={`h-[2px] flex-1 bg-[#c2410c] opacity-20`}></div>
     </div>
 );
 
 export default function AdvocateGeneralModule({ onComplete, isCompleted }: AdvocateGeneralModuleProps) {
     return (
-        <StateLegalContainer>
+        <ScrapbookContainer>
             {/* HERO SECTION */}
             <div className="relative bg-[#c2410c] border-4 border-orange-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(194,65,12,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-2xl"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-orange-950 text-orange-200 font-['Kalam'] px-4 py-1 text-lg">Chapter 49</Badge>
+                        <Badge className="bg-[#3f3f46] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 49</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
-                        <span className="text-orange-100 font-bold uppercase tracking-widest text-sm">The State's First Law Officer</span>
+                        <span className="text-orange-100 font-bold uppercase tracking-widest text-sm italic">The State's Law Guardian</span>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-6 font-['Kalam'] leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
                         Advocate General <br /> of the State <br />
-                        <span className="text-orange-900 drop-shadow-md">The State Legal Shield</span>
+                        <span className="text-orange-100 drop-shadow-md underline decoration-wavy decoration-[#3f3f46]">The Regional Advocate</span>
                     </h1>
-                    <p className="text-xl text-orange-50 max-w-2xl leading-relaxed italic">
-                        "The corresponding office in states to the Attorney General of India. Established under Article 165 as the highest law officer in the state."
+                    <p className="text-xl text-orange-50 max-w-2xl leading-relaxed italic opacity-90">
+                        "The Mirror of the Attorney General at the state level. Article 165 ensures that every State Government has its first law officer."
                     </p>
                 </div>
-                <div className="absolute bottom-4 right-4 opacity-10">
-                    <Building2 size={160} />
+                <div className="absolute bottom-4 right-4 opacity-10 rotate-12">
+                    <Building2 size={200} />
                 </div>
             </div>
 
-            {/* PHASE 1: APPOINTMENT & TENURE */}
-            <SectionHeader title="Phase 1: Mirroring the Center" icon={History} color="border-orange-700" />
+            {/* PHASE 1: APPOINTMENT */}
+            <PhaseHeader number="1" title="Appointment & Qualification (The Mirror)" color="bg-[#c2410c]" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <SectionCard title="Article 165 [PYQ]" color="border-orange-700">
+                <RegionalCard title="Article 165 (The State Voice)" color="border-[#c2410c]">
                     <div className="space-y-4">
-                        <div className="flex items-center gap-4 p-4 bg-orange-50 rounded-xl border border-orange-200">
-                            <Scale className="text-orange-700 shrink-0" size={32} />
-                            <p className="text-xs font-bold leading-relaxed">
-                                Must be qualified to be a <span className="underline italic">High Court Judge</span>.
-                                <br /> (i.e., Indian Citizen + 10y Judicial Office OR 10y HC Advocate). [PYQ]
-                            </p>
+                        <div className="p-4 bg-orange-50 border-2 border-[#c2410c] rounded-xl transform rotate-1 shadow-sm">
+                            <h4 className="font-black text-[#c2410c] flex items-center gap-2 uppercase text-xs mb-2">
+                                <MapPin size={18} /> Appointed By:
+                            </h4>
+                            <p className="text-lg font-black text-slate-900 underline decoration-[#c2410c] underline-offset-4 tracking-tight">THE GOVERNOR</p>
                         </div>
-                        <div className="bg-white p-4 rounded-xl border-2 border-dashed border-slate-200">
-                            <p className="text-[10px] font-black uppercase text-slate-400 mb-2">Appointed By</p>
-                            <div className="flex items-center gap-2">
-                                <Landmark className="text-orange-600" size={18} />
-                                <span className="font-black text-orange-900 text-lg uppercase">Governor</span>
+                        <div className="p-4 bg-white border-2 border-slate-900 rounded-xl relative">
+                            <h4 className="font-black text-slate-900 mb-2 italic">Qualification Mirror: [PYQ]</h4>
+                            <p className="text-xs font-bold leading-relaxed">
+                                Must be qualified to be a <span className="text-[#c2410c] font-black underline">Judge of a High Court</span>.
+                            </p>
+                            <div className="mt-3 grid grid-cols-2 gap-2">
+                                <div className="p-2 bg-slate-50 border rounded text-[8px] font-black uppercase tracking-tighter">10y Judicial Office</div>
+                                <div className="p-2 bg-slate-50 border rounded text-[8px] font-black uppercase tracking-tighter">10y HC Advocate</div>
                             </div>
                         </div>
                     </div>
-                </SectionCard>
+                </RegionalCard>
 
-                <SectionCard title="Mirror Tenure" color="border-orange-850">
-                    <div className="bg-orange-900 text-orange-100 p-6 rounded-2xl relative shadow-lg">
-                        <h4 className="font-black text-xl mb-2 flex items-center gap-2 uppercase">
-                            <ShieldAlert size={20} className="text-orange-400" /> Pleasure System
-                        </h4>
-                        <p className="text-sm font-bold opacity-90 leading-relaxed italic">
-                            Holds office during the <span className="text-white underline uppercase">Pleasure of the Governor</span>.
+                <RegionalCard title="The Pleasure & Pay" color="border-[#3f3f46]">
+                    <div className="p-5 bg-[#3f3f46] text-white rounded-2xl relative shadow-xl transform -rotate-1 hover:rotate-0 transition-transform">
+                        <Badge className="absolute -top-3 right-4 bg-orange-600">STAY AT WILL</Badge>
+                        <h4 className="text-lg font-black italic text-orange-400 mb-4">Governor's Pleasure</h4>
+                        <p className="text-xs font-bold text-slate-300 leading-relaxed italic mb-4">
+                            No fixed term in the Constitution. Holds office during the pleasure of the Governor. [PYQ]
                         </p>
-                        <hr className="my-4 border-orange-800" />
-                        <div className="space-y-2">
-                            <p className="text-[10px] font-medium leading-none">Remuneration:</p>
-                            <p className="text-xs font-black text-white italic">"Determined by the Governor." [PYQ]</p>
+                        <div className="p-3 bg-white/10 rounded-xl border border-white/20">
+                            <p className="text-[10px] uppercase font-black text-orange-400">Remuneration:</p>
+                            <p className="text-[11px] font-black mt-1 text-white underline decoration-[#c2410c]">NOT FIXED by Constitution; Determined by Governor.</p>
                         </div>
                     </div>
-                </SectionCard>
+                </RegionalCard>
             </div>
 
-            {/* PHASE 2: FUNCTIONS & PRIVILEGES */}
-            <SectionHeader title="Phase 2: The State Legal Voice" icon={Briefcase} color="border-amber-900" />
+            {/* PHASE 2: RIGHTS */}
+            <PhaseHeader number="2" title="Rights & Duties (State Level)" color="bg-[#c2410c]" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <SectionCard title="Rights in Legislature [PYQ]" color="border-amber-900">
-                    <div className="flex flex-col gap-4">
-                        <div className="p-4 bg-white border border-slate-100 rounded-xl shadow-sm relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-8 h-8 bg-amber-100 rotate-45 translate-x-4 -translate-y-4"></div>
-                            <p className="text-xs font-bold italic leading-relaxed">
-                                Has the right to speak and take part in proceedings of the <span className="underline italic text-amber-800">State Legislature</span>.
-                            </p>
-                        </div>
-                        <div className="p-4 bg-amber-50 rounded-xl border-2 border-amber-200">
-                            <h4 className="text-[10px] font-black uppercase text-red-700 flex items-center gap-2">
-                                <ShieldAlert size={14} /> THE TRAP
-                            </h4>
-                            <p className="text-sm font-black text-amber-950 mt-1">
-                                SAME AS AG: <span className="underline">NO RIGHT TO VOTE</span>.
-                            </p>
-                        </div>
+                <RegionalCard title="Rights of the Advocate" color="border-slate-400">
+                    <div className="space-y-3">
+                        {[
+                            { icon: Landmark, t: "Right of Audience", d: "In all courts within the specific State territory. [PYQ]" },
+                            { icon: MessageSquare, t: "Art 177: House Rights", d: "Right to speak and take part in proceedings of State Legislature. [HIGH YIELD]" },
+                            { icon: Shield, t: "Immunities", d: "Enjoys privileges and immunities of a member of State Legislature." }
+                        ].map((item, i) => (
+                            <div key={i} className="flex gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100 group">
+                                <div className="p-2 bg-white rounded-xl shadow-sm border border-[#c2410c] text-[#c2410c]">
+                                    <item.icon size={20} />
+                                </div>
+                                <div className="self-center">
+                                    <p className="text-[10px] font-black uppercase tracking-widest">{item.t}</p>
+                                    <p className="text-xs font-bold italic opacity-80">{item.d}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                </SectionCard>
+                    <div className="mt-4 p-4 bg-red-50 border-2 border-dashed border-red-600 rounded-xl text-center relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-1 opacity-5"><ShieldAlert size={48} /></div>
+                        <p className="text-sm font-black text-red-700 uppercase leading-none italic">
+                            The Limit: <span className="underline decoration-red-950 decoration-2">NO RIGHT TO VOTE</span> in the House. [PYQ]
+                        </p>
+                    </div>
+                </RegionalCard>
 
-                <SectionCard title="Constitutional Comparison" color="border-slate-800">
-                    <div className="overflow-hidden rounded-xl border-2 border-slate-100">
-                        <table className="w-full text-[10px]">
-                            <thead className="bg-slate-900 text-white font-black uppercase">
-                                <tr>
-                                    <th className="p-2 border-r border-slate-800">Aspect</th>
-                                    <th className="p-2 border-r border-slate-800">AG (Center)</th>
-                                    <th className="p-2">Adv.G (State)</th>
-                                </tr>
-                            </thead>
-                            <tbody className="font-bold text-slate-600">
-                                <tr className="border-b">
-                                    <td className="p-2 bg-slate-50 border-r">Article</td>
-                                    <td className="p-2 border-r text-indigo-700">76</td>
-                                    <td className="p-2 text-orange-700">165</td>
-                                </tr>
-                                <tr className="border-b">
-                                    <td className="p-2 bg-slate-50 border-r">Appts</td>
-                                    <td className="p-2 border-r">President</td>
-                                    <td className="p-2">Governor</td>
-                                </tr>
-                                <tr>
-                                    <td className="p-2 bg-slate-50 border-r">Judge Qual</td>
-                                    <td className="p-2 border-r italic text-indigo-900">SC Judge</td>
-                                    <td className="p-2 italic text-orange-900">HC Judge</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <RegionalCard title="Duties (The State Counsel)" color="border-[#c2410c]">
+                    <div className="space-y-4">
+                        <div className="p-5 bg-white border-2 border-slate-900 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <h4 className="flex items-center gap-2 font-black text-[#c2410c] mb-3">
+                                <Gavel size={24} /> General Advocate
+                            </h4>
+                            <p className="text-[11px] font-bold text-slate-600 leading-relaxed italic">
+                                To advise the State Govt on legal matters referred by the <span className="text-[#c2410c] font-black">Governor</span>.
+                            </p>
+                        </div>
+                        <div className="p-4 bg-orange-50 border border-[#c2410c] rounded-2xl border-dashed">
+                            <h5 className="text-[10px] font-black uppercase text-[#c2410c] mb-2 flex items-center gap-2 italic">
+                                <Briefcase size={14} /> Representation:
+                            </h5>
+                            <p className="text-xs font-bold italic leading-relaxed">
+                                To appear on behalf of the Govt of the State in all cases in which the Govt is concerned.
+                            </p>
+                        </div>
                     </div>
-                </SectionCard>
+                </RegionalCard>
+            </div>
+
+            {/* PHASE 3: COMPARISON */}
+            <PhaseHeader number="3" title="The Comparison (Final Recap)" color="bg-[#c2410c]" />
+
+            <div className="bg-[#3f3f46] text-white border-4 border-slate-900 rounded-3xl p-8 relative overflow-hidden shadow-2xl">
+                <div className="absolute top-0 right-0 p-4 opacity-10 rotate-12">
+                    <History size={150} />
+                </div>
+                <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
+                    <div className="space-y-4">
+                        <h4 className="text-2xl font-black italic underline decoration-[#c2410c]">AG vs Advocate General</h4>
+                        <p className="text-sm font-bold opacity-80 italic leading-relaxed">
+                            Think of them as mirrors across the federal divide. One for the Union (Art 76), one for the States (Art 165).
+                        </p>
+                        <div className="flex gap-4">
+                            <Badge className="bg-[#c2410c]">Mirror Part 1</Badge>
+                            <Badge className="bg-[#c2410c]">Mirror Part 2</Badge>
+                        </div>
+                    </div>
+                    <div className="bg-white/5 border border-white/20 p-6 rounded-3xl backdrop-blur-sm">
+                        <div className="space-y-4 text-[11px] font-black italic">
+                            <div className="flex justify-between border-b border-white/10 pb-2">
+                                <span className="text-orange-400">ATTORNEY GEN</span>
+                                <span>ADVOCATE GEN</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span>Pres (Warrant)</span>
+                                <span>Gov (Simple)</span>
+                            </div>
+                            <div className="flex justify-between text-orange-400">
+                                <span>Art 76</span>
+                                <span>Art 165</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span>Art 88 (Parl)</span>
+                                <span>Art 177 (Leg)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12">
+            <div className="mt-16 text-center border-t-4 border-[#c2410c] pt-12 pb-12 font-['Kalam']">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
                             ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-orange-700 hover:bg-orange-800 text-white shadow-[0_10px_40px_-10px_rgba(194,65,12,0.5)]"
+                            : "bg-[#c2410c] hover:bg-orange-800 text-white shadow-[0_10px_40px_-10px_rgba(194,65,12,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -184,14 +222,25 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted }: Advoc
                             STATE LEGAL MASTERED
                         </span>
                     ) : (
-                        <span className="flex items-center gap-2">
+                        <span className="flex items-center gap-4">
                             <Scale size={32} className="group-hover:rotate-12 transition-transform" />
                             MARK CHAPTER 49 COMPLETE
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold font-['Kalam']">The Mirror of Article 165.</p>
+                <p className="mt-4 text-slate-400 font-bold italic">Article 165: The Shield of the State.</p>
             </div>
-        </StateLegalContainer>
+        </ScrapbookContainer>
     );
 }
+
+const HandwrittenCard = ({ title, children, color = "border-slate-800", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
+    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+        <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
+            {title}
+        </h3>
+        <div className="space-y-4 text-slate-700 relative z-10 font-medium">
+            {children}
+        </div>
+    </div>
+);

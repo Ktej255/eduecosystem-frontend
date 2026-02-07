@@ -151,9 +151,9 @@ export const POLITY_PARTS: PolityPart[] = [
         title: 'Constitutional Bodies',
         description: 'Election Commission to Advocate General',
         color: 'amber',
-        topicRange: [38, 45],
+        topicRange: [38, 49],
         icon: '🔰',
-        topicCount: 8
+        topicCount: 12
     },
     {
         id: 'VIII',
@@ -161,7 +161,7 @@ export const POLITY_PARTS: PolityPart[] = [
         title: 'Non-Constitutional Bodies',
         description: 'NITI Aayog to National Commission for Minorities',
         color: 'orange',
-        topicRange: [46, 58],
+        topicRange: [50, 62],
         icon: '🏗️',
         topicCount: 13
     },
@@ -171,7 +171,7 @@ export const POLITY_PARTS: PolityPart[] = [
         title: 'Other Constitutional Dimensions',
         description: 'Co-operative Societies to Official Language',
         color: 'rose',
-        topicRange: [59, 64],
+        topicRange: [63, 68],
         icon: '📋',
         topicCount: 6
     },
@@ -181,7 +181,7 @@ export const POLITY_PARTS: PolityPart[] = [
         title: 'Political Dynamics',
         description: 'Public Services to Coalition Government',
         color: 'cyan',
-        topicRange: [65, 75],
+        topicRange: [69, 79],
         icon: '🗳️',
         topicCount: 11
     },
@@ -191,9 +191,9 @@ export const POLITY_PARTS: PolityPart[] = [
         title: 'Working of the Constitution',
         description: 'Anti-Defection Law to Civil Service Reforms Report',
         color: 'emerald',
-        topicRange: [76, 95],
+        topicRange: [80, 95],
         icon: '⚖️',
-        topicCount: 20
+        topicCount: 16
     },
 ];
 

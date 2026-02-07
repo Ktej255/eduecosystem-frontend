@@ -6,7 +6,8 @@ import {
     Info, BadgeCheck, BookOpen, UserCheck,
     MessageSquare, MapPin, ShieldAlert, FileText,
     Landmark, ArrowBigUpDash, History, SearchCheck,
-    Mic2, Globe2, HeartHandshake
+    Mic2, Globe2, HeartHandshake, UserSecret,
+    ClipboardList, Map, HelpCircle
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,31 +17,17 @@ interface LinguisticMinoritiesModuleProps {
     isCompleted?: boolean;
 }
 
-const LanguageContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-[#f0fdf4] min-h-screen p-4 md:p-8 font-sans selection:bg-teal-100">
-        <div className="max-w-6xl mx-auto space-y-12">
+const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
+    <div className="bg-[#f3f4f6] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-teal-100">
+        <div className="max-w-4xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/60 rounded-3xl p-6 shadow-xl border-2 border-slate-200 relative overflow-hidden">
             {children}
         </div>
     </div>
 );
 
-const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
-    <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
-            <Icon className={color.replace('border-', 'text-')} size={24} />
-        </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
-            {title}
-        </h2>
-        <div className={`h-[2px] flex-1 ${color.replace('border-', 'bg-')} opacity-20`}></div>
-    </div>
-);
-
-const LanguageCard = ({ title, children, color = "border-teal-700", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
-        <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(90deg,transparent,transparent_10px,#000_10px,#000_11px)] opacity-10"></div>
-
-        <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
+const SentinelCard = ({ title, children, color = "border-teal-700", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
+    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(15,118,110,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+        <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
         <div className="space-y-4 text-slate-700 relative z-10 font-medium">
@@ -49,130 +36,201 @@ const LanguageCard = ({ title, children, color = "border-teal-700", className = 
     </div>
 );
 
+const PhaseHeader = ({ number, title, color }: { number: string, title: string, color: string }) => (
+    <div className="flex items-center gap-4 my-8">
+        <div className={`w-10 h-10 rounded shadow-md flex items-center justify-center font-black text-white ${color}`}>
+            {number}
+        </div>
+        <h2 className={`text-xl font-black uppercase tracking-tight ${color.replace('bg-', 'text-')}`}>
+            {title}
+        </h2>
+        <div className={`h-[1px] flex-1 ${color} opacity-20`}></div>
+    </div>
+);
+
 export default function LinguisticMinoritiesModule({ onComplete, isCompleted }: LinguisticMinoritiesModuleProps) {
     return (
-        <LanguageContainer>
+        <ScrapbookContainer>
             {/* HERO SECTION */}
-            <div className="relative bg-[#0d9488] border-4 border-teal-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(13,148,136,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-2xl"></div>
+            <div className="relative bg-[#0f766e] border-4 border-slate-900 rounded-3xl p-8 md:p-12 shadow-[10px_10px_0px_0px_rgba(15,118,110,0.3)] overflow-hidden text-white">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-teal-950 text-teal-200 font-['Kalam'] px-4 py-1 text-lg">Chapter 46</Badge>
+                        <Badge className="bg-[#374151] text-white px-4 py-1 text-lg border border-white/20 shadow-sm">Chapter 46</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
-                        <span className="text-teal-100 font-bold uppercase tracking-widest text-sm">Protector of Linguistic Diversity</span>
+                        <span className="text-teal-50 font-bold uppercase tracking-widest text-sm italic">The Forgotten Guardian</span>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-6 font-['Kalam'] leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
                         Special Officer for <br /> Linguistic Minorities <br />
-                        <span className="text-teal-900 drop-shadow-md">The Language Shield</span>
+                        <span className="text-teal-200 drop-shadow-md underline decoration-wavy decoration-[#374151]">The Quiet Sentinel</span>
                     </h1>
-                    <p className="text-xl text-teal-50 max-w-2xl leading-relaxed italic">
-                        "Inserted by the 7th Amendment Act, 1956, following the SRC recommendations. Article 350-B provides the constitutional mandate to safeguard the rights of language minorities."
+                    <p className="text-xl text-teal-50 max-w-2xl leading-relaxed italic opacity-90">
+                        "A lone sentinel with a scroll, Article 350-B. Inserted later to ensure that language is never a barrier to opportunity."
                     </p>
                 </div>
-                <div className="absolute bottom-4 right-4 opacity-10 animate-pulse">
-                    <Languages size={160} />
+                <div className="absolute bottom-4 right-4 opacity-10 rotate-3">
+                    <ScrollText size={180} />
                 </div>
             </div>
 
-            {/* PHASE 1: GENESIS & SETUP */}
-            <SectionHeader title="Phase 1: Genesis & Setup" icon={History} color="border-teal-700" />
+            {/* PHASE 1: ORIGIN */}
+            <PhaseHeader number="1" title="Origin (The Insert)" color="bg-[#0f766e]" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <LanguageCard title="Article 350-B [PYQ]" color="border-teal-700">
-                    <div className="space-y-4 font-bold text-sm">
-                        <div className="p-3 bg-teal-50 border-l-4 border-teal-700 rounded-lg">
-                            "There shall be a Special Officer for linguistic minorities to be appointed by the <span className="underline italic">President</span>."
-                        </div>
-                        <ul className="space-y-2">
-                            <li className="flex gap-2">
-                                <BadgeCheck className="text-teal-600 shrink-0" size={18} />
-                                <span>Originally NOT in the Constitution. [PYQ]</span>
-                            </li>
-                            <li className="flex gap-2 text-rose-700">
-                                <ShieldAlert shrink-0 size={18} />
-                                <span>Constitutional Qualification: <span className="underline italic">NONE</span> specified.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </LanguageCard>
-
-                <LanguageCard title="Organization & HQ" color="border-slate-800">
+                <SentinelCard title="The 7th Amendment (1956)" color="border-[#374151]">
                     <div className="space-y-4">
-                        <div className="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border-2 border-slate-100">
-                            <MapPin size={32} className="text-red-500" />
-                            <div>
-                                <h4 className="font-black text-slate-800 leading-none">Prayagraj (Allahabad)</h4>
-                                <p className="text-[10px] uppercase font-bold text-slate-400 mt-1">Headquarters</p>
-                            </div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-3 text-center">
-                            <div className="p-2 border rounded-lg bg-teal-50 font-bold text-[10px]">
-                                <Globe2 size={12} className="mx-auto mb-1 text-teal-600" /> Regional Office: Belgaum, Chennai, Kolkata
-                            </div>
-                            <div className="p-2 border rounded-lg bg-teal-50 font-bold text-[10px]">
-                                <Mic2 size={12} className="mx-auto mb-1 text-teal-600" /> Ministry: Minority Affairs
-                            </div>
-                        </div>
-                    </div>
-                </LanguageCard>
-            </div>
-
-            {/* PHASE 2: THE MANDATE */}
-            <SectionHeader title="Phase 2: Functions & Reporting" icon={ScrollText} color="border-teal-900" />
-
-            <div className="grid md:grid-cols-2 gap-8">
-                <LanguageCard title="Primary Duties" color="border-teal-900">
-                    <div className="space-y-3">
-                        <div className="flex gap-4 p-4 bg-white border border-slate-100 rounded-2xl shadow-sm">
-                            <SearchCheck size={24} className="text-teal-600 shrink-0" />
-                            <p className="text-xs leading-relaxed font-bold">Investigate all matters relating to the <span className="underline decoration-teal-300">Safeguards</span> provided for linguistic minorities.</p>
-                        </div>
-                        <div className="flex gap-4 p-4 bg-white border border-slate-100 rounded-2xl shadow-sm">
-                            <MessageSquare size={24} className="text-teal-600 shrink-0" />
-                            <p className="text-xs leading-relaxed font-bold">Monitor implementation of the common agreed schemes for minorities.</p>
-                        </div>
-                    </div>
-                </LanguageCard>
-
-                <LanguageCard title="The Reporting Path" color="border-slate-900">
-                    <div className="flex flex-col items-center justify-center gap-4 py-4">
-                        <div className="flex items-center gap-4 text-[10px] font-black uppercase text-slate-400">
-                            OFFICER <ArrowBigUpDash className="rotate-90" size={16} /> PRESIDENT <ArrowBigUpDash className="rotate-90" size={16} /> PARLIAMENT
-                        </div>
-                        <div className="w-full p-4 bg-teal-50 border-t-4 border-teal-800 rounded-xl relative">
-                            <span className="absolute -top-3 left-4 bg-teal-800 text-white text-[8px] px-2 rounded">NOTE [PYQ]</span>
-                            <p className="text-[10px] italic font-bold text-teal-950">
-                                The Union Ministry of Minority Affairs exercises administrative control over the Special Officer. But he submits his report <span className="font-black underline">Directly to the President</span>.
+                        <div className="p-4 bg-[#f3f4f6] border-2 border-dashed border-[#374151] rounded-xl relative">
+                            <Badge className="absolute -top-3 left-4 bg-[#374151] font-['Kalam']">Book Insert</Badge>
+                            <p className="text-xs font-black text-slate-700 leading-relaxed italic mt-2">
+                                <span className="text-[#0f766e] underline">Original Constitution:</span> Did <span className="text-red-600 uppercase">NOT</span> provide for this officer. [PYQ]
                             </p>
                         </div>
+                        <div className="flex items-start gap-4 p-3 bg-teal-50 rounded-xl border border-teal-100 italic">
+                            <History className="text-[#0f766e] shrink-0" size={20} />
+                            <p className="text-xs font-bold text-teal-900 leading-relaxed">
+                                SRC Recommendation: States Reorganization Commission (1953-55) recommended it to protect diversity.
+                            </p>
+                        </div>
+                        <div className="p-4 bg-white border-2 border-[#0f766e] rounded-xl text-center shadow-sm">
+                            <h4 className="font-black text-[#0f766e] text-lg">Article 350-B</h4>
+                            <p className="text-[10px] uppercase font-black text-slate-400">Inserted in Part XVII</p>
+                        </div>
                     </div>
-                </LanguageCard>
+                </SentinelCard>
+
+                <SentinelCard title="Appointment & Profile" color="border-[#0f766e]">
+                    <div className="space-y-4">
+                        <div className="flex items-center gap-4 p-4 bg-slate-50 border-2 border-slate-200 rounded-2xl relative">
+                            <Landmark className="text-[#0f766e]" size={32} />
+                            <p className="text-sm font-black italic">Appointed By: <span className="underline decoration-[#0f766e] decoration-2">PRESIDENT</span></p>
+                        </div>
+                        <div className="p-4 bg-white border-2 border-dashed border-red-200 rounded-xl relative overflow-hidden">
+                            <MapPin className="text-red-500 absolute -bottom-2 -left-2 opacity-10" size={64} />
+                            <h5 className="text-[10px] font-black text-red-700 uppercase mb-2 flex items-center gap-2 italic">
+                                <BadgeCheck size={14} /> HQ: Allahabad (Prayagraj), UP [PYQ Trap]
+                            </h5>
+                            <div className="grid grid-cols-3 gap-2">
+                                {["Belgaum", "Chennai", "Kolkata"].map((city, i) => (
+                                    <div key={i} className="bg-slate-50 p-2 rounded border border-slate-100 text-center">
+                                        <p className="text-[8px] font-black text-slate-500">{city}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="text-[8px] text-center mt-2 text-slate-400 font-bold uppercase">(Regional Offices)</p>
+                        </div>
+                    </div>
+                </SentinelCard>
             </div>
 
-            {/* SYMBOLIC FOOTER */}
-            <div className="bg-slate-900 text-white border-2 border-teal-500 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-teal-600/20 rounded-full blur-3xl"></div>
-                <div className="p-4 bg-teal-900/50 rounded-xl border border-teal-700">
-                    <HeartHandshake size={48} className="text-teal-400" />
+            {/* PHASE 2: FUNCTIONS */}
+            <PhaseHeader number="2" title="Functions (The Watchdog)" color="bg-[#0f766e]" />
+
+            <div className="grid md:grid-cols-2 gap-8">
+                <SentinelCard title="Duties (Art 350-B)" color="border-[#0f766e]">
+                    <div className="space-y-4 p-4 bg-teal-50/50 rounded-2xl border-2 border-dashed border-teal-200 relative">
+                        <div className="absolute top-2 right-2 p-2 bg-white rounded-lg shadow-sm border border-teal-100 flex items-center justify-center">
+                            <ScrollText className="text-[#0f766e]" size={20} />
+                        </div>
+                        <div className="space-y-4">
+                            <div className="flex gap-4 items-start">
+                                <div className="w-2 h-2 rounded-full bg-[#0f766e] mt-1.5 shadow-sm"></div>
+                                <p className="text-xs font-bold leading-relaxed italic">
+                                    <span className="font-black text-[#0f766e]">INVESTIGATE:</span> All matters relating to safeguards provided for linguistic minorities.
+                                </p>
+                            </div>
+                            <div className="flex gap-4 items-start">
+                                <div className="w-2 h-2 rounded-full bg-[#0f766e] mt-1.5 shadow-sm"></div>
+                                <p className="text-xs font-bold leading-relaxed italic">
+                                    <span className="font-black text-[#0f766e]">REPORT:</span> To the President upon those matters at such intervals as President directs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </SentinelCard>
+
+                <SentinelCard title="The Report Route" color="border-[#374151]">
+                    <div className="space-y-6 flex flex-col items-center py-4">
+                        <div className="flex items-center gap-3 w-full justify-between px-4">
+                            <div className="flex flex-col items-center">
+                                <div className="p-3 bg-white border-2 border-slate-800 rounded shadow-sm"><UserCheck size={24} /></div>
+                                <span className="text-[8px] font-black mt-1">Commissioner</span>
+                            </div>
+                            <ArrowBigUpDash className="rotate-90 text-slate-300" />
+                            <div className="flex flex-col items-center">
+                                <div className="p-3 bg-[#0f766e] text-white rounded-full shadow-lg border-2 border-white"><Landmark size={24} /></div>
+                                <span className="text-[8px] font-black mt-1 uppercase">President</span>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4 w-full">
+                            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center shadow-sm hover:bg-white transition-colors">
+                                <FileText size={20} className="mx-auto text-slate-600 mb-1" />
+                                <p className="text-[9px] font-black uppercase text-slate-800">Parliament</p>
+                                <p className="text-[8px] text-slate-400 italic">(Laid before both Houses)</p>
+                            </div>
+                            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center shadow-sm hover:bg-white transition-colors">
+                                <Map size={20} className="mx-auto text-slate-600 mb-1" />
+                                <p className="text-[9px] font-black uppercase text-slate-800">Governor</p>
+                                <p className="text-[8px] text-slate-400 italic">(Sent to state Govts)</p>
+                            </div>
+                        </div>
+                    </div>
+                </SentinelCard>
+            </div>
+
+            {/* PHASE 3: OBJECTIVES */}
+            <PhaseHeader number="3" title="Objectives (Why does it exist?)" color="bg-[#0f766e]" />
+
+            <div className="grid md:grid-cols-1 gap-8">
+                <SentinelCard title="The Mission" color="border-[#0f766e]" className="bg-teal-50/20">
+                    <div className="flex flex-col md:flex-row gap-8 items-center">
+                        <div className="w-32 h-32 shrink-0 bg-white border-4 border-dashed border-[#0f766e] rounded-full flex flex-col items-center justify-center text-[#0f766e] p-4 text-center">
+                            <BadgeCheck size={32} />
+                            <span className="text-[8px] font-black uppercase mt-1 leading-none italic">Speech Cloud</span>
+                        </div>
+                        <div className="grid md:grid-cols-3 gap-4 flex-1">
+                            {[
+                                { t: "Equal Opportunity", d: "Provide equal opportunities for inclusive development." },
+                                { t: "Awareness", d: "Spread awareness about safeguards available." },
+                                { t: "Implementation", d: "Ensure instruction in mother tongue at primary stage (Art 350-A)." }
+                            ].map((obj, i) => (
+                                <div key={i} className="p-4 bg-white border border-teal-100 rounded-2xl shadow-sm group hover:border-[#0f766e] transition-colors">
+                                    <h5 className="text-[10px] font-black text-[#0f766e] uppercase mb-1">{obj.t}</h5>
+                                    <p className="text-[11px] font-bold text-slate-600 leading-relaxed italic">{obj.d}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </SentinelCard>
+            </div>
+
+            {/* FOOTER: MINORITY DEFINITION */}
+            <div className="bg-[#374151] text-white border-4 border-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-2 opacity-5 scale-150 rotate-12">
+                    <HelpCircle size={120} />
                 </div>
-                <div>
-                    <h5 className="font-black text-teal-400 text-lg flex items-center gap-2">
-                        Cooperative Federalism Link
-                        <Badge className="bg-teal-700 text-white">Minority Shield</Badge>
-                    </h5>
-                    <p className="text-sm text-slate-300 mt-2 italic font-medium">
-                        "Language should not be a barrier to justice." The officer acts as a bridge between the linguistic minority groups and the state administration to ensure smooth implementation of Art 29, 30 and 350-A.
-                    </p>
+                <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                    <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 backdrop-blur-sm border border-white/20">
+                        <SearchCheck size={32} className="text-teal-400" />
+                    </div>
+                    <div className="space-y-3">
+                        <h4 className="text-lg font-black italic underline decoration-teal-400">The "Minority" Definition</h4>
+                        <p className="text-sm font-bold text-slate-300 leading-relaxed italic">
+                            Constitution: Does <span className="text-white font-black uppercase underline">NOT</span> define the term "Linguistic Minority".
+                        </p>
+                        <p className="text-xs font-black text-[#0f766e] bg-white px-3 py-1 rounded inline-block">
+                            Determination: Determined by State Government (on a district-wise basis).
+                        </p>
+                    </div>
                 </div>
             </div>
 
             {/* COMPLETION BUTTON */}
-            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12">
+            <div className="mt-16 text-center border-t-2 border-dashed border-slate-200 pt-12 pb-12 font-['Kalam']">
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
                             ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-teal-700 hover:bg-teal-800 text-white shadow-[0_10px_40px_-10px_rgba(13,148,136,0.5)]"
+                            : "bg-[#0f766e] hover:bg-teal-900 text-white shadow-[0_10px_40px_-10px_rgba(15,118,110,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -187,8 +245,8 @@ export default function LinguisticMinoritiesModule({ onComplete, isCompleted }: 
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold font-['Kalam']">Signed: Article 350-B.</p>
+                <p className="mt-4 text-slate-400 font-bold italic">Signed: Article 350-B.</p>
             </div>
-        </LanguageContainer>
+        </ScrapbookContainer>
     );
 }

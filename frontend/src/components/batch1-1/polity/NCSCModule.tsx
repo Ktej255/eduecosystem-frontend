@@ -4,8 +4,9 @@ import React from "react";
 import {
     ShieldCheck, Users, ScrollText, Gavel,
     Info, BadgeCheck, BookOpen, UserCheck,
-    Scales, ShieldAlert, FileText, Landmark,
-    ArrowBigUpDash, History, SearchCheck, HeartHandshake
+    Scale, ShieldAlert, FileText, Landmark,
+    ArrowBigUpDash, History, SearchCheck, GitBranch,
+    UserPlus, Briefcase, Network
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,31 +16,18 @@ interface NCSCModuleProps {
     isCompleted?: boolean;
 }
 
-const SocialContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-[#fcfaf2] min-h-screen p-4 md:p-8 font-sans selection:bg-rose-100">
-        <div className="max-w-6xl mx-auto space-y-12">
+const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
+    <div className="bg-[#f3f4f6] min-h-screen p-4 md:p-8 font-['Kalam'] selection:bg-indigo-100">
+        <div className="max-w-6xl mx-auto space-y-12 bg-[url('https://www.transparenttextures.com/patterns/crumpled-paper.png')] bg-white/50 rounded-3xl p-6 shadow-inner border-2 border-slate-200">
             {children}
         </div>
     </div>
 );
 
-const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any, color: string }) => (
-    <div className="flex items-center gap-4 my-8">
-        <div className={`p-3 rounded-xl bg-white shadow-sm border-2 ${color}`}>
-            <Icon className={color.replace('border-', 'text-')} size={24} />
-        </div>
-        <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('border-', 'text-')} font-['Kalam']`}>
-            {title}
-        </h2>
-        <div className={`h-[2px] flex-1 ${color.replace('border-', 'bg-')} opacity-20`}></div>
-    </div>
-);
-
-const SocialCard = ({ title, children, color = "border-rose-700", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
-    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
-        <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(90deg,transparent,transparent_10px,#000_10px,#000_11px)] opacity-10"></div>
-
-        <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 font-['Kalam'] ${color.replace('border-', 'text-')}`}>
+const HandwrittenCard = ({ title, children, color = "border-indigo-800", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
+    <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
+        <div className="absolute top-0 right-0 w-16 h-16 bg-slate-50 -mr-8 -mt-8 rounded-full border border-slate-100 italic flex items-end justify-start pl-2 pb-2 text-[10px] text-slate-300">SC</div>
+        <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
         </h3>
         <div className="space-y-4 text-slate-700 relative z-10 font-medium">
@@ -48,201 +36,235 @@ const SocialCard = ({ title, children, color = "border-rose-700", className = ""
     </div>
 );
 
+const PhaseHeader = ({ number, title, color }: { number: string, title: string, color: string }) => (
+    <div className="flex items-center gap-4 my-8">
+        <div className={`w-12 h-12 rounded-full flex items-center justify-center font-black text-xl text-white shadow-lg ${color}`}>
+            {number}
+        </div>
+        <h2 className={`text-2xl font-black uppercase tracking-tight ${color.replace('bg-', 'text-')}`}>
+            {title}
+        </h2>
+        <div className={`h-[2px] flex-1 ${color} opacity-20`}></div>
+    </div>
+);
+
 export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps) {
     return (
-        <SocialContainer>
+        <ScrapbookContainer>
             {/* HERO SECTION */}
-            <div className="relative bg-[#be123c] border-4 border-rose-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(157,23,77,0.3)] overflow-hidden text-white">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-2xl"></div>
+            <div className="relative bg-[#1e40af] border-4 border-slate-950 rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(30,64,175,0.3)] overflow-hidden text-white">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-rose-950 text-rose-200 font-['Kalam'] px-4 py-1 text-lg">Chapter 43</Badge>
+                        <Badge className="bg-[#ca8a04] text-white px-4 py-1 text-lg border-2 border-white shadow-sm">Chapter 43</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
-                        <span className="text-rose-100 font-bold uppercase tracking-widest text-sm text-shadow-sm">Guardians of Constitutional Safeguards</span>
+                        <span className="text-indigo-100 font-bold uppercase tracking-widest text-sm">The Constitutional Watchdog</span>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-6 font-['Kalam'] leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
                         National Commission <br /> for SCs <br />
-                        <span className="text-rose-900 drop-shadow-md">The Constitutional Shield</span>
+                        <span className="text-[#ca8a04] drop-shadow-lg underline decoration-wavy">The Blue Shield</span>
                     </h1>
-                    <p className="text-xl text-rose-50 max-w-2xl leading-relaxed italic">
-                        "A directly established constitutional body under Article 338 to investigate, monitor and evaluate all matters relating to the safeguards provided for Scheduled Castes."
+                    <p className="text-xl text-indigo-50 max-w-2xl leading-relaxed italic opacity-90">
+                        "The protector of rights under Article 338. A body armed with the powers of a Civil Court to ensure justice."
                     </p>
                 </div>
                 <div className="absolute bottom-4 right-4 opacity-10">
-                    <ShieldCheck size={160} />
+                    <ShieldCheck size={180} />
                 </div>
             </div>
 
-            {/* PHASE 1: EVOLUTION & STRUCTURE */}
-            <SectionHeader title="Phase 1: Evolution & Structure" icon={History} color="border-rose-700" />
+            {/* PHASE 1: EVOLUTION */}
+            <PhaseHeader number="1" title="Evolution (The Split)" color="bg-[#1e40af]" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <SocialCard title="Evolution Timeline" color="border-rose-700">
-                    <div className="space-y-6">
-                        <div className="flex gap-4">
-                            <div className="shrink-0 w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center border-2 border-rose-700 font-bold text-rose-800 text-xs">Org</div>
-                            <div>
-                                <h4 className="font-bold text-rose-900 leading-none">Art 338 Original</h4>
-                                <p className="text-[10px] text-slate-500 mt-1 uppercase font-bold text-shadow-sm">Special Officer for SCs and STs</p>
-                            </div>
+                <HandwrittenCard title="The Timeline [High Yield]" color="border-[#c2410c]">
+                    <div className="relative pl-8 space-y-8 before:absolute before:left-3 before:top-2 before:bottom-2 before:w-1 before:bg-slate-100 before:border-l-2 before:border-dashed before:border-orange-200">
+                        <div className="relative">
+                            <div className="absolute -left-[26px] top-1 w-4 h-4 rounded-full bg-white border-4 border-[#1e40af]"></div>
+                            <h4 className="font-black text-[#1e40af]">1950 - Original Constitution</h4>
+                            <p className="text-xs font-bold text-slate-500 italic">Article 338 provided for a Special Officer for SCs & STs.</p>
                         </div>
-                        <div className="flex gap-4 relative">
-                            <div className="absolute left-5 -top-6 bottom-0 w-[2px] bg-rose-200 -z-10"></div>
-                            <div className="shrink-0 w-10 h-10 rounded-full bg-rose-700 flex items-center justify-center border-2 border-rose-900 font-bold text-white text-xs">65th</div>
-                            <div>
-                                <h4 className="font-bold text-rose-900 leading-none">65th Amd. Act, 1990 [PYQ]</h4>
-                                <p className="text-[10px] text-slate-500 mt-1">Multi-member Commission replaced the Special Officer.</p>
-                            </div>
+                        <div className="relative">
+                            <div className="absolute -left-[26px] top-1 w-4 h-4 rounded-full bg-white border-4 border-[#1e40af]"></div>
+                            <h4 className="font-black text-[#1e40af]">1990 - 65th Amendment [PYQ]</h4>
+                            <p className="text-xs font-bold text-slate-500 italic">Replaced Special Officer with a Multi-Member Commission for SCs & STs.</p>
                         </div>
-                        <div className="flex gap-4 relative">
-                            <div className="absolute left-5 -top-6 bottom-0 w-[2px] bg-rose-200 -z-10"></div>
-                            <div className="shrink-0 w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center border-2 border-amber-700 font-bold text-white text-xs">89th</div>
-                            <div>
-                                <h4 className="font-bold text-rose-900 leading-none">89th Amd. Act, 2003 [CRITICAL]</h4>
-                                <p className="text-[10px] text-slate-500 mt-1 italic">Bifurcation into NCSC (Art 338) and NCST (Art 338-A). [PYQ]</p>
+                        <div className="relative p-3 bg-orange-50 border-2 border-dashed border-[#c2410c] rounded-xl transform -rotate-1">
+                            <div className="absolute -left-[31px] top-4 w-6 h-6 rounded-full bg-white border-4 border-[#c2410c] flex items-center justify-center">
+                                <GitBranch size={10} className="text-[#c2410c]" />
                             </div>
-                        </div>
-                    </div>
-                </SocialCard>
-
-                <SocialCard title="Composition (Total 5)" color="border-rose-800">
-                    <div className="bg-slate-50 p-6 rounded-2xl border-2 border-slate-200 relative">
-                        <div className="flex items-center justify-between mb-6">
-                            <div className="text-center">
-                                <div className="w-12 h-12 bg-rose-700 rounded-xl flex items-center justify-center text-white font-black mb-1 mx-auto shadow-md">1</div>
-                                <span className="text-[10px] uppercase font-bold">Chairman</span>
-                            </div>
-                            <Plus size={16} className="text-slate-300" />
-                            <div className="text-center">
-                                <div className="w-12 h-12 bg-rose-200 rounded-xl flex items-center justify-center text-rose-900 font-black mb-1 mx-auto border-2 border-rose-300">1</div>
-                                <span className="text-[10px] uppercase font-bold">V-Chair</span>
-                            </div>
-                            <Plus size={16} className="text-slate-300" />
-                            <div className="text-center">
-                                <div className="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-rose-800 font-black mb-1 mx-auto border-2 border-rose-200">3</div>
-                                <span className="text-[10px] uppercase font-bold">Members</span>
-                            </div>
-                        </div>
-                        <div className="p-3 bg-rose-50 border-t-2 border-rose-400 rounded-xl">
-                            <p className="text-xs font-bold text-rose-900 italic">
-                                Appointed by <span className="underline">President</span>. Tenure and conditions determined by <span className="underline">President</span> (usually 3 years).
-                            </p>
-                        </div>
-                    </div>
-                </SocialCard>
-            </div>
-
-            {/* PHASE 2: FUNCTIONS & POWERS */}
-            <SectionHeader title="Phase 2: Functions & Judicial Power" icon={Gavel} color="border-rose-900" />
-
-            <div className="grid md:grid-cols-3 gap-8">
-                <SocialCard title="The Watchdog Role" color="border-rose-900" className="md:col-span-1">
-                    <ul className="space-y-4 text-sm font-bold">
-                        <li className="flex gap-3">
-                            <SearchCheck className="text-rose-700 shrink-0" size={20} />
-                            <span>Investigate & Monitor constitutional safeguards.</span>
-                        </li>
-                        <li className="flex gap-3">
-                            <ShieldAlert className="text-rose-700 shrink-0" size={20} />
-                            <span>Inquire into specific complaints of right violations.</span>
-                        </li>
-                    </ul>
-                </SocialCard>
-
-                <SocialCard title="Civil Court Status [PYQ]" color="border-rose-950" className="md:col-span-2 bg-rose-50/30">
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                            <div className="flex items-center gap-2 text-rose-900 font-black text-xs uppercase">
-                                <Scales size={16} /> Powers while inquiring:
-                            </div>
-                            <ul className="text-[10px] space-y-1 list-disc pl-4 text-slate-600">
-                                <li>Summoning and enforcing attendance.</li>
-                                <li>Discovery and production of documents.</li>
-                                <li>Receiving evidence on affidavits.</li>
-                                <li>Requisitioning public records.</li>
+                            <h4 className="font-black text-[#c2410c]">2003 - 89th Amendment [CRITICAL]</h4>
+                            <p className="text-xs font-black text-slate-600">Bifurcation into two distinct bodies:</p>
+                            <ul className="text-[10px] font-black mt-1 text-orange-800 list-disc pl-4">
+                                <li>NCSC (Article 338)</li>
+                                <li>NCST (Article 338-A)</li>
                             </ul>
-                        </div>
-                        <div className="flex flex-col items-center justify-center border-l-2 border-rose-200 pl-4">
-                            <Gavel size={48} className="text-rose-900 mb-2 rotate-12" />
-                            <p className="text-[10px] text-center font-black uppercase text-rose-800 tracking-tighter">
-                                DEEMED TO HAVE ALL POWERS OF A <br />
-                                <span className="text-lg bg-rose-700 text-white px-2 mt-1 inline-block">CIVIL COURT</span>
-                            </p>
+                            <p className="text-[10px] mt-2 font-black uppercase text-[#c2410c]">Effective: 2004</p>
                         </div>
                     </div>
-                </SocialCard>
-            </div>
+                </HandwrittenCard>
 
-            {/* PHASE 3: REPORTING & REPORTS */}
-            <SectionHeader title="Phase 3: The Report Route" icon={ScrollText} color="border-slate-800" />
-
-            <div className="bg-white border-4 border-slate-900 rounded-3xl p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-slate-100 -mr-16 -mt-16 rounded-full"></div>
-
-                <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
-                    <div className="text-center group">
-                        <div className="w-24 h-32 bg-white border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-lg flex items-center justify-center flex-col p-4 mb-2 group-hover:bg-rose-50 transition-colors">
-                            <FileText size={40} className="text-rose-700" />
-                            <span className="text-[8px] font-black mt-2">NCSC REPORT</span>
-                        </div>
-                        <p className="text-xs font-bold uppercase">Commission</p>
-                    </div>
-
-                    <div className="hidden md:block">
-                        <ArrowBigUpDash size={32} className="rotate-90 text-slate-300" />
-                    </div>
-
-                    <div className="text-center">
-                        <div className="w-20 h-20 bg-amber-100 rounded-full border-2 border-slate-900 flex items-center justify-center mb-2 shadow-md">
-                            <Landmark size={40} className="text-amber-800" />
-                        </div>
-                        <p className="text-xs font-black uppercase">President</p>
-                    </div>
-
-                    <div className="hidden md:block">
-                        <ArrowBigUpDash size={32} className="rotate-90 text-slate-300" />
-                    </div>
-
-                    <div className="text-center">
-                        <div className="w-24 h-24 bg-rose-700 rounded-xl border-2 border-slate-900 flex items-center justify-center mb-2 shadow-lg">
-                            <div className="text-white font-black text-center text-[10px] leading-tight flex flex-col items-center">
-                                <Users size={20} className="mb-1" />
-                                PARLIAMENT
+                <HandwrittenCard title="Composition (The Team)" color="border-[#1e40af]">
+                    <div className="bg-slate-50 p-6 rounded-2xl border-4 border-double border-slate-200">
+                        <div className="grid grid-cols-3 gap-2 mb-6">
+                            <div className="text-center p-2 bg-white border-2 border-[#1e40af] rounded-lg shadow-sm">
+                                <BadgeCheck className="mx-auto text-[#1e40af]" size={20} />
+                                <p className="text-[10px] font-black mt-1">Chairperson</p>
+                                <p className="text-[8px] italic">(Cabinet Min Rank)</p>
+                            </div>
+                            <div className="text-center p-2 bg-white border-2 border-indigo-200 rounded-lg shadow-sm">
+                                <UserPlus className="mx-auto text-indigo-400" size={20} />
+                                <p className="text-[10px] font-black mt-1">Vice-Chair</p>
+                                <p className="text-[8px] italic">(MoS Rank)</p>
+                            </div>
+                            <div className="text-center p-2 bg-white border-2 border-indigo-100 rounded-lg shadow-sm">
+                                <Users className="mx-auto text-indigo-200" size={20} />
+                                <p className="text-[10px] font-black mt-1">3 Members</p>
                             </div>
                         </div>
-                        <p className="text-xs font-bold text-slate-400">Final Table</p>
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-3 p-3 bg-white rounded-xl border-2 border-[#ca8a04]">
+                                <Landmark className="text-[#ca8a04]" size={24} />
+                                <p className="text-xs font-black italic">Appointed by the <span className="underline underline-offset-2">PRESIDENT</span> under his hand and seal.</p>
+                            </div>
+                            <div className="p-3 bg-indigo-50 rounded-xl border border-indigo-100">
+                                <p className="text-[10px] font-bold text-indigo-900 leading-relaxed text-center">
+                                    TENURE: <span className="text-lg font-black">3 YEARS</span><br />
+                                    (Service conditions determined by President)
+                                </p>
+                            </div>
+                        </div>
                     </div>
+                </HandwrittenCard>
+            </div>
 
-                    <div className="flex-1 border-l-2 border-dashed border-slate-200 pl-8 space-y-3">
-                        <div className="p-3 bg-red-50 border-2 border-red-200 rounded-xl">
-                            <h6 className="text-[10px] font-black text-red-800 flex items-center gap-2">
-                                <ShieldAlert size={14} /> MEMORANDUM OF EXPLANATION
-                            </h6>
-                            <p className="text-[9px] text-red-700 mt-1">
-                                If President rejects any recommendation, <span className="underline">Reasons for Non-Acceptance</span> must be tabled.
+            {/* PHASE 2: FUNCTIONS */}
+            <PhaseHeader number="2" title="Functions (The Watchdog)" color="bg-[#1e40af]" />
+
+            <div className="grid md:grid-cols-2 gap-8">
+                <HandwrittenCard title="Duties (Art 338)" color="border-[#1e40af]">
+                    <div className="space-y-4">
+                        {[
+                            { icon: SearchCheck, text: "INVESTIGATE: Monitors all matters relating to constitutional safeguards for SCs." },
+                            { icon: ShieldAlert, text: "INQUIRE: Into specific complaints of deprivation of rights." },
+                            { icon: Briefcase, text: "ADVISE: Participates in planning process of socio-economic development." },
+                            { icon: FileText, text: "REPORT: Presents annual report to President." }
+                        ].map((item, i) => (
+                            <div key={i} className="flex gap-4 p-3 bg-slate-50 rounded-xl border border-slate-100 items-start">
+                                <div className="p-2 bg-white rounded shadow-sm">
+                                    <item.icon className="text-[#1e40af]" size={20} />
+                                </div>
+                                <p className="text-xs font-bold leading-relaxed">{item.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </HandwrittenCard>
+
+                <HandwrittenCard title="The Anglo-Indian Link [Trap Alert]" color="border-[#ca8a04]">
+                    <div className="p-6 bg-[#fffbeb] border-4 border-double border-[#ca8a04] rounded-2xl relative">
+                        <Network size={48} className="absolute top-2 right-2 text-[#ca8a04] opacity-20" />
+                        <h4 className="text-[#ca8a04] font-black text-lg mb-4 flex items-center gap-2 italic">
+                            Article 338(10) [PYQ]
+                        </h4>
+                        <p className="text-sm font-bold text-amber-900 leading-relaxed italic">
+                            "The Commission also discharges similar functions for the <span className="underline decoration-[#ca8a04] decoration-2">ANGLO-INDIAN Community</span>."
+                        </p>
+                        <div className="mt-6 p-4 bg-white/80 rounded-xl border-2 border-dashed border-[#4b5563]">
+                            <p className="text-[10px] font-black text-[#4b5563] uppercase tracking-tighter">Historical Note:</p>
+                            <p className="text-[11px] font-bold text-slate-500 mt-1 leading-relaxed">
+                                It used to cover OBCs too until the <span className="font-black text-[#c2410c]">102nd Amendment (2018)</span> created a separate NCBC.
                             </p>
                         </div>
-                        <p className="text-[10px] font-medium italic text-slate-500">
-                            For State Safeguards, reports are sent to the <span className="font-bold text-slate-900">Governor</span> who tables them in State Legislature. [PYQ]
+                    </div>
+                </HandwrittenCard>
+            </div>
+
+            {/* PHASE 3: POWERS */}
+            <PhaseHeader number="3" title="Powers (The Teeth)" color="bg-[#1e40af]" />
+
+            <div className="grid md:grid-cols-2 gap-8">
+                <HandwrittenCard title="Civil Court Powers" color="border-slate-950" className="bg-slate-50 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="flex gap-4 items-start mb-6">
+                        <div className="w-16 h-16 bg-white border-2 border-slate-900 rounded-2xl flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <Gavel size={32} className="text-slate-900" />
+                        </div>
+                        <div>
+                            <p className="text-xs font-black uppercase tracking-widest text-slate-500">Judicial Status</p>
+                            <h4 className="text-xl font-black text-slate-950">Civil Court [PYQ]</h4>
+                        </div>
+                    </div>
+                    <ul className="space-y-3">
+                        {[
+                            "Summoning and enforcing attendance of any person.",
+                            "Requiring discovery and production of documents.",
+                            "Receiving evidence on affidavits.",
+                            "Requisitioning public records from any court/office."
+                        ].map((power, i) => (
+                            <li key={i} className="flex gap-3 text-xs font-bold items-center">
+                                <div className="w-2 h-2 bg-slate-900 rounded-full"></div>
+                                {power}
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="mt-6 p-4 bg-red-50 border-2 border-red-200 rounded-xl">
+                        <p className="text-[10px] font-black text-red-700 italic">
+                            LIMITATION: It cannot punish (Criminal Court power is missing). It can only recommend.
                         </p>
                     </div>
-                </div>
+                </HandwrittenCard>
+
+                <HandwrittenCard title="Mandatory Consultation" color="border-[#1e40af]">
+                    <div className="text-center p-8 bg-white border-4 border-[#1e40af] border-dashed rounded-3xl group-hover:bg-indigo-50 transition-colors">
+                        <div className="flex justify-center -space-x-4 mb-6">
+                            <div className="w-16 h-16 rounded-full bg-indigo-800 border-2 border-white flex items-center justify-center text-white font-black text-xs">UNION</div>
+                            <div className="w-16 h-16 rounded-full bg-orange-700 border-2 border-white flex items-center justify-center text-white font-black text-xs">STATE</div>
+                        </div>
+                        <h4 className="font-black text-lg mb-2 text-indigo-950">Round Table Sketch</h4>
+                        <p className="text-sm font-bold text-slate-500 leading-relaxed italic">
+                            "Union and State Govts <span className="text-[#1e40af] uppercase underline">Must Consult</span> the Commission on all major policy matters affecting SCs."
+                        </p>
+                    </div>
+                </HandwrittenCard>
             </div>
 
-            {/* ANGLO-INDIAN TRAP FOOTER */}
-            <div className="bg-amber-100 border-2 border-amber-900 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-md border-b-8 border-amber-800">
-                <div className="p-4 bg-white rounded-xl shadow-inner shrink-0 leading-none">
-                    <span className="text-4xl font-black text-amber-700">AI</span>
-                </div>
-                <div className="flex-1">
-                    <h5 className="font-black text-amber-900 text-lg flex items-center gap-2">
-                        The Anglo-Indian Extension [PYQ]
-                        <Badge className="bg-amber-800 text-white">Critical</Badge>
-                    </h5>
-                    <p className="text-sm text-amber-800 mt-2 italic font-medium">
-                        The NCSC is required to discharge functions for the <span className="font-bold underline">Anglo-Indian Community</span> in the same manner as for SCs. <br />
-                        <span className="text-[10px] text-shadow-sm font-bold text-red-800">Note: Till 2018, it also handled OBCs, but now there's NCBC.</span>
-                    </p>
+            {/* FOOTER: THE REPORT ROUTE */}
+            <div className="bg-[#4b5563] text-white border-4 border-slate-900 rounded-3xl p-8 relative overflow-hidden shadow-2xl">
+                <h4 className="text-xl font-black mb-8 flex items-center gap-3 underline decoration-[#ca8a04]">
+                    <ArrowBigUpDash className="rotate-90" />
+                    The Report Route
+                </h4>
+
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+                    <div className="flex flex-col items-center gap-2">
+                        <div className="w-20 h-24 bg-white border-2 border-slate-300 rounded shadow-inner rotate-3 flex items-center justify-center p-2">
+                            <FileText size={40} className="text-[#4b5563]" />
+                        </div>
+                        <span className="text-[10px] font-black">Commission</span>
+                    </div>
+
+                    <div className="w-12 h-[2px] bg-slate-400"></div>
+
+                    <div className="flex flex-col items-center gap-2">
+                        <div className="w-20 h-20 bg-[#ca8a04] border-2 border-white rounded-full flex items-center justify-center shadow-lg">
+                            <Landmark size={32} />
+                        </div>
+                        <span className="text-[10px] font-black uppercase">President</span>
+                    </div>
+
+                    <div className="w-12 h-[2px] bg-slate-400"></div>
+
+                    <div className="flex-1 grid grid-cols-2 gap-4 w-full md:w-auto">
+                        <div className="p-3 bg-white/10 border border-white/20 rounded-xl text-center">
+                            <Users size={20} className="mx-auto mb-1 text-indigo-300" />
+                            <p className="text-[9px] font-black leading-none italic uppercase">Parliament</p>
+                            <p className="text-[8px] text-indigo-200 mt-1">(Action Taken Report)</p>
+                        </div>
+                        <div className="p-3 bg-white/10 border border-white/20 rounded-xl text-center">
+                            <Scale size={20} className="mx-auto mb-1 text-orange-300" />
+                            <p className="text-[9px] font-black leading-none italic uppercase">Governor</p>
+                            <p className="text-[8px] text-orange-200 mt-1">(State Legislature)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -252,7 +274,7 @@ export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps)
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
                             ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-rose-700 hover:bg-rose-800 text-white shadow-[0_10px_40px_-10px_rgba(157,23,77,0.5)]"
+                            : "bg-[#1e40af] hover:bg-indigo-900 text-white shadow-[0_10px_40px_-10px_rgba(30,64,175,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -267,15 +289,8 @@ export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps)
                         </span>
                     )}
                 </Button>
-                <p className="mt-4 text-slate-400 font-bold font-['Kalam']">The Shield of Article 338.</p>
+                <p className="mt-4 text-slate-400 font-bold">The Shield of Article 338.</p>
             </div>
-        </SocialContainer>
+        </ScrapbookContainer>
     );
 }
-
-const Plus = ({ size, className }: { size: number, className?: string }) => (
-    <div className={`flex items-center justify-center ${className}`}>
-        <div className="w-1.5 h-0.5 bg-slate-300 absolute"></div>
-        <div className="w-1.5 h-0.5 bg-slate-300 absolute rotate-90"></div>
-    </div>
-);
