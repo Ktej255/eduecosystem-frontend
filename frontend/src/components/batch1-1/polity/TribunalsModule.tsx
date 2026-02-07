@@ -2,12 +2,12 @@
 
 import React from "react";
 import {
-    Gavel, Scale, Hammers, Landmark,
+    Gavel, Scale, Hammer, Landmark,
     Info, BadgeCheck, BookOpen, UserCheck,
     SearchCheck, ShieldAlert, FileText, History,
     MessageSquare, AlertTriangle, UserPlus,
-    Subtitles, Target, Zap, Waves, Balance,
-    ArrowRightCircle, CheckCircle2, Scaling
+    Subtitles, Target, Zap, Activity, Balance,
+    ArrowRightCircle, CheckCircle2, Maximize2
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 interface TribunalsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -29,7 +30,7 @@ const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
 const JusticeCard = ({ title, children, color = "border-indigo-900", className = "" }: { title: string, children: React.ReactNode, color?: string, className?: string }) => (
     <div className={`bg-white border-2 ${color} rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(79,70,229,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${className}`}>
         <div className="absolute top-0 right-0 p-2 opacity-5 translate-x-1/4 -translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
-            <Scaling size={64} className={color.replace('border-', 'text-')} />
+            <Maximize2 size={64} className={color.replace('border-', 'text-')} />
         </div>
         <h3 className={`text-xl font-black mb-4 flex items-center gap-2 ${color.replace('border-', 'text-')}`}>
             {title}
@@ -52,7 +53,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function TribunalsModule({ onComplete, isCompleted }: TribunalsModuleProps) {
+export default function TribunalsModule({ onComplete, isCompleted, chapterNumber = "63" }: TribunalsModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -60,7 +61,7 @@ export default function TribunalsModule({ onComplete, isCompleted }: TribunalsMo
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#3730a3] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 63</Badge>
+                        <Badge className="bg-[#3730a3] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-indigo-100 font-bold uppercase tracking-widest text-sm italic">Quasi-Judicial Excellence</span>
                     </div>

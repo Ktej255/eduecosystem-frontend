@@ -506,118 +506,122 @@ export default function TopicViewerPage() {
                     isCompleted={isCompleted}
                 />
 
-            ) : topicId === 62 ? (
+            ) : topicId === 61 ? (
+                <OfficialLanguageModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 62 || topicId === 63 ? (
+                // User Correction: Chapter 63 should show Tribunals, not Hindi Text
                 <TribunalsModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
+                    chapterNumber={topicId.toString()}
                 />
-            ) : topicId === 63 ? (
-                <HindiTextModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 64 ? (
+            ) : topicId === 64 || topicId === 76 ? (
+                // User Correction: Chapter 76 should show Rights & Liabilities
+                // Also preserving 64 for backward compatibility if needed, but primary is 76
                 <RightsLiabilitiesModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
+                // RightsLiabilitiesModule already has "Chapter 76" hardcoded in last edit, or will default to it.
+                // But if I add prop support it's better. I haven't added prop support to RightsLiabilitiesModule yet, 
+                // only to the crashing ones. I should assume it's fixed to 76 or edit it.
+                // IMPORTANT: The user said "Chapter 76 showing 64". I previously edited it to SHOW 76 in the badge.
+                // So just rendering it here is correct.
                 />
             ) : topicId === 65 ? (
                 <HindiTextModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 66 ? (
+            ) : topicId === 66 || topicId === 77 ? (
+                // User Correction: Chapter 77 is Special Provisions for Certain Classes
                 <CertainClassesModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 67 ? (
+            ) : topicId === 67 || topicId === 79 ? (
+                // User Correction: Chapter 79 is Political Parties
                 <PoliticalPartiesModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 68 ? (
+            ) : topicId === 68 || topicId === 81 ? (
+                // User Correction: Chapter 81 is Elections
                 <ElectionsModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 69 ? (
+            ) : topicId === 69 || topicId === 83 ? (
+                // User Correction: Chapter 83 is Electoral Reforms
                 <ElectoralReformsModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 70 ? (
+            ) : topicId === 70 || topicId === 86 ? (
+                // User Correction: Chapter 86 is Anti-Defection Law
                 <AntiDefectionLawModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 71 ? (
+            ) : topicId === 71 || topicId === 87 ? (
+                // User Correction: Chapter 87 is Pressure Groups
                 <PressureGroupsModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 72 ? (
+            ) : topicId === 72 || topicId === 88 ? (
+                // User Correction: Chapter 88 is National Integration
                 <NationalIntegrationModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 73 ? (
+            ) : topicId === 73 || topicId === 89 ? (
+                // User Correction: Chapter 89 is Foreign Policy
                 <ForeignPolicyModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 74 ? (
+            ) : topicId === 74 || topicId === 90 ? (
+                // User Correction: Chapter 90 is NCRWC
                 <NCRWCModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
+                    chapterNumber={topicId.toString()}
                 />
-            ) : topicId === 63 ? (
-                <HindiTextModule
+            ) : topicId === 33 ? (
+                // User Correction: Chapter 33 should show Special Provisions for States (Normally 78)
+                <SpecialProvisionsStatesModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
+                    chapterNumber="33"
+                />
+            ) : topicId === 38 ? (
+                <ElectionCommissionModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                    chapterNumber="38"
                 />
             ) : topicId === 75 ? (
                 <PublicServicesModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 76 ? (
-                <RightsLiabilitiesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 77 ? (
-                <CertainClassesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
             ) : topicId === 78 ? (
+                // Keeping 78 as standard
                 <SpecialProvisionsStatesModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
-                />
-            ) : topicId === 79 ? (
-                <PoliticalPartiesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
+                    chapterNumber="78"
                 />
             ) : topicId === 80 ? (
                 <RegionalPartiesModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 81 ? (
-                <ElectionsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
             ) : topicId === 82 ? (
                 <ElectionLawsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 83 ? (
-                <ElectoralReformsModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
@@ -628,31 +632,6 @@ export default function TopicViewerPage() {
                 />
             ) : topicId === 85 ? (
                 <CoalitionGovtModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 86 ? (
-                <AntiDefectionLawModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 87 ? (
-                <PressureGroupsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 88 ? (
-                <NationalIntegrationModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 89 ? (
-                <ForeignPolicyModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 90 ? (
-                <NCRWCModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
@@ -681,6 +660,7 @@ export default function TopicViewerPage() {
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
+
             ) : (
                 <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
                     <CardContent className="p-6">
@@ -728,7 +708,7 @@ export default function TopicViewerPage() {
             )}
 
             {/* Content Tabs (Hidden for topics using Special Modules) */}
-            {(topicId > 20 && topicId <= 95 && ![22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95].includes(topicId)) && (
+            {(topicId > 20 && topicId <= 95 && ![22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95].includes(topicId)) && (
                 <Tabs defaultValue="overview" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="overview">

@@ -3,20 +3,27 @@
 import React, { useState } from 'react';
 import {
     Book, Table, Clock, Brain,
-    ArrowLeft, Search, GraduationCap
+    ArrowLeft, Search, GraduationCap,
+    Sparkles, Gavel, Scroll, Scale,
+    Gamepad2, History, Users
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useRouter } from 'next/navigation';
 import BodiesComparisonTable from './BodiesComparisonTable';
+import ArticleArcade from './ArticleArcade';
+import AmendmentTimeline from './AmendmentTimeline';
+import SchedulesMnemonics from './SchedulesMnemonics';
+import WritsWizard from './WritsWizard';
+import PreambleDecoder from './PreambleDecoder';
+import MajoritiesMasterclass from './MajoritiesMasterclass';
 
 export default function PolityRevisionDashboard() {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState('bodies');
 
     return (
-        <div className="min-h-screen bg-[#fff7ed]"> {/* Paper-like background */}
+        <div className="min-h-screen bg-[#fff7ed] font-['Kalam']">
             {/* Header */}
             <div className="bg-[#1e293b] text-white p-6 md:p-8 shadow-lg relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
@@ -29,22 +36,12 @@ export default function PolityRevisionDashboard() {
                         >
                             <ArrowLeft size={16} /> Back to Dashboard
                         </Button>
-                        <h1 className="text-4xl md:text-5xl font-black font-['Kalam'] text-amber-500 mb-2">
-                            Polity Revision Suite
+                        <h1 className="text-4xl md:text-5xl font-black text-amber-500 mb-2 flex items-center gap-3">
+                            Polity Revision Suite <Sparkles className="text-yellow-400" />
                         </h1>
-                        <p className="text-slate-300 text-lg max-w-2xl font-['Kalam']">
-                            "The High-Yield Zone for Prelims Success."
+                        <p className="text-slate-300 text-lg max-w-2xl">
+                            "High Yield. Low Effort. 100% Marks."
                         </p>
-                    </div>
-                    <div className="flex gap-4">
-                        <div className="bg-slate-800 p-4 rounded-xl text-center border border-slate-700">
-                            <div className="text-2xl font-black text-green-400">95</div>
-                            <div className="text-xs text-slate-400 uppercase tracking-widest">Topics</div>
-                        </div>
-                        <div className="bg-slate-800 p-4 rounded-xl text-center border border-slate-700">
-                            <div className="text-2xl font-black text-blue-400">395+</div>
-                            <div className="text-xs text-slate-400 uppercase tracking-widest">Articles</div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -52,18 +49,27 @@ export default function PolityRevisionDashboard() {
             {/* Main Content */}
             <main className="max-w-7xl mx-auto p-4 md:p-8">
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-                    <TabsList className="bg-slate-200/50 p-1 rounded-xl w-full flex overflow-x-auto justify-start md:justify-center gap-2">
-                        <TabsTrigger value="bodies" className="px-6 py-3 rounded-lg data-[state=active]:bg-amber-500 data-[state=active]:text-slate-900 font-bold flex items-center gap-2 min-w-[150px]">
-                            <Table size={18} /> Comparison Tables
+                    <TabsList className="bg-slate-200/50 p-2 rounded-xl w-full flex flex-wrap justify-start gap-2 h-auto">
+                        <TabsTrigger value="bodies" className="px-4 py-2 rounded-lg data-[state=active]:bg-amber-500 data-[state=active]:text-slate-900 font-bold flex items-center gap-2">
+                            <Table size={16} /> Comparison Tables
                         </TabsTrigger>
-                        <TabsTrigger value="articles" className="px-6 py-3 rounded-lg data-[state=active]:bg-blue-600 data-[state=active]:text-white font-bold flex items-center gap-2 min-w-[150px]">
-                            <Book size={18} /> Article Arcade
+                        <TabsTrigger value="arcade" className="px-4 py-2 rounded-lg data-[state=active]:bg-blue-600 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <Gamepad2 size={16} /> Article Arcade
                         </TabsTrigger>
-                        <TabsTrigger value="timeline" className="px-6 py-3 rounded-lg data-[state=active]:bg-purple-600 data-[state=active]:text-white font-bold flex items-center gap-2 min-w-[150px]">
-                            <Clock size={18} /> Amendment Timeline
+                        <TabsTrigger value="timeline" className="px-4 py-2 rounded-lg data-[state=active]:bg-purple-600 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <History size={16} /> Amendment Timeline
                         </TabsTrigger>
-                        <TabsTrigger value="mnemonics" className="px-6 py-3 rounded-lg data-[state=active]:bg-green-600 data-[state=active]:text-white font-bold flex items-center gap-2 min-w-[150px]">
-                            <Brain size={18} /> Mnemonics
+                        <TabsTrigger value="mnemonics" className="px-4 py-2 rounded-lg data-[state=active]:bg-green-600 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <Brain size={16} /> Mnemonics
+                        </TabsTrigger>
+                        <TabsTrigger value="writs" className="px-4 py-2 rounded-lg data-[state=active]:bg-cyan-600 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <Gavel size={16} /> Writs Wizard
+                        </TabsTrigger>
+                        <TabsTrigger value="preamble" className="px-4 py-2 rounded-lg data-[state=active]:bg-amber-700 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <Scroll size={16} /> Preamble Decoder
+                        </TabsTrigger>
+                        <TabsTrigger value="majorities" className="px-4 py-2 rounded-lg data-[state=active]:bg-rose-600 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <Users size={16} /> Majorities Masterclass
                         </TabsTrigger>
                     </TabsList>
 
@@ -71,28 +77,28 @@ export default function PolityRevisionDashboard() {
                         <BodiesComparisonTable />
                     </TabsContent>
 
-                    <TabsContent value="articles" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <div className="flex flex-col items-center justify-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-300">
-                            <GraduationCap size={64} className="text-slate-300 mb-4" />
-                            <h3 className="text-2xl font-black text-slate-400">Article Arcade Coming Soon</h3>
-                            <p className="text-slate-400">Gamified learning for Articles 1-395.</p>
-                        </div>
+                    <TabsContent value="arcade" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <ArticleArcade />
                     </TabsContent>
 
                     <TabsContent value="timeline" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <div className="flex flex-col items-center justify-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-300">
-                            <Clock size={64} className="text-slate-300 mb-4" />
-                            <h3 className="text-2xl font-black text-slate-400">Amendment Timeline Coming Soon</h3>
-                            <p className="text-slate-400">Visual history of major constitutional changes.</p>
-                        </div>
+                        <AmendmentTimeline />
                     </TabsContent>
 
                     <TabsContent value="mnemonics" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <div className="flex flex-col items-center justify-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-300">
-                            <Brain size={64} className="text-slate-300 mb-4" />
-                            <h3 className="text-2xl font-black text-slate-400">Mnemonics Bank Coming Soon</h3>
-                            <p className="text-slate-400">TEARS OF OLD PM and other memory aids.</p>
-                        </div>
+                        <SchedulesMnemonics />
+                    </TabsContent>
+
+                    <TabsContent value="writs" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <WritsWizard />
+                    </TabsContent>
+
+                    <TabsContent value="preamble" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <PreambleDecoder />
+                    </TabsContent>
+
+                    <TabsContent value="majorities" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <MajoritiesMasterclass />
                     </TabsContent>
                 </Tabs>
             </main>

@@ -52,19 +52,21 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted }: Rig
             <div className="relative bg-[#171717] border-4 border-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#ca8a04] text-slate-900 px-4 py-1 text-lg font-bold">Chapter 64</Badge>
-                        <span className="text-slate-400 font-bold uppercase tracking-widest text-sm">Part VII: Political Dynamics</span>
+                        <div className="flex items-center gap-3 mb-4">
+                            <Badge className="bg-[#ca8a04] text-slate-900 px-4 py-1 text-lg font-bold">Chapter 76</Badge>
+                            <span className="text-slate-400 font-bold uppercase tracking-widest text-sm">Part XI: Working of the Constitution</span>
+                        </div>
+                        <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
+                            Rights & Liabilities <br />
+                            <span className="text-[#ca8a04]">The Legal Crown</span>
+                        </h1>
+                        <p className="text-xl text-slate-300 italic max-w-2xl">
+                            "The Sovereign vs The Citizen. Can the King be sued?"
+                        </p>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
-                        Rights & Liabilities <br />
-                        <span className="text-[#ca8a04]">The Legal Crown</span>
-                    </h1>
-                    <p className="text-xl text-slate-300 italic max-w-2xl">
-                        "The Sovereign vs The Citizen. Can the King be sued?"
-                    </p>
-                </div>
-                <div className="absolute top-4 right-4 opacity-10">
-                    <Crown size={180} />
+                    <div className="absolute top-4 right-4 opacity-10">
+                        <Crown size={180} />
+                    </div>
                 </div>
             </div>
 

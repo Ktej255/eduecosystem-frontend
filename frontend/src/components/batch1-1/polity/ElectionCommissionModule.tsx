@@ -4,8 +4,8 @@ import React from "react";
 import {
     Activity, Shield, Landmark, Scale, AlertTriangle,
     CheckCircle2, Info, Building2, Gavel, Users,
-    BadgeCheck, Compass, MapPin, HandMetal,
-    LayoutGrid, BookOpen, Scaling, Megaphone,
+    BadgeCheck, Compass, MapPin, Hand,
+    LayoutGrid, BookOpen, Maximize2, Megaphone,
     Printer, CircleDot, UserCheck
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface ElectionCommissionModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const RefereeContainer = ({ children }: { children: React.ReactNode }) => (
@@ -49,7 +50,7 @@ const RefereeCard = ({ title, children, color = "border-blue-700", className = "
     </div>
 );
 
-export default function ElectionCommissionModule({ onComplete, isCompleted }: ElectionCommissionModuleProps) {
+export default function ElectionCommissionModule({ onComplete, isCompleted, chapterNumber = "38" }: ElectionCommissionModuleProps) {
     return (
         <RefereeContainer>
             {/* HERO SECTION */}
@@ -57,7 +58,7 @@ export default function ElectionCommissionModule({ onComplete, isCompleted }: El
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-blue-700 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter 38</Badge>
+                        <Badge className="bg-blue-700 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-blue-900"></div>
                         <span className="text-blue-500 font-bold uppercase tracking-widest text-sm">The Umpire of Democracy</span>
                     </div>
@@ -251,8 +252,8 @@ export default function ElectionCommissionModule({ onComplete, isCompleted }: El
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-blue-700 hover:bg-blue-800 text-white shadow-[0_10px_40px_-10px_rgba(30,58,138,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-blue-700 hover:bg-blue-800 text-white shadow-[0_10px_40px_-10px_rgba(30,58,138,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
