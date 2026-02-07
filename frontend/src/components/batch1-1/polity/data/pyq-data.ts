@@ -305,12 +305,285 @@ export const AMENDMENT_PYQS: ChapterPYQData = {
     ]
 };
 
+// CHAPTER 6: DPSP - High yield topic
+export const DPSP_PYQS: ChapterPYQData = {
+    chapterId: 6,
+    chapterTitle: "Directive Principles of State Policy",
+    totalPYQs: 15,
+    lastAskedYear: 2024,
+    frequency: 'high',
+    trendDirection: 'stable',
+    questions: [
+        {
+            id: "DPSP-2024-1",
+            year: 2024,
+            question: "Which of the following Directive Principles is based on Gandhian ideology?",
+            options: [
+                "Equal pay for equal work",
+                "Promotion of cottage industries",
+                "Uniform Civil Code",
+                "Free legal aid"
+            ],
+            correctAnswer: 1,
+            explanation: "Promotion of cottage industries (Art 43) is a Gandhian Principle. Other Gandhian principles include prohibition of intoxicating drinks, protection of cow, and village panchayats.",
+            articleReference: "Art 43",
+            difficulty: 'moderate',
+            tags: ["DPSP", "Gandhian Principles", "Article 43"]
+        },
+        {
+            id: "DPSP-2023-1",
+            year: 2023,
+            question: "Which Article directs the State to provide free and compulsory education to children?",
+            options: [
+                "Article 21A",
+                "Article 45",
+                "Article 39",
+                "Article 46"
+            ],
+            correctAnswer: 1,
+            explanation: "Article 45 (DPSP) originally directed free education for children up to 14 years. After 86th Amendment, Art 21A made it a Fundamental Right, but Art 45 now covers early childhood care.",
+            articleReference: "Art 45, 21A",
+            difficulty: 'moderate',
+            tags: ["DPSP", "Right to Education", "Article 45", "86th Amendment"]
+        },
+        {
+            id: "DPSP-2022-1",
+            year: 2022,
+            question: "Which of the following is NOT a Directive Principle?",
+            options: [
+                "Uniform Civil Code",
+                "Protection of monuments",
+                "Right to work",
+                "Right to form cooperative societies"
+            ],
+            correctAnswer: 3,
+            explanation: "Right to form cooperative societies was added as a Fundamental Right (Art 19(1)(c)) by 97th Amendment. All others are DPSPs.",
+            articleReference: "Art 19(1)(c), 44, 49",
+            difficulty: 'difficult',
+            tags: ["DPSP", "Cooperative Societies", "97th Amendment"]
+        }
+    ]
+};
+
+// CHAPTER 3: PREAMBLE - Important topic
+export const PREAMBLE_PYQS: ChapterPYQData = {
+    chapterId: 3,
+    chapterTitle: "Preamble",
+    totalPYQs: 8,
+    lastAskedYear: 2023,
+    frequency: 'medium',
+    trendDirection: 'stable',
+    questions: [
+        {
+            id: "PRMB-2023-1",
+            year: 2023,
+            question: "The words 'Socialist' and 'Secular' were added to the Preamble by which Amendment?",
+            options: [
+                "1st Amendment",
+                "42nd Amendment",
+                "44th Amendment",
+                "52nd Amendment"
+            ],
+            correctAnswer: 1,
+            explanation: "The 42nd Amendment (1976) added 'Socialist', 'Secular', and 'Integrity' to the Preamble during the Emergency period.",
+            articleReference: "Preamble",
+            difficulty: 'easy',
+            tags: ["Preamble", "42nd Amendment", "Socialist", "Secular"]
+        },
+        {
+            id: "PRMB-2022-1",
+            year: 2022,
+            question: "Which case held that the Preamble is a part of the Constitution?",
+            options: [
+                "Berubari Case",
+                "Kesavananda Bharati Case",
+                "Golaknath Case",
+                "Minerva Mills Case"
+            ],
+            correctAnswer: 1,
+            explanation: "Kesavananda Bharati case (1973) overruled Berubari case and held that Preamble IS a part of the Constitution and can be amended (but Basic Structure cannot be destroyed).",
+            articleReference: "Preamble",
+            difficulty: 'moderate',
+            tags: ["Preamble", "Kesavananda", "Basic Structure"]
+        }
+    ]
+};
+
+// CHAPTER 17: PARLIAMENT - Very high yield
+export const PARLIAMENT_PYQS: ChapterPYQData = {
+    chapterId: 17,
+    chapterTitle: "Parliament",
+    totalPYQs: 20,
+    lastAskedYear: 2024,
+    frequency: 'high',
+    trendDirection: 'stable',
+    questions: [
+        {
+            id: "PARL-2024-1",
+            year: 2024,
+            question: "Money Bill can be introduced in:",
+            options: [
+                "Either House of Parliament",
+                "Lok Sabha only",
+                "Rajya Sabha only",
+                "Joint Session"
+            ],
+            correctAnswer: 1,
+            explanation: "Money Bill can ONLY be introduced in Lok Sabha with prior recommendation of the President (Art 109, 110). Rajya Sabha can only suggest amendments within 14 days.",
+            articleReference: "Art 109, 110",
+            difficulty: 'easy',
+            tags: ["Parliament", "Money Bill", "Lok Sabha", "Article 110"]
+        },
+        {
+            id: "PARL-2023-1",
+            year: 2023,
+            question: "Which of the following is NOT a Parliamentary Committee?",
+            options: [
+                "Public Accounts Committee",
+                "Estimates Committee",
+                "Zonal Council",
+                "Committee on Public Undertakings"
+            ],
+            correctAnswer: 2,
+            explanation: "Zonal Councils are statutory bodies (States Reorganization Act 1956), not parliamentary committees. The other three are Financial Committees of Parliament.",
+            articleReference: "Art 118",
+            difficulty: 'moderate',
+            tags: ["Parliament", "Parliamentary Committees", "Zonal Councils"]
+        },
+        {
+            id: "PARL-2022-1",
+            year: 2022,
+            question: "The maximum gap between two sessions of Parliament should be:",
+            options: [
+                "3 months",
+                "6 months",
+                "9 months",
+                "12 months"
+            ],
+            correctAnswer: 1,
+            explanation: "Article 85 states that the gap between two sessions of Parliament should not exceed 6 months. Parliament must meet at least twice a year.",
+            articleReference: "Art 85",
+            difficulty: 'easy',
+            tags: ["Parliament", "Sessions", "Article 85"]
+        }
+    ]
+};
+
+// CHAPTER 26: GOVERNOR - High yield
+export const GOVERNOR_PYQS: ChapterPYQData = {
+    chapterId: 26,
+    chapterTitle: "Governor",
+    totalPYQs: 12,
+    lastAskedYear: 2024,
+    frequency: 'high',
+    trendDirection: 'increasing',
+    questions: [
+        {
+            id: "GOV-2024-1",
+            year: 2024,
+            question: "Which of the following is TRUE about the Governor's discretionary powers?",
+            options: [
+                "Governor can dissolve State Assembly at will",
+                "Governor must act on the advice of Chief Minister",
+                "Governor can reserve a bill for President's consideration",
+                "Governor cannot recommend President's Rule"
+            ],
+            correctAnswer: 2,
+            explanation: "Governor has discretionary power to reserve certain bills for President's consideration (Art 200). This is an absolute discretion not subject to judicial review.",
+            articleReference: "Art 200",
+            difficulty: 'moderate',
+            tags: ["Governor", "Discretionary Powers", "Article 200", "Reserved Bills"]
+        },
+        {
+            id: "GOV-2023-1",
+            year: 2023,
+            question: "The President can dismiss the Governor:",
+            options: [
+                "Only on the advice of the Chief Minister",
+                "At his own pleasure without any reason",
+                "Only after impeachment by State Legislature",
+                "Only on the recommendation of State High Court"
+            ],
+            correctAnswer: 1,
+            explanation: "Governor holds office 'during the pleasure of the President' (Art 156). President can remove Governor at any time without giving reasons (BP Singhal case).",
+            articleReference: "Art 156",
+            difficulty: 'easy',
+            tags: ["Governor", "Removal", "Pleasure Doctrine", "Article 156"]
+        }
+    ]
+};
+
+// CHAPTER 23: SUPREME COURT - Very high yield
+export const SUPREME_COURT_PYQS: ChapterPYQData = {
+    chapterId: 23,
+    chapterTitle: "Supreme Court",
+    totalPYQs: 15,
+    lastAskedYear: 2024,
+    frequency: 'high',
+    trendDirection: 'stable',
+    questions: [
+        {
+            id: "SC-2024-1",
+            year: 2024,
+            question: "Which type of jurisdiction allows the Supreme Court to transfer cases from one High Court to another?",
+            options: [
+                "Original Jurisdiction",
+                "Appellate Jurisdiction",
+                "Advisory Jurisdiction",
+                "Transfer Jurisdiction"
+            ],
+            correctAnswer: 3,
+            explanation: "Article 139A empowers the Supreme Court to transfer cases from one High Court to another, or to itself. This is called Transfer Jurisdiction.",
+            articleReference: "Art 139A",
+            difficulty: 'moderate',
+            tags: ["Supreme Court", "Transfer Jurisdiction", "Article 139A"]
+        },
+        {
+            id: "SC-2023-1",
+            year: 2023,
+            question: "Writ jurisdiction of the Supreme Court under Article 32 can be suspended during:",
+            options: [
+                "National Emergency",
+                "Financial Emergency",
+                "President's Rule",
+                "Cannot be suspended under any emergency"
+            ],
+            correctAnswer: 3,
+            explanation: "Article 32 (Right to Constitutional Remedies) CANNOT be suspended even during National Emergency. This is the 'Heart and Soul' of the Constitution.",
+            articleReference: "Art 32, 359",
+            difficulty: 'moderate',
+            tags: ["Supreme Court", "Article 32", "Emergency", "Writ Jurisdiction"]
+        },
+        {
+            id: "SC-2022-1",
+            year: 2022,
+            question: "The retirement age of Supreme Court judges is:",
+            options: [
+                "60 years",
+                "62 years",
+                "65 years",
+                "No fixed retirement age"
+            ],
+            correctAnswer: 2,
+            explanation: "Supreme Court judges retire at 65 years (Art 124). High Court judges retire at 62 years. This difference is a common PYQ trap.",
+            articleReference: "Art 124",
+            difficulty: 'easy',
+            tags: ["Supreme Court", "Retirement Age", "Article 124"]
+        }
+    ]
+};
+
 // Master PYQ Data Map
 export const PYQ_DATA_MAP: Record<number, ChapterPYQData> = {
+    3: PREAMBLE_PYQS,
     5: FUNDAMENTAL_RIGHTS_PYQS,
-    13: PRESIDENT_PYQS,
-    35: EMERGENCY_PYQS,
+    6: DPSP_PYQS,
     8: AMENDMENT_PYQS,
+    13: PRESIDENT_PYQS,
+    17: PARLIAMENT_PYQS,
+    23: SUPREME_COURT_PYQS,
+    26: GOVERNOR_PYQS,
+    35: EMERGENCY_PYQS,
 };
 
 // Get PYQ data for a chapter
@@ -328,3 +601,25 @@ export function getPYQStatistics() {
         mostRecentYear: Math.max(...chapters.map(ch => ch.lastAskedYear)),
     };
 }
+
+// Get trend data for dashboard
+export function getPYQTrendData() {
+    const chapters = Object.values(PYQ_DATA_MAP);
+    return {
+        increasing: chapters.filter(ch => ch.trendDirection === 'increasing').map(ch => ch.chapterTitle),
+        stable: chapters.filter(ch => ch.trendDirection === 'stable').map(ch => ch.chapterTitle),
+        decreasing: chapters.filter(ch => ch.trendDirection === 'decreasing').map(ch => ch.chapterTitle),
+    };
+}
+
+// Get year-wise question distribution
+export function getYearWiseDistribution() {
+    const yearMap: Record<number, number> = {};
+    Object.values(PYQ_DATA_MAP).forEach(ch => {
+        ch.questions.forEach(q => {
+            yearMap[q.year] = (yearMap[q.year] || 0) + 1;
+        });
+    });
+    return Object.entries(yearMap).sort((a, b) => Number(b[0]) - Number(a[0]));
+}
+
