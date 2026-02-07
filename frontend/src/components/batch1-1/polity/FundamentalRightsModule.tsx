@@ -11,6 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
+import ChapterPYQSection from "./revision/ChapterPYQSection";
+import { FUNDAMENTAL_RIGHTS_PYQS } from "./data/pyq-data";
 
 interface FundamentalRightsModuleProps {
     onComplete?: () => void;
@@ -391,6 +393,9 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
                     <p className="text-[10px] mt-1 opacity-60">Different from National Emergency.</p>
                 </CaseFileCard>
             </div>
+
+            {/* PYQ PRACTICE SECTION */}
+            <ChapterPYQSection pyqData={FUNDAMENTAL_RIGHTS_PYQS} />
 
             {/* FOOTER */}
             <div className="mt-12 text-center pb-8 border-t border-slate-800 pt-8">
