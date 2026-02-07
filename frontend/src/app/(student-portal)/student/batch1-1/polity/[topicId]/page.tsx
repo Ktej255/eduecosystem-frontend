@@ -24,6 +24,7 @@ import AmendmentModule from "@/components/batch1-1/polity/AmendmentModule";
 import BasicStructureModule from "@/components/batch1-1/polity/BasicStructureModule";
 import ParliamentarySystemModule from "@/components/batch1-1/polity/ParliamentarySystemModule";
 import FederalSystemModule from "@/components/batch1-1/polity/FederalSystemModule";
+import CentreStateRelationsModule from "@/components/batch1-1/polity/CentreStateRelationsModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
 export default function TopicViewerPage() {
@@ -195,6 +196,11 @@ export default function TopicViewerPage() {
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
+            ) : topicId === 14 ? (
+                <CentreStateRelationsModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
             ) : (
                 <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
                     <CardContent className="p-6">
@@ -241,8 +247,8 @@ export default function TopicViewerPage() {
                 </Card>
             )}
 
-            {/* Content Tabs (Hidden for Topic 1-13 which use Special Modules) */}
-            {topicId > 13 && (
+            {/* Content Tabs (Hidden for Topic 1-14 which use Special Modules) */}
+            {topicId > 14 && (
                 <Tabs defaultValue="overview" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="overview">
