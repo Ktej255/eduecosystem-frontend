@@ -158,7 +158,7 @@ export default function BasicStructureModule({ onComplete, isCompleted }: BasicS
             {/* KESAVANANDA BHARATI MEGA CARD */}
             <div className="bg-gradient-to-br from-yellow-700/20 to-yellow-900/20 border-2 border-yellow-600/50 rounded-2xl p-6 md:p-10 shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-6 opacity-10 text-yellow-500">
-                    <Balance size={150} />
+                    <Scale size={150} />
                 </div>
 
                 <div className="relative z-10">
