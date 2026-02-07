@@ -13,6 +13,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TOPIC_TITLES, POLITY_PARTS, getPartById, getPartColors, PartId } from "@/components/batch1-1/polity/data/polity-types-95";
 import MakingConstitutionModule from "@/components/batch1-1/polity/MakingConstitutionModule";
 import MakingConstitutionModuleV2 from "@/components/batch1-1/polity/MakingConstitutionModuleV2";
+import SalientFeaturesModule from "@/components/batch1-1/polity/SalientFeaturesModule";
+import PreambleModule from "@/components/batch1-1/polity/PreambleModule";
+import UnionTerritoryModule from "@/components/batch1-1/polity/UnionTerritoryModule";
+import CitizenshipModule from "@/components/batch1-1/polity/CitizenshipModule";
+import FundamentalRightsModule from "@/components/batch1-1/polity/FundamentalRightsModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
 export default function TopicViewerPage() {
@@ -126,6 +131,31 @@ export default function TopicViewerPage() {
                 />
             ) : topicId === 2 ? (
                 <MakingConstitutionModuleV2
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 3 ? (
+                <SalientFeaturesModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 4 ? (
+                <PreambleModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 5 ? (
+                <UnionTerritoryModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 6 ? (
+                <CitizenshipModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 7 ? (
+                <FundamentalRightsModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
