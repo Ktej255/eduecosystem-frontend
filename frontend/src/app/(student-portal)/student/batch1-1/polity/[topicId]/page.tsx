@@ -15,7 +15,7 @@ import MakingConstitutionModule from "@/components/batch1-1/polity/MakingConstit
 import MakingConstitutionModuleV2 from "@/components/batch1-1/polity/MakingConstitutionModuleV2";
 import SalientFeaturesModule from "@/components/batch1-1/polity/SalientFeaturesModule";
 import PreambleModule from "@/components/batch1-1/polity/PreambleModule";
-import UnionTerritoryModule from "@/components/batch1-1/polity/UnionTerritoryModule";
+import UnionAndItsTerritoryModule from "@/components/batch1-1/polity/UnionAndItsTerritoryModule";
 import CitizenshipModule from "@/components/batch1-1/polity/CitizenshipModule";
 import FundamentalRightsModule from "@/components/batch1-1/polity/FundamentalRightsModule";
 import DPSPModule from "@/components/batch1-1/polity/DPSPModule";
@@ -45,6 +45,20 @@ import SubordinateCourtsModule from "@/components/batch1-1/polity/SubordinateCou
 import SpecialProvisionsModule from "@/components/batch1-1/polity/SpecialProvisionsModule";
 import PanchayatiRajModule from "@/components/batch1-1/polity/PanchayatiRajModule";
 import MunicipalitiesModule from "@/components/batch1-1/polity/MunicipalitiesModule";
+import UnionTerritoriesModule from "@/components/batch1-1/polity/UnionTerritoriesModule";
+import ScheduledTribalAreasModule from "@/components/batch1-1/polity/ScheduledTribalAreasModule";
+import ElectionCommissionModule from "@/components/batch1-1/polity/ElectionCommissionModule";
+import UPSCModule from "@/components/batch1-1/polity/UPSCModule";
+import SPSCModule from "@/components/batch1-1/polity/SPSCModule";
+import FinanceCommissionModule from "@/components/batch1-1/polity/FinanceCommissionModule";
+import GSTCouncilModule from "@/components/batch1-1/polity/GSTCouncilModule";
+import NCSCModule from "@/components/batch1-1/polity/NCSCModule";
+import NCSTModule from "@/components/batch1-1/polity/NCSTModule";
+import NCBCModule from "@/components/batch1-1/polity/NCBCModule";
+import LinguisticMinoritiesModule from "@/components/batch1-1/polity/LinguisticMinoritiesModule";
+import CAGModule from "@/components/batch1-1/polity/CAGModule";
+import AttorneyGeneralModule from "@/components/batch1-1/polity/AttorneyGeneralModule";
+import AdvocateGeneralModule from "@/components/batch1-1/polity/AdvocateGeneralModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
 export default function TopicViewerPage() {
@@ -172,7 +186,7 @@ export default function TopicViewerPage() {
                     isCompleted={isCompleted}
                 />
             ) : topicId === 5 ? (
-                <UnionTerritoryModule
+                <UnionAndItsTerritoryModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
@@ -321,6 +335,76 @@ export default function TopicViewerPage() {
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
+            ) : topicId === 36 ? (
+                <UnionTerritoriesModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 37 ? (
+                <ScheduledTribalAreasModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 38 ? (
+                <ElectionCommissionModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 39 ? (
+                <UPSCModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 40 ? (
+                <SPSCModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 41 ? (
+                <FinanceCommissionModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 42 ? (
+                <GSTCouncilModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 43 ? (
+                <NCSCModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 44 ? (
+                <NCSTModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 45 ? (
+                <NCBCModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 46 ? (
+                <LinguisticMinoritiesModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 47 ? (
+                <CAGModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 48 ? (
+                <AttorneyGeneralModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 49 ? (
+                <AdvocateGeneralModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
             ) : (
                 <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
                     <CardContent className="p-6">
@@ -368,7 +452,7 @@ export default function TopicViewerPage() {
             )}
 
             {/* Content Tabs (Hidden for Topic 1-20, 22-35 which use Special Modules) */}
-            {(topicId > 20 && topicId !== 22 && topicId !== 23 && topicId !== 24 && topicId !== 25 && topicId !== 26 && topicId !== 27 && topicId !== 28 && topicId !== 29 && topicId !== 30 && topicId !== 31 && topicId !== 32 && topicId !== 33 && topicId !== 34 && topicId !== 35) && (
+            {(topicId > 20 && topicId !== 22 && topicId !== 23 && topicId !== 24 && topicId !== 25 && topicId !== 26 && topicId !== 27 && topicId !== 28 && topicId !== 29 && topicId !== 30 && topicId !== 31 && topicId !== 32 && topicId !== 33 && topicId !== 34 && topicId !== 35 && topicId !== 36 && topicId !== 37 && topicId !== 38 && topicId !== 39 && topicId !== 40 && topicId !== 41 && topicId !== 42 && topicId !== 43 && topicId !== 44 && topicId !== 45 && topicId !== 46 && topicId !== 47 && topicId !== 48 && topicId !== 49) && (
                 <Tabs defaultValue="overview" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="overview">
