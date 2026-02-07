@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import {
     Shield, Scale, Gavel, Lock, Info, AlertTriangle,
     FileText, CheckCircle2, XCircle, Scroll, Landmark,
-    Sword, Eye, Globe, Building2, UserCheck, Flame, bookOpen,
-    BadgeCheck, BookOpen
+    Sword, Eye, Globe, Building2, UserCheck, Flame, BookOpen,
+    BadgeCheck, Users, Briefcase as BriefcaseIcon
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -416,4 +416,4 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
     );
 }
 
-import { Users, Briefcase as BriefcaseIcon } from "lucide-react";
+

@@ -205,8 +205,8 @@ export default function TopicViewerPage() {
                 </Card>
             )}
 
-            {/* Content Tabs (Hidden for Topic 1 & 2 which use Special Modules) */}
-            {topicId !== 1 && topicId !== 2 && (
+            {/* Content Tabs (Hidden for Topic 1-7 which use Special Modules) */}
+            {topicId > 7 && (
                 <Tabs defaultValue="overview" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="overview">
