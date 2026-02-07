@@ -266,7 +266,7 @@ export default function DPSPModule({ onComplete, isCompleted }: DPSPModuleProps)
                 <div className="space-y-4">
                     <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
                         <div className="text-xs text-slate-500 font-bold">1951 • Champakam Dorairajan</div>
-                        <div className="font-bold">FRs > DPSP</div>
+                        <div className="font-bold">FRs &gt; DPSP</div>
                         <div className="text-sm">FRs are superior. Parliament CAN amend FRs to implement DPSP.</div>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500">
