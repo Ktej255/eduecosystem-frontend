@@ -129,6 +129,13 @@ export default function PolityUnifiedDashboard() {
                 <div className="flex gap-2">
                     <Button variant="outline" size="sm" onClick={expandAll}>Expand All</Button>
                     <Button variant="outline" size="sm" onClick={collapseAll}>Collapse All</Button>
+                    <Button
+                        size="sm"
+                        onClick={() => router.push('/student/batch1-1/polity/revision')}
+                        className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold border-2 border-slate-900"
+                    >
+                        <Sparkles className="w-4 h-4 mr-2" /> Revision Suite
+                    </Button>
                 </div>
             </div>
 
