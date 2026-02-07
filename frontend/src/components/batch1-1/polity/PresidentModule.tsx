@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ChapterPYQSection from "./revision/ChapterPYQSection";
+import { PRESIDENT_PYQS } from "./data/pyq-data";
 
 interface PresidentModuleProps {
     onComplete?: () => void;
@@ -336,8 +338,11 @@ export default function PresidentModule({ onComplete, isCompleted }: PresidentMo
                 </div>
             </div>
 
-            {/* FOOTER: VITO COMPARISON */}
+            {/* FOOTER: VETO COMPARISON */}
             <div className="mt-12 border-t-2 border-dashed border-slate-300 pt-8">
+
+                {/* PYQ PRACTICE SECTION */}
+                <ChapterPYQSection pyqData={PRESIDENT_PYQS} />
                 <h3 className="text-center font-bold font-serif text-xl text-slate-700 mb-6 flex items-center justify-center gap-2">
                     <Globe size={20} /> Veto Power Comparison
                 </h3>
