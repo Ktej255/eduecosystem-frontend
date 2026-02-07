@@ -18,6 +18,7 @@ import PreambleModule from "@/components/batch1-1/polity/PreambleModule";
 import UnionTerritoryModule from "@/components/batch1-1/polity/UnionTerritoryModule";
 import CitizenshipModule from "@/components/batch1-1/polity/CitizenshipModule";
 import FundamentalRightsModule from "@/components/batch1-1/polity/FundamentalRightsModule";
+import DPSPModule from "@/components/batch1-1/polity/DPSPModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
 export default function TopicViewerPage() {
@@ -156,6 +157,11 @@ export default function TopicViewerPage() {
                 />
             ) : topicId === 7 ? (
                 <FundamentalRightsModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 8 ? (
+                <DPSPModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
