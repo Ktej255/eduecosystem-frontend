@@ -408,6 +408,179 @@ export function LokSabhaVsRajyaSabhaTable() {
     );
 }
 
+// CENTRE-STATE RELATIONS TABLE
+export function CentreStateRelationsTable() {
+    const [isExpanded, setIsExpanded] = useState(true);
+
+    return (
+        <Card className="border-2 border-slate-200 shadow-xl overflow-hidden mt-6">
+            <CardHeader className="bg-gradient-to-r from-emerald-600 to-teal-500 text-white">
+                <div className="flex items-center justify-between">
+                    <CardTitle className="flex items-center gap-3 text-xl">
+                        <Scale size={24} />
+                        Centre-State Relations Impact
+                    </CardTitle>
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className="text-white hover:bg-white/20"
+                    >
+                        {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    </Button>
+                </div>
+            </CardHeader>
+
+            {isExpanded && (
+                <CardContent className="p-0">
+                    <div className="overflow-x-auto">
+                        <table className="w-full border-collapse text-sm">
+                            <thead>
+                                <tr className="bg-slate-100 border-b-2 border-slate-300">
+                                    <th className="p-3 text-left font-bold text-slate-700 border-r w-1/4">Aspect</th>
+                                    <th className="p-3 text-left font-bold text-emerald-700 bg-emerald-50 w-[25%]">Normal Times</th>
+                                    <th className="p-3 text-left font-bold text-red-700 bg-red-50 w-[25%]">National Emergency</th>
+                                    <th className="p-3 text-left font-bold text-orange-700 bg-orange-50 w-[25%]">President's Rule</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="border-b hover:bg-slate-50">
+                                    <td className="p-3 font-semibold border-r">Executive Power (Centre)</td>
+                                    <td className="p-3 text-emerald-700">Limited to Union List</td>
+                                    <td className="p-3 font-bold text-red-700">Extends to State matters</td>
+                                    <td className="p-3 font-bold text-orange-700">Takes over State Admin</td>
+                                </tr>
+                                <tr className="border-b hover:bg-slate-50">
+                                    <td className="p-3 font-semibold border-r">Legislative Power (State List)</td>
+                                    <td className="p-3 text-emerald-700">Exclusive to State (mostly)</td>
+                                    <td className="p-3 font-bold text-red-700">Parliament can legislate</td>
+                                    <td className="p-3 font-bold text-orange-700">Parliament legislates</td>
+                                </tr>
+                                <tr className="border-b hover:bg-slate-50 bg-amber-50">
+                                    <td className="p-3 font-semibold border-r">
+                                        <Badge className="bg-red-500 text-white text-[10px] mr-1">PYQ</Badge>
+                                        State Assembly
+                                    </td>
+                                    <td className="p-3 text-emerald-700">Functions normally</td>
+                                    <td className="p-3 text-red-700 font-bold">NOT Suspended (usually)</td>
+                                    <td className="p-3 text-orange-700 font-bold">Suspended or Dissolved</td>
+                                </tr>
+                                <tr className="border-b hover:bg-slate-50">
+                                    <td className="p-3 font-semibold border-r">Financial Distribution</td>
+                                    <td className="p-3 text-emerald-700">As per Finance Commission</td>
+                                    <td className="p-3 font-bold text-red-700">President can modify</td>
+                                    <td className="p-3 text-orange-700">State budget by Parliament</td>
+                                </tr>
+                                <tr className="border-b hover:bg-slate-50">
+                                    <td className="p-3 font-semibold border-r">All India Services</td>
+                                    <td className="p-3 text-emerald-700">Controlled by Centre &amp; State</td>
+                                    <td className="p-3 text-red-700">Full Central Control</td>
+                                    <td className="p-3 text-orange-700">Under Governor/Prez</td>
+                                </tr>
+                                <tr className="hover:bg-slate-50">
+                                    <td className="p-3 font-semibold border-r">Residuary Powers</td>
+                                    <td className="p-3 font-bold text-emerald-700">With Parliament</td>
+                                    <td className="p-3 text-red-700">With Parliament</td>
+                                    <td className="p-3 text-orange-700">With Parliament</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </CardContent>
+            )}
+        </Card>
+    );
+}
+
+// AMENDMENT TYPES COMPARISON
+export function AmendmentTypesTable() {
+    const [isExpanded, setIsExpanded] = useState(true);
+
+    return (
+        <Card className="border-2 border-slate-200 shadow-xl overflow-hidden mt-6">
+            <CardHeader className="bg-gradient-to-r from-pink-600 to-rose-500 text-white">
+                <div className="flex items-center justify-between">
+                    <CardTitle className="flex items-center gap-3 text-xl">
+                        <Gavel size={24} />
+                        Types of Amendments
+                    </CardTitle>
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className="text-white hover:bg-white/20"
+                    >
+                        {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    </Button>
+                </div>
+            </CardHeader>
+
+            {isExpanded && (
+                <CardContent className="p-0">
+                    <div className="overflow-x-auto">
+                        <table className="w-full border-collapse text-sm">
+                            <thead>
+                                <tr className="bg-slate-100 border-b-2 border-slate-300">
+                                    <th className="p-3 text-left font-bold text-slate-700 border-r w-1/4">Type</th>
+                                    <th className="p-3 text-left font-bold text-pink-700 bg-pink-50 w-[20%]">Requirement</th>
+                                    <th className="p-3 text-left font-bold text-slate-700 bg-slate-50 w-[35%]">Example Subjects</th>
+                                    <th className="p-3 text-left font-bold text-purple-700 bg-purple-50 w-[20%]">Article 368?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="border-b hover:bg-slate-50">
+                                    <td className="p-3 font-semibold border-r text-pink-800">Simple Majority</td>
+                                    <td className="p-3 text-slate-700">&gt;50% present &amp; voting</td>
+                                    <td className="p-3 text-slate-600">
+                                        <ul className="list-disc list-inside">
+                                            <li>New States (Art 3)</li>
+                                            <li>Citizenship</li>
+                                            <li>Official Language</li>
+                                            <li>2nd, 5th, 6th Schedule</li>
+                                        </ul>
+                                    </td>
+                                    <td className="p-3 font-bold text-slate-500">NO (Technically)</td>
+                                </tr>
+                                <tr className="border-b hover:bg-slate-50 bg-amber-50">
+                                    <td className="p-3 font-semibold border-r text-purple-800">
+                                        <Badge className="bg-red-500 text-white text-[10px] mr-1">PYQ</Badge>
+                                        Special Majority
+                                    </td>
+                                    <td className="p-3 text-slate-700">&gt;50% Total + 2/3 Present</td>
+                                    <td className="p-3 text-slate-600">
+                                        <ul className="list-disc list-inside">
+                                            <li>Fundamental Rights</li>
+                                            <li>DPSP</li>
+                                            <li>All others not covered by 1 &amp; 3</li>
+                                        </ul>
+                                    </td>
+                                    <td className="p-3 font-bold text-purple-700">YES</td>
+                                </tr>
+                                <tr className="hover:bg-slate-50 bg-blue-50">
+                                    <td className="p-3 font-semibold border-r text-blue-800">
+                                        Special + Ratification
+                                    </td>
+                                    <td className="p-3 text-slate-700">Special Majority + 50% States</td>
+                                    <td className="p-3 text-slate-600">
+                                        <ul className="list-disc list-inside">
+                                            <li>Election of President</li>
+                                            <li>SC/HC Powers</li>
+                                            <li>GST Council</li>
+                                            <li>7th Schedule Lists</li>
+                                            <li>Art 368 itself</li>
+                                        </ul>
+                                    </td>
+                                    <td className="p-3 font-bold text-purple-700">YES</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </CardContent>
+            )}
+        </Card>
+    );
+}
+
 // Main Export: Smart Comparison Tables Dashboard
 export default function SmartComparisonTables() {
     return (
@@ -425,15 +598,21 @@ export default function SmartComparisonTables() {
 
             {/* Tab Navigation */}
             <Tabs defaultValue="pres-gov" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 bg-white border-2 border-slate-200 rounded-xl p-1">
-                    <TabsTrigger value="pres-gov" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-orange-500 data-[state=active]:text-white">
-                        President vs Governor
+                <TabsList className="grid w-full grid-cols-5 bg-white border-2 border-slate-200 rounded-xl p-1 h-auto">
+                    <TabsTrigger value="pres-gov" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-orange-500 data-[state=active]:text-white p-2">
+                        Pres vs Gov
                     </TabsTrigger>
-                    <TabsTrigger value="emergency" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-orange-500 data-[state=active]:text-white">
-                        Emergency Types
+                    <TabsTrigger value="emergency" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-orange-500 data-[state=active]:text-white p-2">
+                        Emergency
                     </TabsTrigger>
-                    <TabsTrigger value="parliament" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white">
+                    <TabsTrigger value="parliament" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white p-2">
                         LS vs RS
+                    </TabsTrigger>
+                    <TabsTrigger value="centre-state" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-emerald-500 data-[state=active]:to-teal-500 data-[state=active]:text-white p-2">
+                        Centre-State
+                    </TabsTrigger>
+                    <TabsTrigger value="amendment" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-pink-500 data-[state=active]:to-rose-500 data-[state=active]:text-white p-2">
+                        Amendments
                     </TabsTrigger>
                 </TabsList>
 
@@ -447,6 +626,14 @@ export default function SmartComparisonTables() {
 
                 <TabsContent value="parliament" className="mt-6">
                     <LokSabhaVsRajyaSabhaTable />
+                </TabsContent>
+
+                <TabsContent value="centre-state" className="mt-6">
+                    <CentreStateRelationsTable />
+                </TabsContent>
+
+                <TabsContent value="amendment" className="mt-6">
+                    <AmendmentTypesTable />
                 </TabsContent>
             </Tabs>
         </div>

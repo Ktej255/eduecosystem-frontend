@@ -5,13 +5,16 @@ import {
     Book, Table, Clock, Brain,
     ArrowLeft, Search, GraduationCap,
     Sparkles, Gavel, Scroll, Scale,
-    Gamepad2, History, Users
+    Gamepad2, History, Users, BarChart3,
+    ArrowRightLeft
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useRouter } from 'next/navigation';
 import BodiesComparisonTable from './BodiesComparisonTable';
-import ArticleArcade from './ArticleArcade';
+import SmartComparisonTables from './SmartComparisonTables';
+import ArticleMemorySystem from './ArticleMemorySystem';
+import PYQTrendDashboard from './PYQTrendDashboard';
 import AmendmentTimeline from './AmendmentTimeline';
 import SchedulesMnemonics from './SchedulesMnemonics';
 import WritsWizard from './WritsWizard';
@@ -20,7 +23,7 @@ import MajoritiesMasterclass from './MajoritiesMasterclass';
 
 export default function PolityRevisionDashboard() {
     const router = useRouter();
-    const [activeTab, setActiveTab] = useState('bodies');
+    const [activeTab, setActiveTab] = useState('pyq-trends');
 
     return (
         <div className="min-h-screen bg-[#fff7ed] font-['Kalam']">
@@ -50,35 +53,49 @@ export default function PolityRevisionDashboard() {
             <main className="max-w-7xl mx-auto p-4 md:p-8">
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
                     <TabsList className="bg-slate-200/50 p-2 rounded-xl w-full flex flex-wrap justify-start gap-2 h-auto">
+                        <TabsTrigger value="pyq-trends" className="px-4 py-2 rounded-lg data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <BarChart3 size={16} /> PYQ Trends
+                        </TabsTrigger>
+                        <TabsTrigger value="smart-tables" className="px-4 py-2 rounded-lg data-[state=active]:bg-purple-600 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <ArrowRightLeft size={16} /> Smart Comparisons
+                        </TabsTrigger>
                         <TabsTrigger value="bodies" className="px-4 py-2 rounded-lg data-[state=active]:bg-amber-500 data-[state=active]:text-slate-900 font-bold flex items-center gap-2">
-                            <Table size={16} /> Comparison Tables
+                            <Table size={16} /> Bodies Matrix
                         </TabsTrigger>
                         <TabsTrigger value="arcade" className="px-4 py-2 rounded-lg data-[state=active]:bg-blue-600 data-[state=active]:text-white font-bold flex items-center gap-2">
-                            <Gamepad2 size={16} /> Article Arcade
+                            <Gamepad2 size={16} /> Article Memory
                         </TabsTrigger>
-                        <TabsTrigger value="timeline" className="px-4 py-2 rounded-lg data-[state=active]:bg-purple-600 data-[state=active]:text-white font-bold flex items-center gap-2">
-                            <History size={16} /> Amendment Timeline
+                        <TabsTrigger value="timeline" className="px-4 py-2 rounded-lg data-[state=active]:bg-pink-600 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <History size={16} /> Timeline
                         </TabsTrigger>
                         <TabsTrigger value="mnemonics" className="px-4 py-2 rounded-lg data-[state=active]:bg-green-600 data-[state=active]:text-white font-bold flex items-center gap-2">
                             <Brain size={16} /> Mnemonics
                         </TabsTrigger>
                         <TabsTrigger value="writs" className="px-4 py-2 rounded-lg data-[state=active]:bg-cyan-600 data-[state=active]:text-white font-bold flex items-center gap-2">
-                            <Gavel size={16} /> Writs Wizard
+                            <Gavel size={16} /> Writs
                         </TabsTrigger>
                         <TabsTrigger value="preamble" className="px-4 py-2 rounded-lg data-[state=active]:bg-amber-700 data-[state=active]:text-white font-bold flex items-center gap-2">
-                            <Scroll size={16} /> Preamble Decoder
+                            <Scroll size={16} /> Preamble
                         </TabsTrigger>
                         <TabsTrigger value="majorities" className="px-4 py-2 rounded-lg data-[state=active]:bg-rose-600 data-[state=active]:text-white font-bold flex items-center gap-2">
-                            <Users size={16} /> Majorities Masterclass
+                            <Users size={16} /> Majorities
                         </TabsTrigger>
                     </TabsList>
+
+                    <TabsContent value="pyq-trends" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <PYQTrendDashboard />
+                    </TabsContent>
+
+                    <TabsContent value="smart-tables" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <SmartComparisonTables />
+                    </TabsContent>
 
                     <TabsContent value="bodies" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                         <BodiesComparisonTable />
                     </TabsContent>
 
                     <TabsContent value="arcade" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <ArticleArcade />
+                        <ArticleMemorySystem />
                     </TabsContent>
 
                     <TabsContent value="timeline" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
