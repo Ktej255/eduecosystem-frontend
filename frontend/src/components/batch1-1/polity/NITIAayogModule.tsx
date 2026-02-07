@@ -173,7 +173,7 @@ export default function NITIAayogModule({ onComplete, isCompleted }: NITIAayogMo
 
                         <div className="p-3 bg-slate-100 border-2 border-dashed border-slate-300 rounded-xl">
                             <p className="text-[9px] font-black uppercase text-slate-400 font-sans underline mb-1">Regional Councils:</p>
-                            <p className="text-[10px] font-bold italic text-slate-600 leading-tight">For specific issues affecting >1 State. Chaired by PM or nominee.</p>
+                            <p className="text-[10px] font-bold italic text-slate-600 leading-tight">For specific issues affecting &gt;1 State. Chaired by PM or nominee.</p>
                         </div>
                     </div>
                 </ThinkCard>
@@ -289,8 +289,8 @@ export default function NITIAayogModule({ onComplete, isCompleted }: NITIAayogMo
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-[#0f766e] hover:bg-teal-900 text-white shadow-[0_10px_40px_-10px_rgba(15,118,110,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-[#0f766e] hover:bg-teal-900 text-white shadow-[0_10px_40px_-10px_rgba(15,118,110,0.5)]"
                         }`}
                 >
                     {isCompleted ? (

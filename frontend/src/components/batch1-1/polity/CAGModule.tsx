@@ -172,7 +172,7 @@ export default function CAGModule({ onComplete, isCompleted }: CAGModuleProps) {
                             ))}
                         </div>
                         <div className="p-3 bg-red-50 border-2 border-[#b91c1c] border-dotted rounded-xl text-center">
-                            <p className="text-[10px] font-black uppercase text-red-800">Route: To President -> Parliament -> PAC [PYQ]</p>
+                            <p className="text-[10px] font-black uppercase text-red-800">Route: To President -&gt; Parliament -&gt; PAC [PYQ]</p>
                         </div>
                     </div>
                 </HandwrittenCard>
@@ -249,8 +249,8 @@ export default function CAGModule({ onComplete, isCompleted }: CAGModuleProps) {
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-[#b91c1c] hover:bg-red-900 text-white shadow-[0_10px_40px_-10px_rgba(185,28,28,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-[#b91c1c] hover:bg-red-900 text-white shadow-[0_10px_40px_-10px_rgba(185,28,28,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
