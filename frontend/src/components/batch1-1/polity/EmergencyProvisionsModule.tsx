@@ -252,7 +252,7 @@ export default function EmergencyProvisionsModule({ onComplete, isCompleted }: E
                                 <span className="font-bold text-red-600">3 Years</span>
                             </div>
                             <div className="mt-2 text-sm bg-white p-2 rounded border border-orange-200 text-slate-500 italic">
-                                <strong>Condition (>1yr):</strong> Election Commission must certify elections difficult.
+                                <strong>Condition (&gt;1yr):</strong> Election Commission must certify elections difficult.
                             </div>
                         </div>
                     </SketchyBox>

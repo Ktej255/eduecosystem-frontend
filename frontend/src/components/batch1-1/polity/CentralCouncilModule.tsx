@@ -100,7 +100,7 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                                 Judicial Review: Courts <strong className="text-red-600">CANNOT</strong> inquire into advice.
                             </div>
                         </div>
-                    </SketchyCard>
+                    </SketchCard>
 
                     {/* ART 75: OTHER PROVISIONS */}
                     <SketchCard title="Art 75: Provisions Checklist" icon={Users} color="indigo">
@@ -123,7 +123,7 @@ export default function CentralCouncilModule({ onComplete, isCompleted }: Centra
                                 <span><strong>Disqualification:</strong> Defection (10th Sched) = Minister Disqualified.</span>
                             </li>
                         </ul>
-                    </SketchyCard>
+                    </SketchCard>
                 </div>
             </div>
 
