@@ -180,7 +180,7 @@ export default function FundamentalRightsModule({ onComplete, isCompleted }: Fun
                     </div>
                 </CaseFileCard>
 
-                <CaseFileCard title="Art 16: Public Employment" icon={Briefcase} color="blue">
+                <CaseFileCard title="Art 16: Public Employment" icon={BriefcaseIcon} color="blue">
                     <p className="text-xs mb-2">RRCSP + <strong>Descent + Residence</strong>.</p>
                     <div className="bg-slate-800 p-2 rounded text-xs space-y-1 border border-slate-700">
                         <div><strong>Mandal (1990):</strong> 27% OBC OK.</div>

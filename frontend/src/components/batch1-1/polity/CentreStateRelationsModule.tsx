@@ -5,7 +5,7 @@ import {
     Settings, FileText, Globe, Gavel, Shield,
     AlertTriangle, CheckCircle2, XCircle, ArrowRight,
     Landmark, Coins, Briefcase, Activity,
-    Network, Scale, Zap
+    Network, Scale, Zap, Users
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
