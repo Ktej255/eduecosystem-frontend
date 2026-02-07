@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import {
     Gavel, Users, TreeDeciduous,
-    Handshake, stamp, Scale,
+    Handshake, Scale,
     ArrowDown, FileText, UserPlus,
     Building2, LucideIcon, Stamp
 } from "lucide-react";
