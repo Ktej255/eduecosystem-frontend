@@ -223,7 +223,7 @@ export default function SpecialProvisionsStatesModule({ onComplete, isCompleted,
                 >
                     {isCompleted ? (
                         <span className="flex items-center gap-4">
-                            <BadgeCheck size={32} className="animate-bounce" />
+                            <CheckCircle2 size={32} className="animate-bounce" />
                             FEDERAL MASTER GRADUATED
                         </span>
                     ) : (

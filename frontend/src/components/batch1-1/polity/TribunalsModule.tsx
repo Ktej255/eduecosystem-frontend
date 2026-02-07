@@ -3,10 +3,10 @@
 import React from "react";
 import {
     Gavel, Scale, Hammer, Landmark,
-    Info, BadgeCheck, BookOpen, UserCheck,
+    Info, BookOpen, UserCheck,
     SearchCheck, ShieldAlert, FileText, History,
     MessageSquare, AlertTriangle, UserPlus,
-    Subtitles, Target, Zap, Activity, Balance,
+    Subtitles, Target, Zap, Activity,
     ArrowRightCircle, CheckCircle2, Maximize2
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -107,7 +107,7 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                         </p>
                         <hr className="my-4 opacity-10" />
                         <div className="flex items-center gap-2">
-                            <BadgeCheck className="text-green-400" size={16} />
+                            <CheckCircle2 className="text-green-400" size={16} />
                             <p className="text-[10px] font-bold">Bypassing the hierarchy for efficiency.</p>
                         </div>
                     </div>
@@ -187,7 +187,7 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                 <div className="absolute top-0 left-0 p-4 opacity-5 rotate-12"><Zap size={150} /></div>
                 <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
                     <div className="p-6 bg-white text-indigo-900 rounded-full border-4 border-indigo-400 shadow-[0_0_50px_rgba(79,70,229,0.3)] flex-shrink-0">
-                        <Balance size={48} />
+                        <Scale size={48} />
                     </div>
                     <div className="space-y-4">
                         <h4 className="text-2xl font-black italic text-[#fbbf24] flex items-center gap-3">
@@ -211,7 +211,7 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                 >
                     {isCompleted ? (
                         <span className="flex items-center gap-4">
-                            <BadgeCheck size={32} className="animate-bounce" />
+                            <CheckCircle2 size={32} className="animate-bounce" />
                             TRIBUNAL EXPERTISE MASTERED
                         </span>
                     ) : (
