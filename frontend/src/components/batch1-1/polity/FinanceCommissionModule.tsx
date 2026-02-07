@@ -5,8 +5,8 @@ import {
     Scale, Landmark, Calculator, PieChart,
     CheckCircle2, Info, Building2, Gavel, Users,
     BadgeCheck, BookOpen, UserCheck, TrendingUp,
-    Coins, Handshake, ScrollText, ArrowDownNarrowWide,
-    ArrowRightLeft, BadgePercent
+    Coins, Handshake, ScrollText, ArrowDown,
+    ArrowRightLeft, BadgePercent, AlertTriangle
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -133,7 +133,7 @@ export default function FinanceCommissionModule({ onComplete, isCompleted }: Fin
                     <div className="space-y-4">
                         <div className="p-4 bg-green-50 border-t-4 border-green-700 rounded-xl">
                             <h5 className="font-black text-green-900 text-sm flex items-center gap-2 mb-2">
-                                <ArrowDownNarrowWide size={18} /> Vertical Devolution
+                                <ArrowDown size={18} /> Vertical Devolution
                             </h5>
                             <p className="text-xs">Distribution of <span className="underline font-bold">net proceeds</span> of taxes between Centre & States.</p>
                         </div>
@@ -238,8 +238,8 @@ export default function FinanceCommissionModule({ onComplete, isCompleted }: Fin
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-amber-700 hover:bg-amber-800 text-white shadow-[0_10px_40px_-10px_rgba(180,83,9,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-amber-700 hover:bg-amber-800 text-white shadow-[0_10px_40px_-10px_rgba(180,83,9,0.5)]"
                         }`}
                 >
                     {isCompleted ? (

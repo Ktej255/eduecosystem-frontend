@@ -71,27 +71,28 @@ import NDMAModule from "@/components/batch1-1/polity/NDMAModule";
 import CooperativeSocietiesModule from "@/components/batch1-1/polity/CooperativeSocietiesModule";
 import OfficialLanguageModule from "@/components/batch1-1/polity/OfficialLanguageModule";
 import PublicServicesModule from "@/components/batch1-1/polity/PublicServicesModule";
-import TribunalsModule from "@/components/batch1-1/polity/TribunalsModule";
 import RightsLiabilitiesModule from "@/components/batch1-1/polity/RightsLiabilitiesModule";
 import HindiTextModule from "@/components/batch1-1/polity/HindiTextModule";
 import CertainClassesModule from "@/components/batch1-1/polity/CertainClassesModule";
 import PoliticalPartiesModule from "@/components/batch1-1/polity/PoliticalPartiesModule";
 import ElectionsModule from "@/components/batch1-1/polity/ElectionsModule";
-import SpecialProvisionsStatesModule from "@/components/batch1-1/polity/SpecialProvisionsStatesModule";
-import RegionalPartiesModule from "@/components/batch1-1/polity/RegionalPartiesModule";
-import ElectionLawsModule from "@/components/batch1-1/polity/ElectionLawsModule";
 import ElectoralReformsModule from "@/components/batch1-1/polity/ElectoralReformsModule";
-import VotingBehaviourModule from "@/components/batch1-1/polity/VotingBehaviourModule";
-import CoalitionGovtModule from "@/components/batch1-1/polity/CoalitionGovtModule";
 import AntiDefectionLawModule from "@/components/batch1-1/polity/AntiDefectionLawModule";
 import PressureGroupsModule from "@/components/batch1-1/polity/PressureGroupsModule";
 import NationalIntegrationModule from "@/components/batch1-1/polity/NationalIntegrationModule";
 import ForeignPolicyModule from "@/components/batch1-1/polity/ForeignPolicyModule";
 import NCRWCModule from "@/components/batch1-1/polity/NCRWCModule";
+import TribunalsModule from "@/components/batch1-1/polity/TribunalsModule";
+import SpecialProvisionsStatesModule from "@/components/batch1-1/polity/SpecialProvisionsStatesModule";
+import RegionalPartiesModule from "@/components/batch1-1/polity/RegionalPartiesModule";
+import ElectionLawsModule from "@/components/batch1-1/polity/ElectionLawsModule";
+import VotingBehaviourModule from "@/components/batch1-1/polity/VotingBehaviourModule";
+import CoalitionGovtModule from "@/components/batch1-1/polity/CoalitionGovtModule";
 import LandmarkJudgementsModule from "@/components/batch1-1/polity/LandmarkJudgementsModule";
 import ScopeOfArticle21Module from "@/components/batch1-1/polity/ScopeOfArticle21Module";
 import AmendmentJudgementsModule from "@/components/batch1-1/polity/AmendmentJudgementsModule";
 import ConstitutionalDoctrinesModule from "@/components/batch1-1/polity/ConstitutionalDoctrinesModule";
+import CabinetCommitteesModule from "@/components/batch1-1/polity/CabinetCommitteesModule";
 import WorldConstitutionsModule from "@/components/batch1-1/polity/WorldConstitutionsModule";
 import HistoryModule from "@/components/batch1-1/polity/HistoryModule";
 
@@ -299,6 +300,11 @@ export default function TopicViewerPage() {
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
+            ) : topicId === 21 ? (
+                <CabinetCommitteesModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
             ) : topicId === 22 ? (
                 <ParliamentModule
                     onComplete={markComplete}
@@ -499,18 +505,69 @@ export default function TopicViewerPage() {
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
+
             ) : topicId === 62 ? (
-                <PublicServicesModule
+                <TribunalsModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
             ) : topicId === 63 ? (
-                <TribunalsModule
+                <HindiTextModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />
-            ) : topicId === 62 ? (
-                <TribunalsModule
+            ) : topicId === 64 ? (
+                <RightsLiabilitiesModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 65 ? (
+                <HindiTextModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 66 ? (
+                <CertainClassesModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 67 ? (
+                <PoliticalPartiesModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 68 ? (
+                <ElectionsModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 69 ? (
+                <ElectoralReformsModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 70 ? (
+                <AntiDefectionLawModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 71 ? (
+                <PressureGroupsModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 72 ? (
+                <NationalIntegrationModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 73 ? (
+                <ForeignPolicyModule
+                    onComplete={markComplete}
+                    isCompleted={isCompleted}
+                />
+            ) : topicId === 74 ? (
+                <NCRWCModule
                     onComplete={markComplete}
                     isCompleted={isCompleted}
                 />

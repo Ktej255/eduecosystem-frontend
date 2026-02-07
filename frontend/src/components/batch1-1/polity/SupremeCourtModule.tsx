@@ -3,9 +3,9 @@
 import React from "react";
 import {
     Scale, Gavel, Shield, Book, Scroll,
-    Phone, Map, UserCheck, AlertTriangle,
-    CheckCircle2, XCircle, Landmark, Swords,
-    BookOpen, Search, FileText, Users
+    Phone, Map as MapIcon, UserCheck, AlertTriangle,
+    CheckCircle2, XCircle, Landmark, BookOpen,
+    Search, FileText, Users
 } from "lucide-react";
 
 interface SupremeCourtModuleProps {
@@ -130,7 +130,7 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
                 </div>
 
                 {/* THE JUDGES CASES TIMELINE */}
-                <MarbleCard title="The Appointment Battle" icon={Swords} className="h-full">
+                <MarbleCard title="The Appointment Battle" icon={Gavel} className="h-full">
                     <div className="pl-2">
                         <LawTimelineItem
                             year="1982"
@@ -235,7 +235,7 @@ export default function SupremeCourtModule({ onComplete, isCompleted }: SupremeC
 
                 <div className="grid md:grid-cols-3 gap-6">
                     {/* ORIGINAL */}
-                    <MarbleCard title="Original (Art 131)" icon={Map}>
+                    <MarbleCard title="Original (Art 131)" icon={MapIcon}>
                         <div className="text-sm font-handwriting space-y-3">
                             <p className="font-bold text-center bg-slate-100 p-2 rounded">Federal Disputes</p>
                             <ul className="list-disc pl-4 space-y-1">

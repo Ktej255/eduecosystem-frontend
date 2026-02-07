@@ -280,7 +280,34 @@ export const TOPIC_TITLES: { id: number; title: string; part: PartId }[] = [
 
     // Part X: Political Dynamics (62-74)
     { id: 62, title: 'Tribunals', part: 'X' },
-    { id: 63, title: 'Authoritative Text in Hindi', part: 'X' },
+    { id: 63, title: 'Authoritative Text in Hindi', part: 'X' }, // Note: User mapped this to 65, but maintaining ID sequence for now or remapping?
+    // Wait, let's follow the User's numbering explicitly.
+    // The user explicitely listed:
+    // 64: Rights & Liabilities
+    // 65: Authoritatively Hindi Text (Wait, user said 65 is Hindi Text)
+    // 66: Special Provisions
+    // ...
+    // My previous ID for Hindi Text was 63.
+    // If I just Append, I skip.
+    // Strategy: I will APPEND 64-74. I will NOT change 63 for now to avoid breaking existing links unless critical.
+    // Actually, User Ch 65 = Type ID 63.
+    // User Ch 64 = Type ID 76 (Rights).
+    // User Ch 67 = Type ID 79 (Political Parties).
+    // The User's numbering is DIFFERENT.
+    // I will ADD entries for 64-74 using the titles the user provided, even if they duplicate existing higher IDs.
+    // This allows the "Chapter 64" link to work.
+
+    { id: 64, title: 'Rights and Liabilities of the Government', part: 'X' },
+    { id: 65, title: 'Authoritative Text in Hindi', part: 'X' },
+    { id: 66, title: 'Special Provisions for Certain Classes', part: 'X' },
+    { id: 67, title: 'Political Parties', part: 'X' },
+    { id: 68, title: 'Elections', part: 'X' },
+    { id: 69, title: 'Electoral Reforms', part: 'X' },
+    { id: 70, title: 'Anti-Defection Law', part: 'X' },
+    { id: 71, title: 'Pressure Groups', part: 'X' },
+    { id: 72, title: 'National Integration', part: 'X' },
+    { id: 73, title: 'Foreign Policy', part: 'X' },
+    { id: 74, title: 'National Commission to Review the Working of the Constitution (NCRWC)', part: 'X' },
 
     // Part XI: Working of the Constitution (70-95)
     { id: 75, title: 'Public Services', part: 'XI' },

@@ -2,11 +2,11 @@
 
 import React from "react";
 import {
-    ShieldCheck, Users, ScrollText, Gavel,
-    Info, BadgeCheck, BookOpen, UserCheck,
-    Scale, ShieldAlert, FileText, Landmark,
-    ArrowBigUpDash, History, SearchCheck, GitBranch,
-    UserPlus, Briefcase, Network
+    Shield, Users, ScrollText, Gavel,
+    Info, CheckCircle2, BookOpen,
+    Scale, AlertTriangle, FileText, Landmark,
+    ArrowBigUpDash, History, Search, Share2,
+    Briefcase, Network
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -69,7 +69,7 @@ export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps)
                     </p>
                 </div>
                 <div className="absolute bottom-4 right-4 opacity-10">
-                    <ShieldCheck size={180} />
+                    <Shield size={180} />
                 </div>
             </div>
 
@@ -91,7 +91,7 @@ export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps)
                         </div>
                         <div className="relative p-3 bg-orange-50 border-2 border-dashed border-[#c2410c] rounded-xl transform -rotate-1">
                             <div className="absolute -left-[31px] top-4 w-6 h-6 rounded-full bg-white border-4 border-[#c2410c] flex items-center justify-center">
-                                <GitBranch size={10} className="text-[#c2410c]" />
+                                <Share2 size={10} className="text-[#c2410c]" />
                             </div>
                             <h4 className="font-black text-[#c2410c]">2003 - 89th Amendment [CRITICAL]</h4>
                             <p className="text-xs font-black text-slate-600">Bifurcation into two distinct bodies:</p>
@@ -108,12 +108,12 @@ export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps)
                     <div className="bg-slate-50 p-6 rounded-2xl border-4 border-double border-slate-200">
                         <div className="grid grid-cols-3 gap-2 mb-6">
                             <div className="text-center p-2 bg-white border-2 border-[#1e40af] rounded-lg shadow-sm">
-                                <BadgeCheck className="mx-auto text-[#1e40af]" size={20} />
+                                <CheckCircle2 className="mx-auto text-[#1e40af]" size={20} />
                                 <p className="text-[10px] font-black mt-1">Chairperson</p>
                                 <p className="text-[8px] italic">(Cabinet Min Rank)</p>
                             </div>
                             <div className="text-center p-2 bg-white border-2 border-indigo-200 rounded-lg shadow-sm">
-                                <UserPlus className="mx-auto text-indigo-400" size={20} />
+                                <Users className="mx-auto text-indigo-400" size={20} />
                                 <p className="text-[10px] font-black mt-1">Vice-Chair</p>
                                 <p className="text-[8px] italic">(MoS Rank)</p>
                             </div>
@@ -145,8 +145,8 @@ export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps)
                 <HandwrittenCard title="Duties (Art 338)" color="border-[#1e40af]">
                     <div className="space-y-4">
                         {[
-                            { icon: SearchCheck, text: "INVESTIGATE: Monitors all matters relating to constitutional safeguards for SCs." },
-                            { icon: ShieldAlert, text: "INQUIRE: Into specific complaints of deprivation of rights." },
+                            { icon: Search, text: "INVESTIGATE: Monitors all matters relating to constitutional safeguards for SCs." },
+                            { icon: AlertTriangle, text: "INQUIRE: Into specific complaints of deprivation of rights." },
                             { icon: Briefcase, text: "ADVISE: Participates in planning process of socio-economic development." },
                             { icon: FileText, text: "REPORT: Presents annual report to President." }
                         ].map((item, i) => (
@@ -273,18 +273,18 @@ export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps)
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-[#1e40af] hover:bg-indigo-900 text-white shadow-[0_10px_40px_-10px_rgba(30,64,175,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-[#1e40af] hover:bg-indigo-900 text-white shadow-[0_10px_40px_-10px_rgba(30,64,175,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
                         <span className="flex items-center gap-4">
-                            <BadgeCheck size={32} className="animate-bounce" />
+                            <CheckCircle2 size={32} className="animate-bounce" />
                             SAFEGUARDS MASTERED
                         </span>
                     ) : (
                         <span className="flex items-center gap-4">
-                            <ShieldCheck size={32} className="group-hover:rotate-12 transition-transform" />
+                            <Shield size={32} className="group-hover:rotate-12 transition-transform" />
                             MARK CHAPTER 43 COMPLETE
                         </span>
                     )}

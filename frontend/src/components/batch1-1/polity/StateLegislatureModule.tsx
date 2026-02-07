@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import {
     Building, Trash2, Construction,
-    Map, Users, ArrowUpRight,
+    Map as MapIcon, Users, ArrowUpRight,
     Scale, AlertTriangle, Hammer,
-    FileText, UserPlus, XCircle
+    FileText, XCircle
 } from "lucide-react";
 
 interface StateLegislatureModuleProps {
@@ -76,7 +76,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                 <div className="bg-white p-6 rounded-xl shadow-xl border border-slate-200">
                     <div className="flex flex-col md:flex-row items-center gap-8">
                         <div className="md:w-1/2">
-                            <Map size={120} className="mx-auto text-slate-200" />
+                            <MapIcon size={120} className="mx-auto text-slate-200" />
                             <div className="text-center mt-4">
                                 <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full font-bold text-sm border border-yellow-300">
                                     Only 6 States Have 2 Houses
@@ -179,7 +179,7 @@ export default function StateLegislatureModule({ onComplete, isCompleted }: Stat
                     </HouseCard>
 
                     {/* COUNCIL (PARISHAD) */}
-                    <HouseCard title="Legislative Council" icon={UserPlus} type="parishad">
+                    <HouseCard title="Legislative Council" icon={Users} type="parishad">
                         <div className="space-y-3 text-sm">
                             <div className="flex justify-between border-b border-red-200 pb-1">
                                 <span>Strength</span>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import {
-    Scale, Shield, Map, Gavel,
+    Scale, Shield, Map as MapIcon, Gavel,
     Scroll, BookOpen, Landmark,
     ArrowUpRight, AlertCircle,
     DollarSign, Briefcase, UserPlus
@@ -97,7 +97,7 @@ export default function HighCourtModule({ onComplete, isCompleted }: HighCourtMo
                     </GuardianCard>
 
                     {/* COMMON COURTS MAP */}
-                    <GuardianCard title="Jurisdiction (7th AA, 1956)" icon={Map} color="teal">
+                    <GuardianCard title="Jurisdiction (7th AA, 1956)" icon={MapIcon} color="teal">
                         <div className="space-y-4 text-sm">
                             <p className="font-bold text-slate-700">
                                 Parliament can establish a <span className="underline decoration-wavy decoration-teal-500">Common High Court</span> for 2 or more states.
