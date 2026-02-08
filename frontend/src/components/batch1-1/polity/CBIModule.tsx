@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 interface CBIModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -56,7 +57,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function CBIModule({ onComplete, isCompleted }: CBIModuleProps) {
+export default function CBIModule({ onComplete, isCompleted, chapterNumber = "65" }: CBIModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -64,7 +65,7 @@ export default function CBIModule({ onComplete, isCompleted }: CBIModuleProps) {
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#a1824a] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 56</Badge>
+                        <Badge className="bg-[#a1824a] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-slate-50 font-bold uppercase tracking-widest text-sm italic">Premier Investigating Agency</span>
                     </div>
@@ -239,8 +240,8 @@ export default function CBIModule({ onComplete, isCompleted }: CBIModuleProps) {
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-[#374151] hover:bg-slate-900 text-white shadow-[0_10px_40px_-10px_rgba(55,65,81,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-[#374151] hover:bg-slate-900 text-white shadow-[0_10px_40px_-10px_rgba(55,65,81,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -251,7 +252,7 @@ export default function CBIModule({ onComplete, isCompleted }: CBIModuleProps) {
                     ) : (
                         <span className="flex items-center gap-4">
                             <Microscope size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 56 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

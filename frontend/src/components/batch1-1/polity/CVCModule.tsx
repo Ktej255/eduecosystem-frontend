@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 interface CVCModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -55,7 +56,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function CVCModule({ onComplete, isCompleted }: CVCModuleProps) {
+export default function CVCModule({ onComplete, isCompleted, chapterNumber = "64" }: CVCModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -63,7 +64,7 @@ export default function CVCModule({ onComplete, isCompleted }: CVCModuleProps) {
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#ca8a04] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 55</Badge>
+                        <Badge className="bg-[#ca8a04] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-blue-50 font-bold uppercase tracking-widest text-sm italic">Apex Vigilance Institution</span>
                     </div>
@@ -230,8 +231,8 @@ export default function CVCModule({ onComplete, isCompleted }: CVCModuleProps) {
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-[#1e3a8a] hover:bg-blue-900 text-white shadow-[0_10px_40px_-10px_rgba(30,58,138,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-[#1e3a8a] hover:bg-blue-900 text-white shadow-[0_10px_40px_-10px_rgba(30,58,138,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -242,7 +243,7 @@ export default function CVCModule({ onComplete, isCompleted }: CVCModuleProps) {
                     ) : (
                         <span className="flex items-center gap-4">
                             <TowerControl size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 55 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

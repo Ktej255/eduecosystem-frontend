@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 interface SICModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -54,7 +55,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function SICModule({ onComplete, isCompleted }: SICModuleProps) {
+export default function SICModule({ onComplete, isCompleted, chapterNumber = "63" }: SICModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -62,7 +63,7 @@ export default function SICModule({ onComplete, isCompleted }: SICModuleProps) {
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#15803d] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 54</Badge>
+                        <Badge className="bg-[#15803d] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-blue-50 font-bold uppercase tracking-widest text-sm italic">The State Transparency Hub</span>
                     </div>
@@ -232,8 +233,8 @@ export default function SICModule({ onComplete, isCompleted }: SICModuleProps) {
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-[40px] transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-[#15803d] hover:bg-green-900 text-white shadow-[0_10px_40px_-10px_rgba(21,128,61,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-[#15803d] hover:bg-green-900 text-white shadow-[0_10px_40px_-10px_rgba(21,128,61,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -244,7 +245,7 @@ export default function SICModule({ onComplete, isCompleted }: SICModuleProps) {
                     ) : (
                         <span className="flex items-center gap-4">
                             <Lightbulb size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 54 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

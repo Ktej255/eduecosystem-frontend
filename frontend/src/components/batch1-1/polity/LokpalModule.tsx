@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 interface LokpalModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -49,7 +50,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function LokpalModule({ onComplete, isCompleted }: LokpalModuleProps) {
+export default function LokpalModule({ onComplete, isCompleted, chapterNumber = "66" }: LokpalModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -57,7 +58,7 @@ export default function LokpalModule({ onComplete, isCompleted }: LokpalModulePr
                 <div className="absolute top-0 right-0 w-80 h-80 bg-green-500/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#16a34a] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 57</Badge>
+                        <Badge className="bg-[#16a34a] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-slate-400 font-bold uppercase tracking-widest text-sm italic">The Ombudsman of India</span>
                     </div>
@@ -261,7 +262,7 @@ export default function LokpalModule({ onComplete, isCompleted }: LokpalModulePr
                     ) : (
                         <span className="flex items-center gap-4">
                             <Hammer size={32} className="group-hover:rotate-12 transition-transform shadow-green-500" />
-                            MARK CHAPTER 57 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>
