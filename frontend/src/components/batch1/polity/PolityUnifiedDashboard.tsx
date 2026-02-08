@@ -330,55 +330,91 @@ export default function PolityUnifiedDashboard() {
                                                     </div>
                                                 </div>
 
-                                                {/* 4-Icon Action Row */}
-                                                <div className="grid grid-cols-4 gap-2 pt-3 border-t border-gray-100 dark:border-gray-800">
+                                                {/* 7-Icon Action Row */}
+                                                <div className="grid grid-cols-7 gap-1 pt-3 border-t border-gray-100 dark:border-gray-800">
 
                                                     {/* 1. Flashcards */}
                                                     <button
                                                         onClick={(e) => handleAction(e, 'flashcard', topic.id)}
-                                                        className="flex flex-col items-center gap-1 group/btn"
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Study Flashcards"
                                                     >
-                                                        <div className={`p-2 rounded-lg transition-colors ${topicProgress?.flashcardsDone ? 'bg-blue-100 text-blue-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-blue-50 group-hover/btn:text-blue-500'}`}>
-                                                            <StickyNote className="w-4 h-4" />
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.flashcardsDone ? 'bg-blue-100 text-blue-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-blue-50 group-hover/btn:text-blue-500'}`}>
+                                                            <StickyNote className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[9px] font-medium text-gray-400 group-hover/btn:text-blue-500">Cards</span>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-blue-500">Cards</span>
                                                     </button>
 
-                                                    {/* 2. MCQs */}
+                                                    {/* 2. Level 1 MCQs */}
                                                     <button
                                                         onClick={(e) => handleAction(e, 'mcq', topic.id)}
-                                                        className="flex flex-col items-center gap-1 group/btn"
-                                                        title="Practice MCQs"
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Level 1: Foundation MCQs"
                                                     >
-                                                        <div className={`p-2 rounded-lg transition-colors ${topicProgress?.mcqsDone ? 'bg-green-100 text-green-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-green-50 group-hover/btn:text-green-500'}`}>
-                                                            <PlayCircle className="w-4 h-4" />
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.mcqsDone ? 'bg-green-100 text-green-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-green-50 group-hover/btn:text-green-500'}`}>
+                                                            <Target className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[9px] font-medium text-gray-400 group-hover/btn:text-green-500">MCQs</span>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-green-500">L1</span>
                                                     </button>
 
-                                                    {/* 3. Read (Arrow) */}
+                                                    {/* 3. Level 2 MCQs (Placeholder) */}
                                                     <button
-                                                        onClick={() => navigateToTopic(topic.id)} // Direct navigation
-                                                        className="flex flex-col items-center gap-1 group/btn"
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1-1/polity/${topic.id}/mcq?level=2`); }}
+                                                        className="flex flex-col items-center gap-0.5 group/btn opacity-60"
+                                                        title="Level 2: Conceptual MCQs (Coming Soon)"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-purple-50 group-hover/btn:text-purple-500 transition-colors">
+                                                            <Target className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-purple-500">L2</span>
+                                                    </button>
+
+                                                    {/* 4. Level 3 MCQs (Placeholder) */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1-1/polity/${topic.id}/mcq?level=3`); }}
+                                                        className="flex flex-col items-center gap-0.5 group/btn opacity-60"
+                                                        title="Level 3: Applied MCQs (Coming Soon)"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-red-50 group-hover/btn:text-red-500 transition-colors">
+                                                            <Flame className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-red-500">L3</span>
+                                                    </button>
+
+                                                    {/* 5. Read */}
+                                                    <button
+                                                        onClick={() => navigateToTopic(topic.id)}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Read Chapter"
                                                     >
-                                                        <div className={`p-2 rounded-lg transition-colors ${topicProgress?.readDone ? 'bg-indigo-100 text-indigo-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-indigo-50 group-hover/btn:text-indigo-500'}`}>
-                                                            <ChevronRight className="w-4 h-4" />
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.readDone ? 'bg-indigo-100 text-indigo-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-indigo-50 group-hover/btn:text-indigo-500'}`}>
+                                                            <BookOpen className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className={`text-[9px] font-medium group-hover/btn:text-indigo-500 ${topicProgress?.readDone ? 'text-indigo-500' : 'text-gray-400'}`}>Read</span>
+                                                        <span className={`text-[8px] font-medium group-hover/btn:text-indigo-500 ${topicProgress?.readDone ? 'text-indigo-500' : 'text-gray-400'}`}>Read</span>
                                                     </button>
 
-                                                    {/* 4. Report */}
+                                                    {/* 6. Current Affairs */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1-1/polity/${topic.id}/current-affairs`); }}
+                                                        className={`flex flex-col items-center gap-0.5 group/btn ${hasUpdates ? '' : 'opacity-40'}`}
+                                                        title={hasUpdates ? "View Current Affairs" : "No Current Affairs for this chapter"}
+                                                    >
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${hasUpdates ? 'bg-amber-100 text-amber-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-400'} group-hover/btn:bg-amber-50 group-hover/btn:text-amber-600`}>
+                                                            <Flame className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-amber-600">CA</span>
+                                                    </button>
+
+                                                    {/* 7. Report */}
                                                     <button
                                                         onClick={(e) => handleAction(e, 'report', topic.id)}
-                                                        className="flex flex-col items-center gap-1 group/btn"
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Topic Analytics"
                                                     >
-                                                        <div className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-orange-50 group-hover/btn:text-orange-500 transition-colors">
-                                                            <BarChart2 className="w-4 h-4" />
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-orange-50 group-hover/btn:text-orange-500 transition-colors">
+                                                            <BarChart2 className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[9px] font-medium text-gray-400 group-hover/btn:text-orange-500">Report</span>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-orange-500">Report</span>
                                                     </button>
                                                 </div>
                                             </div>
