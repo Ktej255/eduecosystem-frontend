@@ -50,7 +50,7 @@ const RefereeCard = ({ title, children, color = "border-blue-700", className = "
     </div>
 );
 
-export default function ElectionCommissionModule({ onComplete, isCompleted, chapterNumber = "38" }: ElectionCommissionModuleProps) {
+export default function ElectionCommissionModule({ onComplete, isCompleted, chapterNumber = "43" }: ElectionCommissionModuleProps) {
     return (
         <RefereeContainer>
             {/* HERO SECTION */}
@@ -264,7 +264,7 @@ export default function ElectionCommissionModule({ onComplete, isCompleted, chap
                     ) : (
                         <span className="flex items-center gap-4">
                             <Megaphone size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 38 COMPLETE
+                            MARK CHAPTER 43 COMPLETE
                         </span>
                     )}
                 </Button>

@@ -13,6 +13,8 @@ export interface PYQQuestion {
     articleReference?: string; // e.g., "Art 14, 19, 21"
     difficulty: 'easy' | 'moderate' | 'difficult';
     tags: string[]; // e.g., ["Fundamental Rights", "Article 21", "Right to Life"]
+    context?: string; // "Why this question?" (Current Affairs linkage)
+    twist?: string;   // "The Twist" (Common Trap/Technique)
 }
 
 export interface ChapterPYQData {
@@ -72,7 +74,9 @@ export const FUNDAMENTAL_RIGHTS_PYQS: ChapterPYQData = {
             explanation: "Article 15(2) prohibits discrimination by private individuals also in access to public places. The statement that Art 15 prohibits discrimination ONLY by State is incorrect.",
             articleReference: "Art 14, 15, 19, 21",
             difficulty: 'moderate',
-            tags: ["Fundamental Rights", "Article 15", "Discrimination"]
+            tags: ["Fundamental Rights", "Article 15", "Discrimination"],
+            context: "Sabarimala and Hijab verdict discussions kept Article 15/25 in news.",
+            twist: "Focus on 'only' - Art 15 prohibits State, but 15(2) covers private individuals too."
         },
         {
             id: "FR-2023-1",
@@ -164,7 +168,9 @@ export const PRESIDENT_PYQS: ChapterPYQData = {
             explanation: "Only elected members of Parliament (both Houses) and elected members of State Legislative ASSEMBLIES participate. MLCs do NOT participate in Presidential election.",
             articleReference: "Art 54",
             difficulty: 'moderate',
-            tags: ["President", "Election", "Electoral College", "Article 54"]
+            tags: ["President", "Election", "Electoral College", "Article 54"],
+            context: "2022 Presidential Election (Droupadi Murmu) generated interest in the process.",
+            twist: "MLCs do NOT vote. Only elected MLAs and MPs do. Nominated members are excluded."
         },
         {
             id: "PRES-2023-1",
@@ -432,7 +438,9 @@ export const PARLIAMENT_PYQS: ChapterPYQData = {
             explanation: "Money Bill can ONLY be introduced in Lok Sabha with prior recommendation of the President (Art 109, 110). Rajya Sabha can only suggest amendments within 14 days.",
             articleReference: "Art 109, 110",
             difficulty: 'easy',
-            tags: ["Parliament", "Money Bill", "Lok Sabha", "Article 110"]
+            tags: ["Parliament", "Money Bill", "Lok Sabha", "Article 110"],
+            context: "Controversy over Aadhar Bill and other Finance Bills passed as Money Bills.",
+            twist: "Rajya Sabha has NO power to reject, only recommend amendments within 14 days."
         },
         {
             id: "PARL-2023-1",

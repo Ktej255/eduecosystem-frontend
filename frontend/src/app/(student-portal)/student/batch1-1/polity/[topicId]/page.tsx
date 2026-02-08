@@ -201,466 +201,169 @@ export default function TopicViewerPage() {
 
             {/* Topic Header - Special Module for History (Topic 1) */}
             {topicId === 1 ? (
-                <HistoryModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <HistoryModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 2 ? (
-                <MakingConstitutionModuleV2
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 3 ? (
-                <SalientFeaturesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <MakingConstitutionModuleV2 onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 4 ? (
-                <PreambleModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <SalientFeaturesModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 5 ? (
-                <UnionAndItsTerritoryModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <PreambleModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 6 ? (
-                <CitizenshipModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <UnionAndItsTerritoryModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 7 ? (
-                <FundamentalRightsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <CitizenshipModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 8 ? (
-                <DPSPModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <FundamentalRightsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 9 ? (
-                <FundamentalDutiesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <DPSPModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 10 ? (
-                <AmendmentModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <FundamentalDutiesModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 11 ? (
-                <BasicStructureModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <AmendmentModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 12 ? (
-                <ParliamentarySystemModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <BasicStructureModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 13 ? (
-                <FederalSystemModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <ParliamentarySystemModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 14 ? (
-                <CentreStateRelationsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <FederalSystemModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 15 ? (
-                <InterStateRelationsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <CentreStateRelationsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 16 ? (
-                <EmergencyProvisionsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <InterStateRelationsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 17 ? (
-                <PresidentModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <EmergencyProvisionsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 18 ? (
-                <VicePresidentModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <PresidentModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 19 ? (
-                <PrimeMinisterModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <VicePresidentModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 20 ? (
-                <CentralCouncilModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <PrimeMinisterModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 21 ? (
-                <CabinetCommitteesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <CentralCouncilModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 22 ? (
-                <ParliamentModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <CabinetCommitteesModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 23 ? (
-                <SupremeCourtModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 24 ? (
-                <JudicialReviewModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 25 ? (
-                <JudicialActivismModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <ParliamentModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 26 ? (
-                <PubIntLitigationModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <SupremeCourtModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 27 ? (
-                <GovernorModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <JudicialReviewModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 28 ? (
-                <ChiefMinisterModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <JudicialActivismModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 29 ? (
-                <StateCouncilModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <PubIntLitigationModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 30 ? (
-                <StateLegislatureModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <GovernorModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 31 ? (
-                <HighCourtModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <ChiefMinisterModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 32 ? (
-                <SubordinateCourtsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <StateCouncilModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 33 ? (
-                <SpecialProvisionsStatesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <StateLegislatureModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 34 ? (
-                <PanchayatiRajModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <HighCourtModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 35 ? (
-                <MunicipalitiesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <SubordinateCourtsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 36 ? (
-                <UnionTerritoriesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 37 ? (
-                <ScheduledTribalAreasModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 38 ? (
-                <ElectionCommissionModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <TribunalsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber="36" />
             ) : topicId === 39 ? (
-                <UPSCModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <PanchayatiRajModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 40 ? (
-                <SPSCModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <MunicipalitiesModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 41 ? (
-                <FinanceCommissionModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <UnionTerritoriesModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 42 ? (
-                <GSTCouncilModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <ScheduledTribalAreasModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 43 ? (
-                <NCSCModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <ElectionCommissionModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber="43" />
             ) : topicId === 44 ? (
-                <NCSTModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <UPSCModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 45 ? (
-                <NCBCModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <SPSCModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 46 ? (
-                <LinguisticMinoritiesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <FinanceCommissionModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 47 ? (
-                <CAGModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <GSTCouncilModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 48 ? (
-                <AttorneyGeneralModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <NCSCModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 49 ? (
-                <AdvocateGeneralModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <NCSTModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 50 ? (
-                <NITIAayogModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <NCBCModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 51 ? (
-                <NHRCModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <LinguisticMinoritiesModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 52 ? (
-                <SHRCModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <CAGModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 53 ? (
-                <CICModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <AttorneyGeneralModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 54 ? (
-                <SICModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 55 ? (
-                <CVCModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <AdvocateGeneralModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 56 ? (
-                <CBIModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <NITIAayogModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 57 ? (
-                <LokpalModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <NHRCModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 58 ? (
-                <NIAModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 59 ? (
-                <NDMAModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 60 ? (
-                <CooperativeSocietiesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 61 ? (
-                <OfficialLanguageModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-
-            ) : topicId === 61 ? (
-                <OfficialLanguageModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 62 || topicId === 63 ? (
-                // User Correction: Chapter 63 should show Tribunals, not Hindi Text
-                <TribunalsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                    chapterNumber={topicId.toString()}
-                />
-            ) : topicId === 64 || topicId === 76 ? (
-                // User Correction: Chapter 76 should show Rights & Liabilities
-                // Also preserving 64 for backward compatibility if needed, but primary is 76
-                <RightsLiabilitiesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                // RightsLiabilitiesModule already has "Chapter 76" hardcoded in last edit, or will default to it.
-                // But if I add prop support it's better. I haven't added prop support to RightsLiabilitiesModule yet, 
-                // only to the crashing ones. I should assume it's fixed to 76 or edit it.
-                // IMPORTANT: The user said "Chapter 76 showing 64". I previously edited it to SHOW 76 in the badge.
-                // So just rendering it here is correct.
-                />
+                <SHRCModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 62 ? (
+                <CICModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 63 ? (
+                <SICModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 64 ? (
+                <CVCModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 65 ? (
-                <HindiTextModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 66 || topicId === 77 ? (
-                // User Correction: Chapter 77 is Special Provisions for Certain Classes
-                <CertainClassesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 67 || topicId === 79 ? (
-                // User Correction: Chapter 79 is Political Parties
-                <PoliticalPartiesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 68 || topicId === 81 ? (
-                // User Correction: Chapter 81 is Elections
-                <ElectionsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 69 || topicId === 83 ? (
-                // User Correction: Chapter 83 is Electoral Reforms
-                <ElectoralReformsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 70 || topicId === 86 ? (
-                // User Correction: Chapter 86 is Anti-Defection Law
-                <AntiDefectionLawModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 71 || topicId === 87 ? (
-                // User Correction: Chapter 87 is Pressure Groups
-                <PressureGroupsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 72 || topicId === 88 ? (
-                // User Correction: Chapter 88 is National Integration
-                <NationalIntegrationModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 73 || topicId === 89 ? (
-                // User Correction: Chapter 89 is Foreign Policy
-                <ForeignPolicyModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-            ) : topicId === 74 || topicId === 90 ? (
-                // User Correction: Chapter 90 is NCRWC
-                <NCRWCModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                    chapterNumber={topicId.toString()}
-                />
-            ) : topicId === 33 ? (
-                // User Correction: Chapter 33 should show Special Provisions for States (Normally 78)
-                <SpecialProvisionsStatesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                    chapterNumber="33"
-                />
-            ) : topicId === 38 ? (
-                <ElectionCommissionModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                    chapterNumber="38"
-                />
+                <CBIModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 66 ? (
+                <LokpalModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 67 ? (
+                <NIAModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 68 ? (
+                <NDMAModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 73 ? (
+                <CooperativeSocietiesModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 74 ? (
+                <OfficialLanguageModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 75 ? (
-                <PublicServicesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <PublicServicesModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 76 ? (
+                <RightsLiabilitiesModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 77 ? (
+                <CertainClassesModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 78 ? (
-                // Keeping 78 as standard
-                <SpecialProvisionsStatesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                    chapterNumber="78"
-                />
+                <SpecialProvisionsStatesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber="78" />
+            ) : topicId === 79 ? (
+                <PoliticalPartiesModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 80 ? (
-                <RegionalPartiesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <RegionalPartiesModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 81 ? (
+                <ElectionsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 82 ? (
-                <ElectionLawsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <ElectionLawsModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 83 ? (
+                <ElectoralReformsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 84 ? (
-                <VotingBehaviourModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <VotingBehaviourModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 85 ? (
-                <CoalitionGovtModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <CoalitionGovtModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 86 ? (
+                <AntiDefectionLawModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 87 ? (
+                <PressureGroupsModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 88 ? (
+                <NationalIntegrationModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 89 ? (
+                <ForeignPolicyModule onComplete={markComplete} isCompleted={isCompleted} />
+            ) : topicId === 90 ? (
+                <NCRWCModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber="90" />
             ) : topicId === 91 ? (
-                <LandmarkJudgementsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <LandmarkJudgementsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 92 ? (
-                <ScopeOfArticle21Module
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <ScopeOfArticle21Module onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 93 ? (
-                <AmendmentJudgementsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <AmendmentJudgementsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 94 ? (
-                <ConstitutionalDoctrinesModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
+                <ConstitutionalDoctrinesModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : topicId === 95 ? (
-                <WorldConstitutionsModule
-                    onComplete={markComplete}
-                    isCompleted={isCompleted}
-                />
-
+                <WorldConstitutionsModule onComplete={markComplete} isCompleted={isCompleted} />
             ) : (
                 <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
                     <CardContent className="p-6">
@@ -708,7 +411,7 @@ export default function TopicViewerPage() {
             )}
 
             {/* Content Tabs (Hidden for topics using Special Modules) */}
-            {(topicId > 20 && topicId <= 95 && ![22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95].includes(topicId)) && (
+            {(topicId > 0 && ![1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 58, 62, 63, 64, 65, 66, 67, 68, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95].includes(topicId)) && (
                 <Tabs defaultValue="overview" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="overview">
@@ -810,27 +513,48 @@ export default function TopicViewerPage() {
                             </CardHeader>
                             <CardContent>
                                 {topicData?.keyConcepts && topicData.keyConcepts.length > 0 ? (
-                                    <div className="space-y-4">
+                                    <div className="grid gap-4">
                                         {topicData.keyConcepts.map((concept: any, i: number) => (
-                                            <div key={i} className="p-4 border rounded-xl bg-purple-50/30 dark:bg-purple-900/10 border-purple-100 dark:border-purple-900/30">
-                                                <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">{concept.term}</h4>
-                                                <p className="text-sm text-gray-700 dark:text-gray-300">{concept.definition}</p>
+                                            <div key={i} className="p-4 border rounded-lg">
+                                                <h4 className="font-semibold text-lg mb-1">{concept.term}</h4>
+                                                <p className="text-gray-700 dark:text-gray-300">{concept.definition}</p>
                                                 {concept.example && (
-                                                    <div className="mt-2 text-xs bg-white/50 dark:bg-black/20 p-2 rounded">
-                                                        <span className="font-semibold">Example: </span>{concept.example}
+                                                    <div className="mt-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                                                        Example: {concept.example}
                                                     </div>
                                                 )}
                                             </div>
                                         ))}
                                     </div>
                                 ) : (
-                                    <div className="text-center py-8 text-gray-500">
-                                        <Brain className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                                        <p>Key concepts for <strong>{topic.title}</strong> will be loaded here.</p>
-                                        <p className="text-sm mt-2">
-                                            Content will include term definitions, examples, and explanations.
-                                        </p>
-                                    </div>
+                                    <p className="text-gray-500 italic">No key concepts defined for this topic yet.</p>
+                                )}
+                            </CardContent>
+                        </Card>
+                    </TabsContent>
+
+                    <TabsContent value="prelims" className="mt-6">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <Target className="h-5 w-5" />
+                                    Prelims Pointers
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                {topicData?.prelimsPointers && topicData?.prelimsPointers.length > 0 ? (
+                                    <ul className="space-y-3">
+                                        {topicData.prelimsPointers.map((pointer: any, i: number) => (
+                                            <li key={i} className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                                                <Badge variant="outline" className="bg-white shrink-0 mt-0.5">
+                                                    {pointer.category}
+                                                </Badge>
+                                                <span className="text-gray-800">{pointer.fact}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p className="text-gray-500 italic">No prelims pointers defined for this topic yet.</p>
                                 )}
                             </CardContent>
                         </Card>
@@ -845,134 +569,10 @@ export default function TopicViewerPage() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <div className="space-y-6">
-                                    <div className="p-6 border-2 border-dashed rounded-2xl text-center bg-gray-50 dark:bg-gray-900/40">
-                                        <Brain className="h-10 w-10 mx-auto mb-3 text-purple-500 opacity-60" />
-                                        <h4 className="font-semibold">AI Practice Simulator</h4>
-                                        <p className="text-sm text-gray-500 mt-1 max-w-sm mx-auto">
-                                            Generate personalized MCQs and Mains questions based on this topic's latest trends.
-                                        </p>
-                                        <Button className="mt-4 bg-purple-600 hover:bg-purple-700">
-                                            <Sparkles className="h-4 w-4 mr-2" />
-                                            Launch AI Simulator
-                                        </Button>
-                                    </div>
-
-                                    <div className="space-y-4">
-                                        <h4 className="font-semibold px-1">Concept Recall</h4>
-                                        <div className="grid gap-3">
-                                            {['Active Recall', 'Case Study Analysis', 'Fact Drill'].map((mode, i) => (
-                                                <div key={i} className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors cursor-pointer group">
-                                                    <div className="flex items-center gap-3">
-                                                        <div className="h-8 w-8 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-xs">
-                                                            0{i + 1}
-                                                        </div>
-                                                        <span className="text-sm font-medium">{mode}</span>
-                                                    </div>
-                                                    <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-blue-500 transition-colors" />
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-
-                    <TabsContent value="prelims" className="mt-6">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <Target className="h-5 w-5" />
-                                    Prelims Pointers
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                {topicData?.prelimsPointers && topicData.prelimsPointers.length > 0 ? (
-                                    <div className="grid md:grid-cols-2 gap-4">
-                                        {topicData.prelimsPointers.map((pointer: any, i: number) => (
-                                            <div key={i} className={`p-4 border rounded-xl ${pointer.highlight ? 'bg-amber-50 border-amber-200 dark:bg-amber-900/20' : 'bg-gray-50 dark:bg-gray-800/40'} flex gap-3 animate-in fade-in slide-in-from-bottom-2`}>
-                                                <div className="h-6 w-6 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center text-xs font-bold border shrink-0">
-                                                    {i + 1}
-                                                </div>
-                                                <div>
-                                                    <Badge variant="outline" className="text-[10px] uppercase mb-1">{pointer.category}</Badge>
-                                                    <p className="text-sm leading-relaxed">{pointer.fact}</p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                ) : (
-                                    <div className="text-center py-8 text-gray-500">
-                                        <Target className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                                        <p>Quick facts and pointers for <strong>{topic.title}</strong> will appear here.</p>
-                                        <p className="text-sm mt-2">
-                                            These are high-yield points for UPSC Prelims preparation.
-                                        </p>
-                                    </div>
-                                )}
-
-                                {topicData?.comparisonTable && (
-                                    <div className="mt-8 overflow-hidden rounded-xl border">
-                                        <div className="bg-gray-100 dark:bg-gray-800 p-3 font-semibold text-center border-b">
-                                            {topicData.comparisonTable.title}
-                                        </div>
-                                        <table className="w-full text-sm">
-                                            <thead className="bg-gray-50 dark:bg-gray-900/40">
-                                                <tr>
-                                                    <th className="p-3 text-left border-r">Aspect</th>
-                                                    <th className="p-3 text-left border-r">{topicData.comparisonTable.columnAHeader}</th>
-                                                    <th className="p-3 text-left">{topicData.comparisonTable.columnBHeader}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody className="divide-y">
-                                                {topicData.comparisonTable.rows.map((row: any, i: number) => (
-                                                    <tr key={i}>
-                                                        <td className="p-3 font-medium border-r bg-gray-50/50 dark:bg-gray-900/20">{row.aspect}</td>
-                                                        <td className="p-3 border-r">{row.columnA}</td>
-                                                        <td className="p-3">{row.columnB}</td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                )}
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-
-                    <TabsContent value="practice" className="mt-6">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <BookOpen className="h-5 w-5" />
-                                    Practice Resources
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="grid md:grid-cols-2 gap-4">
-                                    <Button
-                                        variant="outline"
-                                        className="h-auto p-6 flex flex-col items-center gap-2"
-                                        onClick={() => router.push(`/student/batch1-1/polity/${topicId}/flashcards`)}
-                                    >
-                                        <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                                            📚
-                                        </div>
-                                        <span className="font-medium">Flashcards</span>
-                                        <span className="text-sm text-gray-500">Review key concepts</span>
-                                    </Button>
-
-                                    <Button
-                                        variant="outline"
-                                        className="h-auto p-6 flex flex-col items-center gap-2"
-                                        onClick={() => router.push(`/student/batch1-1/polity/${topicId}/mcq`)}
-                                    >
-                                        <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
-                                            ✓
-                                        </div>
-                                        <span className="font-medium">MCQ Practice</span>
-                                        <span className="text-sm text-gray-500">Test your knowledge</span>
+                                <div className="text-center py-10">
+                                    <p className="text-gray-500 mb-4">Practice questions will be available here.</p>
+                                    <Button variant="outline">
+                                        Start Quiz
                                     </Button>
                                 </div>
                             </CardContent>
@@ -980,27 +580,6 @@ export default function TopicViewerPage() {
                     </TabsContent>
                 </Tabs>
             )}
-
-            {/* Bottom Navigation */}
-            <div className="flex items-center justify-between pt-4 border-t">
-                <Button
-                    variant="outline"
-                    onClick={() => goToTopic(topicId - 1)}
-                    disabled={topicId <= 1}
-                    className="flex items-center gap-2"
-                >
-                    <ChevronLeft className="h-4 w-4" />
-                    Previous Topic
-                </Button>
-                <Button
-                    onClick={() => goToTopic(topicId + 1)}
-                    disabled={topicId >= 95}
-                    className={`flex items-center gap-2 bg-gradient-to-r ${colors.gradient} text-white`}
-                >
-                    Next Topic
-                    <ChevronRight className="h-4 w-4" />
-                </Button>
-            </div>
         </div>
     );
 }

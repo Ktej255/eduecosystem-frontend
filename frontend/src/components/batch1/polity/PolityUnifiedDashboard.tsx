@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
-    Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2, Clock,
-    Target, Filter, LayoutGrid, List, Sparkles, BarChart2, StickyNote, PlayCircle
+    Target, Filter, LayoutGrid, List, Sparkles, BarChart2, StickyNote, PlayCircle, Flame
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { POLITY_PARTS, TOPIC_TITLES, getPartColors, getTopicsByPart, PartId } from "@/components/batch1-1/polity/data/polity-types-95";
+import { MAJOR_CURRENT_AFFAIRS } from "@/components/batch1-1/polity/data/MajorCurrentAffairsRegistry";
 import TopicAnalyticsModal from "./TopicAnalyticsModal";
 
 interface TopicProgress {
@@ -281,6 +281,7 @@ export default function PolityUnifiedDashboard() {
                                         const topicProgress = progress[topic.id];
                                         const isCompleted = topicProgress?.completed;
                                         const isNew = topic.id >= 85;
+                                        const hasUpdates = MAJOR_CURRENT_AFFAIRS.some(ca => ca.topicIds.includes(topic.id));
 
                                         return (
                                             <div
@@ -314,6 +315,12 @@ export default function PolityUnifiedDashboard() {
                                                             </h4>
                                                             {isNew && (
                                                                 <Badge className="bg-purple-500 text-[10px] px-1.5 py-0 h-4">New</Badge>
+                                                            )}
+                                                            {hasUpdates && (
+                                                                <div className="flex items-center text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded text-[10px] font-bold border border-amber-200" title="Current Affairs Update Available">
+                                                                    <Flame size={10} className="mr-0.5 fill-amber-600" />
+                                                                    Update
+                                                                </div>
                                                             )}
                                                         </div>
                                                         <div className="text-[10px] text-gray-400 mt-0.5 font-mono">

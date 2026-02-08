@@ -60,7 +60,7 @@ export default function NCSTModule({ onComplete, isCompleted }: NCSTModuleProps)
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#92400e] text-white px-4 py-1 text-lg border-2 border-white shadow-sm font-['Kalam']">Chapter 44</Badge>
+                        <Badge className="bg-orange-600 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter 49</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-green-50 font-bold uppercase tracking-widest text-sm italic">The Tribal Shield & A Bow</span>
                     </div>
@@ -142,7 +142,7 @@ export default function NCSTModule({ onComplete, isCompleted }: NCSTModuleProps)
             <PhaseHeader number="2" title="Functions (The Guardian)" color="bg-[#16a34a]" />
 
             <div className="grid md:grid-cols-2 gap-8">
-                <HandwrittenCard title="Standard Duties (Art 338-A)" color="border-[#16a34a]">
+                <TribalCard title="Standard Duties (Art 338-A)" color="border-[#16a34a]">
                     <div className="space-y-3 relative p-4 bg-green-50/50 rounded-2xl border-2 border-dashed border-green-200">
                         <Compass size={40} className="absolute top-2 right-2 text-green-200" />
                         {[
@@ -157,9 +157,9 @@ export default function NCSTModule({ onComplete, isCompleted }: NCSTModuleProps)
                             </div>
                         ))}
                     </div>
-                </HandwrittenCard>
+                </TribalCard>
 
-                <HandwrittenCard title="Powers & Consultation" color="border-[#92400e]">
+                <TribalCard title="Powers & Consultation" color="border-[#92400e]">
                     <div className="space-y-4">
                         <div className="p-4 bg-white border-2 border-slate-900 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                             <div className="flex gap-3 items-center mb-3">
@@ -177,7 +177,7 @@ export default function NCSTModule({ onComplete, isCompleted }: NCSTModuleProps)
                             </p>
                         </div>
                     </div>
-                </HandwrittenCard>
+                </TribalCard>
             </div>
 
             {/* PHASE 3: UNIQUE FUNCTIONS */}
@@ -265,8 +265,8 @@ export default function NCSTModule({ onComplete, isCompleted }: NCSTModuleProps)
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-[#16a34a] hover:bg-green-800 text-white shadow-[0_10px_40px_-10px_rgba(22,163,74,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-[#16a34a] hover:bg-green-800 text-white shadow-[0_10px_40px_-10px_rgba(22,163,74,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -277,7 +277,7 @@ export default function NCSTModule({ onComplete, isCompleted }: NCSTModuleProps)
                     ) : (
                         <span className="flex items-center gap-4">
                             <Trees size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 44 COMPLETE
+                            MARK CHAPTER 49 COMPLETE
                         </span>
                     )}
                 </Button>

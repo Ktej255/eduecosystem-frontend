@@ -53,7 +53,7 @@ export default function ElectoralReformsModule({ onComplete, isCompleted }: Elec
             <div className="relative bg-[#0f766e] border-4 border-teal-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-white text-teal-800 px-4 py-1 text-lg font-bold">Chapter 69</Badge>
+                        <Badge className="bg-white text-teal-800 px-4 py-1 text-lg font-bold">Chapter 83</Badge>
                         <span className="text-teal-200 font-bold uppercase tracking-widest text-sm">Part XV</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">

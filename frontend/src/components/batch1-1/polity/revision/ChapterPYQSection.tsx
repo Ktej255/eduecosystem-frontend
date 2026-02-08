@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import {
     BookOpen, CheckCircle2, XCircle, Clock,
     TrendingUp, History, Target, ChevronDown,
-    ChevronUp, Award, AlertTriangle, Sparkles
+    ChevronUp, Award, AlertTriangle, Sparkles,
+    Newspaper, Lightbulb
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -90,6 +91,19 @@ const QuestionCard = ({
                 )}
             </div>
 
+            {/* Context (Why this year?) */}
+            {question.context && (
+                <div className="mb-4 bg-sky-50 border-l-4 border-sky-400 p-3 rounded-r-lg flex gap-3">
+                    <Newspaper className="text-sky-600 shrink-0" size={18} />
+                    <div>
+                        <p className="text-[10px] uppercase font-black text-sky-600 mb-0.5">Why this question?</p>
+                        <p className="text-xs text-sky-800 font-medium leading-relaxed">
+                            {question.context}
+                        </p>
+                    </div>
+                </div>
+            )}
+
             {/* Question */}
             <p className="text-slate-800 font-bold text-sm leading-relaxed mb-4 whitespace-pre-line">
                 {question.question}
@@ -151,6 +165,19 @@ const QuestionCard = ({
                     <p className="text-sm text-slate-700 leading-relaxed">
                         {question.explanation}
                     </p>
+
+                    {/* The Twist (Technique) */}
+                    {question.twist && (
+                        <div className="mt-4 bg-amber-50 border border-amber-200 p-3 rounded-lg flex gap-3">
+                            <Lightbulb className="text-amber-600 shrink-0" size={18} />
+                            <div>
+                                <p className="text-[10px] uppercase font-black text-amber-600 mb-0.5">The Twist / Trap</p>
+                                <p className="text-xs text-amber-800 font-medium leading-relaxed">
+                                    {question.twist}
+                                </p>
+                            </div>
+                        </div>
+                    )}
                     {question.tags.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-3">
                             {question.tags.map((tag, i) => (

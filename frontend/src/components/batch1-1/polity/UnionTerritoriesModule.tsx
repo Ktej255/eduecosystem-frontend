@@ -59,7 +59,7 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted }: Unio
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-blue-700 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter 36</Badge>
+                        <Badge className="bg-blue-700 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter 41</Badge>
                         <div className="h-[2px] w-12 bg-slate-900"></div>
                         <span className="text-slate-500 font-bold uppercase tracking-widest text-sm">Direct Federal Control</span>
                     </div>
@@ -242,8 +242,8 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted }: Unio
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-blue-700 hover:bg-blue-800 text-white shadow-[0_10px_40px_-10px_rgba(30,58,138,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-blue-700 hover:bg-blue-800 text-white shadow-[0_10px_40px_-10px_rgba(30,58,138,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -254,7 +254,7 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted }: Unio
                     ) : (
                         <span className="flex items-center gap-4">
                             <Landmark size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 36 COMPLETE
+                            MARK CHAPTER 41 COMPLETE
                         </span>
                     )}
                 </Button>

@@ -53,7 +53,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function TribunalsModule({ onComplete, isCompleted, chapterNumber = "63" }: TribunalsModuleProps) {
+export default function TribunalsModule({ onComplete, isCompleted, chapterNumber = "36" }: TribunalsModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -217,7 +217,7 @@ export default function TribunalsModule({ onComplete, isCompleted, chapterNumber
                     ) : (
                         <span className="flex items-center gap-4">
                             <Gavel size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 63 COMPLETE
+                            MARK CHAPTER 36 COMPLETE
                         </span>
                     )}
                 </Button>

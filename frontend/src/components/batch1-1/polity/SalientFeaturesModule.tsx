@@ -74,7 +74,7 @@ export default function SalientFeaturesModule({ onComplete, isCompleted }: Salie
         <div className="bg-[#e2e8f0] min-h-screen">
             <div className="bg-slate-900 text-white p-6 md:p-12 text-center relative overflow-hidden">
                 <div className="relative z-10 max-w-2xl mx-auto">
-                    <span className="bg-blue-900/50 text-blue-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-blue-700 mb-4 inline-block">Chapter 3</span>
+                    <span className="bg-blue-900/50 text-blue-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-blue-700 mb-4 inline-block">Chapter 4</span>
                     <h1 className="text-3xl md:text-5xl font-bold mb-2 font-serif">Salient Features</h1>
                     <p className="text-slate-400 text-sm md:text-lg italic">The Constitution Pinboard</p>
                 </div>
@@ -424,7 +424,7 @@ export default function SalientFeaturesModule({ onComplete, isCompleted }: Salie
             {/* Quality Control Footer */}
             <div className="max-w-7xl mx-auto mt-12 bg-slate-900 rounded-t-lg p-4 flex items-center justify-between text-white">
                 <div className="text-sm font-medium opacity-80">
-                    Chapter 3 Completed
+                    Chapter 4 Completed
                 </div>
                 <div className="flex gap-4">
                     <Button variant="outline" className="text-red-400 border-red-900 hover:bg-red-900/20 hover:text-red-300">

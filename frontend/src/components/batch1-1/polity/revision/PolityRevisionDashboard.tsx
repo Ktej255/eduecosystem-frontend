@@ -6,7 +6,7 @@ import {
     ArrowLeft, Search, GraduationCap,
     Sparkles, Gavel, Scroll, Scale,
     Gamepad2, History, Users, BarChart3,
-    ArrowRightLeft
+    ArrowRightLeft, Flame
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -20,6 +20,7 @@ import SchedulesMnemonics from './SchedulesMnemonics';
 import WritsWizard from './WritsWizard';
 import PreambleDecoder from './PreambleDecoder';
 import MajoritiesMasterclass from './MajoritiesMasterclass';
+import CurrentAffairsDashboard from './CurrentAffairsDashboard';
 
 export default function PolityRevisionDashboard() {
     const router = useRouter();
@@ -80,6 +81,9 @@ export default function PolityRevisionDashboard() {
                         <TabsTrigger value="majorities" className="px-4 py-2 rounded-lg data-[state=active]:bg-rose-600 data-[state=active]:text-white font-bold flex items-center gap-2">
                             <Users size={16} /> Majorities
                         </TabsTrigger>
+                        <TabsTrigger value="current-affairs" className="px-4 py-2 rounded-lg data-[state=active]:bg-amber-600 data-[state=active]:text-white font-bold flex items-center gap-2">
+                            <Flame size={16} /> Current Affairs
+                        </TabsTrigger>
                     </TabsList>
 
                     <TabsContent value="pyq-trends" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
@@ -116,6 +120,10 @@ export default function PolityRevisionDashboard() {
 
                     <TabsContent value="majorities" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                         <MajoritiesMasterclass />
+                    </TabsContent>
+
+                    <TabsContent value="current-affairs" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <CurrentAffairsDashboard />
                     </TabsContent>
                 </Tabs>
             </main>
