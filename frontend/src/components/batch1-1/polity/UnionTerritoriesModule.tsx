@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface UnionTerritoriesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Map & The Badge ---
@@ -51,7 +52,7 @@ const ScrapbookCard = ({ title, children, color = "border-blue-700", className =
     </div>
 );
 
-export default function UnionTerritoriesModule({ onComplete, isCompleted }: UnionTerritoriesModuleProps) {
+export default function UnionTerritoriesModule({ onComplete, isCompleted, chapterNumber = "41" }: UnionTerritoriesModuleProps) {
     return (
         <AdminContainer>
             {/* HERO SECTION */}
@@ -59,7 +60,7 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted }: Unio
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-blue-700 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter 41</Badge>
+                        <Badge className="bg-blue-700 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-slate-900"></div>
                         <span className="text-slate-500 font-bold uppercase tracking-widest text-sm">Direct Federal Control</span>
                     </div>
@@ -254,7 +255,7 @@ export default function UnionTerritoriesModule({ onComplete, isCompleted }: Unio
                     ) : (
                         <span className="flex items-center gap-4">
                             <Landmark size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 41 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

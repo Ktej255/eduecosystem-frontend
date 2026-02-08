@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 interface ScheduledTribalAreasModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Two Baskets ---
@@ -51,7 +52,7 @@ const BasketCard = ({ title, children, color = "border-amber-900", className = "
     </div>
 );
 
-export default function ScheduledTribalAreasModule({ onComplete, isCompleted }: ScheduledTribalAreasModuleProps) {
+export default function ScheduledTribalAreasModule({ onComplete, isCompleted, chapterNumber = "37" }: ScheduledTribalAreasModuleProps) {
     return (
         <TribalContainer>
             {/* HERO SECTION */}
@@ -59,7 +60,7 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted }: 
                 <div className="absolute top-0 right-0 w-48 h-48 bg-amber-50 rounded-full -mr-24 -mt-24 opacity-60"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-amber-900 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter 37</Badge>
+                        <Badge className="bg-amber-900 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-amber-950"></div>
                         <span className="text-amber-700 font-bold uppercase tracking-widest text-sm">Special Protection</span>
                     </div>
@@ -225,8 +226,8 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted }: 
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-amber-900 hover:bg-amber-800 text-white shadow-[0_10px_40px_-10px_rgba(120,53,15,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-amber-900 hover:bg-amber-800 text-white shadow-[0_10px_40px_-10px_rgba(120,53,15,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -237,7 +238,7 @@ export default function ScheduledTribalAreasModule({ onComplete, isCompleted }: 
                     ) : (
                         <span className="flex items-center gap-4">
                             <HandMetal size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 37 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

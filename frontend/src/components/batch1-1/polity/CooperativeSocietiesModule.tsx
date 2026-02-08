@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 interface CooperativeSocietiesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -55,7 +56,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function CooperativeSocietiesModule({ onComplete, isCompleted }: CooperativeSocietiesModuleProps) {
+export default function CooperativeSocietiesModule({ onComplete, isCompleted, chapterNumber = "69" }: CooperativeSocietiesModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -63,7 +64,7 @@ export default function CooperativeSocietiesModule({ onComplete, isCompleted }: 
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#b45309] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 60</Badge>
+                        <Badge className="bg-[#b45309] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-amber-50 font-bold uppercase tracking-widest text-sm italic">Strength in Unity</span>
                     </div>
@@ -188,7 +189,7 @@ export default function CooperativeSocietiesModule({ onComplete, isCompleted }: 
                     ) : (
                         <span className="flex items-center gap-4">
                             <Handshake size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 60 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>
