@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 interface AttorneyGeneralModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -50,7 +51,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function AttorneyGeneralModule({ onComplete, isCompleted }: AttorneyGeneralModuleProps) {
+export default function AttorneyGeneralModule({ onComplete, isCompleted, chapterNumber = "53" }: AttorneyGeneralModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -58,7 +59,7 @@ export default function AttorneyGeneralModule({ onComplete, isCompleted }: Attor
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#854d0e] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 48</Badge>
+                        <Badge className="bg-[#854d0e] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-slate-400 font-bold uppercase tracking-widest text-sm italic">The Highest Law Officer</span>
                     </div>
@@ -198,8 +199,8 @@ export default function AttorneyGeneralModule({ onComplete, isCompleted }: Attor
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-black hover:bg-slate-800 text-white shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-black hover:bg-slate-800 text-white shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -210,7 +211,7 @@ export default function AttorneyGeneralModule({ onComplete, isCompleted }: Attor
                     ) : (
                         <span className="flex items-center gap-4">
                             <LawScale size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 48 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

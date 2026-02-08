@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 interface AdvocateGeneralModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -49,7 +50,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function AdvocateGeneralModule({ onComplete, isCompleted }: AdvocateGeneralModuleProps) {
+export default function AdvocateGeneralModule({ onComplete, isCompleted, chapterNumber = "54" }: AdvocateGeneralModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -57,7 +58,7 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted }: Advoc
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#3f3f46] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 49</Badge>
+                        <Badge className="bg-[#3f3f46] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-orange-100 font-bold uppercase tracking-widest text-sm italic">The State's Law Guardian</span>
                     </div>
@@ -212,8 +213,8 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted }: Advoc
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-[#c2410c] hover:bg-orange-800 text-white shadow-[0_10px_40px_-10px_rgba(194,65,12,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-[#c2410c] hover:bg-orange-800 text-white shadow-[0_10px_40px_-10px_rgba(194,65,12,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -224,7 +225,7 @@ export default function AdvocateGeneralModule({ onComplete, isCompleted }: Advoc
                     ) : (
                         <span className="flex items-center gap-4">
                             <Scale size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 49 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

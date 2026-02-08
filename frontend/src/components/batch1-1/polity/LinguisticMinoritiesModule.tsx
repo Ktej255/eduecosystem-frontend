@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 interface LinguisticMinoritiesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -48,7 +49,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function LinguisticMinoritiesModule({ onComplete, isCompleted }: LinguisticMinoritiesModuleProps) {
+export default function LinguisticMinoritiesModule({ onComplete, isCompleted, chapterNumber = "51" }: LinguisticMinoritiesModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -56,7 +57,7 @@ export default function LinguisticMinoritiesModule({ onComplete, isCompleted }: 
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#374151] text-white px-4 py-1 text-lg border border-white/20 shadow-sm">Chapter 46</Badge>
+                        <Badge className="bg-[#374151] text-white px-4 py-1 text-lg border border-white/20 shadow-sm">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-teal-50 font-bold uppercase tracking-widest text-sm italic">The Forgotten Guardian</span>
                     </div>
@@ -229,8 +230,8 @@ export default function LinguisticMinoritiesModule({ onComplete, isCompleted }: 
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-[#0f766e] hover:bg-teal-900 text-white shadow-[0_10px_40px_-10px_rgba(15,118,110,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-[#0f766e] hover:bg-teal-900 text-white shadow-[0_10px_40px_-10px_rgba(15,118,110,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -241,7 +242,7 @@ export default function LinguisticMinoritiesModule({ onComplete, isCompleted }: 
                     ) : (
                         <span className="flex items-center gap-4">
                             <Languages size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 46 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>
