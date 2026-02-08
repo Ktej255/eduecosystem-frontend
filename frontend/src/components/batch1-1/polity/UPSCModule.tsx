@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 interface UPSCModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const MeritContainer = ({ children }: { children: React.ReactNode }) => (
@@ -48,7 +49,7 @@ const MeritCard = ({ title, children, color = "border-blue-900", className = "" 
     </div>
 );
 
-export default function UPSCModule({ onComplete, isCompleted }: UPSCModuleProps) {
+export default function UPSCModule({ onComplete, isCompleted, chapterNumber = "44" }: UPSCModuleProps) {
     return (
         <MeritContainer>
             {/* HERO SECTION */}
@@ -56,7 +57,7 @@ export default function UPSCModule({ onComplete, isCompleted }: UPSCModuleProps)
                 <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -mr-24 -mt-24"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-yellow-500 text-blue-900 font-['Kalam'] px-4 py-1 text-lg">Chapter 44</Badge>
+                        <Badge className="bg-yellow-500 text-blue-900 font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-blue-100 font-bold uppercase tracking-widest text-sm">Watchdog of Merit System</span>
                     </div>
@@ -231,7 +232,7 @@ export default function UPSCModule({ onComplete, isCompleted }: UPSCModuleProps)
                     ) : (
                         <span className="flex items-center gap-4">
                             <Lock size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 44 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

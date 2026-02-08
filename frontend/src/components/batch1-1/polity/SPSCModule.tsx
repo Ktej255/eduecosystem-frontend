@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface SPSCModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const StateContainer = ({ children }: { children: React.ReactNode }) => (
@@ -49,7 +50,7 @@ const StateCard = ({ title, children, color = "border-green-800", className = ""
     </div>
 );
 
-export default function SPSCModule({ onComplete, isCompleted }: SPSCModuleProps) {
+export default function SPSCModule({ onComplete, isCompleted, chapterNumber = "45" }: SPSCModuleProps) {
     return (
         <StateContainer>
             {/* HERO SECTION */}
@@ -57,7 +58,7 @@ export default function SPSCModule({ onComplete, isCompleted }: SPSCModuleProps)
                 <div className="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
                 <div className="relative z-10 text-green-900">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-green-700 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter 45</Badge>
+                        <Badge className="bg-green-700 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-green-800"></div>
                         <span className="text-green-600 font-bold uppercase tracking-widest text-sm">State Merit Guardian</span>
                     </div>
@@ -251,7 +252,7 @@ export default function SPSCModule({ onComplete, isCompleted }: SPSCModuleProps)
                     ) : (
                         <span className="flex items-center gap-4">
                             <Map size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 45 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

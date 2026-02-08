@@ -201,169 +201,169 @@ export default function TopicViewerPage() {
 
             {/* Topic Header - Special Module for History (Topic 1) */}
             {topicId === 1 ? (
-                <HistoryModule onComplete={markComplete} isCompleted={isCompleted} />
+                <HistoryModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 2 ? (
-                <MakingConstitutionModuleV2 onComplete={markComplete} isCompleted={isCompleted} />
+                <MakingConstitutionModuleV2 onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 4 ? (
-                <SalientFeaturesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <SalientFeaturesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 5 ? (
-                <PreambleModule onComplete={markComplete} isCompleted={isCompleted} />
+                <PreambleModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 6 ? (
-                <UnionAndItsTerritoryModule onComplete={markComplete} isCompleted={isCompleted} />
+                <UnionAndItsTerritoryModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 7 ? (
-                <CitizenshipModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CitizenshipModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 8 ? (
-                <FundamentalRightsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <FundamentalRightsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 9 ? (
-                <DPSPModule onComplete={markComplete} isCompleted={isCompleted} />
+                <DPSPModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 10 ? (
-                <FundamentalDutiesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <FundamentalDutiesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 11 ? (
-                <AmendmentModule onComplete={markComplete} isCompleted={isCompleted} />
+                <AmendmentModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 12 ? (
-                <BasicStructureModule onComplete={markComplete} isCompleted={isCompleted} />
+                <BasicStructureModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 13 ? (
-                <ParliamentarySystemModule onComplete={markComplete} isCompleted={isCompleted} />
+                <ParliamentarySystemModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 14 ? (
-                <FederalSystemModule onComplete={markComplete} isCompleted={isCompleted} />
+                <FederalSystemModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 15 ? (
-                <CentreStateRelationsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CentreStateRelationsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 16 ? (
-                <InterStateRelationsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <InterStateRelationsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 17 ? (
-                <EmergencyProvisionsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <EmergencyProvisionsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 18 ? (
-                <PresidentModule onComplete={markComplete} isCompleted={isCompleted} />
+                <PresidentModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 19 ? (
-                <VicePresidentModule onComplete={markComplete} isCompleted={isCompleted} />
+                <VicePresidentModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 20 ? (
-                <PrimeMinisterModule onComplete={markComplete} isCompleted={isCompleted} />
+                <PrimeMinisterModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 21 ? (
-                <CentralCouncilModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CentralCouncilModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 22 ? (
-                <CabinetCommitteesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CabinetCommitteesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 23 ? (
-                <ParliamentModule onComplete={markComplete} isCompleted={isCompleted} />
+                <ParliamentModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 26 ? (
-                <SupremeCourtModule onComplete={markComplete} isCompleted={isCompleted} />
+                <SupremeCourtModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 27 ? (
-                <JudicialReviewModule onComplete={markComplete} isCompleted={isCompleted} />
+                <JudicialReviewModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 28 ? (
-                <JudicialActivismModule onComplete={markComplete} isCompleted={isCompleted} />
+                <JudicialActivismModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 29 ? (
-                <PubIntLitigationModule onComplete={markComplete} isCompleted={isCompleted} />
+                <PubIntLitigationModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 30 ? (
-                <GovernorModule onComplete={markComplete} isCompleted={isCompleted} />
+                <GovernorModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 31 ? (
-                <ChiefMinisterModule onComplete={markComplete} isCompleted={isCompleted} />
+                <ChiefMinisterModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 32 ? (
-                <StateCouncilModule onComplete={markComplete} isCompleted={isCompleted} />
+                <StateCouncilModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 33 ? (
-                <StateLegislatureModule onComplete={markComplete} isCompleted={isCompleted} />
+                <StateLegislatureModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 34 ? (
-                <HighCourtModule onComplete={markComplete} isCompleted={isCompleted} />
+                <HighCourtModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 35 ? (
-                <SubordinateCourtsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <SubordinateCourtsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 36 ? (
                 <TribunalsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber="36" />
             ) : topicId === 39 ? (
-                <PanchayatiRajModule onComplete={markComplete} isCompleted={isCompleted} />
+                <PanchayatiRajModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 40 ? (
-                <MunicipalitiesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <MunicipalitiesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 41 ? (
-                <UnionTerritoriesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <UnionTerritoriesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 42 ? (
-                <ScheduledTribalAreasModule onComplete={markComplete} isCompleted={isCompleted} />
+                <ScheduledTribalAreasModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 43 ? (
                 <ElectionCommissionModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber="43" />
             ) : topicId === 44 ? (
-                <UPSCModule onComplete={markComplete} isCompleted={isCompleted} />
+                <UPSCModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 45 ? (
-                <SPSCModule onComplete={markComplete} isCompleted={isCompleted} />
+                <SPSCModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 46 ? (
-                <FinanceCommissionModule onComplete={markComplete} isCompleted={isCompleted} />
+                <FinanceCommissionModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 47 ? (
-                <GSTCouncilModule onComplete={markComplete} isCompleted={isCompleted} />
+                <GSTCouncilModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 48 ? (
-                <NCSCModule onComplete={markComplete} isCompleted={isCompleted} />
+                <NCSCModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 49 ? (
-                <NCSTModule onComplete={markComplete} isCompleted={isCompleted} />
+                <NCSTModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 50 ? (
-                <NCBCModule onComplete={markComplete} isCompleted={isCompleted} />
+                <NCBCModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 51 ? (
-                <LinguisticMinoritiesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <LinguisticMinoritiesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 52 ? (
-                <CAGModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CAGModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 53 ? (
-                <AttorneyGeneralModule onComplete={markComplete} isCompleted={isCompleted} />
+                <AttorneyGeneralModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 54 ? (
-                <AdvocateGeneralModule onComplete={markComplete} isCompleted={isCompleted} />
+                <AdvocateGeneralModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 56 ? (
-                <NITIAayogModule onComplete={markComplete} isCompleted={isCompleted} />
+                <NITIAayogModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 57 ? (
-                <NHRCModule onComplete={markComplete} isCompleted={isCompleted} />
+                <NHRCModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 58 ? (
-                <SHRCModule onComplete={markComplete} isCompleted={isCompleted} />
+                <SHRCModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 62 ? (
-                <CICModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CICModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 63 ? (
-                <SICModule onComplete={markComplete} isCompleted={isCompleted} />
+                <SICModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 64 ? (
-                <CVCModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CVCModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 65 ? (
-                <CBIModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CBIModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 66 ? (
-                <LokpalModule onComplete={markComplete} isCompleted={isCompleted} />
+                <LokpalModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 67 ? (
-                <NIAModule onComplete={markComplete} isCompleted={isCompleted} />
+                <NIAModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 68 ? (
-                <NDMAModule onComplete={markComplete} isCompleted={isCompleted} />
+                <NDMAModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 73 ? (
-                <CooperativeSocietiesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CooperativeSocietiesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 74 ? (
-                <OfficialLanguageModule onComplete={markComplete} isCompleted={isCompleted} />
+                <OfficialLanguageModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 75 ? (
-                <PublicServicesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <PublicServicesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 76 ? (
-                <RightsLiabilitiesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <RightsLiabilitiesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 77 ? (
-                <CertainClassesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CertainClassesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 78 ? (
                 <SpecialProvisionsStatesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber="78" />
             ) : topicId === 79 ? (
-                <PoliticalPartiesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <PoliticalPartiesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 80 ? (
-                <RegionalPartiesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <RegionalPartiesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 81 ? (
-                <ElectionsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <ElectionsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 82 ? (
-                <ElectionLawsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <ElectionLawsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 83 ? (
-                <ElectoralReformsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <ElectoralReformsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 84 ? (
-                <VotingBehaviourModule onComplete={markComplete} isCompleted={isCompleted} />
+                <VotingBehaviourModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 85 ? (
-                <CoalitionGovtModule onComplete={markComplete} isCompleted={isCompleted} />
+                <CoalitionGovtModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 86 ? (
-                <AntiDefectionLawModule onComplete={markComplete} isCompleted={isCompleted} />
+                <AntiDefectionLawModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 87 ? (
-                <PressureGroupsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <PressureGroupsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 88 ? (
-                <NationalIntegrationModule onComplete={markComplete} isCompleted={isCompleted} />
+                <NationalIntegrationModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 89 ? (
-                <ForeignPolicyModule onComplete={markComplete} isCompleted={isCompleted} />
+                <ForeignPolicyModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 90 ? (
                 <NCRWCModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber="90" />
             ) : topicId === 91 ? (
-                <LandmarkJudgementsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <LandmarkJudgementsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 92 ? (
-                <ScopeOfArticle21Module onComplete={markComplete} isCompleted={isCompleted} />
+                <ScopeOfArticle21Module onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 93 ? (
-                <AmendmentJudgementsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <AmendmentJudgementsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 94 ? (
-                <ConstitutionalDoctrinesModule onComplete={markComplete} isCompleted={isCompleted} />
+                <ConstitutionalDoctrinesModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : topicId === 95 ? (
-                <WorldConstitutionsModule onComplete={markComplete} isCompleted={isCompleted} />
+                <WorldConstitutionsModule onComplete={markComplete} isCompleted={isCompleted} chapterNumber={String(topicId)} />
             ) : (
                 <Card className={`bg-gradient-to-r ${colors.gradient} text-white border-0 shadow-xl`}>
                     <CardContent className="p-6">
