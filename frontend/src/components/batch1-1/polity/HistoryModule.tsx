@@ -8,6 +8,7 @@ import {
     ArrowDown, Scale, Vote, Flag, BookOpen, Star
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ChapterLevelGame from "./revision/ChapterLevelGame";
 
 interface HistoryModuleProps {
     onComplete: () => void;
@@ -448,6 +449,16 @@ export default function HistoryModule({ onComplete, isCompleted }: HistoryModule
                         <p className="text-center text-[10px] text-amber-900/60 mt-4 italic font-serif">Handwritten with ❤️ for Aspirants</p>
                     </div>
                 </div>
+
+                {/* --- PRACTICE ARENA: LEVEL SYSTEM --- */}
+                <section className="mb-20">
+                    <div className="text-center mb-8">
+                        <span className="bg-violet-100 text-violet-900 border border-violet-200 px-4 py-1 text-sm font-bold uppercase tracking-widest rounded-full shadow-md inline-flex items-center gap-2">
+                            <Star size={14} /> Practice Arena
+                        </span>
+                    </div>
+                    <ChapterLevelGame topicId={1} />
+                </section>
 
                 {/* Completion Button */}
                 <div className="flex justify-center pb-20">

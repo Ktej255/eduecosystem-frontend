@@ -10,6 +10,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ChapterLevelGame from "./revision/ChapterLevelGame";
 
 // Types
 interface MakingConstitutionProps {
@@ -281,6 +282,16 @@ export default function MakingConstitutionModule({ onComplete, isCompleted }: Ma
                     </ul>
                 </div>
             </div>
+
+            {/* PRACTICE ARENA */}
+            <section className="mb-20">
+                <div className="text-center mb-8">
+                    <span className="bg-amber-100 text-amber-900 border border-amber-200 px-4 py-1 text-sm font-bold uppercase tracking-widest rounded-full shadow-md inline-flex items-center gap-2">
+                        <Star size={14} /> Practice Arena
+                    </span>
+                </div>
+                <ChapterLevelGame topicId={2} />
+            </section>
 
             {/* COMPLETION BUTTON */}
             <div className="flex justify-center pt-8">

@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ChapterLevelGame from "./revision/ChapterLevelGame";
 
 interface PreambleModuleProps {
     onComplete?: () => void;
@@ -287,6 +288,16 @@ export default function PreambleModule({ onComplete, isCompleted }: PreambleModu
                 </LensCard>
             </div>
 
+
+            {/* PRACTICE ARENA */}
+            <section className="mb-20 max-w-5xl mx-auto">
+                <div className="text-center mb-8">
+                    <span className="bg-amber-50 text-amber-900 border border-amber-200 px-4 py-1 text-sm font-bold uppercase tracking-widest rounded-full shadow-md inline-flex items-center gap-2">
+                        <Flag size={14} /> Practice Arena
+                    </span>
+                </div>
+                <ChapterLevelGame topicId={4} />
+            </section>
 
             {/* FOOTER */}
             <div className="mt-12 text-center pb-8">

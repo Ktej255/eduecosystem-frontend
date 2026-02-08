@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ChapterLevelGame from "./revision/ChapterLevelGame";
 
 interface SalientFeaturesModuleProps {
     onComplete?: () => void;
@@ -421,6 +422,16 @@ export default function SalientFeaturesModule({ onComplete, isCompleted, chapter
                 </PinCard>
 
             </PinboardGrid>
+
+            {/* PRACTICE ARENA */}
+            <div className="max-w-7xl mx-auto mt-12 mb-20 px-4 md:px-8">
+                <div className="text-center mb-8">
+                    <span className="bg-blue-100 text-blue-900 border border-blue-200 px-4 py-1 text-sm font-bold uppercase tracking-widest rounded-full shadow-md inline-flex items-center gap-2">
+                        <BadgeCheck size={14} /> Practice Arena
+                    </span>
+                </div>
+                <ChapterLevelGame topicId={3} />
+            </div>
 
             {/* Quality Control Footer */}
             <div className="max-w-7xl mx-auto mt-12 bg-slate-900 rounded-t-lg p-4 flex items-center justify-between text-white">
