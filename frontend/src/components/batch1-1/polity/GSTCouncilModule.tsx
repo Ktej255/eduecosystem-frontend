@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface GSTCouncilModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const GSTContainer = ({ children }: { children: React.ReactNode }) => (
@@ -49,7 +50,7 @@ const GSTCard = ({ title, children, color = "border-purple-700", className = "" 
     </div>
 );
 
-export default function GSTCouncilModule({ onComplete, isCompleted }: GSTCouncilModuleProps) {
+export default function GSTCouncilModule({ onComplete, isCompleted, chapterNumber = "47" }: GSTCouncilModuleProps) {
     return (
         <GSTContainer>
             {/* HERO SECTION */}
@@ -57,7 +58,7 @@ export default function GSTCouncilModule({ onComplete, isCompleted }: GSTCouncil
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-2xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-white text-purple-700 font-['Kalam'] px-4 py-1 text-lg">Chapter 42</Badge>
+                        <Badge className="bg-white text-purple-700 font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-purple-100 font-bold uppercase tracking-widest text-sm">Pinnacle of Cooperative Federalism</span>
                     </div>
@@ -220,8 +221,8 @@ export default function GSTCouncilModule({ onComplete, isCompleted }: GSTCouncil
                 <Button
                     onClick={onComplete}
                     className={`px-12 py-8 text-2xl font-black rounded-3xl transition-all duration-500 group ${isCompleted
-                            ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
-                            : "bg-purple-700 hover:bg-purple-800 text-white shadow-[0_10px_40px_-10px_rgba(126,34,206,0.5)]"
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-[0_0_30px_-5px_rgba(22,163,74,0.5)]"
+                        : "bg-purple-700 hover:bg-purple-800 text-white shadow-[0_10px_40px_-10px_rgba(126,34,206,0.5)]"
                         }`}
                 >
                     {isCompleted ? (
@@ -232,7 +233,7 @@ export default function GSTCouncilModule({ onComplete, isCompleted }: GSTCouncil
                     ) : (
                         <span className="flex items-center gap-4">
                             <LayoutGrid size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 42 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface NCSCModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -48,7 +49,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps) {
+export default function NCSCModule({ onComplete, isCompleted, chapterNumber = "48" }: NCSCModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -56,7 +57,7 @@ export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps)
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#ca8a04] text-white px-4 py-1 text-lg border-2 border-white shadow-sm">Chapter 43</Badge>
+                        <Badge className="bg-[#ca8a04] text-white px-4 py-1 text-lg border-2 border-white shadow-sm">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-indigo-100 font-bold uppercase tracking-widest text-sm">The Constitutional Watchdog</span>
                     </div>
@@ -285,7 +286,7 @@ export default function NCSCModule({ onComplete, isCompleted }: NCSCModuleProps)
                     ) : (
                         <span className="flex items-center gap-4">
                             <Shield size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 43 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

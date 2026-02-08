@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface FinanceCommissionModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const FiscalContainer = ({ children }: { children: React.ReactNode }) => (
@@ -49,7 +50,7 @@ const FiscalCard = ({ title, children, color = "border-amber-700", className = "
     </div>
 );
 
-export default function FinanceCommissionModule({ onComplete, isCompleted }: FinanceCommissionModuleProps) {
+export default function FinanceCommissionModule({ onComplete, isCompleted, chapterNumber = "46" }: FinanceCommissionModuleProps) {
     return (
         <FiscalContainer>
             {/* HERO SECTION */}
@@ -57,7 +58,7 @@ export default function FinanceCommissionModule({ onComplete, isCompleted }: Fin
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-2xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-amber-900 text-amber-200 font-['Kalam'] px-4 py-1 text-lg">Chapter 41</Badge>
+                        <Badge className="bg-amber-900 text-amber-200 font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-amber-100 font-bold uppercase tracking-widest text-sm text-shadow-sm">The Balancing Wheel of Fiscal Federalism</span>
                     </div>
@@ -250,7 +251,7 @@ export default function FinanceCommissionModule({ onComplete, isCompleted }: Fin
                     ) : (
                         <span className="flex items-center gap-4">
                             <Coins size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 41 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

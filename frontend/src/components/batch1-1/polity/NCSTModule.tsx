@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface NCSTModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -52,7 +53,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function NCSTModule({ onComplete, isCompleted }: NCSTModuleProps) {
+export default function NCSTModule({ onComplete, isCompleted, chapterNumber = "49" }: NCSTModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -60,7 +61,7 @@ export default function NCSTModule({ onComplete, isCompleted }: NCSTModuleProps)
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-orange-600 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter 49</Badge>
+                        <Badge className="bg-orange-600 text-white font-['Kalam'] px-4 py-1 text-lg">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-green-50 font-bold uppercase tracking-widest text-sm italic">The Tribal Shield & A Bow</span>
                     </div>
@@ -277,7 +278,7 @@ export default function NCSTModule({ onComplete, isCompleted }: NCSTModuleProps)
                     ) : (
                         <span className="flex items-center gap-4">
                             <Trees size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 49 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>
