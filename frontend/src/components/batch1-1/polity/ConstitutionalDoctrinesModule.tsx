@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 interface ConstitutionalDoctrinesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -71,7 +72,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function ConstitutionalDoctrinesModule({ onComplete, isCompleted }: ConstitutionalDoctrinesModuleProps) {
+export default function ConstitutionalDoctrinesModule({ onComplete, isCompleted, chapterNumber = "94" }: ConstitutionalDoctrinesModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -79,7 +80,7 @@ export default function ConstitutionalDoctrinesModule({ onComplete, isCompleted 
                 <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
                     <div>
                         <div className="flex items-center gap-3 mb-4">
-                            <Badge className="bg-[#172554] text-white border border-blue-400">Chapter 94</Badge>
+                            <Badge className="bg-[#172554] text-white border border-blue-400">Chapter {chapterNumber}</Badge>
                             <span className="text-blue-200 font-bold uppercase tracking-widest text-sm">Constitutional Interpretation</span>
                         </div>
                         <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
@@ -244,7 +245,7 @@ export default function ConstitutionalDoctrinesModule({ onComplete, isCompleted 
                     ) : (
                         <span className="flex items-center gap-3">
                             <BookOpen size={24} />
-                            MARK CHAPTER 94 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

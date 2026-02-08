@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface ElectionsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -34,14 +35,14 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
     </div>
 );
 
-export default function ElectionsModule({ onComplete, isCompleted }: ElectionsModuleProps) {
+export default function ElectionsModule({ onComplete, isCompleted, chapterNumber = "81" }: ElectionsModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO */}
             <div className="relative bg-[#2563eb] border-4 border-blue-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#171717] text-white px-4 py-1 text-lg font-bold">Chapter 81</Badge>
+                        <Badge className="bg-[#171717] text-white px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                         <span className="text-blue-200 font-bold uppercase tracking-widest text-sm">Part XV</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">

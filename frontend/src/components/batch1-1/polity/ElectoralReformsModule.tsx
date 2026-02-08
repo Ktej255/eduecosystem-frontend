@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface ElectoralReformsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -46,14 +47,14 @@ const ReformCard = ({ year, title, children }: { year: string, title: string, ch
     </div>
 );
 
-export default function ElectoralReformsModule({ onComplete, isCompleted }: ElectoralReformsModuleProps) {
+export default function ElectoralReformsModule({ onComplete, isCompleted, chapterNumber = "83" }: ElectoralReformsModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO */}
             <div className="relative bg-[#0f766e] border-4 border-teal-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-white text-teal-800 px-4 py-1 text-lg font-bold">Chapter 83</Badge>
+                        <Badge className="bg-white text-teal-800 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                         <span className="text-teal-200 font-bold uppercase tracking-widest text-sm">Part XV</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">

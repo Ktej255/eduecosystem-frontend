@@ -21,6 +21,7 @@ import { Card, CardContent } from "@/components/ui/card";
 interface ElectionLawsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -65,7 +66,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
     </div>
 );
 
-export default function ElectionLawsModule({ onComplete, isCompleted }: ElectionLawsModuleProps) {
+export default function ElectionLawsModule({ onComplete, isCompleted, chapterNumber = "82" }: ElectionLawsModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -73,7 +74,7 @@ export default function ElectionLawsModule({ onComplete, isCompleted }: Election
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#14532d] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 82</Badge>
+                        <Badge className="bg-[#14532d] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-green-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Statutory Framework</span>
                     </div>
@@ -265,7 +266,7 @@ export default function ElectionLawsModule({ onComplete, isCompleted }: Election
                     ) : (
                         <span className="flex items-center gap-4">
                             <BookOpen size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 82 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>
