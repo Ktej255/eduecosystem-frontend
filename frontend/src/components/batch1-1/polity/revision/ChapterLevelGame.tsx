@@ -1,26 +1,110 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { CheckCircle2, XCircle, Trophy, Play, Lock, AlertTriangle, RefreshCw, ChevronRight, BookOpen } from 'lucide-react';
+import { CheckCircle2, XCircle, Trophy, Play, Lock, AlertTriangle, RefreshCw, ChevronRight, BookOpen, FileBarChart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getChapterLevels } from '../data/chapter-level-index';
 import { LevelQuestion, LevelData } from '../data/level-types';
 // @ts-ignore
 import confetti from 'canvas-confetti';
 
-interface ChapterLevelGameProps {
-    topicId: number;
-    onComplete?: (level: number, score: number) => void;
+// --- Types ---
+export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind' | null;
+
+export interface QuestionResult {
+    id: string;
+    question: string;
+    options: string[];
+    explanation: string;
+    userAnswer: number | null;
+    correctAnswer: number;
+    confidence: ConfidenceLevel;
+    timeSpent: number;
+    isCorrect: boolean;
 }
 
+export interface ChapterTestResult {
+    chapterNumber: number;
+    chapterTitle: string;
+    levelId: 1 | 2 | 3;
+    levelTitle: string;
+    startTime: string;
+    endTime: string;
+    totalTimeTaken: number;
+    questions: QuestionResult[];
+    score: number;
+    totalQuestions: number;
+    percentage: number;
+}
+
+interface ChapterLevelGameProps {
+    topicId: number;
+    onComplete?: (level: number, score: number, result?: ChapterTestResult) => void;
+}
+
+// --- Confidence Button Strip ---
+const CONFIDENCE_OPTIONS: { value: ConfidenceLevel; label: string; color: string; bgColor: string }[] = [
+    { value: 'sure', label: 'Sure', color: 'text-emerald-600', bgColor: 'bg-emerald-50 border-emerald-200 hover:bg-emerald-100' },
+    { value: '50-50', label: '50-50', color: 'text-orange-600', bgColor: 'bg-orange-50 border-orange-200 hover:bg-orange-100' },
+    { value: 'one-option', label: 'One Option Known', color: 'text-blue-600', bgColor: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
+    { value: 'blind', label: 'Blind Guess', color: 'text-slate-600', bgColor: 'bg-slate-50 border-slate-200 hover:bg-slate-100' },
+];
+
+function ConfidenceStrip({
+    selected,
+    onSelect,
+    disabled
+}: {
+    selected: ConfidenceLevel;
+    onSelect: (c: ConfidenceLevel) => void;
+    disabled?: boolean;
+}) {
+    return (
+        <div className="mt-4 pt-4 border-t border-slate-100">
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">How confident are you?</p>
+            <div className="flex flex-wrap gap-2">
+                {CONFIDENCE_OPTIONS.map((opt) => (
+                    <button
+                        key={opt.value}
+                        onClick={() => onSelect(opt.value)}
+                        disabled={disabled}
+                        className={`
+                            px-3 py-2 rounded-lg text-sm font-medium border transition-all
+                            ${selected === opt.value
+                                ? `${opt.bgColor} ${opt.color} ring-2 ring-offset-1 ring-${opt.value === 'sure' ? 'emerald' : opt.value === '50-50' ? 'orange' : opt.value === 'one-option' ? 'blue' : 'slate'}-300`
+                                : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'
+                            }
+                            ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+                        `}
+                    >
+                        {opt.label}
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// --- Main Component ---
 export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGameProps) {
     const [activeLevel, setActiveLevel] = useState<number | null>(null);
-    const [unlockedLevels, setUnlockedLevels] = useState<number[]>([1]); // Default Level 1 unlocked
+    const [unlockedLevels, setUnlockedLevels] = useState<number[]>([1]);
+    const [showReport, setShowReport] = useState(false);
+    const [lastResult, setLastResult] = useState<ChapterTestResult | null>(null);
     const chapterData = getChapterLevels(topicId);
+
+    // Load unlocked levels from localStorage
+    useEffect(() => {
+        const saved = localStorage.getItem(`polity-chapter-${topicId}-unlocked`);
+        if (saved) {
+            try {
+                setUnlockedLevels(JSON.parse(saved));
+            } catch { }
+        }
+    }, [topicId]);
 
     if (!chapterData) {
         return (
@@ -35,23 +119,46 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
     const handleLevelSelect = (levelId: number) => {
         if (unlockedLevels.includes(levelId)) {
             setActiveLevel(levelId);
+            setShowReport(false);
         }
     };
 
-    const handleLevelFinish = (levelId: number, scorePercentage: number) => {
-        if (scorePercentage >= 50) { // 50% needed to unlock next level
-            if (levelId < 3 && !unlockedLevels.includes(levelId + 1)) {
-                setUnlockedLevels(prev => [...prev, levelId + 1]);
-                confetti({
-                    particleCount: 100,
-                    spread: 70,
-                    origin: { y: 0.6 }
-                });
-            }
+    const handleLevelFinish = (levelId: number, scorePercentage: number, result: ChapterTestResult) => {
+        // Save result to localStorage
+        const storageKey = `polity-chapter-${topicId}-reports`;
+        const existing = localStorage.getItem(storageKey);
+        const reports: ChapterTestResult[] = existing ? JSON.parse(existing) : [];
+        reports.unshift(result); // Add new result at the beginning
+        localStorage.setItem(storageKey, JSON.stringify(reports.slice(0, 20))); // Keep last 20 reports
+
+        // Unlock next level if passed
+        if (scorePercentage >= 50 && levelId < 3 && !unlockedLevels.includes(levelId + 1)) {
+            const newUnlocked = [...unlockedLevels, levelId + 1];
+            setUnlockedLevels(newUnlocked);
+            localStorage.setItem(`polity-chapter-${topicId}-unlocked`, JSON.stringify(newUnlocked));
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
         }
+
+        setLastResult(result);
         setActiveLevel(null);
-        if (onComplete) onComplete(levelId, scorePercentage);
+        setShowReport(true);
+        if (onComplete) onComplete(levelId, scorePercentage, result);
     };
+
+    // Show report after finishing
+    if (showReport && lastResult) {
+        return (
+            <ChapterTestReportView
+                result={lastResult}
+                onBack={() => setShowReport(false)}
+                onRetake={() => handleLevelSelect(lastResult.levelId)}
+            />
+        );
+    }
 
     if (activeLevel) {
         const levelData = chapterData.levels.find((l: LevelData) => l.levelId === activeLevel);
@@ -60,8 +167,10 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
         return (
             <GameInterface
                 levelData={levelData}
+                chapterNumber={topicId}
+                chapterTitle={chapterData.chapterTitle}
                 onBack={() => setActiveLevel(null)}
-                onFinish={(score) => handleLevelFinish(activeLevel, score)}
+                onFinish={(score, result) => handleLevelFinish(activeLevel, score, result)}
             />
         );
     }
@@ -96,7 +205,6 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
                                 }
                             `}
                         >
-                            {/* Background Decoration */}
                             <div className={`absolute -right-8 -top-8 w-32 h-32 bg-gradient-to-br ${colors.bgGradient} opacity-10 rounded-full blur-2xl`}></div>
 
                             <div>
@@ -125,18 +233,87 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
                     );
                 })}
             </div>
+
+            {/* View Past Reports Button */}
+            <ReportHistoryButton topicId={topicId} />
+        </div>
+    );
+}
+
+// --- Report History Button ---
+function ReportHistoryButton({ topicId }: { topicId: number }) {
+    const [reports, setReports] = useState<ChapterTestResult[]>([]);
+    const [showHistory, setShowHistory] = useState(false);
+
+    useEffect(() => {
+        const saved = localStorage.getItem(`polity-chapter-${topicId}-reports`);
+        if (saved) {
+            try {
+                setReports(JSON.parse(saved));
+            } catch { }
+        }
+    }, [topicId]);
+
+    if (reports.length === 0) return null;
+
+    return (
+        <div className="mt-6 text-center">
+            <Button
+                variant="outline"
+                onClick={() => setShowHistory(!showHistory)}
+                className="gap-2"
+            >
+                <FileBarChart className="w-4 h-4" />
+                View Past Reports ({reports.length})
+            </Button>
+
+            {showHistory && (
+                <div className="mt-4 space-y-3 max-h-[300px] overflow-y-auto">
+                    {reports.map((r, i) => (
+                        <div key={i} className="p-4 bg-slate-50 rounded-lg border border-slate-100 text-left">
+                            <div className="flex justify-between items-center">
+                                <div>
+                                    <span className="font-bold text-slate-700">Level {r.levelId}</span>
+                                    <span className="text-slate-400 mx-2">•</span>
+                                    <span className="text-slate-500 text-sm">{new Date(r.endTime).toLocaleDateString()}</span>
+                                </div>
+                                <Badge className={r.percentage >= 50 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}>
+                                    {r.percentage}%
+                                </Badge>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
 
 // --- Game Interface ---
-
-function GameInterface({ levelData, onBack, onFinish }: { levelData: LevelData, onBack: () => void, onFinish: (score: number) => void }) {
+function GameInterface({
+    levelData,
+    chapterNumber,
+    chapterTitle,
+    onBack,
+    onFinish
+}: {
+    levelData: LevelData;
+    chapterNumber: number;
+    chapterTitle: string;
+    onBack: () => void;
+    onFinish: (score: number, result: ChapterTestResult) => void;
+}) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [isAnswered, setIsAnswered] = useState(false);
     const [showResult, setShowResult] = useState(false);
+    const [confidence, setConfidence] = useState<ConfidenceLevel>(null);
+
+    // Time tracking
+    const [startTime] = useState(() => new Date().toISOString());
+    const [questionStartTime, setQuestionStartTime] = useState(() => Date.now());
+    const [questionResults, setQuestionResults] = useState<QuestionResult[]>([]);
 
     const question = levelData.questions[currentIndex];
     const totalQuestions = levelData.questions.length;
@@ -152,14 +329,56 @@ function GameInterface({ levelData, onBack, onFinish }: { levelData: LevelData, 
     };
 
     const handleNext = () => {
+        // Save question result
+        const timeSpent = Math.round((Date.now() - questionStartTime) / 1000);
+        const isCorrect = selectedOption === question.correctAnswerIndex;
+
+        const result: QuestionResult = {
+            id: question.id || `q${currentIndex + 1}`,
+            question: question.question,
+            options: question.options,
+            explanation: question.explanation || '',
+            userAnswer: selectedOption,
+            correctAnswer: question.correctAnswerIndex,
+            confidence: confidence,
+            timeSpent: timeSpent,
+            isCorrect: isCorrect,
+        };
+
+        setQuestionResults(prev => [...prev, result]);
+
         if (currentIndex < totalQuestions - 1) {
             setCurrentIndex(prev => prev + 1);
             setSelectedOption(null);
             setIsAnswered(false);
+            setConfidence(null);
+            setQuestionStartTime(Date.now());
         } else {
             setShowResult(true);
         }
     };
+
+    const handleFinish = useCallback(() => {
+        const endTime = new Date().toISOString();
+        const totalTime = questionResults.reduce((acc, q) => acc + q.timeSpent, 0);
+        const percentage = Math.round((score / totalQuestions) * 100);
+
+        const testResult: ChapterTestResult = {
+            chapterNumber,
+            chapterTitle,
+            levelId: levelData.levelId as 1 | 2 | 3,
+            levelTitle: levelData.title,
+            startTime,
+            endTime,
+            totalTimeTaken: totalTime,
+            questions: questionResults,
+            score,
+            totalQuestions,
+            percentage,
+        };
+
+        onFinish(percentage, testResult);
+    }, [questionResults, score, totalQuestions, chapterNumber, chapterTitle, levelData, startTime, onFinish]);
 
     if (showResult) {
         const percentage = Math.round((score / totalQuestions) * 100);
@@ -184,7 +403,7 @@ function GameInterface({ levelData, onBack, onFinish }: { levelData: LevelData, 
                     </div>
                 ) : (
                     <div className="p-4 bg-red-50 rounded-xl mb-8 text-red-800 text-sm">
-                        You need at least 50% to unlock the next level. Try review the chapter text again.
+                        You need at least 50% to unlock the next level. Try reviewing the chapter text again.
                     </div>
                 )}
 
@@ -192,8 +411,9 @@ function GameInterface({ levelData, onBack, onFinish }: { levelData: LevelData, 
                     <Button onClick={onBack} variant="outline">
                         Back to Menu
                     </Button>
-                    <Button onClick={() => onFinish(percentage)} className={isPass ? 'bg-green-600 hover:bg-green-700' : 'bg-slate-900'}>
-                        {isPass ? 'Continue' : 'Try Again'}
+                    <Button onClick={handleFinish} className={isPass ? 'bg-green-600 hover:bg-green-700' : 'bg-slate-900'}>
+                        <FileBarChart className="w-4 h-4 mr-2" />
+                        View Detailed Report
                     </Button>
                 </div>
             </Card>
@@ -274,7 +494,15 @@ function GameInterface({ levelData, onBack, onFinish }: { levelData: LevelData, 
                         })}
                     </div>
 
-                    {/* Explanation / Next Button */}
+                    {/* Confidence Strip - Show AFTER selecting an answer */}
+                    {isAnswered && (
+                        <ConfidenceStrip
+                            selected={confidence}
+                            onSelect={setConfidence}
+                        />
+                    )}
+
+                    {/* Next Button */}
                     <AnimatePresence>
                         {isAnswered && (
                             <motion.div
@@ -282,13 +510,175 @@ function GameInterface({ levelData, onBack, onFinish }: { levelData: LevelData, 
                                 animate={{ opacity: 1, y: 0 }}
                                 className="mt-8 pt-6 border-t border-slate-100 flex justify-end"
                             >
-                                <Button size="lg" onClick={handleNext} className="bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-200">
+                                <Button
+                                    size="lg"
+                                    onClick={handleNext}
+                                    disabled={!confidence}
+                                    className="bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-200 disabled:opacity-50"
+                                >
                                     {currentIndex < totalQuestions - 1 ? 'Next Question' : 'Finish Level'} <ChevronRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </motion.div>
                         )}
                     </AnimatePresence>
+
+                    {isAnswered && !confidence && (
+                        <p className="text-xs text-center text-amber-600 mt-2">
+                            Please select your confidence level to continue
+                        </p>
+                    )}
                 </CardContent>
+            </Card>
+        </div>
+    );
+}
+
+// --- Simple Report View (Inline) ---
+function ChapterTestReportView({
+    result,
+    onBack,
+    onRetake
+}: {
+    result: ChapterTestResult;
+    onBack: () => void;
+    onRetake: () => void;
+}) {
+    const [filter, setFilter] = useState<'all' | 'correct' | 'incorrect'>('all');
+
+    // Confidence analysis
+    const confidenceStats = CONFIDENCE_OPTIONS.map(opt => {
+        const qs = result.questions.filter(q => q.confidence === opt.value);
+        const correct = qs.filter(q => q.isCorrect).length;
+        return {
+            level: opt.label,
+            total: qs.length,
+            correct,
+            accuracy: qs.length > 0 ? Math.round((correct / qs.length) * 100) : 0,
+            avgTime: qs.length > 0 ? Math.round(qs.reduce((a, q) => a + q.timeSpent, 0) / qs.length) : 0,
+        };
+    });
+
+    const filteredQuestions = result.questions.filter(q => {
+        if (filter === 'correct') return q.isCorrect;
+        if (filter === 'incorrect') return !q.isCorrect;
+        return true;
+    });
+
+    return (
+        <div className="space-y-6">
+            {/* Header */}
+            <div className="flex items-center justify-between">
+                <Button variant="ghost" onClick={onBack} size="sm">
+                    &larr; Back to Levels
+                </Button>
+                <Button onClick={onRetake} size="sm" variant="outline">
+                    <RefreshCw className="w-4 h-4 mr-2" /> Retake
+                </Button>
+            </div>
+
+            {/* Stats Cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <Card className="p-4 text-center bg-gradient-to-br from-violet-50 to-violet-100 border-violet-200">
+                    <p className="text-xs font-bold text-violet-600 uppercase">Score</p>
+                    <p className="text-3xl font-black text-violet-700">{result.percentage}%</p>
+                </Card>
+                <Card className="p-4 text-center bg-gradient-to-br from-green-50 to-green-100 border-green-200">
+                    <p className="text-xs font-bold text-green-600 uppercase">Correct</p>
+                    <p className="text-3xl font-black text-green-700">{result.score}</p>
+                </Card>
+                <Card className="p-4 text-center bg-gradient-to-br from-red-50 to-red-100 border-red-200">
+                    <p className="text-xs font-bold text-red-600 uppercase">Incorrect</p>
+                    <p className="text-3xl font-black text-red-700">{result.totalQuestions - result.score}</p>
+                </Card>
+                <Card className="p-4 text-center bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
+                    <p className="text-xs font-bold text-blue-600 uppercase">Time</p>
+                    <p className="text-3xl font-black text-blue-700">{Math.floor(result.totalTimeTaken / 60)}m</p>
+                </Card>
+            </div>
+
+            {/* Confidence Analysis */}
+            <Card className="p-6">
+                <h3 className="font-bold text-lg mb-4 text-slate-800">Confidence Level Analysis</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {confidenceStats.map((stat) => (
+                        <div key={stat.level} className="p-4 bg-slate-50 rounded-xl text-center">
+                            <p className="text-xs font-bold text-slate-500 uppercase">{stat.level}</p>
+                            <p className="text-2xl font-black text-slate-700">{stat.accuracy}%</p>
+                            <p className="text-xs text-slate-400">{stat.correct}/{stat.total} correct</p>
+                            <p className="text-xs text-slate-400">~{stat.avgTime}s avg</p>
+                        </div>
+                    ))}
+                </div>
+            </Card>
+
+            {/* Question Review */}
+            <Card className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-bold text-lg text-slate-800">Question Review</h3>
+                    <div className="flex gap-2">
+                        {(['all', 'correct', 'incorrect'] as const).map(f => (
+                            <Button
+                                key={f}
+                                variant={filter === f ? 'default' : 'outline'}
+                                size="sm"
+                                onClick={() => setFilter(f)}
+                                className="capitalize"
+                            >
+                                {f}
+                            </Button>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="space-y-4 max-h-[500px] overflow-y-auto">
+                    {filteredQuestions.map((q, i) => (
+                        <div key={i} className={`p-4 rounded-xl border ${q.isCorrect ? 'bg-green-50/50 border-green-100' : 'bg-red-50/50 border-red-100'}`}>
+                            <div className="flex items-start gap-3 mb-3">
+                                <span className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${q.isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                                    {i + 1}
+                                </span>
+                                <div className="flex-1">
+                                    <p className="font-medium text-slate-800 leading-relaxed">{q.question}</p>
+                                    <div className="flex items-center gap-2 mt-1 text-xs text-slate-500">
+                                        <span className={`px-2 py-0.5 rounded-full ${q.isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                                            {q.isCorrect ? 'Correct' : 'Incorrect'}
+                                        </span>
+                                        <span>•</span>
+                                        <span>{q.confidence || 'No confidence'}</span>
+                                        <span>•</span>
+                                        <span>{q.timeSpent}s</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-2 mt-3">
+                                {q.options.map((opt, idx) => {
+                                    const isCorrect = idx === q.correctAnswer;
+                                    const isUserChoice = idx === q.userAnswer;
+                                    let cls = "p-2 rounded-lg text-sm border ";
+                                    if (isCorrect) cls += "bg-green-100 border-green-300 text-green-800";
+                                    else if (isUserChoice) cls += "bg-red-100 border-red-300 text-red-800";
+                                    else cls += "bg-white border-slate-100 text-slate-500";
+
+                                    return (
+                                        <div key={idx} className={cls}>
+                                            <span className="font-bold mr-2">{String.fromCharCode(65 + idx)}.</span>
+                                            {opt}
+                                            {isCorrect && <CheckCircle2 className="inline ml-1 w-4 h-4" />}
+                                            {isUserChoice && !isCorrect && <XCircle className="inline ml-1 w-4 h-4" />}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+
+                            {q.explanation && (
+                                <div className="mt-3 p-3 bg-blue-50 rounded-lg text-sm text-blue-800">
+                                    <strong>Explanation:</strong> {q.explanation}
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </Card>
         </div>
     );
