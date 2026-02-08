@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
+    Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2, Clock,
     Target, Filter, LayoutGrid, List, Sparkles, BarChart2, StickyNote, PlayCircle, Flame
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
