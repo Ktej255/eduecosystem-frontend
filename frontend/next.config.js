@@ -8,7 +8,10 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: false,
+    workerThreads: false,
+    cpus: 1,
   },
+  staticPageGenerationTimeout: 300,
 
 
   webpack: (config, { dev, isServer }) => {
