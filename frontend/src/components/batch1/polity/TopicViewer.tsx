@@ -7,6 +7,7 @@ import { PolityTopic, getModuleById, getModuleColors, POLITY_MODULES as POLITY_P
 import { getTopicById } from './data/polity-registry'; // Using 50-topic registry for now
 import { POLITY_REVISION_CHAPTERS } from './data/RevisionRegistry'; // For 95-topic fallback
 import EveningSessionDayView from '../EveningSessionDayView';
+import TopicPYQWidget from '../../batch1-1/polity/revision/TopicPYQWidget';
 
 // Adapter for TOPIC_TITLES using the 95-chapter registry
 const TOPIC_TITLES = POLITY_REVISION_CHAPTERS.map(ch => ({
@@ -282,6 +283,9 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                         ))}
                     </div>
                 </div>
+
+                {/* PYQ Widget (New) */}
+                <TopicPYQWidget topicId={displayTopic.id} />
 
                 {/* Navigation */}
                 <div className="flex justify-between pt-6 border-t border-gray-200 dark:border-gray-800">

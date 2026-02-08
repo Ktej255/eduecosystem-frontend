@@ -1,20 +1,25 @@
 "use client";
 
 import React, { useState } from 'react';
-import { MONEY_BILL_FLOW, ANTI_DEFECTION_FLOW, FlowNode } from '../data/flow-data';
+import { MONEY_BILL_FLOW, ANTI_DEFECTION_FLOW, PRESIDENT_ASSENT_FLOW, EMERGENCY_FLOW, FlowNode } from '../data/flow-data';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, RefreshCw, GitGraph, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type ScenarioType = 'MONEY_BILL' | 'ANTI_DEFECTION';
+type ScenarioType = 'MONEY_BILL' | 'ANTI_DEFECTION' | 'PRESIDENT_ASSENT' | 'EMERGENCY';
 
 export default function PolityDecisionTree() {
     const [scenario, setScenario] = useState<ScenarioType>('MONEY_BILL');
     const [history, setHistory] = useState<string[]>(['start']);
 
-    const currentFlow = scenario === 'MONEY_BILL' ? MONEY_BILL_FLOW : ANTI_DEFECTION_FLOW;
+    const currentFlow =
+        scenario === 'MONEY_BILL' ? MONEY_BILL_FLOW :
+            scenario === 'ANTI_DEFECTION' ? ANTI_DEFECTION_FLOW :
+                scenario === 'PRESIDENT_ASSENT' ? PRESIDENT_ASSENT_FLOW :
+                    EMERGENCY_FLOW;
+
     const currentNodeId = history[history.length - 1];
     const currentNode = currentFlow[currentNodeId];
 
@@ -49,12 +54,14 @@ export default function PolityDecisionTree() {
                 </div>
 
                 <Select value={scenario} onValueChange={handleScenarioChange}>
-                    <SelectTrigger className="w-[240px] bg-slate-800 border-slate-700 text-white font-bold">
+                    <SelectTrigger className="w-[280px] bg-slate-800 border-slate-700 text-white font-bold">
                         <SelectValue placeholder="Select Scenario" />
                     </SelectTrigger>
                     <SelectContent className="bg-slate-800 text-white border-slate-700">
                         <SelectItem value="MONEY_BILL">💰 Money Bill Journey</SelectItem>
                         <SelectItem value="ANTI_DEFECTION">⚖️ Anti-Defection Law</SelectItem>
+                        <SelectItem value="PRESIDENT_ASSENT">✍️ President's Assent (Veto)</SelectItem>
+                        <SelectItem value="EMERGENCY">🚨 National Emergency (Art 352)</SelectItem>
                     </SelectContent>
                 </Select>
             </div>

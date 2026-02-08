@@ -63,6 +63,9 @@ import { topic48ElectoralReforms } from './topics/topic-48-electoral-reforms';
 import { topic49GovernanceTerms } from './topics/topic-49-governance-terms';
 import { topic50CurrentAffairs } from './topics/topic-50-current-affairs';
 
+// Import 95-Topic Definitions for Dynamic Fallback
+import { TOPIC_TITLES } from '../../../batch1-1/polity/data/polity-types-95';
+
 // All topics registry
 export const POLITY_TOPICS: PolityTopic[] = [
     topic01HistoricalEvolution,
@@ -119,12 +122,45 @@ export const POLITY_TOPICS: PolityTopic[] = [
 
 // Get topic by ID
 export function getTopicById(id: number): PolityTopic | undefined {
-    return POLITY_TOPICS.find(t => t.id === id);
+    // 1. Check existing static topics (1-50)
+    const existing = POLITY_TOPICS.find(t => t.id === id);
+    if (existing) return existing;
+
+    // 2. Check dynamic 95-topic list (51-95)
+    // This ensures no "Topic Not Found" error for the new re-indexed topics
+    const dynamicDef = TOPIC_TITLES.find(t => t.id === id);
+    if (dynamicDef) {
+        return {
+            id: dynamicDef.id,
+            module: dynamicDef.part as any, // Mapping PartId to ModuleId
+            title: dynamicDef.title,
+            syllabusTag: `Polity - ${dynamicDef.title}`,
+            staticFocus: "Comprehensive notes and analysis coming soon.",
+            coreArticles: [],
+            keyConcepts: [],
+            currentAffairs: [],
+            prelimsPointers: [],
+            priority: 'Medium',
+            lastUpdated: new Date().toISOString()
+        };
+    }
+
+    return undefined;
 }
 
 // Get topics by module
 export function getTopicsByModule(moduleId: string): PolityTopic[] {
-    return POLITY_TOPICS.filter(t => t.module === moduleId);
+    const staticTopics = POLITY_TOPICS.filter(t => t.module === moduleId);
+
+    // Also fetch dynamic topics for this module to get accurate stats
+    // This is optional but good for consistency if listing by module
+    const dynamicTopics = TOPIC_TITLES
+        .filter(t => t.part === moduleId)
+        .filter(t => !POLITY_TOPICS.some(pt => pt.id === t.id)) // Avoid duplicates
+        .map(t => getTopicById(t.id)!)
+        .filter(Boolean);
+
+    return [...staticTopics, ...dynamicTopics].sort((a, b) => a.id - b.id);
 }
 
 // Get module statistics

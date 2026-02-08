@@ -1,203 +1,234 @@
+export type ArticleGroup =
+    | 'Union & Territory'
+    | 'Citizenship'
+    | 'Fundamental Rights'
+    | 'DPSP'
+    | 'Duties'
+    | 'President'
+    | 'Parliament'
+    | 'Judiciary'
+    | 'Emergency'
+    | 'Constitutional Bodies';
+
 export interface ArticleMemoryItem {
-    id: string;
-    article: string;
+    articleNumber: string;
     provision: string;
     mnemonic: string;
-    visualHint: string; // Icon identifier
-    category: 'Fundamental Rights' | 'DPSP' | 'Union Executive' | 'Parliament' | 'Emergency' | 'Constitutional Bodies';
-    explanation: string;
+    group: ArticleGroup;
+    complexity: 'Easy' | 'Medium' | 'Hard';
+    keywords?: string[]; // For partial matching
 }
 
 export const ARTICLE_MEMORY_DATA: ArticleMemoryItem[] = [
-    // FUNDAMENTAL RIGHTS
+    // --- UNION & TERRITORY (1-4) ---
     {
-        id: "art-14",
-        article: "Article 14",
-        provision: "Equality before Law",
-        mnemonic: "E-14 (Equality for All)",
-        visualHint: "Scale",
-        category: "Fundamental Rights",
-        explanation: "The State shall not deny to any person equality before the law or the equal protection of the laws."
+        articleNumber: '1',
+        provision: 'Name and territory of the Union',
+        mnemonic: 'India that is Bharat (Rule #1)',
+        group: 'Union & Territory',
+        complexity: 'Easy'
     },
     {
-        id: "art-17",
-        article: "Article 17",
-        provision: "Abolition of Untouchability",
-        mnemonic: "1-7 = Un-Touch (Rhyme)",
-        visualHint: "HandBan",
-        category: "Fundamental Rights",
-        explanation: "Untouchability is abolished and its practice in any form is forbidden."
-    },
-    {
-        id: "art-19",
-        article: "Article 19",
-        provision: "Six Freedoms",
-        mnemonic: "SAM ROPE (Speech, Assembly, Metro/Move, Reside, Occupation, Profession - wait, property is gone!)",
-        visualHint: "Wind",
-        category: "Fundamental Rights",
-        explanation: "Protection of certain rights regarding freedom of speech etc."
-    },
-    {
-        id: "art-21",
-        article: "Article 21",
-        provision: "Protection of Life and Personal Liberty",
-        mnemonic: "21 gun salute for LIFE",
-        visualHint: "Heart",
-        category: "Fundamental Rights",
-        explanation: "No person shall be deprived of his life or personal liberty except according to procedure established by law."
-    },
-    {
-        id: "art-32",
-        article: "Article 32",
-        provision: "Right to Constitutional Remedies",
-        mnemonic: "Heart and Soul (Ambedkar)",
-        visualHint: "Shield",
-        category: "Fundamental Rights",
-        explanation: "Remedies for enforcement of rights conferred by this Part (Writs)."
+        articleNumber: '3',
+        provision: 'Formation of new States and alteration of areas, boundaries or names',
+        mnemonic: 'Tree (3) branches growing/changing shape -> New States formed internally.',
+        group: 'Union & Territory',
+        complexity: 'Medium'
     },
 
-    // DPSP
+    // --- CITIZENSHIP (5-11) ---
     {
-        id: "art-40",
-        article: "Article 40",
-        provision: "Organization of Village Panchayats",
-        mnemonic: "4-0 = 40 Villagers sitting together",
-        visualHint: "Users",
-        category: "DPSP",
-        explanation: "The State shall take steps to organize village panchayats."
+        articleNumber: '5',
+        provision: 'Citizenship at the commencement of the Constitution',
+        mnemonic: 'Five fingers of a hand -> Staring point/Commencement.',
+        group: 'Citizenship',
+        complexity: 'Medium'
     },
     {
-        id: "art-44",
-        article: "Article 44",
-        provision: "Uniform Civil Code",
-        mnemonic: "4 = 4 (Uniform Digits)",
-        visualHint: "Scale",
-        category: "DPSP",
-        explanation: "The State shall endeavor to secure for the citizens a uniform civil code throughout the territory of India."
-    },
-    {
-        id: "art-51a",
-        article: "Article 51A",
-        provision: "Fundamental Duties",
-        mnemonic: "51A -> My Duties",
-        visualHint: "Salute",
-        category: "DPSP",
-        explanation: "It shall be the duty of every citizen of India..."
+        articleNumber: '11',
+        provision: 'Parliament to regulate the right of citizenship by law',
+        mnemonic: '1+1 = 2 (Parliament + Law) decides everything.',
+        group: 'Citizenship',
+        complexity: 'Medium'
     },
 
-    // UNION EXECUTIVE
+    // --- FUNDAMENTAL RIGHTS (12-35) ---
     {
-        id: "art-52",
-        article: "Article 52",
-        provision: "The President of India",
-        mnemonic: "52 -> 5 (Pandavas) -> Head of Family -> President",
-        visualHint: "Crown",
-        category: "Union Executive",
-        explanation: "There shall be a President of India."
+        articleNumber: '12',
+        provision: 'Definition of State',
+        mnemonic: 'The Dozen (12) agencies that act as "State".',
+        group: 'Fundamental Rights',
+        complexity: 'Easy'
     },
     {
-        id: "art-61",
-        article: "Article 61",
-        provision: "Impeachment of President",
-        mnemonic: "6-1 -> Kick ONE out (Impeachment)",
-        visualHint: "Gavel",
-        category: "Union Executive",
-        explanation: "Procedure for impeachment of the President."
+        articleNumber: '13',
+        provision: 'Laws inconsistent with Fundamental Rights (Judicial Review)',
+        mnemonic: 'Unlucky 13 for any law that violates FRs.',
+        group: 'Fundamental Rights',
+        complexity: 'Medium'
     },
     {
-        id: "art-72",
-        article: "Article 72",
-        provision: "Pardoning Power of President",
-        mnemonic: "72 -> Saath Do (Forgive me)",
-        visualHint: "Dove",
-        category: "Union Executive",
-        explanation: "Power of President to grant pardons, etc., and to suspend, remit or commute sentences."
+        articleNumber: '14',
+        provision: 'Equality before Law',
+        mnemonic: 'One for All (14) -> Equality.',
+        group: 'Fundamental Rights',
+        complexity: 'Easy'
     },
     {
-        id: "art-76",
-        article: "Article 76",
-        provision: "Attorney General of India",
-        mnemonic: "7-6 -> Top Lawyer Fixes Sixes",
-        visualHint: "Briefcase",
-        category: "Union Executive",
-        explanation: "President shall appoint a person who is qualified to be appointed a Judge of the Supreme Court to be Attorney General."
-    },
-
-    // PARLIAMENT
-    {
-        id: "art-108",
-        article: "Article 108",
-        provision: "Joint Sitting of Parliament",
-        mnemonic: "108 -> Ambulance (Emergency Meeting/Joint Sitting)",
-        visualHint: "Users",
-        category: "Parliament",
-        explanation: "Joint sitting of both Houses in certain cases."
+        articleNumber: '17',
+        provision: 'Abolition of Untouchability',
+        mnemonic: 'Sector 17 -> Danger -> Untouchability is a crime.',
+        group: 'Fundamental Rights',
+        complexity: 'Easy'
     },
     {
-        id: "art-110",
-        article: "Article 110",
-        provision: "Definition of Money Bill",
-        mnemonic: "110 -> Money Money (Ten Rupees)",
-        visualHint: "Banknote",
-        category: "Parliament",
-        explanation: "Definition of 'Money Bill'."
+        articleNumber: '19',
+        provision: 'Protection of 6 Freedom Rights',
+        mnemonic: '19th Century Revolution -> Freedom of Speech, etc.',
+        group: 'Fundamental Rights',
+        complexity: 'Easy'
     },
     {
-        id: "art-112",
-        article: "Article 112",
-        provision: "Annual Financial Statement (Budget)",
-        mnemonic: "1-1-2 -> One for One and Two (Yearly Plan)",
-        visualHint: "FileChart",
-        category: "Parliament",
-        explanation: "President shall in respect of every financial year cause to be laid before both the Houses... Annual Financial Statement."
+        articleNumber: '21',
+        provision: 'Protection of Life and Personal Liberty',
+        mnemonic: '21st Birthday -> Start of Adult Life & Liberty.',
+        group: 'Fundamental Rights',
+        complexity: 'Easy'
+    },
+    {
+        articleNumber: '21A',
+        provision: 'Right to Education',
+        mnemonic: 'A for Apple -> Education (Added by 86th AA).',
+        group: 'Fundamental Rights',
+        complexity: 'Easy'
+    },
+    {
+        articleNumber: '32',
+        provision: 'Remedies for enforcement of rights (Heart & Soul)',
+        mnemonic: '32 Teeth -> Guarding the mouth/Constitution.',
+        group: 'Fundamental Rights',
+        complexity: 'Easy'
     },
 
-    // EMERGENCY
+    // --- DPSP (36-51) ---
     {
-        id: "art-352",
-        article: "Article 352",
-        provision: "National Emergency",
-        mnemonic: "3-5-2 -> War is due (Emergency)",
-        visualHint: "Siren",
-        category: "Emergency",
-        explanation: "Proclamation of Emergency (National)."
+        articleNumber: '39A',
+        provision: 'Equal Justice and Free Legal Aid',
+        mnemonic: '39 Steps to Free Justice.',
+        group: 'DPSP',
+        complexity: 'Medium'
     },
     {
-        id: "art-356",
-        article: "Article 356",
-        provision: "President's Rule (State Emergency)",
-        mnemonic: "352 + 4 = 356 (State Failure)",
-        visualHint: "BuildingAlert",
-        category: "Emergency",
-        explanation: "Provisions in case of failure of constitutional machinery in States."
+        articleNumber: '40',
+        provision: 'Organisation of Village Panchayats',
+        mnemonic: 'Ali Baba and 40 Thieves -> Start of Politics/Panchayat.',
+        group: 'DPSP',
+        complexity: 'Easy'
     },
     {
-        id: "art-360",
-        article: "Article 360",
-        provision: "Financial Emergency",
-        mnemonic: "360 -> Circle -> 0 Money -> Financial Emergency",
-        visualHint: "WalletOff",
-        category: "Emergency",
-        explanation: "Provisions as to financial emergency."
+        articleNumber: '44',
+        provision: 'Uniform Civil Code',
+        mnemonic: '4 = 4 -> Uniform digits -> Uniform Code.',
+        group: 'DPSP',
+        complexity: 'Easy'
+    },
+    {
+        articleNumber: '50',
+        provision: 'Separation of Judiciary from Executive',
+        mnemonic: '50-50 Split between Judges and Minister.',
+        group: 'DPSP',
+        complexity: 'Easy'
     },
 
-    // CONSTITUTIONAL BODIES
+    // --- PRESIDENT & VP ---
     {
-        id: "art-280",
-        article: "Article 280",
-        provision: "Finance Commission",
-        mnemonic: "280 -> Two-Eight-Zero -> Money Hero",
-        visualHint: "Coins",
-        category: "Constitutional Bodies",
-        explanation: "President shall... constitute a Finance Commission."
+        articleNumber: '52',
+        provision: 'The President of India',
+        mnemonic: '52 weeks in a year -> President is there all year.',
+        group: 'President',
+        complexity: 'Easy'
     },
     {
-        id: "art-324",
-        article: "Article 324",
-        provision: "Election Commission",
-        mnemonic: "3-2-4 -> Free to Vote",
-        visualHint: "VoteBox",
-        category: "Constitutional Bodies",
-        explanation: "Superintendence, direction and control of elections to be vested in an Election Commission."
+        articleNumber: '61',
+        provision: 'Procedure for Impeachment of the President',
+        mnemonic: '61 -> VI (Six-One) -> VIctim -> President is victim of impeachment.',
+        group: 'President',
+        complexity: 'Hard'
+    },
+    {
+        articleNumber: '72',
+        provision: 'Power of President to grant pardons',
+        mnemonic: '72 (Saath Do) -> "Give Support" -> President helps.',
+        group: 'President',
+        complexity: 'Medium'
+    },
+
+    // --- PARLIAMENT ---
+    {
+        articleNumber: '76',
+        provision: 'Attorney General for India',
+        mnemonic: 'AG -> 76 (Seven-Six) -> Strongest Lawyer.',
+        group: 'Constitutional Bodies',
+        complexity: 'Medium'
+    },
+    {
+        articleNumber: '110',
+        provision: 'Definition of Money Bill',
+        mnemonic: 'Rs. 110 -> Money.',
+        group: 'Parliament',
+        complexity: 'Easy'
+    },
+    {
+        articleNumber: '112',
+        provision: 'Annual Financial Statement (Budget)',
+        mnemonic: '1+1=2 -> Double Check Finances -> Budget.',
+        group: 'Parliament',
+        complexity: 'Medium'
+    },
+    {
+        articleNumber: '123',
+        provision: 'Power of President to promulgate Ordinances',
+        mnemonic: '1-2-3 Go! -> Quick Law making.',
+        group: 'President',
+        complexity: 'Easy'
+    },
+
+    // --- JUDICIARY & CAG ---
+    {
+        articleNumber: '148',
+        provision: 'Comptroller and Auditor-General of India',
+        mnemonic: '1-4-8 => "I For Audit".',
+        group: 'Constitutional Bodies',
+        complexity: 'Medium'
+    },
+
+    // --- EMERGENCY ---
+    {
+        articleNumber: '352',
+        provision: 'Proclamation of Emergency (National)',
+        mnemonic: '352 -> 3 forces (Land, Air, Sea) in danger -> National Emergency.',
+        group: 'Emergency',
+        complexity: 'Medium'
+    },
+    {
+        articleNumber: '356',
+        provision: 'Provisions in case of failure of constitutional machinery in States (President\'s Rule)',
+        mnemonic: '+4 rule (352+4 = 356) -> State Emergency.',
+        group: 'Emergency',
+        complexity: 'Medium'
+    },
+    {
+        articleNumber: '360',
+        provision: 'Provisions as to Financial Emergency',
+        mnemonic: '+4 rule (356+4 = 360) -> 360 degree financial circle.',
+        group: 'Emergency',
+        complexity: 'Medium'
+    },
+    {
+        articleNumber: '368',
+        provision: 'Power of Parliament to amend the Constitution',
+        mnemonic: '368 -> 3(rd) 6(ix) 8(ght) -> Fix it -> Amend it.',
+        group: 'Parliament',
+        complexity: 'Medium'
     }
 ];

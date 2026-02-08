@@ -6,7 +6,7 @@ import {
     ArrowLeft, Search, GraduationCap,
     Sparkles, Gavel, Scroll, Scale,
     Gamepad2, History, Users, BarChart3,
-    ArrowRightLeft, Flame, AlertTriangle, GitBranch, Calculator
+    ArrowRightLeft, Flame, AlertTriangle, GitBranch, Calculator, PenTool, Lightbulb
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -28,6 +28,9 @@ import PolityDecisionTree from './PolityDecisionTree';
 import ConstitutionalTimeline from './ConstitutionalTimeline';
 import CommitteeShuffler from './CommitteeShuffler';
 import MajorityCalculator from './MajorityCalculator';
+import PYQBank from './PYQBank';
+import MainsTemplateViewer from './MainsTemplateViewer';
+import MnemonicGallery from './MnemonicGallery';
 
 export default function PolityRevisionDashboard() {
     const router = useRouter();
@@ -106,6 +109,15 @@ export default function PolityRevisionDashboard() {
                             <TabsTrigger value="pyq-trends" className="px-4 py-2 rounded-xl data-[state=active]:bg-slate-800 data-[state=active]:text-white font-bold flex items-center gap-2">
                                 <BarChart3 size={16} /> PYQ Trends
                             </TabsTrigger>
+                            <TabsTrigger value="pyq-bank" className="px-4 py-2 rounded-xl data-[state=active]:bg-sky-600 data-[state=active]:text-white font-bold flex items-center gap-2 border border-transparent data-[state=active]:border-sky-700">
+                                <Book size={16} /> PYQ Bank
+                            </TabsTrigger>
+                            <TabsTrigger value="mains-templates" className="px-4 py-2 rounded-xl data-[state=active]:bg-pink-600 data-[state=active]:text-white font-bold flex items-center gap-2 border border-transparent data-[state=active]:border-pink-700">
+                                <PenTool size={16} /> Mains Templates
+                            </TabsTrigger>
+                            <TabsTrigger value="mnemonics-gallery" className="px-4 py-2 rounded-xl data-[state=active]:bg-yellow-500 data-[state=active]:text-white font-bold flex items-center gap-2 border border-transparent data-[state=active]:border-yellow-600">
+                                <Lightbulb size={16} /> Cheat Codes
+                            </TabsTrigger>
                         </TabsList>
                     </div>
 
@@ -157,6 +169,18 @@ export default function PolityRevisionDashboard() {
 
                     <TabsContent value="pyq-trends" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                         <PYQTrendDashboard />
+                    </TabsContent>
+
+                    <TabsContent value="pyq-bank" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <PYQBank />
+                    </TabsContent>
+
+                    <TabsContent value="mains-templates" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <MainsTemplateViewer />
+                    </TabsContent>
+
+                    <TabsContent value="mnemonics-gallery" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        <MnemonicGallery />
                     </TabsContent>
 
                 </Tabs>

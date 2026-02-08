@@ -91,6 +91,7 @@ export const ANTI_DEFECTION_FLOW: Record<string, FlowNode> = {
         options: [
             { label: 'Voluntarily gave up membership', nextId: 'disqualified_direct' },
             { label: 'Voted against Party Whip', nextId: 'whip_check' },
+            { label: 'Claimed Merger with other party', nextId: 'merger_check' },
             { label: 'Independent member joined a party', nextId: 'disqualified_ind' },
             { label: 'Nominated member joined a party', nextId: 'nominated_check' }
         ]
@@ -110,6 +111,19 @@ export const ANTI_DEFECTION_FLOW: Record<string, FlowNode> = {
     'saved': { id: 'saved', text: '✅ Safe! No Disqualification.', type: 'end_success' },
     'disqualified_whip': { id: 'disqualified_whip', text: '❌ Disqualified for defying the Whip.', type: 'end_fail' },
 
+    'merger_check': {
+        id: 'merger_check',
+        text: 'What proportion of members agreed to the merger?',
+        type: 'question',
+        options: [
+            { label: 'Less than 2/3rds', nextId: 'disqualified_merger' },
+            { label: '2/3rds or more', nextId: 'saved_merger' }
+        ],
+        note: '91st Amendment (2003) removed the 1/3rd "Split" protection. Now only 2/3rd Merger is valid.'
+    },
+    'disqualified_merger': { id: 'disqualified_merger', text: '❌ Disqualified! A split by < 2/3rds is not protected.', type: 'end_fail' },
+    'saved_merger': { id: 'saved_merger', text: '✅ Safe! Mergers with 2/3rds support are valid.', type: 'end_success' },
+
     'nominated_check': {
         id: 'nominated_check',
         text: 'When did the Nominated member join?',
@@ -121,4 +135,86 @@ export const ANTI_DEFECTION_FLOW: Record<string, FlowNode> = {
     },
     'saved_nom': { id: 'saved_nom', text: '✅ Safe! Nominated members have 6 months to decide.', type: 'end_success' },
     'disqualified_nom': { id: 'disqualified_nom', text: '❌ Disqualified! Cannot join after expiry of 6 months.', type: 'end_fail' }
+};
+
+export const PRESIDENT_ASSENT_FLOW: Record<string, FlowNode> = {
+    'start': {
+        id: 'start',
+        text: 'A Bill (Ordinary) is passed by both Houses and sent to the President. What does he do?',
+        type: 'question',
+        options: [
+            { label: 'Gives Assent', nextId: 'assent_given' },
+            { label: 'Withholds Assent', nextId: 'withhold_check' },
+            { label: 'Returns for Reconsideration', nextId: 'return_check' },
+            { label: 'Does nothing (Pocket Veto)', nextId: 'pocket_veto' }
+        ]
+    },
+    'assent_given': { id: 'assent_given', text: '✅ The Bill becomes an Act!', type: 'end_success' },
+
+    'withhold_check': {
+        id: 'withhold_check',
+        text: 'Is it a Private Member\'s Bill or Govt Bill (Cabinet resigned)?',
+        type: 'question',
+        options: [
+            { label: 'Yes', nextId: 'absolute_veto' },
+            { label: 'No, it is a normal Govt Bill', nextId: 'withhold_error' }
+        ]
+    },
+    'absolute_veto': { id: 'absolute_veto', text: '❌ Bill Ends! (Absolute Veto applied).', type: 'end_fail' },
+    'withhold_error': { id: 'withhold_error', text: '⚠️ Unusual. President usually gives assent to Govt bills unless Cabinet advises otherwise.', type: 'end_fail' },
+
+    'return_check': {
+        id: 'return_check',
+        text: 'Parliament passes the bill AGAIN (with or without amendments). What now?',
+        type: 'question',
+        options: [
+            { label: 'President Gives Assent', nextId: 'suspensive_success' },
+            { label: 'President Returns it again', nextId: 'suspensive_error' }
+        ]
+    },
+    'suspensive_success': { id: 'suspensive_success', text: '✅ Bill becomes Act! (Suspensive Veto overridden).', type: 'end_success' },
+    'suspensive_error': { id: 'suspensive_error', text: '❌ Trap! The President MUST give assent the second time.', type: 'end_fail' },
+
+    'pocket_veto': { id: 'pocket_veto', text: '⏳ The Bill remains pending indefinitely. (Pocket Veto). No time limit in Constitution.', type: 'end_fail', note: 'Zail Singh used this in 1986 (Post Office Bill).' }
+};
+
+export const EMERGENCY_FLOW: Record<string, FlowNode> = {
+    'start': {
+        id: 'start',
+        text: 'Cabinet recommends National Emergency (Art 352) to President. What happens next?',
+        type: 'question',
+        options: [
+            { label: 'President Proclaims Emergency', nextId: 'proclamation' }
+        ],
+        note: 'Must be a WRITTEN recommendation from the Cabinet (44th Amendment).'
+    },
+    'proclamation': {
+        id: 'proclamation',
+        text: 'Emergency is active. How long does it last without Parliament approval?',
+        type: 'question',
+        options: [
+            { label: '1 Month', nextId: 'approval_check' },
+            { label: '2 Months', nextId: 'one_month_error' },
+            { label: '6 Months', nextId: 'six_month_error' }
+        ]
+    },
+    'one_month_error': { id: 'one_month_error', text: '❌ Incorrect. Reduced to 1 Month by 44th AA (was 2 months earlier).', type: 'end_fail' },
+    'six_month_error': { id: 'six_month_error', text: '❌ Incorrect. 6 months is the life AFTER approval.', type: 'end_fail' },
+
+    'approval_check': {
+        id: 'approval_check',
+        text: 'Parliament meets to approve. What majority is needed?',
+        type: 'question',
+        options: [
+            { label: 'Special Majority (Type 2)', nextId: 'approved' },
+            { label: 'Simple Majority', nextId: 'majority_error' }
+        ]
+    },
+    'majority_error': { id: 'majority_error', text: '❌ Incorrect. Needs Special Majority (Total + 2/3 Present).', type: 'end_fail' },
+
+    'approved': {
+        id: 'approved',
+        text: '✅ Approved! Valid for 6 Months. Can be extended indefinitely (every 6 months).',
+        type: 'end_success'
+    }
 };

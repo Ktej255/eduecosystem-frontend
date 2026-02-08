@@ -388,6 +388,113 @@ const COMPARISON_DATA: ComparisonData[] = [
             { aspect: "Court of Record", col2: "Yes (Art 129)", col3: "Yes (Art 215)" },
             { aspect: "Power of Judicial Review", col2: "Yes", col3: "Yes" },
         ]
+    },
+    // --- NEW TABLES ---
+    {
+        id: "public_private",
+        title: "Public Bill vs Private Bill",
+        icon: FileText,
+        headerBg: "bg-gradient-to-r from-blue-700 to-cyan-600",
+        headerText: "Difference between Govt Bills and Private Member Bills",
+        columns: [
+            { title: "Public Bill (Govt)", className: "text-blue-800 bg-blue-50" },
+            { title: "Private Member Bill", className: "text-cyan-800 bg-cyan-50" }
+        ],
+        rows: [
+            { aspect: "Introduced By", col2: "Minister", col3: "Any MP (non-minister)" },
+            { aspect: "Chance of Passing", col2: "High (Govt has majority)", col3: "Very Low" },
+            { aspect: "Notice Period", col2: "7 Days", col3: "1 Month", isPYQTrap: true, highlight: 'col3' },
+            { aspect: "Defeat Impact", col2: "Govt may resign (if Money Bill)", col3: "No impact on Govt stability" },
+            { aspect: "Drafting", col2: "Dept + Law Ministry", col3: "Member's responsibility" }
+        ]
+    },
+    {
+        id: "ordinary_money",
+        title: "Ordinary Bill vs Money Bill",
+        icon: Landmark,
+        headerBg: "bg-gradient-to-r from-emerald-600 to-green-500",
+        headerText: "Art 107 vs Art 110: Critical for Prelims",
+        columns: [
+            { title: "Ordinary Bill", className: "text-emerald-800 bg-emerald-50" },
+            { title: "Money Bill", className: "text-green-800 bg-green-50" }
+        ],
+        rows: [
+            { aspect: "Introduction House", col2: "LS or RS", col3: "Only Lok Sabha", isPYQTrap: true, highlight: 'col3' },
+            { aspect: "President's Rec.", col2: "Not required", col3: "Required (Art 117)", isPYQTrap: true },
+            { aspect: "Rajya Sabha Power", col2: "Can amend/reject (6 months)", col3: "Cannot amend/reject (14 days max)", highlight: 'col3' },
+            { aspect: "Joint Sitting", col2: "YES (Art 108)", col3: "NO", isPYQTrap: true },
+            { aspect: "President's Veto", col2: "Can return for reconsideration", col3: "Cannot return (Give assent or withhold)" }
+        ]
+    },
+    {
+        id: "censure_noconfidence",
+        title: "Censure vs No-Confidence",
+        icon: AlertTriangle,
+        headerBg: "bg-gradient-to-r from-rose-600 to-red-500",
+        headerText: "Parliamentary motions to hold Govt accountable",
+        columns: [
+            { title: "Censure Motion", className: "text-rose-800 bg-rose-50" },
+            { title: "No-Confidence Motion", className: "text-red-800 bg-red-50" }
+        ],
+        rows: [
+            { aspect: "Reason Required?", col2: "YES - must state reason", col3: "NO - need not state reason", isPYQTrap: true, highlight: 'col3' },
+            { aspect: "Against Whom?", col2: "Individual Minister or Council", col3: "Entire Council of Ministers only" },
+            { aspect: "Impact of Passing", col2: "Council need NOT resign", col3: "Council MUST resign", highlight: 'col3' },
+            { aspect: "House", col2: "Lok Sabha only", col3: "Lok Sabha only" }
+        ]
+    },
+    {
+        id: "martial_emergency",
+        title: "Martial Law vs National Emergency",
+        icon: Shield,
+        headerBg: "bg-gradient-to-r from-slate-700 to-gray-600",
+        headerText: "Military Rule (Art 34) vs Constitutional Emergency (Art 352)",
+        columns: [
+            { title: "Martial Law (Art 34)", className: "text-slate-800 bg-slate-100" },
+            { title: "National Emergency (Art 352)", className: "text-red-800 bg-red-50" }
+        ],
+        rows: [
+            { aspect: "Scope", col2: "Specific Area only", col3: "Whole India or part of it" },
+            { aspect: "Govt Machinery", col2: "Suspended (Military takes over)", col3: "Continues (Centre gets more power)", highlight: 'col2' },
+            { aspect: "Courts", col2: "May comprise Military Tribunals", col3: "Courts function normally" },
+            { aspect: "Fundamental Rights", col2: "Affects all FRs", col3: "Affects Art 19 (Art 358) & Enforcement (Art 359)" },
+            { aspect: "Defined in Const.?", col2: "NO (Implicit)", col3: "YES (Explicit)" }
+        ]
+    },
+    {
+        id: "adjourn_prorogue",
+        title: "Adjourn vs Prorogue vs Dissolution",
+        icon: Zap,
+        headerBg: "bg-gradient-to-r from-amber-500 to-yellow-500",
+        headerText: "End of Sitting vs End of Session vs End of House",
+        columns: [
+            { title: "Adjournment", className: "text-amber-800 bg-amber-50" },
+            { title: "Prorogation", className: "text-yellow-800 bg-yellow-50" },
+            { title: "Dissolution", className: "text-red-800 bg-red-50" }
+        ],
+        rows: [
+            { aspect: "Done By", col2: "Presiding Officer (Speaker/Chairman)", col3: "President", col4: "President (or naturally 5 yrs)", highlight: 'col2' },
+            { aspect: "Ends what?", col2: "Sitting (Hours/Days)", col3: "Session (Months)", col4: "Life of House (Years)" },
+            { aspect: "Effect on Bills", col2: "No Lapse", col3: "No Lapse (Notices lapse)", col4: "Pending Bills Lapse (Subject to rules)", isPYQTrap: true, highlight: 'col4' }
+        ]
+    },
+    {
+        id: "fr_dpsp",
+        title: "Fundamental Rights vs DPSP",
+        icon: Scale,
+        headerBg: "bg-gradient-to-r from-indigo-500 to-violet-500",
+        headerText: "Justiciable vs Non-Justiciable Rights",
+        columns: [
+            { title: "Fundamental Rights (Part III)", className: "text-indigo-800 bg-indigo-50" },
+            { title: "DPSP (Part IV)", className: "text-violet-800 bg-violet-50" }
+        ],
+        rows: [
+            { aspect: "Nature", col2: "Negative (Prohibit State)", col3: "Positive (Direct State to do good)", highlight: 'both' },
+            { aspect: "Justiciability", col2: "Yes (Can go to Court)", col3: "No (Cannot enforce)" },
+            { aspect: "Goal", col2: "Political Democracy", col3: "Social & Economic Democracy", isPYQTrap: true, highlight: 'col3' },
+            { aspect: "Conflict (Minerva Mills)", col2: "Superior (mostly)", col3: "Balance is essential", highlight: 'col3' },
+            { aspect: "Suspension", col2: "During Emergency (except 20, 21)", col3: "Never suspended (always valid guide)" }
+        ]
     }
 ];
 
@@ -430,6 +537,24 @@ export default function SmartComparisonTables() {
                     <TabsTrigger value="sc_hc" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-violet-500 data-[state=active]:to-purple-500 data-[state=active]:text-white p-2">
                         SC vs HC
                     </TabsTrigger>
+                    <TabsTrigger value="public_private" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-cyan-600 data-[state=active]:text-white p-2">
+                        Bills: Pvt vs Public
+                    </TabsTrigger>
+                    <TabsTrigger value="ordinary_money" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-emerald-600 data-[state=active]:to-green-600 data-[state=active]:text-white p-2">
+                        Ord vs Money Bill
+                    </TabsTrigger>
+                    <TabsTrigger value="censure_noconfidence" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-rose-600 data-[state=active]:to-red-600 data-[state=active]:text-white p-2">
+                        Motions
+                    </TabsTrigger>
+                    <TabsTrigger value="martial_emergency" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-slate-600 data-[state=active]:to-gray-600 data-[state=active]:text-white p-2">
+                        Martial Law
+                    </TabsTrigger>
+                    <TabsTrigger value="adjourn_prorogue" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-yellow-500 data-[state=active]:text-white p-2">
+                        Session End
+                    </TabsTrigger>
+                    <TabsTrigger value="fr_dpsp" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-indigo-500 data-[state=active]:to-violet-500 data-[state=active]:text-white p-2">
+                        FR vs DPSP
+                    </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="pres-gov" className="mt-6">
@@ -458,6 +583,25 @@ export default function SmartComparisonTables() {
 
                 <TabsContent value="sc_hc" className="mt-6">
                     <ComparisonTable data={COMPARISON_DATA.find(d => d.id === 'sc_hc')!} />
+                </TabsContent>
+
+                <TabsContent value="public_private" className="mt-6">
+                    <ComparisonTable data={COMPARISON_DATA.find(d => d.id === 'public_private')!} />
+                </TabsContent>
+                <TabsContent value="ordinary_money" className="mt-6">
+                    <ComparisonTable data={COMPARISON_DATA.find(d => d.id === 'ordinary_money')!} />
+                </TabsContent>
+                <TabsContent value="censure_noconfidence" className="mt-6">
+                    <ComparisonTable data={COMPARISON_DATA.find(d => d.id === 'censure_noconfidence')!} />
+                </TabsContent>
+                <TabsContent value="martial_emergency" className="mt-6">
+                    <ComparisonTable data={COMPARISON_DATA.find(d => d.id === 'martial_emergency')!} />
+                </TabsContent>
+                <TabsContent value="adjourn_prorogue" className="mt-6">
+                    <ComparisonTable data={COMPARISON_DATA.find(d => d.id === 'adjourn_prorogue')!} />
+                </TabsContent>
+                <TabsContent value="fr_dpsp" className="mt-6">
+                    <ComparisonTable data={COMPARISON_DATA.find(d => d.id === 'fr_dpsp')!} />
                 </TabsContent>
             </Tabs>
         </div>

@@ -1,15 +1,50 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useMemo } from 'react';
 import { TIMELINE_DATA, TimelineEvent } from '../data/timeline-data';
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Maximize2, Scale, Gavel, FileText } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Scale, Gavel, FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+// Layout Constants
+const START_YEAR = 1950;
+const PIXELS_PER_YEAR = 50; // Increased for better spacing
+const NODE_WIDTH = 240; // Approx card width + margin
+const TOP_LANE_OFFSET = 20;
+const BOTTOM_LANE_OFFSET = 20;
 
 export default function ConstitutionalTimeline() {
     const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+    // 1. Process Data for Layout (Levels to avoid overlap)
+    const layoutData = useMemo(() => {
+        const sorted = [...TIMELINE_DATA].sort((a, b) => a.year - b.year);
+
+        // Track visual reach of each level in each lane
+        // laneEnds[lane][level] = pixel value where the last card ended
+        const laneEnds: Record<string, number[]> = {
+            'TOP': [0, 0, 0, 0], // Support up to 4 levels
+            'BOTTOM': [0, 0, 0, 0]
+        };
+
+        return sorted.map(event => {
+            const x = (event.year - START_YEAR) * PIXELS_PER_YEAR;
+            const lane = event.lane;
+
+            // Find the first level where this card fits without overlapping
+            let level = 0;
+            while (laneEnds[lane][level] > x) {
+                level++;
+            }
+
+            // Update the end position for this level
+            // x + NODE_WIDTH is the right edge of this card
+            laneEnds[lane][level] = x + NODE_WIDTH;
+
+            return { ...event, x, level };
+        });
+    }, []);
 
     const getRelatedEvents = (id: string) => {
         const event = TIMELINE_DATA.find(e => e.id === id);
@@ -29,57 +64,101 @@ export default function ConstitutionalTimeline() {
                 <p className="text-slate-400 text-sm font-bold">The War between Parliament & Judiciary</p>
             </div>
 
-            <CardContent className="p-0 relative h-[600px] overflow-hidden">
-                {/* Connection Lines Layer (Conceptual - simplified for React) */}
-                {/* We use class-based highlights instead of SVG drawing for performance/simplicity in this iteration */}
-
+            <CardContent className="p-0 relative h-[700px] overflow-hidden">
                 <ScrollArea className="h-full w-full">
-                    <div className="min-w-[1400px] h-[600px] relative p-10 flex flex-col justify-center select-none">
+                    {/* Container Width based on years */}
+                    <div className="relative p-10 flex flex-col justify-center select-none"
+                        style={{ width: `${(2025 - 1950) * PIXELS_PER_YEAR + 500}px`, height: '700px' }}>
 
-                        {/* TOP LANE: AMENDMENTS (PARLIAMENT) */}
-                        <div className="flex relative h-48 items-end mb-4 group/lane">
-                            <div className="absolute left-0 bottom-0 w-full border-b-4 border-stone-300 border-dashed"></div>
-                            <div className="absolute left-2 bottom-2 bg-stone-200 px-2 rounded text-xs font-black text-stone-500">PARLIAMENT (AMENDMENTS)</div>
+                        {/* CENTRAL AXIS */}
+                        <div className="absolute top-1/2 left-0 w-full h-2 bg-stone-800 rounded-full shadow-inner z-0"></div>
 
-                            {TIMELINE_DATA.filter(e => e.lane === 'TOP').map(event => (
-                                <TimelineNode
-                                    key={event.id}
-                                    event={event}
-                                    isHovered={hoveredId === event.id}
-                                    isRelated={activeRelations.includes(event.id) || (hoveredId && TIMELINE_DATA.find(e => e.id === hoveredId)?.relatedIds.includes(event.id))}
-                                    onHover={setHoveredId}
-                                />
-                            ))}
-                        </div>
+                        {/* Iterate and Render Nodes */}
+                        {layoutData.map(node => {
+                            const isHovered = hoveredId === node.id;
+                            const isRelated = activeRelations.includes(node.id) || (hoveredId && TIMELINE_DATA.find(e => e.id === hoveredId)?.relatedIds.includes(node.id));
 
-                        {/* MIDDLE LANE: TIME AXIS */}
-                        <div className="h-12 flex items-center relative my-2">
-                            <div className="w-full h-2 bg-stone-800 rounded-full shadow-inner"></div>
-                            {/* Year Markers could be programmatic, here simplified */}
-                        </div>
+                            // Dynamic Styles based on Lane & Level
+                            const isTop = node.lane === 'TOP';
+                            const verticalBase = isTop ? 'bottom-1/2' : 'top-1/2';
+                            const levelOffset = (node.level * 160) + 40; // 160px per level + 40px base margin
 
-                        {/* BOTTOM LANE: JUDGEMENTS (JUDICIARY) */}
-                        <div className="flex relative h-48 items-start mt-4 group/lane">
-                            <div className="absolute left-0 top-0 w-full border-t-4 border-stone-300 border-dashed"></div>
-                            <div className="absolute left-2 top-2 bg-stone-200 px-2 rounded text-xs font-black text-stone-500">JUDICIARY (JUDGEMENTS)</div>
+                            return (
+                                <div
+                                    key={node.id}
+                                    className={`absolute z-10 ${verticalBase}`}
+                                    style={{
+                                        left: `${node.x}px`,
+                                        [isTop ? 'marginBottom' : 'marginTop']: `${levelOffset}px`
+                                    }}
+                                    onMouseEnter={() => setHoveredId(node.id)}
+                                    onMouseLeave={() => setHoveredId(null)}
+                                >
+                                    {/* Connector Line to Axis */}
+                                    <div
+                                        className={`absolute left-1/2 -translate-x-1/2 w-1 bg-stone-300 transition-all duration-300
+                                            ${isTop ? 'top-full' : 'bottom-full'}
+                                            ${isHovered || isRelated ? 'bg-amber-500 w-1.5' : ''}
+                                        `}
+                                        style={{ height: `${levelOffset}px` }}
+                                    >
+                                        {/* Dot on Axis */}
+                                        <div className={`absolute w-3 h-3 rounded-full bg-stone-800 border-2 border-white
+                                            ${isTop ? 'bottom-0 translate-y-1/2' : 'top-0 -translate-y-1/2'} left-1/2 -translate-x-1/2`}
+                                        ></div>
+                                    </div>
 
-                            {TIMELINE_DATA.filter(e => e.lane === 'BOTTOM').map(event => (
-                                <TimelineNode
-                                    key={event.id}
-                                    event={event}
-                                    isHovered={hoveredId === event.id}
-                                    isRelated={activeRelations.includes(event.id) || (hoveredId && TIMELINE_DATA.find(e => e.id === hoveredId)?.relatedIds.includes(event.id))}
-                                    onHover={setHoveredId}
-                                />
-                            ))}
-                        </div>
+                                    {/* The Node Card */}
+                                    <motion.div
+                                        layoutId={node.id}
+                                        className={`
+                                            relative w-56 p-4 rounded-xl border-2 shadow-sm bg-white cursor-pointer
+                                            transition-all duration-300 transform origin-center
+                                            ${isTop ? 'rounded-b-none border-b-0' : 'rounded-t-none border-t-0'}
+                                            ${isHovered ? 'scale-110 shadow-2xl border-amber-500 z-50 bg-amber-50' : 'hover:scale-105'}
+                                            ${isRelated ? 'border-amber-400 bg-amber-50/50 scale-105 shadow-lg z-40' : 'border-stone-200'}
+                                            ${node.status === 'OVERRULED' && !isHovered ? 'opacity-60 grayscale' : ''}
+                                        `}
+                                    >
+                                        {/* Badge: Year */}
+                                        <span className={`
+                                            text-[10px] font-black px-2 py-0.5 rounded-full text-white absolute -left-2
+                                            ${isTop ? '-top-3' : '-bottom-3'}
+                                            ${node.type === 'AMENDMENT' ? 'bg-red-600' : 'bg-stone-800'}
+                                        `}>
+                                            {node.year}
+                                        </span>
+
+                                        {/* Status indicator */}
+                                        {node.status === 'OVERRULED' && (
+                                            <span className="absolute right-2 top-2 text-[10px] uppercase font-black text-red-500 border border-red-200 px-1 rounded bg-red-50">Struck Down</span>
+                                        )}
+
+                                        {/* Icon */}
+                                        <div className="mb-2 text-stone-400">
+                                            {node.type === 'AMENDMENT' ? <FileText size={16} /> : <Gavel size={16} />}
+                                        </div>
+
+                                        <h4 className="font-bold text-sm text-stone-800 leading-tight mb-1">
+                                            {node.title}
+                                        </h4>
+
+                                        <p className={`text-xs leading-snug transition-colors duration-200
+                                            ${isHovered || isRelated ? 'text-stone-700 font-semibold' : 'text-stone-400 font-medium'}
+                                        `}>
+                                            {node.description}
+                                        </p>
+                                    </motion.div>
+                                </div>
+                            );
+                        })}
 
                     </div>
                     <ScrollBar orientation="horizontal" />
                 </ScrollArea>
 
-                {/* Legend */}
-                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur border border-stone-200 p-2 rounded-lg text-xs font-bold shadow-lg flex gap-3">
+                {/* Fixed Legend */}
+                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur border border-stone-200 p-2 rounded-lg text-xs font-bold shadow-lg flex gap-3 z-50">
                     <div className="flex items-center gap-1"><div className="w-3 h-3 bg-red-100 border border-red-500 rounded"></div> Parliament</div>
                     <div className="flex items-center gap-1"><div className="w-3 h-3 bg-stone-100 border border-stone-800 rounded"></div> Judiciary</div>
                     <div className="flex items-center gap-1"><div className="w-3 h-3 rounded-full bg-amber-400"></div> Connection</div>
@@ -89,72 +168,3 @@ export default function ConstitutionalTimeline() {
         </Card>
     );
 }
-
-const TimelineNode = ({ event, isHovered, isRelated, onHover }: any) => {
-    // Approximate positioning: 1950 is 0%, 2024 is 100%. 
-    // Let's say range is 1950 to 2025 = 75 years. 
-    const percentage = ((event.year - 1950) / 75) * 100;
-    // Adjustment to prevent overlap at start/end
-    const leftPos = Math.max(2, Math.min(95, percentage));
-
-    return (
-        <div
-            className={`absolute transition-all duration-300 cursor-pointer z-10
-        ${event.lane === 'TOP' ? 'bottom-0 mb-6' : 'top-0 mt-6'}
-      `}
-            style={{ left: `${leftPos}%` }}
-            onMouseEnter={() => onHover(event.id)}
-            onMouseLeave={() => onHover(null)}
-        >
-            {/* The Connector Line to Axis */}
-            <div className={`absolute left-1/2 -translate-x-1/2 w-1 h-6 bg-stone-300
-        ${event.lane === 'TOP' ? '-bottom-6 origin-top' : '-top-6 origin-bottom'}
-        transition-all duration-300
-        ${isHovered || isRelated ? 'bg-amber-500 scale-y-110' : ''}
-      `}></div>
-
-            {/* The Node Card */}
-            <motion.div
-                layoutId={event.id}
-                className={`
-        relative w-56 p-4 rounded-xl border-2 shadow-sm bg-white
-        transition-all duration-300 transform origin-center
-        ${event.lane === 'TOP' ? 'rounded-b-none border-b-0' : 'rounded-t-none border-t-0'}
-        ${isHovered ? 'scale-110 shadow-2xl border-amber-500 z-50 bg-amber-50' : 'hover:scale-105 active:scale-95'}
-        ${isRelated ? 'border-amber-400 bg-amber-50/50 scale-105 shadow-lg z-40' : 'border-stone-200'}
-        ${event.status === 'OVERRULED' && !isHovered ? 'opacity-60 grayscale' : ''}
-      `}>
-                {/* Badge: Year */}
-                <span className={`
-          text-[10px] font-black px-2 py-0.5 rounded-full text-white absolute -left-2
-          ${event.lane === 'TOP' ? '-top-3' : '-bottom-3'}
-          ${event.type === 'AMENDMENT' ? 'bg-red-600' : 'bg-stone-800'}
-        `}>
-                    {event.year}
-                </span>
-
-                {/* Status indicator */}
-                {event.status === 'OVERRULED' && (
-                    <span className="absolute right-2 top-2 text-[10px] uppercase font-black text-red-500 border border-red-200 px-1 rounded bg-red-50">Struck Down</span>
-                )}
-
-                {/* Icon */}
-                <div className="mb-2 text-stone-400">
-                    {event.type === 'AMENDMENT' ? <FileText size={16} /> : <Gavel size={16} />}
-                </div>
-
-                <h4 className="font-bold text-sm text-stone-800 leading-tight mb-1">
-                    {event.title}
-                </h4>
-
-                {/* Description - always visible but muted, bold on hover */}
-                <p className={`text-xs leading-snug transition-colors duration-200
-          ${isHovered || isRelated ? 'text-stone-700 font-semibold' : 'text-stone-400 font-medium'}
-        `}>
-                    {event.description}
-                </p>
-
-            </motion.div>
-        </div>
-    );
-};
