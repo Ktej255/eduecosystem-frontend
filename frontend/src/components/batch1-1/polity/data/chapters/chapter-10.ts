@@ -3,582 +3,582 @@ import { ChapterLevelData } from "../level-types";
 // Level 1: The Text-Book Stickler (Strictly Chapter 10)
 const LEVEL_1_QUESTIONS = [
     {
-        question: "The amendment process of the Indian Constitution is described in:",
-        options: ["Part XX, Article 368", "Part XVIII, Article 356", "Part XX, Article 370", "Part XXI, Article 369"],
-        correctAnswerIndex: 0, // a) Part XX, Article 368
-        explanation: "Part XX, Article 368."
+        question: "The original Constitution of India (1950) contained:",
+        options: ["Fundamental Rights only.", "Fundamental Duties only.", "Both Fundamental Rights and Fundamental Duties.", "Neither Fundamental Rights nor Fundamental Duties."],
+        correctAnswerIndex: 0, // a) Fundamental Rights only
+        explanation: "Original Constitution contained only Fundamental Rights, not Duties."
     },
     {
-        question: "The procedure for amendment of the Constitution is borrowed from the Constitution of:",
-        options: ["USA", "Britain", "South Africa", "Canada"],
-        correctAnswerIndex: 2, // c) South Africa
-        explanation: "South Africa."
+        question: "The fundamental duties were added to the Constitution by the:",
+        options: ["24th Amendment Act, 1971", "42nd Amendment Act, 1976", "44th Amendment Act, 1978", "86th Amendment Act, 2002"],
+        correctAnswerIndex: 1, // b) 42nd Amendment
+        explanation: "42nd Amendment Act, 1976."
     },
     {
-        question: "According to Article 368, the Parliament can amend the Constitution by way of:",
-        options: ["Addition only.", "Variation only.", "Repeal only.", "Addition, variation or repeal of any provision."],
-        correctAnswerIndex: 3, // d) Addition, variation or repeal
-        explanation: "Addition, variation or repeal."
+        question: "The fundamental duties in the Indian Constitution are inspired by the Constitution of:",
+        options: ["USA", "Canada", "USSR (now Russia)", "Ireland"],
+        correctAnswerIndex: 2, // c) USSR
+        explanation: "Inspired by the Constitution of USSR."
     },
     {
-        question: "However, the Parliament cannot amend those provisions which form the 'basic structure' of the Constitution. This was ruled by the Supreme Court in the:",
-        options: ["Shankari Prasad case (1951)", "Golak Nath case (1967)", "Kesavananda Bharati case (1973)", "Minerva Mills case (1980)"],
-        correctAnswerIndex: 2, // c) Kesavananda Bharati
-        explanation: "Kesavananda Bharati case (1973)."
+        question: "Which committee recommended the inclusion of a separate chapter on fundamental duties in the Constitution?",
+        options: ["Verma Committee", "Sarkaria Commission", "Swaran Singh Committee", "Ram Nandan Committee"],
+        correctAnswerIndex: 2, // c) Swaran Singh Committee
+        explanation: "Swaran Singh Committee."
     },
     {
-        question: "An amendment of the Constitution can be initiated only by the introduction of a bill in:",
-        options: ["Lok Sabha only.", "Rajya Sabha only.", "Either House of Parliament.", "State Legislatures."],
-        correctAnswerIndex: 2, // c) Either House
-        explanation: "Either House of Parliament."
+        question: "The Swaran Singh Committee was set up in 1976 by the:",
+        options: ["Janata Party Government.", "Congress Party Government.", "Supreme Court.", "Law Commission."],
+        correctAnswerIndex: 1, // b) Congress Party
+        explanation: "Congress Party Government."
     },
     {
-        question: "Can a bill for amendment be introduced by a private member?",
-        options: ["No, only by a minister.", "Yes, by a minister or a private member.", "Yes, but only with the Speaker's permission.", "No, it requires a public petition."],
-        correctAnswerIndex: 1, // b) Minister or private member
-        explanation: "By a minister or a private member."
+        question: "The Swaran Singh Committee recommended the incorporation of how many fundamental duties?",
+        options: ["8", "10", "11", "12"],
+        correctAnswerIndex: 0, // a) 8
+        explanation: "Recommended 8 duties."
     },
     {
-        question: "Does the introduction of the bill require the prior permission of the President?",
-        options: ["Yes, always.", "No, not required.", "Yes, only if it affects federal provisions.", "Yes, if it affects Fundamental Rights."],
-        correctAnswerIndex: 1, // b) No, not required
-        explanation: "Not required."
+        question: "The 42nd Amendment Act (1976) included a new Part in the Constitution, which is:",
+        options: ["Part III-A", "Part IV-A", "Part IX-A", "Part XIV-A"],
+        correctAnswerIndex: 1, // b) Part IV-A
+        explanation: "Part IV-A."
     },
     {
-        question: "The bill must be passed in each House by:",
-        options: ["A simple majority.", "A special majority.", "An absolute majority.", "A two-thirds majority of the total membership."],
-        correctAnswerIndex: 1, // b) Special majority
-        explanation: "A special majority."
+        question: "This new Part IV-A consists of only one Article, which is:",
+        options: ["Article 51", "Article 51-A", "Article 39-A", "Article 43-A"],
+        correctAnswerIndex: 1, // b) Article 51-A
+        explanation: "Article 51-A."
     },
     {
-        question: "A \"Special Majority\" under Article 368 means:",
-        options: ["A majority of the total membership of the House AND a majority of two-thirds of the members of the House present and voting.", "Two-thirds of the total membership of the House.", "Two-thirds of the members present and voting.", "Majority of the total membership only."],
-        correctAnswerIndex: 0, // a) Total majority + 2/3 present
-        explanation: "Majority of total membership AND 2/3 of members present and voting."
+        question: "Originally (in 1976), the list of fundamental duties contained:",
+        options: ["8 duties", "10 duties", "11 duties", "12 duties"],
+        correctAnswerIndex: 1, // b) 10 duties
+        explanation: "Originally 10 duties."
     },
     {
-        question: "Is there a provision for a joint sitting of the two Houses if there is a disagreement over an amendment bill?",
-        options: ["Yes, under Article 108.", "No, each House must pass the bill separately.", "Yes, but only for federal provisions.", "Yes, if the President summons it."],
+        question: "According to Article 51-A, it shall be the duty of every citizen of India to abide by the Constitution and respect its ideals and institutions, the:",
+        options: ["Parliament and State Legislatures.", "National Flag and the National Anthem.", "President and the Prime Minister.", "Supreme Court and High Courts."],
+        correctAnswerIndex: 1, // b) National Flag and Anthem
+        explanation: "National Flag and the National Anthem."
+    },
+    {
+        question: "It is a duty to cherish and follow the noble ideals that inspired our:",
+        options: ["Religious leaders.", "National struggle for freedom.", "Constitution makers.", "Social reformers."],
+        correctAnswerIndex: 1, // b) National struggle
+        explanation: "National struggle for freedom."
+    },
+    {
+        question: "It is a duty to uphold and protect the:",
+        options: ["Sovereignty, Unity and Integrity of India.", "Sovereignty, Socialism and Secularism of India.", "Liberty, Equality and Fraternity.", "Justice, Social and Economic."],
+        correctAnswerIndex: 0, // a) Sovereignty, Unity and Integrity
+        explanation: "Sovereignty, Unity and Integrity of India."
+    },
+    {
+        question: "It is a duty to defend the country and render national service when:",
+        options: ["Ordered by the President.", "Called upon to do so.", "There is a war.", "There is a natural calamity."],
+        correctAnswerIndex: 1, // b) Called upon
+        explanation: "When called upon to do so."
+    },
+    {
+        question: "It is a duty to promote harmony and the spirit of common brotherhood amongst all the people of India transcending:",
+        options: ["Religious, linguistic and regional or sectional diversities.", "Caste, creed and color.", "Political ideologies.", "Economic status."],
+        correctAnswerIndex: 0, // a) Religious, linguistic...
+        explanation: "Religious, linguistic and regional or sectional diversities."
+    },
+    {
+        question: "It is a duty to renounce practices derogatory to the:",
+        options: ["Dignity of women.", "Dignity of the individual.", "Unity of the nation.", "Culture of India."],
+        correctAnswerIndex: 0, // a) Dignity of women
+        explanation: "Dignity of women."
+    },
+    {
+        question: "It is a duty to value and preserve the rich heritage of our:",
+        options: ["Composite culture.", "Ancient history.", "Religious traditions.", "Scientific achievements."],
+        correctAnswerIndex: 0, // a) Composite culture
+        explanation: "Composite culture."
+    },
+    {
+        question: "It is a duty to protect and improve the natural environment including forests, lakes, rivers and wild life, and to have:",
+        options: ["Respect for animals.", "Compassion for living creatures.", "Scientific temper.", "Humanism."],
+        correctAnswerIndex: 1, // b) Compassion
+        explanation: "Compassion for living creatures."
+    },
+    {
+        question: "It is a duty to develop the scientific temper, humanism and the spirit of:",
+        options: ["Inquiry and reform.", "Nationalism and patriotism.", "Tolerance and peace.", "Sacrifice and service."],
+        correctAnswerIndex: 0, // a) Inquiry and reform
+        explanation: "Inquiry and reform."
+    },
+    {
+        question: "It is a duty to safeguard public property and to:",
+        options: ["Abjure violence.", "Follow traffic rules.", "Pay taxes.", "Vote in elections."],
+        correctAnswerIndex: 0, // a) Abjure violence
+        explanation: "Abjure violence."
+    },
+    {
+        question: "It is a duty to strive towards excellence in all spheres of:",
+        options: ["Individual and collective activity.", "Educational and professional activity.", "Political and social activity.", "Economic and industrial activity."],
+        correctAnswerIndex: 0, // a) Individual and collective
+        explanation: "Individual and collective activity."
+    },
+    {
+        question: "The 11th Fundamental Duty was added by the:",
+        options: ["82nd Amendment Act, 2000", "84th Amendment Act, 2001", "86th Amendment Act, 2002", "91st Amendment Act, 2003"],
+        correctAnswerIndex: 2, // c) 86th Amendment
+        explanation: "86th Amendment Act, 2002."
+    },
+    {
+        question: "The 11th duty (51-A(k)) is to provide opportunities for education to his child or ward between the age of:",
+        options: ["0 and 6 years.", "6 and 14 years.", "6 and 18 years.", "14 and 18 years."],
+        correctAnswerIndex: 1, // b) 6 and 14 years
+        explanation: "6 and 14 years."
+    },
+    {
+        question: "Features and Significance: The Fundamental Duties are confined to:",
+        options: ["Citizens only.", "Foreigners only.", "Both citizens and foreigners.", "Only government servants."],
+        correctAnswerIndex: 0, // a) Citizens only
+        explanation: "Citizens only."
+    },
+    {
+        question: "Like the Directive Principles, the fundamental duties are:",
+        options: ["Justiciable.", "Non-justiciable.", "Mandatory.", "Enforceable by writs."],
+        correctAnswerIndex: 1, // b) Non-justiciable
+        explanation: "Non-justiciable."
+    },
+    {
+        question: "The Swaran Singh Committee suggested that Parliament may provide for the imposition of:",
+        options: ["Taxes for non-performance of duties.", "Penalty or punishment for non-compliance with duties.", "Social boycott for violation of duties.", "Compulsory military service."],
+        correctAnswerIndex: 1, // b) Penalty or punishment
+        explanation: "Penalty or punishment for non-compliance."
+    },
+    {
+        question: "Did the Congress Government (in 1976) accept the Swaran Singh Committee's recommendation regarding penalty/punishment?",
+        options: ["Yes, fully.", "No, it did not incorporate this provision in the Constitution.", "Yes, but only for certain duties.", "Yes, but left it to the Judiciary."],
         correctAnswerIndex: 1, // b) No
-        explanation: "No joint sitting."
+        explanation: "No, it did not incorporate this provision."
     },
     {
-        question: "If the bill seeks to amend the federal provisions of the Constitution, it must also be ratified by the legislatures of:",
-        options: ["All the states.", "Half of the states.", "Three-fourths of the states.", "One-third of the states."],
-        correctAnswerIndex: 1, // b) Half of the states
-        explanation: "At least half of the states."
+        question: "Another recommendation of the Swaran Singh Committee which was NOT accepted was the duty to:",
+        options: ["Pay taxes.", "Vote in elections.", "Follow family planning.", "Both (a) and (b)."],
+        correctAnswerIndex: 0, // a) Pay taxes
+        explanation: "Duty to pay taxes was recommended but not accepted."
     },
     {
-        question: "The state legislatures must ratify the bill by a:",
-        options: ["Simple majority.", "Special majority.", "Absolute majority.", "Effective majority."],
-        correctAnswerIndex: 0, // a) Simple majority
-        explanation: "Simple majority."
+        question: "The Verma Committee on Fundamental Duties of Citizens (1999) identified the existence of:",
+        options: ["Legal provisions for the implementation of some of the Fundamental Duties.", "Constitutional provisions for enforcing all duties.", "Lack of any legal provisions.", "Need for new duties."],
+        correctAnswerIndex: 0, // a) Legal provisions exists
+        explanation: "Existence of legal provisions."
     },
     {
-        question: "After duly passed by both Houses (and ratified by states if necessary), the bill is presented to the President. The President:",
-        options: ["Can withhold his assent.", "Can return the bill for reconsideration.", "Must give his assent to the bill.", "Can keep it pending indefinitely (Pocket Veto)."],
-        correctAnswerIndex: 2, // c) Must give assent
-        explanation: "Must give his assent."
+        question: "Legal Provisions: The Prevention of Insults to National Honour Act (1971) prevents disrespect to:",
+        options: ["The Constitution of India.", "The National Flag.", "The National Anthem.", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "Constitution, Flag, and Anthem."
     },
     {
-        question: "Which Constitutional Amendment Act made it obligatory for the President to give his assent to a constitutional amendment bill?",
-        options: ["24th Amendment Act, 1971", "42nd Amendment Act, 1976", "44th Amendment Act, 1978", "7th Amendment Act, 1956"],
-        correctAnswerIndex: 0, // a) 24th
-        explanation: "24th Amendment Act, 1971."
+        question: "The Protection of Civil Rights Act (1955) provides for punishments for offences related to:",
+        options: ["Caste and religion.", "Untouchability.", "Gender discrimination.", "Regionalism."],
+        correctAnswerIndex: 1, // b) Untouchability
+        explanation: "Untouchability."
     },
     {
-        question: "Types of Amendments: The Constitution provides for three types of amendments. Which is NOT one of them?",
-        options: ["Amendment by simple majority of the Parliament.", "Amendment by special majority of the Parliament.", "Amendment by special majority of the Parliament and ratification by half of the state legislatures.", "Amendment by special majority of the state legislatures."],
-        correctAnswerIndex: 3, // d) Amendment by state legislatures
-        explanation: "State legislatures cannot amend the constitution directly."
+        question: "The Unlawful Activities (Prevention) Act (1967) provides for the declaration of a communal organization as an unlawful association. This relates to the duty to:",
+        options: ["Uphold sovereignty, unity and integrity.", "Protect environment.", "Safeguard public property.", "Develop scientific temper."],
+        correctAnswerIndex: 0, // a) Sovereignty, unity and integrity
+        explanation: "Sovereignty, unity and integrity."
     },
     {
-        question: "Is the amendment by \"Simple Majority\" considered strictly as an amendment under Article 368?",
-        options: ["Yes.", "No.", "Depends on the subject.", "Only if the Supreme Court says so."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "No, Article 368 encompasses only Special Majority and Special + Ratification."
+        question: "The Representation of People Act (1951) provides for disqualification of members of Parliament/State Legislature for indulging in:",
+        options: ["Corrupt practices.", "Promoting enmity between different groups on grounds of religion, race, etc.", "Both (a) and (b).", "Neither (a) nor (b)."],
+        correctAnswerIndex: 2, // c) Both
+        explanation: "Both corrupt practices and promoting enmity."
     },
     {
-        question: "Which of the following provisions can be amended by a Simple Majority of Parliament?",
-        options: ["Fundamental Rights.", "Directive Principles of State Policy.", "Admission or establishment of new states.", "Election of the President."],
-        correctAnswerIndex: 2, // c) New states
-        explanation: "Admission or establishment of new states."
+        question: "The Wildlife (Protection) Act of 1972 prohibits:",
+        options: ["Trade in rare and endangered species.", "Hunting of all animals.", "Fishing in rivers.", "Keeping pets."],
+        correctAnswerIndex: 0, // a) Trade in rare and endangered species
+        explanation: "Trade in rare and endangered species."
     },
     {
-        question: "Which of the following provisions requires a Special Majority of Parliament?",
-        options: ["Quorum in Parliament.", "Rules of procedure in Parliament.", "Fundamental Rights.", "Use of official language."],
-        correctAnswerIndex: 2, // c) Fundamental Rights
-        explanation: "Fundamental Rights."
+        question: "The Forest (Conservation) Act of 1980 checks:",
+        options: ["Deforestation and diversion of forest land for non-forest purposes.", "Afforestation.", "Social forestry.", "Agro-forestry."],
+        correctAnswerIndex: 0, // a) Deforestation
+        explanation: "Deforestation and diversion."
     },
     {
-        question: "Which of the following provisions requires a Special Majority of Parliament and Consent of States?",
-        options: ["Election of the President and its manner.", "Citizenship—acquisition and termination.", "Delimitation of constituencies.", "Union territories."],
-        correctAnswerIndex: 0, // a) Election of President
-        explanation: "Election of the President."
-    },
-    {
-        question: "Which Schedule requires ratification by states for its amendment?",
-        options: ["First Schedule.", "Second Schedule.", "Seventh Schedule (Lists).", "Fifth Schedule."],
-        correctAnswerIndex: 2, // c) Seventh Schedule
-        explanation: "Seventh Schedule."
-    },
-    {
-        question: "Representation of states in Parliament (Rajya Sabha seats) can be amended by:",
-        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification by half of the states.", "Executive Order."],
-        correctAnswerIndex: 2, // c) Special + Ratification
-        explanation: "Special Majority + Ratification."
-    },
-    {
-        question: "The Supreme Court and High Courts (provisions dealing with them) can be amended by:",
-        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification by half of the states.", "Judicial Order."],
-        correctAnswerIndex: 2, // c) Special + Ratification
-        explanation: "Special Majority + Ratification."
-    },
-    {
-        question: "The Power of Parliament to amend the Constitution and its procedure (Article 368 itself) can be amended by:",
-        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification by half of the states.", "Cannot be amended."],
-        correctAnswerIndex: 2, // c) Special + Ratification
-        explanation: "Special Majority + Ratification."
-    },
-    {
-        question: "Critics argue that the power to initiate an amendment lies with the Parliament. In only one case can the state legislature initiate an amendment?",
-        options: ["Creation or abolition of Legislative Council in the state (Article 169).", "Changing the name of the state.", "Changing the boundary of the state.", "None of the above."],
-        correctAnswerIndex: 0, // a) Legislative Council
-        explanation: "Creation or abolition of Legislative Council (strictly resolution)."
-    },
-    {
-        question: "Does the Constitution prescribe any time limit within which the state legislatures should ratify or reject an amendment submitted to them?",
-        options: ["Yes, 6 months.", "Yes, 1 year.", "No, it is silent on the issue.", "Yes, 3 months."],
-        correctAnswerIndex: 2, // c) Silent
-        explanation: "No, it is silent."
-    },
-    {
-        question: "Is the issue of whether states can withdraw their ratification after giving it settled in the Constitution?",
-        options: ["Yes, they can withdraw anytime.", "Yes, they cannot withdraw.", "No, the Constitution is silent on the issue.", "Yes, with President's permission."],
-        correctAnswerIndex: 2, // c) Silent
-        explanation: "No, the Constitution is silent."
-    },
-    {
-        question: "There is no provision for holding a joint sitting of both Houses of Parliament if there is a deadlock over the passage of a constitutional amendment bill.",
-        options: ["True", "False"],
-        correctAnswerIndex: 0, // a) True
-        explanation: "True."
-    },
-    {
-        question: "The process of amendment is considered to be:",
-        options: ["Too flexible.", "Too rigid.", "Partly flexible and partly rigid.", "Very easy."],
-        correctAnswerIndex: 2, // c) Partly flexible and partly rigid
-        explanation: "Partly flexible and partly rigid."
-    },
-    {
-        question: "Pandit Jawaharlal Nehru said in the Constituent Assembly that if you make the Constitution rigid and permanent, you stop the nation's:",
-        options: ["Growth.", "Wealth.", "Independence.", "Democracy."],
-        correctAnswerIndex: 0, // a) Growth
-        explanation: "Growth."
-    },
-    {
-        question: "K.C. Wheare described the Indian Constitution as strikingly ______ because it strikes a good balance between flexibility and rigidity.",
-        options: ["Rigid", "Flexible", "Adaptable", "Novel"],
-        correctAnswerIndex: 1, // b) Flexible (based on 'strikingly flexible' vs rigid discourse)
-        explanation: "Flexible."
-    },
-    {
-        question: "Granville Austin said the amending process has proved to be one of the most ably conceived aspects of the Constitution. He noted that it appears complicated but is merely:",
-        options: ["Simple.", "Diverse.", "Elaborate.", "Confusing."],
-        correctAnswerIndex: 2, // c) Elaborate
-        explanation: "Elaborate."
-    },
-    {
-        question: "The 42nd Amendment Act (1976) is also known as the:",
-        options: ["Mini-Constitution.", "Major Constitution.", "New Constitution.", "Reformed Constitution."],
-        correctAnswerIndex: 0, // a) Mini-Constitution
-        explanation: "Mini-Constitution."
-    },
-    {
-        question: "The 99th Constitutional Amendment Act (2014) related to NJAC was declared unconstitutional by the Supreme Court. This is the only instance of a constitutional amendment being struck down in entirety.",
-        options: ["True", "False"],
-        correctAnswerIndex: 0, // a) True
-        explanation: "True."
-    },
-    {
-        question: "A \"Constitutional Amendment Bill\" is treated as a:",
-        options: ["Money Bill.", "Financial Bill.", "Ordinary Bill.", "Private Bill always."],
-        correctAnswerIndex: 2, // c) Ordinary Bill (procedurally similar distractor)
-        explanation: "Treated similarly to an Ordinary Bill in introduction/passage stages (except majority)."
-    },
-    {
-        question: "The phrase \"Total Membership\" means:",
-        options: ["Total number of members present on that day.", "Total number of members comprising the House irrespective of vacancies or absentees.", "Total number of elected members only.", "Total number of members minus those suspended."],
-        correctAnswerIndex: 1, // b) Irrespective of vacancies
-        explanation: "Total number of members comprising the House irrespective of vacancies or absentees."
+        question: "The fundamental duties serve as a reminder to the citizens that while enjoying their rights, they should also be conscious of duties they owe to:",
+        options: ["Their family.", "Their country, their society and their fellow citizens.", "The government.", "The world."],
+        correctAnswerIndex: 1, // b) Country, society, citizens
+        explanation: "Their country, their society and their fellow citizens."
     }
 ];
 
 // Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        question: "Evolution of Amending Power: The conflict between the Parliament's power to amend (Article 368) and Fundamental Rights (Part III) began with:",
-        options: ["Shankari Prasad case (1951).", "Golak Nath case (1967).", "Kesavananda Bharati case (1973).", "Minerva Mills case (1980)."],
-        correctAnswerIndex: 0, // a) Shankari Prasad
-        explanation: "Shankari Prasad case (1951)."
+        question: "Nature & Enforcement: Fundamental Duties are non-justiciable. This means:",
+        options: ["A citizen cannot be punished for violating them directly under the Constitution.", "Parliament cannot make laws to enforce them.", "Courts cannot take cognizance of them while interpreting laws.", "They are merely moral suggestions with no legal value."],
+        correctAnswerIndex: 0, // a) Cannot be punished directly under Constitution
+        explanation: "Cannot be punished directly under the Constitution (needs statutory backing)."
     },
     {
-        question: "In the Golak Nath case (1967), the Supreme Court held that:",
-        options: ["Parliament has absolute power to amend Fundamental Rights.", "Parliament cannot take away or abridge any of the Fundamental Rights.", "Fundamental Rights are subject to Directive Principles.", "The President can amend Fundamental Rights."],
-        correctAnswerIndex: 1, // b) Cannot take away
-        explanation: "Parliament cannot take away or abridge any of the Fundamental Rights."
+        question: "However, the Parliament is free to enforce Fundamental Duties by:",
+        options: ["Suitable legislation.", "Executive order.", "Constitutional Amendment only.", "Judicial Review."],
+        correctAnswerIndex: 0, // a) Suitable legislation
+        explanation: "Suitable legislation."
     },
     {
-        question: "To overcome the Golak Nath judgment, the Parliament enacted the 24th Amendment Act (1971). It declared that:",
-        options: ["Parliament has the power to abridge or take away any of the Fundamental Rights under Article 368.", "Such an Act will not be a 'law' under the meaning of Article 13.", "Both (a) and (b).", "Neither (a) nor (b)."],
+        question: "In the AIIMS Students Union vs AIIMS (2001) case, the Supreme Court held that Fundamental Duties are:",
+        options: ["Fundamental to the governance of the country (like DPSP).", "Equally important as Fundamental Rights.", "Not enforceable at all.", "Only for government servants."],
+        correctAnswerIndex: 1, // b) Equally important
+        explanation: "Equally important as Fundamental Rights."
+    },
+    {
+        question: "The \"Verma Committee\" (1999) on Fundamental Duties identified the existence of legal provisions for the implementation of some of the Fundamental Duties. Which of the following acts implements the duty to \"renounce practices derogatory to the dignity of women\"?",
+        options: ["The Protection of Women from Domestic Violence Act, 2005.", "The Indian Penal Code (IPC).", "The Dowry Prohibition Act, 1961.", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "All (IPC, Dowry Act, DV Act) implement this duty."
+    },
+    {
+        question: "The duty to \"safeguard public property and to abjure violence\" is legally enforced by:",
+        options: ["The Prevention of Damage to Public Property Act, 1984.", "The Unlawful Activities (Prevention) Act, 1967.", "The National Security Act, 1980.", "The Disaster Management Act, 2005."],
+        correctAnswerIndex: 0, // a) Prevention of Damage to Public Property Act
+        explanation: "The Prevention of Damage to Public Property Act, 1984."
+    },
+    {
+        question: "Rights vs Duties Relationship: \"Rights and Duties are correlative and inseparable.\" This implies that:",
+        options: ["For every right, there is a corresponding duty.", "A citizen cannot claim rights if he does not perform duties.", "Duties are superior to rights.", "Rights are superior to duties."],
+        correctAnswerIndex: 0, // a) Correlative
+        explanation: "For every right, there is a corresponding duty."
+    },
+    {
+        question: "Unlike Fundamental Rights, which are available to all persons (citizens and foreigners), Fundamental Duties are confined to:",
+        options: ["Citizens only.", "Foreigners only.", "Both citizens and foreigners.", "Only voters."],
+        correctAnswerIndex: 0, // a) Citizens only
+        explanation: "Citizens only."
+    },
+    {
+        question: "The inclusion of Fundamental Duties in the Constitution was criticized by some on the ground that:",
+        options: ["They are superfluous because they are already performed by people generally.", "Some duties are vague and difficult to understand (e.g., \"noble ideals\", \"scientific temper\").", "They are non-justiciable and hence toothless.", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "All are valid criticisms."
+    },
+    {
+        question: "The inclusion of Fundamental Duties aligns the Indian Constitution with the Constitutions of:",
+        options: ["Western democracies (USA, Canada, France, etc.).", "Socialist countries (USSR, Vietnam, etc.).", "Monarchies.", "Theocratic states."],
+        correctAnswerIndex: 1, // b) Socialist countries
+        explanation: "Socialist countries (Democratic constitutions usually don't have duties)."
+    },
+    {
+        question: "Can a court refuse to issue a writ for the enforcement of a Fundamental Right if the petitioner has violated a Fundamental Duty?",
+        options: ["Yes, the court can refuse relief (Doctrine of Clean Hands).", "No, Fundamental Rights are absolute.", "No, Duties are non-justiciable.", "Yes, but only in case of Article 32."],
+        correctAnswerIndex: 0, // a) Clean Hands
+        explanation: "Yes, under the invocation of Art 51A (Ranganath Mishra case Logic / Clean Hands)."
+    },
+    {
+        question: "Swaran Singh vs Verma Committee: The Swaran Singh Committee recommended a separate chapter on Fundamental Duties. It also suggested that:",
+        options: ["Failure to comply with duties should be punishable by law.", "Such punishment should not be questioned in any court.", "Duty to pay taxes should be a Fundamental Duty.", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "All were recommended."
+    },
+    {
+        question: "Which of the above recommendations (Q11) was accepted by the Congress Government and incorporated into the 42nd Amendment?",
+        options: ["Punishment for non-compliance.", "Bar on judicial review of punishment.", "Duty to pay taxes.", "None of the above."],
+        correctAnswerIndex: 3, // d) None
+        explanation: "None were accepted."
+    },
+    {
+        question: "The Verma Committee (1999) was set up to:",
+        options: ["Suggest new Fundamental Duties.", "Operationalize the suggestions to teach Fundamental Duties to citizens.", "Remove Fundamental Duties.", "Make Duties justiciable."],
+        correctAnswerIndex: 1, // b) Operationalize
+        explanation: "Operationalize suggestions to teach/implement."
+    },
+    {
+        question: "The Verma Committee recommended that:",
+        options: ["January 3rd be observed as \"Fundamental Duties Day\".", "Duties should be taught in schools and colleges.", "Media should propagate duties.", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "All were recommended."
+    },
+    {
+        question: "Specific Duties Analysis: \"To value and preserve the rich heritage of our composite culture.\" This duty (Article 51-A(f)) draws inspiration from:",
+        options: ["The ancient Indian tradition of \"Vasudhaiva Kutumbakam\".", "The secular fabric of the nation.", "The diversity of India.", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "All concepts align."
+    },
+    {
+        question: "\"To protect and improve the natural environment.\" This duty (Article 51-A(g)) imposes an obligation on:",
+        options: ["The State (under Article 48A).", "The Citizens (under Article 51-A(g)).", "Both the State and the Citizens.", "Only the Forest Department."],
         correctAnswerIndex: 2, // c) Both
-        explanation: "Both (a) and (b)."
+        explanation: "Both State (48A) and Citizens (51A-g)."
     },
     {
-        question: "The Kesavananda Bharati case (1973) upheld the validity of the 24th Amendment Act but laid down a new doctrine. What was it?",
-        options: ["Doctrine of Pith and Substance.", "Doctrine of Basic Structure.", "Doctrine of Severability.", "Doctrine of Eclipse."],
-        correctAnswerIndex: 1, // b) Basic Structure
-        explanation: "Doctrine of Basic Structure."
+        question: "\"To develop the scientific temper, humanism and the spirit of inquiry and reform.\" This duty (Article 51-A(h)) is particularly significant in combating:",
+        options: ["Superstition and blind faith.", "Religious fundamentalism.", "Social evils.", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "Combats all listed regressive practices."
     },
     {
-        question: "According to the Basic Structure Doctrine:",
-        options: ["Parliament cannot amend the Constitution at all.", "Parliament can amend any part of the Constitution, including Fundamental Rights, provided it does not alter the 'basic structure'.", "The Supreme Court is the only body that can amend the Constitution.", "The Preamble cannot be amended."],
-        correctAnswerIndex: 1, // b) Can amend provided...
-        explanation: "Can amend any part provided it does not alter the basic structure."
+        question: "\"To strive towards excellence in all spheres of individual and collective activity.\" This duty (Article 51-A(j)) aims at:",
+        options: ["Personal success only.", "Raising the nation to higher levels of endeavor and achievement.", "Economic growth only.", "Sports achievements only."],
+        correctAnswerIndex: 1, // b) Raising nation
+        explanation: "Raising the nation to higher levels of endeavor and achievement."
     },
     {
-        question: "The 42nd Amendment Act (1976) tried to nullify the Basic Structure doctrine by inserting a clause declaring that:",
-        options: ["There shall be no limitation on the constituent power of Parliament.", "No amendment can be questioned in any court on any ground.", "Both (a) and (b).", "Fundamental Duties are superior to Rights."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Both (a) and (b)."
+        question: "The duty to \"provide opportunities for education to his child or ward\" (Article 51-A(k)) was added to complement:",
+        options: ["Article 21-A (Right to Education).", "Article 45 (Early Childhood Care).", "Both (a) and (b).", "Neither."],
+        correctAnswerIndex: 0, // a) Article 21-A
+        explanation: "Article 21-A."
     },
     {
-        question: "In the Minerva Mills case (1980), the Supreme Court struck down the above provision of the 42nd Amendment because:",
-        options: ["It violated the 'Judicial Review' power, which is a basic feature.", "It was passed during an Emergency.", "It was not ratified by the states.", "It violated the Preamble."],
-        correctAnswerIndex: 0, // a) Judicial Review
-        explanation: "Violated Judicial Review (a basic feature)."
+        question: "Comparative & Analytical: Which of the following is NOT a Fundamental Duty?",
+        options: ["To cast vote in elections.", "To pay taxes.", "To follow family planning.", "All of the above are not Fundamental Duties."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "None are FDs."
     },
     {
-        question: "In the Waman Rao case (1981), the Supreme Court clarified that the Basic Structure doctrine applies to:",
-        options: ["Constitutional Amendments enacted after April 24, 1973 (date of Kesavananda judgment).", "All Constitutional Amendments since 1950.", "Only amendments affecting Fundamental Rights.", "Only amendments affecting Federalism."],
-        correctAnswerIndex: 0, // a) After 1973
-        explanation: "Amendments enacted after April 24, 1973."
+        question: "The Japanese Constitution is one of the few democratic constitutions that contains a list of duties. One such duty is:",
+        options: ["To work.", "To vote.", "To speak truth.", "To meditate."],
+        correctAnswerIndex: 0, // a) To work
+        explanation: "To work."
     },
     {
-        question: "Procedure & Nuances: A Constitutional Amendment Bill must be passed by a \"Special Majority\". This implies:",
-        options: ["A majority of more than 50% of the total membership of the House.", "A majority of two-thirds of the members of the House present and voting.", "Both (a) and (b) separately in each House.", "Both (a) and (b) in a joint sitting."],
-        correctAnswerIndex: 2, // c) Both in each House
-        explanation: "Both (a) and (b) separately in each House."
+        question: "In the M.C. Mehta case (1988), the Supreme Court directed the Central Government to introduce compulsory teaching of ______ in all educational institutions, invoking Article 51-A(g).",
+        options: ["Yoga.", "Environment.", "Sanskrit.", "Moral Science."],
+        correctAnswerIndex: 1, // b) Environment
+        explanation: "Environment."
     },
     {
-        question: "The \"Total Membership\" of the House for the purpose of Special Majority means:",
-        options: ["The number of members actually holding office at that time (excluding vacancies).", "The total number of members comprising the House irrespective of whether there are vacancies or absentees.", "The number of members present on the day of voting.", "The quorum of the House."],
-        correctAnswerIndex: 1, // b) Irrespective of vacancies
-        explanation: "Irrespective of vacancies."
+        question: "The \"Prevention of Insults to National Honour Act, 1971\" was enacted before the insertion of Fundamental Duties in 1976. This shows that:",
+        options: ["Duties existed in statutory form even before constitutional recognition.", "The Act was unconstitutional.", "The Act was retrospective.", "The Swaran Singh Committee merely codified existing laws."],
+        correctAnswerIndex: 0, // a) Existed in statutory form
+        explanation: "Duties existed in statutory form."
     },
     {
-        question: "If a Constitutional Amendment Bill is passed by the Lok Sabha but rejected by the Rajya Sabha:",
-        options: ["The President summons a joint sitting.", "The Bill lapses/ends.", "The Bill is returned to Lok Sabha.", "The Bill is deemed to have been passed."],
-        correctAnswerIndex: 1, // b) Bill lapses
-        explanation: "The Bill lapses/ends (No joint sitting)."
-    },
-    {
-        question: "The \"Ratification by States\" (for federal provisions) requires:",
-        options: ["A resolution passed by the State Legislature by a Special Majority.", "A resolution passed by the State Legislature by a Simple Majority.", "A resolution passed by the State Legislature and assent of the Governor.", "A referendum in the state."],
-        correctAnswerIndex: 1, // b) Simple Majority
-        explanation: "Simple Majority."
-    },
-    {
-        question: "Is the Governor's assent required for the State Legislature's resolution ratifying the amendment?",
-        options: ["Yes.", "No, it is just a resolution of the House, not a Bill.", "Depends on the Governor's discretion.", "Yes, if it affects state finances."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "No, it is just a resolution."
-    },
-    {
-        question: "Which of the following creates a \"Constitutional Amendment\" but is NOT deemed to be an amendment under Article 368?",
-        options: ["Abolition or creation of Legislative Councils in States (Article 169).", "Admission or establishment of new states (Article 2).", "Formation of new states and alteration of areas (Article 3).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All of the above."
-    },
-    {
-        question: "Therefore, the above changes (in Q14) can be passed by:",
-        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification.", "Executive Order."],
-        correctAnswerIndex: 0, // a) Simple Majority
-        explanation: "Simple Majority."
-    },
-    {
-        question: "Subject Matter Classification: Which of the following provisions requires Ratification by States?",
-        options: ["Goods and Services Tax (GST) Council (Article 279A).", "Fundamental Rights (Part III).", "Directive Principles (Part IV).", "Emergency Provisions."],
-        correctAnswerIndex: 0, // a) GST Council
-        explanation: "GST Council (Article 279A)."
-    },
-    {
-        question: "Which of the following provisions requires Ratification by States?",
-        options: ["The extent of the executive power of the Union and the States.", "The Supreme Court and High Courts.", "Distribution of legislative powers between the Union and the States (7th Schedule).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All of the above."
-    },
-    {
-        question: "To amend the \"Language of the Supreme Court\" (Article 348), what majority is required?",
-        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification.", "President's Order."],
-        correctAnswerIndex: 0, // a) Simple Majority
-        explanation: "Simple Majority (Official Language provisions)."
-    },
-    {
-        question: "To amend the \"Fifth Schedule\" (Scheduled Areas), what majority is required?",
-        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification.", "Governor's Notification."],
-        correctAnswerIndex: 0, // a) Simple Majority
-        explanation: "Simple Majority."
-    },
-    {
-        question: "To amend the \"Election of the President\" (Article 54 & 55), what majority is required?",
-        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification by half of the states.", "Two-thirds of States."],
-        correctAnswerIndex: 2, // c) Special + Ratification
-        explanation: "Special Majority + Ratification."
-    },
-    {
-        question: "Judicial Review & 9th Schedule: The I.R. Coelho case (2007) dealt with the:",
-        options: ["Ninth Schedule and Judicial Review.", "Tenth Schedule and Anti-Defection.", "Eighth Schedule and Languages.", "Seventh Schedule and Federalism."],
-        correctAnswerIndex: 0, // a) Ninth Schedule
-        explanation: "Ninth Schedule and Judicial Review."
-    },
-    {
-        question: "In I.R. Coelho, the Supreme Court held that:",
-        options: ["Laws placed in the Ninth Schedule are completely immune from judicial review.", "Laws placed in the Ninth Schedule after April 24, 1973, are open to judicial review if they violate the Basic Structure (Fundamental Rights like 14, 15, 19, 21).", "The Ninth Schedule itself is unconstitutional.", "Judicial review does not apply to land reforms."],
-        correctAnswerIndex: 1, // b) Open to review if...
-        explanation: "Open to judicial review if placed after April 24, 1973."
-    },
-    {
-        question: "Comparative & Critical: Unlike the USA, in India:",
-        options: ["The State Legislatures cannot initiate an amendment to the Constitution.", "A special constituent body is not required for amending the Constitution.", "There is no time limit for ratification.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All of the above."
-    },
-    {
-        question: "In the USA, an amendment can be initiated by:",
-        options: ["Congress only.", "State Legislatures only.", "Either Congress or State Legislatures (via convention).", "The President."],
-        correctAnswerIndex: 2, // c) Either
-        explanation: "Either Congress or State Legislatures."
-    },
-    {
-        question: "The Indian Constitution is often criticized for being \"too flexible\" because:",
-        options: ["Large parts of it can be amended by Parliament alone (either simple or special majority).", "States have no voice in most amendments.", "It can be amended by a simple notification.", "Both (a) and (b)."],
-        correctAnswerIndex: 3, // d) Both a and b
-        explanation: "Both (a) and (b)."
-    },
-    {
-        question: "Assertion (A): The President of India has no veto power in respect of a Constitutional Amendment Bill. Reason (R): The 24th Amendment Act made it obligatory for the President to give his assent to such a bill.",
+        question: "Assertion (A): Fundamental Duties are not enforceable by writs. Reason (R): They are duties of citizens, not the State. Writs are issued against the State for violation of Rights.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
         explanation: "Correct explanation."
     },
     {
-        question: "\"Constituent Power\" vs \"Legislative Power\".",
-        options: ["Constituent power is the power to amend the Constitution (Article 368).", "Legislative power is the power to make ordinary laws (Article 245).", "In India, both powers are vested in the same body (Parliament), but the procedure differs.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All are correct."
+        question: "The phrase \"Composite Culture\" in Article 51-A(f) refers to:",
+        options: ["Hindu Culture only.", "The synthesis of various cultural streams that have enriched India.", "Western Culture.", "Vedic Culture."],
+        correctAnswerIndex: 1, // b) Synthesis
+        explanation: "Synthesis of various cultural streams."
     },
     {
-        question: "Can the Preamble be amended under Article 368?",
-        options: ["No, it is not a part of the Constitution.", "Yes, as established in Kesavananda Bharati, provided the Basic Structure is not altered.", "Yes, without any restriction.", "Only to add words, not to remove."],
-        correctAnswerIndex: 1, // b) Yes, provided...
-        explanation: "Yes, provided Basic Structure is not altered."
+        question: "\"National Service\" under Article 51-A(d) implies:",
+        options: ["Joining the Army.", "Joining the Civil Services.", "Rendering service when called upon during emergencies or war.", "Social work."],
+        correctAnswerIndex: 2, // c) When called upon
+        explanation: "When called upon during emergencies/war."
     },
     {
-        question: "The \"Basic Structure\" includes:",
-        options: ["Supremacy of the Constitution.", "Secular character of the Constitution.", "Federal character of the Constitution.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All of the above."
+        question: "The Fundamental Duties help the courts in:",
+        options: ["Defining the scope of Fundamental Rights.", "Determining the constitutional validity of a law.", "Interpreting the Preamble.", "Appointing judges."],
+        correctAnswerIndex: 1, // b) Constitutional validity
+        explanation: "Determining constitutional validity (reasonable restrictions)."
     },
     {
-        question: "Is \"Social Justice\" considered part of the Basic Structure?",
-        options: ["Yes.", "No.", "Only Economic Justice.", "Only Political Justice."],
-        correctAnswerIndex: 0, // a) Yes
-        explanation: "Yes."
+        question: "If a law seeks to give effect to a Fundamental Duty, the court may consider such law to be:",
+        options: ["\"Reasonable\" in relation to Article 14 or 19.", "Unconstitutional.", "Void.", "Mandatory."],
+        correctAnswerIndex: 0, // a) Reasonable
+        explanation: "Reasonable."
+    },
+    {
+        question: "The \"Flag Code of India, 2002\" governs the display of the National Flag. It is:",
+        options: ["A statute (Act of Parliament).", "An executive instruction/code combined with statutory provisions.", "A Constitutional Amendment.", "A Judicial Order."],
+        correctAnswerIndex: 1, // b) Executive instruction
+        explanation: "Executive code with statutory backing (Emblems Act)."
+    },
+    {
+        question: "Which Fundamental Duty is often cited in cases related to \"Cow Slaughter\"?",
+        options: ["51-A(g) - Compassion for living creatures.", "51-A(f) - Heritage.", "51-A(e) - Harmony.", "51-A(i) - Public Property."],
+        correctAnswerIndex: 0, // a) 51-A(g)
+        explanation: "Compassion for living creatures."
     }
 ];
 
 // Level 3: The UPSC Simulation 2026 (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        question: "Theme: Nari Shakti Vandan Adhiniyam (106th Amendment Act, 2023)\nThe Constitution (106th Amendment) Act, 2023 provides for 33% reservation for women in Lok Sabha and State Assemblies. Regarding its enactment process, consider the following statements:\n1. It required a Special Majority in both Houses of Parliament.\n2. Since it affects the representation of states in Parliament (Lok Sabha seats), it required ratification by at least half of the state legislatures.\n3. The reservation will come into effect immediately after the next delimitation exercise.\nWhich of the statements given above are correct?",
-        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctAnswerIndex: 3, // d) 1, 2, 3
-        explanation: "Requires Special Majority and Ratification (affects representation/federal) and Delimitation."
+        question: "Theme: Legal Enforcement & Justiciability (Recent Trends)\nIn 2024, the Supreme Court heard a PIL seeking to make Fundamental Duties mandatory. The Court's observation reiterated the Ranganath Mishra Judgment (2003), stating that:",
+        options: ["Fundamental Duties should be enforced by a new law immediately.", "Legal and social sanctions can be used to create a comprehensive code for duties, but they remain non-justiciable under the Constitution unless Parliament legislates.", "Duties are superior to Rights and must be enforced by Police.", "Duties are only for government servants."],
+        correctAnswerIndex: 1, // b) Legal and social sanctions...
+        explanation: "Non-justiciable unless Parliament legislates."
     },
     {
-        question: "The implementation of the 106th Amendment is linked to the \"Delimitation Process\". If the government decides to increase the total number of Lok Sabha seats (beyond 550) during this process, it will require:",
-        options: ["A simple amendment to the Delimitation Act.", "A Constitutional Amendment to Article 81 (Composition of Lok Sabha) requiring ratification by half of the states.", "A Constitutional Amendment to Article 81 requiring only a Special Majority of Parliament.", "An Executive Order by the President."],
-        correctAnswerIndex: 2, // c) Special Majority
-        explanation: "Amendment to Art 81 (Special Majority)."
+        question: "The \"Prevention of Damage to Public Property Act, 1984\" implements Article 51-A(i). In the context of the Farmers' Protests and CAProtests, the Supreme Court laid down guidelines for:",
+        options: ["Recovering damages from protesters who destroy public property (apportioning liability).", "Making leaders of the protest personally liable.", "Banning all protests that cause damage.", "Both (a) and (b)."],
+        correctAnswerIndex: 3, // d) Both
+        explanation: "Liability of protesters and leaders."
     },
     {
-        question: "Theme: One Nation, One Election (High-Level Committee)\nThe \"One Nation, One Election\" proposal (Kovind Panel Report, 2024) suggests simultaneous elections. To implement this, the Committee identified that amendments to Article 83 (Duration of Houses) and Article 172 (Duration of State Legislatures) would be necessary. Does this specific amendment require ratification by States?",
-        options: ["Yes, because it affects the federal structure.", "No, the Committee concluded that amendments to the \"duration\" of Houses do not fall under the entrenched provisions of Article 368(2) proviso (which lists subjects requiring ratification).", "Yes, because it affects the \"Election of President\".", "No, because it can be done by a simple majority."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "No, duration is not entrenched in Proviso."
+        question: "The Justice J.S. Verma Committee (1999) identified existing legal provisions for duties. Which of the following duties is NOT backed by a specific criminal statute in India?",
+        options: ["To respect the National Flag (Prevention of Insults to National Honour Act).", "To protect wildlife (Wildlife Protection Act).", "To develop scientific temper and spirit of inquiry.", "To renounce practices derogatory to the dignity of women (IPC/BNS)."],
+        correctAnswerIndex: 2, // c) Scientific temper
+        explanation: "No specific statute for Scientific Temper (apart from local superstition laws)."
     },
     {
-        question: "However, the Committee noted that a Common Electoral Roll (Article 325) would require an amendment that needs ratification by States. Why?",
-        options: ["Because \"Elections to Panchayats/Municipalities\" is a State Subject (Entry 5, List II), and altering the roll affects State powers.", "Because it affects the powers of the Election Commission of India.", "Because it violates the Basic Structure.", "Because Article 325 is explicitly mentioned in the proviso to Article 368."],
-        correctAnswerIndex: 0, // a) State Subject
-        explanation: "Affects State Subject (Entry 5, List II)."
+        question: "Theme: Environment & Climate Duty (Art 51-A(g))\nThe \"Great Indian Bustard Case\" (2024) linked the Right to be free from adverse effects of climate change (Article 21) with the Fundamental Duty (Article 51-A(g)). This implies that:",
+        options: ["Citizens have a duty to not oppose renewable energy projects (like solar power lines).", "The State's duty to protect the environment (Article 48A) and Citizen's duty (51-A(g)) together create a \"Public Trust\" obligation on the government.", "The duty is only for citizens, not corporations.", "Article 51-A(g) overrides the right to development."],
+        correctAnswerIndex: 1, // b) Public Trust
+        explanation: "Creates Public Trust obligation."
     },
     {
-        question: "Theme: Basic Structure Debate (2024-25 Context)\nRecent remarks by high constitutional functionaries (Vice President, Law Minister) questioned the Basic Structure Doctrine as diluting Parliamentary Sovereignty. In this context, if Parliament passes a unanimous amendment to scrap the Basic Structure doctrine:",
-        options: ["The amendment would be valid as it reflects the will of the people.", "The Supreme Court would likely strike it down as \"unconstitutional\" because the \"limited amending power\" itself is a part of the Basic Structure (Minerva Mills case).", "The President would be bound to withhold assent.", "It would require a national referendum."],
-        correctAnswerIndex: 1, // b) Struck down
-        explanation: "SC would strike it down (Limited amending power is Basic Structure)."
+        question: "\"Carbon Footprint\" and Individual Duty: Can a court issue a writ of mandamus against a private citizen for failing to protect the environment (Article 51-A(g))?",
+        options: ["Yes, under the Polluter Pays Principle.", "No, writs are generally issued against the State; however, courts can enforce statutory duties (like waste management rules) against individuals.", "Yes, Fundamental Duties are directly enforceable.", "No, environmental protection is only the State's job."],
+        correctAnswerIndex: 1, // b) No writs against private individuals generally
+        explanation: "Writs usually against State, but statutory duties enforceable."
     },
     {
-        question: "The NJAC Judgment (2015) is the only instance of a full amendment being struck down. If the government re-introduces NJAC with a \"Ratification by 100% States\" clause, would it survive judicial review?",
-        options: ["Yes, because 100% consensus cures all defects.", "No, because the violation of \"Independence of Judiciary\" (Basic Structure) cannot be cured even by unanimity.", "Yes, if it is placed in the Ninth Schedule.", "Yes, if the President uses his advisory jurisdiction."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "No, Basic Structure violation cannot be cured by unanimity."
+        question: "Theme: Scientific Temper & Education (Art 51-A(h), (k))\nThe \"Anti-Superstition Laws\" (e.g., in Maharashtra, Karnataka) are statutory implementations of Article 51-A(h) (Scientific Temper). A challenge to these laws often cites:",
+        options: ["Article 25 (Right to Religion and rituals).", "Article 26 (Right of denominations to manage affairs).", "Article 29 (Right to conserve culture).", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "Challenges cite 25, 26, 29."
     },
     {
-        question: "Theme: Procedural Nuances & Anti-Defection\nThe 10th Schedule (Anti-Defection Law) was added by the 52nd Amendment. In Kihoto Hollohan case (1992), the Supreme Court struck down only Paragraph 7 (which barred judicial review) because:",
-        options: ["It violated the Basic Structure (Judicial Review).", "It affected the jurisdiction of the Supreme Court/High Courts (Article 136/226), which is a federal provision requiring ratification by states, but the 52nd Amendment was not ratified.", "Both (a) and (b).", "Neither; it struck it down for being arbitrary."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Both (a) and (b)."
+        question: "The National Education Policy (NEP) 2020 emphasizes \"Constitutional Values\". This aligns with Article 51-A(k) (Education opportunity) and 51-A(a) (Respect ideals). Critics argue that the \"saffronization\" allegation conflicts with the duty to:",
+        options: ["Cherish and follow noble ideals of freedom struggle (Secularism).", "Develop scientific temper.", "Preserve composite culture.", "All of the above are grounds of debate."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "All are debate grounds."
     },
     {
-        question: "If a Constitutional Amendment Bill is pending in the Rajya Sabha (introduced in RS) and the Lok Sabha is dissolved:",
-        options: ["The Bill lapses.", "The Bill does not lapse.", "The Bill lapses only if it was passed by RS.", "The Bill is deemed passed."],
-        correctAnswerIndex: 1, // b) Does not lapse
-        explanation: "Bill introduced in RS and pending in RS does not lapse."
+        question: "Theme: Composite Culture & Heritage (Art 51-A(f))\nThe Archaeological Survey of India (ASI) excavations (e.g., Rakhigarhi, Gyanvapi) are often debated. The Fundamental Duty to \"value and preserve the rich heritage of our composite culture\" (51-A(f)):",
+        options: ["Mandates the restoration of all ancient temples.", "Supports the \"Places of Worship Act, 1991\" which freezes the status of religious places to preserve the \"composite\" character as it existed on Aug 15, 1947.", "Applies only to Vedic culture.", "Is irrelevant to legal disputes."],
+        correctAnswerIndex: 1, // b) Supports Places of Worship Act
+        explanation: "Supports Places of Worship Act and composite character."
     },
     {
-        question: "Can a Constitutional Amendment Bill be passed by a \"Voice Vote\"?",
-        options: ["Yes, if there is no opposition.", "No, Article 368 requires a \"Division\" (recording of votes) to ensure the special majority criteria are met numerically.", "Yes, it is a parliamentary convention.", "Only in the Rajya Sabha."],
-        correctAnswerIndex: 1, // b) No, Division required
-        explanation: "No, Division (recording of votes) is required."
+        question: "\"Composite Culture\" was interpreted by the Supreme Court in the Ismail Faruqui case (Ayodhya, 1994) to mean:",
+        options: ["A culture where all religions have equal right to propagate.", "A synthesis of Sanskriti and Tehzeeb, reflecting the secular ethos.", "A culture dominated by the majority.", "A culture defined by the State."],
+        correctAnswerIndex: 1, // b) Synthesis
+        explanation: "Synthesis reflecting secular ethos."
     },
     {
-        question: "Theme: Federalism & Ratification (GST & Cooperatives)\nThe 97th Amendment Act (Cooperatives) was partially struck down by the Supreme Court (2021) in the Union of India vs Rajendra Shah case. The reason was:",
-        options: ["\"Cooperative Societies\" is a State Subject. The amendment added provisions restricting state powers but was passed without ratification by half the states.", "It violated the Fundamental Right to form associations.", "It promoted privatization of cooperatives.", "It was passed without the President's recommendation."],
-        correctAnswerIndex: 0, // a) State Subject/Ratification
-        explanation: "Lack of ratification for a State Subject matter."
+        question: "Theme: Sovereignty & Integrity (Art 51-A(c))\nThe \"Unlawful Activities (Prevention) Act\" (UAPA) primarily enforces the duty to \"uphold and protect the sovereignty, unity and integrity of India.\" A person can be designated a \"terrorist\" under UAPA if they:",
+        options: ["Advocate the secession of any part of India (violating 51-A(c)).", "Disrespect the National Flag (violating 51-A(a)).", "Fail to vote (violating civic duty).", "Criticize the government."],
+        correctAnswerIndex: 0, // a) Secession
+        explanation: "Advocating secession violates 51-A(c) and UAPA."
     },
     {
-        question: "The 101st Amendment Act (GST) required ratification by states. If a State Legislature wants to withdraw its ratification after the President has given assent:",
-        options: ["It can do so within 6 months.", "It cannot do so; the ratification is final once the process is complete.", "It can do so with the permission of the GST Council.", "It can do so if the government changes."],
-        correctAnswerIndex: 1, // b) Cannot withdraw
-        explanation: "Cannot withdraw."
+        question: "\"Sedition\" (Section 124A IPC/BNS) vs Duty to Respect Institutions. The Law Commission (2023) recommended retaining Sedition to protect:",
+        options: ["The Government established by law.", "The Unity and Integrity of India (Article 51-A(c)).", "The Image of the Prime Minister.", "The Directive Principles."],
+        correctAnswerIndex: 1, // b) Unity and Integrity
+        explanation: "Unity and Integrity of India."
     },
     {
-        question: "Theme: Reservation & EWS (103rd Amendment)\nThe 103rd Amendment Act (EWS Reservation) amended Fundamental Rights (Articles 15 and 16). Did this require ratification by States?",
-        options: ["Yes, because it affects the federal structure of reservation.", "No, amendments to Part III (Fundamental Rights) generally do not require ratification unless they also affect a provision in the proviso to Article 368 (like Art 226).", "Yes, because it affects State Services.", "No, because it was a private member bill."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "No, FR amendments do not require ratification (unless affecting proviso)."
+        question: "Theme: Nationalism vs Constitutionalism (Art 51-A(a))\nIn the National Anthem Case (Bijoe Emmanuel), the Supreme Court held that expulsion of Jehovah's Witness children for not singing the anthem violated Article 19(1)(a) and 25. How did the Court interpret Article 51-A(a)?",
+        options: ["It held that the duty to \"respect\" the anthem does not compel one to \"sing\" it, provided they stand respectfully.", "It held that Article 51-A(a) makes singing mandatory for all citizens.", "It held that Article 51-A cannot override Article 25.", "Both (a) and (c)."],
+        correctAnswerIndex: 0, // a) Respect != Sing
+        explanation: "Respect means standing, not necessarily singing."
     },
     {
-        question: "Theme: Reorganization of States (Art 3 vs Art 368)\nThe \"Jammu and Kashmir Reorganization Act, 2019\" bifurcated the state into two UTs. This was done under Article 3. However, if the government wants to cede a part of the Axai Chin area to China as part of a border settlement:",
-        options: ["It can be done by Article 3 (Diminishing area).", "It requires a Constitutional Amendment under Article 368 (Cession of territory - Berubari case).", "It requires only an Executive Order.", "It requires UN approval."],
-        correctAnswerIndex: 1, // b) Constitutional Amendment
-        explanation: "Cession requires Constitutional Amendment (Berubari)."
+        question: "The \"Cinema Hall Anthem Order\" (2016) by the Supreme Court (later modified) relied on Article 51-A(a). The modification in 2018 stated that:",
+        options: ["Playing the anthem is mandatory in all cinema halls.", "Playing the anthem is optional/directory, not mandatory.", "People need not stand up if they are eating.", "Foreigners must also stand."],
+        correctAnswerIndex: 1, // b) Optional/directory
+        explanation: "Made optional."
     },
     {
-        question: "The Land Boundary Agreement with Bangladesh (100th Amendment) involved the exchange of enclaves. Why was an amendment needed if Article 3 allows \"diminishing the area of a state\"?",
-        options: ["Because \"diminishing\" in Article 3 refers to internal re-adjustment, not cession to a foreign country.", "Because West Bengal refused to give consent.", "Because it involved transfer of population.", "Because it was a treaty obligation."],
-        correctAnswerIndex: 0, // a) Internal re-adjustment
-        explanation: "Art 3 is for internal re-adjustment, not cession."
+        question: "Theme: Women & Dignity (Art 51-A(e))\nThe \"Marital Rape Exception\" debate involves Article 51-A(e) (Renounce practices derogatory to dignity of women). Petitioners argue that:",
+        options: ["The exception is a \"practice\" that treats women as property, derogatory to their dignity.", "Fundamental Duties can be used to interpret Fundamental Rights (Article 21 - Dignity).", "The State has a duty to remove this exception.", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "All arguments used."
     },
     {
-        question: "Theme: Assertion & Reason\nAssertion (A): The Constitution of India is neither rigid nor flexible but a synthesis of both. Reason (R): While some provisions can be amended by a simple majority of Parliament, others require a special majority or even ratification by states.",
+        question: "\"Triple Talaq\" was struck down in Shayara Bano case (2017). Justice Kurian Joseph cited Article 51-A(e) to state that:",
+        options: ["Practices derogatory to women cannot be protected as \"Essential Religious Practices\" under Article 25.", "Personal laws are not subject to Fundamental Duties.", "Triple Talaq is good for social harmony.", "Parliament must legislate."],
+        correctAnswerIndex: 0, // a) Not ERP
+        explanation: "Practices derogatory to women cannot be ERP."
+    },
+    {
+        question: "Assertion (A): The Fundamental Duties are not self-executory. Reason (R): A law is required for their enforcement; they cannot be enforced by writs directly against citizens.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
         explanation: "Correct explanation."
     },
     {
-        question: "Assertion (A): The President must give his assent to a Constitutional Amendment Bill. Reason (R): The 24th Constitutional Amendment Act, 1971, withdrew the President's discretion to withhold assent to such bills.",
+        question: "Assertion (A): Fundamental Duties help in determining the constitutionality of a law. Reason (R): If a law promotes a Fundamental Duty, it is considered \"reasonable\" under Article 14 or 19.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
         explanation: "Correct explanation."
     },
     {
-        question: "Theme: Deep Dive - Amendment of the Preamble\nThe Preamble was amended only once (42nd Amendment). If a new government wants to remove the word \"Secular\" from the Preamble via the 107th Amendment:",
-        options: ["It can be done by a Special Majority of Parliament.", "It would be struck down as violating the Basic Structure (S.R. Bommai case held Secularism is basic structure).", "It would require a national referendum.", "It requires ratification by states."],
-        correctAnswerIndex: 1, // b) Struck down
-        explanation: "Struck down as Basic Structure violation."
+        question: "Theme: Miscellaneous\nWhich of the following committees was specifically set up to \"operationalize\" Fundamental Duties?",
+        options: ["Swaran Singh Committee (1976).", "Verma Committee (1999).", "Venkatachalam Commission (2002).", "Punchhi Commission (2007)."],
+        correctAnswerIndex: 1, // b) Verma Committee
+        explanation: "Verma Committee."
     },
     {
-        question: "Theme: Miscellaneous & Procedural\nCan a Constitutional Amendment Bill be referred to a Parliamentary Standing Committee?",
-        options: ["Yes, like any other bill.", "No, it must be passed immediately.", "Only if the Speaker permits.", "Only if it is a Private Member's Bill."],
+        question: "The \"Right to Education Act, 2009\" imposes a duty on parents to send children to school. This statutory duty mirrors the Constitutional Duty under:",
+        options: ["Article 51-A(k).", "Article 21-A.", "Article 45.", "Article 46."],
+        correctAnswerIndex: 0, // a) 51-A(k)
+        explanation: "Article 51-A(k)."
+    },
+    {
+        question: "\"Tax Evasion\" is often linked to the lack of a Fundamental Duty to pay taxes. The Swaran Singh Committee recommended it, but it was rejected because:",
+        options: ["It was considered too harsh.", "Most Indians were too poor to pay taxes.", "Sufficient laws (Income Tax Act) already existed.", "It would violate Article 19(1)(g)."],
+        correctAnswerIndex: 2, // c) Sufficient laws
+        explanation: "Sufficient laws existed (fear of harassment was also a reason, but C is the standard answer)."
+    },
+    {
+        question: "In the Hinsa Virodhak Sangh vs Mirzapur Moti Kuresh Jamat (2008) case regarding closure of slaughterhouses during Jain festivals, the Supreme Court relied on:",
+        options: ["Article 51-A(g) (Compassion for living creatures).", "Article 19(1)(g) (Right to trade).", "Article 25 (Religious freedom).", "Article 48 (Cow slaughter)."],
+        correctAnswerIndex: 0, // a) 51-A(g)
+        explanation: "Relied on 51-A(g)."
+    },
+    {
+        question: "The \"Flag Code of India\" was amended in 2002 to allow citizens to hoist the flag on all days. This right was recognized as part of:",
+        options: ["Article 19(1)(a) (Freedom of Expression) read with Article 51-A(a) (Duty to respect).", "Article 21.", "Article 14.", "Statutory right only."],
+        correctAnswerIndex: 0, // a) 19(1)(a)
+        explanation: "19(1)(a) read with 51-A(a)."
+    },
+    {
+        question: "The \"Pledge\" recited in schools (\"India is my country...\") reflects which Fundamental Duties?",
+        options: ["51-A(a) (Constitution), (c) (Sovereignty), (e) (Brotherhood).", "51-A(k) (Education).", "51-A(g) (Environment).", "All of the above."],
+        correctAnswerIndex: 0, // a)
+        explanation: "Reflects brotherhood, sovereignty, etc."
+    },
+    {
+        question: "\"Animal Welfare Board of India\" is a statutory body. Its functioning is guided by:",
+        options: ["Article 51-A(g).", "Article 48.", "Article 48A.", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "Guided by all."
+    },
+    {
+        question: "The duty to \"defend the country\" (Article 51-A(d)) implies:",
+        options: ["Conscription (Compulsory military service) is constitutional if Parliament enacts a law.", "Every citizen is automatically a soldier.", "Citizens can keep private armies.", "Citizens must pay a defense tax."],
+        correctAnswerIndex: 0, // a) Conscription is constitutional
+        explanation: "Conscription is constitutional."
+    },
+    {
+        question: "Which Fundamental Duty is unique in that it was added much later than the others?",
+        options: ["51-A(a)", "51-A(k)", "51-A(g)", "51-A(e)"],
+        correctAnswerIndex: 1, // b) 51-A(k)
+        explanation: "51-A(k) added in 2002."
+    },
+    {
+        question: "The concept of \"Constitutional Morality\" emphasized by the Supreme Court includes adherence to:",
+        options: ["Fundamental Rights only.", "Fundamental Duties only.", "The core values of the Constitution including Rights, Duties, and Preamble.", "Social morality."],
+        correctAnswerIndex: 2, // c) Core values
+        explanation: "Core values including Rights and Duties."
+    },
+    {
+        question: "Can a foreigner be punished for disrespecting the Indian National Flag in India?",
+        options: ["Yes, under the Prevention of Insults to National Honour Act (which applies to \"whoever\" within India).", "No, Fundamental Duties apply only to citizens.", "No, they have diplomatic immunity.", "Yes, but only deported."],
         correctAnswerIndex: 0, // a) Yes
-        explanation: "Yes, like any other bill."
+        explanation: "Act applies to 'whoever' within India."
     },
     {
-        question: "The \"99th Amendment\" (NJAC) is a unique case where the amendment was passed, ratified, and assented to, but then:",
-        options: ["Repealed by the 100th Amendment.", "Struck down by the Supreme Court, reviving the \"Collegium System\" (which had been repealed by the amendment).", "Lapsed due to dissolution of Lok Sabha.", "Withdrawn by the government."],
-        correctAnswerIndex: 1, // b) Struck down
-        explanation: "Struck down, reviving Collegium."
+        question: "The \"Scientific Temper\" duty (51-A(h)) is often cited against:",
+        options: ["Astrology courses in universities.", "Witch-hunting.", "Magic remedies advertisements.", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "Cited against all."
     },
     {
-        question: "The \"reservation of seats\" for SCs and STs in Lok Sabha (Article 334) was extended for another 10 years by the 104th Amendment Act, 2020. Did this require ratification by States?",
-        options: ["Yes, because it relates to \"Representation of States in Parliament\".", "No, it relates to special provisions.", "Yes, because it affects Fundamental Rights.", "No, because it is a temporary provision."],
-        correctAnswerIndex: 0, // a) Yes
-        explanation: "Yes, affects representation/proviso provisions."
-    },
-    {
-        question: "Article 368(3) says \"Nothing in Article 13 shall apply to any amendment made under this Article.\" This clause was inserted by the 24th Amendment to:",
-        options: ["Protect amendments from being challenged as \"law\" violating Fundamental Rights.", "Ensure Judicial Review.", "Allow amendments by simple majority.", "Remove the President's veto."],
-        correctAnswerIndex: 0, // a) Protect from Art 13
-        explanation: "Protect from Art 13."
-    },
-    {
-        question: "The \"Doctrine of Implied Limitations\" on the amending power means:",
-        options: ["There are no express limits, but the power is limited by the very identity of the Constitution (Basic Structure).", "Limitations are written in the text.", "Limitations are decided by the President.", "Limitations are decided by the UN Charter."],
-        correctAnswerIndex: 0, // a) Identity/Basic Structure
-        explanation: "Power limited by Basic Structure (identity)."
-    },
-    {
-        question: "If a State Legislature ratifies an amendment but fails to communicate it to the Parliament within the specified time (if any):",
-        options: ["It is deemed rejected.", "It is deemed ratified.", "The Constitution does not specify a time limit for states to communicate ratification.", "The Governor is held responsible."],
-        correctAnswerIndex: 2, // c) Constitution silent
-        explanation: "Constitution doesn't specify time limit."
-    },
-    {
-        question: "The \"amending power\" of Parliament is a constituent power. This distinction was first clearly made in:",
-        options: ["Shankari Prasad case.", "Golak Nath case.", "Kesavananda Bharati case.", "Indira Gandhi vs Raj Narain case."],
-        correctAnswerIndex: 0, // a) Shankari Prasad
-        explanation: "First made in Shankari Prasad (to distinguish from Art 13 'law')."
-    },
-    {
-        question: "Can the \"Procedure for Amendment\" (Article 368 itself) be amended?",
-        options: ["Yes, by a Special Majority of Parliament.", "Yes, by a Special Majority + Ratification by half of the states (as per the proviso to Art 368(2)).", "No, it is immutable.", "Only by a Constituent Assembly."],
-        correctAnswerIndex: 1, // b) Special + Ratification
-        explanation: "Yes, requires Special Majority + Ratification."
-    },
-    {
-        question: "Which of the following is NOT part of the Basic Structure as per various SC judgments?",
-        options: ["Free and fair elections.", "Welfare State.", "The exact number of judges in the Supreme Court.", "Harmony between FR and DPSP."],
-        correctAnswerIndex: 2, // c) Exact number of judges
-        explanation: "Exact number of judges is not Basic Structure."
-    },
-    {
-        question: "The 102nd Amendment Act (OBC Commission) gave constitutional status to the NCBC. It required ratification because:",
-        options: ["It affected the powers of State Governments to identify SEBCs (Socially and Educationally Backward Classes).", "It was a simple amendment.", "It affected the Supreme Court's jurisdiction.", "It was related to Fundamental Duties."],
-        correctAnswerIndex: 0, // a) Affected federal balance/State powers
-        explanation: "Affected State powers (though intent was federal, it touched state list matters effectively, hence ratification)."
-    },
-    {
-        question: "In the Maratha Reservation Case (2021), the Supreme Court interpreted the 102nd Amendment to mean that only the Centre has the power to notify SEBCs. This necessitated the 105th Amendment Act to:",
-        options: ["Restore the power of States to identify their own OBC lists.", "Cancel the 102nd Amendment.", "Increase the reservation cap.", "Abolish the NCBC."],
-        correctAnswerIndex: 0, // a) Restore state power
-        explanation: "Restore power of States."
-    },
-    {
-        question: "The \"Official Language\" provisions (Part XVII) can be amended by:",
-        options: ["Simple Majority (mostly).", "Special Majority.", "Special Majority + Ratification.", "Executive Order."],
-        correctAnswerIndex: 0, // a) Simple Majority
-        explanation: "Mostly Simple Majority (Article 343-348 provisions). Note: Some parts might be interpreted otherwise but standard text lists it under Simple."
-    },
-    {
-        question: "Assertion (A): The Indian Constitution is \"living\" document. Reason (R): It can be amended to adapt to changing social and political needs, but its \"soul\" (Basic Structure) remains constant.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation."
+        question: "In the Ranganath Mishra case, the Supreme Court directed the Centre to:",
+        options: ["Enact a comprehensive law for duties.", "Implement the Verma Committee recommendations to spread awareness.", "Make voting mandatory.", "Amend the Constitution to add more duties."],
+        correctAnswerIndex: 1, // b) Implement Verma Committee
+        explanation: "Implement Verma Committee recommendations."
     }
 ];
 

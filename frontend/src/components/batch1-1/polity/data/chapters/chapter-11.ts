@@ -3,582 +3,582 @@ import { ChapterLevelData } from "../level-types";
 // Level 1: The Text-Book Stickler (Strictly Chapter 11)
 const LEVEL_1_QUESTIONS = [
     {
-        question: "The question whether Fundamental Rights can be amended by the Parliament under Article 368 first arose in which case?",
-        options: ["Golak Nath case (1967)", "Shankari Prasad case (1951)", "Kesavananda Bharati case (1973)", "Minerva Mills case (1980)"],
-        correctAnswerIndex: 1, // b) Shankari Prasad
-        explanation: "Shankari Prasad case (1951)."
+        question: "The amendment process of the Indian Constitution is described in:",
+        options: ["Part XX, Article 368", "Part XVIII, Article 356", "Part XX, Article 370", "Part XXI, Article 369"],
+        correctAnswerIndex: 0, // a) Part XX, Article 368
+        explanation: "Part XX, Article 368."
     },
     {
-        question: "In the Shankari Prasad case (1951), the Supreme Court ruled that the power of the Parliament to amend the Constitution under Article 368:",
-        options: ["Includes the power to amend Fundamental Rights.", "Does not include the power to amend Fundamental Rights.", "Is limited by the Basic Structure.", "Is subject to ratification by states."],
-        correctAnswerIndex: 0, // a) Includes the power
-        explanation: "In Shankari Prasad, the Court ruled that Article 368 includes the power to amend Fundamental Rights."
+        question: "The procedure for amendment of the Constitution is borrowed from the Constitution of:",
+        options: ["USA", "Britain", "South Africa", "Canada"],
+        correctAnswerIndex: 2, // c) South Africa
+        explanation: "South Africa."
     },
     {
-        question: "In the Shankari Prasad case, the Court held that the word 'law' in Article 13 includes only:",
-        options: ["Constitutional amendment acts.", "Ordinary laws.", "Both ordinary laws and constitutional amendment acts.", "Executive orders."],
-        correctAnswerIndex: 1, // b) Ordinary laws
-        explanation: "The Court held that 'law' in Article 13 includes only ordinary laws, not constitutional amendment acts."
+        question: "According to Article 368, the Parliament can amend the Constitution by way of:",
+        options: ["Addition only.", "Variation only.", "Repeal only.", "Addition, variation or repeal of any provision."],
+        correctAnswerIndex: 3, // d) Addition, variation or repeal
+        explanation: "Addition, variation or repeal."
     },
     {
-        question: "In the Golak Nath case (1967), the Supreme Court reversed its earlier stand. It ruled that:",
-        options: ["The Parliament has absolute power to amend the Constitution.", "The Fundamental Rights are given a 'transcendental and immutable' position.", "The Parliament can abridge Fundamental Rights but cannot take them away.", "The Directive Principles are superior to Fundamental Rights."],
-        correctAnswerIndex: 1, // b) Transcendental and immutable
-        explanation: "Fundamental Rights were described as transcendental and immutable in the Golak Nath case."
+        question: "However, the Parliament cannot amend those provisions which form the 'basic structure' of the Constitution. This was ruled by the Supreme Court in the:",
+        options: ["Shankari Prasad case (1951)", "Golak Nath case (1967)", "Kesavananda Bharati case (1973)", "Minerva Mills case (1980)"],
+        correctAnswerIndex: 2, // c) Kesavananda Bharati
+        explanation: "Kesavananda Bharati case (1973)."
     },
     {
-        question: "In the Golak Nath case, the Court held that a Constitutional Amendment Act:",
-        options: ["Is not a 'law' within the meaning of Article 13.", "Is a 'law' within the meaning of Article 13 and hence would be void for violating any of the Fundamental Rights.", "Is a special law protected by the Ninth Schedule.", "Is an executive action."],
-        correctAnswerIndex: 1, // b) Is a 'law'
-        explanation: "The Court held that a constitutional amendment is a 'law' under Article 13."
+        question: "An amendment of the Constitution can be initiated only by the introduction of a bill in:",
+        options: ["Lok Sabha only.", "Rajya Sabha only.", "Either House of Parliament.", "State Legislatures."],
+        correctAnswerIndex: 2, // c) Either House
+        explanation: "Either House of Parliament."
     },
     {
-        question: "To overcome the Golak Nath judgment, the Parliament enacted the:",
-        options: ["24th Amendment Act (1971).", "25th Amendment Act (1971).", "42nd Amendment Act (1976).", "44th Amendment Act (1978)."],
+        question: "Can a bill for amendment be introduced by a private member?",
+        options: ["No, only by a minister.", "Yes, by a minister or a private member.", "Yes, but only with the Speaker's permission.", "No, it requires a public petition."],
+        correctAnswerIndex: 1, // b) Minister or private member
+        explanation: "By a minister or a private member."
+    },
+    {
+        question: "Does the introduction of the bill require the prior permission of the President?",
+        options: ["Yes, always.", "No, not required.", "Yes, only if it affects federal provisions.", "Yes, if it affects Fundamental Rights."],
+        correctAnswerIndex: 1, // b) No, not required
+        explanation: "Not required."
+    },
+    {
+        question: "The bill must be passed in each House by:",
+        options: ["A simple majority.", "A special majority.", "An absolute majority.", "A two-thirds majority of the total membership."],
+        correctAnswerIndex: 1, // b) Special majority
+        explanation: "A special majority."
+    },
+    {
+        question: "A \"Special Majority\" under Article 368 means:",
+        options: ["A majority of the total membership of the House AND a majority of two-thirds of the members of the House present and voting.", "Two-thirds of the total membership of the House.", "Two-thirds of the members present and voting.", "Majority of the total membership only."],
+        correctAnswerIndex: 0, // a) Total majority + 2/3 present
+        explanation: "Majority of total membership AND 2/3 of members present and voting."
+    },
+    {
+        question: "Is there a provision for a joint sitting of the two Houses if there is a disagreement over an amendment bill?",
+        options: ["Yes, under Article 108.", "No, each House must pass the bill separately.", "Yes, but only for federal provisions.", "Yes, if the President summons it."],
+        correctAnswerIndex: 1, // b) No
+        explanation: "No joint sitting."
+    },
+    {
+        question: "If the bill seeks to amend the federal provisions of the Constitution, it must also be ratified by the legislatures of:",
+        options: ["All the states.", "Half of the states.", "Three-fourths of the states.", "One-third of the states."],
+        correctAnswerIndex: 1, // b) Half of the states
+        explanation: "At least half of the states."
+    },
+    {
+        question: "The state legislatures must ratify the bill by a:",
+        options: ["Simple majority.", "Special majority.", "Absolute majority.", "Effective majority."],
+        correctAnswerIndex: 0, // a) Simple majority
+        explanation: "Simple majority."
+    },
+    {
+        question: "After duly passed by both Houses (and ratified by states if necessary), the bill is presented to the President. The President:",
+        options: ["Can withhold his assent.", "Can return the bill for reconsideration.", "Must give his assent to the bill.", "Can keep it pending indefinitely (Pocket Veto)."],
+        correctAnswerIndex: 2, // c) Must give assent
+        explanation: "Must give his assent."
+    },
+    {
+        question: "Which Constitutional Amendment Act made it obligatory for the President to give his assent to a constitutional amendment bill?",
+        options: ["24th Amendment Act, 1971", "42nd Amendment Act, 1976", "44th Amendment Act, 1978", "7th Amendment Act, 1956"],
         correctAnswerIndex: 0, // a) 24th
-        explanation: "24th Amendment Act (1971)."
+        explanation: "24th Amendment Act, 1971."
     },
     {
-        question: "The 24th Amendment Act amended which Articles to declare that Parliament has the power to abridge or take away any of the Fundamental Rights?",
-        options: ["Articles 13 and 368.", "Articles 14 and 19.", "Articles 31 and 32.", "Articles 12 and 35."],
-        correctAnswerIndex: 0, // a) 13 and 368
-        explanation: "Amended Articles 13 and 368."
+        question: "Types of Amendments: The Constitution provides for three types of amendments. Which is NOT one of them?",
+        options: ["Amendment by simple majority of the Parliament.", "Amendment by special majority of the Parliament.", "Amendment by special majority of the Parliament and ratification by half of the state legislatures.", "Amendment by special majority of the state legislatures."],
+        correctAnswerIndex: 3, // d) Amendment by state legislatures
+        explanation: "State legislatures cannot amend the constitution directly."
     },
     {
-        question: "In the Kesavananda Bharati case (1973), the Supreme Court overruled the judgment in:",
-        options: ["Shankari Prasad case.", "Golak Nath case.", "Sajjan Singh case.", "AK Gopalan case."],
-        correctAnswerIndex: 1, // b) Golak Nath
-        explanation: "Overruled the Golak Nath case."
+        question: "Is the amendment by \"Simple Majority\" considered strictly as an amendment under Article 368?",
+        options: ["Yes.", "No.", "Depends on the subject.", "Only if the Supreme Court says so."],
+        correctAnswerIndex: 1, // b) No
+        explanation: "No, Article 368 encompasses only Special Majority and Special + Ratification."
     },
     {
-        question: "In the Kesavananda Bharati case, the Court upheld the validity of the 24th Amendment Act but laid down a new doctrine known as:",
-        options: ["Doctrine of Severability.", "Doctrine of Eclipse.", "Doctrine of Basic Structure.", "Doctrine of Pith and Substance."],
-        correctAnswerIndex: 2, // c) Basic Structure
-        explanation: "Doctrine of Basic Structure."
+        question: "Which of the following provisions can be amended by a Simple Majority of Parliament?",
+        options: ["Fundamental Rights.", "Directive Principles of State Policy.", "Admission or establishment of new states.", "Election of the President."],
+        correctAnswerIndex: 2, // c) New states
+        explanation: "Admission or establishment of new states."
     },
     {
-        question: "According to the Basic Structure doctrine, the Parliament:",
-        options: ["Cannot amend the Constitution at all.", "Can amend any part of the Constitution provided it does not alter its 'basic structure'.", "Can amend only the Preamble.", "Cannot amend the Fundamental Rights."],
-        correctAnswerIndex: 1, // b) Can amend provided...
-        explanation: "Can amend any part provided it does not alter the basic structure."
+        question: "Which of the following provisions requires a Special Majority of Parliament?",
+        options: ["Quorum in Parliament.", "Rules of procedure in Parliament.", "Fundamental Rights.", "Use of official language."],
+        correctAnswerIndex: 2, // c) Fundamental Rights
+        explanation: "Fundamental Rights."
     },
     {
-        question: "The doctrine of basic structure was reaffirmed and applied by the Supreme Court in the Indira Nehru Gandhi case (1975). In this case, the Court invalidated a provision of the:",
-        options: ["39th Amendment Act (1975).", "42nd Amendment Act (1976).", "25th Amendment Act (1971).", "44th Amendment Act (1978)."],
-        correctAnswerIndex: 0, // a) 39th
-        explanation: "39th Amendment Act (1975)."
+        question: "Which of the following provisions requires a Special Majority of Parliament and Consent of States?",
+        options: ["Election of the President and its manner.", "Citizenship—acquisition and termination.", "Delimitation of constituencies.", "Union territories."],
+        correctAnswerIndex: 0, // a) Election of President
+        explanation: "Election of the President."
     },
     {
-        question: "The 39th Amendment Act had kept the election disputes involving which specific offices outside the jurisdiction of all courts?",
-        options: ["President, Vice-President, Prime Minister and Speaker of Lok Sabha.", "President and Governors.", "Prime Minister and Chief Ministers.", "Members of Parliament."],
-        correctAnswerIndex: 0, // a) President, VP, PM, Speaker
-        explanation: "President, Vice-President, Prime Minister, and Speaker of Lok Sabha."
+        question: "Which Schedule requires ratification by states for its amendment?",
+        options: ["First Schedule.", "Second Schedule.", "Seventh Schedule (Lists).", "Fifth Schedule."],
+        correctAnswerIndex: 2, // c) Seventh Schedule
+        explanation: "Seventh Schedule."
     },
     {
-        question: "In reaction to the Basic Structure doctrine, the Parliament enacted the 42nd Amendment Act (1976). It added a clause declaring that:",
-        options: ["There shall be no limitation on the constituent power of Parliament.", "No amendment can be questioned in any court on any ground.", "Both (a) and (b).", "Neither (a) nor (b)."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Declared no limitation and no judicial questioning."
+        question: "Representation of states in Parliament (Rajya Sabha seats) can be amended by:",
+        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification by half of the states.", "Executive Order."],
+        correctAnswerIndex: 2, // c) Special + Ratification
+        explanation: "Special Majority + Ratification."
     },
     {
-        question: "In the Minerva Mills case (1980), the Supreme Court invalidated the above provision of the 42nd Amendment Act because it excluded:",
-        options: ["Judicial Review.", "Fundamental Duties.", "Directive Principles.", "Emergency Provisions."],
-        correctAnswerIndex: 0, // a) Judicial Review
-        explanation: "Judicial Review is a basic feature."
+        question: "The Supreme Court and High Courts (provisions dealing with them) can be amended by:",
+        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification by half of the states.", "Judicial Order."],
+        correctAnswerIndex: 2, // c) Special + Ratification
+        explanation: "Special Majority + Ratification."
     },
     {
-        question: "In the Waman Rao case (1981), the Supreme Court clarified that the doctrine of Basic Structure would apply to constitutional amendments enacted after:",
-        options: ["January 26, 1950.", "April 24, 1973.", "June 25, 1975.", "November 26, 1949."],
-        correctAnswerIndex: 1, // b) April 24, 1973
-        explanation: "April 24, 1973."
+        question: "The Power of Parliament to amend the Constitution and its procedure (Article 368 itself) can be amended by:",
+        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification by half of the states.", "Cannot be amended."],
+        correctAnswerIndex: 2, // c) Special + Ratification
+        explanation: "Special Majority + Ratification."
     },
     {
-        question: "The Supreme Court has defined the 'basic structure' of the Constitution:",
-        options: ["In the Kesavananda Bharati case itself.", "In the Minerva Mills case.", "In the SR Bommai case.", "The Court has not yet defined or clarified what constitutes the 'basic structure'."],
-        correctAnswerIndex: 3, // d) Not yet defined/exhaustive list
-        explanation: "There is no exhaustive definition; it is evolved case-by-case."
+        question: "Critics argue that the power to initiate an amendment lies with the Parliament. In only one case can the state legislature initiate an amendment?",
+        options: ["Creation or abolition of Legislative Council in the state (Article 169).", "Changing the name of the state.", "Changing the boundary of the state.", "None of the above."],
+        correctAnswerIndex: 0, // a) Legislative Council
+        explanation: "Creation or abolition of Legislative Council (strictly resolution)."
     },
     {
-        question: "Which of the following is NOT an element of the basic structure as declared by the Supreme Court in various judgments?",
-        options: ["Supremacy of the Constitution.", "Sovereign, democratic and republican nature of the Indian polity.", "Secular character of the Constitution.", "Supremacy of the Parliament."],
-        correctAnswerIndex: 3, // d) Supremacy of Parliament
-        explanation: "India has Constitutional Supremacy, not Parliamentary Supremacy."
+        question: "Does the Constitution prescribe any time limit within which the state legislatures should ratify or reject an amendment submitted to them?",
+        options: ["Yes, 6 months.", "Yes, 1 year.", "No, it is silent on the issue.", "Yes, 3 months."],
+        correctAnswerIndex: 2, // c) Silent
+        explanation: "No, it is silent."
     },
     {
-        question: "Which case declared \"Free and fair elections\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Minerva Mills case (1980).", "Kihoto Hollohan case (1993)."],
-        correctAnswerIndex: 1, // b) Indira Nehru Gandhi
-        explanation: "Indira Nehru Gandhi case (1975)."
+        question: "Is the issue of whether states can withdraw their ratification after giving it settled in the Constitution?",
+        options: ["Yes, they can withdraw anytime.", "Yes, they cannot withdraw.", "No, the Constitution is silent on the issue.", "Yes, with President's permission."],
+        correctAnswerIndex: 2, // c) Silent
+        explanation: "No, the Constitution is silent."
     },
     {
-        question: "Which case declared \"Judicial Review\" as a basic feature?",
-        options: ["Minerva Mills case (1980).", "Waman Rao case (1981).", "SR Bommai case (1994).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Reaffirmed in all cited cases."
+        question: "There is no provision for holding a joint sitting of both Houses of Parliament if there is a deadlock over the passage of a constitutional amendment bill.",
+        options: ["True", "False"],
+        correctAnswerIndex: 0, // a) True
+        explanation: "True."
     },
     {
-        question: "Which case declared \"Rule of Law\" as a basic feature?",
-        options: ["Indira Nehru Gandhi case (1975).", "Minerva Mills case (1980).", "Sambamurthy case (1987).", "Indra Sawhney case (1992)."],
-        correctAnswerIndex: 0, // a) Indira Nehru Gandhi
-        explanation: "Indira Nehru Gandhi case (1975)."
+        question: "The process of amendment is considered to be:",
+        options: ["Too flexible.", "Too rigid.", "Partly flexible and partly rigid.", "Very easy."],
+        correctAnswerIndex: 2, // c) Partly flexible and partly rigid
+        explanation: "Partly flexible and partly rigid."
     },
     {
-        question: "Which case declared \"Harmony and balance between Fundamental Rights and Directive Principles\" as a basic feature?",
-        options: ["Minerva Mills case (1980).", "Kesavananda Bharati case (1973).", "Central Coal Fields Ltd. case (1980).", "Bhim Singhji case (1981)."],
-        correctAnswerIndex: 0, // a) Minerva Mills
-        explanation: "Minerva Mills case (1980)."
+        question: "Pandit Jawaharlal Nehru said in the Constituent Assembly that if you make the Constitution rigid and permanent, you stop the nation's:",
+        options: ["Growth.", "Wealth.", "Independence.", "Democracy."],
+        correctAnswerIndex: 0, // a) Growth
+        explanation: "Growth."
     },
     {
-        question: "Which case declared \"Federal character of the Constitution\" as a basic feature?",
-        options: ["SR Bommai case (1994).", "Kesavananda Bharati case (1973).", "Minerva Mills case (1980).", "Both (a) and (b)."],
-        correctAnswerIndex: 3, // d) Both a and b
-        explanation: "Kesavananda Bharati and SR Bommai."
+        question: "K.C. Wheare described the Indian Constitution as strikingly ______ because it strikes a good balance between flexibility and rigidity.",
+        options: ["Rigid", "Flexible", "Adaptable", "Novel"],
+        correctAnswerIndex: 1, // b) Flexible (based on 'strikingly flexible' vs rigid discourse)
+        explanation: "Flexible."
     },
     {
-        question: "Which case declared \"Secularism\" as a basic feature?",
-        options: ["SR Bommai case (1994).", "Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Golak Nath case (1967)."],
-        correctAnswerIndex: 0, // a) SR Bommai
-        explanation: "SR Bommai case (1994)."
+        question: "Granville Austin said the amending process has proved to be one of the most ably conceived aspects of the Constitution. He noted that it appears complicated but is merely:",
+        options: ["Simple.", "Diverse.", "Elaborate.", "Confusing."],
+        correctAnswerIndex: 2, // c) Elaborate
+        explanation: "Elaborate."
     },
     {
-        question: "Which case declared \"Separation of powers between the legislature, the executive and the judiciary\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Minerva Mills case (1980).", "Delhi Judicial Service Association case (1991)."],
-        correctAnswerIndex: 1, // b) Indira Nehru Gandhi
-        explanation: "Indira Nehru Gandhi case (1975)."
+        question: "The 42nd Amendment Act (1976) is also known as the:",
+        options: ["Mini-Constitution.", "Major Constitution.", "New Constitution.", "Reformed Constitution."],
+        correctAnswerIndex: 0, // a) Mini-Constitution
+        explanation: "Mini-Constitution."
     },
     {
-        question: "Which case declared \"Freedom and dignity of the individual\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "Minerva Mills case (1980).", "Indra Sawhney case (1992).", "SR Bommai case (1994)."],
-        correctAnswerIndex: 0, // a) Kesavananda
-        explanation: "Kesavananda Bharati case (1973)."
+        question: "The 99th Constitutional Amendment Act (2014) related to NJAC was declared unconstitutional by the Supreme Court. This is the only instance of a constitutional amendment being struck down in entirety.",
+        options: ["True", "False"],
+        correctAnswerIndex: 0, // a) True
+        explanation: "True."
     },
     {
-        question: "Which case declared \"Unity and integrity of the nation\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "SR Bommai case (1994).", "L. Chandra Kumar case (1997).", "Waman Rao case (1981)."],
-        correctAnswerIndex: 0, // a) Kesavananda
-        explanation: "Kesavananda Bharati case (1973)."
+        question: "A \"Constitutional Amendment Bill\" is treated as a:",
+        options: ["Money Bill.", "Financial Bill.", "Ordinary Bill.", "Private Bill always."],
+        correctAnswerIndex: 2, // c) Ordinary Bill (procedurally similar distractor)
+        explanation: "Treated similarly to an Ordinary Bill in introduction/passage stages (except majority)."
     },
     {
-        question: "Which case declared \"Principle of equality\" as a basic feature?",
-        options: ["Indira Nehru Gandhi case (1975).", "Minerva Mills case (1980).", "Raghunath Rao case (1993).", "Indra Sawhney case (1992)."],
-        correctAnswerIndex: 0, // a) Indira Nehru Gandhi
-        explanation: "Indira Nehru Gandhi case (1975)."
-    },
-    {
-        question: "Which case declared \"Independence of Judiciary\" as a basic feature?",
-        options: ["Supreme Court Advocates-on-Record Association case (1993).", "Kumar Padma Prasad case (1992).", "L. Chandra Kumar case (1997).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Reaffirmed in multiple cases."
-    },
-    {
-        question: "Which case declared \"Powers of the Supreme Court under Article 32, 136, 141 and 142\" as a basic feature?",
-        options: ["Delhi Judicial Service Association case (1991).", "I.R. Coelho case (2007).", "Madras Bar Association case (2014).", "Kihoto Hollohan case (1993)."],
-        correctAnswerIndex: 0, // a) Delhi PJSA
-        explanation: "Delhi Judicial Service Association case (1991)."
-    },
-    {
-        question: "Which case declared \"Powers of the High Courts under Articles 226 and 227\" as a basic feature?",
-        options: ["L. Chandra Kumar case (1997).", "SR Bommai case (1994).", "Minerva Mills case (1980).", "P. Sambamurthy case (1987)."],
-        correctAnswerIndex: 0, // a) L. Chandra Kumar
-        explanation: "L. Chandra Kumar case (1997)."
-    },
-    {
-        question: "Which case declared \"Limited power of Parliament to amend the Constitution\" as a basic feature?",
-        options: ["Minerva Mills case (1980).", "Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Waman Rao case (1981)."],
-        correctAnswerIndex: 0, // a) Minerva Mills
-        explanation: "Minerva Mills case (1980)."
-    },
-    {
-        question: "Which case declared \"Effective access to justice\" as a basic feature?",
-        options: ["Central Coal Fields Ltd. case (1980).", "P. Sambamurthy case (1987).", "Delhi Judicial Service Association case (1991).", "Indra Sawhney case (1992)."],
-        correctAnswerIndex: 0, // a) Central Coal Fields
-        explanation: "Central Coal Fields Ltd. case (1980)."
-    },
-    {
-        question: "Which case declared \"Welfare State (Social Justice)\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "SR Bommai case (1994).", "Indra Sawhney case (1992).", "Minerva Mills case (1980)."],
-        correctAnswerIndex: 2, // c) Indra Sawhney
-        explanation: "Indra Sawhney case (1992)."
-    },
-    {
-        question: "Which case declared \"Democracy\" as a basic feature?",
-        options: ["Kesavananda Bharati case (1973).", "Indira Nehru Gandhi case (1975).", "Kihoto Hollohan case (1993).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Fundamental feature declared in all."
-    },
-    {
-        question: "The judgment in I.R. Coelho case (2007) is also known as the:",
-        options: ["Ninth Schedule Case.", "Mandal Case.", "Reservation Case.", "Panchayat Case."],
-        correctAnswerIndex: 0, // a) Ninth Schedule
-        explanation: "Ninth Schedule Case."
+        question: "The phrase \"Total Membership\" means:",
+        options: ["Total number of members present on that day.", "Total number of members comprising the House irrespective of vacancies or absentees.", "Total number of elected members only.", "Total number of members minus those suspended."],
+        correctAnswerIndex: 1, // b) Irrespective of vacancies
+        explanation: "Total number of members comprising the House irrespective of vacancies or absentees."
     }
 ];
 
 // Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        question: "The \"Basic Structure Doctrine\" is based on the principle of:",
-        options: ["Express limitations in the Constitution.", "Implied limitations on the amending power of Parliament.", "Supremacy of the Judiciary over Parliament.", "Natural Law."],
-        correctAnswerIndex: 1, // b) Implied limitations
-        explanation: "Implied limitations."
+        question: "Evolution of Amending Power: The conflict between the Parliament's power to amend (Article 368) and Fundamental Rights (Part III) began with:",
+        options: ["Shankari Prasad case (1951).", "Golak Nath case (1967).", "Kesavananda Bharati case (1973).", "Minerva Mills case (1980)."],
+        correctAnswerIndex: 0, // a) Shankari Prasad
+        explanation: "Shankari Prasad case (1951)."
     },
     {
-        question: "In the Kesavananda Bharati case (1973), the Supreme Court held that the power to \"amend\" (Article 368) does not include the power to:",
-        options: ["Add new provisions.", "Repeal old provisions.", "Alter the basic features or framework of the Constitution.", "Change the Preamble."],
-        correctAnswerIndex: 2, // c) Alter basic features
-        explanation: "Does not include power to alter basic structure."
+        question: "In the Golak Nath case (1967), the Supreme Court held that:",
+        options: ["Parliament has absolute power to amend Fundamental Rights.", "Parliament cannot take away or abridge any of the Fundamental Rights.", "Fundamental Rights are subject to Directive Principles.", "The President can amend Fundamental Rights."],
+        correctAnswerIndex: 1, // b) Cannot take away
+        explanation: "Parliament cannot take away or abridge any of the Fundamental Rights."
     },
     {
-        question: "The distinction between \"Constituent Power\" (Article 368) and \"Legislative Power\" (Article 245) was primarily debated in:",
-        options: ["Shankari Prasad case.", "Golak Nath case.", "Kesavananda Bharati case.", "Minerva Mills case."],
-        correctAnswerIndex: 2, // c) Kesavananda
-        explanation: "Kesavananda Bharati case."
-    },
-    {
-        question: "In Golak Nath, the Court held that a Constitutional Amendment is a \"law\" under Article 13. In Kesavananda Bharati, the Court held that:",
-        options: ["It is a \"law\" under Article 13.", "It is not a \"law\" under Article 13, but is still subject to the Basic Structure limitation.", "It is a \"law\" but can override Fundamental Rights.", "It is an executive order."],
-        correctAnswerIndex: 1, // b) Not a 'law', but limited
-        explanation: "It is not a 'law' under Art 13, but constituent power is limited by the Basic Structure."
-    },
-    {
-        question: "The 24th Amendment Act (1971) sought to restore Parliament's power to amend Fundamental Rights. The Supreme Court in Kesavananda Bharati:",
-        options: ["Struck it down completely.", "Upheld it validly.", "Upheld it subject to the Basic Structure doctrine.", "Upheld it partially."],
-        correctAnswerIndex: 2, // c) Upheld subject to Basic Structure
-        explanation: "Upheld it subject to Basic Structure."
-    },
-    {
-        question: "The 39th Amendment Act (1975) placed the election of the Prime Minister beyond judicial review. The Supreme Court struck this down in the Indira Gandhi vs Raj Narain case (1975) because it violated:",
-        options: ["Free and fair elections.", "Rule of Law.", "Judicial Review.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All listed features."
-    },
-    {
-        question: "The 42nd Amendment (1976) gave Directive Principles (Article 39b/c) precedence over Fundamental Rights (14, 19, 31). In Minerva Mills, the Court struck down the extension of this precedence to ALL Directive Principles because:",
-        options: ["It destroyed the \"harmony and balance\" between FRs and DPSPs.", "DPSPs are non-justiciable.", "It violated the Right to Property.", "It was passed during Emergency."],
-        correctAnswerIndex: 0, // a) Harmony and balance
-        explanation: "Destroyed the harmony and balance."
-    },
-    {
-        question: "The \"99th Constitutional Amendment Act\" (NJAC) is the only amendment struck down in entirety by the Supreme Court. The ground was violation of:",
-        options: ["Independence of Judiciary (Basic Structure).", "Separation of Powers (Basic Structure).", "Both (a) and (b).", "Federalism."],
+        question: "To overcome the Golak Nath judgment, the Parliament enacted the 24th Amendment Act (1971). It declared that:",
+        options: ["Parliament has the power to abridge or take away any of the Fundamental Rights under Article 368.", "Such an Act will not be a 'law' under the meaning of Article 13.", "Both (a) and (b).", "Neither (a) nor (b)."],
         correctAnswerIndex: 2, // c) Both
-        explanation: "Independence of Judiciary and Separation of Powers."
+        explanation: "Both (a) and (b)."
     },
     {
-        question: "In the I.R. Coelho case (2007) regarding the Ninth Schedule, the Court held that:",
-        options: ["The Ninth Schedule is immune from judicial review.", "Any law added to the Ninth Schedule after April 24, 1973, is open to challenge if it violates Fundamental Rights forming the Basic Structure.", "The entire Ninth Schedule is unconstitutional.", "Only land reform laws are immune."],
-        correctAnswerIndex: 1, // b) Open after 1973
-        explanation: "Open after April 24, 1973."
+        question: "The Kesavananda Bharati case (1973) upheld the validity of the 24th Amendment Act but laid down a new doctrine. What was it?",
+        options: ["Doctrine of Pith and Substance.", "Doctrine of Basic Structure.", "Doctrine of Severability.", "Doctrine of Eclipse."],
+        correctAnswerIndex: 1, // b) Basic Structure
+        explanation: "Doctrine of Basic Structure."
     },
     {
-        question: "The \"Rule of Law\" as a basic feature implies:",
-        options: ["Absence of arbitrary power.", "Equality before law.", "The Constitution is the result of the rights of individuals.", "Both (a) and (b)."],
+        question: "According to the Basic Structure Doctrine:",
+        options: ["Parliament cannot amend the Constitution at all.", "Parliament can amend any part of the Constitution, including Fundamental Rights, provided it does not alter the 'basic structure'.", "The Supreme Court is the only body that can amend the Constitution.", "The Preamble cannot be amended."],
+        correctAnswerIndex: 1, // b) Can amend provided...
+        explanation: "Can amend any part provided it does not alter the basic structure."
+    },
+    {
+        question: "The 42nd Amendment Act (1976) tried to nullify the Basic Structure doctrine by inserting a clause declaring that:",
+        options: ["There shall be no limitation on the constituent power of Parliament.", "No amendment can be questioned in any court on any ground.", "Both (a) and (b).", "Fundamental Duties are superior to Rights."],
+        correctAnswerIndex: 2, // c) Both
+        explanation: "Both (a) and (b)."
+    },
+    {
+        question: "In the Minerva Mills case (1980), the Supreme Court struck down the above provision of the 42nd Amendment because:",
+        options: ["It violated the 'Judicial Review' power, which is a basic feature.", "It was passed during an Emergency.", "It was not ratified by the states.", "It violated the Preamble."],
+        correctAnswerIndex: 0, // a) Judicial Review
+        explanation: "Violated Judicial Review (a basic feature)."
+    },
+    {
+        question: "In the Waman Rao case (1981), the Supreme Court clarified that the Basic Structure doctrine applies to:",
+        options: ["Constitutional Amendments enacted after April 24, 1973 (date of Kesavananda judgment).", "All Constitutional Amendments since 1950.", "Only amendments affecting Fundamental Rights.", "Only amendments affecting Federalism."],
+        correctAnswerIndex: 0, // a) After 1973
+        explanation: "Amendments enacted after April 24, 1973."
+    },
+    {
+        question: "Procedure & Nuances: A Constitutional Amendment Bill must be passed by a \"Special Majority\". This implies:",
+        options: ["A majority of more than 50% of the total membership of the House.", "A majority of two-thirds of the members of the House present and voting.", "Both (a) and (b) separately in each House.", "Both (a) and (b) in a joint sitting."],
+        correctAnswerIndex: 2, // c) Both in each House
+        explanation: "Both (a) and (b) separately in each House."
+    },
+    {
+        question: "The \"Total Membership\" of the House for the purpose of Special Majority means:",
+        options: ["The number of members actually holding office at that time (excluding vacancies).", "The total number of members comprising the House irrespective of whether there are vacancies or absentees.", "The number of members present on the day of voting.", "The quorum of the House."],
+        correctAnswerIndex: 1, // b) Irrespective of vacancies
+        explanation: "Irrespective of vacancies."
+    },
+    {
+        question: "If a Constitutional Amendment Bill is passed by the Lok Sabha but rejected by the Rajya Sabha:",
+        options: ["The President summons a joint sitting.", "The Bill lapses/ends.", "The Bill is returned to Lok Sabha.", "The Bill is deemed to have been passed."],
+        correctAnswerIndex: 1, // b) Bill lapses
+        explanation: "The Bill lapses/ends (No joint sitting)."
+    },
+    {
+        question: "The \"Ratification by States\" (for federal provisions) requires:",
+        options: ["A resolution passed by the State Legislature by a Special Majority.", "A resolution passed by the State Legislature by a Simple Majority.", "A resolution passed by the State Legislature and assent of the Governor.", "A referendum in the state."],
+        correctAnswerIndex: 1, // b) Simple Majority
+        explanation: "Simple Majority."
+    },
+    {
+        question: "Is the Governor's assent required for the State Legislature's resolution ratifying the amendment?",
+        options: ["Yes.", "No, it is just a resolution of the House, not a Bill.", "Depends on the Governor's discretion.", "Yes, if it affects state finances."],
+        correctAnswerIndex: 1, // b) No
+        explanation: "No, it is just a resolution."
+    },
+    {
+        question: "Which of the following creates a \"Constitutional Amendment\" but is NOT deemed to be an amendment under Article 368?",
+        options: ["Abolition or creation of Legislative Councils in States (Article 169).", "Admission or establishment of new states (Article 2).", "Formation of new states and alteration of areas (Article 3).", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "All of the above."
+    },
+    {
+        question: "Therefore, the above changes (in Q14) can be passed by:",
+        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification.", "Executive Order."],
+        correctAnswerIndex: 0, // a) Simple Majority
+        explanation: "Simple Majority."
+    },
+    {
+        question: "Subject Matter Classification: Which of the following provisions requires Ratification by States?",
+        options: ["Goods and Services Tax (GST) Council (Article 279A).", "Fundamental Rights (Part III).", "Directive Principles (Part IV).", "Emergency Provisions."],
+        correctAnswerIndex: 0, // a) GST Council
+        explanation: "GST Council (Article 279A)."
+    },
+    {
+        question: "Which of the following provisions requires Ratification by States?",
+        options: ["The extent of the executive power of the Union and the States.", "The Supreme Court and High Courts.", "Distribution of legislative powers between the Union and the States (7th Schedule).", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "All of the above."
+    },
+    {
+        question: "To amend the \"Language of the Supreme Court\" (Article 348), what majority is required?",
+        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification.", "President's Order."],
+        correctAnswerIndex: 0, // a) Simple Majority
+        explanation: "Simple Majority (Official Language provisions)."
+    },
+    {
+        question: "To amend the \"Fifth Schedule\" (Scheduled Areas), what majority is required?",
+        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification.", "Governor's Notification."],
+        correctAnswerIndex: 0, // a) Simple Majority
+        explanation: "Simple Majority."
+    },
+    {
+        question: "To amend the \"Election of the President\" (Article 54 & 55), what majority is required?",
+        options: ["Simple Majority.", "Special Majority.", "Special Majority + Ratification by half of the states.", "Two-thirds of States."],
+        correctAnswerIndex: 2, // c) Special + Ratification
+        explanation: "Special Majority + Ratification."
+    },
+    {
+        question: "Judicial Review & 9th Schedule: The I.R. Coelho case (2007) dealt with the:",
+        options: ["Ninth Schedule and Judicial Review.", "Tenth Schedule and Anti-Defection.", "Eighth Schedule and Languages.", "Seventh Schedule and Federalism."],
+        correctAnswerIndex: 0, // a) Ninth Schedule
+        explanation: "Ninth Schedule and Judicial Review."
+    },
+    {
+        question: "In I.R. Coelho, the Supreme Court held that:",
+        options: ["Laws placed in the Ninth Schedule are completely immune from judicial review.", "Laws placed in the Ninth Schedule after April 24, 1973, are open to judicial review if they violate the Basic Structure (Fundamental Rights like 14, 15, 19, 21).", "The Ninth Schedule itself is unconstitutional.", "Judicial review does not apply to land reforms."],
+        correctAnswerIndex: 1, // b) Open to review if...
+        explanation: "Open to judicial review if placed after April 24, 1973."
+    },
+    {
+        question: "Comparative & Critical: Unlike the USA, in India:",
+        options: ["The State Legislatures cannot initiate an amendment to the Constitution.", "A special constituent body is not required for amending the Constitution.", "There is no time limit for ratification.", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "All of the above."
+    },
+    {
+        question: "In the USA, an amendment can be initiated by:",
+        options: ["Congress only.", "State Legislatures only.", "Either Congress or State Legislatures (via convention).", "The President."],
+        correctAnswerIndex: 2, // c) Either
+        explanation: "Either Congress or State Legislatures."
+    },
+    {
+        question: "The Indian Constitution is often criticized for being \"too flexible\" because:",
+        options: ["Large parts of it can be amended by Parliament alone (either simple or special majority).", "States have no voice in most amendments.", "It can be amended by a simple notification.", "Both (a) and (b)."],
         correctAnswerIndex: 3, // d) Both a and b
-        explanation: "Includes absence of arbitrary power and equality before law."
+        explanation: "Both (a) and (b)."
     },
     {
-        question: "Which of the following is NOT expressly mentioned in the Constitution but is considered part of the Basic Structure?",
-        options: ["Judicial Review.", "Separation of Powers.", "Federalism.", "Cabinet System of Government."],
-        correctAnswerIndex: 3, // d) Cabinet System (actually the phrase Basic Structure itself is not mentioned)
-        explanation: "The prompt notes that the 'Basic Structure' itself is not mentioned in the text."
-    },
-    {
-        question: "Is \"Socialism\" part of the Basic Structure?",
-        options: ["Yes, added by the Preamble and affirmed in Excel Wear case.", "No, it is a policy choice.", "Only \"Democratic Socialism\".", "Only \"Gandhian Socialism\"."],
-        correctAnswerIndex: 0, // a) Yes
-        explanation: "Affirmed in the Preamble/Excel Wear case."
-    },
-    {
-        question: "Is the \"Right to Property\" part of the Basic Structure?",
-        options: ["Yes.", "No, the Court held so in Kesavananda Bharati (Justice Khanna's opinion).", "Yes, but only for minorities.", "Yes, but only for farmers."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "Justice Khanna's opinion in Kesavananda held it's not basic structure."
-    },
-    {
-        question: "The \"Federal Character\" of the Constitution was declared a basic feature in S.R. Bommai case (1994). This restricts Parliament from:",
-        options: ["Altering boundaries of states under Article 3.", "Using Article 356 arbitrarily to dismiss state governments.", "Changing the names of states.", "Creating new states."],
-        correctAnswerIndex: 1, // b) Arbitrary 356
-        explanation: "SR Bommai case focused heavily on Art 356 usage."
-    },
-    {
-        question: "The \"Secular Character\" being a basic feature means:",
-        options: ["The State has no religion.", "The State treats all religions equally.", "Politics and religion should not be mixed (Bommai case).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All dimensions are part of Indian Secularism."
-    },
-    {
-        question: "Can Parliament increase the power of judicial review via amendment?",
-        options: ["Yes, upgrading basic features is allowed; degrading/damaging them is not.", "No, the structure must remain exactly as it was in 1950.", "No, it violates separation of powers.", "Yes, but only with State ratification."],
-        correctAnswerIndex: 0, // a) Upgrading is allowed
-        explanation: "Upgrading/Strengthening is generally permissible."
-    },
-    {
-        question: "Does the US Constitution have a similar doctrine?",
-        options: ["Yes, explicit \"unamendable\" clauses.", "No, the US Supreme Court has never struck down a constitutional amendment.", "Yes, implied limitations.", "Yes, the \"Bill of Rights\" cannot be amended."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "US SC has never struck down an amendment."
-    },
-    {
-        question: "Critics argue that the Basic Structure doctrine is vague because:",
-        options: ["The Supreme Court has never given an exhaustive list of basic features.", "It allows the Judiciary to act as a \"Third Chamber\" of Parliament.", "It has no basis in the constitutional text.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Common criticisms."
-    },
-    {
-        question: "Who decides whether a particular amendment violates the Basic Structure?",
-        options: ["The President.", "The Parliament itself.", "The Supreme Court (Final Interpreter).", "The People (Referendum)."],
-        correctAnswerIndex: 2, // c) Supreme Court
-        explanation: "Supreme Court is the final interpreter."
-    },
-    {
-        question: "Can the \"Preamble\" be amended?",
-        options: ["No, never.", "Yes, as long as the amendment does not alter the basic features found in the Preamble (e.g., secularism, democracy).", "Yes, completely.", "Only to correct errors."],
-        correctAnswerIndex: 1, // b) Yes, provided...
-        explanation: "Can be amended subject to Basic Structure."
-    },
-    {
-        question: "The \"Waman Rao case\" (1981) drew a line at:",
-        options: ["Jan 26, 1950.", "April 24, 1973 (Date of Kesavananda judgment).", "June 1975 (Emergency).", "1976 (42nd Amendment)."],
-        correctAnswerIndex: 1, // b) April 24, 1973
-        explanation: "Prospective application from Kesavananda date."
-    },
-    {
-        question: "In the L. Chandra Kumar case (1997), the Supreme Court declared that the power of judicial review vested in High Courts under Article 226 and 227 is:",
-        options: ["A statutory power.", "A basic feature of the Constitution which cannot be ousted even by creating Tribunals (Article 323A/B).", "Subject to Parliament's will.", "Available only for Fundamental Rights."],
-        correctAnswerIndex: 1, // b) Basic feature
-        explanation: "Basic feature (cannot be ousted)."
-    },
-    {
-        question: "The \"Separation of Powers\" in India is not rigid like in the USA. However, it is a basic feature. This implies:",
-        options: ["The Judiciary cannot take over the functions of the Legislature or Executive.", "The Executive cannot exercise essential legislative functions.", "Checks and balances are essential.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Implications of separation of powers."
-    },
-    {
-        question: "Assertion (A): The Parliament cannot alter the \"Basic Structure\" of the Constitution. Reason (R): The power to amend (Article 368) is a derivative power and cannot be used to destroy the source (Constitution) itself.",
+        question: "Assertion (A): The President of India has no veto power in respect of a Constitutional Amendment Bill. Reason (R): The 24th Amendment Act made it obligatory for the President to give his assent to such a bill.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
-        explanation: "Correct explanation (Derivative power logic)."
+        explanation: "Correct explanation."
     },
     {
-        question: "The concept of \"Limited Government\" is essential to Constitutionalism. Which basic feature ensures this?",
-        options: ["Fundamental Rights.", "Judicial Review.", "Rule of Law.", "All of the above."],
+        question: "\"Constituent Power\" vs \"Legislative Power\".",
+        options: ["Constituent power is the power to amend the Constitution (Article 368).", "Legislative power is the power to make ordinary laws (Article 245).", "In India, both powers are vested in the same body (Parliament), but the procedure differs.", "All of the above."],
         correctAnswerIndex: 3, // d) All
-        explanation: "All ensure limited government."
+        explanation: "All are correct."
     },
     {
-        question: "In Minerva Mills, the Court declared \"Harmony and Balance between Fundamental Rights and Directive Principles\" as a basic feature. This means:",
-        options: ["FRs are superior to DPSPs.", "DPSPs are superior to FRs.", "One cannot be given absolute primacy over the other in a way that destroys the other.", "Both can be amended freely."],
-        correctAnswerIndex: 2, // c) Balance
-        explanation: "Co-existence and balance."
+        question: "Can the Preamble be amended under Article 368?",
+        options: ["No, it is not a part of the Constitution.", "Yes, as established in Kesavananda Bharati, provided the Basic Structure is not altered.", "Yes, without any restriction.", "Only to add words, not to remove."],
+        correctAnswerIndex: 1, // b) Yes, provided...
+        explanation: "Yes, provided Basic Structure is not altered."
     },
     {
-        question: "The \"Essence of the Constitution\" argument was used by:",
-        options: ["N.A. Palkhivala (Counsel in Kesavananda Bharati).", "B.R. Ambedkar.", "Jawaharlal Nehru.", "Sir B.N. Rau."],
-        correctAnswerIndex: 0, // a) Palkhivala
-        explanation: "N.A. Palkhivala."
+        question: "The \"Basic Structure\" includes:",
+        options: ["Supremacy of the Constitution.", "Secular character of the Constitution.", "Federal character of the Constitution.", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "All of the above."
     },
     {
-        question: "Does the \"Basic Structure\" apply to ordinary laws?",
-        options: ["No, ordinary laws are tested against the Constitution (Articles).", "Yes, indirectly. If an ordinary law violates a provision that is part of the basic structure (like FRs), it is void.", "Yes, explicitly.", "Only to tax laws."],
-        correctAnswerIndex: 0, // a) No (tested against Articles)
-        explanation: "Ordinary laws are tested against specific provisions, not the 'Basic Structure' doctrine itself."
-    },
-    {
-        question: "Which of the following is NOT considered a basic feature?",
-        options: ["The Parliamentary System of Government.", "The Presidential System of Government.", "The Principle of Free and Fair Elections.", "The Independence of the Judiciary."],
-        correctAnswerIndex: 1, // b) Presidential System
-        explanation: "We have a Parliamentary system."
-    },
-    {
-        question: "The \"Kihoto Hollohan case\" (1993) reinforced:",
-        options: ["Democracy.", "Judicial Review as a basic feature.", "Parliamentary Sovereignty.", "Federalism."],
-        correctAnswerIndex: 1, // b) Judicial Review
-        explanation: "Reinforced Judicial Review."
+        question: "Is \"Social Justice\" considered part of the Basic Structure?",
+        options: ["Yes.", "No.", "Only Economic Justice.", "Only Political Justice."],
+        correctAnswerIndex: 0, // a) Yes
+        explanation: "Yes."
     }
 ];
 
 // Level 3: The UPSC Simulation 2026 (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        question: "Theme: The \"Tyranny of the Unelected\" Debate (2024-25)\nIf Parliament were to pass the 107th Amendment explicitly stating \"No amendment under Article 368 shall be called in question in any court on any ground\":",
-        options: ["The Amendment would be valid as it restores the original intent of the Constitution makers.", "The Supreme Court would likely strike it down ab initio because \"Judicial Review\" and the \"Limited Amending Power\" are themselves Basic Features (Minerva Mills case).", "The President would be bound to withhold assent to protect the Constitution.", "It would depend on whether it was ratified by half the states."],
-        correctAnswerIndex: 1, // b) Struck down
-        explanation: "Limited amending power is a basic feature."
+        question: "Theme: Nari Shakti Vandan Adhiniyam (106th Amendment Act, 2023)\nThe Constitution (106th Amendment) Act, 2023 provides for 33% reservation for women in Lok Sabha and State Assemblies. Regarding its enactment process, consider the following statements:\n1. It required a Special Majority in both Houses of Parliament.\n2. Since it affects the representation of states in Parliament (Lok Sabha seats), it required ratification by at least half of the state legislatures.\n3. The reservation will come into effect immediately after the next delimitation exercise.\nWhich of the statements given above are correct?",
+        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
+        correctAnswerIndex: 3, // d) 1, 2, 3
+        explanation: "Requires Special Majority and Ratification (affects representation/federal) and Delimitation."
     },
     {
-        question: "Critics argue that the Basic Structure doctrine has no textual basis. However, proponents argue it is derived from:",
-        options: ["The Preamble (\"We, the People\").", "Article 13 (\"Law\" includes amendments).", "The implied limitation in the word \"Amend\" (Article 368) which means to improve/change but not to destroy.", "Both (a) and (c)."],
-        correctAnswerIndex: 3, // d) Both a and c
-        explanation: "Derived from Preamble and Implied Limitations."
+        question: "The implementation of the 106th Amendment is linked to the \"Delimitation Process\". If the government decides to increase the total number of Lok Sabha seats (beyond 550) during this process, it will require:",
+        options: ["A simple amendment to the Delimitation Act.", "A Constitutional Amendment to Article 81 (Composition of Lok Sabha) requiring ratification by half of the states.", "A Constitutional Amendment to Article 81 requiring only a Special Majority of Parliament.", "An Executive Order by the President."],
+        correctAnswerIndex: 2, // c) Special Majority
+        explanation: "Amendment to Art 81 (Special Majority)."
     },
     {
-        question: "Theme: Free & Fair Elections (CEC Appointment Act 2023)\nThe constitutional challenge argues this Act violates the \"Basic Structure\" by compromising:",
-        options: ["The Independence of the Election Commission (part of \"Free and Fair Elections\").", "The Separation of Powers.", "The Rule of Law.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Potential impact on all listed features."
-    },
-    {
-        question: "In the Anoop Baranwal case (2023), the Supreme Court directed inclusion of the CJI until a law is made. Now that a law excludes CJI, does the Basic Structure doctrine apply?",
-        options: ["No, because the Court's order was temporary.", "Yes, if the new law creates an institution (ECI) that is not \"independent\" enough to ensure free and fair elections, it violates the Basic Structure.", "No, Parliament is supreme in law-making.", "Yes, but only if the law is retrospective."],
-        correctAnswerIndex: 1, // b) Yes
-        explanation: "Independence must be maintained regardless of temporary orders."
-    },
-    {
-        question: "Theme: Federalism & Article 370 Verdict\nIn the Article 370 Verdict (December 2023), regarding the \"Basic Structure\" challenge (violation of Federalism), the Court held that:",
-        options: ["Article 370 was a permanent provision, but Parliament has plenary power.", "Jammu & Kashmir did not possess \"internal sovereignty\" different from other states; thus, its reorganization did not violate the federal basic structure.", "Federalism is not a basic feature for J&K.", "The President's Rule under Article 356 overrides the Basic Structure."],
-        correctAnswerIndex: 1, // b) No internal sovereignty
-        explanation: "J&K sovereignty was not distinct from other states in this context."
-    },
-    {
-        question: "The Court held that interfering with the elected government's control over bureaucracy in NCT Delhi (2023) violates:",
-        options: ["The \"Triple Chain of Accountability\" (Civil Servants -> Ministers -> Legislature -> People), which is essential to \"Parliamentary Democracy\" (Basic Structure).", "Article 370.", "The Basic Structure of the Civil Services.", "Article 14."],
-        correctAnswerIndex: 0, // a) Triple Chain of Accountability
-        explanation: "Essential to Parliamentary Democracy."
-    },
-    {
-        question: "Theme: Independence of Judiciary (NJAC & Transfers)\nIf the government delays appointments despite reiteration by the Collegium, it arguably violates:",
-        options: ["It is a procedural delay.", "The \"Independence of Judiciary\" (Basic Structure) by frustrating the judicial process.", "It is an exercise of Executive power.", "It is a check and balance."],
-        correctAnswerIndex: 1, // b) Independence of Judiciary
-        explanation: "Frustrating reiteration affects independence."
-    },
-    {
-        question: "Can the \"Transfer of High Court Judges\" be challenged as violating the Basic Structure?",
-        options: ["No, transfers are administrative.", "Yes, if the transfer is \"punitive\" and without the consent of the judge, it affects \"Judicial Independence\".", "Yes, but only by the State Government.", "No, the President has absolute power."],
-        correctAnswerIndex: 1, // b) Yes, if punitive
-        explanation: "Punitive transfers affect judicial independence."
-    },
-    {
-        question: "Theme: Secularism & Preamble\nThe counter-argument relying on the Basic Structure against removing \"Socialist\" and \"Secular\" is:",
-        options: ["Concepts were always part of the Basic Structure (S.R. Bommai).", "The 42nd Amendment was validated by the 44th Amendment.", "The Preamble cannot be amended.", "Both (a) and (b)."],
-        correctAnswerIndex: 0, // a) Always part of basic structure
-        explanation: "Bommai case held secularism is basic structure."
-    },
-    {
-        question: "Does a mandatory Uniform Civil Code (UCC) violate the \"Secular\" basic structure?",
-        options: ["Yes, because it interferes with religion.", "No, the Supreme Court has held that Secularism implies the State treating all citizens equally, and a UCC (Article 44) is a step towards secular legal uniformity.", "Yes, if it is based on Hindu laws.", "Only if it bans all rituals."],
+        question: "Theme: One Nation, One Election (High-Level Committee)\nThe \"One Nation, One Election\" proposal (Kovind Panel Report, 2024) suggests simultaneous elections. To implement this, the Committee identified that amendments to Article 83 (Duration of Houses) and Article 172 (Duration of State Legislatures) would be necessary. Does this specific amendment require ratification by States?",
+        options: ["Yes, because it affects the federal structure.", "No, the Committee concluded that amendments to the \"duration\" of Houses do not fall under the entrenched provisions of Article 368(2) proviso (which lists subjects requiring ratification).", "Yes, because it affects the \"Election of President\".", "No, because it can be done by a simple majority."],
         correctAnswerIndex: 1, // b) No
-        explanation: "Secular legal uniformity is the goal."
+        explanation: "No, duration is not entrenched in Proviso."
     },
     {
-        question: "Theme: Rule of Law & ED/CBI Jurisdiction\nThe Supreme Court in 2023 held that \"piecemeal\" extensions of investigative agency directors undermine:",
-        options: ["The independence of investigative agencies, which is crucial for the \"Rule of Law\" (Basic Structure).", "The seniority rules of the Civil Services.", "The Federal structure.", "The Right to Equality."],
-        correctAnswerIndex: 0, // a) Independence for Rule of Law
-        explanation: "Independence is crucial for Rule of Law."
+        question: "However, the Committee noted that a Common Electoral Roll (Article 325) would require an amendment that needs ratification by States. Why?",
+        options: ["Because \"Elections to Panchayats/Municipalities\" is a State Subject (Entry 5, List II), and altering the roll affects State powers.", "Because it affects the powers of the Election Commission of India.", "Because it violates the Basic Structure.", "Because Article 325 is explicitly mentioned in the proviso to Article 368."],
+        correctAnswerIndex: 0, // a) State Subject
+        explanation: "Affects State Subject (Entry 5, List II)."
     },
     {
-        question: "If a special law (like PMLA/UAPA) reversals \"Bail is the rule\", does it violate the Basic Structure?",
-        options: ["No, Parliament can make strict laws for serious offenses.", "Yes, it violates \"Personal Liberty\" which is a basic feature.", "The Supreme Court has upheld these strict conditions as valid classifications.", "Yes, but only for PMLA."],
-        correctAnswerIndex: 2, // c) Valid classifications
-        explanation: "Upheld in Vijay Madanlal case."
+        question: "Theme: Basic Structure Debate (2024-25 Context)\nRecent remarks by high constitutional functionaries (Vice President, Law Minister) questioned the Basic Structure Doctrine as diluting Parliamentary Sovereignty. In this context, if Parliament passes a unanimous amendment to scrap the Basic Structure doctrine:",
+        options: ["The amendment would be valid as it reflects the will of the people.", "The Supreme Court would likely strike it down as \"unconstitutional\" because the \"limited amending power\" itself is a part of the Basic Structure (Minerva Mills case).", "The President would be bound to withhold assent.", "It would require a national referendum."],
+        correctAnswerIndex: 1, // b) Struck down
+        explanation: "SC would strike it down (Limited amending power is Basic Structure)."
     },
     {
-        question: "Theme: Delimitation 2026 & Federalism\nIf Delimitation reduces seat share of Southern states, it could be challenged as violating:",
-        options: ["The \"Federal Balance\" (Basic Structure).", "The \"Democracy\" principle (One Vote, One Value).", "Both (a) and (b) present conflicting interpretations of the Basic Structure.", "Neither; Parliament has absolute power under Article 82."],
+        question: "The NJAC Judgment (2015) is the only instance of a full amendment being struck down. If the government re-introduces NJAC with a \"Ratification by 100% States\" clause, would it survive judicial review?",
+        options: ["Yes, because 100% consensus cures all defects.", "No, because the violation of \"Independence of Judiciary\" (Basic Structure) cannot be cured even by unanimity.", "Yes, if it is placed in the Ninth Schedule.", "Yes, if the President uses his advisory jurisdiction."],
+        correctAnswerIndex: 1, // b) No
+        explanation: "No, Basic Structure violation cannot be cured by unanimity."
+    },
+    {
+        question: "Theme: Procedural Nuances & Anti-Defection\nThe 10th Schedule (Anti-Defection Law) was added by the 52nd Amendment. In Kihoto Hollohan case (1992), the Supreme Court struck down only Paragraph 7 (which barred judicial review) because:",
+        options: ["It violated the Basic Structure (Judicial Review).", "It affected the jurisdiction of the Supreme Court/High Courts (Article 136/226), which is a federal provision requiring ratification by states, but the 52nd Amendment was not ratified.", "Both (a) and (b).", "Neither; it struck it down for being arbitrary."],
         correctAnswerIndex: 2, // c) Both
-        explanation: "Conflicting interpretations of Federalism vs Democracy."
+        explanation: "Both (a) and (b)."
     },
     {
-        question: "Theme: Assertion & Reason\nAssertion (A): The Basic Structure doctrine limits the \"Constituent Power\" of the Parliament. Reason (R): The Supreme Court held that a limited amending power is itself a basic feature of the Constitution.",
+        question: "If a Constitutional Amendment Bill is pending in the Rajya Sabha (introduced in RS) and the Lok Sabha is dissolved:",
+        options: ["The Bill lapses.", "The Bill does not lapse.", "The Bill lapses only if it was passed by RS.", "The Bill is deemed passed."],
+        correctAnswerIndex: 1, // b) Does not lapse
+        explanation: "Bill introduced in RS and pending in RS does not lapse."
+    },
+    {
+        question: "Can a Constitutional Amendment Bill be passed by a \"Voice Vote\"?",
+        options: ["Yes, if there is no opposition.", "No, Article 368 requires a \"Division\" (recording of votes) to ensure the special majority criteria are met numerically.", "Yes, it is a parliamentary convention.", "Only in the Rajya Sabha."],
+        correctAnswerIndex: 1, // b) No, Division required
+        explanation: "No, Division (recording of votes) is required."
+    },
+    {
+        question: "Theme: Federalism & Ratification (GST & Cooperatives)\nThe 97th Amendment Act (Cooperatives) was partially struck down by the Supreme Court (2021) in the Union of India vs Rajendra Shah case. The reason was:",
+        options: ["\"Cooperative Societies\" is a State Subject. The amendment added provisions restricting state powers but was passed without ratification by half the states.", "It violated the Fundamental Right to form associations.", "It promoted privatization of cooperatives.", "It was passed without the President's recommendation."],
+        correctAnswerIndex: 0, // a) State Subject/Ratification
+        explanation: "Lack of ratification for a State Subject matter."
+    },
+    {
+        question: "The 101st Amendment Act (GST) required ratification by states. If a State Legislature wants to withdraw its ratification after the President has given assent:",
+        options: ["It can do so within 6 months.", "It cannot do so; the ratification is final once the process is complete.", "It can do so with the permission of the GST Council.", "It can do so if the government changes."],
+        correctAnswerIndex: 1, // b) Cannot withdraw
+        explanation: "Cannot withdraw."
+    },
+    {
+        question: "Theme: Reservation & EWS (103rd Amendment)\nThe 103rd Amendment Act (EWS Reservation) amended Fundamental Rights (Articles 15 and 16). Did this require ratification by States?",
+        options: ["Yes, because it affects the federal structure of reservation.", "No, amendments to Part III (Fundamental Rights) generally do not require ratification unless they also affect a provision in the proviso to Article 368 (like Art 226).", "Yes, because it affects State Services.", "No, because it was a private member bill."],
+        correctAnswerIndex: 1, // b) No
+        explanation: "No, FR amendments do not require ratification (unless affecting proviso)."
+    },
+    {
+        question: "Theme: Reorganization of States (Art 3 vs Art 368)\nThe \"Jammu and Kashmir Reorganization Act, 2019\" bifurcated the state into two UTs. This was done under Article 3. However, if the government wants to cede a part of the Axai Chin area to China as part of a border settlement:",
+        options: ["It can be done by Article 3 (Diminishing area).", "It requires a Constitutional Amendment under Article 368 (Cession of territory - Berubari case).", "It requires only an Executive Order.", "It requires UN approval."],
+        correctAnswerIndex: 1, // b) Constitutional Amendment
+        explanation: "Cession requires Constitutional Amendment (Berubari)."
+    },
+    {
+        question: "The Land Boundary Agreement with Bangladesh (100th Amendment) involved the exchange of enclaves. Why was an amendment needed if Article 3 allows \"diminishing the area of a state\"?",
+        options: ["Because \"diminishing\" in Article 3 refers to internal re-adjustment, not cession to a foreign country.", "Because West Bengal refused to give consent.", "Because it involved transfer of population.", "Because it was a treaty obligation."],
+        correctAnswerIndex: 0, // a) Internal re-adjustment
+        explanation: "Art 3 is for internal re-adjustment, not cession."
+    },
+    {
+        question: "Theme: Assertion & Reason\nAssertion (A): The Constitution of India is neither rigid nor flexible but a synthesis of both. Reason (R): While some provisions can be amended by a simple majority of Parliament, others require a special majority or even ratification by states.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
         explanation: "Correct explanation."
     },
     {
-        question: "Assertion (A): The Ninth Schedule is no longer a \"black hole\" for laws to escape judicial scrutiny. Reason (R): In the I.R. Coelho case, the SC ruled that laws placed in the Ninth Schedule after April 24, 1973, are open to challenge if they violate the Basic Structure.",
+        question: "Assertion (A): The President must give his assent to a Constitutional Amendment Bill. Reason (R): The 24th Constitutional Amendment Act, 1971, withdrew the President's discretion to withhold assent to such bills.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
         explanation: "Correct explanation."
     },
     {
-        question: "Critics argue the Basic Structure doctrine is an example of:",
-        options: ["Judicial Restraint.", "Judicial Legislation (Overreach).", "Constitutional Interpretation (Activism).", "Executive Interference."],
-        correctAnswerIndex: 1, // b) Judicial Legislation
-        explanation: "Common critique."
+        question: "Theme: Deep Dive - Amendment of the Preamble\nThe Preamble was amended only once (42nd Amendment). If a new government wants to remove the word \"Secular\" from the Preamble via the 107th Amendment:",
+        options: ["It can be done by a Special Majority of Parliament.", "It would be struck down as violating the Basic Structure (S.R. Bommai case held Secularism is basic structure).", "It would require a national referendum.", "It requires ratification by states."],
+        correctAnswerIndex: 1, // b) Struck down
+        explanation: "Struck down as Basic Structure violation."
     },
     {
-        question: "Can the Supreme Court strike down a Constitutional Amendment before it is passed (at the Bill stage)?",
-        options: ["Yes, if it violates the Basic Structure.", "No, judicial review applies only to \"laws\" (Acts) enacted, not Bills (Premature).", "Yes, if the President refers it under Article 143.", "No, never."],
-        correctAnswerIndex: 1, // b) No, premature
-        explanation: "JR applies to Acts, not Bills."
+        question: "Theme: Miscellaneous & Procedural\nCan a Constitutional Amendment Bill be referred to a Parliamentary Standing Committee?",
+        options: ["Yes, like any other bill.", "No, it must be passed immediately.", "Only if the Speaker permits.", "Only if it is a Private Member's Bill."],
+        correctAnswerIndex: 0, // a) Yes
+        explanation: "Yes, like any other bill."
     },
     {
-        question: "The \"Welfare State\" is a basic feature. This forces the State to ensure:",
-        options: ["Complete equality of income.", "Social and Economic Justice (Article 38).", "Free food for all.", "100% employment."],
-        correctAnswerIndex: 1, // b) Social and Economic Justice
-        explanation: "Article 38."
+        question: "The \"99th Amendment\" (NJAC) is a unique case where the amendment was passed, ratified, and assented to, but then:",
+        options: ["Repealed by the 100th Amendment.", "Struck down by the Supreme Court, reviving the \"Collegium System\" (which had been repealed by the amendment).", "Lapsed due to dissolution of Lok Sabha.", "Withdrawn by the government."],
+        correctAnswerIndex: 1, // b) Struck down
+        explanation: "Struck down, reviving Collegium."
     },
     {
-        question: "The Court held that \"Efficiency of Administration\" (Article 335) must be balanced with:",
-        options: ["Efficiency is a basic feature.", "Social Justice is a basic feature, and efficiency must be balanced with it (Nagaraj case).", "Reservation is not a fundamental right.", "Both (b) and (c)."],
-        correctAnswerIndex: 1, // b) Social Justice balance
-        explanation: "Nagaraj case balance."
+        question: "The \"reservation of seats\" for SCs and STs in Lok Sabha (Article 334) was extended for another 10 years by the 104th Amendment Act, 2020. Did this require ratification by States?",
+        options: ["Yes, because it relates to \"Representation of States in Parliament\".", "No, it relates to special provisions.", "Yes, because it affects Fundamental Rights.", "No, because it is a temporary provision."],
+        correctAnswerIndex: 0, // a) Yes
+        explanation: "Yes, affects representation/proviso provisions."
     },
     {
-        question: "Is \"Parliamentary Sovereignty\" a basic feature of the Indian Constitution?",
-        options: ["Yes, absolutely.", "No, India has \"Constitutional Sovereignty,\" not Parliamentary Sovereignty.", "Yes, but only in financial matters.", "No, the President is sovereign."],
-        correctAnswerIndex: 1, // b) No (Constitutional Sovereignty)
-        explanation: "Constitutional Sovereignty."
+        question: "Article 368(3) says \"Nothing in Article 13 shall apply to any amendment made under this Article.\" This clause was inserted by the 24th Amendment to:",
+        options: ["Protect amendments from being challenged as \"law\" violating Fundamental Rights.", "Ensure Judicial Review.", "Allow amendments by simple majority.", "Remove the President's veto."],
+        correctAnswerIndex: 0, // a) Protect from Art 13
+        explanation: "Protect from Art 13."
     },
     {
-        question: "The \"Golden Triangle\" (Articles 14, 19, 21) forms the core of the Basic Structure regarding Human Rights. Any amendment affecting these must meet the test of:",
-        options: ["Reasonableness.", "Public Interest.", "The \"Essence of Rights\" test (M. Nagaraj).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Cumulative tests."
+        question: "The \"Doctrine of Implied Limitations\" on the amending power means:",
+        options: ["There are no express limits, but the power is limited by the very identity of the Constitution (Basic Structure).", "Limitations are written in the text.", "Limitations are decided by the President.", "Limitations are decided by the UN Charter."],
+        correctAnswerIndex: 0, // a) Identity/Basic Structure
+        explanation: "Power limited by Basic Structure (identity)."
     },
     {
-        question: "In the K.S. Puttaswamy case (Privacy), the Court linked Privacy to:",
-        options: ["Dignity of the Individual (Preamble).", "Liberty (Article 21).", "Freedoms (Article 19).", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Linked to Preamble, Art 19, and 21."
+        question: "If a State Legislature ratifies an amendment but fails to communicate it to the Parliament within the specified time (if any):",
+        options: ["It is deemed rejected.", "It is deemed ratified.", "The Constitution does not specify a time limit for states to communicate ratification.", "The Governor is held responsible."],
+        correctAnswerIndex: 2, // c) Constitution silent
+        explanation: "Constitution doesn't specify time limit."
     },
     {
-        question: "The Supreme Court in 2020 suggested that for defection cases:",
-        options: ["The Speaker is the final authority.", "An independent \"Permanent Tribunal\" should be set up.", "The Governor should decide.", "The High Court should decide directly."],
-        correctAnswerIndex: 1, // b) Permanent Tribunal
-        explanation: "Suggested to ensure neutrality."
+        question: "The \"amending power\" of Parliament is a constituent power. This distinction was first clearly made in:",
+        options: ["Shankari Prasad case.", "Golak Nath case.", "Kesavananda Bharati case.", "Indira Gandhi vs Raj Narain case."],
+        correctAnswerIndex: 0, // a) Shankari Prasad
+        explanation: "First made in Shankari Prasad (to distinguish from Art 13 'law')."
     },
     {
-        question: "The \"L. Chandra Kumar\" case struck down provisions barring jurisdiction in favor of Tribunals because:",
-        options: ["High Court fees.", "Access to Justice is a basic feature.", "Armed Forces AFSPA.", "Death Penalty."],
-        correctAnswerIndex: 1, // b) Access to Justice
-        explanation: "Access to Justice."
+        question: "Can the \"Procedure for Amendment\" (Article 368 itself) be amended?",
+        options: ["Yes, by a Special Majority of Parliament.", "Yes, by a Special Majority + Ratification by half of the states (as per the proviso to Art 368(2)).", "No, it is immutable.", "Only by a Constituent Assembly."],
+        correctAnswerIndex: 1, // b) Special + Ratification
+        explanation: "Yes, requires Special Majority + Ratification."
     },
     {
-        question: "The Sabarimala Review will decide if \"Constitutional Morality\" overrides:",
-        options: ["Religious beliefs (Article 25).", "Group rights (Article 26).", "Judicial Precedents.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Wide reach of the review."
+        question: "Which of the following is NOT part of the Basic Structure as per various SC judgments?",
+        options: ["Free and fair elections.", "Welfare State.", "The exact number of judges in the Supreme Court.", "Harmony between FR and DPSP."],
+        correctAnswerIndex: 2, // c) Exact number of judges
+        explanation: "Exact number of judges is not Basic Structure."
     },
     {
-        question: "Which of the following is NOT an element of the Basic Structure?",
-        options: ["The mandate to build a Socialist state.", "The supremacy of the Constitution.", "The principle of equality.", "The power of Parliament to amend the Constitution."],
-        correctAnswerIndex: 3, // d) Power of Parliament
-        explanation: "The 'Limited Power' is the feature, not the power itself."
+        question: "The 102nd Amendment Act (OBC Commission) gave constitutional status to the NCBC. It required ratification because:",
+        options: ["It affected the powers of State Governments to identify SEBCs (Socially and Educationally Backward Classes).", "It was a simple amendment.", "It affected the Supreme Court's jurisdiction.", "It was related to Fundamental Duties."],
+        correctAnswerIndex: 0, // a) Affected federal balance/State powers
+        explanation: "Affected State powers (though intent was federal, it touched state list matters effectively, hence ratification)."
     },
     {
-        question: "The \"creamy layer\" exclusion in reservation was held to be a facet of:",
-        options: ["Equality (Basic Structure).", "Efficiency.", "Fraternity.", "Liberty."],
-        correctAnswerIndex: 0, // a) Equality
-        explanation: "Facet of equality."
+        question: "In the Maratha Reservation Case (2021), the Supreme Court interpreted the 102nd Amendment to mean that only the Centre has the power to notify SEBCs. This necessitated the 105th Amendment Act to:",
+        options: ["Restore the power of States to identify their own OBC lists.", "Cancel the 102nd Amendment.", "Increase the reservation cap.", "Abolish the NCBC."],
+        correctAnswerIndex: 0, // a) Restore state power
+        explanation: "Restore power of States."
     },
     {
-        question: "Transitioning to a \"Theocratic State\" would violate:",
-        options: ["Secularism.", "Democracy.", "Equality.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Violates multiple basic features."
+        question: "The \"Official Language\" provisions (Part XVII) can be amended by:",
+        options: ["Simple Majority (mostly).", "Special Majority.", "Special Majority + Ratification.", "Executive Order."],
+        correctAnswerIndex: 0, // a) Simple Majority
+        explanation: "Mostly Simple Majority (Article 343-348 provisions). Note: Some parts might be interpreted otherwise but standard text lists it under Simple."
     },
     {
-        question: "The \"Venkatachalam Commission\" (2002) was set up to:",
-        options: ["Rewrite the Constitution.", "Suggest amendments without altering the Basic Structure.", "Review the Basic Structure doctrine itself.", "Abolish the Rajya Sabha."],
-        correctAnswerIndex: 1, // b) Suggest amendments
-        explanation: "Review commission."
-    },
-    {
-        question: "The Basic Structure doctrine serves as:",
-        options: ["A shield against majoritarianism.", "A check on the amending power.", "A guardian of the \"Identity\" of the Constitution.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Comprehensive role of the doctrine."
+        question: "Assertion (A): The Indian Constitution is \"living\" document. Reason (R): It can be amended to adapt to changing social and political needs, but its \"soul\" (Basic Structure) remains constant.",
+        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
+        correctAnswerIndex: 0, // a)
+        explanation: "Correct explanation."
     }
 ];
 

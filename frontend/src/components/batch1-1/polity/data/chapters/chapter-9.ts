@@ -3,582 +3,582 @@ import { ChapterLevelData } from "../level-types";
 // Level 1: The Text-Book Stickler (Strictly Chapter 9)
 const LEVEL_1_QUESTIONS = [
     {
-        question: "The original Constitution of India (1950) contained:",
-        options: ["Fundamental Rights only.", "Fundamental Duties only.", "Both Fundamental Rights and Fundamental Duties.", "Neither Fundamental Rights nor Fundamental Duties."],
-        correctAnswerIndex: 0, // a) Fundamental Rights only
-        explanation: "Original Constitution contained only Fundamental Rights, not Duties."
+        question: "The Directive Principles of State Policy (DPSP) are enumerated in Part IV of the Constitution from Articles:",
+        options: ["36 to 51", "36 to 51-A", "12 to 35", "52 to 78"],
+        correctAnswerIndex: 0, // a) 36 to 51
+        explanation: "Articles 36 to 51 in Part IV."
     },
     {
-        question: "The fundamental duties were added to the Constitution by the:",
-        options: ["24th Amendment Act, 1971", "42nd Amendment Act, 1976", "44th Amendment Act, 1978", "86th Amendment Act, 2002"],
-        correctAnswerIndex: 1, // b) 42nd Amendment
+        question: "The concept of DPSP was borrowed from the Constitution of:",
+        options: ["USA", "Canada", "Ireland (Irish Constitution)", "Australia"],
+        correctAnswerIndex: 2, // c) Ireland
+        explanation: "Borrowed from Irish Constitution."
+    },
+    {
+        question: "Dr. B.R. Ambedkar described these principles as:",
+        options: ["Novel features of the Indian Constitution.", "Soul of the Constitution.", "Conscience of the Constitution.", "Key-note of the Constitution."],
+        correctAnswerIndex: 0, // a) Novel features
+        explanation: "Ambedkar called them 'Novel features'."
+    },
+    {
+        question: "Granville Austin described the Directive Principles and the Fundamental Rights as the:",
+        options: ["Conscience of the Constitution.", "Heart and Soul of the Constitution.", "Basic Structure of the Constitution.", "Philosophy of the Constitution."],
+        correctAnswerIndex: 0, // a) Conscience
+        explanation: "Conscience of the Constitution."
+    },
+    {
+        question: "Article 36 defines the term 'State'. Its meaning is:",
+        options: ["Different from the definition given in Part III (Fundamental Rights).", "Same as the definition given in Part III (Article 12).", "Restricted to the Executive organ only.", "Restricted to the Legislature only."],
+        correctAnswerIndex: 1, // b) Same as Part III
+        explanation: "Same meaning as in Part III (Article 12)."
+    },
+    {
+        question: "Article 37 declares that the Directive Principles are:",
+        options: ["Justiciable (enforceable by courts).", "Non-justiciable (not enforceable by courts).", "Mandatory.", "Optional suggestions."],
+        correctAnswerIndex: 1, // b) Non-justiciable
+        explanation: "They are non-justiciable."
+    },
+    {
+        question: "Article 37 also declares that these principles are fundamental in the:",
+        options: ["Governance of the country.", "Making of laws.", "Administration of justice.", "Protection of rights."],
+        correctAnswerIndex: 0, // a) Governance
+        explanation: "Fundamental in the governance of the country."
+    },
+    {
+        question: "The Constitution does not contain any classification of Directive Principles. However, on the basis of their content and direction, they are usually classified into three broad categories. Which is NOT one of them?",
+        options: ["Socialist Principles", "Gandhian Principles", "Liberal-Intellectual Principles", "Religious Principles"],
+        correctAnswerIndex: 3, // d) Religious Principles
+        explanation: "Religious Principles is not a classification."
+    },
+    {
+        question: "Article 38 directs the State to secure a social order for the promotion of welfare of the people by securing:",
+        options: ["Justice—social, economic and political.", "Liberty—thought, expression and belief.", "Equality—status and opportunity.", "Fraternity."],
+        correctAnswerIndex: 0, // a) Justice
+        explanation: "Justice - social, economic and political."
+    },
+    {
+        question: "Article 39 contains specific principles to be followed by the State. Which of the following is NOT one of them?",
+        options: ["Right to adequate means of livelihood.", "Equitable distribution of material resources of the community.", "Prevention of concentration of wealth.", "Organization of village panchayats."],
+        correctAnswerIndex: 3, // d) Organization of village panchayats
+        explanation: "Village Panchayats is Article 40."
+    },
+    {
+        question: "Article 39-A provides for:",
+        options: ["Equal justice and free legal aid.", "Uniform Civil Code.", "Living wage for workers.", "Participation of workers in management."],
+        correctAnswerIndex: 0, // a) Equal justice and free legal aid
+        explanation: "Equal justice and free legal aid."
+    },
+    {
+        question: "Article 41 secures the right to work, to education and to public assistance in cases of:",
+        options: ["Unemployment, old age, sickness and disablement.", "Poverty only.", "Natural calamities.", "War."],
+        correctAnswerIndex: 0, // a) Unemployment, old age...
+        explanation: "Unemployment, old age, sickness and disablement."
+    },
+    {
+        question: "Article 42 makes provision for just and humane conditions of work and:",
+        options: ["Maternity relief.", "Paternity relief.", "Child care.", "Old age pension."],
+        correctAnswerIndex: 0, // a) Maternity relief
+        explanation: "Maternity relief."
+    },
+    {
+        question: "Article 43 secures a living wage, a decent standard of life and social and cultural opportunities for:",
+        options: ["All workers.", "Industrial workers only.", "Agricultural workers only.", "Government servants only."],
+        correctAnswerIndex: 0, // a) All workers
+        explanation: "All workers (agricultural, industrial or otherwise)."
+    },
+    {
+        question: "Article 43-A (added by 42nd Amendment) directs the State to take steps to secure the participation of workers in the:",
+        options: ["Management of industries.", "Ownership of industries.", "Trade unions.", "Political parties."],
+        correctAnswerIndex: 0, // a) Management
+        explanation: "Management of industries."
+    },
+    {
+        question: "Article 47 directs the State to raise the level of nutrition and the standard of living of its people and to improve:",
+        options: ["Public health.", "Environment.", "Education.", "Agriculture."],
+        correctAnswerIndex: 0, // a) Public health
+        explanation: "Public health."
+    },
+    {
+        question: "Article 40 directs the State to organize:",
+        options: ["Village Panchayats.", "Municipalities.", "Co-operative Societies.", "Cottage Industries."],
+        correctAnswerIndex: 0, // a) Village Panchayats
+        explanation: "Village Panchayats."
+    },
+    {
+        question: "Article 43 promotes:",
+        options: ["Cottage industries on an individual or co-operation basis in rural areas.", "Heavy industries.", "Small scale industries.", "Service sector."],
+        correctAnswerIndex: 0, // a) Cottage industries
+        explanation: "Cottage industries in rural areas."
+    },
+    {
+        question: "Article 43-B (added by 97th Amendment) promotes the voluntary formation, autonomous functioning, democratic control and professional management of:",
+        options: ["Co-operative Societies.", "NGOs.", "Self Help Groups.", "Trade Unions."],
+        correctAnswerIndex: 0, // a) Co-operative Societies
+        explanation: "Co-operative Societies."
+    },
+    {
+        question: "Article 46 promotes the educational and economic interests of:",
+        options: ["SCs, STs, and other weaker sections.", "Minorities.", "Women and Children.", "Disabled persons."],
+        correctAnswerIndex: 0, // a) SCs, STs, weaker sections
+        explanation: "SCs, STs, and other weaker sections."
+    },
+    {
+        question: "Article 47 prohibits the consumption of:",
+        options: ["Intoxicating drinks and drugs which are injurious to health.", "Tobacco products.", "Meat.", "Fast food."],
+        correctAnswerIndex: 0, // a) Intoxicating drinks
+        explanation: "Intoxicating drinks and drugs."
+    },
+    {
+        question: "Article 48 prohibits the slaughter of:",
+        options: ["Cows, calves and other milch and draught cattle.", "All animals.", "Wild animals.", "Endangered species."],
+        correctAnswerIndex: 0, // a) Cows, calves etc
+        explanation: "Cows, calves and other milch and draught cattle."
+    },
+    {
+        question: "Article 44 seeks to secure for all citizens a:",
+        options: ["Uniform Civil Code throughout the territory of India.", "Uniform Criminal Code.", "Common language.", "Common religion."],
+        correctAnswerIndex: 0, // a) UCC
+        explanation: "Uniform Civil Code."
+    },
+    {
+        question: "Article 45 (as amended by 86th Amendment) directs the State to provide early childhood care and education for all children until they complete the age of:",
+        options: ["Six years.", "Fourteen years.", "Eighteen years.", "Three years."],
+        correctAnswerIndex: 0, // a) Six years
+        explanation: "Until they complete the age of six years."
+    },
+    {
+        question: "Article 48 directs the State to organize agriculture and animal husbandry on:",
+        options: ["Modern and scientific lines.", "Traditional lines.", "Organic lines.", "Cooperative lines."],
+        correctAnswerIndex: 0, // a) Modern and scientific
+        explanation: "Modern and scientific lines."
+    },
+    {
+        question: "Article 48-A (added by 42nd Amendment) directs the State to protect and improve the environment and to safeguard:",
+        options: ["Forests and wild life.", "Rivers and lakes.", "Mountains and hills.", "Heritage sites."],
+        correctAnswerIndex: 0, // a) Forests and wild life
+        explanation: "Forests and wild life."
+    },
+    {
+        question: "Article 49 directs the State to protect monuments, places and objects of:",
+        options: ["Artistic or historic interest declared to be of national importance.", "Religious importance.", "Tourist importance.", "Local importance."],
+        correctAnswerIndex: 0, // a) National importance
+        explanation: "National importance."
+    },
+    {
+        question: "Article 50 separates the judiciary from the:",
+        options: ["Executive.", "Legislature.", "Media.", "Public."],
+        correctAnswerIndex: 0, // a) Executive
+        explanation: "Executive."
+    },
+    {
+        question: "Article 51 promotes international peace and security and encourages:",
+        options: ["Settlement of international disputes by arbitration.", "Use of force for peace.", "Formation of military alliances.", "Non-alignment."],
+        correctAnswerIndex: 0, // a) Arbitration
+        explanation: "Settlement by arbitration."
+    },
+    {
+        question: "Which Amendment Act added four new Directive Principles (Articles 39, 39A, 43A, 48A)?",
+        options: ["42nd Amendment Act, 1976", "44th Amendment Act, 1978", "86th Amendment Act, 2002", "97th Amendment Act, 2011"],
+        correctAnswerIndex: 0, // a) 42nd
         explanation: "42nd Amendment Act, 1976."
     },
     {
-        question: "The fundamental duties in the Indian Constitution are inspired by the Constitution of:",
-        options: ["USA", "Canada", "USSR (now Russia)", "Ireland"],
-        correctAnswerIndex: 2, // c) USSR
-        explanation: "Inspired by the Constitution of USSR."
+        question: "The 44th Amendment Act of 1978 added one more Directive Principle, requiring the State to minimize inequalities in income, status, facilities and opportunities (Article 38).",
+        options: ["True", "False"],
+        correctAnswerIndex: 0, // a) True
+        explanation: "True."
     },
     {
-        question: "Which committee recommended the inclusion of a separate chapter on fundamental duties in the Constitution?",
-        options: ["Verma Committee", "Sarkaria Commission", "Swaran Singh Committee", "Ram Nandan Committee"],
-        correctAnswerIndex: 2, // c) Swaran Singh Committee
-        explanation: "Swaran Singh Committee."
+        question: "In the Champakam Dorairajan case (1951), the Supreme Court ruled that in case of any conflict between Fundamental Rights and Directive Principles, the former would prevail.",
+        options: ["True", "False"],
+        correctAnswerIndex: 0, // a) True
+        explanation: "True."
     },
     {
-        question: "The Swaran Singh Committee was set up in 1976 by the:",
-        options: ["Janata Party Government.", "Congress Party Government.", "Supreme Court.", "Law Commission."],
-        correctAnswerIndex: 1, // b) Congress Party
-        explanation: "Congress Party Government."
+        question: "In the Golaknath case (1967), the Supreme Court ruled that Fundamental Rights cannot be amended for the implementation of Directive Principles.",
+        options: ["True", "False"],
+        correctAnswerIndex: 0, // a) True
+        explanation: "True."
     },
     {
-        question: "The Swaran Singh Committee recommended the incorporation of how many fundamental duties?",
-        options: ["8", "10", "11", "12"],
-        correctAnswerIndex: 0, // a) 8
-        explanation: "Recommended 8 duties."
+        question: "In the Minerva Mills case (1980), the Supreme Court held that the Indian Constitution is founded on the bedrock of the balance between Fundamental Rights and Directive Principles.",
+        options: ["True", "False"],
+        correctAnswerIndex: 0, // a) True
+        explanation: "True."
     },
     {
-        question: "The 42nd Amendment Act (1976) included a new Part in the Constitution, which is:",
-        options: ["Part III-A", "Part IV-A", "Part IX-A", "Part XIV-A"],
-        correctAnswerIndex: 1, // b) Part IV-A
-        explanation: "Part IV-A."
-    },
-    {
-        question: "This new Part IV-A consists of only one Article, which is:",
-        options: ["Article 51", "Article 51-A", "Article 39-A", "Article 43-A"],
-        correctAnswerIndex: 1, // b) Article 51-A
-        explanation: "Article 51-A."
-    },
-    {
-        question: "Originally (in 1976), the list of fundamental duties contained:",
-        options: ["8 duties", "10 duties", "11 duties", "12 duties"],
-        correctAnswerIndex: 1, // b) 10 duties
-        explanation: "Originally 10 duties."
-    },
-    {
-        question: "According to Article 51-A, it shall be the duty of every citizen of India to abide by the Constitution and respect its ideals and institutions, the:",
-        options: ["Parliament and State Legislatures.", "National Flag and the National Anthem.", "President and the Prime Minister.", "Supreme Court and High Courts."],
-        correctAnswerIndex: 1, // b) National Flag and Anthem
-        explanation: "National Flag and the National Anthem."
-    },
-    {
-        question: "It is a duty to cherish and follow the noble ideals that inspired our:",
-        options: ["Religious leaders.", "National struggle for freedom.", "Constitution makers.", "Social reformers."],
-        correctAnswerIndex: 1, // b) National struggle
-        explanation: "National struggle for freedom."
-    },
-    {
-        question: "It is a duty to uphold and protect the:",
-        options: ["Sovereignty, Unity and Integrity of India.", "Sovereignty, Socialism and Secularism of India.", "Liberty, Equality and Fraternity.", "Justice, Social and Economic."],
-        correctAnswerIndex: 0, // a) Sovereignty, Unity and Integrity
-        explanation: "Sovereignty, Unity and Integrity of India."
-    },
-    {
-        question: "It is a duty to defend the country and render national service when:",
-        options: ["Ordered by the President.", "Called upon to do so.", "There is a war.", "There is a natural calamity."],
-        correctAnswerIndex: 1, // b) Called upon
-        explanation: "When called upon to do so."
-    },
-    {
-        question: "It is a duty to promote harmony and the spirit of common brotherhood amongst all the people of India transcending:",
-        options: ["Religious, linguistic and regional or sectional diversities.", "Caste, creed and color.", "Political ideologies.", "Economic status."],
-        correctAnswerIndex: 0, // a) Religious, linguistic...
-        explanation: "Religious, linguistic and regional or sectional diversities."
-    },
-    {
-        question: "It is a duty to renounce practices derogatory to the:",
-        options: ["Dignity of women.", "Dignity of the individual.", "Unity of the nation.", "Culture of India."],
-        correctAnswerIndex: 0, // a) Dignity of women
-        explanation: "Dignity of women."
-    },
-    {
-        question: "It is a duty to value and preserve the rich heritage of our:",
-        options: ["Composite culture.", "Ancient history.", "Religious traditions.", "Scientific achievements."],
-        correctAnswerIndex: 0, // a) Composite culture
-        explanation: "Composite culture."
-    },
-    {
-        question: "It is a duty to protect and improve the natural environment including forests, lakes, rivers and wild life, and to have:",
-        options: ["Respect for animals.", "Compassion for living creatures.", "Scientific temper.", "Humanism."],
-        correctAnswerIndex: 1, // b) Compassion
-        explanation: "Compassion for living creatures."
-    },
-    {
-        question: "It is a duty to develop the scientific temper, humanism and the spirit of:",
-        options: ["Inquiry and reform.", "Nationalism and patriotism.", "Tolerance and peace.", "Sacrifice and service."],
-        correctAnswerIndex: 0, // a) Inquiry and reform
-        explanation: "Inquiry and reform."
-    },
-    {
-        question: "It is a duty to safeguard public property and to:",
-        options: ["Abjure violence.", "Follow traffic rules.", "Pay taxes.", "Vote in elections."],
-        correctAnswerIndex: 0, // a) Abjure violence
-        explanation: "Abjure violence."
-    },
-    {
-        question: "It is a duty to strive towards excellence in all spheres of:",
-        options: ["Individual and collective activity.", "Educational and professional activity.", "Political and social activity.", "Economic and industrial activity."],
-        correctAnswerIndex: 0, // a) Individual and collective
-        explanation: "Individual and collective activity."
-    },
-    {
-        question: "The 11th Fundamental Duty was added by the:",
-        options: ["82nd Amendment Act, 2000", "84th Amendment Act, 2001", "86th Amendment Act, 2002", "91st Amendment Act, 2003"],
-        correctAnswerIndex: 2, // c) 86th Amendment
-        explanation: "86th Amendment Act, 2002."
-    },
-    {
-        question: "The 11th duty (51-A(k)) is to provide opportunities for education to his child or ward between the age of:",
-        options: ["0 and 6 years.", "6 and 14 years.", "6 and 18 years.", "14 and 18 years."],
-        correctAnswerIndex: 1, // b) 6 and 14 years
-        explanation: "6 and 14 years."
-    },
-    {
-        question: "Features and Significance: The Fundamental Duties are confined to:",
-        options: ["Citizens only.", "Foreigners only.", "Both citizens and foreigners.", "Only government servants."],
-        correctAnswerIndex: 0, // a) Citizens only
-        explanation: "Citizens only."
-    },
-    {
-        question: "Like the Directive Principles, the fundamental duties are:",
-        options: ["Justiciable.", "Non-justiciable.", "Mandatory.", "Enforceable by writs."],
-        correctAnswerIndex: 1, // b) Non-justiciable
-        explanation: "Non-justiciable."
-    },
-    {
-        question: "The Swaran Singh Committee suggested that Parliament may provide for the imposition of:",
-        options: ["Taxes for non-performance of duties.", "Penalty or punishment for non-compliance with duties.", "Social boycott for violation of duties.", "Compulsory military service."],
-        correctAnswerIndex: 1, // b) Penalty or punishment
-        explanation: "Penalty or punishment for non-compliance."
-    },
-    {
-        question: "Did the Congress Government (in 1976) accept the Swaran Singh Committee's recommendation regarding penalty/punishment?",
-        options: ["Yes, fully.", "No, it did not incorporate this provision in the Constitution.", "Yes, but only for certain duties.", "Yes, but left it to the Judiciary."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "No, it did not incorporate this provision."
-    },
-    {
-        question: "Another recommendation of the Swaran Singh Committee which was NOT accepted was the duty to:",
-        options: ["Pay taxes.", "Vote in elections.", "Follow family planning.", "Both (a) and (b)."],
-        correctAnswerIndex: 0, // a) Pay taxes
-        explanation: "Duty to pay taxes was recommended but not accepted."
-    },
-    {
-        question: "The Verma Committee on Fundamental Duties of Citizens (1999) identified the existence of:",
-        options: ["Legal provisions for the implementation of some of the Fundamental Duties.", "Constitutional provisions for enforcing all duties.", "Lack of any legal provisions.", "Need for new duties."],
-        correctAnswerIndex: 0, // a) Legal provisions exists
-        explanation: "Existence of legal provisions."
-    },
-    {
-        question: "Legal Provisions: The Prevention of Insults to National Honour Act (1971) prevents disrespect to:",
-        options: ["The Constitution of India.", "The National Flag.", "The National Anthem.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "Constitution, Flag, and Anthem."
-    },
-    {
-        question: "The Protection of Civil Rights Act (1955) provides for punishments for offences related to:",
-        options: ["Caste and religion.", "Untouchability.", "Gender discrimination.", "Regionalism."],
-        correctAnswerIndex: 1, // b) Untouchability
-        explanation: "Untouchability."
-    },
-    {
-        question: "The Unlawful Activities (Prevention) Act (1967) provides for the declaration of a communal organization as an unlawful association. This relates to the duty to:",
-        options: ["Uphold sovereignty, unity and integrity.", "Protect environment.", "Safeguard public property.", "Develop scientific temper."],
-        correctAnswerIndex: 0, // a) Sovereignty, unity and integrity
-        explanation: "Sovereignty, unity and integrity."
-    },
-    {
-        question: "The Representation of People Act (1951) provides for disqualification of members of Parliament/State Legislature for indulging in:",
-        options: ["Corrupt practices.", "Promoting enmity between different groups on grounds of religion, race, etc.", "Both (a) and (b).", "Neither (a) nor (b)."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Both corrupt practices and promoting enmity."
-    },
-    {
-        question: "The Wildlife (Protection) Act of 1972 prohibits:",
-        options: ["Trade in rare and endangered species.", "Hunting of all animals.", "Fishing in rivers.", "Keeping pets."],
-        correctAnswerIndex: 0, // a) Trade in rare and endangered species
-        explanation: "Trade in rare and endangered species."
-    },
-    {
-        question: "The Forest (Conservation) Act of 1980 checks:",
-        options: ["Deforestation and diversion of forest land for non-forest purposes.", "Afforestation.", "Social forestry.", "Agro-forestry."],
-        correctAnswerIndex: 0, // a) Deforestation
-        explanation: "Deforestation and diversion."
-    },
-    {
-        question: "The fundamental duties serve as a reminder to the citizens that while enjoying their rights, they should also be conscious of duties they owe to:",
-        options: ["Their family.", "Their country, their society and their fellow citizens.", "The government.", "The world."],
-        correctAnswerIndex: 1, // b) Country, society, citizens
-        explanation: "Their country, their society and their fellow citizens."
+        question: "Directives outside Part IV: Article 335 deals with the claims of SCs and STs to:",
+        options: ["Services and posts.", "Education.", "Land allotment.", "Political representation."],
+        correctAnswerIndex: 0, // a) Services and posts
+        explanation: "Services and posts."
     }
 ];
 
 // Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        question: "Nature & Enforcement: Fundamental Duties are non-justiciable. This means:",
-        options: ["A citizen cannot be punished for violating them directly under the Constitution.", "Parliament cannot make laws to enforce them.", "Courts cannot take cognizance of them while interpreting laws.", "They are merely moral suggestions with no legal value."],
-        correctAnswerIndex: 0, // a) Cannot be punished directly under Constitution
-        explanation: "Cannot be punished directly under the Constitution (needs statutory backing)."
+        question: "The Directive Principles constitute a \"comprehensive economic, social and political programme\" for a modern welfare state. They aim at realizing the high ideals of Justice, Liberty, Equality, and Fraternity as outlined in:",
+        options: ["The Fundamental Rights.", "The Preamble.", "The Fundamental Duties.", "The Objectives Resolution."],
+        correctAnswerIndex: 1, // b) Preamble
+        explanation: "Outlined in the Preamble."
     },
     {
-        question: "However, the Parliament is free to enforce Fundamental Duties by:",
-        options: ["Suitable legislation.", "Executive order.", "Constitutional Amendment only.", "Judicial Review."],
-        correctAnswerIndex: 0, // a) Suitable legislation
-        explanation: "Suitable legislation."
+        question: "Article 37 says DPSP are \"fundamental in the governance of the country.\" This implies that:",
+        options: ["The courts can compel the government to implement them.", "It is the duty of the State to apply these principles in making laws.", "They are superior to Fundamental Rights.", "They can override the Constitution."],
+        correctAnswerIndex: 1, // b) Duty of state
+        explanation: "Duty of the State to apply these principles."
     },
     {
-        question: "In the AIIMS Students Union vs AIIMS (2001) case, the Supreme Court held that Fundamental Duties are:",
-        options: ["Fundamental to the governance of the country (like DPSP).", "Equally important as Fundamental Rights.", "Not enforceable at all.", "Only for government servants."],
-        correctAnswerIndex: 1, // b) Equally important
-        explanation: "Equally important as Fundamental Rights."
+        question: "Which of the following DPSP reflects the \"Liberal-Intellectual\" ideology?",
+        options: ["To organize village panchayats.", "To secure a uniform civil code.", "To promote cottage industries.", "To prohibit slaughter of cows."],
+        correctAnswerIndex: 1, // b) UCC
+        explanation: "UCC is Liberal-Intellectual."
     },
     {
-        question: "The \"Verma Committee\" (1999) on Fundamental Duties identified the existence of legal provisions for the implementation of some of the Fundamental Duties. Which of the following acts implements the duty to \"renounce practices derogatory to the dignity of women\"?",
-        options: ["The Protection of Women from Domestic Violence Act, 2005.", "The Indian Penal Code (IPC).", "The Dowry Prohibition Act, 1961.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All (IPC, Dowry Act, DV Act) implement this duty."
+        question: "Which of the following DPSP reflects the \"Gandhian\" ideology?",
+        options: ["To separate the judiciary from the executive.", "To promote international peace and security.", "To promote the educational and economic interests of SCs/STs.", "To secure a uniform civil code."],
+        correctAnswerIndex: 2, // c) SC/STs interests
+        explanation: "Promotion of interests of SCs/STs/weaker sections (Art 46) is Gandhian."
     },
     {
-        question: "The duty to \"safeguard public property and to abjure violence\" is legally enforced by:",
-        options: ["The Prevention of Damage to Public Property Act, 1984.", "The Unlawful Activities (Prevention) Act, 1967.", "The National Security Act, 1980.", "The Disaster Management Act, 2005."],
-        correctAnswerIndex: 0, // a) Prevention of Damage to Public Property Act
-        explanation: "The Prevention of Damage to Public Property Act, 1984."
+        question: "Which of the following DPSP reflects the \"Socialist\" ideology?",
+        options: ["To protect monuments of national importance.", "To secure the right to adequate means of livelihood.", "To prohibit the consumption of intoxicating drinks.", "To organize agriculture on modern lines."],
+        correctAnswerIndex: 1, // b) Livelihood
+        explanation: "Right to livelihood (Art 39a) is Socialist."
     },
     {
-        question: "Rights vs Duties Relationship: \"Rights and Duties are correlative and inseparable.\" This implies that:",
-        options: ["For every right, there is a corresponding duty.", "A citizen cannot claim rights if he does not perform duties.", "Duties are superior to rights.", "Rights are superior to duties."],
-        correctAnswerIndex: 0, // a) Correlative
-        explanation: "For every right, there is a corresponding duty."
+        question: "The 42nd Amendment Act (1976) added four new principles. Which of the following was NOT added by this amendment?",
+        options: ["To secure opportunities for healthy development of children (Article 39).", "To promote equal justice and provide free legal aid (Article 39A).", "To minimize inequalities in income, status, facilities, and opportunities (Article 38).", "To take steps to secure the participation of workers in the management of industries (Article 43A)."],
+        correctAnswerIndex: 2, // c) Article 38
+        explanation: "Article 38(2) was added by 44th Amendment."
     },
     {
-        question: "Unlike Fundamental Rights, which are available to all persons (citizens and foreigners), Fundamental Duties are confined to:",
-        options: ["Citizens only.", "Foreigners only.", "Both citizens and foreigners.", "Only voters."],
-        correctAnswerIndex: 0, // a) Citizens only
-        explanation: "Citizens only."
+        question: "The 86th Amendment Act (2002) changed the subject matter of Article 45. Originally, Article 45 directed the State to provide free and compulsory education for:",
+        options: ["Children up to 6 years.", "Children up to 14 years.", "Children between 6 and 14 years.", "All citizens."],
+        correctAnswerIndex: 1, // b) Up to 14 years
+        explanation: "Originally up to 14 years."
     },
     {
-        question: "The inclusion of Fundamental Duties in the Constitution was criticized by some on the ground that:",
-        options: ["They are superfluous because they are already performed by people generally.", "Some duties are vague and difficult to understand (e.g., \"noble ideals\", \"scientific temper\").", "They are non-justiciable and hence toothless.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All are valid criticisms."
+        question: "Which Amendment Act gave constitutional status to \"Co-operative Societies\" by adding Article 43B?",
+        options: ["73rd Amendment", "74th Amendment", "97th Amendment", "91st Amendment"],
+        correctAnswerIndex: 2, // c) 97th
+        explanation: "97th Amendment."
     },
     {
-        question: "The inclusion of Fundamental Duties aligns the Indian Constitution with the Constitutions of:",
-        options: ["Western democracies (USA, Canada, France, etc.).", "Socialist countries (USSR, Vietnam, etc.).", "Monarchies.", "Theocratic states."],
-        correctAnswerIndex: 1, // b) Socialist countries
-        explanation: "Socialist countries (Democratic constitutions usually don't have duties)."
+        question: "The \"Legal Services Authorities Act, 1987\" was enacted to implement which specific DPSP?",
+        options: ["Article 40 (Panchayats).", "Article 39A (Free Legal Aid).", "Article 44 (UCC).", "Article 50 (Separation of Judiciary)."],
+        correctAnswerIndex: 1, // b) 39A
+        explanation: "Article 39A."
     },
     {
-        question: "Can a court refuse to issue a writ for the enforcement of a Fundamental Right if the petitioner has violated a Fundamental Duty?",
-        options: ["Yes, the court can refuse relief (Doctrine of Clean Hands).", "No, Fundamental Rights are absolute.", "No, Duties are non-justiciable.", "Yes, but only in case of Article 32."],
-        correctAnswerIndex: 0, // a) Clean Hands
-        explanation: "Yes, under the invocation of Art 51A (Ranganath Mishra case Logic / Clean Hands)."
+        question: "The \"Wildlife (Protection) Act, 1972\" and \"Forest (Conservation) Act, 1980\" are steps taken to implement:",
+        options: ["Article 48A.", "Article 49.", "Article 47.", "Article 51A."],
+        correctAnswerIndex: 0, // a) 48A
+        explanation: "Article 48A."
     },
     {
-        question: "Swaran Singh vs Verma Committee: The Swaran Singh Committee recommended a separate chapter on Fundamental Duties. It also suggested that:",
-        options: ["Failure to comply with duties should be punishable by law.", "Such punishment should not be questioned in any court.", "Duty to pay taxes should be a Fundamental Duty.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All were recommended."
+        question: "In the Champakam Dorairajan Case (1951), the Supreme Court held that DPSP:",
+        options: ["Are superior to Fundamental Rights.", "Are subsidiary to Fundamental Rights.", "Are equal to Fundamental Rights.", "Are enforceable by courts."],
+        correctAnswerIndex: 1, // b) Subsidiary
+        explanation: "Subsidiary to Fundamental Rights."
     },
     {
-        question: "Which of the above recommendations (Q11) was accepted by the Congress Government and incorporated into the 42nd Amendment?",
-        options: ["Punishment for non-compliance.", "Bar on judicial review of punishment.", "Duty to pay taxes.", "None of the above."],
-        correctAnswerIndex: 3, // d) None
-        explanation: "None were accepted."
+        question: "To overcome the Champakam Dorairajan judgment, the Parliament enacted which Amendment Act (the first one to amend FRs for DPSP)?",
+        options: ["1st Amendment Act, 1951.", "4th Amendment Act, 1955.", "25th Amendment Act, 1971.", "42nd Amendment Act, 1976."],
+        correctAnswerIndex: 0, // a) 1st Amendment
+        explanation: "1st Amendment Act, 1951 (Inserted Art 31A, 31B)."
     },
     {
-        question: "The Verma Committee (1999) was set up to:",
-        options: ["Suggest new Fundamental Duties.", "Operationalize the suggestions to teach Fundamental Duties to citizens.", "Remove Fundamental Duties.", "Make Duties justiciable."],
-        correctAnswerIndex: 1, // b) Operationalize
-        explanation: "Operationalize suggestions to teach/implement."
+        question: "The 25th Amendment Act (1971) inserted a new Article 31C. It provided that no law which seeks to implement the principles specified in ______ shall be void on the ground of contravention of Article 14, 19, or 31.",
+        options: ["Article 39(b) and 39(c).", "All DPSP.", "Article 38 and 39.", "Article 40 and 44."],
+        correctAnswerIndex: 0, // a) 39b and 39c
+        explanation: "Article 39(b) and 39(c)."
     },
     {
-        question: "The Verma Committee recommended that:",
-        options: ["January 3rd be observed as \"Fundamental Duties Day\".", "Duties should be taught in schools and colleges.", "Media should propagate duties.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All were recommended."
+        question: "In the Kesavananda Bharati Case (1973), the Supreme Court regarding Article 31C held that:",
+        options: ["The entire Article 31C is unconstitutional.", "The first part (protecting laws under 39b/c) is valid, but the second part (barring judicial review) is unconstitutional.", "The second part is valid, but the first part is invalid.", "The entire Article 31C is valid."],
+        correctAnswerIndex: 1, // b) First part valid, second invalid
+        explanation: "First part valid, second invalid."
     },
     {
-        question: "Specific Duties Analysis: \"To value and preserve the rich heritage of our composite culture.\" This duty (Article 51-A(f)) draws inspiration from:",
-        options: ["The ancient Indian tradition of \"Vasudhaiva Kutumbakam\".", "The secular fabric of the nation.", "The diversity of India.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All concepts align."
+        question: "The 42nd Amendment Act (1976) extended the protection of Article 31C to laws implementing:",
+        options: ["Only Article 39(b) and 39(c).", "Any of the Directive Principles.", "Socialist Principles only.", "Gandhian Principles only."],
+        correctAnswerIndex: 1, // b) Any DPSP
+        explanation: "Any of the Directive Principles."
     },
     {
-        question: "\"To protect and improve the natural environment.\" This duty (Article 51-A(g)) imposes an obligation on:",
-        options: ["The State (under Article 48A).", "The Citizens (under Article 51-A(g)).", "Both the State and the Citizens.", "Only the Forest Department."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Both State (48A) and Citizens (51A-g)."
+        question: "In the Minerva Mills Case (1980), the Supreme Court struck down the extension of Article 31C made by the 42nd Amendment. Why?",
+        options: ["Because it violated the \"Basic Structure\" by destroying the balance between FR and DPSP.", "Because DPSP are not justiciable.", "Because it removed the Right to Property.", "Because it was passed during Emergency."],
+        correctAnswerIndex: 0, // a) Balance
+        explanation: "Destroying the balance between FR and DPSP (Basic Structure)."
     },
     {
-        question: "\"To develop the scientific temper, humanism and the spirit of inquiry and reform.\" This duty (Article 51-A(h)) is particularly significant in combating:",
-        options: ["Superstition and blind faith.", "Religious fundamentalism.", "Social evils.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "Combats all listed regressive practices."
+        question: "Therefore, the present legal position is that Fundamental Rights enjoy supremacy over Directive Principles. However, laws implementing ______ can supersede Article 14 and 19.",
+        options: ["Article 39(b) and 39(c).", "All DPSP.", "Article 44.", "No DPSP."],
+        correctAnswerIndex: 0, // a) 39b and 39c
+        explanation: "Article 39(b) and 39(c)."
     },
     {
-        question: "\"To strive towards excellence in all spheres of individual and collective activity.\" This duty (Article 51-A(j)) aims at:",
-        options: ["Personal success only.", "Raising the nation to higher levels of endeavor and achievement.", "Economic growth only.", "Sports achievements only."],
-        correctAnswerIndex: 1, // b) Raising nation
-        explanation: "Raising the nation to higher levels of endeavor and achievement."
+        question: "Directives Outside Part IV: Article 335 (Part XVI) says that the claims of SC/STs to services and posts shall be taken into consideration consistently with:",
+        options: ["The maintenance of efficiency of administration.", "The social justice goals.", "The population ratio.", "The availability of funds."],
+        correctAnswerIndex: 0, // a) Efficiency
+        explanation: "Maintenance of efficiency of administration."
     },
     {
-        question: "The duty to \"provide opportunities for education to his child or ward\" (Article 51-A(k)) was added to complement:",
-        options: ["Article 21-A (Right to Education).", "Article 45 (Early Childhood Care).", "Both (a) and (b).", "Neither."],
-        correctAnswerIndex: 0, // a) Article 21-A
-        explanation: "Article 21-A."
+        question: "Article 350-A (Part XVII) directs every State to provide adequate facilities for instruction in the mother-tongue at the:",
+        options: ["Primary stage of education to children belonging to linguistic minority groups.", "Secondary stage of education.", "Higher education level.", "All levels of education."],
+        correctAnswerIndex: 0, // a) Primary stage
+        explanation: "Primary stage of education."
     },
     {
-        question: "Comparative & Analytical: Which of the following is NOT a Fundamental Duty?",
-        options: ["To cast vote in elections.", "To pay taxes.", "To follow family planning.", "All of the above are not Fundamental Duties."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "None are FDs."
+        question: "Article 351 (Part XVII) directs the Union to promote the spread of the ______ language.",
+        options: ["Sanskrit", "Hindi", "English", "Hindustani"],
+        correctAnswerIndex: 1, // b) Hindi
+        explanation: "Hindi."
     },
     {
-        question: "The Japanese Constitution is one of the few democratic constitutions that contains a list of duties. One such duty is:",
-        options: ["To work.", "To vote.", "To speak truth.", "To meditate."],
-        correctAnswerIndex: 0, // a) To work
-        explanation: "To work."
+        question: "Comparative & Analytical: The DPSP are similar to the \"Instrument of Instructions\" enumerated in the:",
+        options: ["Government of India Act, 1919.", "Government of India Act, 1935.", "Indian Independence Act, 1947.", "Cabinet Mission Plan."],
+        correctAnswerIndex: 1, // b) GoI Act 1935
+        explanation: "Government of India Act, 1935."
     },
     {
-        question: "In the M.C. Mehta case (1988), the Supreme Court directed the Central Government to introduce compulsory teaching of ______ in all educational institutions, invoking Article 51-A(g).",
-        options: ["Yoga.", "Environment.", "Sanskrit.", "Moral Science."],
-        correctAnswerIndex: 1, // b) Environment
-        explanation: "Environment."
+        question: "Who described the DPSP as a \"Cheque on a bank, payable only when the resources of the bank permit\"?",
+        options: ["K.T. Shah", "T.T. Krishnamachari", "Sir B.N. Rau", "Dr. B.R. Ambedkar"],
+        correctAnswerIndex: 0, // a) K.T. Shah
+        explanation: "K.T. Shah."
     },
     {
-        question: "The \"Prevention of Insults to National Honour Act, 1971\" was enacted before the insertion of Fundamental Duties in 1976. This shows that:",
-        options: ["Duties existed in statutory form even before constitutional recognition.", "The Act was unconstitutional.", "The Act was retrospective.", "The Swaran Singh Committee merely codified existing laws."],
-        correctAnswerIndex: 0, // a) Existed in statutory form
-        explanation: "Duties existed in statutory form."
+        question: "Who described the DPSP as a \"veritable dustbin of sentiments\"?",
+        options: ["K.C. Wheare", "T.T. Krishnamachari", "Sir Ivor Jennings", "Srinivasan"],
+        correctAnswerIndex: 1, // b) T.T. Krishnamachari
+        explanation: "T.T. Krishnamachari."
     },
     {
-        question: "Assertion (A): Fundamental Duties are not enforceable by writs. Reason (R): They are duties of citizens, not the State. Writs are issued against the State for violation of Rights.",
+        question: "Fundamental Rights are ______ in nature, while Directive Principles are ______ in nature.",
+        options: ["Positive; Negative", "Negative; Positive", "Justiciable; Non-justiciable", "Temporary; Permanent"],
+        correctAnswerIndex: 1, // b) Negative; Positive
+        explanation: "FRs are negative (prohibitions), DPSP are positive (instructions)."
+    },
+    {
+        question: "\"Economic Democracy\" is the goal of ______, while \"Political Democracy\" is the goal of ______.",
+        options: ["Fundamental Rights; DPSP", "DPSP; Fundamental Rights", "Preamble; Fundamental Duties", "Fundamental Duties; Preamble"],
+        correctAnswerIndex: 1, // b) DPSP; FR
+        explanation: "Economic Democracy (DPSP); Political Democracy (FR)."
+    },
+    {
+        question: "Article 44 (Uniform Civil Code) has been implemented in which state of India for a long time (even before Independence)?",
+        options: ["Goa", "Kerala", "Mizoram", "Jammu & Kashmir"],
+        correctAnswerIndex: 0, // a) Goa
+        explanation: "Goa (Portuguese Civil Code)."
+    },
+    {
+        question: "The Khadi and Village Industries Commission (KVIC) was established to implement:",
+        options: ["Article 40", "Article 43", "Article 47", "Article 48"],
+        correctAnswerIndex: 1, // b) Article 43
+        explanation: "Article 43 (Cottage Industries)."
+    },
+    {
+        question: "The \"Criminal Procedure Code, 1973\" separated the judiciary from the executive in the public services of the State. This fulfilled:",
+        options: ["Article 39A", "Article 44", "Article 50", "Article 51"],
+        correctAnswerIndex: 2, // c) Article 50
+        explanation: "Article 50."
+    },
+    {
+        question: "Assertion (A): The DPSP are non-justiciable. Reason (R): The Constitution-makers did not want to burden the future governments with strict legal obligations due to lack of financial resources.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
         explanation: "Correct explanation."
     },
     {
-        question: "The phrase \"Composite Culture\" in Article 51-A(f) refers to:",
-        options: ["Hindu Culture only.", "The synthesis of various cultural streams that have enriched India.", "Western Culture.", "Vedic Culture."],
-        correctAnswerIndex: 1, // b) Synthesis
-        explanation: "Synthesis of various cultural streams."
-    },
-    {
-        question: "\"National Service\" under Article 51-A(d) implies:",
-        options: ["Joining the Army.", "Joining the Civil Services.", "Rendering service when called upon during emergencies or war.", "Social work."],
-        correctAnswerIndex: 2, // c) When called upon
-        explanation: "When called upon during emergencies/war."
-    },
-    {
-        question: "The Fundamental Duties help the courts in:",
-        options: ["Defining the scope of Fundamental Rights.", "Determining the constitutional validity of a law.", "Interpreting the Preamble.", "Appointing judges."],
-        correctAnswerIndex: 1, // b) Constitutional validity
-        explanation: "Determining constitutional validity (reasonable restrictions)."
-    },
-    {
-        question: "If a law seeks to give effect to a Fundamental Duty, the court may consider such law to be:",
-        options: ["\"Reasonable\" in relation to Article 14 or 19.", "Unconstitutional.", "Void.", "Mandatory."],
-        correctAnswerIndex: 0, // a) Reasonable
-        explanation: "Reasonable."
-    },
-    {
-        question: "The \"Flag Code of India, 2002\" governs the display of the National Flag. It is:",
-        options: ["A statute (Act of Parliament).", "An executive instruction/code combined with statutory provisions.", "A Constitutional Amendment.", "A Judicial Order."],
-        correctAnswerIndex: 1, // b) Executive instruction
-        explanation: "Executive code with statutory backing (Emblems Act)."
-    },
-    {
-        question: "Which Fundamental Duty is often cited in cases related to \"Cow Slaughter\"?",
-        options: ["51-A(g) - Compassion for living creatures.", "51-A(f) - Heritage.", "51-A(e) - Harmony.", "51-A(i) - Public Property."],
-        correctAnswerIndex: 0, // a) 51-A(g)
-        explanation: "Compassion for living creatures."
+        question: "Which of the following acts was enacted to implement the DPSP related to \"Social Security\" (Article 41)?",
+        options: ["Minimum Wages Act, 1948.", "Maternity Benefit Act, 1961.", "Old Age Pension Schemes (NSAP).", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "All implement social security/welfare."
     }
 ];
 
 // Level 3: The UPSC Simulation 2026 (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        question: "Theme: Legal Enforcement & Justiciability (Recent Trends)\nIn 2024, the Supreme Court heard a PIL seeking to make Fundamental Duties mandatory. The Court's observation reiterated the Ranganath Mishra Judgment (2003), stating that:",
-        options: ["Fundamental Duties should be enforced by a new law immediately.", "Legal and social sanctions can be used to create a comprehensive code for duties, but they remain non-justiciable under the Constitution unless Parliament legislates.", "Duties are superior to Rights and must be enforced by Police.", "Duties are only for government servants."],
-        correctAnswerIndex: 1, // b) Legal and social sanctions...
-        explanation: "Non-justiciable unless Parliament legislates."
+        question: "With the implementation of the Uttarakhand UCC (2024), the constitutional debate on Article 44 has resurfaced. Opponents argue that a mandatory UCC violates Article 25. The Supreme Court's consistent stand (e.g., Shah Bano, Sarla Mudgal) has been that:",
+        options: ["Article 25 (Religious Freedom) is absolute and overrides Article 44.", "Article 44 is a \"dead letter\" and should not be implemented.", "Article 25 guarantees religious freedom subject to \"public order, morality and health\" and \"other provisions of Part III,\" but personal laws are not \"laws\" under Article 13.", "Parliament has no power to legislate on personal laws."],
+        correctAnswerIndex: 2, // c) Art 25 subject to...
+        explanation: "Art 25 is subject to Part III; personal laws not laws under Art 13."
     },
     {
-        question: "The \"Prevention of Damage to Public Property Act, 1984\" implements Article 51-A(i). In the context of the Farmers' Protests and CAProtests, the Supreme Court laid down guidelines for:",
-        options: ["Recovering damages from protesters who destroy public property (apportioning liability).", "Making leaders of the protest personally liable.", "Banning all protests that cause damage.", "Both (a) and (b)."],
-        correctAnswerIndex: 3, // d) Both
-        explanation: "Liability of protesters and leaders."
+        question: "The \"Goa Civil Code\" is often cited as a model. However, it is a Portuguese legacy. Which specific feature of the Goa Code contradicts the modern understanding of a \"Uniform\" and \"Gender Just\" code?",
+        options: ["It allows for \"Polygamy\" for Hindu men under specific circumstances (if the wife fails to deliver a male child by age 30).", "It mandates compulsory registration of marriage.", "It provides for equal division of property between spouses.", "It bans Triple Talaq."],
+        correctAnswerIndex: 0, // a) Polygamy
+        explanation: "Allows polygamy for Hindus in specific circumstances."
     },
     {
-        question: "The Justice J.S. Verma Committee (1999) identified existing legal provisions for duties. Which of the following duties is NOT backed by a specific criminal statute in India?",
-        options: ["To respect the National Flag (Prevention of Insults to National Honour Act).", "To protect wildlife (Wildlife Protection Act).", "To develop scientific temper and spirit of inquiry.", "To renounce practices derogatory to the dignity of women (IPC/BNS)."],
-        correctAnswerIndex: 2, // c) Scientific temper
-        explanation: "No specific statute for Scientific Temper (apart from local superstition laws)."
+        question: "The \"Law Commission of India\" (22nd) solicited views on the UCC in 2023. Its predecessor (21st Law Commission) had observed that:",
+        options: ["A UCC is neither necessary nor desirable at this stage.", "A UCC is urgently required to promote national integration.", "A UCC should be implemented state-by-state.", "A UCC violates the Basic Structure."],
+        correctAnswerIndex: 0, // a) Neither necessary nor desirable
+        explanation: "Neither necessary nor desirable at this stage."
     },
     {
-        question: "Theme: Environment & Climate Duty (Art 51-A(g))\nThe \"Great Indian Bustard Case\" (2024) linked the Right to be free from adverse effects of climate change (Article 21) with the Fundamental Duty (Article 51-A(g)). This implies that:",
-        options: ["Citizens have a duty to not oppose renewable energy projects (like solar power lines).", "The State's duty to protect the environment (Article 48A) and Citizen's duty (51-A(g)) together create a \"Public Trust\" obligation on the government.", "The duty is only for citizens, not corporations.", "Article 51-A(g) overrides the right to development."],
-        correctAnswerIndex: 1, // b) Public Trust
-        explanation: "Creates Public Trust obligation."
-    },
-    {
-        question: "\"Carbon Footprint\" and Individual Duty: Can a court issue a writ of mandamus against a private citizen for failing to protect the environment (Article 51-A(g))?",
-        options: ["Yes, under the Polluter Pays Principle.", "No, writs are generally issued against the State; however, courts can enforce statutory duties (like waste management rules) against individuals.", "Yes, Fundamental Duties are directly enforceable.", "No, environmental protection is only the State's job."],
-        correctAnswerIndex: 1, // b) No writs against private individuals generally
-        explanation: "Writs usually against State, but statutory duties enforceable."
-    },
-    {
-        question: "Theme: Scientific Temper & Education (Art 51-A(h), (k))\nThe \"Anti-Superstition Laws\" (e.g., in Maharashtra, Karnataka) are statutory implementations of Article 51-A(h) (Scientific Temper). A challenge to these laws often cites:",
-        options: ["Article 25 (Right to Religion and rituals).", "Article 26 (Right of denominations to manage affairs).", "Article 29 (Right to conserve culture).", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "Challenges cite 25, 26, 29."
-    },
-    {
-        question: "The National Education Policy (NEP) 2020 emphasizes \"Constitutional Values\". This aligns with Article 51-A(k) (Education opportunity) and 51-A(a) (Respect ideals). Critics argue that the \"saffronization\" allegation conflicts with the duty to:",
-        options: ["Cherish and follow noble ideals of freedom struggle (Secularism).", "Develop scientific temper.", "Preserve composite culture.", "All of the above are grounds of debate."],
+        question: "The debate between \"Right to Work\" (MNREGA - Article 41) and \"Universal Basic Income\" (UBI) is ongoing. Economists argue that UBI fulfills the DPSP of \"Economic Justice\" (Article 38) better because:",
+        options: ["It reduces administrative leakage.", "It provides \"choice\" to the beneficiary (Liberty).", "It covers the \"unemployable\" (elderly, disabled) who cannot work under MNREGA.", "All of the above."],
         correctAnswerIndex: 3, // d) All
-        explanation: "All are debate grounds."
+        explanation: "All are arguments for UBI."
     },
     {
-        question: "Theme: Composite Culture & Heritage (Art 51-A(f))\nThe Archaeological Survey of India (ASI) excavations (e.g., Rakhigarhi, Gyanvapi) are often debated. The Fundamental Duty to \"value and preserve the rich heritage of our composite culture\" (51-A(f)):",
-        options: ["Mandates the restoration of all ancient temples.", "Supports the \"Places of Worship Act, 1991\" which freezes the status of religious places to preserve the \"composite\" character as it existed on Aug 15, 1947.", "Applies only to Vedic culture.", "Is irrelevant to legal disputes."],
-        correctAnswerIndex: 1, // b) Supports Places of Worship Act
-        explanation: "Supports Places of Worship Act and composite character."
+        question: "The Rajasthan Platform Based Gig Workers (Registration and Welfare) Act, 2023 is a pioneering law implementing Article 43 (Social Security). Gig workers (Swiggy/Zomato etc.) fall under the \"Unorganized Sector.\" Constitutional experts argue that denying them \"Employee\" status violates:",
+        options: ["Article 14 (Equality).", "Article 21 (Right to Livelihood).", "Article 23 (Forced Labor - if pay is below minimum wage).", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "Violates 14, 21, and possibly 23."
     },
     {
-        question: "\"Composite Culture\" was interpreted by the Supreme Court in the Ismail Faruqui case (Ayodhya, 1994) to mean:",
-        options: ["A culture where all religions have equal right to propagate.", "A synthesis of Sanskriti and Tehzeeb, reflecting the secular ethos.", "A culture dominated by the majority.", "A culture defined by the State."],
-        correctAnswerIndex: 1, // b) Synthesis
-        explanation: "Synthesis reflecting secular ethos."
+        question: "\"Equal Pay for Equal Work\" (Article 39(d)) was declared a constitutional goal by the Supreme Court. In the case of Contractual Employees vs Permanent Employees, the Court held that:",
+        options: ["The principle applies if the nature of duties and responsibilities are identical.", "It does not apply because contractual employees have a different contract.", "It is only a DPSP, hence unenforceable.", "Market forces determine wages, not the Constitution."],
+        correctAnswerIndex: 0, // a) Identical duties
+        explanation: "Applies if duties are identical."
     },
     {
-        question: "Theme: Sovereignty & Integrity (Art 51-A(c))\nThe \"Unlawful Activities (Prevention) Act\" (UAPA) primarily enforces the duty to \"uphold and protect the sovereignty, unity and integrity of India.\" A person can be designated a \"terrorist\" under UAPA if they:",
-        options: ["Advocate the secession of any part of India (violating 51-A(c)).", "Disrespect the National Flag (violating 51-A(a)).", "Fail to vote (violating civic duty).", "Criticize the government."],
-        correctAnswerIndex: 0, // a) Secession
-        explanation: "Advocating secession violates 51-A(c) and UAPA."
+        question: "The \"Right to be Free from Adverse Effects of Climate Change\" was recognized as a distinct Fundamental Right by the Supreme Court in 2024 (Great Indian Bustard Case). This right is derived from:",
+        options: ["Article 21 read with Article 48A and 51A(g).", "Article 14 only.", "Article 19(1)(g) only.", "The Paris Agreement."],
+        correctAnswerIndex: 0, // a) 21 + 48A + 51A
+        explanation: "Article 21 read with 48A and 51A(g)."
     },
     {
-        question: "\"Sedition\" (Section 124A IPC/BNS) vs Duty to Respect Institutions. The Law Commission (2023) recommended retaining Sedition to protect:",
-        options: ["The Government established by law.", "The Unity and Integrity of India (Article 51-A(c)).", "The Image of the Prime Minister.", "The Directive Principles."],
-        correctAnswerIndex: 1, // b) Unity and Integrity
-        explanation: "Unity and Integrity of India."
+        question: "The Forest (Conservation) Amendment Act, 2023 exempted certain strategic border areas from clearance. Critics argue this dilutes Article 48A. The government's defense relies on:",
+        options: ["Article 51 (Security of State/International relations).", "Article 19(2) (Reasonable restrictions for security).", "The \"Public Trust Doctrine\".", "The \"Polluter Pays Principle\"."],
+        correctAnswerIndex: 0, // a) Art 51/Security
+        explanation: "Security of State (implied in constitutional scheme, Art 51 context usually Intl Peace, but national security is primary defense)."
     },
     {
-        question: "Theme: Nationalism vs Constitutionalism (Art 51-A(a))\nIn the National Anthem Case (Bijoe Emmanuel), the Supreme Court held that expulsion of Jehovah's Witness children for not singing the anthem violated Article 19(1)(a) and 25. How did the Court interpret Article 51-A(a)?",
-        options: ["It held that the duty to \"respect\" the anthem does not compel one to \"sing\" it, provided they stand respectfully.", "It held that Article 51-A(a) makes singing mandatory for all citizens.", "It held that Article 51-A cannot override Article 25.", "Both (a) and (c)."],
-        correctAnswerIndex: 0, // a) Respect != Sing
-        explanation: "Respect means standing, not necessarily singing."
+        question: "\"Prohibition of Intoxicating Drinks\" (Article 47) is implemented by states like Bihar and Gujarat. The constitutional challenge to these \"Liquor Bans\" is usually based on:",
+        options: ["Article 19(1)(g) (Right to trade).", "Article 21 (Right to Choice/Privacy).", "Article 14 (Arbitrariness).", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "Challenges involve Trade, Privacy/Choice, Arbitrariness."
     },
     {
-        question: "The \"Cinema Hall Anthem Order\" (2016) by the Supreme Court (later modified) relied on Article 51-A(a). The modification in 2018 stated that:",
-        options: ["Playing the anthem is mandatory in all cinema halls.", "Playing the anthem is optional/directory, not mandatory.", "People need not stand up if they are eating.", "Foreigners must also stand."],
-        correctAnswerIndex: 1, // b) Optional/directory
-        explanation: "Made optional."
+        question: "The Supreme Court (2021) struck down part of the 97th Amendment (Cooperatives) because:",
+        options: ["\"Cooperative Societies\" is exclusively a State Subject (Entry 32, List II).", "The Amendment was not ratified by half of the states (Article 368(2)).", "It violated the Basic Structure of Federalism.", "All of the above (Specifically for multi-state cooperatives, it was upheld; for state cooperatives, it was struck down)."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "Struck down for state cooperatives due to lack of ratification/federalism."
     },
     {
-        question: "Theme: Women & Dignity (Art 51-A(e))\nThe \"Marital Rape Exception\" debate involves Article 51-A(e) (Renounce practices derogatory to dignity of women). Petitioners argue that:",
-        options: ["The exception is a \"practice\" that treats women as property, derogatory to their dignity.", "Fundamental Duties can be used to interpret Fundamental Rights (Article 21 - Dignity).", "The State has a duty to remove this exception.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All arguments used."
+        question: "Article 40 (Village Panchayats) was a \"Gandhian\" dream. However, the 73rd Amendment (1992) formalized it. The current debate on \"Simultaneous Elections\" suggests a \"Common Electoral Roll\" for Panchayat, Assembly, and Lok Sabha elections. This requires amending:",
+        options: ["Article 243K and Article 324.", "Article 40 only.", "The Representation of People Act only.", "No amendment is needed."],
+        correctAnswerIndex: 0, // a) 243K and 324
+        explanation: "Requires amending 243K (State EC) and 324 (Central EC)."
     },
     {
-        question: "\"Triple Talaq\" was struck down in Shayara Bano case (2017). Justice Kurian Joseph cited Article 51-A(e) to state that:",
-        options: ["Practices derogatory to women cannot be protected as \"Essential Religious Practices\" under Article 25.", "Personal laws are not subject to Fundamental Duties.", "Triple Talaq is good for social harmony.", "Parliament must legislate."],
-        correctAnswerIndex: 0, // a) Not ERP
-        explanation: "Practices derogatory to women cannot be ERP."
+        question: "The \"National Judicial Appointments Commission\" (NJAC) verdict relied heavily on the \"Independence of Judiciary\" as a Basic Feature. This concept is explicitly mentioned in:",
+        options: ["Article 50 (DPSP).", "Article 124 (Establishment of SC).", "Preamble.", "Fundamental Duties."],
+        correctAnswerIndex: 0, // a) Article 50
+        explanation: "Explicitly mentioned in Article 50."
     },
     {
-        question: "Assertion (A): The Fundamental Duties are not self-executory. Reason (R): A law is required for their enforcement; they cannot be enforced by writs directly against citizens.",
+        question: "The \"Executive Magistracy\" (DM/SDM) retaining powers to issue Section 144 orders (CrPC/BNSS) is often criticized as a violation of Article 50 (Separation of Judiciary from Executive). The counter-argument is that:",
+        options: ["These are \"preventive\" administrative powers, not \"judicial\" powers.", "Article 50 applies only to criminal trials.", "The DM acts as a court under Article 226.", "Article 50 is not justiciable."],
+        correctAnswerIndex: 0, // a) Preventive
+        explanation: "Considered preventive administrative powers."
+    },
+    {
+        question: "India's \"Nuclear Doctrine\" (No First Use) and refusal to sign the NPT (Non-Proliferation Treaty) are guided by:",
+        options: ["Article 51 (Promote international peace and security).", "Article 1 (Sovereignty).", "Strategic Autonomy (Non-Alignment).", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "Guided by Art 51, Sovereignty, and Strategic Autonomy."
+    },
+    {
+        question: "The Citizenship Amendment Act (CAA) debate involved Article 51(c) (\"Foster respect for international law\"). Critics argued CAA violates the Refugee Convention. The Government's stand:",
+        options: ["India is not a signatory to the Refugee Convention, so no violation.", "Article 51 is non-justiciable.", "CAA is a domestic law for citizenship, not a refugee law.", "All of the above."],
+        correctAnswerIndex: 3, // d) All
+        explanation: "All are part of the government's stand."
+    },
+    {
+        question: "Assertion (A): Directives addressed to the State are not enforceable by courts. Reason (R): If the State fails to implement them, the remedy lies in the \"Court of the People\" (Elections), not the Court of Law.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
         explanation: "Correct explanation."
     },
     {
-        question: "Assertion (A): Fundamental Duties help in determining the constitutionality of a law. Reason (R): If a law promotes a Fundamental Duty, it is considered \"reasonable\" under Article 14 or 19.",
+        question: "Assertion (A): The Supreme Court has elevated many DPSPs to the status of Fundamental Rights. Reason (R): By reading Article 21 (Right to Life) broadly, the Court has included rights like Health, Environment, and Livelihood (originally DPSPs) into it.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
         explanation: "Correct explanation."
     },
     {
-        question: "Theme: Miscellaneous\nWhich of the following committees was specifically set up to \"operationalize\" Fundamental Duties?",
-        options: ["Swaran Singh Committee (1976).", "Verma Committee (1999).", "Venkatachalam Commission (2002).", "Punchhi Commission (2007)."],
-        correctAnswerIndex: 1, // b) Verma Committee
-        explanation: "Verma Committee."
+        question: "The \"Harmonious Construction\" rule used in Kerala Education Bill case (1957) regarding DPSP means:",
+        options: ["FRs and DPSP should be interpreted in a way that they support each other.", "FRs always override DPSP.", "DPSP always override FRs.", "Courts should ignore conflict."],
+        correctAnswerIndex: 0, // a) Support each other
+        explanation: "Interpret to support each other."
     },
     {
-        question: "The \"Right to Education Act, 2009\" imposes a duty on parents to send children to school. This statutory duty mirrors the Constitutional Duty under:",
-        options: ["Article 51-A(k).", "Article 21-A.", "Article 45.", "Article 46."],
-        correctAnswerIndex: 0, // a) 51-A(k)
-        explanation: "Article 51-A(k)."
+        question: "Article 31C is a \"super-constitutional\" provision because:",
+        options: ["It validates laws even if they violate the \"Golden Triangle\" (14, 19).", "It allows the Parliament to amend the Basic Structure.", "It cannot be amended.", "It applies to all DPSPs."],
+        correctAnswerIndex: 0, // a) Validates laws
+        explanation: "Validates laws against 14 and 19."
     },
     {
-        question: "\"Tax Evasion\" is often linked to the lack of a Fundamental Duty to pay taxes. The Swaran Singh Committee recommended it, but it was rejected because:",
-        options: ["It was considered too harsh.", "Most Indians were too poor to pay taxes.", "Sufficient laws (Income Tax Act) already existed.", "It would violate Article 19(1)(g)."],
-        correctAnswerIndex: 2, // c) Sufficient laws
-        explanation: "Sufficient laws existed (fear of harassment was also a reason, but C is the standard answer)."
+        question: "The \"Cow Slaughter Ban\" (Article 48) was upheld by the Supreme Court in Hanif Qureshi case (1958) as a reasonable restriction on:",
+        options: ["Article 19(1)(g) (Butchers' right to trade).", "Article 25 (Muslims' right to sacrifice - held sacrifice of cow is not essential).", "Both (a) and (b).", "Neither."],
+        correctAnswerIndex: 2, // c) Both
+        explanation: "Upheld against both 19(1)(g) and 25."
     },
     {
-        question: "In the Hinsa Virodhak Sangh vs Mirzapur Moti Kuresh Jamat (2008) case regarding closure of slaughterhouses during Jain festivals, the Supreme Court relied on:",
-        options: ["Article 51-A(g) (Compassion for living creatures).", "Article 19(1)(g) (Right to trade).", "Article 25 (Religious freedom).", "Article 48 (Cow slaughter)."],
-        correctAnswerIndex: 0, // a) 51-A(g)
-        explanation: "Relied on 51-A(g)."
+        question: "Which DPSP was added by the 97th Amendment Act, 2011?",
+        options: ["Promotion of Co-operative Societies (43B).", "Free Legal Aid (39A).", "Protection of Environment (48A).", "Participation of workers (43A)."],
+        correctAnswerIndex: 0, // a) 43B
+        explanation: "Article 43B (Co-operative Societies)."
     },
     {
-        question: "The \"Flag Code of India\" was amended in 2002 to allow citizens to hoist the flag on all days. This right was recognized as part of:",
-        options: ["Article 19(1)(a) (Freedom of Expression) read with Article 51-A(a) (Duty to respect).", "Article 21.", "Article 14.", "Statutory right only."],
-        correctAnswerIndex: 0, // a) 19(1)(a)
-        explanation: "19(1)(a) read with 51-A(a)."
+        question: "The \"Mid-Day Meal Scheme\" (now PM-POSHAN) primarily implements which DPSP?",
+        options: ["Article 47 (Raising level of nutrition).", "Article 45 (Education).", "Article 41 (Public Assistance).", "Article 39(f) (Child development)."],
+        correctAnswerIndex: 0, // a) Article 47
+        explanation: "Article 47."
     },
     {
-        question: "The \"Pledge\" recited in schools (\"India is my country...\") reflects which Fundamental Duties?",
-        options: ["51-A(a) (Constitution), (c) (Sovereignty), (e) (Brotherhood).", "51-A(k) (Education).", "51-A(g) (Environment).", "All of the above."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Reflects brotherhood, sovereignty, etc."
+        question: "The \"Archaeological Survey of India\" (ASI) functions to fulfill the mandate of:",
+        options: ["Article 49 (Protection of monuments).", "Article 48A (Environment).", "Article 51A(f) (Heritage duty).", "Article 29 (Culture)."],
+        correctAnswerIndex: 0, // a) Article 49
+        explanation: "Article 49."
     },
     {
-        question: "\"Animal Welfare Board of India\" is a statutory body. Its functioning is guided by:",
-        options: ["Article 51-A(g).", "Article 48.", "Article 48A.", "All of the above."],
+        question: "\"Equal Justice and Free Legal Aid\" (Article 39A) is the basis for:",
+        options: ["Lok Adalats.", "NALSA (National Legal Services Authority).", "Public Interest Litigation (PIL).", "All of the above."],
         correctAnswerIndex: 3, // d) All
-        explanation: "Guided by all."
+        explanation: "All (Lok Adalats, NALSA, PIL)."
     },
     {
-        question: "The duty to \"defend the country\" (Article 51-A(d)) implies:",
-        options: ["Conscription (Compulsory military service) is constitutional if Parliament enacts a law.", "Every citizen is automatically a soldier.", "Citizens can keep private armies.", "Citizens must pay a defense tax."],
-        correctAnswerIndex: 0, // a) Conscription is constitutional
-        explanation: "Conscription is constitutional."
+        question: "The \"Maternity Benefit (Amendment) Act, 2017\" increasing leave to 26 weeks is a direct implementation of:",
+        options: ["Article 42.", "Article 41.", "Article 43.", "Article 39."],
+        correctAnswerIndex: 0, // a) Article 42
+        explanation: "Article 42."
     },
     {
-        question: "Which Fundamental Duty is unique in that it was added much later than the others?",
-        options: ["51-A(a)", "51-A(k)", "51-A(g)", "51-A(e)"],
-        correctAnswerIndex: 1, // b) 51-A(k)
-        explanation: "51-A(k) added in 2002."
+        question: "Which of the following is NOT a Socialist Principle?",
+        options: ["Prevention of concentration of wealth (39c).", "Right to work (41).", "Organization of Village Panchayats (40).", "Equal pay for equal work (39d)."],
+        correctAnswerIndex: 2, // c) Village Panchayats
+        explanation: "Panchayats (Art 40) is Gandhian."
     },
     {
-        question: "The concept of \"Constitutional Morality\" emphasized by the Supreme Court includes adherence to:",
-        options: ["Fundamental Rights only.", "Fundamental Duties only.", "The core values of the Constitution including Rights, Duties, and Preamble.", "Social morality."],
-        correctAnswerIndex: 2, // c) Core values
-        explanation: "Core values including Rights and Duties."
+        question: "\"Participation of workers in management of industries\" (Article 43A) is:",
+        options: ["Mandatory for all private companies.", "A goal to be achieved by legislation (e.g., Factories Act).", "A Fundamental Right of trade unions.", "Applicable only to PSUs."],
+        correctAnswerIndex: 1, // b) Goal
+        explanation: "Goal achieved by legislation."
     },
     {
-        question: "Can a foreigner be punished for disrespecting the Indian National Flag in India?",
-        options: ["Yes, under the Prevention of Insults to National Honour Act (which applies to \"whoever\" within India).", "No, Fundamental Duties apply only to citizens.", "No, they have diplomatic immunity.", "Yes, but only deported."],
-        correctAnswerIndex: 0, // a) Yes
-        explanation: "Act applies to 'whoever' within India."
+        question: "The \"Prevention of Atrocities (SC/ST) Act, 1989\" fulfills the mandate of:",
+        options: ["Article 46 (Promote economic interests and protect from social injustice).", "Article 17 (Untouchability).", "Both (a) and (b).", "Article 38 (Social Order)."],
+        correctAnswerIndex: 2, // c) Both
+        explanation: "Fulfills Art 46 and Art 17."
     },
     {
-        question: "The \"Scientific Temper\" duty (51-A(h)) is often cited against:",
-        options: ["Astrology courses in universities.", "Witch-hunting.", "Magic remedies advertisements.", "All of the above."],
+        question: "\"Living Wage\" (Article 43) vs \"Minimum Wage\". The Supreme Court has held that:",
+        options: ["Minimum wage is a fundamental right (Article 23 - forced labor if paid less).", "Living wage is the ideal goal (DPSP).", "Fair wage lies between minimum and living wage.", "All of the above."],
         correctAnswerIndex: 3, // d) All
-        explanation: "Cited against all."
+        explanation: "All statements intersect correctly (Reptakos Brett case)."
     },
     {
-        question: "In the Ranganath Mishra case, the Supreme Court directed the Centre to:",
-        options: ["Enact a comprehensive law for duties.", "Implement the Verma Committee recommendations to spread awareness.", "Make voting mandatory.", "Amend the Constitution to add more duties."],
-        correctAnswerIndex: 1, // b) Implement Verma Committee
-        explanation: "Implement Verma Committee recommendations."
+        question: "The \"Old Age Pension\" schemes (like Atal Pension Yojana) implement:",
+        options: ["Article 41 (Public assistance in old age).", "Article 42 (Humane conditions).", "Article 43 (Living wage).", "Article 47 (Standard of living)."],
+        correctAnswerIndex: 0, // a) Article 41
+        explanation: "Article 41."
     }
 ];
 

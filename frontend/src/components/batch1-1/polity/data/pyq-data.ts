@@ -104,7 +104,7 @@ export const PYQ_DATA: PYQItem[] = [
         ],
         answer: 'A',
         explanation: 'The Lok Sabha has the exclusive power to accept or reject any or all recommendations made by the Rajya Sabha regarding a Money Bill. Joint sitting is NOT available for Money Bills.',
-        topicIds: [23, 13], // Parliament, Federal System
+        topicIds: [23, 14], // Parliament, Federal System
         tags: ['Conceptual'],
         difficulty: 'Medium'
     },

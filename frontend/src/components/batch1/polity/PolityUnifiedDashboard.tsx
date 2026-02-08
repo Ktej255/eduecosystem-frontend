@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
-    Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2, Clock,
-    Target, Filter, LayoutGrid, List, Sparkles, BarChart2, StickyNote, PlayCircle, Flame
+    Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2,
+    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -127,7 +127,7 @@ export default function PolityUnifiedDashboard() {
                         95 Topics • 11 Parts • Comprehensive Coverage
                     </p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap justify-end">
                     <Button variant="outline" size="sm" onClick={expandAll}>Expand All</Button>
                     <Button variant="outline" size="sm" onClick={collapseAll}>Collapse All</Button>
                     <Button
@@ -136,6 +136,27 @@ export default function PolityUnifiedDashboard() {
                         className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold border-2 border-slate-900"
                     >
                         <Sparkles className="w-4 h-4 mr-2" /> Revision Suite
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={() => router.push('/student/batch1-1/polity/ai-tutor')}
+                        className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold border-2 border-cyan-800 ml-2 shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+                    >
+                        <Bot className="w-4 h-4 mr-2" /> Ask Dr. Ambedkar
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={() => router.push('/student/batch1-1/polity/verdict-visualizer')}
+                        className="bg-slate-800 hover:bg-slate-700 text-amber-500 font-bold border-2 border-amber-500/50 ml-2"
+                    >
+                        <Scale className="w-4 h-4 mr-2" /> 3D Verdicts
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={() => router.push('/student/batch1-1/polity/preamble-prism')}
+                        className="bg-slate-900 hover:bg-slate-800 text-purple-400 font-bold border-2 border-purple-500/50 ml-2 shadow-[0_0_10px_rgba(168,85,247,0.2)]"
+                    >
+                        <Rainbow className="w-4 h-4 mr-2" /> Preamble Prism
                     </Button>
                 </div>
             </div>

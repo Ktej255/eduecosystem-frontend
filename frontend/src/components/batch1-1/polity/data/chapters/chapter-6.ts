@@ -3,582 +3,582 @@ import { ChapterLevelData } from "../level-types";
 // Level 1: The Text-Book Stickler (Strictly Chapter 6)
 const LEVEL_1_QUESTIONS = [
     {
-        question: "The Constitution of India provides for:",
-        options: ["Dual citizenship (National and State)", "Single citizenship", "Triple citizenship (National, State, Local)", "Multiple citizenship"],
-        correctAnswerIndex: 1, // b) Single citizenship
-        explanation: "India provides for single citizenship."
+        question: "Article 1 of the Constitution describes India, that is Bharat, as a:",
+        options: ["Federation of States", "Union of States", "Confederation of States", "United States of India"],
+        correctAnswerIndex: 1, // b) Union of States
+        explanation: "Article 1 describes India as a 'Union of States'."
     },
     {
-        question: "In India, citizens enjoy certain rights and privileges that are not available to aliens. Which of the following is NOT one of them?",
-        options: ["Right against discrimination on grounds of religion, race, caste, sex or place of birth (Article 15).", "Right to equality of opportunity in the matter of public employment (Article 16).", "Right to life and personal liberty (Article 21).", "Right to vote in elections to the Lok Sabha and State Legislative Assembly."],
-        correctAnswerIndex: 2, // c) Right to life and personal liberty (Article 21)
-        explanation: "Article 21 (Right to life) is available to both citizens and aliens. The others are exclusive to citizens."
+        question: "According to Dr. B.R. Ambedkar, the phrase \"Union of States\" has been preferred to \"Federation of States\" for two reasons. One is that the Indian Federation is not the result of an agreement among the states. What is the second reason?",
+        options: ["The states have no right to secede from the federation.", "The states are administratively dependent on the Centre.", "The Centre can alter the boundaries of the states.", "The Judiciary is integrated."],
+        correctAnswerIndex: 0, // a) The states have no right to secede
+        explanation: "The second reason is that the states have no right to secede from the federation."
     },
     {
-        question: "Which of the following offices in India can be held only by citizens?",
-        options: ["President of India", "Vice-President of India", "Judges of Supreme Court and High Courts", "All of the above"],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "All these high offices are restricted to citizens."
+        question: "According to Article 1, the \"Territory of India\" can be classified into three categories. Which of the following is NOT one of them?",
+        options: ["Territories of the States", "Union Territories", "Territories that may be acquired by the Government of India at any time", "Territories of the Autonomous District Councils"],
+        correctAnswerIndex: 3, // d) Territories of the ADCs
+        explanation: "The three categories are States, UTs, and Acquired Territories."
     },
     {
-        question: "In India, the office of the President is open to:",
-        options: ["Only a citizen by birth.", "Only a citizen by naturalization.", "Both a citizen by birth as well as a naturalized citizen.", "Anyone who has resided in India for 10 years."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Open to both birth and naturalized citizens."
+        question: "The names of states and union territories and their territorial extent are mentioned in the:",
+        options: ["First Schedule", "Second Schedule", "Third Schedule", "Fourth Schedule"],
+        correctAnswerIndex: 0, // a) First Schedule
+        explanation: "First Schedule lists the names and extent of States and UTs."
     },
     {
-        question: "In the USA, the office of the President is open to:",
-        options: ["Only a citizen by birth.", "Only a citizen by naturalization.", "Both a citizen by birth and naturalization.", "Anyone holding a Green Card."],
-        correctAnswerIndex: 0, // a) Only a citizen by birth
-        explanation: "In USA, only a citizen by birth can qualify."
+        question: "Which Article empowers the Parliament to 'admit into the Union of India, or establish, new states on such terms and conditions as it thinks fit'?",
+        options: ["Article 1", "Article 2", "Article 3", "Article 4"],
+        correctAnswerIndex: 1, // b) Article 2
+        explanation: "Article 2 relates to admission/establishment of new states."
     },
     {
-        question: "The Constitution deals with citizenship in:",
-        options: ["Part I, Articles 1-4", "Part II, Articles 5-11", "Part III, Articles 12-35", "Part IV, Articles 36-51"],
-        correctAnswerIndex: 1, // b) Part II, 5-11
-        explanation: "Part II, Articles 5-11."
+        question: "Article 2 relates to the admission or establishment of new states that are:",
+        options: ["Already part of the Union of India.", "Not already part of the Union of India.", "Formed by dividing existing states.", "Formed by uniting two or more states."],
+        correctAnswerIndex: 1, // b) Not already part of the Union
+        explanation: "Article 2 deals with external adjustment (new states not part of Union)."
     },
     {
-        question: "The Constitution identifies the persons who became citizens of India at its commencement on:",
-        options: ["August 15, 1947", "November 26, 1949", "January 26, 1950", "January 1, 1950"],
-        correctAnswerIndex: 2, // c) Jan 26, 1950
-        explanation: "Commencement date: Jan 26, 1950."
+        question: "Article 3 authorizes the Parliament to do all of the following EXCEPT:",
+        options: ["Form a new state by separation of territory from any state.", "Increase the area of any state.", "Alter the name of any state.", "Cede a part of Indian territory to a foreign state."],
+        correctAnswerIndex: 3, // d) Cede a part of Indian territory
+        explanation: "Article 3 does not cover cession of territory to a foreign state (Berubari case)."
     },
     {
-        question: "Does the Constitution contain any permanent or elaborate provision regarding the acquisition or loss of citizenship?",
-        options: ["Yes, it details all methods.", "No, it only identifies citizens at commencement and leaves the rest to Parliament.", "Yes, but only for loss of citizenship.", "No, it leaves everything to the Supreme Court."],
+        question: "Article 3 lays down two conditions for the formation/alteration of states. One is that such a bill can be introduced in the Parliament only with the prior recommendation of the:",
+        options: ["Prime Minister", "President", "Speaker of Lok Sabha", "Concerned State Legislature"],
+        correctAnswerIndex: 1, // b) President
+        explanation: "Prior recommendation of the President is required."
+    },
+    {
+        question: "The second condition under Article 3 is that before recommending the bill, the President has to refer the same to the:",
+        options: ["Supreme Court for advice.", "State Legislature concerned for expressing its views within a specified period.", "Rajya Sabha for approval.", "Governor of the state."],
+        correctAnswerIndex: 1, // b) State Legislature concerned
+        explanation: "Must be referred to the State Legislature for its views."
+    },
+    {
+        question: "Is the Parliament bound by the views of the State Legislature regarding the alteration of its boundaries/name?",
+        options: ["Yes, absolutely.", "Yes, if the state passes a unanimous resolution.", "No, the Parliament can either accept or reject them.", "Yes, but only for changing the name, not boundaries."],
+        correctAnswerIndex: 2, // c) No
+        explanation: "Parliament is not bound by the views of the State Legislature."
+    },
+    {
+        question: "In the case of a Union Territory, is it necessary to refer the bill to its legislature (if it has one) for views?",
+        options: ["Yes, mandatory.", "No, no reference need be made to the concerned legislature.", "Yes, but only for Delhi and Puducherry.", "Depends on the discretion of the Lieutenant Governor."],
         correctAnswerIndex: 1, // b) No
-        explanation: "It only identifies citizens at commencement; Parliament regulates the rest."
+        explanation: "No reference needs to be made to the concerned legislature of a UT."
     },
     {
-        question: "Which Article empowers the Parliament to enact a law to provide for such matters and any other matter relating to citizenship?",
-        options: ["Article 9", "Article 10", "Article 11", "Article 8"],
-        correctAnswerIndex: 2, // c) Article 11
-        explanation: "Article 11 empowers Parliament."
+        question: "Article 4 declares that laws made for admission or establishment of new states (under Article 2) and formation of new states (under Article 3) are:",
+        options: ["To be considered as amendments of the Constitution under Article 368.", "Not to be considered as amendments of the Constitution under Article 368.", "To be passed by a special majority of the Parliament.", "To be ratified by half of the state legislatures."],
+        correctAnswerIndex: 1, // b) Not to be considered as amendments
+        explanation: "Article 4 states they are not amendments under Article 368."
     },
     {
-        question: "According to Article 5, a person who had his domicile in India and fulfilled one of three conditions became a citizen. Which is NOT one of those conditions?",
-        options: ["He was born in India.", "Either of his parents was born in India.", "He has been ordinarily resident in India for five years immediately before the commencement of the Constitution.", "He owns property in India."],
-        correctAnswerIndex: 3, // d) Owns property
-        explanation: "Property ownership is not a condition in Article 5."
+        question: "Therefore, such laws (under Art 2 and 3) can be passed by the Parliament by a:",
+        options: ["Simple Majority", "Special Majority", "Absolute Majority", "Effective Majority"],
+        correctAnswerIndex: 0, // a) Simple Majority
+        explanation: "Passed by a Simple Majority."
     },
     {
-        question: "Article 6 deals with the citizenship rights of persons who:",
-        options: ["Migrated to India from Pakistan.", "Migrated from India to Pakistan.", "Are persons of Indian origin residing outside India.", "Voluntarily acquired citizenship of a foreign state."],
-        correctAnswerIndex: 0, // a) Pakistan to India
-        explanation: "Migrants from Pakistan to India."
+        question: "Does the power of Parliament to diminish the area of a state (under Article 3) include the power to cede Indian territory to a foreign country?",
+        options: ["Yes, as per the Berubari Union case (1960).", "No, as per the Supreme Court's opinion in the Berubari Union case (1960).", "Yes, but only with the consent of the state concerned.", "Yes, by a simple executive order."],
+        correctAnswerIndex: 1, // b) No
+        explanation: "SC held in Berubari that Article 3 does not cover cession."
     },
     {
-        question: "For persons migrating from Pakistan to India, the cut-off date for acquiring citizenship without registration was:",
-        options: ["August 15, 1947", "July 19, 1948", "January 26, 1950", "November 26, 1949"],
-        correctAnswerIndex: 1, // b) July 19, 1948
-        explanation: "July 19, 1948."
+        question: "The cession of Indian territory to a foreign state requires:",
+        options: ["A simple law under Article 3.", "An executive order.", "A Constitutional Amendment under Article 368.", "A referendum."],
+        correctAnswerIndex: 2, // c) Constitutional Amendment
+        explanation: "Requires a Constitutional Amendment under Article 368."
     },
     {
-        question: "Article 7 deals with the citizenship rights of persons who:",
-        options: ["Migrated to Pakistan from India after March 1, 1947, but later returned to India for resettlement.", "Migrated to India from Pakistan.", "Reside outside India.", "Are foreigners."],
-        correctAnswerIndex: 0, // a) India to Pakistan and returned
-        explanation: "Migrants to Pakistan who returned."
+        question: "At the time of independence, India comprised two categories of political units: the British Provinces and the:",
+        options: ["Commissioner's Provinces", "Princely States", "Presidencies", "Zamindaris"],
+        correctAnswerIndex: 1, // b) Princely States
+        explanation: "British Provinces and Princely States."
     },
     {
-        question: "Article 8 deals with the citizenship rights of persons of:",
-        options: ["Indian origin residing outside India.", "Pakistani origin residing in India.", "Foreign diplomats in India.", "Refugees from Tibet."],
-        correctAnswerIndex: 0, // a) PIO outside India
-        explanation: "Persons of Indian origin residing outside India."
+        question: "Out of 552 princely states situated within the geographical boundaries of India, 549 joined India. Which 3 initially refused to join?",
+        options: ["Hyderabad, Junagarh, and Kashmir", "Hyderabad, Mysore, and Bhopal", "Kashmir, Travancore, and Jodhpur", "Junagarh, Bhopal, and Indore"],
+        correctAnswerIndex: 0, // a) Hyderabad, Junagarh, Kashmir
+        explanation: "Hyderabad, Junagarh, and Kashmir initially refused."
     },
     {
-        question: "Article 9 provides that a person shall not be a citizen of India if he has:",
-        options: ["Voluntarily acquired the citizenship of any foreign state.", "Married a foreigner.", "Traveled abroad for more than 7 years.", "Been convicted of a crime."],
-        correctAnswerIndex: 0, // a) Voluntarily acquired foreign citizenship
-        explanation: "Voluntary acquisition of foreign citizenship terminates Indian citizenship."
+        question: "Hyderabad was integrated into India by means of:",
+        options: ["Referendum", "Police Action", "Instrument of Accession", "Diplomatic Negotiation"],
+        correctAnswerIndex: 1, // b) Police Action
+        explanation: "Integrated by Police Action (Operation Polo)."
     },
     {
-        question: "The Citizenship Act, 1955, originally provided for the acquisition of citizenship by how many ways?",
-        options: ["Three", "Four", "Five", "Six"],
-        correctAnswerIndex: 2, // c) Five
-        explanation: "Five ways: Birth, Descent, Registration, Naturalization, Incorporation of Territory."
+        question: "Junagarh was integrated into India by means of:",
+        options: ["Referendum", "Police Action", "Instrument of Accession", "Purchase"],
+        correctAnswerIndex: 0, // a) Referendum
+        explanation: "Integrated by Referendum."
     },
     {
-        question: "Which of the following is NOT a mode of acquiring citizenship under the Act of 1955?",
-        options: ["Birth", "Descent", "Registration", "Nationalization (of banks)"],
-        correctAnswerIndex: 3, // d) Nationalization
-        explanation: "Nationalization is not a mode (Naturalization is)."
+        question: "In 1950, the Constitution contained a four-fold classification of states (Part A, B, C, and D). Part A states comprised:",
+        options: ["Princely states with legislatures.", "Nine erstwhile Governor’s provinces of British India.", "Chief Commissioner's provinces.", "Andaman and Nicobar Islands."],
+        correctAnswerIndex: 1, // b) Nine erstwhile Governor’s provinces
+        explanation: "Part A consisted of the former British Governor's provinces."
     },
     {
-        question: "By Birth: A person born in India on or after January 26, 1950, but before July 1, 1987, is a citizen of India irrespective of:",
-        options: ["The nationality of his parents.", "The place of birth of his parents.", "The religion of his parents.", "All of the above."],
-        correctAnswerIndex: 3, // d) All of the above
-        explanation: "Jus Soli in specific period was irrespective of parents' status."
+        question: "Who was the Chairman of the Linguistic Provinces Commission appointed in June 1948?",
+        options: ["Jawaharlal Nehru", "S.K. Dhar", "Fazl Ali", "Vallabhbhai Patel"],
+        correctAnswerIndex: 1, // b) S.K. Dhar
+        explanation: "S.K. Dhar was the Chairman."
     },
     {
-        question: "For those born on or after July 1, 1987, one of the parents must be:",
-        options: ["A citizen of India at the time of his birth.", "Resident in India for 7 years.", "Born in India.", "A government servant."],
-        correctAnswerIndex: 0, // a) Citizen of India
-        explanation: "One parent must be a citizen."
+        question: "The Dhar Commission recommended the reorganization of states on the basis of:",
+        options: ["Linguistic factor", "Administrative convenience", "Religious factor", "Cultural homogeneity"],
+        correctAnswerIndex: 1, // b) Administrative convenience
+        explanation: "Recommended 'Administrative convenience' over linguistic factor."
     },
     {
-        question: "For those born on or after December 3, 2004, they are citizens only if both parents are citizens or one is a citizen and the other is:",
-        options: ["A holder of OCI card.", "Not an illegal migrant at the time of his birth.", "A permanent resident.", "A PIO cardholder."],
-        correctAnswerIndex: 1, // b) Not an illegal migrant
-        explanation: "One citizen and other not illegal migrant."
+        question: "The JVP Committee (1948) consisted of Jawaharlal Nehru, Vallabhbhai Patel, and:",
+        options: ["Pattabhi Sitaramayya", "P. Sriramulu", "K.M. Munshi", "H.N. Kunzru"],
+        correctAnswerIndex: 0, // a) Pattabhi Sitaramayya
+        explanation: "JVP = Jawaharlal, Vallabhbhai, Pattabhi."
     },
     {
-        question: "By Registration: A person of Indian origin who is ordinarily resident in India for ______ years before making an application for registration.",
-        options: ["Five", "Seven", "Ten", "Twelve"],
-        correctAnswerIndex: 1, // b) Seven
-        explanation: "Seven years."
+        question: "The JVP Committee formally ______ language as the basis for reorganization of states.",
+        options: ["Accepted", "Rejected", "Deferred", "Partially accepted"],
+        correctAnswerIndex: 1, // b) Rejected
+        explanation: "It formally rejected language as the basis."
     },
     {
-        question: "By Naturalization: The applicant must fulfill certain qualifications, including adequate knowledge of a language specified in the:",
-        options: ["First Schedule", "Eighth Schedule", "Preamble", "Second Schedule"],
-        correctAnswerIndex: 1, // b) Eighth Schedule
-        explanation: "Eighth Schedule."
+        question: "The first linguistic state, Andhra State, was created in 1953 by separating the Telugu-speaking areas from the:",
+        options: ["Bombay State", "Madras State", "Hyderabad State", "Mysore State"],
+        correctAnswerIndex: 1, // b) Madras State
+        explanation: "Separated from Madras State."
     },
     {
-        question: "By Incorporation of Territory: If any foreign territory becomes a part of India, the Government of India specifies the persons who shall be citizens. Which Order was issued for Goa, Daman and Diu?",
-        options: ["Citizenship (Goa, Daman and Diu) Order, 1955", "Citizenship (Goa, Daman and Diu) Order, 1962", "Citizenship (Puducherry) Order, 1962", "Citizenship Amendment Act, 1986"],
-        correctAnswerIndex: 1, // b) 1962
-        explanation: "Order of 1962."
+        question: "The creation of Andhra State followed the death of which Congress person after a 56-day hunger strike?",
+        options: ["T. Prakasam", "Potti Sriramulu", "K. Kamaraj", "C. Rajagopalachari"],
+        correctAnswerIndex: 1, // b) Potti Sriramulu
+        explanation: "Potti Sriramulu."
     },
     {
-        question: "Assam Accord: The Citizenship Act was amended in 1985 to add Section 6A following the Assam Accord. It deals with citizenship of persons coming to Assam from:",
-        options: ["Pakistan", "Bangladesh", "Nepal", "Myanmar"],
-        correctAnswerIndex: 1, // b) Bangladesh
-        explanation: "Persons from Bangladesh (East Pakistan)."
+        question: "The States Reorganization Commission (Fazl Ali Commission) appointed in 1953 consisted of Fazl Ali, K.M. Panikkar, and:",
+        options: ["H.N. Kunzru", "V.P. Menon", "M.C. Chagla", "S.K. Dhar"],
+        correctAnswerIndex: 0, // a) H.N. Kunzru
+        explanation: "Members were Fazl Ali, K.M. Panikkar, and H.N. Kunzru."
     },
     {
-        question: "The Citizenship Act, 1955, prescribes three ways of losing citizenship. Which is NOT one of them?",
-        options: ["Renunciation", "Termination", "Deprivation", "Dismissal"],
-        correctAnswerIndex: 3, // d) Dismissal
-        explanation: "Dismissal is not a term used."
+        question: "The Fazl Ali Commission accepted language as the basis of reorganization of states but rejected the theory of:",
+        options: ["One language, one state", "Administrative convenience", "Cultural unity", "Financial viability"],
+        correctAnswerIndex: 0, // a) "One language, one state"
+        explanation: "Rejected 'One language, one state' theory."
     },
     {
-        question: "Renunciation: If a person makes a declaration renouncing his Indian citizenship, every minor child of that person also loses Indian citizenship. Can the child resume citizenship later?",
-        options: ["No, never.", "Yes, after attaining the age of 18.", "Yes, immediately upon application.", "Yes, if the parents re-acquire it."],
-        correctAnswerIndex: 1, // b) After 18
-        explanation: "Within one year of attaining full age."
+        question: "By the States Reorganization Act (1956) and the 7th Constitutional Amendment Act (1956), the four-fold classification of states was abolished. How many States and UTs were created on November 1, 1956?",
+        options: ["14 States and 6 UTs", "16 States and 3 UTs", "12 States and 8 UTs", "29 States and 7 UTs"],
+        correctAnswerIndex: 0, // a) 14 States and 6 UTs
+        explanation: "14 States and 6 UTs were created."
     },
     {
-        question: "Termination: When an Indian citizen voluntarily acquires the citizenship of another country, his Indian citizenship automatically terminates. This provision does not apply during:",
-        options: ["Elections", "A war in which India is engaged.", "Financial Emergency.", "President's Rule."],
-        correctAnswerIndex: 1, // b) War
-        explanation: "Does not apply during war."
+        question: "In 1960, the bilingual state of Bombay was divided into two separate states:",
+        options: ["Maharashtra and Karnataka", "Maharashtra and Gujarat", "Gujarat and Rajasthan", "Bombay and Vidarbha"],
+        correctAnswerIndex: 1, // b) Maharashtra and Gujarat
+        explanation: "Bombay divided into Maharashtra (Marathi) and Gujarat (Gujarati)."
     },
     {
-        question: "Deprivation: The Central Government can compulsorily terminate citizenship if it was obtained by fraud or if the citizen has shown disloyalty to the Constitution. Another ground is if the citizen has been ordinarily resident out of India for ______ years continuously.",
-        options: ["Five", "Seven", "Ten", "Twelve"],
-        correctAnswerIndex: 1, // b) Seven
-        explanation: "Seven years continuously."
+        question: "Nagaland was formed in 1963 by taking the Naga Hills and Tuensang area out of the state of:",
+        options: ["Assam", "Manipur", "Arunachal Pradesh", "West Bengal"],
+        correctAnswerIndex: 0, // a) Assam
+        explanation: "Carved out of Assam."
     },
     {
-        question: "Though the Indian Constitution is federal, it provides for only a single citizenship. This concept is borrowed from:",
-        options: ["USA", "Canada", "Britain (UK)", "Australia"],
-        correctAnswerIndex: 2, // c) Britain
-        explanation: "Borrowed from Britain."
+        question: "Haryana, Chandigarh, and Himachal Pradesh were carved out of which state in 1966?",
+        options: ["Patiala and East Punjab States Union (PEPSU)", "Punjab", "Uttar Pradesh", "Jammu & Kashmir"],
+        correctAnswerIndex: 1, // b) Punjab
+        explanation: "Carved out of Punjab."
     },
     {
-        question: "In India, all citizens irrespective of the state in which they are born or reside enjoy the same political and civil rights of citizenship all over the country. Is there any discrimination?",
-        options: ["No, absolutely none.", "Yes, strictly prohibited.", "Yes, some discrimination is possible in matters of employment or residence (e.g., under Art 16(3) or 371).", "Yes, based on religion."],
-        correctAnswerIndex: 2, // c) Some discrimination possible
-        explanation: "Exceptions exist (e.g. residence reqs)."
+        question: "Sikkim became a 'Protectorate' of India in 1947. It became a full-fledged state of the Indian Union by which Constitutional Amendment Act?",
+        options: ["35th Amendment Act, 1974", "36th Amendment Act, 1975", "38th Amendment Act, 1975", "42nd Amendment Act, 1976"],
+        correctAnswerIndex: 1, // b) 36th Amendment Act, 1975
+        explanation: "36th Amendment Act made it a full state."
     },
     {
-        question: "The 'Overseas Citizenship of India' (OCI) Scheme was introduced by amending the Citizenship Act in:",
-        options: ["2003", "2005", "2015", "2019"],
-        correctAnswerIndex: 1, // b) 2005
-        explanation: "2005 Amendment."
+        question: "Which three states were created in the year 2000?",
+        options: ["Chhattisgarh, Uttarakhand, and Jharkhand", "Chhattisgarh, Telangana, and Jharkhand", "Uttarakhand, Jharkhand, and Telangana", "Goa, Mizoram, and Arunachal Pradesh"],
+        correctAnswerIndex: 0, // a) Chhattisgarh, Uttarakhand, Jharkhand
+        explanation: "Chhattisgarh, Uttarakhand, and Jharkhand were created in 2000."
     },
     {
-        question: "The OCI Cardholder is entitled to:",
-        options: ["A multiple entry, lifelong visa for visiting India.", "Right to vote in Indian elections.", "Right to hold constitutional posts.", "Right to acquire agricultural land."],
-        correctAnswerIndex: 0, // a) Lifelong visa
-        explanation: "Lifelong multiple entry visa."
-    },
-    {
-        question: "Can an OCI cardholder become a citizen of India?",
-        options: ["No, never.", "Yes, if they are registered as OCI for 5 years and resident in India for 1 year.", "Yes, immediately upon application.", "Yes, after surrendering foreign citizenship only."],
-        correctAnswerIndex: 1, // b)
-        explanation: "Registered for 5 years + 1 year residence."
-    },
-    {
-        question: "The PIO (Person of Indian Origin) card scheme was merged with the OCI card scheme by the Citizenship (Amendment) Act of:",
-        options: ["2005", "2015", "2019", "2003"],
-        correctAnswerIndex: 1, // b) 2015
-        explanation: "Merged in 2015."
-    },
-    {
-        question: "The Citizenship (Amendment) Act, 2019, provides citizenship to illegal migrants of six communities from three countries who entered India on or before:",
-        options: ["December 31, 2014", "December 31, 2019", "January 1, 2015", "August 15, 1947"],
-        correctAnswerIndex: 0, // a) Dec 31, 2014
-        explanation: "Cut-off date: Dec 31, 2014."
+        question: "Telangana was created as the 29th state of the Indian Union in 2014 by carving it out of:",
+        options: ["Karnataka", "Andhra Pradesh", "Maharashtra", "Tamil Nadu"],
+        correctAnswerIndex: 1, // b) Andhra Pradesh
+        explanation: "Carved out of Andhra Pradesh."
     }
 ];
 
 // Level 2: The Conceptual Bridge (Applied Knowledge)
 const LEVEL_2_QUESTIONS = [
     {
-        question: "Article 11 gives Parliament the power to regulate citizenship. This power includes:",
-        options: ["The power to grant citizenship.", "The power to terminate citizenship.", "The power to restrict citizenship rights.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "Broad powers to regulate all matters."
+        question: "The Constitution defines India as a \"Union of States\". This implies that:",
+        options: ["The Indian federation is the result of an agreement among the states like the American federation.", "The states have the right to secede from the Union.", "The country is an integral whole and divided into different states only for the convenience of administration.", "The states are sovereign entities within the Union."],
+        correctAnswerIndex: 2, // c) Integral whole
+        explanation: "Implies indestructible union."
     },
     {
-        question: "Article 9 says that a person voluntarily acquiring foreign citizenship ceases to be an Indian citizen. This applies to:",
-        options: ["Only those who acquired foreign citizenship before 1950.", "Any Indian citizen at any time.", "Only naturalized citizens.", "Only those who acquire citizenship of an \"enemy country\"."],
-        correctAnswerIndex: 1, // b) Any citizen
-        explanation: "Applies to any citizen."
-    },
-    {
-        question: "The Constitution (Article 10) states that every person who is or is deemed to be a citizen of India shall continue to be such citizen, subject to the provisions of any law made by Parliament. This implies that:",
-        options: ["Citizenship is a permanent right and cannot be taken away.", "Citizenship is a statutory right, not a fundamental one, and can be regulated by law.", "The Supreme Court is the final authority on citizenship.", "State legislatures can also make laws on citizenship."],
+        question: "Distinguish between the expressions \"Union of India\" and \"Territory of India\":",
+        options: ["\"Union of India\" is a wider expression than \"Territory of India\".", "\"Union of India\" includes only the States, while \"Territory of India\" includes States, UTs, and acquired territories.", "\"Union of India\" includes UTs, while \"Territory of India\" includes only States.", "Both expressions mean the same thing."],
         correctAnswerIndex: 1, // b)
-        explanation: "Subject to Parliamentary law."
+        explanation: "Territory is wider than Union."
     },
     {
-        question: "\"Domicile\" is a key concept in Article 5. Domicile generally means:",
-        options: ["Place of birth.", "Place of temporary residence.", "Permanent home with an intention to reside indefinitely.", "Place where one owns property."],
-        correctAnswerIndex: 2, // c) Permanent home
-        explanation: "Permanent home + intention to reside."
+        question: "Article 3 authorizes the Parliament to alter the boundaries of a state. This reflects which nature of the Indian Constitution?",
+        options: ["Indestructible Union of Indestructible States.", "Destructible Union of Destructible States.", "Indestructible Union of Destructible States.", "Destructible Union of Indestructible States."],
+        correctAnswerIndex: 2, // c)
+        explanation: "Indestructible Union, Destructible States."
     },
     {
-        question: "Article 7 overrides Article 5 and 6. This means a person who migrated to Pakistan after March 1, 1947:",
-        options: ["Can never become an Indian citizen.", "Ceases to be a citizen of India, even if he was born in India (Article 5).", "Can become a citizen only by naturalization.", "Remains a citizen if he owns property in India."],
-        correctAnswerIndex: 1, // b) Ceases to be citizen
-        explanation: "Overrides Art 5; they lose citizenship."
+        question: "In the context of Article 3, the President refers the bill to the State Legislature for its views. If the State Legislature does not express its views within the specified period:",
+        options: ["The Bill lapses.", "The President must extend the time limit.", "The President or Parliament can proceed with the Bill without the state's views.", "The President must refer the matter to the Supreme Court."],
+        correctAnswerIndex: 2, // c)
+        explanation: "President/Parliament can proceed."
     },
     {
-        question: "\"Citizenship by Birth\" (Jus Soli) was originally the law in India. It was restricted to \"Jus Sanguinis\" (Citizenship by Descent) progressively in 1987 and 2004. The primary reason for this shift was:",
-        options: ["To align with international standards.", "To prevent illegal migrants from acquiring citizenship for their children born in India.", "To encourage population control.", "To promote Indian culture."],
-        correctAnswerIndex: 1, // b) Illegal migrants
-        explanation: "Prevent illegal migrants' children from becoming citizens."
+        question: "If the State Legislature expresses its views against the reorganization bill within the time limit:",
+        options: ["The Parliament is bound to accept the views and drop the bill.", "The Parliament is not bound to accept the views and can proceed to pass the bill.", "A joint sitting of Parliament and State Legislature is called.", "The bill is referred to a referendum in that state."],
+        correctAnswerIndex: 1, // b)
+        explanation: "Parliament is not bound by views."
     },
     {
-        question: "A person born outside India on or after December 3, 2004, shall not be a citizen of India by descent unless:",
-        options: ["His birth is registered at an Indian consulate within one year.", "He takes an oath of allegiance.", "He visits India once every 5 years.", "He owns property in India."],
-        correctAnswerIndex: 0, // a) Registration at consulate
-        explanation: "Must be registered at consulate."
+        question: "Suppose the Parliament accepts some amendments to the original bill (under Article 3) after referring it to the State Legislature. Is it necessary to refer the amended bill to the State Legislature again?",
+        options: ["Yes, absolutely mandatory.", "No, not necessary.", "Yes, but only if the amendment changes the name of the state.", "Yes, if the Governor demands it."],
+        correctAnswerIndex: 1, // b)
+        explanation: "No need to refer again for amendments."
     },
     {
-        question: "\"Citizenship by Registration\" is for persons of Indian origin. Who qualifies as a \"Person of Indian Origin\" (PIO) for this specific section?",
-        options: ["Anyone who speaks an Indian language.", "A person who, or either of whose parents, was born in undivided India.", "A person who has an OCI card.", "A person who follows an Indian religion."],
-        correctAnswerIndex: 1, // b) Born in undivided India
-        explanation: "Born in undivided India."
+        question: "Article 2 grants power to admit or establish new states. This Article specifically applies to:",
+        options: ["Adjusting boundaries of existing states (e.g., Telangana from AP).", "Renaming existing states (e.g., Orissa to Odisha).", "Territories that are not currently part of the Union of India (e.g., if India acquires a foreign territory).", "Merging two existing UTs."],
+        correctAnswerIndex: 2, // c)
+        explanation: "Article 2 is for external states (not currently part of India)."
     },
     {
-        question: "\"Citizenship by Naturalization\" requires residence in India for:",
-        options: ["5 years.", "7 years.", "11 years (aggregate) + 1 year (continuous) = 12 years.", "14 years."],
-        correctAnswerIndex: 2, // c) 12 years
-        explanation: "Aggregate 11 + 1 continuous."
+        question: "The \"Berubari Union case\" (1960) settled a significant constitutional question regarding Article 3. The Supreme Court held that:",
+        options: ["Parliament can cede Indian territory to a foreign state by a simple majority under Article 3.", "Article 3 deals with internal readjustment only; it does not cover cession of territory to a foreign state.", "Cession of territory can be done only by an Executive Order.", "Preamble allows cession of territory."],
+        correctAnswerIndex: 1, // b)
+        explanation: "Article 3 does not cover cession."
     },
     {
-        question: "The Central Government may waive all or any of the conditions for naturalization in the case of a person who has rendered distinguished service to the cause of:",
-        options: ["Science, Philosophy, Art, Literature, World Peace, or Human Progress.", "Sports and Entertainment.", "Politics and Diplomacy.", "Business and Trade."],
+        question: "Therefore, to cede a part of Indian territory to a foreign state (like the Berubari enclave to Pakistan), the Parliament must:",
+        options: ["Pass a simple law under Article 3.", "Amend the Constitution under Article 368.", "Conduct a plebiscite in that area.", "Obtain the consent of the State Government concerned."],
+        correctAnswerIndex: 1, // b)
+        explanation: "Requires Amendment under Art 368."
+    },
+    {
+        question: "However, in the Maganbhai Ishwarbhai Patel vs Union of India (1969) case, the Supreme Court clarified that a \"settlement of a boundary dispute\" between India and another country:",
+        options: ["Requires a Constitutional Amendment.", "Does not require a Constitutional Amendment and can be done by executive action.", "Requires approval of the United Nations.", "Requires a referendum."],
+        correctAnswerIndex: 1, // b)
+        explanation: "Boundary dispute settlement requires no amendment, only executive action."
+    },
+    {
+        question: "Why was the \"Dhar Commission\" (1948) opposed to the linguistic reorganization of states?",
+        options: ["It believed it would lead to administrative inefficiency and threaten national unity.", "It believed language was not a strong enough bond.", "It wanted to prioritize religious reorganization.", "It favored the integration of Princely States first."],
         correctAnswerIndex: 0, // a)
-        explanation: "Science, Philosophy, Art, Literature, World Peace, Human Progress."
+        explanation: "Feared threat to national unity."
     },
     {
-        question: "Termination of Citizenship: When a person renounces his Indian citizenship, his minor children also lose it. However, the child can resume Indian citizenship:",
-        options: ["Within one year of attaining full age (18).", "Any time after attaining full age.", "Only if they return to India.", "Only if the parents also resume it."],
-        correctAnswerIndex: 0, // a) One year
-        explanation: "Within one year of attaining 18."
-    },
-    {
-        question: "Deprivation of Citizenship: Which of the following is NOT a ground for deprivation?",
-        options: ["Obtaining citizenship by fraud.", "Disloyalty to the Constitution.", "Unlawfully trading with the enemy during war.", "Voting in a foreign election"],
-        correctAnswerIndex: 3, // d) Voting in foreign election
-        explanation: "Voting suggests voluntary acquisition (Termination), not necessarily deprivation ground, though related. Specific deprivation grounds are Fraud, Disloyalty, Trading with enemy, Imprisonment."
-    },
-    {
-        question: "NRI, PIO, OCI: Distinctions. An \"NRI\" (Non-Resident Indian) is:",
-        options: ["A foreign citizen of Indian origin.", "An Indian citizen residing outside India for a specific period.", "A holder of an OCI card.", "A stateless person."],
-        correctAnswerIndex: 1, // b) Citizen outside
-        explanation: "Indian citizen residing outside."
-    },
-    {
-        question: "Which of the following rights is exclusive to an Indian Citizen (including NRI) and denied to an OCI cardholder?",
-        options: ["Right to visit India without a visa.", "Right to invest in Indian stock markets.", "Right to vote in elections.", "Right to inherit ancestral property."],
-        correctAnswerIndex: 2, // c) Vote
-        explanation: "Voting is exclusive to citizens."
-    },
-    {
-        question: "The OCI card scheme was launched to address the demand for:",
-        options: ["Dual Citizenship.", "Visa-free travel for the diaspora.", "Voting rights for the diaspora.", "Reservation in jobs for the diaspora."],
-        correctAnswerIndex: 0, // a) Dual Citizenship
-        explanation: "Addressed demand for Dual Citizenship."
-    },
-    {
-        question: "Is OCI \"Dual Citizenship\"?",
-        options: ["Yes, constitutionally.", "No, it is merely a long-term visa with some rights; they do not have political rights.", "Yes, but only for those in the USA and UK.", "No, it is a new category of \"Alien\"."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "Not dual citizenship; no political rights."
-    },
-    {
-        question: "Can an OCI cardholder be appointed as a Judge of the Supreme Court?",
-        options: ["Yes, if they are a distinguished jurist.", "No, only citizens can hold constitutional posts.", "Yes, with the President's permission.", "Yes, if they have resided in India for 10 years."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "Only citizens can hold constitutional posts."
-    },
-    {
-        question: "The \"Assam Accord\" (Section 6A) set a cut-off date for detecting foreigners in Assam. That date is:",
-        options: ["August 15, 1947", "January 26, 1950", "March 25, 1971", "December 31, 2014"],
-        correctAnswerIndex: 2, // c) Mar 25, 1971
-        explanation: "March 25, 1971."
-    },
-    {
-        question: "Under Section 6A, persons who came to Assam between Jan 1, 1966, and March 25, 1971, were:",
-        options: ["Detected and deported immediately.", "Given full citizenship immediately.", "Detected and disenfranchised (right to vote suspended) for 10 years, then given full citizenship.", "Treated as illegal migrants."],
-        correctAnswerIndex: 2, // c) Disenfranchised 10y
-        explanation: "Voting suspended for 10 years."
-    },
-    {
-        question: "Comparative & Analytical. In the USA, a child born to Indian parents on US soil is a US citizen. This is because the USA follows:",
-        options: ["Jus Sanguinis (Right of Blood).", "Jus Soli (Right of Soil).", "Naturalization.", "Registration."],
-        correctAnswerIndex: 1, // b) Jus Soli
-        explanation: "USA follows Jus Soli."
-    },
-    {
-        question: "In India, a child born to US diplomats in New Delhi is:",
-        options: ["An Indian Citizen by birth (Jus Soli).", "Not an Indian Citizen (Exception to Article 5/Citizenship Act).", "A dual citizen.", "A stateless person."],
-        correctAnswerIndex: 1, // b) Not citizen
-        explanation: "Diplomats' children are exception."
-    },
-    {
-        question: "The \"National Register of Citizens\" (NRC) is a register containing names of all:",
-        options: ["Genuine Indian citizens.", "Illegal migrants.", "OCI cardholders.", "Voters."],
-        correctAnswerIndex: 0, // a) Genuine citizens
-        explanation: "All genuine citizens."
-    },
-    {
-        question: "The National Population Register (NPR) is different from NRC because:",
-        options: ["NPR contains only citizens, NRC contains residents.", "NPR contains all \"usual residents\" (citizens + foreigners), while NRC contains only citizens.", "NPR is voluntary, NRC is mandatory.", "NPR is for tax purposes, NRC is for security."],
+        question: "The \"JVP Committee\" (1949) also rejected the linguistic basis initially. What was the primary reason cited?",
+        options: ["Lack of funds.", "Security concerns and the need for a strong Centre during the formative years of the nation.", "Opposition from the South.", "Pressure from the British."],
         correctAnswerIndex: 1, // b)
-        explanation: "NPR = Residents; NRC = Citizens."
+        explanation: "Security concerns."
     },
     {
-        question: "Article 15 prohibits discrimination against citizens on grounds of religion, race, caste, sex, or place of birth. Can the state discriminate against non-citizens (aliens) on these grounds?",
-        options: ["No, Article 15 applies to all persons.", "Yes, Article 15 applies only to citizens.", "Yes, but only on grounds of religion.", "No, Article 14 protects them."],
+        question: "The \"Fazl Ali Commission\" (1953) accepted the linguistic basis but rejected \"One Language, One State\". This implies:",
+        options: ["A state can have only one official language.", "A state should not be created solely for a language group if it compromises administrative or financial viability.", "Every language group must have a separate state.", "Hindi must be the official language of all new states."],
         correctAnswerIndex: 1, // b)
-        explanation: "Art 15 is only for citizens."
+        explanation: "Unity and administrative viability come first."
     },
     {
-        question: "Freedom of Speech (Article 19) is available to:",
-        options: ["All persons within India.", "Only citizens of India.", "Citizens and OCI cardholders.", "Citizens and friendly aliens."],
-        correctAnswerIndex: 1, // b) Only citizens
-        explanation: "Article 19 is exclusive to citizens."
+        question: "Which of the following factors was NOT considered by the Fazl Ali Commission for reorganization?",
+        options: ["Preservation and strengthening of the unity and security of India.", "Linguistic and cultural homogeneity.", "Financial, economic, and administrative considerations.", "Religious demographic dominance."],
+        correctAnswerIndex: 3, // d)
+        explanation: "Religion was not a factor."
     },
     {
-        question: "Assertion (A): India does not recognize dual citizenship. Reason (R): A person holding an OCI card is not a citizen of India; they cannot vote or hold public office.",
+        question: "Sikkim's association with India evolved uniquely. The 35th Amendment Act (1974) gave it the status of an \"Associate State\". Why was the 36th Amendment Act (1975) necessary just a year later?",
+        options: ["To separate Sikkim from West Bengal.", "To abolish the institution of the 'Chogyal' and make Sikkim a full-fledged state of India.", "To give Sikkim the status of a Union Territory.", "To cede Sikkim to China."],
+        correctAnswerIndex: 1, // b)
+        explanation: "To abolish Chogyal and make it a full state."
+    },
+    {
+        question: "The specific provision \"Article 2A\" (Sikkim to be associated with the Union) was added by the 35th Amendment and then:",
+        options: ["Retained in the Constitution.", "Repealed by the 36th Amendment.", "Moved to the Ninth Schedule.", "Expanded to include Nepal."],
+        correctAnswerIndex: 1, // b) Repealed by 36th.
+        explanation: "Repealed by 36th Amendment."
+    },
+    {
+        question: "Arrange the following states in the chronological order of their creation (from earliest to latest):\n1. Haryana\n2. Nagaland\n3. Meghalaya\n4. Gujarat\nSelect the correct code:",
+        options: ["4, 2, 1, 3", "2, 4, 1, 3", "4, 1, 2, 3", "2, 1, 4, 3"],
+        correctAnswerIndex: 0, // a) Gujarat (1960), Nagaland (1963), Haryana (1966), Meghalaya (1972)
+        explanation: "Gujarat (1960) -> Nagaland (1963) -> Haryana (1966) -> Meghalaya (1972)."
+    },
+    {
+        question: "The \"North-Eastern Areas (Reorganization) Act, 1971\" resulted in the elevation of which two Union Territories to Statehood?",
+        options: ["Manipur and Tripura", "Mizoram and Arunachal Pradesh", "Meghalaya and Assam", "Nagaland and Manipur"],
+        correctAnswerIndex: 0, // a) Manipur and Tripura
+        explanation: "Manipur and Tripura became states."
+    },
+    {
+        question: "Goa, Daman, and Diu were acquired from the Portuguese by police action in 1961. They were initially constituted as:",
+        options: ["A single State.", "A single Union Territory.", "Three separate Union Territories.", "Part of Maharashtra."],
+        correctAnswerIndex: 1, // b) A single UT
+        explanation: "Single UT of Goa, Daman and Diu."
+    },
+    {
+        question: "In 1987, Goa was conferred statehood. What happened to Daman and Diu?",
+        options: ["They were merged with Gujarat.", "They were made a separate Union Territory.", "They remained part of Goa state.", "They were merged with Dadra and Nagar Haveli."],
+        correctAnswerIndex: 1, // b) Separate UT
+        explanation: "Made a separate UT."
+    },
+    {
+        question: "The Parliament can establish a High Court for a Union Territory or put it under the jurisdiction of the High Court of an adjacent State. This power is derived from:",
+        options: ["Article 239", "Article 241", "Article 230 (Old) / Article 241 implies it.", "Article 3"],
+        correctAnswerIndex: 1, // b) Article 241
+        explanation: "Article 241 empowers Parliament regarding High Courts for UTs."
+    },
+    {
+        question: "Why were Union Territories like Himachal Pradesh, Manipur, and Tripura created initially before becoming states?",
+        options: ["Because they were financially weak.", "Because of strategic importance and the need for direct Central control during that period.", "Because they had no legislature.", "Because they were acquired territories."],
+        correctAnswerIndex: 1, // b)
+        explanation: "Need for Central control (Strategic/Security)."
+    },
+    {
+        question: "The power to change the name of a state (e.g., Madras to Tamil Nadu) lies with:",
+        options: ["The State Legislature concerned (by passing a resolution).", "The Parliament (by simple majority).", "The President (by executive order).", "The Governor."],
+        correctAnswerIndex: 1, // b) Parliament
+        explanation: "Parliament (Article 3)."
+    },
+    {
+        question: "In 2019, the State of Jammu and Kashmir was reorganized into two Union Territories. This was done under:",
+        options: ["Article 368 (Constitutional Amendment).", "Article 3 (Jammu and Kashmir Reorganization Act).", "Presidential Order under Article 370 alone.", "Martial Law."],
+        correctAnswerIndex: 1, // b) Article 3
+        explanation: "Under Article 3 (J&K Reorganization Act)."
+    },
+    {
+        question: "Consider the following statements regarding the creation of new states:\n1. A Bill for this purpose cannot be introduced in the Rajya Sabha.\n2. The Bill requires a special majority in the Parliament.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+        correctAnswerIndex: 3, // d) Neither
+        explanation: "Can be introduced in either house; requires simple majority."
+    },
+    {
+        question: "\"Acquired Territories\" are governed by:",
+        options: ["The same provisions as States.", "The same provisions as Union Territories.", "International Law.", "The Ministry of External Affairs directly."],
+        correctAnswerIndex: 1, // b) Same as UTs
+        explanation: "Governed like UTs."
+    },
+    {
+        question: "Which of the following committees was NOT related to the reorganization of states?",
+        options: ["Dhar Commission", "JVP Committee", "Fazl Ali Commission", "Swaran Singh Committee"],
+        correctAnswerIndex: 3, // d) Swaran Singh
+        explanation: "Swaran Singh Committee was for Fundamental Duties."
+    },
+    {
+        question: "The \"Shah Commission\" (1966) was appointed to:",
+        options: ["Determine the boundary between Punjab and Haryana.", "Investigate the Emergency excesses.", "Reorganize the North East.", "Settle the Belgaum dispute."],
+        correctAnswerIndex: 0, // a) Punjab and Haryana
+        explanation: "For Punjab/Haryana boundary."
+    },
+    {
+        question: "Assertion (A): India is a federation with a unitary bias. Reason (R): The Parliament can redraw the political map of India according to its will.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
-        explanation: "OCI is not dual citizenship."
+        explanation: "R explains A."
     },
     {
-        question: "Assertion (A): The Parliament has the power to deprive a citizen of their citizenship. Reason (R): Citizenship is a statutory right bestowed by the Parliament under the Citizenship Act, 1955.",
-        options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Statutory right regulated by Parliament."
-    },
-    {
-        question: "Under the Citizenship Act, can a person be deprived of citizenship if they acquired it by \"Birth\"?",
-        options: ["Yes, on grounds of disloyalty.", "No, deprivation applies only to registered and naturalized citizens.", "Yes, if they commit a heinous crime.", "Yes, if they move abroad."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "Deprivation applies to Registration/Naturalization."
-    },
-    {
-        question: "The \"Foreigners Tribunals\" in Assam are set up under:",
-        options: ["The Citizenship Act, 1955.", "The Foreigners Act, 1946.", "The Constitution of India (Article 323B).", "The Assam Accord."],
-        correctAnswerIndex: 1, // b) Foreigners Act 1946
-        explanation: "Foreigners Act, 1946."
-    },
-    {
-        question: "Which Ministry is the nodal ministry for citizenship matters (granting, terminating, OCI)?",
-        options: ["Ministry of External Affairs.", "Ministry of Home Affairs.", "Ministry of Law and Justice.", "Prime Minister's Office."],
-        correctAnswerIndex: 1, // b) MHA
-        explanation: "Ministry of Home Affairs."
+        question: "The exchange of enclaves between India and Bangladesh (100th Constitutional Amendment Act, 2015) involved:",
+        options: ["Ceding of Indian territory only.", "Acquisition of Bangladesh territory only.", "Both acquisition and cession of territories.", "Only settlement of boundary dispute without cession."],
+        correctAnswerIndex: 2, // c)
+        explanation: "Both acquisition and cession."
     }
 ];
 
 // Level 3: The UPSC Simulation 2026 (Integrated & Current Affairs)
 const LEVEL_3_QUESTIONS = [
     {
-        question: "The Citizenship (Amendment) Rules, 2024 were notified to implement the 2019 Act. A key procedural shift in these rules, compared to the standard naturalization process, is:",
-        options: ["Applications are processed by the Foreigners Tribunals.", "Applications are submitted to the District Collector, but the final grant is by \"Empowered Committees\" (State/UT level) rather than the MHA directly.", "Applicants must produce a valid passport from their country of origin.", "The cooling-off period is 11 years."],
-        correctAnswerIndex: 1, // b) Empowered Committees
-        explanation: "Empowered Committees at State/UT level."
+        question: "In December 2023, the Supreme Court upheld the validity of the Jammu and Kashmir Reorganization Act, 2019. In this context, consider the following statements regarding the reorganization of a State into Union Territories:\n1. Article 3 explicitly empowers the Parliament to convert a State into one or more Union Territories.\n2. The Supreme Court left the question of the validity of converting a State into a Union Territory open, as the Solicitor General promised the restoration of statehood.\n3. The reorganization was done using the President's Rule (Article 356) mechanism to bypass the requirement of the State Legislature's view.\nWhich of the statements given above is/are correct?",
+        options: ["1 only", "1 and 2 only", "2 and 3 only", "1, 2, and 3"],
+        correctAnswerIndex: 2, // c) 2 and 3 only
+        explanation: "Article 3 does NOT explicitly say 'State to UT' (controversial, hence SC left it open). 1 is false."
     },
     {
-        question: "Under the CAA 2019, the cut-off date is December 31, 2014. If a person belonging to the specified community entered India on January 1, 2015:",
-        options: ["They are eligible for citizenship under CAA 2019 immediately.", "They are treated as illegal migrants and cannot apply for citizenship under any category.", "They must apply through the standard Naturalization route (11+1 years), provided they are not classified as \"illegal migrants.\"", "They are automatically citizens by registration."],
-        correctAnswerIndex: 2, // c) Standard route
-        explanation: "CAA 2019 cut-off is 2014. Later entrants must follow standard route (if eligible)."
-    },
-    {
-        question: "The CAA 2019 exempts certain areas from its application to protect indigenous culture. These exemptions apply to:\n1. Tribal areas of Assam, Meghalaya, Mizoram, and Tripura (Sixth Schedule).\n2. Areas covered under the \"Inner Line Permit\" (ILP) regime.\n3. All Scheduled Areas under the Fifth Schedule.\nSelect the correct answer:",
+        question: "With the restoration of the Legislative Assembly in J&K (2024), its powers differ from other States. Which of the following subjects is/are explicitly reserved for the Lieutenant Governor of J&K (and not the Assembly)?\n1. Public Order\n2. Police\n3. Land\nSelect the correct answer:",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctAnswerIndex: 0, // a) 1 and 2
-        explanation: "Sixth Schedule and ILP areas are exempted."
+        correctAnswerIndex: 0, // a) 1 and 2 only. (Police & Public Order). Land is a gray area but generally elected govt has power unless specified.
+        explanation: "For J&K, Police and Public Order are reserved. Land is not explicitly reserved strictly like Delhi (initially), but amendments gave LG more power."
     },
     {
-        question: "In 2024, the Supreme Court Constitution Bench reviewed the validity of Section 6A of the Citizenship Act, 1955. The core constitutional challenge to this section is based on:",
-        options: ["Violation of Article 14, as it creates a separate cut-off date (March 25, 1971) for Assam compared to the rest of India (July 19, 1948).", "Violation of the \"Basic Structure\" of Federalism.", "Violation of the Secular nature of the Constitution.", "Violation of the International Refugee Convention."],
-        correctAnswerIndex: 0, // a) Art 14
-        explanation: "Article 14 violation due to different cut-off."
+        question: "The Delimitation Commission for J&K (2022) used the 2011 Census, unlike the rest of India where the 2001 Census is used (until 2026). This unique exercise was mandated by:",
+        options: ["The Constitution (105th Amendment) Act.", "The J&K Reorganization Act, 2019.", "A Presidential Order under Article 370.", "The Representation of the People Act, 1950."],
+        correctAnswerIndex: 1, // b) J&K Reorg Act 2019
+        explanation: "Mandated by J&K Reorganization Act, 2019."
     },
     {
-        question: "Under Section 6A, a person of Indian origin who came to Assam from East Pakistan between Jan 1, 1966, and March 24, 1971, is:",
-        options: ["A citizen from the date of entry.", "A citizen upon detection, but with voting rights suspended for 10 years.", "A foreigner liable to deportation.", "An OCI cardholder."],
-        correctAnswerIndex: 1, // b) Voting suspended 10 yrs
-        explanation: "Citizen upon detection, voting suspended 10 years."
+        question: "The \"India vs Bharat\" renaming controversy (2023-24) centered on Article 1. If the government decides to drop \"India\" and retain only \"Bharat\" in the Constitution:",
+        options: ["It requires a Constitutional Amendment under Article 368 with a Special Majority.", "It can be done by a simple majority under Article 3 (Alteration of names).", "It requires ratification by half of the states.", "It can be done by an Executive Order of the President."],
+        correctAnswerIndex: 0, // a) Art 368
+        explanation: "Article 1 is a fundamental provision. Changing 'India, that is Bharat' requires Amendment (Art 368)."
     },
     {
-        question: "Data from 2023-24 shows a spike in Indians renouncing citizenship. When a person renounces Indian citizenship to acquire foreign nationality, what happens to their Indian Passport?",
-        options: ["It remains valid until its expiry date.", "It must be surrendered under the Passports Act, 1967; using it after acquiring foreign nationality is a punishable offense.", "It is automatically converted into an OCI card.", "It can be retained as a souvenir without any legal obligation."],
-        correctAnswerIndex: 1, // b) Surrender
-        explanation: "Must be surrendered."
+        question: "Critics argued that \"Union of States\" implies a \"Federal\" contract. However, the Constituent Assembly debates clarify that the term \"Union\" was chosen to emphasize:",
+        options: ["The supremacy of the Centre.", "The indestructibility of the nation.", "The cultural unity of Bharat.", "The administrative convenience."],
+        correctAnswerIndex: 1, // b) Indestructibility
+        explanation: "Emphasizes indestructibility (no right to secede)."
     },
     {
-        question: "The \"Birth Tourism\" debate affects Indian citizenship laws. If a child is born in India to a foreign diplomat (who is not a citizen) and an Indian citizen (mother) after 2004:",
-        options: ["The child is an Indian citizen by birth.", "The child is not an Indian citizen because one parent is not a citizen.", "The child is an Indian citizen only if the foreign parent is not an \"illegal migrant\".", "Diplomats' children are strictly excluded from Jus Soli."],
-        correctAnswerIndex: 0, // a) Indian Citizen
-        explanation: "Under s.3(1)(c), if one parent is a citizen and the other is not an illegal migrant (Diplomat is not illegal), child is a citizen. Note: User prompt logic suggests (a) via 'correction' in similar mental train, but let's stick to the Law or the User's likely intended answer 'Diplomats children excluded'. Wait. S.3(2) EXCLUDES diplomats children. So (d) is correct law. I will stick to (d)."
+        question: "The ongoing protests in Ladakh (2024-25) demand inclusion in the Sixth Schedule. Currently, the Sixth Schedule (Article 244(2)) applies only to:",
+        options: ["Assam, Meghalaya, Tripura, and Mizoram.", "All North-Eastern States.", "Tribal areas of Himachal Pradesh and Ladakh.", "Scheduled Areas under the Fifth Schedule."],
+        correctAnswerIndex: 0, // a) AMTM
+        explanation: "Assam, Meghalaya, Tripura, Mizoram."
     },
     {
-        question: "Recent government notifications have restricted OCI cardholders from undertaking certain activities without special permission. These include:\n1. Missionary/Tabligh activities.\n2. Mountaineering.\n3. Journalism/Research.\nSelect the correct answer:",
-        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All require special permission."
+        question: "Ladakh is currently a Union Territory without a Legislature. To grant it a Legislature (like Puducherry), Parliament must:",
+        options: ["Amend Article 239A via a Constitutional Amendment.", "Pass a law under Article 3.", "Pass a law under Article 240.", "Issue a Presidential Regulation."],
+        correctAnswerIndex: 0, // a) Amend 239A
+        explanation: "Art 239A needs amendment to include Ladakh."
     },
     {
-        question: "The \"Right to Information (RTI) Act\" applicability to OCI cardholders was debated. The legal position is:",
-        options: ["RTI is available only to citizens; OCI holders cannot file RTIs.", "OCI holders are \"deemed citizens\" for RTI purposes.", "OCI holders can file RTIs only regarding their visa status.", "RTI is a human right available to all."],
-        correctAnswerIndex: 0, // a) Citizens only
-        explanation: "Citizens only."
+        question: "The \"Katchatheevu Island\" controversy (2024) raised questions about the 1974 agreement with Sri Lanka. The government argued that Katchatheevu was a \"disputed\" territory and thus its settlement did not require a Constitutional Amendment. This reliance is based on which Supreme Court judgment?",
+        options: ["Berubari Union case (1960)", "Maganbhai Ishwarbhai Patel case (1969)", "Kesavananda Bharati case (1973)", "S.R. Bommai case (1994)"],
+        correctAnswerIndex: 1, // b) Maganbhai
+        explanation: "Maganbhai Patel case (boundary dispute settlement requires no amendment)."
     },
     {
-        question: "In case of an OCI cardholder committing a crime in India (e.g., violating FEMA), the government can cancel the OCI registration if the sentence is imprisonment for:",
-        options: ["Not less than 2 years.", "Not less than 1 year.", "Not less than 5 years.", "Any duration."],
-        correctAnswerIndex: 0, // a) 2 years
-        explanation: "Not less than 2 years."
+        question: "If the government were to retrieve Katchatheevu today, under which Article would this action fall?",
+        options: ["Article 1(3)(c) - Acquisition of territory.", "Article 2 - Admission of new states.", "Article 3 - Alteration of boundaries.", "Article 368 - Amendment."],
+        correctAnswerIndex: 0, // a) Acquisition
+        explanation: "Acquisition of territory."
     },
     {
-        question: "India is not a signatory to the 1951 Refugee Convention or its 1967 Protocol. Consequently:",
-        options: ["India has no legal obligation to protect refugees.", "India handles refugees under the Foreigners Act, 1946, treating them legally as \"aliens\" unless granted specific protection (e.g., Long Term Visa).", "Refugees have the right to seek citizenship after 5 years of residence as a matter of right.", "The UNHCR manages all refugee camps in India exclusively."],
-        correctAnswerIndex: 1, // b) Foreigners Act
-        explanation: "Handled under Foreigners Act 1946."
+        question: "The Maharashtra-Karnataka border dispute (Belagavi) has flared up again. Under the Constitution, the original jurisdiction to settle disputes between two states lies with:",
+        options: ["The Zonal Council (chaired by Home Minister).", "The Inter-State Council (Article 263).", "The Supreme Court (Article 131).", "The Parliament (Article 3)."],
+        correctAnswerIndex: 2, // c) SC (Art 131)
+        explanation: "Supreme Court (Article 131)."
     },
     {
-        question: "The concept of \"Non-Refoulement\" (not returning a refugee to a place where they face danger) is considered part of Customary International Law. The High Courts in India have interpreted this protection under:",
-        options: ["Article 14 (Equality).", "Article 21 (Right to Life).", "Article 19 (Freedom of Movement).", "Directive Principles (Article 51)."],
-        correctAnswerIndex: 1, // b) Art 21
-        explanation: "Article 21 (Right to Life)."
+        question: "Zonal Councils were established by the States Reorganization Act, 1956 to promote cooperation. Which of the following is NOT a Statutory Zonal Council?",
+        options: ["Northern Zonal Council", "Eastern Zonal Council", "North-Eastern Zonal Council", "Southern Zonal Council"],
+        correctAnswerIndex: 2, // c) North-Eastern
+        explanation: "NE Zonal Council created by North-Eastern Council Act, 1971 (Separate Act)."
     },
     {
-        question: "Consider the case of an Indian citizen who acquires a foreign passport but does not inform the Indian authorities. Does his Indian citizenship terminate?",
-        options: ["No, until the government issues an order.", "Yes, automatically upon the acquisition of the foreign passport/citizenship (Article 9).", "Yes, but only after he surrenders the Indian passport.", "No, he becomes a dual citizen by default."],
-        correctAnswerIndex: 1, // b) Automatically
-        explanation: "Automatically terminates."
+        question: "The \"Assam-Mizoram\" border dispute involves the interpretation of colonial-era demarcations. The Centre often intervenes using paramilitary forces. This intervention is constitutionally backed by:",
+        options: ["Article 355 (Duty of Union to protect States).", "Article 263 (Inter-State Council).", "Article 3 (Power to alter boundaries).", "Article 256 (Administrative directions)."],
+        correctAnswerIndex: 0, // a) Art 355
+        explanation: "Article 355 (Duty to protect against internal disturbance)."
     },
     {
-        question: "The power to \"deprive\" a citizen of citizenship (Section 10 of Citizenship Act) applies to:",
-        options: ["Citizens by Birth.", "Citizens by Descent.", "Citizens by Registration and Naturalization.", "All categories of citizens."],
-        correctAnswerIndex: 2, // c) Reg/Nat
-        explanation: "Registration and Naturalization."
+        question: "The freeze on the number of seats in the Lok Sabha (based on 1971 Census) ends in 2026. If the number of seats is increased based on the new Census:",
+        options: ["It will require an amendment to Article 81 and 82.", "It can be done by the Delimitation Commission alone.", "It will automatically happen under the Representation of the People Act.", "It requires the consent of all states."],
+        correctAnswerIndex: 0, // a) Amendment to Art 81/82
+        explanation: "Requires Amendment to lift the freeze."
     },
     {
-        question: "If a person obtained citizenship by \"Fraud\" (e.g., fake documents), and is subsequently deprived of it:",
-        options: ["Their citizenship is void ab initio (from the beginning).", "Their citizenship ceases from the date of the order.", "They are given OCI status.", "They are deported immediately without trial."],
-        correctAnswerIndex: 0, // a) Void ab initio
-        explanation: "Void ab initio."
+        question: "Southern States have raised concerns that population-based delimitation will penalize them for effective population control. This violates the federal principle of:",
+        options: ["Equal Representation of States (Rajya Sabha model).", "Asymmetric Federalism.", "Fiscal Federalism.", "Proportional Representation."],
+        correctAnswerIndex: 0, // a)
+        explanation: "Equal representation principle (though RS is not equal in India, the US model is often cited in this federal debate)."
     },
     {
-        question: "Most Western democracies follow \"Jus Soli\" (Birthright citizenship), while India has moved towards \"Jus Sanguinis\" (Blood/Descent). This shift is primarily driven by:",
-        options: ["The need to preserve racial purity.", "The demographic pressure of illegal migration from neighboring countries.", "The recommendation of the Law Commission.", "The dictates of the United Nations."],
-        correctAnswerIndex: 1, // b) Illegal migration
-        explanation: "Demographic pressure/Illegal migration."
+        question: "The demand for \"Greater Tipraland\" (Tripura) is based on the assertion of indigenous rights. Under Article 3, can Parliament create a new state solely comprising the Tribal Areas of an existing state?",
+        options: ["Yes, Parliament has the power to separate any territory from any state.", "No, Tribal Areas are protected under the Sixth Schedule and cannot be separated.", "Yes, but only with the consent of the Tribal Council.", "No, it requires a Constitutional Amendment."],
+        correctAnswerIndex: 0, // a) Yes
+        explanation: "Parliament has plenary power under Article 3."
     },
     {
-        question: "Under the Passports Act, 1967, a passport can be impounded or revoked if:",
-        options: ["The holder is wrongfully withholding it.", "It is necessary in the interests of the sovereignty and integrity of India.", "A warrant/summons has been issued by a court.", "All of the above."],
-        correctAnswerIndex: 3, // d) All
-        explanation: "All of the above."
+        question: "Delhi's demand for full statehood continues. The GNCTD (Amendment) Act, 2023 solidified the Centre's control over \"Services\". This implies that for Delhi (Article 239AA):",
+        options: ["It is a \"Sui Generis\" (unique) entity, neither a full State nor a standard UT.", "The Parliament can legislate on any subject in the State List for Delhi.", "The Executive power of Delhi is co-extensive with its Legislative power, subject to Parliamentary laws.", "All of the above."],
+        correctAnswerIndex: 3, // d) All of the above
+        explanation: "All statements describe Delhi's unique status."
     },
     {
-        question: "Assertion (A): An illegal migrant can never acquire Indian citizenship by naturalization. Reason (R): The Citizenship Act, 1955 defines \"illegal migrant\" and explicitly bars them from eligibility for citizenship under Section 5 (Registration) and Section 6 (Naturalization).",
+        question: "Assertion (A): The Parliament can alter the name of any state without the consent of that state. Reason (R): The Indian Constitution mandates that the President must refer the bill to the state legislature, but its views are not binding on the President or Parliament.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
-        explanation: "Illegal migrants are barred."
+        explanation: "R explains A."
     },
     {
-        question: "Assertion (A): The State of Assam has a \"National Register of Citizens\" (NRC), unlike other states. Reason (R): The Supreme Court mandated the update of the 1951 NRC for Assam to identify illegal migrants in accordance with the Citizenship Act.",
+        question: "Assertion (A): India is a \"Holding Together\" federation. Reason (R): It was formed by the transformation of a unitary system into a federal one, unlike the US which is a \"Coming Together\" federation.",
         options: ["Both A and R are true, and R is the correct explanation of A.", "Both A and R are true, but R is NOT the correct explanation of A.", "A is true, but R is false.", "A is false, but R is true."],
         correctAnswerIndex: 0, // a)
-        explanation: "SC mandated."
+        explanation: "R explains A."
     },
     {
-        question: "The \"Sealed Cover Jurisprudence\" was often used in citizenship cases (e.g., MediaOne case relating to security clearance). The Supreme Court has recently (2023) held that:",
-        options: ["National security claims by the state cannot be absolute; the essence of the allegations must be disclosed to the affected party (Natural Justice).", "Citizenship is a privilege, not a right, so sealed covers are valid.", "Only the Home Ministry can decide on sealed covers.", "OCI holders have no right to know the reasons for cancellation."],
-        correctAnswerIndex: 0, // a) Essence disclosed
-        explanation: "Essence must be disclosed."
-    },
-    {
-        question: "A child born in India to a Tibetan refugee couple (born in India in 1990):",
-        options: ["Is a citizen of India by Birth.", "Is a citizen only if registered.", "Is a Tibetan refugee (stateless/foreigner) with a Registration Certificate (RC).", "Is an OCI holder."],
-        correctAnswerIndex: 2, // c)
-        explanation: "Not a citizen (1987-2004 requires one parent citizen)."
-    },
-    {
-        question: "The \"Voter ID Card\" (EPIC) is often cited as proof of citizenship. Legally:",
-        options: ["It is conclusive proof of citizenship.", "It is not conclusive proof; it is merely proof of residence and age for voting.", "It is proof of domicile.", "It is equivalent to a passport."],
+        question: "Article 4 allows changes under Article 2 and 3 to be made by simple majority. However, does this immunity from Article 368 apply if the change involves \"diminishing the area of a state\" to cede it to a foreign country?",
+        options: ["Yes, Article 4 covers all changes.", "No, cession of territory is not covered under Article 3, hence Article 4 does not apply.", "Yes, but only for boundary disputes.", "No, unless the state agrees."],
         correctAnswerIndex: 1, // b)
-        explanation: "Not conclusive proof."
+        explanation: "Cession is not covered by Art 3, so Art 4 immunity doesn't apply."
     },
     {
-        question: "If a question arises as to whether a person has acquired the citizenship of another country, who is the authority to determine this?",
-        options: ["The Supreme Court.", "The Central Government (prescribed authority).", "The Foreigners Tribunal.", "The Election Commission."],
-        correctAnswerIndex: 1, // b) Central Govt
-        explanation: "Central Government."
+        question: "The \"Inner Line Permit\" (ILP) regime restricts the movement of Indian citizens in certain states (Arunachal, Nagaland, Mizoram, Manipur). This is a restriction on Article 19(1)(d) and (e) grounded in:",
+        options: ["Article 371-A to 371-H.", "The Bengal Eastern Frontier Regulation, 1873 (saved by Article 19(5)).", "The Sixth Schedule.", "The Citizenship Act, 1955."],
+        correctAnswerIndex: 1, // b) BEFR 1873
+        explanation: "Based on BEFR 1873, protected by Art 19(5) (interests of STs)."
     },
     {
-        question: "The \"Census 2021\" (delayed) and NPR update are linked. The NPR data is collected under the provisions of:",
-        options: ["The Census Act, 1948.", "The Citizenship Act, 1955 (Citizenship Rules 2003).", "The Aadhar Act, 2016.", "The Statistics Act, 2008."],
-        correctAnswerIndex: 1, // b) Citizenship Act
-        explanation: "Citizenship Act 1955."
+        question: "The concept of \"Union Territory\" was introduced by the:",
+        options: ["1st Constitutional Amendment (1951).", "7th Constitutional Amendment (1956).", "42nd Constitutional Amendment (1976).", "Original Constitution (1950)."],
+        correctAnswerIndex: 1, // b) 7th AA 1956
+        explanation: "Introduced by 7th AA 1956."
     },
     {
-        question: "Can a \"Corporate Body\" or \"Company\" be a citizen of India?",
-        options: ["Yes, if registered in India.", "No, citizenship is available only to natural persons (SC judgment in State Trading Corporation of India Ltd. v. CTO).", "Yes, for tax purposes.", "Yes, if all shareholders are citizens."],
-        correctAnswerIndex: 1, // b) No
-        explanation: "Only natural persons."
+        question: "Which of the following territories was acquired by India through a \"Plebiscite\"?",
+        options: ["Goa", "Puducherry", "Sikkim", "Junagarh"],
+        correctAnswerIndex: 3, // d) Junagarh
+        explanation: "Junagarh acceded via plebiscite."
     },
     {
-        question: "The \"Domicile-based Reservation\" in jobs (e.g., Haryana, Andhra) is often challenged. Article 16(2) prohibits discrimination on \"place of birth\" and \"residence\". However, residence requirements can be imposed by:",
-        options: ["The State Legislature.", "The Parliament (Article 16(3)).", "The Governor.", "The President."],
-        correctAnswerIndex: 1, // b) Parliament
-        explanation: "Only Parliament can impose residence requirements."
+        question: "The \"Union of India\" does not include:",
+        options: ["Andhra Pradesh", "Lakshadweep", "Punjab", "West Bengal"],
+        correctAnswerIndex: 1, // b) Lakshadweep
+        explanation: "Union of India includes only States."
     },
     {
-        question: "\"Overseas Electors\": An NRI can vote in Indian elections:",
-        options: ["By postal ballot.", "By proxy voting.", "Only in person at the polling station in their constituency.", "By internet voting (e-voting)."],
-        correctAnswerIndex: 2, // c) In person
-        explanation: "Currently only in person (Proxy is for Service voters)."
+        question: "In the event of a conflict between the name of a state in the First Schedule and the name used in a specific Article (e.g., Article 371-A uses \"Nagaland\"), which prevails?",
+        options: ["The First Schedule.", "The specific Article.", "Both must be amended simultaneously.", "The Supreme Court decides."],
+        correctAnswerIndex: 1, // b) Specific Article
+        explanation: "Specific provision prevails."
     },
     {
-        question: "The term \"Minority\" in Article 29 and 30 is not defined in the Constitution. However, citizenship is a prerequisite for:",
-        options: ["Article 29 (Protection of interests of minorities - \"Any section of the citizens\").", "Article 30 (Right to establish educational institutions).", "Both Articles.", "Neither; rights are available to all residents."],
-        correctAnswerIndex: 2, // c) Both
-        explanation: "Art 29 specifies citizens. Art 30 implies minorities (nationals)."
+        question: "The power to \"abolish\" a state and convert it into a UT (as done with J&K) is:",
+        options: ["Explicitly mentioned in Article 3.", "Derived from the power to \"alter the boundaries\" or \"form a new state\".", "Constitutionally silent and thus contentious.", "Prohibited by the Basic Structure."],
+        correctAnswerIndex: 2, // c) Contentious (SC left it open).
+        explanation: "It is constitutionally silent/contentious."
     },
     {
-        question: "Which of the following is an \"Enemy Property\"?",
-        options: ["Property owned by a person who migrated to Pakistan/China and took their citizenship.", "Property owned by an illegal migrant.", "Property owned by a criminal.", "Property owned by a tax defaulter."],
-        correctAnswerIndex: 0, // a)
-        explanation: "Property of nationals of enemy countries."
+        question: " \"Scheduled Areas\" (Fifth Schedule) can be declared by the President. Does the alteration of the boundaries of a Scheduled Area require a law under Article 3?",
+        options: ["Yes.", "No, it can be done by a Presidential Order.", "No, it requires a Governor's notification.", "Yes, but only with the Tribes Advisory Council's consent."],
+        correctAnswerIndex: 1, // b) Presidential Order
+        explanation: "Presidential Order is sufficient."
     },
     {
-        question: "In the context of the Rohingya Crisis, the Supreme Court allowed their deportation (subject to procedure) based on the principle that:",
-        options: ["Illegal migrants have no fundamental rights.", "Article 19 (Right to Reside) is available only to citizens.", "National security outweighs humanitarian concerns in the absence of a refugee law.", "Both (b) and (c)."],
-        correctAnswerIndex: 3, // d)
-        explanation: "Security and absence of right to reside."
+        question: "The \"Andhra Pradesh Reorganization Act, 2014\" promised a separate High Court for Andhra Pradesh. The High Court was finally established in:",
+        options: ["2014 immediately.", "2019 at Amravati.", "2017 at Vijayawada.", "It is still sharing with Telangana."],
+        correctAnswerIndex: 1, // b) 2019
+        explanation: "Established in 2019 at Amravati."
+    },
+    {
+        question: "If India were to acquire a part of Pakistan-occupied Kashmir (PoK) tomorrow, it would legally fall under:",
+        options: ["Article 1(3)(c) - Acquired Territory.", "It is already part of the \"Territory of India\" as per the 1994 Parliament Resolution and Article 1.", "Article 2 - Admission of new territory.", "International mandate."],
+        correctAnswerIndex: 1, // b) Already part of Territory
+        explanation: "India claims entire J&K, so it's re-establishing control, not new acquisition."
+    },
+    {
+        question: "The \"99th Amendment\" (NJAC) is famous, but the \"100th Amendment\" (2015) related to:",
+        options: ["GST.", "EWS Reservation.", "Land Boundary Agreement with Bangladesh.", "National Judicial Appointments Commission."],
+        correctAnswerIndex: 2, // c) LBA with Bangladesh
+        explanation: "LBA with Bangladesh."
+    },
+    {
+        question: "Under the Dadra and Nagar Haveli and Daman and Diu (Merger of Union Territories) Act, 2019, the jurisdiction of the High Court for this merged UT lies with:",
+        options: ["Gujarat High Court.", "Bombay High Court.", "Delhi High Court.", "A separate High Court."],
+        correctAnswerIndex: 1, // b) Bombay HC
+        explanation: "Bombay High Court."
     }
 ];
 
