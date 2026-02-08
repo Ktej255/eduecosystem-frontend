@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 interface VotingBehaviourModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -63,7 +64,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
     </div>
 );
 
-export default function VotingBehaviourModule({ onComplete, isCompleted }: VotingBehaviourModuleProps) {
+export default function VotingBehaviourModule({ onComplete, isCompleted, chapterNumber = "84" }: VotingBehaviourModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -71,7 +72,7 @@ export default function VotingBehaviourModule({ onComplete, isCompleted }: Votin
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#5b21b6] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 84</Badge>
+                        <Badge className="bg-[#5b21b6] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-purple-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Sociology of Politics</span>
                     </div>
@@ -237,7 +238,7 @@ export default function VotingBehaviourModule({ onComplete, isCompleted }: Votin
                     ) : (
                         <span className="flex items-center gap-4">
                             <LayoutGrid size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 84 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

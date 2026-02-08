@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface ForeignPolicyModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -34,14 +35,14 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
     </div>
 );
 
-export default function ForeignPolicyModule({ onComplete, isCompleted }: ForeignPolicyModuleProps) {
+export default function ForeignPolicyModule({ onComplete, isCompleted, chapterNumber = "73" }: ForeignPolicyModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO */}
             <div className="relative bg-[#020617] border-4 border-slate-700 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#ca8a04] text-slate-900 px-4 py-1 text-lg font-bold">Chapter 73</Badge>
+                        <Badge className="bg-[#ca8a04] text-slate-900 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                         <span className="text-slate-400 font-bold uppercase tracking-widest text-sm">Foreign Relations</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">

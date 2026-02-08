@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface RightsLiabilitiesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -45,7 +46,7 @@ const HandwrittenCard = ({ title, children, color = "border-slate-800", classNam
     </div>
 );
 
-export default function RightsLiabilitiesModule({ onComplete, isCompleted }: RightsLiabilitiesModuleProps) {
+export default function RightsLiabilitiesModule({ onComplete, isCompleted, chapterNumber = "76" }: RightsLiabilitiesModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO */}
@@ -53,7 +54,7 @@ export default function RightsLiabilitiesModule({ onComplete, isCompleted }: Rig
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="flex items-center gap-3 mb-4">
-                            <Badge className="bg-[#ca8a04] text-slate-900 px-4 py-1 text-lg font-bold">Chapter 76</Badge>
+                            <Badge className="bg-[#ca8a04] text-slate-900 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                             <span className="text-slate-400 font-bold uppercase tracking-widest text-sm">Part XI: Working of the Constitution</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">

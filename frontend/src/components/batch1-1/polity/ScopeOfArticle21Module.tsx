@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 interface ScopeOfArticle21ModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -61,7 +62,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
     </div>
 );
 
-export default function ScopeOfArticle21Module({ onComplete, isCompleted }: ScopeOfArticle21ModuleProps) {
+export default function ScopeOfArticle21Module({ onComplete, isCompleted, chapterNumber = "92" }: ScopeOfArticle21ModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -69,7 +70,7 @@ export default function ScopeOfArticle21Module({ onComplete, isCompleted }: Scop
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#14532d] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 92</Badge>
+                        <Badge className="bg-[#14532d] text-white px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-green-100 font-bold uppercase tracking-widest text-sm italic underline decoration-white">Life & Liberty</span>
                     </div>
@@ -215,7 +216,7 @@ export default function ScopeOfArticle21Module({ onComplete, isCompleted }: Scop
                     ) : (
                         <span className="flex items-center gap-4">
                             <Umbrella size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 92 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

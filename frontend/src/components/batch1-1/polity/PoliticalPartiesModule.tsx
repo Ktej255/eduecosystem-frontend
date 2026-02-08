@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface PoliticalPartiesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -41,14 +42,14 @@ const PartyCard = ({ title, children, color = "bg-white" }: { title: string, chi
     </div>
 );
 
-export default function PoliticalPartiesModule({ onComplete, isCompleted }: PoliticalPartiesModuleProps) {
+export default function PoliticalPartiesModule({ onComplete, isCompleted, chapterNumber = "79" }: PoliticalPartiesModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO */}
             <div className="relative bg-gradient-to-r from-orange-500 via-white to-green-600 p-1 rounded-3xl shadow-2xl">
                 <div className="bg-white rounded-[20px] p-8 md:p-12 overflow-hidden relative">
                     <div className="relative z-10 text-center">
-                        <Badge className="bg-slate-900 text-white px-4 py-1 text-lg font-bold mb-4">Chapter 79</Badge>
+                        <Badge className="bg-slate-900 text-white px-4 py-1 text-lg font-bold mb-4">Chapter {chapterNumber}</Badge>
                         <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight text-slate-900">
                             Political Parties <br />
                             <span className="text-blue-600">The 6% Solution</span>

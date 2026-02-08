@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 interface OfficialLanguageModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -52,7 +53,7 @@ const PhaseHeader = ({ number, title, color }: { number: string, title: string, 
     </div>
 );
 
-export default function OfficialLanguageModule({ onComplete, isCompleted }: OfficialLanguageModuleProps) {
+export default function OfficialLanguageModule({ onComplete, isCompleted, chapterNumber = "61" }: OfficialLanguageModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -60,7 +61,7 @@ export default function OfficialLanguageModule({ onComplete, isCompleted }: Offi
                 <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl"></div>
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#fbbf24] text-rose-900 px-4 py-1 text-lg border-2 border-white shadow-md">Chapter 61</Badge>
+                        <Badge className="bg-[#fbbf24] text-rose-900 px-4 py-1 text-lg border-2 border-white shadow-md">Chapter {chapterNumber}</Badge>
                         <div className="h-[2px] w-12 bg-white/30"></div>
                         <span className="text-rose-100 font-bold uppercase tracking-widest text-sm italic">Unity in Diversity</span>
                     </div>
@@ -236,7 +237,7 @@ export default function OfficialLanguageModule({ onComplete, isCompleted }: Offi
                     ) : (
                         <span className="flex items-center gap-4">
                             <Languages size={32} className="group-hover:rotate-12 transition-transform" />
-                            MARK CHAPTER 61 COMPLETE
+                            MARK CHAPTER {chapterNumber} COMPLETE
                         </span>
                     )}
                 </Button>

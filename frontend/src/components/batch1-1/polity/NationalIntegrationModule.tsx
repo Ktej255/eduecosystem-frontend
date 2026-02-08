@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 interface NationalIntegrationModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -33,14 +34,14 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
     </div>
 );
 
-export default function NationalIntegrationModule({ onComplete, isCompleted }: NationalIntegrationModuleProps) {
+export default function NationalIntegrationModule({ onComplete, isCompleted, chapterNumber = "72" }: NationalIntegrationModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO */}
             <div className="relative bg-gradient-to-r from-orange-500 via-white to-green-600 p-1 rounded-3xl shadow-2xl">
                 <div className="bg-white rounded-[20px] p-8 md:p-12 overflow-hidden relative">
                     <div className="relative z-10 text-center">
-                        <Badge className="bg-slate-900 text-white px-4 py-1 text-lg font-bold mb-4">Chapter 72</Badge>
+                        <Badge className="bg-slate-900 text-white px-4 py-1 text-lg font-bold mb-4">Chapter {chapterNumber}</Badge>
                         <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight text-slate-900">
                             National Integration <br />
                             <span className="text-orange-600">The Jigsaw Puzzle</span>

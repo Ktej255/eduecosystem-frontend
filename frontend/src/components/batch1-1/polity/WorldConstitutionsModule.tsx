@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 interface WorldConstitutionsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -77,7 +78,7 @@ const PhaseHeader = ({ number, title, color, subtitle }: { number: string, title
     </div>
 );
 
-export default function WorldConstitutionsModule({ onComplete, isCompleted }: WorldConstitutionsModuleProps) {
+export default function WorldConstitutionsModule({ onComplete, isCompleted, chapterNumber = "95" }: WorldConstitutionsModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO SECTION */}
@@ -87,7 +88,7 @@ export default function WorldConstitutionsModule({ onComplete, isCompleted }: Wo
 
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge variant="secondary" className="bg-white/10 text-white border-white/20">Chapter 95</Badge>
+                        <Badge variant="secondary" className="bg-white/10 text-white border-white/20">Chapter {chapterNumber}</Badge>
                         <span className="text-slate-400 font-bold uppercase tracking-widest text-sm">Comparative Politics</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">

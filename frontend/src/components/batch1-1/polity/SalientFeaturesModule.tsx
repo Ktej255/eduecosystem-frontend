@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 interface SalientFeaturesModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 // --- Design System: The Constitution Pinboard ---
@@ -69,12 +70,12 @@ const FactItem = ({ children, pyq = false }: { children: React.ReactNode, pyq?: 
 );
 
 
-export default function SalientFeaturesModule({ onComplete, isCompleted }: SalientFeaturesModuleProps) {
+export default function SalientFeaturesModule({ onComplete, isCompleted, chapterNumber = "4" }: SalientFeaturesModuleProps) {
     return (
         <div className="bg-[#e2e8f0] min-h-screen">
             <div className="bg-slate-900 text-white p-6 md:p-12 text-center relative overflow-hidden">
                 <div className="relative z-10 max-w-2xl mx-auto">
-                    <span className="bg-blue-900/50 text-blue-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-blue-700 mb-4 inline-block">Chapter 4</span>
+                    <span className="bg-blue-900/50 text-blue-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-blue-700 mb-4 inline-block">Chapter {chapterNumber}</span>
                     <h1 className="text-3xl md:text-5xl font-bold mb-2 font-serif">Salient Features</h1>
                     <p className="text-slate-400 text-sm md:text-lg italic">The Constitution Pinboard</p>
                 </div>

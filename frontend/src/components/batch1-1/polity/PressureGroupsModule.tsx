@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface PressureGroupsModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -46,14 +47,14 @@ const ClassificationCard = ({ title, examples, icon: Icon, color }: { title: str
     </div>
 );
 
-export default function PressureGroupsModule({ onComplete, isCompleted }: PressureGroupsModuleProps) {
+export default function PressureGroupsModule({ onComplete, isCompleted, chapterNumber = "71" }: PressureGroupsModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO */}
             <div className="relative bg-[#374151] border-4 border-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[#171717] text-white px-4 py-1 text-lg font-bold">Chapter 71</Badge>
+                        <Badge className="bg-[#171717] text-white px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                         <span className="text-slate-300 font-bold uppercase tracking-widest text-sm">Political Dynamics</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">

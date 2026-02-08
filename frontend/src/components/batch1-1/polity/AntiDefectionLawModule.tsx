@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 interface AntiDefectionLawModuleProps {
     onComplete?: () => void;
     isCompleted?: boolean;
+    chapterNumber?: string;
 }
 
 const ScrapbookContainer = ({ children }: { children: React.ReactNode }) => (
@@ -34,14 +35,14 @@ const SectionHeader = ({ title, icon: Icon, color }: { title: string, icon: any,
     </div>
 );
 
-export default function AntiDefectionLawModule({ onComplete, isCompleted }: AntiDefectionLawModuleProps) {
+export default function AntiDefectionLawModule({ onComplete, isCompleted, chapterNumber = "70" }: AntiDefectionLawModuleProps) {
     return (
         <ScrapbookContainer>
             {/* HERO */}
             <div className="relative bg-[#b91c1c] border-4 border-red-900 rounded-3xl p-8 md:p-12 shadow-2xl text-white overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-white text-red-900 px-4 py-1 text-lg font-bold">Chapter 70</Badge>
+                        <Badge className="bg-white text-red-900 px-4 py-1 text-lg font-bold">Chapter {chapterNumber}</Badge>
                         <span className="text-red-200 font-bold uppercase tracking-widest text-sm">10th Schedule</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
