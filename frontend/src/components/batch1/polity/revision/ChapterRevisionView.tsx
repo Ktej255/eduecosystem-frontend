@@ -13,11 +13,10 @@ import {
     Sparkles,
     Target,
     Flame
-} from 'lucide-react';
-import Link from 'next/link';
-import { getRevisionDataById } from '../data/RevisionRegistry';
-import { updateFlashcardProgress, updateMcqProgress, getChapterProgress, getStreak, getAllProgress } from './progress-utils';
-import { toast } from 'sonner';
+import { Newspaper } from 'lucide-react';
+import StandardMCQInterface from '@/components/common/mcq/StandardMCQInterface';
+import StandardTestReport from '@/components/common/reports/StandardTestReport';
+import { Badge } from '@/components/ui/badge';
 
 interface Props {
     chapterId: number;
@@ -42,6 +41,8 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
     const [answers, setAnswers] = useState<Record<number, number>>({});
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
+    const [testResults, setTestResults] = useState<any>(null);
+    const [showReport, setShowReport] = useState(false);
 
     useEffect(() => {
         const data = getRevisionDataById(chapterId);
@@ -314,111 +315,46 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                                     <Badge variant="secondary" className="bg-red-50 text-red-700">Coming Soon</Badge>
                                 </div>
                             </div>
+                        ) : showReport && testResults ? (
+                            <StandardTestReport
+                                results={testResults}
+                                onBack={() => {
+                                    setShowReport(false);
+                                    setMcqLevel(null);
+                                }}
+                                onRetake={() => {
+                                    setShowReport(false);
+                                    setTestResults(null);
+                                }}
+                            />
                         ) : mcqLevel === 1 ? (
-                            // Existing Quiz Logic (Level 1)
-                            !submitted ? (
-                                <>
-                                    <div className="flex items-center justify-between">
-                                        <div className="text-sm font-medium text-gray-500 leading-none flex items-center gap-2">
-                                            <button onClick={() => setMcqLevel(null)} className="hover:text-blue-600 underline">Levels</button>
-                                            <span>/</span>
-                                            <span>Question {currentMcqIdx + 1} of {mcqs.length}</span>
-                                        </div>
-                                        <div className="h-2 w-48 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
-                                            <div
-                                                className="h-full bg-blue-600 transition-all duration-300"
-                                                style={{ width: `${((currentMcqIdx + 1) / mcqs.length) * 100}%` }}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="bg-white dark:bg-[#0a0a0a] rounded-2xl border border-gray-200 dark:border-gray-800 p-8 shadow-sm">
-                                        <h3 className="text-xl font-bold mb-8 text-gray-900 dark:text-white leading-snug">
-                                            {mcqs[currentMcqIdx].question}
-                                        </h3>
-
-                                        <div className="space-y-3">
-                                            {mcqs[currentMcqIdx].options.map((option: string, oIdx: number) => (
-                                                <button
-                                                    key={oIdx}
-                                                    onClick={() => handleOptionSelect(oIdx)}
-                                                    className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${answers[currentMcqIdx] === oIdx
-                                                        ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300'
-                                                        : 'border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700'
-                                                        }`}
-                                                >
-                                                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold ${answers[currentMcqIdx] === oIdx ? 'bg-blue-600 border-blue-600 text-white' : 'border-gray-300 text-gray-400'
-                                                        }`}>
-                                                        {String.fromCharCode(65 + oIdx)}
-                                                    </div>
-                                                    <span className="font-medium">{option}</span>
-                                                </button>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-center justify-between">
-                                        <button
-                                            onClick={() => setCurrentMcqIdx(prev => Math.max(0, prev - 1))}
-                                            disabled={currentMcqIdx === 0}
-                                            className="text-sm font-medium text-gray-500 hover:text-gray-900 disabled:opacity-0"
-                                        >
-                                            ← Previous
-                                        </button>
-                                        {currentMcqIdx === mcqs.length - 1 ? (
-                                            <button
-                                                onClick={handleMcqSubmit}
-                                                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-green-600/20 disabled:opacity-50 transition-all"
-                                            >
-                                                Finish Test
-                                            </button>
-                                        ) : (
-                                            <button
-                                                onClick={() => setCurrentMcqIdx(prev => Math.min(mcqs.length - 1, prev + 1))}
-                                                disabled={answers[currentMcqIdx] === undefined}
-                                                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-blue-600/20 disabled:opacity-50 transition-all"
-                                            >
-                                                Next Question →
-                                            </button>
-                                        )}
-                                    </div>
-                                </>
-                            ) : (
-                                // Results Screen
-                                <div className="text-center bg-white dark:bg-[#0a0a0a] rounded-3xl border border-gray-200 dark:border-gray-800 p-12 shadow-xl animate-in zoom-in-95 duration-500">
-                                    <div className="w-20 h-20 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
-                                        <Trophy className="w-10 h-10 text-blue-600" />
-                                    </div>
-                                    <h2 className="text-3xl font-bold mb-2">Test Completed!</h2>
-                                    <div className="text-5xl font-black text-blue-600 my-8">
-                                        {score} <span className="text-2xl text-gray-400 font-normal">/ {mcqs.length}</span>
-                                    </div>
-                                    <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-sm mx-auto">
-                                        {score === mcqs.length
-                                            ? "Perfect score! You have a solid grasp of this chapter's key facts."
-                                            : score > mcqs.length / 2
-                                                ? "Great job! Review the questions you got wrong for perfection."
-                                                : "Good effort. Let's study the detailed text once more and try again."}
-                                    </p>
-
-                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                        <button
-                                            onClick={resetMcq}
-                                            className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 px-8 py-3 rounded-xl font-bold transition-all"
-                                        >
-                                            <RefreshCcw className="w-4 h-4" />
-                                            Retry Test
-                                        </button>
-                                        <button
-                                            onClick={() => setActiveTab('content')}
-                                            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold transition-all"
-                                        >
-                                            <BookOpen className="w-4 h-4" />
-                                            Review Chapter
-                                        </button>
-                                    </div>
-                                </div>
-                            )
+                            // Standardized MCQ Interface
+                            <StandardMCQInterface
+                                questions={mcqs.map((q: any, i: number) => ({
+                                    id: i,
+                                    question: q.question,
+                                    options: q.options,
+                                    correctAnswer: q.correctAnswer,
+                                    explanation: q.explanation || "No explanation provided.",
+                                    subtopic: "General",
+                                    chapter: title
+                                }))}
+                                onComplete={(results, time) => {
+                                    setTestResults({
+                                        testTitle: `${title} - Level 1`,
+                                        totalTimeTaken: time,
+                                        questions: results
+                                    });
+                                    setShowReport(true);
+                                    // Save Progress
+                                    const score = results.filter(r => r.isCorrect).length;
+                                    updateMcqProgress(chapterId, score, results.length, subjectId);
+                                    toast.success("Test Submitted Successfully!");
+                                }}
+                                title={`${title} - Level 1`}
+                                subtitle="Topic Revision Test"
+                                onExit={() => setMcqLevel(null)}
+                            />
                         ) : (
                             // Placeholder for Level 2 & 3
                             <div className="text-center py-24 bg-white dark:bg-[#0a0a0a] rounded-3xl border border-gray-200 dark:border-gray-800">

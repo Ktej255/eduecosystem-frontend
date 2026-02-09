@@ -560,9 +560,9 @@ function ChapterMCQReport() {
 
     useEffect(() => {
         // Scan localStorage for all chapter reports
-        const chapters: { chapterId: number; reports: ChapterTestResult[] }[] = [];
+        const chapters: { chapterId: number; reports: ChapterTestResult[]; subject?: string }[] = [];
 
-        // Check chapters 1-12 (adjust range as needed)
+        // 1. Polygon Reports (Legacy format)
         for (let i = 1; i <= 53; i++) {
             const key = `polity-chapter-${i}-reports`;
             const saved = localStorage.getItem(key);
@@ -570,13 +570,53 @@ function ChapterMCQReport() {
                 try {
                     const reports = JSON.parse(saved) as ChapterTestResult[];
                     if (reports.length > 0) {
-                        chapters.push({ chapterId: i, reports });
+                        chapters.push({ chapterId: i, reports, subject: 'Polity' });
                     }
                 } catch { }
             }
         }
 
-        setAllReports(chapters.sort((a, b) => a.chapterId - b.chapterId));
+        // 2. Universal Reports (New format)
+        if (typeof window !== 'undefined') {
+            import('@/lib/report-persistence').then(mod => {
+                const historyReports = mod.getChapterReports('history');
+
+                // Group by chapter
+                const historyByChapter: Record<number, ChapterTestResult[]> = {};
+
+                historyReports.forEach(r => {
+                    if (!historyByChapter[r.chapterId]) historyByChapter[r.chapterId] = [];
+
+                    // Convert Universal format to ChapterTestResult format expected by this component
+                    // This is a mapping layer
+                    const mapped: ChapterTestResult = {
+                        chapterId: r.chapterId,
+                        chapterTitle: `History Chapter ${r.chapterId}`,
+                        levelId: r.level,
+                        score: r.score,
+                        totalQuestions: r.totalQuestions,
+                        percentage: r.accuracy,
+                        totalTimeTaken: r.timeTaken,
+                        endTime: r.timestamp,
+                        questions: [] // Detail omitted for overview to save memory, usually detail loaded on demand
+                    };
+                    historyByChapter[r.chapterId].push(mapped);
+                });
+
+                Object.entries(historyByChapter).forEach(([cid, reports]) => {
+                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'History' });
+                });
+
+                // Update state
+                setAllReports(chapters.sort((a, b) => {
+                    if (a.subject !== b.subject) return (a.subject || '').localeCompare(b.subject || '');
+                    return a.chapterId - b.chapterId;
+                }));
+            });
+        } else {
+            setAllReports(chapters.sort((a, b) => a.chapterId - b.chapterId));
+        }
+
     }, []);
 
     // Calculate aggregated stats
@@ -737,6 +777,7 @@ function ChapterMCQReport() {
                         <div key={chapter.chapterId} className="p-4 bg-slate-50 rounded-xl border border-slate-100">
                             <div className="flex items-center justify-between mb-3">
                                 <h4 className="font-bold text-slate-800">
+                                    <span className="text-xs uppercase font-bold text-slate-400 block mb-0.5">{chapter.subject || 'Polity'}</span>
                                     Chapter {chapter.chapterId}: {chapter.reports[0]?.chapterTitle || 'Unknown'}
                                 </h4>
                                 <span className="text-xs text-slate-500">{chapter.reports.length} attempt(s)</span>

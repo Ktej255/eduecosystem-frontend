@@ -254,6 +254,15 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                             <Globe className="h-4 w-4" />
                             3D Globe
                         </Button>
+                        <Button
+                            variant='ghost'
+                            size="sm"
+                            onClick={() => window.location.href = '/student/batch1/current-affairs?subject=Geography'}
+                            className="gap-2 text-xs font-semibold text-rose-600 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-900/20"
+                        >
+                            <BarChart2 className="h-4 w-4" />
+                            Current Affairs
+                        </Button>
                     </div>
                 </div>
             </header>

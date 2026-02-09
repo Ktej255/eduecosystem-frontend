@@ -7,7 +7,7 @@ import HistoryTimeline from './HistoryTimeline';
 import HistoryMainsPractice from './HistoryMainsPractice';
 import HistoryDashboard from './HistoryDashboard';
 import HistoryVisuals from './HistoryVisuals';
-import { Layout, Clock, PenTool, BookOpen, Map, Target, Landmark, Scroll, Flag, Sparkles } from 'lucide-react';
+import { Layout, Clock, PenTool, BookOpen, Map, Target, Landmark, Scroll, Flag, Sparkles, Flame } from 'lucide-react';
 import HistorySectionPlanner from './HistorySectionPlanner';
 import { HistorySection } from './data/history-schedule-registry';
 
@@ -91,79 +91,82 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                                     <PenTool className="w-4 h-4" />
                                     Mains
                                 </button>
-                                <button
-                                    onClick={() => setActiveTab('visuals')}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all items-center gap-2 flex ${activeTab === 'visuals'
-                                        ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
-                                        : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                                        }`}
-                                >
-                                    <Map className="w-4 h-4" />
-                                    Visuals
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Sub-Nav for Study Dashboard */}
-            {activeTab === 'dashboard' && (
-                <div className="bg-white/50 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-900/50 dark:border-neutral-800 animate-in fade-in slide-in-from-top-4 duration-300">
-                    <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-center gap-8">
-                        {sections.map((sec) => (
-                            <button
-                                key={sec.id}
-                                onClick={() => setSelectedSection(sec.id as HistorySection)}
-                                className={`h-full px-2 text-xs font-black uppercase tracking-widest flex items-center gap-2 transition-all border-b-2
-                                    ${selectedSection === sec.id
-                                        ? `border-indigo-600 ${sec.color} scale-110`
-                                        : 'border-transparent text-gray-400 hover:text-gray-600'
-                                    }`}
-                            >
-                                <sec.icon className="w-3.5 h-3.5" />
-                                {sec.name}
+                                <Map className="w-4 h-4" />
+                                Visuals
                             </button>
-                        ))}
+                            <button
+                                onClick={() => window.location.href = '/student/batch1/current-affairs?subject=History'}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all items-center gap-2 flex text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20`}
+                            >
+                                <Sparkles className="w-4 h-4" />
+                                Current Affairs
+                            </button>
+                        </div>
                     </div>
                 </div>
-            )}
+                </div>
+    )
+}
 
-            <div className="w-full">
-                {activeTab === 'syllabus' && (
-                    <SubjectPlanner config={HISTORY_CONFIG} />
-                )}
-
-                {activeTab === 'timeline' && (
-                    <div className="max-w-7xl mx-auto p-6 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <div className="text-center py-8">
-                            <h1 className="text-4xl font-bold text-neutral-900 dark:text-white mb-2">Detailed Timeline</h1>
-                            <p className="text-neutral-500">Navigate through the ages of Indian History</p>
-                        </div>
-                        <HistoryTimeline config={HISTORY_CONFIG} onSelectTopic={handleTopicSelect} />
-                    </div>
-                )}
-
-                {activeTab === 'mains' && (
-                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <HistoryMainsPractice config={HISTORY_CONFIG} />
-                    </div>
-                )}
-
-                {activeTab === 'dashboard' && (
-                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <HistorySectionPlanner section={selectedSection} />
-                    </div>
-                )}
-
-                {activeTab === 'overview' && (
-                    <HistoryDashboard />
-                )}
-
-                {activeTab === 'visuals' && (
-                    <HistoryVisuals />
-                )}
+{/* Sub-Nav for Study Dashboard */ }
+{
+    activeTab === 'dashboard' && (
+        <div className="bg-white/50 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-900/50 dark:border-neutral-800 animate-in fade-in slide-in-from-top-4 duration-300">
+            <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-center gap-8">
+                {sections.map((sec) => (
+                    <button
+                        key={sec.id}
+                        onClick={() => setSelectedSection(sec.id as HistorySection)}
+                        className={`h-full px-2 text-xs font-black uppercase tracking-widest flex items-center gap-2 transition-all border-b-2
+                                    ${selectedSection === sec.id
+                                ? `border-indigo-600 ${sec.color} scale-110`
+                                : 'border-transparent text-gray-400 hover:text-gray-600'
+                            }`}
+                    >
+                        <sec.icon className="w-3.5 h-3.5" />
+                        {sec.name}
+                    </button>
+                ))}
             </div>
         </div>
+    )
+}
+
+<div className="w-full">
+    {activeTab === 'syllabus' && (
+        <SubjectPlanner config={HISTORY_CONFIG} />
+    )}
+
+    {activeTab === 'timeline' && (
+        <div className="max-w-7xl mx-auto p-6 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="text-center py-8">
+                <h1 className="text-4xl font-bold text-neutral-900 dark:text-white mb-2">Detailed Timeline</h1>
+                <p className="text-neutral-500">Navigate through the ages of Indian History</p>
+            </div>
+            <HistoryTimeline config={HISTORY_CONFIG} onSelectTopic={handleTopicSelect} />
+        </div>
+    )}
+
+    {activeTab === 'mains' && (
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <HistoryMainsPractice config={HISTORY_CONFIG} />
+        </div>
+    )}
+
+    {activeTab === 'dashboard' && (
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <HistorySectionPlanner section={selectedSection} />
+        </div>
+    )}
+
+    {activeTab === 'overview' && (
+        <HistoryDashboard />
+    )}
+
+    {activeTab === 'visuals' && (
+        <HistoryVisuals />
+    )}
+</div>
+        </div >
     );
 }

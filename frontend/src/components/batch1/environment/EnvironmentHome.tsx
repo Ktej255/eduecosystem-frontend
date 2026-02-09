@@ -55,6 +55,13 @@ export default function EnvironmentHome() {
                                 <Zap className="w-4 h-4" />
                                 Flashcards
                             </button>
+                            <button
+                                onClick={() => window.location.href = '/student/batch1/current-affairs?subject=Environment'}
+                                className="px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20"
+                            >
+                                <Layout className="w-4 h-4" />
+                                Current Affairs
+                            </button>
                         </div>
                     </div>
                 </div>
