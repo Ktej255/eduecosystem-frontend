@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Calendar, CheckCircle, Clock, BookOpen,
     AlertCircle, Target, Lock, Play, ChevronRight,
-    TrendingUp, FileText, Award
+    TrendingUp, FileText, Award, StickyNote, BarChart2, Flame, Map
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -246,17 +246,108 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                             `}
                                             onClick={() => handleCheck(idx)}
                                         >
-                                            <Checkbox
-                                                checked={checklist[idx]}
-                                                onCheckedChange={() => handleCheck(idx)}
-                                                className="mt-1"
-                                            />
                                             <div className="flex-1">
-                                                <div className={`text-[10px] font-bold uppercase ${colors.text} mb-0.5`}>
-                                                    Chapter {dayData.chapters[idx] || (dayData.isAssessmentDay ? 'ASSESS' : 'SPL')}
+                                                <div className="flex justify-between items-start mb-2">
+                                                    <div>
+                                                        <div className={`text-[10px] font-bold uppercase ${colors.text} mb-0.5`}>
+                                                            Chapter {dayData.chapters[idx] || (dayData.isAssessmentDay ? 'ASSESS' : 'SPL')}
+                                                        </div>
+                                                        <div className="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">
+                                                            {chapter}
+                                                        </div>
+                                                    </div>
+                                                    <Checkbox
+                                                        checked={checklist[idx]}
+                                                        onCheckedChange={() => handleCheck(idx)}
+                                                        className="mt-1"
+                                                    />
                                                 </div>
-                                                <div className="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">
-                                                    {chapter}
+
+                                                {/* 7-Icon Action Row (Polity Style) */}
+                                                <div className="grid grid-cols-7 gap-1 pt-3 border-t border-gray-100 dark:border-gray-800 mt-2">
+                                                    {/* 1. Flashcards */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/flashcards?chapter=${dayData.chapters[idx]}`); }}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Study Flashcards"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-blue-50 group-hover/btn:text-blue-500 transition-colors">
+                                                            <StickyNote className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-blue-500">Cards</span>
+                                                    </button>
+
+                                                    {/* 2. Level 1 MCQs */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=1`); }}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Level 1: Foundation"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-green-50 group-hover/btn:text-green-500 transition-colors">
+                                                            <Target className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-green-500">L1</span>
+                                                    </button>
+
+                                                    {/* 3. Level 2 MCQs */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=2`); }}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Level 2: Conceptual"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-purple-50 group-hover/btn:text-purple-500 transition-colors">
+                                                            <Target className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-purple-500">L2</span>
+                                                    </button>
+
+                                                    {/* 4. Level 3 MCQs */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=3`); }}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Level 3: Applied"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-red-50 group-hover/btn:text-red-500 transition-colors">
+                                                            <Flame className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-red-500">L3</span>
+                                                    </button>
+
+                                                    {/* 5. Read */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/read/${dayData.chapters[idx]}`); }}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Read Content"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-indigo-50 group-hover/btn:text-indigo-500 transition-colors">
+                                                            <BookOpen className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-indigo-500">Read</span>
+                                                    </button>
+
+                                                    {/* 6. Visuals/Mapping */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/visuals?chapter=${dayData.chapters[idx]}`); }}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Interactive Visuals"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-amber-50 group-hover/btn:text-amber-600 transition-colors">
+                                                            <Map className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-amber-600">Map</span>
+                                                    </button>
+
+                                                    {/* 7. Report */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); /* Topic Analysis Modal Placeholder */ }}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Topic Report"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-orange-50 group-hover/btn:text-orange-500 transition-colors">
+                                                            <BarChart2 className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-orange-500">Report</span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </motion.div>
