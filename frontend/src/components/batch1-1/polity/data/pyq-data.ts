@@ -1,4 +1,5 @@
 import { PYQItem } from './pyq-types';
+import { POLITY_REVISION_CHAPTERS } from '../../../batch1/polity/data/RevisionRegistry';
 
 export const PYQ_DATA: PYQItem[] = [
     // --- PREAMBLE ---
@@ -217,3 +218,92 @@ export const PYQ_DATA: PYQItem[] = [
         difficulty: 'Hard'
     }
 ];
+
+// --- DERIVED DATA & EXPORTS FOR DASHBOARD ---
+
+export interface ChapterPYQStats {
+    chapterId: number;
+    chapterTitle: string;
+    questions: PYQItem[];
+    totalPYQs: number;
+    lastAskedYear: number;
+    frequency: 'high' | 'medium' | 'low';
+    trendDirection: 'increasing' | 'stable' | 'decreasing';
+}
+
+export const PYQ_DATA_MAP: Record<number, ChapterPYQStats> = {};
+
+// Initialize Map with Chapters
+POLITY_REVISION_CHAPTERS.forEach(ch => {
+    PYQ_DATA_MAP[ch.id] = {
+        chapterId: ch.id,
+        chapterTitle: ch.title,
+        questions: [],
+        totalPYQs: 0,
+        lastAskedYear: 0,
+        frequency: 'low',
+        trendDirection: 'stable'
+    };
+});
+
+// Populate Data
+PYQ_DATA.forEach(q => {
+    q.topicIds.forEach(tid => {
+        if (PYQ_DATA_MAP[tid]) {
+            PYQ_DATA_MAP[tid].questions.push(q);
+            PYQ_DATA_MAP[tid].totalPYQs++;
+            if (q.year > PYQ_DATA_MAP[tid].lastAskedYear) {
+                PYQ_DATA_MAP[tid].lastAskedYear = q.year;
+            }
+        }
+    });
+});
+
+// Calculate Trends and Frequency
+Object.values(PYQ_DATA_MAP).forEach(ch => {
+    // Frequency Logic
+    if (ch.totalPYQs >= 5) ch.frequency = 'high';
+    else if (ch.totalPYQs >= 2) ch.frequency = 'medium';
+    else ch.frequency = 'low';
+
+    // Trend Logic
+    const recent = ch.questions.filter(q => q.year >= 2020).length;
+    const old = ch.questions.filter(q => q.year < 2020 && q.year >= 2015).length;
+
+    if (recent > old) ch.trendDirection = 'increasing';
+    else if (recent < old && recent === 0) ch.trendDirection = 'decreasing';
+    else ch.trendDirection = 'stable';
+});
+
+// Helper Functions
+export const getPYQStatistics = () => {
+    const totalQuestions = PYQ_DATA.length;
+    const chaptersWithPYQs = Object.values(PYQ_DATA_MAP).filter(c => c.totalPYQs > 0).length;
+    const highFrequencyTopics = Object.values(PYQ_DATA_MAP).filter(c => c.frequency === 'high').length;
+    const mostRecentYear = Math.max(...PYQ_DATA.map(q => q.year));
+    return { totalQuestions, chaptersWithPYQs, highFrequencyTopics, mostRecentYear };
+};
+
+export const getPYQTrendData = () => {
+    const increasing = Object.values(PYQ_DATA_MAP).filter(c => c.trendDirection === 'increasing').map(c => c.chapterTitle);
+    const stable = Object.values(PYQ_DATA_MAP).filter(c => c.trendDirection === 'stable' && c.totalPYQs > 0).map(c => c.chapterTitle);
+    const decreasing = Object.values(PYQ_DATA_MAP).filter(c => c.trendDirection === 'decreasing').map(c => c.chapterTitle);
+    return { increasing, stable, decreasing };
+};
+
+export const getYearWiseDistribution = () => {
+    const map: Record<number, number> = {};
+    PYQ_DATA.forEach(q => {
+        map[q.year] = (map[q.year] || 0) + 1;
+    });
+    return Object.entries(map).map(([y, c]) => [Number(y), c] as [number, number]).sort((a, b) => b[0] - a[0]);
+};
+
+export const HIGH_YIELD_CHAPTERS = Object.values(PYQ_DATA_MAP)
+    .filter(c => c.totalPYQs > 0)
+    .sort((a, b) => b.totalPYQs - a.totalPYQs)
+    .map(c => ({
+        id: c.chapterId,
+        title: c.chapterTitle,
+        expectedPYQs: Math.max(1, Math.round(c.totalPYQs / 4)) // Estimated
+    }));

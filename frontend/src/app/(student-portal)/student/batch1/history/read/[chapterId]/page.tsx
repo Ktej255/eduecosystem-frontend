@@ -89,10 +89,10 @@ export default function HistoryReadPage() {
                     <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => router.back()}
+                        onClick={() => router.push('/student/batch1/history')}
                         className="text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                     >
-                        <ArrowLeft className="w-5 h-5 mr-1" /> Back
+                        <ArrowLeft className="w-5 h-5 mr-1" /> Back to Dashboard
                     </Button>
 
                     <div className="flex items-center gap-2">
@@ -114,7 +114,7 @@ export default function HistoryReadPage() {
             </div>
 
             {/* Main Content: The Notebook Paper */}
-            <div className="max-w-4xl mx-auto p-4 sm:p-8">
+            <div className="max-w-4xl mx-auto p-4 sm:p-8 pb-32">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -148,14 +148,20 @@ export default function HistoryReadPage() {
                         {/* Rendering the Markdown Content */}
                         {renderContent(content)}
                     </div>
-
-                    {/* Footer Stamp */}
-                    <div className="absolute bottom-8 right-8 opacity-20 transform rotate-[-12deg] pointer-events-none font-sans">
-                        <div className="border-4 border-red-800 text-red-800 font-bold p-2 text-xl rounded-lg text-center uppercase">
-                            Verified<br />Content
-                        </div>
-                    </div>
                 </motion.div>
+
+                {/* Bottom Navigation for Next Chapter */}
+                <div className="mt-8 flex justify-end">
+                    {MODERN_HISTORY_CONTENT[String(Number(chapterId) + 1)] && (
+                        <Button
+                            onClick={() => router.push(`/student/batch1/history/read/${Number(chapterId) + 1}`)}
+                            className="bg-stone-800 hover:bg-stone-700 text-amber-50 font-sans shadow-lg hover:shadow-xl transition-all"
+                            size="lg"
+                        >
+                            Next Chapter <ArrowLeft className="w-5 h-5 ml-2 rotate-180" />
+                        </Button>
+                    )}
+                </div>
             </div>
         </div>
     );
