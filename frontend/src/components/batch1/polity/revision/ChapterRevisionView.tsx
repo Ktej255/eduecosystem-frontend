@@ -18,7 +18,7 @@ import {
 import StandardMCQInterface from '@/components/common/mcq/StandardMCQInterface';
 import StandardTestReport from '@/components/common/reports/StandardTestReport';
 import { Badge } from '@/components/ui/badge';
-import { getRevisionDataById } from '../../data/RevisionRegistry';
+import { getRevisionDataById } from '../data/RevisionRegistry';
 import Link from 'next/link';
 
 interface Props {
