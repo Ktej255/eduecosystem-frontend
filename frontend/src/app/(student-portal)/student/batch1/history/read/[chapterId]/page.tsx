@@ -7,6 +7,27 @@ import { ArrowLeft, BookOpen, Highlighter, Share2, ZoomIn, ZoomOut, Pencil, File
 import { Button } from '@/components/ui/button';
 import { MODERN_HISTORY_CONTENT } from '@/components/batch1/history/data/modern/content-registry';
 import HandwrittenChapter1 from '@/components/batch1/history/modern/v2/HandwrittenChapter1';
+import HandwrittenChapter2 from '@/components/batch1/history/modern/v2/HandwrittenChapter2';
+import HandwrittenChapter3 from '@/components/batch1/history/modern/v2/HandwrittenChapter3';
+import HandwrittenChapter4 from '@/components/batch1/history/modern/v2/HandwrittenChapter4';
+import HandwrittenChapter5 from '@/components/batch1/history/modern/v2/HandwrittenChapter5';
+import HandwrittenChapter6 from '@/components/batch1/history/modern/v2/HandwrittenChapter6';
+import HandwrittenChapter7 from '@/components/batch1/history/modern/v2/HandwrittenChapter7';
+import HandwrittenChapter8 from '@/components/batch1/history/modern/v2/HandwrittenChapter8';
+import HandwrittenChapter9 from '@/components/batch1/history/modern/v2/HandwrittenChapter9';
+import HandwrittenChapter10 from '@/components/batch1/history/modern/v2/HandwrittenChapter10';
+import HandwrittenChapter11 from '@/components/batch1/history/modern/v2/HandwrittenChapter11';
+import HandwrittenChapter12 from '@/components/batch1/history/modern/v2/HandwrittenChapter12';
+import HandwrittenChapter13 from '@/components/batch1/history/modern/v2/HandwrittenChapter13';
+import HandwrittenChapter14 from '@/components/batch1/history/modern/v2/HandwrittenChapter14';
+import HandwrittenChapter15 from '@/components/batch1/history/modern/v2/HandwrittenChapter15';
+import HandwrittenChapter16 from '@/components/batch1/history/modern/v2/HandwrittenChapter16';
+import HandwrittenChapter17 from '@/components/batch1/history/modern/v2/HandwrittenChapter17';
+import HandwrittenChapter18 from '@/components/batch1/history/modern/v2/HandwrittenChapter18';
+import HandwrittenChapter19 from '@/components/batch1/history/modern/v2/HandwrittenChapter19';
+import HandwrittenChapter20 from '@/components/batch1/history/modern/v2/HandwrittenChapter20';
+import HandwrittenChapter21 from '@/components/batch1/history/modern/v2/HandwrittenChapter21';
+import HandwrittenChapter22 from '@/components/batch1/history/modern/v2/HandwrittenChapter22';
 
 function HistoryReadContent() {
     const params = useParams();
@@ -23,8 +44,11 @@ function HistoryReadContent() {
     const [fontSize, setFontSize] = useState(16);
 
     useEffect(() => {
-        if (searchParams.get('v') === '2' && chapterId === '1') {
-            setVersion('v2');
+        if (searchParams.get('v') === '2') {
+            const v2Supported = ['1', '2', '3', '4', '5', '6', '7', '8'];
+            if (v2Supported.includes(chapterId)) {
+                setVersion('v2');
+            }
         }
     }, [searchParams, chapterId]);
 
@@ -52,15 +76,44 @@ function HistoryReadContent() {
         );
     }
 
-    // Render V2 if active (Only for Chapter 1)
-    if (version === 'v2' && chapterId === '1') {
+    // Render V2 functionality
+    const renderV2Content = () => {
+        switch (chapterId) {
+            case '1': return <HandwrittenChapter1 />;
+            case '2': return <HandwrittenChapter2 />;
+            case '3': return <HandwrittenChapter3 />;
+            case '4': return <HandwrittenChapter4 />;
+            case '5': return <HandwrittenChapter5 />;
+            case '6': return <HandwrittenChapter6 />;
+            case '7': return <HandwrittenChapter7 />;
+            case '8': return <HandwrittenChapter8 />;
+            case '9': return <HandwrittenChapter9 />;
+            case '10': return <HandwrittenChapter10 />;
+            case '11': return <HandwrittenChapter11 />;
+            case '12': return <HandwrittenChapter12 />;
+            case '13': return <HandwrittenChapter13 />;
+            case '14': return <HandwrittenChapter14 />;
+            case '15': return <HandwrittenChapter15 />;
+            case '16': return <HandwrittenChapter16 />;
+            case '17': return <HandwrittenChapter17 />;
+            case '18': return <HandwrittenChapter18 />;
+            case '19': return <HandwrittenChapter19 />;
+            case '20': return <HandwrittenChapter20 />;
+            case '21': return <HandwrittenChapter21 />;
+            case '22': return <HandwrittenChapter22 />;
+            default: return null;
+        }
+    };
+
+    // Render V2 if active (Support for Chapters 1-22)
+    if (version === 'v2' && ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22'].includes(chapterId)) {
         return (
             <div>
                 <div className="fixed top-4 right-4 z-50 flex gap-2">
                     <Button
                         size="sm"
                         variant="secondary"
-                        className="shadow-md bg-white text-slate-800 border-2 border-slate-200 hover:bg-slate-100"
+                        className="shadow-md bg-white text-slate-800 border-2 border-slate-200 hover:bg-slate-100 font-sans"
                         onClick={() => setVersion('v1')}
                     >
                         <FileText className="w-4 h-4 mr-2" />
@@ -69,13 +122,13 @@ function HistoryReadContent() {
                     <Button
                         size="sm"
                         variant="outline"
-                        className="shadow-md bg-white text-slate-800 hover:bg-slate-100"
+                        className="shadow-md bg-white text-slate-800 hover:bg-slate-100 font-sans"
                         onClick={() => router.back()}
                     >
                         <ArrowLeft className="w-4 h-4 mr-2" /> Exit
                     </Button>
                 </div>
-                <HandwrittenChapter1 />
+                {renderV2Content()}
             </div>
         );
     }
@@ -147,13 +200,13 @@ function HistoryReadContent() {
                     </Button>
 
                     <div className="flex items-center gap-2">
-                        {chapterId === '1' && (
+                        {['1', '2', '3', '4', '5', '6', '7', '8'].includes(chapterId) && version === 'v1' && (
                             <Button
                                 size="sm"
                                 className="bg-gradient-to-r from-purple-600 to-blue-600 text-white border-2 border-white shadow-lg animate-pulse"
                                 onClick={() => setVersion('v2')}
                             >
-                                <Pencil className="w-4 h-4 mr-2" /> Try Handwritten Mode (Trial)
+                                <Pencil className="w-4 h-4 mr-2" /> Try Handwritten Mode (V2)
                             </Button>
                         )}
                         <span className="text-sm font-bold text-gray-500 uppercase tracking-widest hidden sm:inline-block">Master Notes</span>
