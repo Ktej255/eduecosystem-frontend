@@ -24,11 +24,11 @@ interface Props {
     subjectId?: string;
     backLink?: string;
     backLabel?: string;
-    initialTab?: 'content' | 'flashcards' | 'mcqs';
+    initialTab?: 'content' | 'flashcards' | 'mcqs' | 'current_affairs';
 }
 
 export default function ChapterRevisionView({ chapterId, subjectId = 'polity', backLink, backLabel, initialTab = 'content' }: Props) {
-    const [activeTab, setActiveTab] = useState<'content' | 'flashcards' | 'mcqs'>(initialTab);
+    const [activeTab, setActiveTab] = useState<'content' | 'flashcards' | 'mcqs' | 'current_affairs'>(initialTab);
     const [revisionData, setRevisionData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
 
@@ -123,6 +123,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                             { id: 'content', label: 'Detailed Text', icon: BookOpen },
                             { id: 'flashcards', label: 'Flashcards', icon: Layers },
                             { id: 'mcqs', label: 'Practice MCQs', icon: Target },
+                            { id: 'current_affairs', label: 'Current Affairs', icon: Newspaper },
                         ].map((tab) => (
                             <button
                                 key={tab.id}
@@ -434,6 +435,27 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                                 </button>
                             </div>
                         )}
+                    </div>
+                )}
+
+                {/* Tab 4: Current Affairs */}
+                {activeTab === 'current_affairs' && (
+                    <div className="bg-white dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 p-8 animate-in fade-in slide-in-from-bottom-4 duration-500 text-center">
+                        <div className="w-16 h-16 bg-rose-100 dark:bg-rose-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <Flame className="w-8 h-8 text-rose-600" />
+                        </div>
+                        <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Current Affairs Integrations</h2>
+                        <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+                            Connect static theory with dynamic current events. We have curated specific news items relevant to {title}.
+                        </p>
+                        <div className="flex justify-center gap-4">
+                            <Link
+                                href={`/student/batch1/current-affairs?subject=Polity&source=polity_chapter_${chapterId}`}
+                                className="bg-rose-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-rose-700 transition-colors flex items-center gap-2"
+                            >
+                                <Flame className="w-5 h-5" /> View Related Current Affairs
+                            </Link>
+                        </div>
                     </div>
                 )}
             </div>

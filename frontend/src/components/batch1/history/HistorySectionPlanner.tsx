@@ -343,7 +343,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
 
                                                     {/* 7. Current Affairs */}
                                                     <button
-                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/current-affairs?chapter=${dayData.chapters[idx]}`); }}
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/current-affairs?subject=History&source=history_chapter_${dayData.chapters[idx]}`); }}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Current Affairs"
                                                     >

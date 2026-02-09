@@ -1,30 +1,81 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import React, { useEffect, useState, Suspense } from 'react';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Highlighter, Share2, ZoomIn, ZoomOut } from 'lucide-react';
+import { ArrowLeft, BookOpen, Highlighter, Share2, ZoomIn, ZoomOut, Pencil, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MODERN_HISTORY_CONTENT } from '@/components/batch1/history/data/modern/content-registry';
+import HandwrittenChapter1 from '@/components/batch1/history/modern/v2/HandwrittenChapter1';
 
-export default function HistoryReadPage() {
+function HistoryReadContent() {
     const params = useParams();
     const router = useRouter();
+    const searchParams = useSearchParams();
     const chapterId = params.chapterId as string;
-    console.log('[DEBUG] HistoryReadPage params:', params);
-    console.log('[DEBUG] HistoryReadPage chapterId:', chapterId);
 
     // Ensure we handle both string "1" and number 1 just in case, though keys are strings
     const content = MODERN_HISTORY_CONTENT[chapterId] || MODERN_HISTORY_CONTENT[String(chapterId)];
-    console.log('[DEBUG] HistoryReadPage content found:', !!content);
 
+    // V2 Trial Logic
+    // Allow toggle via query param ?v=2 or UI
+    const [version, setVersion] = useState<'v1' | 'v2'>('v1');
     const [fontSize, setFontSize] = useState(16);
 
-    if (!content) {
+    useEffect(() => {
+        if (searchParams.get('v') === '2' && chapterId === '1') {
+            setVersion('v2');
+        }
+    }, [searchParams, chapterId]);
+
+    const handlePrevious = () => {
+        const currentId = parseInt(chapterId);
+        if (currentId > 1) {
+            router.push(`/student/batch1/history/read/${currentId - 1}`);
+        }
+    };
+
+    const handleNext = () => {
+        const currentId = parseInt(chapterId);
+        // Assuming max 22 for now based on registry. Ideally check keys.
+        if (currentId < 22) {
+            router.push(`/student/batch1/history/read/${currentId + 1}`);
+        }
+    };
+
+    if (!content && chapterId !== '1') {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center bg-[#fdfbf7] text-gray-800">
                 <h1 className="text-2xl font-bold mb-4">Chapter Content Not Found</h1>
                 <Button onClick={() => router.back()}>Go Back</Button>
+            </div>
+        );
+    }
+
+    // Render V2 if active (Only for Chapter 1)
+    if (version === 'v2' && chapterId === '1') {
+        return (
+            <div>
+                <div className="fixed top-4 right-4 z-50 flex gap-2">
+                    <Button
+                        size="sm"
+                        variant="secondary"
+                        className="shadow-md bg-white text-slate-800 border-2 border-slate-200 hover:bg-slate-100"
+                        onClick={() => setVersion('v1')}
+                    >
+                        <FileText className="w-4 h-4 mr-2" />
+                        Switch to Classic (V1)
+                    </Button>
+                    <Button
+                        size="sm"
+                        variant="outline"
+                        className="shadow-md bg-white text-slate-800 hover:bg-slate-100"
+                        onClick={() => router.back()}
+                    >
+                        <ArrowLeft className="w-4 h-4 mr-2" /> Exit
+                    </Button>
+                </div>
+                <HandwrittenChapter1 />
             </div>
         );
     }
@@ -96,83 +147,90 @@ export default function HistoryReadPage() {
                     </Button>
 
                     <div className="flex items-center gap-2">
+                        {chapterId === '1' && (
+                            <Button
+                                size="sm"
+                                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white border-2 border-white shadow-lg animate-pulse"
+                                onClick={() => setVersion('v2')}
+                            >
+                                <Pencil className="w-4 h-4 mr-2" /> Try Handwritten Mode (Trial)
+                            </Button>
+                        )}
                         <span className="text-sm font-bold text-gray-500 uppercase tracking-widest hidden sm:inline-block">Master Notes</span>
                         <div className="h-4 w-px bg-gray-300 hidden sm:block"></div>
                         <h1 className="text-lg font-bold text-gray-900 truncate max-w-[200px] sm:max-w-md">Chapter {chapterId}</h1>
-                    </div>
-
-                    <div className="flex items-center gap-1">
-                        <Button variant="ghost" size="icon" onClick={() => setFontSize(Math.max(14, fontSize - 1))}>
-                            <ZoomOut className="w-4 h-4 text-gray-600" />
-                        </Button>
-                        <span className="text-xs text-gray-500 w-8 text-center">{fontSize}px</span>
-                        <Button variant="ghost" size="icon" onClick={() => setFontSize(Math.min(24, fontSize + 1))}>
-                            <ZoomIn className="w-4 h-4 text-gray-600" />
-                        </Button>
+                        <div className="flex gap-1">
+                            <Button variant="ghost" size="icon" onClick={() => setFontSize(Math.max(14, fontSize - 2))}>
+                                <ZoomOut className="w-4 h-4" />
+                            </Button>
+                            <Button variant="ghost" size="icon" onClick={() => setFontSize(Math.min(24, fontSize + 2))}>
+                                <ZoomIn className="w-4 h-4" />
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Main Content: The Notebook Paper */}
-            <div className="max-w-4xl mx-auto p-4 sm:p-8 pb-32">
+            {/* Main Content Area */}
+            <div className="max-w-3xl mx-auto px-6 py-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="relative bg-white shadow-xl rounded-lg overflow-hidden min-h-[80vh]"
                 >
-                    {/* Paper Texture Lines - CSS Pattern */}
-                    <div className="absolute inset-0 pointer-events-none opacity-50"
-                        style={{
-                            backgroundImage: 'linear-gradient(#e5e7eb 1px, transparent 1px)',
-                            backgroundSize: '100% 2.5rem',
-                            marginTop: '2.5rem'
-                        }}
-                    ></div>
-
-                    {/* Left Margin Line */}
-                    <div className="absolute left-4 sm:left-16 top-0 bottom-0 w-px bg-red-200 pointer-events-none"></div>
-
-                    {/* Notebook Holes */}
-                    <div className="absolute left-2 sm:left-4 top-0 bottom-0 flex flex-col gap-12 pt-8 pointer-events-none hidden sm:flex">
-                        {[...Array(20)].map((_, i) => (
-                            <div key={i} className="w-4 h-4 rounded-full bg-gray-100 shadow-inner border border-gray-200"></div>
-                        ))}
-                    </div>
-
-                    {/* Content Container */}
+                    {/* Paper Texture Effect */}
                     <div
-                        className="relative z-10 p-4 sm:pl-24 pt-12"
-                        style={{ fontSize: `${fontSize}px`, lineHeight: '2.5rem' }}
+                        className="bg-white p-8 md:p-12 shadow-[rgba(17,_17,_26,_0.1)_0px_4px_16px,_rgba(17,_17,_26,_0.05)_0px_8px_32px] min-h-[800px] relative overflow-hidden"
+                        style={{ fontSize: `${fontSize}px` }}
                     >
-                        {/* Rendering the Markdown Content */}
-                        {renderContent(content)}
+                        {/* Paper Texture Lines - CSS Pattern */}
+                        <div className="absolute inset-0 pointer-events-none opacity-50"
+                            style={{
+                                backgroundImage: 'linear-gradient(#e5e7eb 1px, transparent 1px)',
+                                backgroundSize: '100% 2.5rem',
+                                marginTop: '2.5rem'
+                            }}
+                        ></div>
+
+                        {/* Left Margin Line */}
+                        <div className="absolute left-12 top-0 bottom-0 w-px bg-red-300 hidden md:block"></div>
+
+                        {/* Content */}
+                        <div className="md:pl-8 relative z-10">
+                            {content && renderContent(content)}
+                        </div>
                     </div>
                 </motion.div>
 
                 {/* Bottom Navigation for Next/Prev Chapter */}
-                <div className="mt-8 flex justify-between">
-                    {MODERN_HISTORY_CONTENT[String(Number(chapterId) - 1)] ? (
-                        <Button
-                            onClick={() => router.push(`/student/batch1/history/read/${Number(chapterId) - 1}`)}
-                            className="bg-stone-100 hover:bg-stone-200 text-stone-800 font-sans shadow hover:shadow-md transition-all border border-stone-300"
-                            size="lg"
-                        >
-                            <ArrowLeft className="w-5 h-5 mr-2" /> Previous Chapter
-                        </Button>
-                    ) : <div></div>}
+                <div className="mt-8 flex justify-between font-sans">
+                    <Button
+                        onClick={handlePrevious}
+                        disabled={parseInt(chapterId) <= 1}
+                        className="bg-stone-100 hover:bg-stone-200 text-stone-800 shadow hover:shadow-md transition-all border border-stone-300 disabled:opacity-50"
+                        size="lg"
+                    >
+                        <ArrowLeft className="w-5 h-5 mr-2" /> Previous Chapter
+                    </Button>
 
-                    {MODERN_HISTORY_CONTENT[String(Number(chapterId) + 1)] && (
-                        <Button
-                            onClick={() => router.push(`/student/batch1/history/read/${Number(chapterId) + 1}`)}
-                            className="bg-stone-800 hover:bg-stone-700 text-amber-50 font-sans shadow-lg hover:shadow-xl transition-all"
-                            size="lg"
-                        >
-                            Next Chapter <ArrowLeft className="w-5 h-5 ml-2 rotate-180" />
-                        </Button>
-                    )}
+                    <Button
+                        onClick={handleNext}
+                        disabled={parseInt(chapterId) >= 22}
+                        className="bg-stone-800 hover:bg-stone-700 text-amber-50 shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
+                        size="lg"
+                    >
+                        Next Chapter <ArrowLeft className="w-5 h-5 ml-2 rotate-180" />
+                    </Button>
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function HistoryReadPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+            <HistoryReadContent />
+        </Suspense>
     );
 }
