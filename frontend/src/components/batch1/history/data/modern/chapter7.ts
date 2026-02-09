@@ -534,3 +534,62 @@ export const MODERN_CHAPTER_7_MCQS: Question[] = [
         difficulty: 'Hard'
     }
 ];
+
+export const MODERN_CHAPTER_7_CONTENT = `
+# BLOCK 1: THE REVOLT OF 1857
+## 🔥 THE CRISIS OF 1857 (Sepoy Mutiny)
+
+**Causes:**
+*   **Military:** Greased Cartridges (Enfield Rifle - Beef/Pork fat rumor). General Service Enlistment Act (Crossing sea = Loss of caste).
+*   **Political:** Doctrine of Lapse (Satara, Jhansi). Annexation of Awadh (Unemployment of soldiers).
+*   **Economic:** Heavy taxation, De-industrialization.
+*   **Social:** Interference in Sati, Widow Remarriage, Missionaries.
+
+**The Spark:**
+*   **Mangal Pandey:** Barrackpore (March 29, 1857). Hanged.
+*   **Outbreak:** Meerut (May 10, 1857) -> March to Delhi -> Bahadur Shah Zafar declared Emperor.
+
+# BLOCK 2: LEADERS & CENTRES
+## 👑 HEROES OF 1857
+
+| Centre | Leader | British Suppressor |
+| :--- | :--- | :--- |
+| **Delhi** | Bahadur Shah (Symbolic), **Gen. Bakht Khan** (Real) | John Nicholson |
+| **Kanpur** | **Nana Saheb**, Tantia Tope, Azimullah | Colin Campbell |
+| **Lucknow** | **Begum Hazrat Mahal**, Birjis Qadir | Colin Campbell |
+| **Jhansi** | **Rani Laxmibai** | Sir Hugh Rose |
+| **Arrah (Bihar)** | **Kunwar Singh** (80 yrs old) | William Taylor |
+| **Faizabad** | Maulvi Ahmadullah | - |
+| **Bareilly** | Khan Bahadur Khan | - |
+
+**Fate of Leaders:**
+*   **Bahadur Shah:** Deported to Rangoon (Died 1862).
+*   **Nana Saheb/Begum:** Escaped to Nepal.
+*   **Rani Laxmibai:** Died fighting in Gwalior.
+*   **Tantia Tope:** Betrayed & Hanged.
+
+# BLOCK 3: WHY DID IT FAIL?
+**1. Lack of Unity:** No All-India participation. South India, Punjab, Bengal remained quiet.
+**2. Lack of Support:** Educated Class, Merchants, Zamindars, and many Princes (Scindia, Holkar, Nizam, Gurkhas) supported British. ("Breakwaters to the storm").
+**3. Poor Equipment:** Swords/Muskets vs Enfield Rifles/Telegraph.
+**4. No Vision:** Developing a modern state wasn't the goal; restoring the old feudal order was.
+
+# BLOCK 4: IMPACT & NATURE
+**Nature:**
+*   **British View:** "Sepoy Mutiny".
+*   **V.D. Savarkar:** "First War of Independence".
+*   **R.C. Majumdar:** "Neither first, nor national, nor a war of independence." [Mains Quote]
+*   **S.N. Sen:** "Started as religion fight, ended as war of independence."
+
+**Consequences:**
+*   **End of Company Rule:** **Govt of India Act 1858** (Crown Rule).
+*   **Queen's Proclamation (1858):** No more annexation. Religious non-interference.
+*   **Army Reorg (Peel Commission):** Divide & Rule. Martial Races (Sikhs, Gurkhas) recruited. 1:2 ratio (British:Indian).
+
+> [!TIP]
+> **🔥 PYQ ALERT:**
+> *   **Q:** Who called it First War of Independence? -> **V.D. Savarkar**.
+> *   **Q:** Who led in Bihar? -> **Kunwar Singh**.
+> *   **Q:** Who said "Scindia saved the empire"? -> **Canning**.
+`;
+

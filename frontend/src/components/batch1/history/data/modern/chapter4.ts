@@ -346,3 +346,105 @@ export const MODERN_CHAPTER_4_MCQS: Question[] = [
         difficulty: 'Easy'
     }
 ];
+
+export const MODERN_CHAPTER_4_CONTENT = `
+# BLOCK 1: THE LATER MUGHALS (The Decline)
+## 🎭 THE LATER MUGHALS (1707 - 1857)
+
+**The Great Mughals (Babur to Aurangzeb)** ended with Aurangzeb's death in 1707.
+**The Later Mughals** were weak, puppet rulers.
+
+**Key Emperors:**
+*   **Bahadur Shah I (1707-12):** "Shah-i-Bekhabar" (Heedless King). Pacifist policy.
+*   **Jahandar Shah (1712-13):** Introduced **Izara** (Revenue Farming). Puppet of Zulfikar Khan.
+*   **Farrukhsiyar (1713-19):** Puppet of **Sayyid Brothers** (King Makers). Issued 1717 Farman. Killed by Sayyid Bros.
+*   **Muhammad Shah 'Rangeela' (1719-48):** Sayyid Brothers killed. Battle of Karnal (1739) - **Nadir Shah** invaded, took Peacock Throne & Kohinoor.
+*   **Shah Alam II (1759-1806):** Battle of Panipat (1761), Battle of Buxar (1764). Lived as pensioner of EIC.
+*   **Bahadur Shah Zafar (1837-57):** Last Emperor. Deported to Rangoon after 1857 Revolt.
+
+**Causes of Decline:**
+*   Weak Successors.
+*   Jagirdari Crisis (Too many mansabdars, too little land).
+*   Foreign Invasions (Nadir Shah, Ahmed Shah Abdali).
+*   Rise of Regional Powers.
+
+# BLOCK 2: REGIONAL STATES (Successor, Independent, Rebel)
+## 🦁 RISE OF REGIONAL STATES
+
+**1. Successor States (Broke away but kept nominal tie):**
+*   **Hyderabad (1724):** Nizam-ul-Mulk (Asaf Jah).
+*   **Awadh (1722):** Saadat Khan (Burhan-ul-Mulk).
+*   **Bengal (1717):** Murshid Quli Khan.
+
+**2. Independent Kingdoms:**
+*   **Mysore:** Haidar Ali (Usurped from Wodeyars).
+*   **Travancore:** Martanda Varma.
+*   **Rajputs:** Sawai Jai Singh (Jaipur - Built Jantar Mantar).
+
+**3. Warrior/Rebel States:**
+*   **Marathas:** Peshwas (Pune).
+*   **Sikhs:** Misls (Ranjit Singh later).
+*   **Jats:** Suraj Mal ("Plato of Jats").
+*   **Rohillas & Bangash Pathans.**
+
+> [!TIP]
+> **🔥 PYQ ALERT:**
+> *   **Q:** Who founded Hyderabad? -> **Nizam-ul-Mulk**.
+> *   **Q:** Who invaded in 1739? -> **Nadir Shah**.
+> *   **Q:** Who built Jantar Mantar? -> **Sawai Jai Singh**.
+
+# BLOCK 3: THE MARATHAS (The New Contenders)
+## 🚩 THE MARATHA CONFEDERACY
+
+**The Peshwas (Prime Ministers turned Rulers):**
+1.  **Balaji Vishwanath (1713-20):** Signed treaty with Sayyid Bros. Secured Chauth rights.
+2.  **Bajirao I (1720-40):** The Fighter. "Let us strike at the trunk of the withering tree." Expanded Maratha power. (Mastri fame).
+3.  **Balaji Bajirao (Nana Saheb) (1740-61):** Peak of Maratha Power (Attock to Cuttack).
+    *   **Anti-Climax:** Third Battle of Panipat (1761). Marathas lost to Ahmed Shah Abdali.
+
+**The Confederacy (5 Chiefs):**
+*   **Peshwa** (Pune) - Head.
+*   **Scindia** (Gwalior).
+*   **Holkar** (Indore).
+*   **Gaekwad** (Baroda).
+*   **Bhonsle** (Nagpur).
+
+**Administration Terms:**
+*   **Chauth:** 1/4th revenue (Tax for protection).
+*   **Sardeshmukhi:** Additional 10% (Head-man tax).
+
+# BLOCK 4: SIKHS & JATS
+## ⚔️ SIKHS & JATS
+
+**The Sikhs:**
+*   **Misls:** 12 Confederacies.
+*   **Ranjit Singh (Sukerchakia Misl):** Uniting force (1790s onwards).
+*   **Treaty of Amritsar (1809):** With British. Boundary set at Sutlej River.
+
+**The Jats:**
+*   **Churaman & Badan Singh.**
+*   **Suraj Mal:** Greatest Jat ruler.
+
+# BLOCK 5: SOCIO-ECONOMIC CONDITIONS
+## 💰 ECONOMY & SOCIETY (18th Century)
+
+**Economy:**
+*   **Agriculture:** Ruined by constant wars & heavy taxes.
+*   **Trade:** Still robust (Textiles, Spices). India was a "Sink of Precious Metals".
+*   **Banking:** Jagat Seths (Bengal) had massive influence.
+
+**Society:**
+*   **Stagnant:** Caste system rigid.
+*   **Women:** Sati, Child Marriage, Purdah prevalent.
+*   **Education:** Traditional (Pathshalas/Madrasas). No science/tech focus.
+
+**Culture:**
+*   **Urdu Poetry:** Mir Taqi Mir, Mirza Ghalib.
+*   **Architecture:** Bara Imambara (Lucknow), Pink City (Jaipur).
+*   **Painting:** Kangra/Rajput Schools.
+
+> [!NOTE]
+> **📌 EXAMINER'S LENS (Analysis):**
+> 18th Century was a **"Dark Age"** politically (chaos/wars) but economically/culturally it wasn't a total collapse. It was a period of transition.
+`;
+

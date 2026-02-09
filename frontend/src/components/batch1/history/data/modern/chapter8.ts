@@ -349,3 +349,77 @@ export const MODERN_CHAPTER_8_MCQS: Question[] = [
         difficulty: 'Easy'
     }
 ];
+
+export const MODERN_CHAPTER_8_CONTENT = `
+# BLOCK 1: RAJA RAMMOHAN ROY (The Father of Modern India)
+## 🌅 BRAHMO SAMAJ (1828)
+
+**Raja Rammohan Roy:**
+*   **Titles:** "Father of Modern India", "Bridge between Past and Future".
+*   **Philosophy:** Monotheism (One God), Anti-Sati, Anti-Idolatry, Rationalism.
+*   **Works:** *Tuhfat-ul-Muwahhidin* (Gift to Monotheists - Persian), *Precepts of Jesus*, *Sambad Kaumudi* (Bengali paper), *Mirat-ul-Akbar* (Persian paper).
+*   **Organizations:**
+    *   **Atmiya Sabha (1814):** Calcutta.
+    *   **Brahmo Sabha (1828):** Later Brahmo Samaj.
+
+**The Splits:**
+1.  **Adi Brahmo Samaj:** Debendranath Tagore (Conservative).
+2.  **Brahmo Samaj of India:** Keshub Chandra Sen (Radical).
+    *   **Note:** K.C. Sen was very dynamic. He inspired Prarthana Samaj (Bombay) and Veda Samaj (Madras). But, he married his underage daughter to Cooch Behar Prince -> Split!
+3.  **Sadharan Brahmo Samaj (1878):** Anand Mohan Bose & Shibnath Shastri (Democratic).
+
+> [!WARNING]
+> **EXAMINER'S TRAP:**
+> **Q:** Who founded Tattvabodhini Sabha? -> **Debendranath Tagore** (Not Rammohan Roy).
+
+# BLOCK 2: ISHWAR CHANDRA VIDYASAGAR
+## 📚 EDUCATION & WOMEN'S RIGHTS
+
+*   **Principal of Sanskrit College.** Opened it to non-Brahmins.
+*   **Widow Remarriage:** His efforts led to **Widow Remarriage Act, 1856** (Dalhousie/Canning).
+*   **Bethune School:** Secretary. Champion of girl's education.
+*   **Som Prakash:** His newspaper (First to face Vernacular Press Act).
+
+# BLOCK 3: WESTERN INDIA REFORMS
+**1. Prarthana Samaj (1867):**
+*   Founder: **Atmaram Pandurang** (Guided by K.C. Sen).
+*   Real Force: **M.G. Ranade** & **R.G. Bhandarkar**.
+*   Focus: Caste reform, Women's education (not as radical as Brahmo Samaj).
+
+**2. Satyashodhak Samaj (1873):**
+*   Founder: **Jyotiba Phule**.
+*   Focus: Anti-Brahmin, Dalits & Women.
+*   Books: *Gulamgiri* (Dedicated to US anti-slavery movement), *Sarvajanik Satyadharma*.
+*   Wife: **Savitribai Phule** (First girl's school in Pune).
+
+**3. Young Bombay:**
+*   **Dadabhai Naoroji:** Parsi Reform (*Rahnumai Mazdayasnan Sabha*), *Rast Goftar* (Truth Teller).
+
+# BLOCK 4: ARYA SAMAJ (The Revivalists)
+## 🔥 ARYA SAMAJ (1875)
+
+**Swami Dayanand Saraswati:**
+*   **Slogan:** "Go Back to the Vedas".
+*   **Book:** *Satyarth Prakash*.
+*   **Philosophy:** Vedas are infallible. Opposed Idol worship, Puranas, Caste by birth (supported Varna by merit).
+*   **Shuddhi Movement:** reconversion to Hinduism. (Caused friction with Muslims/Christians).
+*   **Education:** DAV Schools (Lala Hansraj - Modern) vs Gurukul (Swami Shraddhanand - Traditional).
+
+# BLOCK 5: RAMAKRISHNA MISSION & THEOSOPHICAL SOCIETY
+**1. Ramakrishna Mission (1897):**
+*   Founder: **Swami Vivekananda** (Disciple of Ramakrishna Paramahansa).
+*   Philosophy: "Service to Jiva is Service to Shiva".
+*   Parliament of Religions (Chicago 1893): Vivekananda famous speech.
+
+**2. Theosophical Society (1875):**
+*   Founders: Madame Blavatsky & Col. Olcott (New York). shifted to **Adyar (Chennai)**.
+*   **Annie Besant:** Popularized it in India. Founded **Central Hindu College** (became BHU).
+*   Significance: Praised ancient Indian culture -> Boosted self-respect.
+
+> [!TIP]
+> **🔥 PYQ ALERT:**
+> *   **Q:** Who wrote Gulamgiri? -> **Jyotiba Phule**.
+> *   **Q:** Who founded Atmiya Sabha? -> **Rammohan Roy**.
+> *   **Q:** Shuddhi Movement? -> **Arya Samaj**.
+`;
+

@@ -347,3 +347,103 @@ export const MODERN_CHAPTER_1_MCQS: Question[] = [
         difficulty: 'Moderate'
     }
 ];
+
+export const MODERN_CHAPTER_1_CONTENT = `
+# BLOCK 1: INTRODUCTION & ARCHIVES (The Official Memory)
+## 🏛️ ARCHIVAL MATERIALS (State Papers)
+
+**Central Government:**
+*   **National Archives of India (NAI):** Located in New Delhi. Custodians of Govt of India records.
+    *   *Key Collection:* Public & Judicial Department records (1748 onwards).
+
+**State Governments (Key Terms for Prelims):**
+*   **Khalsa Darbar Records:** (Lahore) – Pre-1849 Punjab History (Ranjit Singh's reign).
+*   **Peshwa Dafter:** (Pune) – Maratha History (Study of Anglo-Maratha relations).
+*   **Rajasthan State Archives:** (Bikaner) – Huge collection of Princely State records.
+
+**The Three Presidencies:**
+*   **Bengal (Fort William):** Lost many records in 1756 (Siege of Calcutta), survived post-Plassey (1757).
+*   **Madras (Fort St. George):** Oldest records (from AD 1670). Essential for Anglo-French struggle.
+*   **Bombay:** Records of Surat Presidency + Bombay.
+
+### 🗺️ MAP WORK (Mark these locations):
+*   **Lisbon:** (Portuguese records).
+*   **Goa:** (1530-1610 Portuguese relation with Vijayanagar).
+*   **Pondicherry:** (French records).
+*   **Tranquebar & Serampore:** (Danish records – moved to Copenhagen).
+*   **Lahore:** (Khalsa records).
+
+# BLOCK 2: JUDICIAL & FOREIGN RECORDS
+## ⚖️ JUDICIAL RECORDS & FOREIGN REPOSITORIES
+
+**Judicial Evolution:**
+*   **Mayor's Court (1728):** Bombay (Earliest records).
+*   **Supreme Court of Bengal (1774):** Established by Regulating Act 1773.
+*   **Sadar Nizamat Adalat:** Records at Allahabad.
+
+**Foreign Repositories (The European View):**
+*   **India Office Records (London):** The most important collection (Court of Directors + Board of Control minutes).
+*   **The Dutch:** Records in Cochin (Malabar) & Chinsura/Coromandel.
+*   **The French:** Archives de la Seine (Paris).
+
+> [!WARNING]
+> **EXAMINER'S TRAP:**
+> Don't confuse **Archives of the Indies** (Portuguese) with **India Office Records** (British).
+
+# BLOCK 3: BIOGRAPHIES, TRAVELERS & NEWSPAPERS
+## 🚶‍♂️ TRAVELERS & NEWSPAPERS (The Critical Eye)
+
+**Key Travelers:**
+*   **George Forster:** Traveled North India (1783).
+*   **Victor Jacquemont:** Wrote on Kashmir & Ranjit Singh.
+*   **Bishop Heber:** Journal of travel (1820s).
+*   **Abbe Dubois:** *Hindu Manners, Customs and Ceremonies*.
+
+**Newspapers (The "Fourth Estate"):**
+*   **First Paper:** *Bengal Gazette* (1780) by James Augustus Hickey. [Nickname: "Hickey's Gazette"].
+    *   *Fate:* Seized in 1782 for criticizing Hastings.
+*   **Early Papers:** *Calcutta Gazette* (1784), *Madras Courier* (1788).
+
+**Vernacular Press:**
+*   **Swadeshamitram (Tamil)** – G. Subramaniya Iyer.
+*   **Kesari (Marathi) & Mahratta (English)** – Tilak.
+*   **Amrita Bazar Patrika (Bengali/English)** – Sisir Kumar Ghosh. [PYQ Focus]
+
+> [!TIP]
+> **🔥 PYQ ALERT (Prelims):**
+> *   **Q:** Who started the first newspaper in India? -> **J.A. Hickey**.
+> *   **Q:** Which paper turned from Bengali to English overnight to escape Vernacular Press Act? -> ***Amrita Bazar Patrika***.
+
+# BLOCK 4: CREATIVE LITERATURE & PAINTINGS
+## 🎨 LITERATURE & ART (The Cultural Mirror)
+
+**The Novel:**
+*   **Bankim Chandra Chatterji:**
+    *   *Anandmath* (1882): Based on Sanyasi Rebellion (1763-1800). Contains song "Vande Mataram". [PYQ 2006, 2018]
+    *   *Rajasimha:* Historical novel.
+*   **Iswar Chandra Gupta:** Bengali poet/satirist.
+*   **G.H. Deshmukh (Lokhitwadi):** Focused on social reform in Maharashtra.
+
+**Paintings:**
+*   **Company School (Patna Kalam):** Emerged as patronage shifted from Mughals to British/Company officers.
+    *   *Features:* Use of watercolours, focus on "exotic" Indian life (trades, festivals), hybrid style.
+    *   *Key Artists:* The Daniells (Thomas & William) – "Oriental Scenery".
+*   **Modern School:**
+    *   **Raja Ravi Varma:** Combined Indian mythology with Western realism (Oil painting).
+    *   **Abanindranath Tagore:** Bengal School (Reaction against Western art).
+    *   **Nandalal Bose:** Illustrated the Constitution.
+
+> [!TIP]
+> **🔥 PYQ ALERT (Mains/Prelims):**
+> *   **Q (2018 Prelims):** With reference to the 'Sanyasi Rebellion', which novel made it famous? -> ***Anandmath***.
+> *   **Q (Mains):** Discuss the features of the Patna Kalam/Company School of painting.
+
+# BLOCK 5: ORAL TRADITION & CENSUS
+## 🗣️ MISCELLANEOUS SOURCES
+
+**Oral Tradition:** Folk songs, ballads. Important for constructing "Subaltern" history (history from below), as archives mostly represent the "Colonial/Elite" view.
+
+**Census:**
+*   **First attempt:** 1872 (Lord Mayo).
+*   **First synchronized/complete census:** 1881 (Lord Rippon). [High Yield Fact]
+`;

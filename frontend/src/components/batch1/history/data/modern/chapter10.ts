@@ -349,3 +349,64 @@ export const MODERN_CHAPTER_10_MCQS: Question[] = [
         difficulty: 'Easy'
     }
 ];
+
+export const MODERN_CHAPTER_10_CONTENT = `
+# BLOCK 1: PRE-CONGRESS ASSOCIATIONS
+## 🏛️ EARLY NATIONALISM (The Foundation)
+
+**Bengal:**
+1.  **Bangabhasha Prakasika Sabha (1836):** Associates of Rammohan Roy. First political initiative.
+2.  **Landholders' Society (1838):** Dwarkanath Tagore. Defended Zamindars.
+3.  **British Indian Association (1851):** Merger.
+4.  **Indian League (1875):** Sisir Kumar Ghosh.
+5.  **Indian Association (1876):** **Surendranath Banerjea** & Anand Mohan Bose. Most important Pre-Congress body. Opposed Lytton's policies.
+
+**Bombay:**
+1.  **Poona Sarvajanik Sabha (1867):** M.G. Ranade. (Bridge between Govt & People).
+2.  **Bombay Presidency Association (1885):** The Triumvirate (Pherozeshah Mehta, K.T. Telang, Badruddin Tyabji).
+
+**Madras:**
+1.  **Madras Mahajan Sabha (1884):** Viraraghavachari, Subramaniya Aiyar, Anandacharlu.
+
+**London:**
+1.  **East India Association (1866):** **Dadabhai Naoroji**. To influence British public opinion.
+
+> [!NOTE]
+> **Why they failed to be National?**
+> Mostly elite, regional, and specific grievances. But they laid the groundwork for the Congress.
+
+# BLOCK 2: REACTIONARY POLICIES (Lytton & Ripon)
+## 👮‍♂️ LYTTON (The Bad Guy) vs RIPON (The Good Guy)
+
+**Lord Lytton (1876-80):**
+*   **Vernacular Press Act (1878):** "Gagging Act". Targeted Indian language papers (Amrita Bazar Patrika turned English overnight).
+*   **Arms Act (1878):** Indians needed license for arms; Europeans didn't. (Racist).
+*   **ICS Age Reduction:** 21 to 19 years. (To stop Indians from joining).
+*   **Grand Delhi Durbar (1877):** While famine raged.
+
+**Lord Ripon (1880-84):**
+*   **Repealed** Vernacular Press Act.
+*   **Father of Local Self Govt:** (1882 Resolution).
+*   **Hunter Commission:** Education reform.
+*   **Ilbert Bill Controversy (1883):** Tried to allow Indian judges to try Europeans. "White Mutiny" by Europeans forced him to withdraw/dilute it. **Eye-opener for Indians -> We need a strong party.**
+
+# BLOCK 3: PRESS & LITERATURE
+**Key Papers:**
+*   **Bengal Gazette (1780):** James Augustus Hicky. (First paper).
+*   **Amrita Bazar Patrika:** Sisir Kumar Ghosh. (Anti-British legend).
+*   **The Hindu:** G. Subramaniya Aiyar.
+*   **Kesari (Marathi) & Mahratta (English):** Tilak.
+*   **Voice of India:** Dadabhai Naoroji.
+
+**Literature:**
+*   **Neel Darpan:** Dinabandhu Mitra. (Indigo revolt).
+*   **Anandamath:** Bankim Chandra. (Vande Mataram).
+
+> [!TIP]
+> **🔥 PYQ ALERT:**
+> *   **Q:** Who founded East India Association? -> **Dadabhai Naoroji**.
+> *   **Q:** Who is Father of Local Self Govt? -> **Ripon**.
+> *   **Q:** Ilbert Bill was about? -> **Judicial Equality**.
+> *   **Q:** Surendranath Banerjea's organization? -> **Indian Association**.
+`;
+

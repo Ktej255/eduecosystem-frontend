@@ -357,3 +357,105 @@ export const MODERN_CHAPTER_5_MCQS: Question[] = [
         difficulty: 'Moderate'
     }
 ];
+
+export const MODERN_CHAPTER_5_CONTENT = `
+# BLOCK 1: CONQUEST OF BENGAL (The Key to India)
+## 🐅 BATTLE OF PLASSEY (1757)
+
+**Background:**
+*   Bengal was the richest province.
+*   **Siraj-ud-Daulah** (Nawab) vs EIC context:
+    *   Misuse of Dastaks (passes).
+    *   Fortification of Calcutta without permission.
+    *   **Black Hole Tragedy** (Alleged death of British prisoners).
+
+**The Battle:**
+*   **Clive's Conspiracy:** Allied with **Mir Jafar** (Commander), Jagat Seth (Banker).
+*   Result: Siraj defeated & killed. Mir Jafar made Puppet Nawab.
+*   **Impact:** Beginning of British Political Rule.
+
+## ⚔️ BATTLE OF BUXAR (1764)
+**The Conflict:**
+*   **Mir Qasim** (replaced Mir Jafar) tried to be independent.
+    *   Shifted capital to Munger.
+    *   Abolished all duties (checking EIC monopoly).
+*   **The Alliance:** Mir Qasim + Shuja-ud-Daulah (Awadh) + Shah Alam II (Mughal Emperor).
+
+**The Battle:** Hector Munro (British) defeated the Alliance. (This was a real military victory, unlike Plassey).
+
+**Treaty of Allahabad (1765):**
+*   **Diwani Rights:** EIC got right to collect revenue of Bengal, Bihar, Orissa.
+*   **Dual Government:** (1765-72) -> Responsibility with Nawab, Power/Money with British. Disaster for people (Famine of 1770).
+
+# BLOCK 2: ANGLO-MYSORE WARS (The Tiger)
+## 🐅 MYSORE WARS (1767-1799)
+
+**1. First War (1767-69):** Haidar Ali vs British+Nizam+Marathas. Haidar won. **Treaty of Madras**.
+**2. Second War (1780-84):** Haidar died (cancer). Tipu continued. **Treaty of Mangalore**.
+**3. Third War (1790-92):** Cornwallis attacked. Tipu defeated. **Treaty of Seringapatam** (Lost half kingdom).
+**4. Fourth War (1799):** Wellesley (Subsidiary Alliance). Tipu died fighting.
+
+**Tipu Sultan:**
+*   "Citizen Tipu" (Jacobin Club member).
+*   Planted "Tree of Liberty".
+*   Used Rockets.
+*   Tried to build a modern navy.
+
+# BLOCK 3: ANGLO-MARATHA WARS
+## 🚩 MARATHA WARS (1775-1818)
+
+**1. First War (1775-82):**
+*   Cause: Raghunathrao wanting to be Peshwa (Treaty of Surat).
+*   Result: Draw. **Treaty of Salbai** (20 years peace).
+
+**2. Second War (1803-05):**
+*   Cause: Peshwa Bajirao II signed **Treaty of Bassein** (Subsidiary Alliance). Scindia/Bhonsle revolted.
+*   Result: British victory.
+
+**3. Third War (1817-19):**
+*   Cause: Pindari raids. Hastings wanted supremacy.
+*   Result: Peshwaship abolished. Bajirao II pensioned to Bithur. Maratha Empire ended.
+
+# BLOCK 4: CONQUEST OF SINDH & PUNJAB
+**Sindh (1843):**
+*   Annexed by **Charles Napier**.
+*   Famous Quote: "We have no right to seize Sindh, yet we shall do so... a piece of rascality."
+*   Telegram: "Peccavi" (I have Sindh).
+
+**Punjab (1845-49):**
+*   Post-Ranjit Singh chaos.
+*   **First Anglo-Sikh War (1845-46):** Treaty of Lahore.
+*   **Second Anglo-Sikh War (1848-49):** **Dalhousie** annexed Punjab.
+
+# BLOCK 5: BRITISH POLICIES (Tools of Expansion)
+## 📜 KEY POLICIES
+
+**1. Ring Fence Policy (Warren Hastings):** Create buffer zones (e.g., Awadh) to protect Bengal.
+
+**2. Subsidiary Alliance (Wellesley, 1798):**
+*   State keeps British Army (at own cost).
+*   British Resident at court.
+*   No relation with other Europeans/States without permission.
+*   *Order:* Hyderabad (1798), Mysore (1799), Tanjore, Awadh, Peshwa (1802). [HMTAP]
+
+**3. Doctrine of Lapse (Dalhousie):**
+*   No adopted son -> Kingdom lapses to British.
+*   *Order:* Satara (1848), Sambalpur, Udaipur, Jhansi (1853), Nagpur.
+*   *Exception:* Awadh annexed for **Maladministration** (1856), not Lapse.
+
+# BLOCK 6: RELATIONS WITH NEIGHBOURS
+**Nepal:** Anglo-Nepalese War (1814-16). **Treaty of Sagauli** (Got Shimla, Nainital, Gurkha regiments).
+**Burma:** First War (1824-26) -> **Treaty of Yandabo**.
+**Afghanistan:**
+*   **Auckland:** First Afghan War (Disaster).
+*   **John Lawrence:** "Masterly Inactivity".
+*   **Lytton:** "Forward Policy". Second Afghan War.
+*   **Durand Line (1893):** Boundary.
+
+> [!TIP]
+> **🔥 PYQ ALERT:**
+> *   **Q:** Who introduced Subsidiary Alliance? -> **Wellesley**.
+> *   **Q:** Who annexed Awadh and on what ground? -> **Dalhousie (Maladministration)**.
+> *   **Q:** Treaty of Bassein was signed by? -> **Peshwa Bajirao II**.
+`;
+

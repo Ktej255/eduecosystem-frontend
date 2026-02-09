@@ -347,3 +347,62 @@ export const MODERN_CHAPTER_6_MCQS: Question[] = [
         difficulty: 'Easy'
     }
 ];
+
+export const MODERN_CHAPTER_6_CONTENT = `
+# BLOCK 1: CIVIL UPRISINGS (Pre-1857)
+## 📢 CIVIL REBELLIONS (Restorative)
+
+**Key Causes:**
+*   Revenue Assessments, Famine, Disbanding of Armies, Interference in Religion.
+
+**Major Uprisings (East India):**
+*   **Sanyasi-Fakir Revolt (1763-1800):** Bengal. *Anandamath* by Bankim Chandra is based on this. Leaders: Manju Shah, Chirag Ali, Devi Chaudhurani.
+*   **Paika Rebellion (1817):** Odisha. Leader: Bakshi Jagabandhu. (Demand to be called First War of Independence).
+*   **Ahom Revolt (1828):** Assam. Gomdhar Konwar.
+*   **Faraizi Revolt (1838):** Bengal. Haji Shariatullah & Dudu Mian.
+
+**Major Uprisings (South & West):**
+*   **Poligar Revolt (1795):** Tamil Nadu. Kattabomman.
+*   **Velu Thampi (1805):** Travancore (Kerala). Kundara Proclamation.
+*   **Ramosi Uprising (1822):** Western Ghats. Chittur Singh.
+*   **Kittur Chennamma (1824):** Karnataka. (Widow queen led revolt).
+
+# BLOCK 2: TRIBAL REVOLTS (The Wrath of the Forest)
+## 🏹 TRIBAL UPRISINGS
+
+**Key Causes:**
+*   Loss of Forest Rights.
+*   Influx of **Dikus** (Outsiders/Moneylenders).
+*   Begar (Forced Labor).
+*   Christian Missionaries.
+
+**1. Santhal Hul (1855-56):**
+*   Region: Rajmahal Hills (Damin-i-Koh).
+*   Leaders: **Sidhu and Kanhu** (Murmu brothers).
+*   Outcome: Creation of Santhal Parganas.
+
+**2. Kol Mutiny (1831):**
+*   Region: Chotanagpur (Ranchi).
+*   Leader: Buddho Bhagat.
+
+**3. Munda Uprising (Ulgulan) (1899-1900):**
+*   Region: Ranchi.
+*   Leader: **Birsa Munda** (Dharti Aaba).
+*   Outcome: Chotanagpur Tenancy Act (1908).
+
+**4. Khasi Uprising (1830s):**
+*   Region: Meghalaya.
+*   Leader: Tirat Singh.
+*   Cause: Road construction.
+
+**5. Rampa Rebellion (1879/1922):**
+*   Region: Andhra.
+*   Leader: **Alluri Sitarama Raju** (1922 phase - Movie *RRR* fame).
+
+> [!WARNING]
+> **EXAMINER'S TRAP:**
+> **Q:** Chronology? -> Sanyasi (1763) -> Paika (1817) -> Kol (1831) -> Santhal (1855) -> Munda (1899).
+> **Q:** Who led Paika Rebellion? -> **Bakshi Jagabandhu**.
+> **Q:** Meaning of Diku? -> **Outsider**.
+`;
+

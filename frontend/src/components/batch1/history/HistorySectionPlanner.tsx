@@ -315,7 +315,11 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
 
                                                     {/* 5. Read */}
                                                     <button
-                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/read/${dayData.chapters[idx]}`); }}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            console.log('[DEBUG] Navigating to Read:', dayData.chapters[idx]);
+                                                            router.push(`/student/batch1/history/read/${dayData.chapters[idx]}`);
+                                                        }}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Read Content"
                                                     >

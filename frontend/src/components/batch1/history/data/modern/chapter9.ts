@@ -347,3 +347,74 @@ export const MODERN_CHAPTER_9_MCQS: Question[] = [
         difficulty: 'Hard'
     }
 ];
+
+export const MODERN_CHAPTER_9_CONTENT = `
+# BLOCK 1: MUSLIM REFORM MOVEMENTS
+## ☪️ ALIGARH VS DEOBAND
+
+**1. Aligarh Movement (Modernist):**
+*   **Sir Syed Ahmed Khan.**
+*   **Goal:** Modern Education for Muslims + Loyalty to British = Govt Jobs.
+*   **Institution:** Mohammedan Anglo-Oriental College (1875) -> AMU.
+*   **Journal:** *Tahzib-ul-Akhlaq*.
+*   **Politics:** Opposed INC. Founded "United Patriotic Association".
+
+**2. Deoband School (Orthodox/Revivalist):**
+*   **Founders:** Nanotavi & Gangohi. (UP).
+*   **Goal:** Pure Islam (Hadith/Quran). Jihad against foreign rule.
+*   **Politics:** Supported INC. Issued Fatwa against Sir Syed.
+
+**3. Ahmadiyya Movement:**
+*   **Mirza Ghulam Ahmad.** (Qadian, Punjab).
+*   **Goal:** Universal religion. Opposed Jihad.
+
+# BLOCK 2: SIKH & PARSI REFORMS
+**Sikhs:**
+*   **Singh Sabha (1873):** Education & Religious purity.
+*   **Akali Movement (1920s):** To liberate Gurdwaras from corrupt Mahants.
+*   **Act:** Gurdwara Reform Act 1925 (SGPC formed).
+
+**Parsis:**
+*   **Rahnumai Mazdayasnan Sabha (1851):** Dadabhai Naoroji.
+*   **Theme:** "Restoration" of Zoroastrianism to purity. Women's education.
+
+# BLOCK 3: LOWER CASTE MOVEMENTS (South India)
+## ✊ SELF-RESPECT & JUSTICE
+
+**1. Justice Party (1916):**
+*   Founders: T.M. Nair, Thyagaraja Chetti. (Madras).
+*   Issue: Brahmin dominance in jobs/politics.
+*   Action: Supported British. Won elections under Dyarchy (1920).
+
+**2. Self-Respect Movement (1925):**
+*   Leader: **E.V. Ramaswamy Naicker (Periyar)**.
+*   Philosophy: Radical Anti-Brahmin. Burned Manusmriti. Kudi Arasu (Journal).
+*   Self-Respect Marriages: No priests within.
+
+**3. Temple Entry Movements:**
+*   **Vaikom Satyagraha (1924):** Kerala. K.P. Kesava Menon. (Right to use roads around temple).
+*   **Guruvayur Satyagraha (1931):** K. Kelappan.
+
+**4. SNDP (Kerala):**
+*   **Sri Narayana Guru.**
+*   Slogan: "One Caste, One Religion, One God for Mankind".
+*   Action: Consecrated idols himself (Aruvipuram).
+
+# BLOCK 4: CASTE MOVEMENTS (General/West)
+**Dr. B.R. Ambedkar:**
+*   **Organizations:** Bahishkrit Hitakarini Sabha (1924), Independent Labour Party, Scheduled Castes Federation.
+*   **Mahad Satyagraha (1927):** Right to water from tank.
+*   **Journals:** *Mooknayak* (Leader of Dumb), *Bahishkrit Bharat*.
+
+**Mahatma Gandhi:**
+*   **All India Harijan Sangh (1932):** After Poona Pact.
+*   **Journal:** *Harijan*.
+*   Focus: Temple entry, abolition of untouchability (as a sin), but within Hindu fold.
+
+> [!WARNING]
+> **EXAMINER'S TRAP:**
+> **Q:** Who started "Self-Respect Movement"? -> **Periyar**.
+> **Q:** Who started "Satya Shodhak Samaj"? -> **Jyotiba Phule** (Not Ambedkar).
+> **Q:** Difference between Aligarh and Deoband? -> Aligarh = Pro-British/Modern; Deoband = Anti-British/Traditional.
+`;
+
