@@ -347,3 +347,119 @@ export const MODERN_CHAPTER_12_MCQS: Question[] = [
         difficulty: 'Moderate'
     }
 ];
+
+export const MODERN_CHAPTER_12_CONTENT = `
+# Chapter 12: Swadeshi Movement & Rise of Extremism (1905-1911)
+
+The First Mass Healing. The awakening of the "Atmashakti" (Self-Reliance).
+
+THE STRATEGY: "PARTITION & THE PHOENIX"
+*   **Visual Metaphor:** Dividing a map (Bengal Partition) vs. Tying a Rakhi (Unity).
+*   **Core Theme:** From "Mendicancy" (Begging) to "Passive Resistance".
+*   **Key Event:** The 1905 Partition and the 1907 Split.
+
+---
+
+## BLOCK 1: THE CAUSE - PARTITION OF BENGAL
+**Curzon's Masterstroke (or Blunder).**
+
+### ✂️ THE PARTITION (1903-1905)
+*   **Viceroy:** **Lord Curzon** (The Villain of this act).
+*   **Official Reason:** Administrative convenience. Bengal was too big (78 Million people).
+*   **Real Motive:**
+    *   To weaken the nerve center of Indian Nationalism (Bengal).
+    *   To divide based on religion: **West Bengal** (Hindu Majority) vs **East Bengal & Assam** (Muslim Majority).
+*   **Key Dates:**
+    *   **July 1905:** Partition announced.
+    *   **Aug 7, 1905:** **Boycott Resolution** passed at Calcutta Town Hall. (Formal Start of Swadeshi).
+    *   **Oct 16, 1905:** **Day of Partition**. Observed as **Raksha Bandhan Day** (Tagore) and Day of Mourning.
+
+---
+
+## BLOCK 2: THE MOVEMENT (Swadeshi & Boycott)
+**The Four Pillars: Swaraj, Swadeshi, Boycott, National Education.**
+
+### 🚫 METHODOLOGY
+*   **Boycott:** Burning foreign cloth, picketing shops.
+*   **Swadeshi:** Promotion of indigenous industries (Textiles, Soap, Matchboxes).
+    *   **P.C. Ray:** Bengal Chemical Factory.
+*   **National Education:**
+    *   **NCE (National Council of Education):** Setup in 1906.
+    *   **Bengal National College:** Principal **Aurobindo Ghosh**.
+*   **Cultural Awakening:**
+    *   **Tagore:** "Amar Sonar Bangla" (Now Bangladesh Anthem).
+    *   **Abanindranath Tagore:** Painted **Bharat Mata**.
+
+---
+
+## BLOCK 3: THE SPREAD (Beyond Bengal)
+**The Fire Spreads.**
+
+| Region | Leader |
+| :--- | :--- |
+| **Poona/Bombay** | **Bal Gangadhar Tilak** (Ganapati & Shivaji Festivals used for mobilization) |
+| **Punjab** | **Lala Lajpat Rai** & Ajit Singh |
+| **Delhi** | Syed Haider Raza |
+| **Madras** | **V.O. Chidambaram Pillai** (Swadeshi Steam Navigation Company) |
+
+---
+
+## BLOCK 4: THE SPLIT - SURAT 1907
+**The Divorce.**
+
+### 💔 SURAT SPLIT (1907)
+*   **Context:** Fight between Moderates (Gokhale, Mehta) and Extremists (Lal-Bal-Pal).
+*   **Issue:**
+    *   Extremists wanted to extend Boycott to *all* India and *all* forms of association.
+    *   Moderates wanted to restrict it to Bengal and foreign cloth only.
+*   **The Session:**
+    *   Venue shifted to Surat (Stronghold of Mehta) from Nagpur (Tilak's fort).
+    *   **President:** **Rashbehari Ghosh** (Moderate). Election was contested.
+    *   **Result:** Shoes thrown in the pandal. Police called. Congress Split.
+*   **Consequence:** Government repressed Extremists. Tilak sent to **Mandalay Jail** (6 Years).
+
+---
+
+## BLOCK 5: THE MUSLIM LEAGUE (1906)
+**The Counter-Move.**
+
+### ☪️ FORMATION OF ML
+*   **Date:** Dec 30, 1906.
+*   **Place:** **Dhaka**.
+*   **Founders:** **Nawab Salimullah** of Dhaka, Aga Khan, Mohsin-ul-Mulk.
+*   **Objective:** To protect Muslim interests and support the British Government (Loyalism).
+*   **Key Demand:** **Separate Electorates** (Simla Deputation 1906).
+
+---
+
+## BLOCK 6: MORLEY-MINTO REFORMS (1909)
+**The Poison Pill.**
+
+### 📜 INDIAN COUNCILS ACT, 1909
+*   **Key Feature:** Introduced **Separate Electorates** for Muslims.
+*   **Impact:** Legalized communalism. (You vote only if you are X religion, for a candidate of X religion).
+*   **S.P. Sinha:** Became the first Indian in Viceroy's Executive Council (Law Member).
+
+---
+
+## BLOCK 7: ANNULMENT (1911)
+**The Climax.**
+
+### 👑 DELHI DURBAR (1911)
+*   **Visitor:** King George V.
+*   **Decisions:**
+    1.  **Annulment of Partition of Bengal:** Reunited on linguistic lines (Bihar/Orissa separated).
+    2.  **Capital Shift:** From Calcutta to **Delhi**.
+
+---
+
+## BLOCK 8: PYQ CORNER
+
+> [!WARNING]
+> **🔥 PYQ ALERT:**
+> *   **Q:** President of Surat Session 1907? -> **Rashbehari Ghosh**.
+> *   **Q:** Who led Swadeshi in Madras? -> **Chidambaram Pillai**.
+> *   **Q:** Who painted Bharat Mata? -> **Abanindranath Tagore**.
+> *   **Q:** When was the Muslim League founded? -> **1906**.
+> *   **Q:** The first Indian in Viceroy's Executive Council? -> **Satyendra Prasanna Sinha**.
+`;

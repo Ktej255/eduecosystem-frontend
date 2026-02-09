@@ -150,8 +150,18 @@ export default function HistoryReadPage() {
                     </div>
                 </motion.div>
 
-                {/* Bottom Navigation for Next Chapter */}
-                <div className="mt-8 flex justify-end">
+                {/* Bottom Navigation for Next/Prev Chapter */}
+                <div className="mt-8 flex justify-between">
+                    {MODERN_HISTORY_CONTENT[String(Number(chapterId) - 1)] ? (
+                        <Button
+                            onClick={() => router.push(`/student/batch1/history/read/${Number(chapterId) - 1}`)}
+                            className="bg-stone-100 hover:bg-stone-200 text-stone-800 font-sans shadow hover:shadow-md transition-all border border-stone-300"
+                            size="lg"
+                        >
+                            <ArrowLeft className="w-5 h-5 mr-2" /> Previous Chapter
+                        </Button>
+                    ) : <div></div>}
+
                     {MODERN_HISTORY_CONTENT[String(Number(chapterId) + 1)] && (
                         <Button
                             onClick={() => router.push(`/student/batch1/history/read/${Number(chapterId) + 1}`)}

@@ -349,3 +349,118 @@ export const MODERN_CHAPTER_11_MCQS: Question[] = [
         difficulty: 'Easy'
     }
 ];
+
+export const MODERN_CHAPTER_11_CONTENT = `
+# Chapter 11: Foundation of Indian National Congress (1885)
+
+This chapter covers the genesis of the organized national movement, the "Safety Valve" controversy, and the Moderate Phase (1885-1905).
+
+THE STRATEGY: "THE SAFETY VALVE & THE LIGHTNING CONDUCTOR"
+*   **Visual Metaphor:** A pressure cooker (Safety Valve) vs. A lightning rod (Lightning Conductor).
+*   **Key Debate:** Was INC a British conspiracy or a nationalist necessity?
+*   **Core Theme:** Constitutional Agitation and the "Drain Theory".
+
+---
+
+## BLOCK 1: THE BIRTH (1885)
+**The First Session.**
+
+### 🏛️ INC FOUNDATION
+*   **Date:** Dec 28-31, 1885.
+*   **Venue:** Gokuldas Tejpal Sanskrit College, **Bombay**. (Shifted from Poona due to Cholera).
+*   **Founder:** **A.O. Hume** (Retired ICS Officer).
+*   **First President:** **W.C. Bonnerjee**.
+*   **Attendees:** 72 Delegates. (Microscopic Minority).
+*   **Key Leader Absent:** **Surendranath Banerjea** (Busy with his own National Conference in Calcutta).
+
+---
+
+## BLOCK 2: THE CONTROVERSY (Theories)
+**Why was it formed?**
+
+### 🔥 SAFETY VALVE THEORY
+*   **Concept:** Hume wanted to provide a safe, peaceful outlet for Indian discontent to avoid a violent 1857-style revolt.
+*   **Proponents:**
+    *   **Lala Lajpat Rai** (Used it to attack Moderates).
+    *   R.P. Dutt (Marxist historian - "Conspiracy").
+*   **Basis:** The "Simla Seven" meetings between Hume and Dufferin.
+
+### ⚡ LIGHTNING CONDUCTOR THEORY
+*   **Concept:** Indian leaders (Gokhale) used Hume as a "Lightning Conductor" to protect the infant Congress from official suppression.
+*   **Proponent:** **Gopal Krishna Gokhale**.
+*   **Logic:** "No Indian could have started the Indian National Congress... the officials would not have allowed it to exist."
+
+---
+
+## BLOCK 3: THE MODERATE PHASE (1885-1905)
+**The Era of "Prayers, Petitions, and Protests".**
+
+### 📜 MODERATE METHODOLOGY
+*   **Belief:** British rule is providential and just; Englishmen are essentially fair. The problem is the bureaucracy, not the Crown.
+*   **Methods:**
+    *   Constitutional Agitation within the law.
+    *   Sending deputations to England.
+    *   Passing resolutions (PPP - Prayer, Petition, Protest).
+*   **Key Leaders:** Dadabhai Naoroji, Pherozeshah Mehta, D.E. Wacha, W.C. Bonnerjee, S.N. Banerjea, G.K. Gokhale.
+
+---
+
+## BLOCK 4: CORE CONTRIBUTION - ECONOMIC CRITIQUE
+**The sharpest arrow in the Moderate quiver.**
+
+### 💰 THE DRAIN THEORY
+*   **Dadabhai Naoroji:** The "Grand Old Man of India".
+    *   Book: *Poverty and Un-British Rule in India*.
+    *   Concept: "Drain of Wealth" (Home Charges, Salaries, Pensions, Interest).
+*   **R.C. Dutt:** *The Economic History of India*. Blamed British policies for famines.
+*   **Impact:** Destroyed the moral foundation of British rule by proving it was exploitative, not benevolent.
+*   **Slogan:** "No Taxation Without Representation."
+
+---
+
+## BLOCK 5: CONSTITUTIONAL REFORMS
+**The Fruit of Moderate Labor.**
+
+### 📜 INDIAN COUNCILS ACT, 1892
+*   **Achievement:** Increased the number of additional members in Imperial and Provincial Legislative Councils.
+*   **Key Provision:**
+    *   **Discussion of Budget** allowed (but no voting).
+    *   **Asking Questions** allowed (but no supplementaries).
+    *   **"Election":** The word was not used, but "Nomination on recommendation" introduced the principle of indirect election.
+
+---
+
+## BLOCK 6: OFFICIAL ATTITUDE
+**From Benevolence to Hostility.**
+
+*   **1885:** Dufferin welcomed it (Garden Party).
+*   **1887 (Madras):** Badruddin Tyabji (First Muslim President) appealed to Muslims to join. Govt became hostile.
+*   **1888:** Dufferin attacked INC: "**Microscopic Minority**".
+*   **1900:** **Lord Curzon:** "The Congress is tottering to its fall, and one of my great ambitions... is to assist it to a peaceful demise."
+
+---
+
+## BLOCK 7: IMPORTANT SESSIONS (Early Years)
+
+| Year | Place | President | Significance |
+| :--- | :--- | :--- | :--- |
+| **1885** | Bombay | W.C. Bonnerjee | First Session. 72 Delegates. |
+| **1886** | Calcutta | Dadabhai Naoroji | Merger of National Conference. |
+| **1887** | Madras | **Badruddin Tyabji** | First Muslim President. |
+| **1888** | Allahabad | **George Yule** | First English President. |
+| **1896** | Calcutta | Rahimtullah Sayani | **Vande Mataram** sung for the first time (Tagore). |
+| **1905** | Banaras | G.K. Gokhale | Protest against Partition of Bengal. |
+| **1906** | Calcutta | Dadabhai Naoroji | Goal declared: **Swaraj** (Like UK colonies). |
+
+---
+
+## BLOCK 8: PYQ CORNER
+
+> [!WARNING]
+> **🔥 PYQ ALERT:**
+> *   **Q:** Who proposed the Lightning Conductor Theory? -> **G.K. Gokhale**.
+> *   **Q:** Who called Congress a "Microscopic Minority"? -> **Lord Dufferin**.
+> *   **Q:** First English President of INC? -> **George Yule**.
+> *   **Q:** Who wrote "Poverty and Un-British Rule in India"? -> **Dadabhai Naoroji**.
+> *   **Q:** In which session was Swaraj first stamped as the goal? -> **1906 Calcutta**.
+`;

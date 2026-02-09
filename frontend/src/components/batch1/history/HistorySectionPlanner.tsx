@@ -341,16 +341,16 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-amber-600">Map</span>
                                                     </button>
 
-                                                    {/* 7. Report */}
+                                                    {/* 7. Current Affairs */}
                                                     <button
-                                                        onClick={(e) => { e.stopPropagation(); /* Topic Analysis Modal Placeholder */ }}
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/current-affairs?chapter=${dayData.chapters[idx]}`); }}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
-                                                        title="Topic Report"
+                                                        title="Current Affairs"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-orange-50 group-hover/btn:text-orange-500 transition-colors">
-                                                            <BarChart2 className="w-3.5 h-3.5" />
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-rose-50 group-hover/btn:text-rose-600 transition-colors">
+                                                            <Flame className="w-3.5 h-3.5" />
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-orange-500">Report</span>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-rose-600">CA</span>
                                                     </button>
                                                 </div>
                                             </div>

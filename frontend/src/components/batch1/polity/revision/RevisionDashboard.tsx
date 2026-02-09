@@ -32,6 +32,7 @@ import {
     StudyStreak
 } from './progress-utils';
 import RevisionCalendar from './RevisionCalendar';
+import CurrentAffairsDashboard from './CurrentAffairsDashboard';
 
 
 export default function RevisionDashboard() {
@@ -148,6 +149,12 @@ export default function RevisionDashboard() {
                         >
                             Study Planner & Schedule
                             <span className="bg-pink-500 text-white text-[10px] px-2 py-0.5 rounded-full">NEW</span>
+                        </TabsTrigger>
+                        <TabsTrigger
+                            value="current-affairs"
+                            className="px-6 py-3 rounded-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold transition-all flex items-center gap-2"
+                        >
+                            <Flame className="w-4 h-4" /> Current Affairs
                         </TabsTrigger>
                         <TabsTrigger
                             value="mains"
@@ -405,6 +412,10 @@ export default function RevisionDashboard() {
                             <h2 className="text-2xl font-bold mb-6">Study Planner & Schedule</h2>
                             <RevisionCalendar />
                         </div>
+                    </TabsContent>
+
+                    <TabsContent value="current-affairs" className="focus:outline-none animate-in fade-in slide-in-from-bottom-4">
+                        <CurrentAffairsDashboard />
                     </TabsContent>
 
                     <TabsContent value="mains" className="focus:outline-none animate-in fade-in slide-in-from-bottom-4">

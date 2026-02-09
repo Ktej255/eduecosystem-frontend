@@ -349,3 +349,95 @@ export const MODERN_CHAPTER_13_MCQS: Question[] = [
         difficulty: 'Easy'
     }
 ];
+
+export const MODERN_CHAPTER_13_CONTENT = `
+# Chapter 13: Revolutionary Activities (Phase I)
+
+This chapter covers the era of "Individual Heroism" (The Bomb & Pistol phase).
+
+THE STRATEGY: "THE UNDERGROUND & THE ABROAD"
+*   **Visual Metaphor:** The loaded pistol and the secret letter.
+*   **Core Theme:** Violent overthrow of British rule.
+*   **Geography:** Bengal, Maharashtra, Punjab, and Abroad (London/USA).
+
+---
+
+## BLOCK 1: BENGAL (The Hotbed)
+**Anushilan & Yugantar.**
+
+### 💣 KEY GROUPS
+*   **Anushilan Samiti (1902):** Promotha Mitter (First).
+*   **Yugantar Group:** Barindra Kumar Ghosh & Bhupendranath Datta.
+    *   Journal: *Yugantar* ("Force must be stopped by force").
+
+### ⚔️ KEY ACTIONS
+*   **Muzaffarpur Murders (1908):**
+    *   Target: Kingsford (Judge).
+    *   Actors: **Khudiram Bose** (Hanged) & Prafulla Chaki (Suicide).
+*   **Alipore Conspiracy Case (1908):**
+    *   **Aurobindo Ghosh** arrested (Defended by C.R. Das -> Acquitted).
+    *   Barindra Ghosh sent to Cellular Jail.
+*   **"Bagha" Jatin:**
+    *   **Zimerman Plan:** German Plot to smuggle arms during WWI.
+    *   **Battle of Balasore (1915):** Died fighting like a tiger.
+
+---
+
+## BLOCK 2: MAHARASHTRA
+**The Pioneers.**
+
+### 🚩 SAVARKAR & CHAPEKARS
+*   **1897:** **Chapekar Brothers** (Damodar & Balkrishna) killed Rand & Ayerst (Plague Commissioners) in Poona. (First Political Assassination).
+*   **Abhinav Bharat (1904):** Founded by **V.D. Savarkar** (Evolution of Mitra Mela).
+*   **Nasik Conspiracy (1909):** Anant Kanhare killed Jackson (Collector).
+
+---
+
+## BLOCK 3: PUNJAB & DELHI
+**The Ghadar Link.**
+
+*   **Rashbehari Bose:** Mastermind.
+*   **Delhi Conspiracy Case (1912):** Bomb thrown on Viceroy **Lord Hardinge** in Chandni Chowk.
+    *   Hardinge survived.
+    *   Rashbehari escaped to Japan (Influenced INA later).
+
+---
+
+## BLOCK 4: ABROAD (London & Europe)
+**The Intellectual Terrorists.**
+
+*   **Shyamji Krishna Varma:**
+    *   **India House** (London hostel).
+    *   Journal: *The Indian Sociologist*.
+*   **Madam Bhikaji Cama:**
+    *   **Mother of Indian Revolution**.
+    *   Unfurled first Indian flag at **Stuttgart** (Germany) in 1907.
+*   **Madan Lal Dhingra:** Assassinated **Curzon Wyllie** in London (1909).
+
+---
+
+## BLOCK 5: THE GHADAR PARTY (1913)
+**The Global Revolt.**
+
+### 🌍 GHADAR MOVEMENT
+*   **HQ:** **San Francisco** (Yugantar Ashram).
+*   **Founders:** **Lala Hardayal** (Intellectual), **Sohan Singh Bhakna** (President).
+*   **Journal:** *Ghadar* (Masthead: "Angrezi Raj Ka Dushman").
+*   **The Spark:** **Komagata Maru Incident (1914)**.
+    *   Ship turned away from Canada.
+*   **The Plan:** 1915 Armed Revolt in Punjab.
+    *   **Failure:** Treachery (Kirpal Singh).
+    *   **Defense of India Act, 1915:** Passed to crush them.
+
+---
+
+## BLOCK 6: PYQ CORNER
+
+> [!WARNING]
+> **🔥 PYQ ALERT:**
+> *   **Q:** Who founded Abhinav Bharat? -> **V.D. Savarkar**.
+> *   **Q:** Who defended Aurobindo in Alipore Case? -> **C.R. Das**.
+> *   **Q:** HQ of Ghadar Party? -> **San Francisco**.
+> *   **Q:** Unfurled flag at Stuttgart? -> **Madam Cama**.
+> *   **Q:** Who killed Curzon Wyllie? -> **Madan Lal Dhingra**.
+`;

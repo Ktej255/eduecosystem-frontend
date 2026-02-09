@@ -349,3 +349,70 @@ export const MODERN_CHAPTER_14_MCQS: Question[] = [
         difficulty: 'Moderate'
     }
 ];
+
+export const MODERN_CHAPTER_14_CONTENT = `
+# Chapter 14: Home Rule Movement & Lucknow Pact (1916)
+
+The Reawakening. The bridge between Moderates, Extremists, and the League.
+
+THE STRATEGY: "THE TWO LEAGUES & THE HANDSHAKE"
+*   **Visual Metaphor:** Two circles (Tilak & Besant) and a Bridge (Lucknow).
+*   **Core Demand:** Dominion Status (Self-Government within Empire).
+
+---
+
+## BLOCK 1: HOME RULE LEAGUES (1916)
+**Tilak vs. Besant.**
+
+### 🚩 TILAK'S LEAGUE (April 1916)
+*   **First off the block.**
+*   **Area:** **Maharashtra** (excluding Bombay City), Karnataka, Central Provinces, Berar.
+*   **HQ:** Poona.
+*   **Slogan:** "Swaraj is my birthright and I shall have it."
+*   **Org:** Tighter, focused.
+
+### 🏳️ BESANT'S LEAGUE (Sept 1916)
+*   **Annie Besant** (Theosophical Society).
+*   **Area:** **Rest of India** (including Bombay City).
+*   **HQ:** Adyar (Madras).
+*   **Org:** Looser, massive reach (200 branches).
+*   **Newspapers:** *New India*, *Commonweal*.
+*   **Key Aides:** George Arundale, B.P. Wadia, C.P. Ramaswamy Aiyar.
+
+---
+
+## BLOCK 2: LUCKNOW SESSION (1916)
+**The Year of Unity.**
+
+### 🤝 LUCKNOW PACT
+*   **President:** **A.C. Majumdar**.
+*   **Unity 1 (Congress Reunion):**
+    *   Moderates + Extremists reunited.
+    *   Factor: Deaths of Gokhale & Mehta (1915).
+*   **Unity 2 (Congress + League):**
+    *   **Architects:** **Tilak & Jinnah**.
+    *   **The Compromis:** Congress accepted **Separate Electorates**.
+    *   **Significance:** Joint demand for Self-Government.
+
+---
+
+## BLOCK 3: AUGUST DECLARATION (1917)
+**The British Response.**
+
+### 📜 MONTAGU STATEMENT
+*   **Date:** Aug 20, 1917.
+*   **Secretary of State:** Edwin Montagu.
+*   **Promise:** "Increasing association of Indians... and gradual development of self-governing institutions."
+*   **Result:** Besant pacified. Movement lost steam.
+
+---
+
+## BLOCK 4: PYQ CORNER
+
+> [!WARNING]
+> **🔥 PYQ ALERT:**
+> *   **Q:** Who launched the Home Rule League first? -> **Tilak** (April).
+> *   **Q:** Did the Leagues merge? -> **No** (They cooperated).
+> *   **Q:** President of Lucknow Session 1916? -> **A.C. Majumdar**.
+> *   **Q:** Result of Montagu Declaration? -> **Act of 1919**.
+`;

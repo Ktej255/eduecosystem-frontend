@@ -98,10 +98,8 @@ export default function PolityExamSimulator({
     onComplete,
     onClose
 }: PolityExamSimulatorProps) {
-    const [activeExam, setActiveExam] = useState<string | null>(null);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [score, setScore] = useState(0);
-    const [answerState, setAnswerState] = useState<'unanswered' | 'correct' | 'wrong'>('unanswered');
+    const [userAnswers, setUserAnswers] = useState<(number | undefined)[]>(new Array(questions.length).fill(undefined));
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     // Stress Engine State
     const [errorStreak, setErrorStreak] = useState(0);
@@ -111,11 +109,9 @@ export default function PolityExamSimulator({
     const timerRef = useRef<NodeJS.Timeout | null>(null);
     const [timer, setTimer] = useState(0);
 
-    // Reset when starting new question
+    // Global Timer for the exam
     useEffect(() => {
-        if (activeExam) {
-            setStartTime(Date.now());
-            setTimer(0);
+        if (activeExam && !isSubmitted) {
             timerRef.current = setInterval(() => {
                 setTimer(prev => prev + 1);
             }, 1000);
@@ -123,68 +119,57 @@ export default function PolityExamSimulator({
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [currentQuestionIndex, activeExam]);
+    }, [activeExam, isSubmitted]);
 
     const handleAnswer = (optionIndex: number) => {
-        if (answerState !== 'unanswered') return;
-        if (anxietyMode.isDetected) return; // Block input if anxious
+        if (isSubmitted) return;
+        if (anxietyMode.isDetected) return;
 
-        const currentQ = questions[currentQuestionIndex];
-        const timeTaken = (Date.now() - startTime) / 1000;
-        const isCorrect = optionIndex === currentQ.correctAnswer;
+        const newUserAnswers = [...userAnswers];
+        newUserAnswers[currentQuestionIndex] = optionIndex;
+        setUserAnswers(newUserAnswers);
+    };
 
-        // --- STRESS ENGINE LOGIC ---
-        const newStreak = isCorrect ? 0 : errorStreak + 1;
-        setErrorStreak(newStreak);
+    const handleSubmit = () => {
+        setIsSubmitted(true);
+        if (timerRef.current) clearInterval(timerRef.current);
 
-        // Only calculate stress if wrong or very fast
-        const stressMetrics: StressMetrics = {
-            timeTaken,
-            errorStreak: newStreak, // Use the NEW streak
-            targetTime: currentQ.targetTime
-        };
+        let finalScore = 0;
+        let correctCount = 0;
 
-        const analysis = calculateStressScore(stressMetrics);
+        questions.forEach((q, idx) => {
+            if (userAnswers[idx] === q.correctAnswer) {
+                finalScore += 2;
+                correctCount++;
+            } else if (userAnswers[idx] !== undefined) {
+                finalScore -= 0.66;
+            }
+        });
 
-        if (analysis.isAnxietyDetected) {
-            setAnxietyMode({ isDetected: true, reason: analysis.reason });
-            setMeditationTip(getMeditationRecommendation());
-            // Don't reveal answer if anxious? Or maybe reveal and then block?
-            // Let's block immediately to force a pause.
-            if (timerRef.current) clearInterval(timerRef.current);
-        }
-        // ---------------------------
+        setScore(finalScore);
 
-        if (isCorrect) {
-            setScore(s => s + 2); // +2 marks
-            setAnswerState('correct');
-        } else {
-            setScore(s => s - 0.66); // -0.66 Neg marking
-            setAnswerState('wrong');
+        if (onComplete) {
+            onComplete(finalScore, {
+                accuracy: (correctCount / questions.length) * 100,
+                totalQuestions: questions.length
+            });
         }
     };
 
     const handleNext = () => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(prev => prev + 1);
-            setAnswerState('unanswered');
-        } else {
-            // alert(`Exam Over! Final Score: ${score.toFixed(2)} / ${questions.length * 2}`);
-            if (onComplete) {
-                // Return normalized score (percentage) and raw
-                onComplete(score, {
-                    accuracy: (score / (questions.length * 2)) * 100, // Very rough
-                    totalQuestions: questions.length
-                });
-            }
-            setActiveExam(null);
+        }
+    };
+
+    const handlePrev = () => {
+        if (currentQuestionIndex > 0) {
+            setCurrentQuestionIndex(prev => prev - 1);
         }
     };
 
     const handleMeditationComplete = () => {
         setAnxietyMode({ isDetected: false });
-        setErrorStreak(0); // Reset streak on recovery
-        // Resume timer if needed
     };
 
     if (!activeExam) {
@@ -244,6 +229,7 @@ export default function PolityExamSimulator({
     }
 
     const currentQ = questions[currentQuestionIndex];
+    const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
     return (
         <div className="max-w-4xl mx-auto px-6 py-8 relative">
@@ -288,12 +274,12 @@ export default function PolityExamSimulator({
                     <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest">Question {currentQuestionIndex + 1}/{questions.length}</h3>
                     <div className="h-1.5 w-32 bg-gray-200 rounded-full mt-2 overflow-hidden">
                         <div
-                            className="h-full bg-red-600 transition-all duration-300"
+                            className="h-full bg-blue-600 transition-all duration-300"
                             style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
                         />
                     </div>
                 </div>
-                <div className={`flex items-center gap-2 font-mono text-xl font-bold ${timer > currentQ.targetTime ? 'text-red-500' : 'text-gray-700 dark:text-gray-300'}`}>
+                <div className={`flex items-center gap-2 font-mono text-xl font-bold text-gray-700 dark:text-gray-300`}>
                     <Clock className="w-5 h-5" />
                     {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}
                 </div>
@@ -308,17 +294,25 @@ export default function PolityExamSimulator({
                     {currentQ.question}
                 </h2>
 
-                <div className="space-y-3 relative z-10">
+                <div className="space-y-3 relative z-10 mb-8">
                     {currentQ.options.map((opt, idx) => {
                         let btnClass = "w-full text-left p-4 rounded-xl border-2 transition-all font-medium flex items-center justify-between group ";
-                        if (answerState === 'unanswered') {
-                            btnClass += "border-gray-200 hover:border-blue-500 hover:bg-blue-50 dark:border-gray-800 dark:hover:bg-blue-900/20";
+                        const isSelected = userAnswers[currentQuestionIndex] === idx;
+                        const isCorrect = idx === currentQ.correctAnswer;
+
+                        if (!isSubmitted) {
+                            // Exam Mode
+                            if (isSelected) {
+                                btnClass += "border-blue-500 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300";
+                            } else {
+                                btnClass += "border-gray-200 hover:border-blue-300 hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-900";
+                            }
                         } else {
-                            if (idx === currentQ.correctAnswer) {
+                            // Result Mode
+                            if (isCorrect) {
                                 btnClass += "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300";
-                            } else if (answerState === 'wrong' && idx !== currentQ.correctAnswer) {
-                                // Highlight selected wrong answer? No, for now just show correct.
-                                btnClass += "border-gray-200 opacity-50";
+                            } else if (isSelected && !isCorrect) {
+                                btnClass += "border-red-500 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300";
                             } else {
                                 btnClass += "border-gray-200 opacity-50";
                             }
@@ -329,46 +323,81 @@ export default function PolityExamSimulator({
                                 key={idx}
                                 onClick={() => handleAnswer(idx)}
                                 className={btnClass}
-                                disabled={answerState !== 'unanswered'}
+                                disabled={isSubmitted}
                             >
                                 <span className="flex-1">
                                     <span className="inline-block w-6 font-bold opacity-50 mr-2">{String.fromCharCode(65 + idx)}.</span>
                                     {opt}
                                 </span>
-                                {answerState !== 'unanswered' && idx === currentQ.correctAnswer && (
+                                {isSubmitted && isCorrect && (
                                     <CheckCircle className="w-5 h-5 text-green-600" />
                                 )}
-                                {answerState === 'wrong' && idx !== currentQ.correctAnswer && (
-                                    <XCircle className="w-5 h-5 text-red-500 opacity-0 group-focus:opacity-100" />
+                                {isSubmitted && isSelected && !isCorrect && (
+                                    <XCircle className="w-5 h-5 text-red-500" />
+                                )}
+                                {!isSubmitted && isSelected && (
+                                    <div className="w-4 h-4 rounded-full bg-blue-500" />
                                 )}
                             </button>
                         );
                     })}
                 </div>
 
-                {answerState !== 'unanswered' && (
+                {isSubmitted && (
                     <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800 animate-in fade-in slide-in-from-bottom-2">
                         <h4 className="font-bold text-gray-900 dark:text-white mb-2">Explanation</h4>
                         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                             {currentQ.explanation}
                         </p>
-                        <div className="mt-6 flex justify-end">
+                    </div>
+                )}
+
+                <div className="flex justify-between mt-6 pt-6 border-t border-gray-100 dark:border-gray-800">
+                    <button
+                        onClick={handlePrev}
+                        disabled={currentQuestionIndex === 0}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all ${currentQuestionIndex === 0 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'}`}
+                    >
+                        <ChevronLeft className="w-4 h-4" /> Previous
+                    </button>
+
+                    {!isSubmitted ? (
+                        isLastQuestion ? (
+                            <button
+                                onClick={handleSubmit}
+                                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-green-600/20 transition-all flex items-center gap-2"
+                            >
+                                Submit Exam <CheckCircle className="w-4 h-4" />
+                            </button>
+                        ) : (
                             <button
                                 onClick={handleNext}
                                 className="bg-gray-900 dark:bg-white text-white dark:text-black px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-all flex items-center gap-2"
                             >
                                 Next Question <Play className="w-4 h-4" />
                             </button>
-                        </div>
-                    </div>
-                )}
+                        )
+                    ) : (
+                        <button
+                            onClick={handleNext}
+                            disabled={isLastQuestion}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-bold transition-all ${isLastQuestion ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-gray-900 text-white hover:bg-gray-800'}`}
+                        >
+                            Next <Play className="w-4 h-4" />
+                        </button>
+                    )}
+                </div>
             </div>
 
             {/* Score Footer */}
-            <div className="mt-6 flex items-center justify-between text-sm font-bold text-gray-500">
-                <span>Current Score: {score.toFixed(2)}</span>
-                <span className={`${errorStreak > 0 ? 'text-red-500' : 'text-gray-400'}`}>Streak Risk: {errorStreak}/3</span>
-            </div>
+            {isSubmitted && (
+                <div className="mt-6 flex items-center justify-between text-sm font-bold text-gray-500 animate-in fade-in">
+                    <span className="text-lg text-gray-900 dark:text-white">Final Score: {score.toFixed(2)}</span>
+                    <button onClick={() => { setActiveExam(null); setIsSubmitted(false); setCurrentQuestionIndex(0); setUserAnswers([]); }} className="text-blue-600 hover:underline">
+                        Exit / Retake
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

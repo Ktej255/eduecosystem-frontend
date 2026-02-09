@@ -445,3 +445,63 @@ export const MODERN_CHAPTER_16_MCQS = [
         explanation: "C.R. Das and Motilal Nehru formed the Swaraj Party to end the boycott of councils and wreck the government from within."
     }
 ];
+
+export const MODERN_CHAPTER_16_CONTENT = `
+# Chapter 16: The Non-Cooperation Movement (1920-1922)
+
+The First All-India Mass Struggle. Gandhi takes the wheel.
+
+THE STRATEGY: "BOYCOTT & CALAMITY"
+*   **Visual Metaphor:** The Charkha vs. The Police Station (Chauri Chaura).
+*   **Key Comparison:** Constitutional Struggle -> Mass Satyagraha.
+
+---
+
+## BLOCK 1: THE LAUNCH (1920)
+**From Khilafat to Swaraj.**
+
+### 🚀 ROAD TO NCM
+*   **Aug 1, 1920:** Movement formally launched. (Tilak died on the same day).
+*   **Calcutta Special Session (Sept 1920):** Approved the NCM plan (Lala Lajpat Rai Presided).
+*   **Nagpur Session (Dec 1920):**
+    *   **Ratification:** C.R. Das (who opposed earlier) moved the resolution.
+    *   **New Constitution:** 15-member Working Committee (CWC) formed to lead year-round.
+    *   **Goal:** "Swaraj by peaceful and legitimate means."
+
+---
+
+## BLOCK 2: THE PROGRAM
+**Boycott, Swadeshi, and National Education.**
+
+*   **Boycott:** Schools, Colleges, Courts, Foreign Cloth.
+*   **Success:**
+    *   Imports of foreign cloth halved.
+    *   **Jamia Millia Islamia** & **Kashi Vidyapeeth** founded.
+    *   Lawyers like Motilal Nehru & C.R. Das gave up practice.
+
+---
+
+## BLOCK 3: THE WITHDRAWAL (1922)
+**The Sudden Stop.**
+
+### 🛑 CHAURI CHAURA
+*   **Date:** Feb 5, 1922.
+*   **Event:** Mob burned 22 policemen alive in Gorakhpur (UP).
+*   **Gandhi's Response:** Withdrew NCM immediately. "**Himalayan Blunder**".
+*   **Bardoli Resolution:** Formally stopped the movement.
+*   **Reaction:**
+    *   **Subhash Bose:** "National Calamity".
+    *   **Jawaharlal Nehru:** Dismayed.
+*   **Outcome:** Gandhi arrested (March 1922). 6 Years Jail.
+
+---
+
+## BLOCK 4: PYQ CORNER
+
+> [!WARNING]
+> **🔥 PYQ ALERT:**
+> *   **Q:** Who moved the NCM resolution at Nagpur? -> **C.R. Das**.
+> *   **Q:** Target of Tilak Swaraj Fund? -> **1 Crore**.
+> *   **Q:** Why did Gandhi withdraw? -> **Violence at Chauri Chaura**.
+> *   **Q:** Who called it a National Calamity? -> **Subhash Bose**.
+`;
