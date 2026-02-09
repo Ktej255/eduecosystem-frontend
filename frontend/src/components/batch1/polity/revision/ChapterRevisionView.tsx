@@ -12,11 +12,14 @@ import {
     RefreshCcw,
     Sparkles,
     Target,
-    Flame
-import { Newspaper } from 'lucide-react';
+    Flame,
+    Newspaper
+} from 'lucide-react';
 import StandardMCQInterface from '@/components/common/mcq/StandardMCQInterface';
 import StandardTestReport from '@/components/common/reports/StandardTestReport';
 import { Badge } from '@/components/ui/badge';
+import { getRevisionDataById } from '../../data/RevisionRegistry';
+import Link from 'next/link';
 
 interface Props {
     chapterId: number;
@@ -26,9 +29,52 @@ interface Props {
     initialTab?: 'content' | 'flashcards' | 'mcqs' | 'current_affairs';
 }
 
+interface Flashcard {
+    question: string;
+    answer: string;
+    difficulty: 'easy' | 'medium' | 'hard';
+    category: string;
+}
+
+interface MCQ {
+    question: string;
+    options: string[];
+    correctAnswer: number;
+    explanation?: string;
+}
+
+interface ContentSection {
+    title: string;
+    content?: string;
+    subsections?: {
+        title: string;
+        content: string;
+        features: string[];
+    }[];
+    features?: string[];
+}
+
+interface RevisionData {
+    title: string;
+    content: {
+        title: string;
+        introduction: string;
+        sections: ContentSection[];
+    };
+    flashcards: Flashcard[];
+    mcqs: MCQ[];
+}
+
+interface TestResultData {
+    testTitle: string;
+    totalTimeTaken: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    questions: any[]; // Kept as any for flexibility with StandardMCQInterface output
+}
+
 export default function ChapterRevisionView({ chapterId, subjectId = 'polity', backLink, backLabel, initialTab = 'content' }: Props) {
     const [activeTab, setActiveTab] = useState<'content' | 'flashcards' | 'mcqs' | 'current_affairs'>(initialTab);
-    const [revisionData, setRevisionData] = useState<any>(null);
+    const [revisionData, setRevisionData] = useState<RevisionData | null>(null);
     const [loading, setLoading] = useState(true);
 
     // Flashcards State
@@ -41,13 +87,13 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
     const [answers, setAnswers] = useState<Record<number, number>>({});
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
-    const [testResults, setTestResults] = useState<any>(null);
+    const [testResults, setTestResults] = useState<TestResultData | null>(null);
     const [showReport, setShowReport] = useState(false);
 
     useEffect(() => {
         const data = getRevisionDataById(chapterId);
         if (data) {
-            setRevisionData(data);
+            setRevisionData(data as RevisionData);
         }
         setLoading(false);
     }, [chapterId]);
@@ -83,7 +129,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
 
     const handleMcqSubmit = () => {
         let finalScore = 0;
-        mcqs.forEach((mcq: any, idx: number) => {
+        mcqs.forEach((mcq: MCQ, idx: number) => {
             if (answers[idx] === mcq.correctAnswer) finalScore++;
         });
         setScore(finalScore);
@@ -128,7 +174,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                         ].map((tab) => (
                             <button
                                 key={tab.id}
-                                onClick={() => setActiveTab(tab.id as any)}
+                                onClick={() => setActiveTab(tab.id as 'content' | 'flashcards' | 'mcqs' | 'current_affairs')}
                                 className={`py-4 px-1 border-b-2 transition-all flex items-center gap-2 text-sm font-medium ${activeTab === tab.id
                                     ? 'border-blue-600 text-blue-600'
                                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -153,14 +199,14 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                             </p>
 
                             <div className="space-y-12">
-                                {content.sections.map((section: any, idx: number) => (
+                                {content.sections.map((section: ContentSection, idx: number) => (
                                     <div key={idx} className="border-l-4 border-blue-500 pl-6 py-2">
                                         <h3 className="text-2xl font-bold mb-4">{section.title}</h3>
                                         {section.content && <p className="mb-4 text-gray-700 dark:text-gray-300">{section.content}</p>}
 
                                         {section.subsections && (
                                             <div className="space-y-6 mt-4">
-                                                {section.subsections.map((sub: any, sIdx: number) => (
+                                                {section.subsections?.map((sub: { title: string; content: string; features: string[] }, sIdx: number) => (
                                                     <div key={sIdx} className="bg-gray-50 dark:bg-[#111] p-5 rounded-xl">
                                                         <h4 className="text-xl font-bold mb-3 text-blue-700 dark:text-blue-400">{sub.title}</h4>
                                                         <p className="text-sm mb-4 text-gray-600 dark:text-gray-400">{sub.content}</p>
@@ -330,7 +376,7 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                         ) : mcqLevel === 1 ? (
                             // Standardized MCQ Interface
                             <StandardMCQInterface
-                                questions={mcqs.map((q: any, i: number) => ({
+                                questions={mcqs.map((q: MCQ, i: number) => ({
                                     id: i,
                                     question: q.question,
                                     options: q.options,
