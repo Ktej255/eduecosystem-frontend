@@ -10,6 +10,8 @@ import { useMCQShortcuts } from '@/hooks/useKeyboardShortcuts';
 import KeyboardShortcutsHelp from '@/components/common/KeyboardShortcutsHelp';
 import { recordMCQAttempt } from '@/lib/analytics';
 import { ActivityLogger } from '@/lib/analytics/ActivityLogger';
+import { saveChapterReport } from '@/lib/report-persistence';
+import { toast } from 'sonner';
 
 // Temporary MCQ generator - will be replaced with actual content
 function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
@@ -256,7 +258,38 @@ export default function CycleMCQs({
             }
         });
 
-        onComplete(Object.values(finalResultsMap));
+        // Calculate score for report
+        const finalResults = Object.values(finalResultsMap);
+        const score = finalResults.filter(r => r.isCorrect).length;
+        const totalQuestions = finalResults.length;
+        const accuracy = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
+        const totalTime = finalResults.reduce((sum, r) => sum + r.timeSpent, 0);
+
+        // Save to Universal Report Persistence
+        // Use cycle number as chapter identifier for Pomodoro/Evening sessions
+        const chapterId = cycleNumber;
+        saveChapterReport(subject, chapterId, {
+            score,
+            totalQuestions,
+            accuracy,
+            timeTaken: totalTime,
+            questions: finalResults.map(r => ({
+                id: parseInt(r.questionId) || 0,
+                question: mcqs.find(m => String(m.id) === r.questionId)?.question || '',
+                options: mcqs.find(m => String(m.id) === r.questionId)?.options || [],
+                correctAnswer: r.correctAnswer,
+                selectedAnswer: r.selectedAnswer ?? -1,
+                isCorrect: r.isCorrect,
+                explanation: mcqs.find(m => String(m.id) === r.questionId)?.explanation || ''
+            }))
+        }, cycleNumber);
+
+        toast.success(
+            `✅ Cycle ${cycleNumber} Complete! Score: ${score}/${totalQuestions} (${accuracy}%) - Report saved to Deep Report Center`,
+            { duration: 5000 }
+        );
+
+        onComplete(finalResults);
     };
 
     // Keyboard shortcuts

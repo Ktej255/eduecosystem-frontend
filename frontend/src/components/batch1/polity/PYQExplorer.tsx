@@ -18,6 +18,8 @@ import { IR_PYQS } from '../international-relations/data/ir-pyqs';
 import { PYQQuestion } from '@/lib/pyq/pyq-types';
 import { awardXP } from '@/lib/gamification/xp-engine';
 import { ActivityLogger } from '@/lib/analytics/ActivityLogger';
+import { saveChapterReport } from '@/lib/report-persistence';
+import { toast } from 'sonner';
 
 export default function PYQExplorer() {
     const [activeSubject, setActiveSubject] = useState("Polity");
@@ -25,6 +27,7 @@ export default function PYQExplorer() {
     const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
     const [userAnswers, setUserAnswers] = useState<Record<string, number>>({});
     const [showFilters, setShowFilters] = useState(true);
+    const [lastSavedCount, setLastSavedCount] = useState(0);
 
     // Combine Data Map
     const subjectDataMap: Record<string, PYQQuestion[]> = {
@@ -60,6 +63,44 @@ export default function PYQExplorer() {
 
     const allYears = useMemo(() => Object.keys(yearCounts).map(Number).sort((a, b) => b - a), [yearCounts]);
     const allTopics = useMemo(() => Object.keys(topicCounts).sort(), [topicCounts]);
+
+    // Save PYQ session report every 5 new answers
+    useEffect(() => {
+        const answeredCount = Object.keys(userAnswers).length;
+        const newAnswers = answeredCount - lastSavedCount;
+
+        // Save when 5+ new answers since last save
+        if (newAnswers >= 5 && answeredCount > 0) {
+            const answeredQuestions = subjectQuestions.filter(q => userAnswers[String(q.id)] !== undefined);
+            const score = answeredQuestions.filter(q => userAnswers[String(q.id)] === q.correctIndex).length;
+            const totalQuestions = answeredQuestions.length;
+            const accuracy = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
+
+            // Use subject name as lowercase for report key
+            const subjectKey = activeSubject.toLowerCase() as 'polity' | 'history';
+            saveChapterReport(subjectKey === 'polity' || subjectKey === 'history' ? subjectKey : 'polity', 0, {
+                score,
+                totalQuestions,
+                accuracy,
+                timeTaken: 0, // PYQ doesn't track time
+                questions: answeredQuestions.map((q, i) => ({
+                    id: typeof q.id === 'number' ? q.id : i,
+                    question: q.question,
+                    options: q.options,
+                    correctAnswer: q.correctIndex,
+                    selectedAnswer: userAnswers[String(q.id)] ?? -1,
+                    isCorrect: userAnswers[String(q.id)] === q.correctIndex,
+                    explanation: q.explanation || ''
+                }))
+            }, 0); // Level 0 = PYQ
+
+            setLastSavedCount(answeredCount);
+            toast.success(
+                `✅ PYQ Progress Saved! ${score}/${totalQuestions} (${accuracy}%) - Report updated in Deep Report Center`,
+                { duration: 4000 }
+            );
+        }
+    }, [userAnswers, subjectQuestions, activeSubject, lastSavedCount]);
 
     const toggleYear = (year: number) => {
         setSelectedYears(prev => prev.includes(year) ? prev.filter(y => y !== year) : [...prev, year]);
