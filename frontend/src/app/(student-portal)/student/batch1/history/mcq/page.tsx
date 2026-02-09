@@ -8,6 +8,7 @@ import HistoryFeaturePlaceholder from '@/components/batch1/history/HistoryFeatur
 // Standard Components
 import StandardMCQInterface, { MCQ, QuestionResult } from '@/components/common/mcq/StandardMCQInterface';
 import StandardTestReport, { TestResult } from '@/components/common/reports/StandardTestReport';
+import { saveChapterReport } from '@/lib/report-persistence';
 
 function MCQContent() {
     const searchParams = useSearchParams();
@@ -77,6 +78,17 @@ function MCQContent() {
 
         setTestResult(resultData);
         setShowResults(true);
+
+        // Save to Universal Report Persistence
+        // Use the first chapterId if multiple selected, or default to 0
+        const primaryChapterId = chapterIds[0] || 0;
+        saveChapterReport('history', primaryChapterId, {
+            score: correct,
+            totalQuestions: questions.length,
+            accuracy: resultData.accuracy,
+            timeTaken: timeTaken,
+            questions: results
+        }, 1);
     };
 
     if (loading) {

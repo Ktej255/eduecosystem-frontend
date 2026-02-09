@@ -20,6 +20,7 @@ import StandardTestReport from '@/components/common/reports/StandardTestReport';
 import { Badge } from '@/components/ui/badge';
 import { getRevisionDataById } from '../data/RevisionRegistry';
 import Link from 'next/link';
+import { saveChapterReport } from '@/lib/report-persistence';
 
 interface Props {
     chapterId: number;
@@ -395,6 +396,16 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                                     // Save Progress
                                     const score = results.filter(r => r.isCorrect).length;
                                     updateMcqProgress(chapterId, score, results.length, subjectId);
+
+                                    // Save to Universal Report Persistence
+                                    saveChapterReport('polity', chapterId, {
+                                        score,
+                                        totalQuestions: results.length,
+                                        accuracy: Math.round((score / results.length) * 100),
+                                        timeTaken: time,
+                                        questions: results
+                                    }, 1);
+
                                     toast.success("Test Submitted Successfully!");
                                 }}
                                 title={`${title} - Level 1`}

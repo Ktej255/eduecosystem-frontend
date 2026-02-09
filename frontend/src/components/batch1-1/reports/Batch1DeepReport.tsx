@@ -580,25 +580,29 @@ function ChapterMCQReport() {
         if (typeof window !== 'undefined') {
             import('@/lib/report-persistence').then(mod => {
                 const historyReports = mod.getChapterReports('history');
+                const polityUniversalReports = mod.getChapterReports('polity');
 
-                // Group by chapter
+                // Group by chapter - History
                 const historyByChapter: Record<number, ChapterTestResult[]> = {};
 
                 historyReports.forEach(r => {
                     if (!historyByChapter[r.chapterId]) historyByChapter[r.chapterId] = [];
 
                     // Convert Universal format to ChapterTestResult format expected by this component
-                    // This is a mapping layer
+                    const levelTitles: Record<number, string> = { 1: 'Fundamentals', 2: 'Intermediate', 3: 'Applied' };
                     const mapped: ChapterTestResult = {
+                        chapterNumber: r.chapterId,
                         chapterId: r.chapterId,
                         chapterTitle: `History Chapter ${r.chapterId}`,
-                        levelId: r.level,
+                        levelId: (r.level || 1) as 1 | 2 | 3,
+                        levelTitle: levelTitles[r.level || 1] || 'Level ' + (r.level || 1),
                         score: r.score,
                         totalQuestions: r.totalQuestions,
                         percentage: r.accuracy,
                         totalTimeTaken: r.timeTaken,
                         endTime: r.timestamp,
-                        questions: [] // Detail omitted for overview to save memory, usually detail loaded on demand
+                        startTime: r.timestamp,
+                        questions: r.details?.questions || [] // Use questions from details if available
                     };
                     historyByChapter[r.chapterId].push(mapped);
                 });
@@ -607,11 +611,49 @@ function ChapterMCQReport() {
                     chapters.push({ chapterId: parseInt(cid), reports, subject: 'History' });
                 });
 
+                // Group by chapter - Polity (Universal Format)
+                const polityByChapter: Record<number, ChapterTestResult[]> = {};
+
+                polityUniversalReports.forEach(r => {
+                    if (!polityByChapter[r.chapterId]) polityByChapter[r.chapterId] = [];
+
+                    const levelTitles: Record<number, string> = { 1: 'Fundamentals', 2: 'Intermediate', 3: 'Applied' };
+                    const mapped: ChapterTestResult = {
+                        chapterNumber: r.chapterId,
+                        chapterId: r.chapterId,
+                        chapterTitle: `Polity Chapter ${r.chapterId}`,
+                        levelId: (r.level || 1) as 1 | 2 | 3,
+                        levelTitle: levelTitles[r.level || 1] || 'Level ' + (r.level || 1),
+                        score: r.score,
+                        totalQuestions: r.totalQuestions,
+                        percentage: r.accuracy,
+                        totalTimeTaken: r.timeTaken,
+                        endTime: r.timestamp,
+                        startTime: r.timestamp,
+                        questions: r.details?.questions || []
+                    };
+                    polityByChapter[r.chapterId].push(mapped);
+                });
+
+                // Merge Polity universal reports with existing legacy reports
+                Object.entries(polityByChapter).forEach(([cid, reports]) => {
+                    const existingIdx = chapters.findIndex(c => c.chapterId === parseInt(cid) && c.subject === 'Polity');
+                    if (existingIdx >= 0) {
+                        // Merge with existing
+                        chapters[existingIdx].reports = [...reports, ...chapters[existingIdx].reports];
+                    } else {
+                        chapters.push({ chapterId: parseInt(cid), reports, subject: 'Polity' });
+                    }
+                });
+
                 // Update state
                 setAllReports(chapters.sort((a, b) => {
                     if (a.subject !== b.subject) return (a.subject || '').localeCompare(b.subject || '');
                     return a.chapterId - b.chapterId;
                 }));
+            }).catch(err => {
+                console.error('Error loading universal reports:', err);
+                setAllReports(chapters.sort((a, b) => a.chapterId - b.chapterId));
             });
         } else {
             setAllReports(chapters.sort((a, b) => a.chapterId - b.chapterId));
