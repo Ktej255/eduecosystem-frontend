@@ -467,6 +467,8 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
 
                                     // Save to Universal Report Persistence
                                     saveChapterReport('polity', chapterId, {
+                                        testTitle: `${title} - Level 1`,
+                                        totalTimeTaken: time,
                                         score,
                                         totalQuestions: results.length,
                                         accuracy: Math.round((score / results.length) * 100),

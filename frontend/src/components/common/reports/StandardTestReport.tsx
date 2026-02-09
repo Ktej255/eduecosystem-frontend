@@ -39,14 +39,27 @@ export interface QuestionResult {
     attemptRound?: number;
 }
 
+export interface SubtopicStats {
+    chapter: string;
+    subtopic: string;
+    total: number;
+    correct: number;
+}
+
+export interface TestResult {
+    testTitle: string;
+    startTime?: string;
+    endTime?: string;
+    totalTimeTaken: number;
+    score?: number; // Optional as it might be calculated
+    accuracy?: number; // Optional
+    timeTaken?: number; // Alias for totalTimeTaken in some contexts
+    questions: QuestionResult[];
+    totalQuestions?: number; // Optional
+}
+
 export interface TestReportProps {
-    results: {
-        testTitle: string;
-        startTime?: string;
-        endTime?: string;
-        totalTimeTaken: number;
-        questions: QuestionResult[];
-    };
+    results: TestResult;
     onBack: () => void;
     onRetake?: () => void;
 }
@@ -368,13 +381,14 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-slate-800/50">
-                                {Object.values(questions.reduce((acc: any, q) => {
+
+                                {Object.values(questions.reduce<Record<string, SubtopicStats>>((acc, q) => {
                                     const key = `${q.chapter}-${q.subtopic}`;
                                     if (!acc[key]) acc[key] = { chapter: q.chapter, subtopic: q.subtopic, total: 0, correct: 0 };
                                     acc[key].total++;
                                     if (q.isCorrect) acc[key].correct++;
                                     return acc;
-                                }, {})).sort((a: any, b: any) => a.chapter.localeCompare(b.chapter)).map((item: any, i) => {
+                                }, {})).sort((a, b) => a.chapter.localeCompare(b.chapter)).map((item, i) => {
                                     const acc = Math.round((item.correct / item.total) * 100);
                                     return (
                                         <tr key={i} className="group hover:bg-slate-800/20 transition-all">
@@ -415,7 +429,7 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                     key={f}
                                     variant="ghost"
                                     size="sm"
-                                    onClick={() => setFilter(f as any)}
+                                    onClick={() => setFilter(f as 'all' | 'correct' | 'incorrect' | 'unattempted')}
                                     className={`capitalize rounded-full px-4 ${filter === f ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'text-slate-500 hover:text-slate-300'}`}
                                 >
                                     {f}

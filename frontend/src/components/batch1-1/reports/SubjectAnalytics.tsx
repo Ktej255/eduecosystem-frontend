@@ -16,44 +16,125 @@ import {
     Legend
 } from 'recharts';
 import { getHistoryProgressStore } from "@/lib/history-progress-store";
+import { getChapterReports, getSubjectTrendData, TrendDataPoint } from "@/lib/report-persistence";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ScrollText, Landmark } from "lucide-react";
+import { ScrollText, Landmark, TrendingUp, BarChart3 } from "lucide-react";
 
 export default function SubjectAnalytics() {
-    const [historyData, setHistoryData] = useState<any[]>([]);
+    const [historyData, setHistoryData] = useState<{ chapter: string; score: number }[]>([]);
+    const [polityData, setPolityData] = useState<{ chapter: string; score: number }[]>([]);
+    const [trendData, setTrendData] = useState<Record<string, TrendDataPoint[]>>({});
 
-    // Fetch History Progress
     useEffect(() => {
-        const store = getHistoryProgressStore();
-        // Convert 'chapters' object to array for chart
-        // Need to be careful: store.chapters only has entries for TOUCHED chapters.
-        // We want to show progress over time? Or just current status per chapter?
-        // Let's show "Chapter Score" bar chart.
+        setTimeout(() => {
+            // Fetch History Progress (Legacy Store)
+            const histStore = getHistoryProgressStore();
+            const hData = Object.values(histStore.chapters)
+                .sort((a, b) => a.chapterId - b.chapterId)
+                .map(c => ({
+                    chapter: `Ch ${c.chapterId}`,
+                    score: c.mcqScore || 0,
+                }));
+            setHistoryData(hData);
 
-        const data = Object.values(store.chapters)
-            .sort((a, b) => a.chapterId - b.chapterId)
-            .map(c => ({
-                chapter: `Ch ${c.chapterId}`,
-                score: c.mcqScore || 0,
-                status: c.completed ? 'Completed' : 'In Progress'
-            }));
+            // Fetch Polity Progress (New Universal Store)
+            const pReports = getChapterReports('polity');
+            // Group by chapterId and get max accuracy
+            const pMastery: Record<number, number> = {};
+            pReports.forEach(r => {
+                pMastery[r.chapterId] = Math.max(pMastery[r.chapterId] || 0, r.accuracy);
+            });
+            const pData = Object.entries(pMastery)
+                .sort((a, b) => parseInt(a[0]) - parseInt(b[0]))
+                .map(([chapterId, accuracy]) => ({
+                    chapter: `Ch ${chapterId}`,
+                    score: accuracy,
+                }));
+            setPolityData(pData);
 
-        setHistoryData(data);
+            // Fetch Trend Data for both
+            setTrendData({
+                history: getSubjectTrendData('history'),
+                polity: getSubjectTrendData('polity')
+            });
+        }, 0);
     }, []);
 
-    // Mock Polity Data (or fetch if store available)
-    // Assuming Polity uses similar store or local storage keys
-    const polityData = [
-        { chapter: 'Ch 1', score: 85 },
-        { chapter: 'Ch 2', score: 70 },
-        { chapter: 'Ch 3', score: 92 },
-        { chapter: 'Ch 4', score: 65 },
-        { chapter: 'Ch 5', score: 88 },
-    ];
+    const renderChapterChart = (data: { chapter: string; score: number }[], color: string, title: string) => (
+        <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                    <BarChart3 className="w-5 h-5" style={{ color }} />
+                    {title}: Chapter Breakdown
+                </CardTitle>
+                <CardDescription>Accuracy per chapter (Highest attempt)</CardDescription>
+            </CardHeader>
+            <CardContent className="h-[300px]">
+                {data.length > 0 ? (
+                    <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={data}>
+                            <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} />
+                            <XAxis dataKey="chapter" fontSize={10} tickLine={false} axisLine={false} />
+                            <YAxis fontSize={12} tickLine={false} axisLine={false} domain={[0, 100]} />
+                            <Tooltip
+                                contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                                cursor={{ fill: 'rgba(0,0,0,0.05)' }}
+                            />
+                            <Bar dataKey="score" fill={color} radius={[4, 4, 0, 0]} name="Accuracy %" />
+                        </BarChart>
+                    </ResponsiveContainer>
+                ) : (
+                    <div className="h-full flex flex-col items-center justify-center text-gray-400 gap-2">
+                        <BarChart3 className="w-8 h-8 opacity-20" />
+                        <span>No chapter data recorded yet.</span>
+                    </div>
+                )}
+            </CardContent>
+        </Card>
+    );
+
+    const renderTrendChart = (data: TrendDataPoint[], color: string, title: string) => (
+        <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5" style={{ color }} />
+                    {title}: Performance Trend
+                </CardTitle>
+                <CardDescription>Accuracy progression over recent tests</CardDescription>
+            </CardHeader>
+            <CardContent className="h-[300px]">
+                {data.length > 0 ? (
+                    <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={data}>
+                            <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} />
+                            <XAxis dataKey="date" fontSize={10} axisLine={false} tickLine={false} />
+                            <YAxis domain={[0, 100]} fontSize={12} axisLine={false} tickLine={false} />
+                            <Tooltip />
+                            <Legend />
+                            <Line
+                                type="monotone"
+                                dataKey="accuracy"
+                                stroke={color}
+                                strokeWidth={3}
+                                dot={{ r: 4, fill: color }}
+                                activeDot={{ r: 6 }}
+                                name="Test Accuracy %"
+                            />
+                        </LineChart>
+                    </ResponsiveContainer>
+                ) : (
+                    <div className="h-full flex flex-col items-center justify-center text-gray-400 gap-2">
+                        <TrendingUp className="w-8 h-8 opacity-20" />
+                        <span>Not enough data to generate trend.</span>
+                    </div>
+                )}
+            </CardContent>
+        </Card>
+    );
 
     return (
         <Tabs defaultValue="history" className="space-y-6">
-            <TabsList className="bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+            <TabsList className="bg-slate-100 dark:bg-slate-800 p-1 rounded-xl w-full md:w-auto">
                 <TabsTrigger value="history" className="rounded-lg data-[state=active]:bg-amber-100 data-[state=active]:text-amber-800 flex gap-2">
                     <ScrollText className="w-4 h-4" /> History
                 </TabsTrigger>
@@ -62,53 +143,18 @@ export default function SubjectAnalytics() {
                 </TabsTrigger>
             </TabsList>
 
-            <TabsContent value="history">
-                <Card>
-                    <CardHeader>
-                        <CardTitle>History: Modern India MCQ Performance</CardTitle>
-                        <CardDescription>Accuracy per chapter based on Pomodoro sessions</CardDescription>
-                    </CardHeader>
-                    <CardContent className="h-[300px]">
-                        {historyData.length > 0 ? (
-                            <ResponsiveContainer width="100%" height="100%">
-                                <BarChart data={historyData}>
-                                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                                    <XAxis dataKey="chapter" fontSize={10} tickLine={false} axisLine={false} />
-                                    <YAxis fontSize={12} tickLine={false} axisLine={false} domain={[0, 100]} />
-                                    <Tooltip
-                                        contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
-                                        cursor={{ fill: 'rgba(0,0,0,0.05)' }}
-                                    />
-                                    <Bar dataKey="score" fill="#d97706" radius={[4, 4, 0, 0]} name="Score %" />
-                                </BarChart>
-                            </ResponsiveContainer>
-                        ) : (
-                            <div className="h-full flex items-center justify-center text-gray-400">
-                                No History data recorded yet.
-                            </div>
-                        )}
-                    </CardContent>
-                </Card>
+            <TabsContent value="history" className="space-y-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {renderChapterChart(historyData, "#d97706", "History")}
+                    {renderTrendChart(trendData.history || [], "#d97706", "History")}
+                </div>
             </TabsContent>
 
-            <TabsContent value="polity">
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Polity Performance</CardTitle>
-                        <CardDescription>Recent Chapter Accuracy</CardDescription>
-                    </CardHeader>
-                    <CardContent className="h-[300px]">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <LineChart data={polityData}>
-                                <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                                <XAxis dataKey="chapter" fontSize={10} axisLine={false} tickLine={false} />
-                                <YAxis domain={[0, 100]} fontSize={12} axisLine={false} tickLine={false} />
-                                <Tooltip />
-                                <Line type="monotone" dataKey="score" stroke="#0891b2" strokeWidth={3} dot={{ r: 4 }} />
-                            </LineChart>
-                        </ResponsiveContainer>
-                    </CardContent>
-                </Card>
+            <TabsContent value="polity" className="space-y-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {renderChapterChart(polityData, "#0891b2", "Polity")}
+                    {renderTrendChart(trendData.polity || [], "#0891b2", "Polity")}
+                </div>
             </TabsContent>
         </Tabs>
     );

@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import {
     BarChart3,
-    Calendar,
+
     Clock,
     Smile,
     Trophy,
@@ -18,7 +18,8 @@ import {
     BookOpen,
     Flashlight,
     GraduationCap,
-    FileBarChart
+    FileBarChart,
+    Target
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -28,18 +29,13 @@ import { ActivityLogger, ActivityLog } from "@/lib/analytics/ActivityLogger";
 // Import existing report components
 import FocusAnalyticsDashboard from "@/components/batch1/FocusAnalyticsDashboard";
 import SaturdayTestReport from "@/components/batch1-1/saturday/SaturdayTestReport";
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer
-} from 'recharts';
+
 import MoodTracker from "./MoodTracker";
 import SubjectAnalytics from "./SubjectAnalytics";
 import { ChapterTestResult } from "@/components/batch1-1/polity/revision/ChapterLevelGame";
+import MasteryTracker from "./MasteryTracker";
+import GoalSetting from "./GoalSetting";
+import WeakTopicsAlert from "./WeakTopicsAlert";
 
 export default function Batch1DeepReport({ embedded = false }: { embedded?: boolean }) {
     const router = useRouter();
@@ -79,6 +75,9 @@ export default function Batch1DeepReport({ embedded = false }: { embedded?: bool
                     </Link>
                 </div>
             )}
+
+            {/* Proactive Alerts */}
+            <WeakTopicsAlert />
 
             <Tabs value={activeTab} onValueChange={handleTabChange} className="space-y-8">
                 <div className="sticky top-0 z-20 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl p-1 rounded-2xl border shadow-sm">
@@ -160,7 +159,9 @@ function CSATReport() {
     const [logs, setLogs] = useState<ActivityLog[]>([]);
 
     useEffect(() => {
-        setLogs(ActivityLogger.getLogs());
+        setTimeout(() => {
+            setLogs(ActivityLogger.getLogs());
+        }, 0);
     }, []);
 
     const csatLogs = logs.filter(l => l.type === 'MCQ_CSAT');
@@ -203,7 +204,9 @@ function EveningReport() {
     const [logs, setLogs] = useState<ActivityLog[]>([]);
 
     useEffect(() => {
-        setLogs(ActivityLogger.getLogs());
+        setTimeout(() => {
+            setLogs(ActivityLogger.getLogs());
+        }, 0);
     }, []);
 
     const eveningLogs = logs.filter(l => l.type === 'MCQ_EVENING');
@@ -245,13 +248,23 @@ function EveningReport() {
 }
 
 
+interface ActivityStats {
+    totalMCQsSolved: number;
+    totalCorrect: number;
+    totalFlashcards: number;
+    byTopic: Record<string, number>;
+}
+
 function ActivityReport() {
-    const [stats, setStats] = useState<any>(null);
+    const [stats, setStats] = useState<ActivityStats | null>(null);
     const [logs, setLogs] = useState<ActivityLog[]>([]);
 
     useEffect(() => {
-        setStats(ActivityLogger.getStats());
-        setLogs(ActivityLogger.getLogs().reverse().slice(0, 50)); // Last 50 items
+        // Wrap in setTimeout to avoid synchronous state update warning
+        setTimeout(() => {
+            setStats(ActivityLogger.getStats());
+            setLogs(ActivityLogger.getLogs().reverse().slice(0, 50)); // Last 50 items
+        }, 0);
     }, []);
 
     if (!stats) return <div className="p-8 text-center text-gray-500">Loading Activity Data...</div>;
@@ -363,7 +376,7 @@ function ActivityReport() {
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">
-                            {Object.entries(stats.byTopic).sort((a: any, b: any) => b[1] - a[1]).slice(0, 8).map(([topic, count]: [string, any], i) => (
+                            {Object.entries(stats.byTopic).sort((a, b) => (b[1] as number) - (a[1] as number)).slice(0, 8).map(([topic, count], i) => (
                                 <div key={i} className="space-y-1">
                                     <div className="flex justify-between text-xs font-medium">
                                         <span className="text-slate-700 dark:text-slate-300">{topic}</span>
@@ -388,10 +401,30 @@ function ActivityReport() {
 
 // --- Sub-components for specialized reports ---
 
+interface SaturdayTestPaperResult {
+    score?: number;
+    accuracy?: number;
+    correct?: number;
+    total?: number;
+    [key: string]: unknown;
+}
+
+interface SaturdayTestResult {
+    weekId: number | string;
+    isV2: boolean;
+    paper1Results?: SaturdayTestPaperResult;
+    paper2Results?: SaturdayTestPaperResult;
+    lastUpdated?: string;
+    specialTitle?: string;
+    [key: string]: unknown;
+}
+
+const WEEKS = Array.from({ length: 20 }, (_, i) => ({ id: i + 1 }));
+
 function SaturdayTestsReport() {
-    const WEEKS = Array.from({ length: 20 }, (_, i) => ({ id: i + 1 }));
-    const [scores, setScores] = useState<any[]>([]);
-    const [selectedReport, setSelectedReport] = useState<any>(null);
+    // const WEEKS = Array.from({ length: 20 }, (_, i) => ({ id: i + 1 })); // Moved outside
+    const [scores, setScores] = useState<SaturdayTestResult[]>([]);
+    const [selectedReport, setSelectedReport] = useState<SaturdayTestResult | null>(null);
 
     useEffect(() => {
         // Scan localStorage for all saturday tests
@@ -420,7 +453,8 @@ function SaturdayTestsReport() {
                 };
             }
             return null;
-        }).filter(Boolean);
+            return null;
+        }).filter((r): r is SaturdayTestResult => r !== null);
 
         // Also scan for Polity Mock Tests (Jan 31)
         // Keys match the format used in PolityTestPage: polity_test_${testId}_results
@@ -443,9 +477,11 @@ function SaturdayTestsReport() {
                 };
             }
             return null;
-        }).filter(Boolean);
+        }).filter((r): r is SaturdayTestResult => r !== null);
 
-        setScores([...results, ...polityTests]);
+        setTimeout(() => {
+            setScores([...results, ...polityTests]);
+        }, 0);
     }, []);
 
     if (scores.length === 0) {
@@ -555,8 +591,9 @@ function SaturdayTestsReport() {
 
 // --- Chapter MCQ Reports Aggregation ---
 function ChapterMCQReport() {
-    const [allReports, setAllReports] = useState<{ chapterId: number; reports: ChapterTestResult[] }[]>([]);
+    const [allReports, setAllReports] = useState<{ chapterId: number; reports: ChapterTestResult[], subject?: string }[]>([]);
     const [selectedReport, setSelectedReport] = useState<ChapterTestResult | null>(null);
+    const [selectedSubject, setSelectedSubject] = useState<'polity' | 'history'>('polity');
 
     useEffect(() => {
         // Scan localStorage for all chapter reports
@@ -661,6 +698,10 @@ function ChapterMCQReport() {
 
     }, []);
 
+    const filteredReports = React.useMemo(() => {
+        return allReports.filter(c => (c.subject || 'Polity').toLowerCase() === selectedSubject);
+    }, [allReports, selectedSubject]);
+
     // Calculate aggregated stats
     const aggregatedStats = React.useMemo(() => {
         let totalAttempts = 0;
@@ -679,7 +720,7 @@ function ChapterMCQReport() {
             3: { correct: 0, total: 0 },
         };
 
-        allReports.forEach(chapter => {
+        filteredReports.forEach(chapter => {
             chapter.reports.forEach(report => {
                 totalAttempts++;
                 totalQuestions += report.questions.length;
@@ -710,22 +751,7 @@ function ChapterMCQReport() {
             confidenceData,
             levelData,
         };
-    }, [allReports]);
-
-    if (allReports.length === 0) {
-        return (
-            <Card className="bg-gray-50 border-gray-200">
-                <CardContent className="p-12 text-center text-gray-500">
-                    <GraduationCap className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                    <h3 className="text-lg font-semibold mb-2">No Chapter Reports Found</h3>
-                    <p>Complete MCQ levels in any Polity chapter to see your performance here.</p>
-                    <Link href="/student/batch1-1/polity">
-                        <Button className="mt-4" variant="outline">Go to Polity</Button>
-                    </Link>
-                </CardContent>
-            </Card>
-        );
-    }
+    }, [filteredReports]);
 
     // If viewing a specific report
     if (selectedReport) {
@@ -741,12 +767,35 @@ function ChapterMCQReport() {
 
     return (
         <div className="space-y-8">
-            {/* Global Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <Card className="p-4 text-center bg-gradient-to-br from-violet-50 to-violet-100 border-violet-200">
-                    <p className="text-xs font-bold text-violet-600 uppercase">Total Attempts</p>
-                    <p className="text-3xl font-black text-violet-700">{aggregatedStats.totalAttempts}</p>
-                </Card>
+            {/* Subject Toggle */}
+            <div className="flex justify-center">
+                <div className="inline-flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+                    <button
+                        onClick={() => setSelectedSubject('polity')}
+                        className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${selectedSubject === 'polity' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                    >
+                        Polity
+                    </button>
+                    <button
+                        onClick={() => setSelectedSubject('history')}
+                        className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${selectedSubject === 'history' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                    >
+                        History
+                    </button>
+                </div>
+            </div>
+
+            {/* Analytics Dashboard */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-2">
+                    <MasteryTracker subject={selectedSubject} />
+                </div>
+                <div>
+                    <GoalSetting subject={selectedSubject} />
+                </div>
+            </div>
+            {/* Global Stats Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Card className="p-4 text-center bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
                     <p className="text-xs font-bold text-blue-600 uppercase">Questions Solved</p>
                     <p className="text-3xl font-black text-blue-700">{aggregatedStats.totalQuestions}</p>
@@ -815,8 +864,8 @@ function ChapterMCQReport() {
                     Chapter Reports
                 </h3>
                 <div className="space-y-4 max-h-[600px] overflow-y-auto">
-                    {allReports.map(chapter => (
-                        <div key={chapter.chapterId} className="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    {filteredReports.map((chapter) => (
+                        <div key={`${chapter.chapterId}-${chapter.subject}`} className="p-4 bg-slate-50 rounded-xl border border-slate-100">
                             <div className="flex items-center justify-between mb-3">
                                 <h4 className="font-bold text-slate-800">
                                     <span className="text-xs uppercase font-bold text-slate-400 block mb-0.5">{chapter.subject || 'Polity'}</span>

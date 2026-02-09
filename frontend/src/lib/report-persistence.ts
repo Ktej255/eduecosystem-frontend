@@ -32,10 +32,10 @@ export function saveChapterReport(
         timestamp: new Date().toISOString(),
         chapterId,
         subject,
-        score: result.score,
-        totalQuestions: result.totalQuestions,
-        accuracy: result.accuracy,
-        timeTaken: result.timeTaken,
+        score: result.score || 0,
+        totalQuestions: result.totalQuestions || 0,
+        accuracy: result.accuracy || 0,
+        timeTaken: result.timeTaken || 0,
         level,
         details: result
     };
@@ -67,4 +67,65 @@ export function getAllChapterReports(): Record<string, ChapterReportEntry[]> {
     });
 
     return all;
+}
+
+export interface SubjectStats {
+    totalQuestions: number;
+    totalAttempts: number;
+    averageAccuracy: number;
+    masteryByChapter: Record<number, number>; // chapterId -> highest accuracy
+    weakAreas: number[]; // chapterIds with < 50% accuracy
+}
+
+export function getSubjectStats(subject: ChapterReportEntry['subject']): SubjectStats {
+    const reports = getChapterReports(subject);
+    const stats: SubjectStats = {
+        totalQuestions: 0,
+        totalAttempts: reports.length,
+        averageAccuracy: 0,
+        masteryByChapter: {},
+        weakAreas: []
+    };
+
+    if (reports.length === 0) return stats;
+
+    let totalScore = 0;
+    let totalMaxScore = 0;
+
+    reports.forEach(report => {
+        stats.totalQuestions += report.totalQuestions;
+        totalScore += report.score;
+        totalMaxScore += report.totalQuestions;
+
+        // Track max accuracy per chapter
+        const currentMax = stats.masteryByChapter[report.chapterId] || 0;
+        stats.masteryByChapter[report.chapterId] = Math.max(currentMax, report.accuracy);
+    });
+
+    stats.averageAccuracy = totalMaxScore > 0 ? Math.round((totalScore / totalMaxScore) * 100) : 0;
+
+    // Identify weak areas (chapters with highest accuracy < 50%)
+    Object.entries(stats.masteryByChapter).forEach(([chapterId, accuracy]) => {
+        if (accuracy < 50) {
+            stats.weakAreas.push(parseInt(chapterId));
+        }
+    });
+
+    return stats;
+}
+
+export interface TrendDataPoint {
+    date: string;
+    accuracy: number;
+    chapterId: number;
+}
+
+export function getSubjectTrendData(subject: ChapterReportEntry['subject']): TrendDataPoint[] {
+    const reports = getChapterReports(subject);
+    // Reverse to get chronological order (reports are saved with unshift)
+    return [...reports].reverse().map(r => ({
+        date: new Date(r.timestamp).toLocaleDateString([], { month: 'short', day: 'numeric' }),
+        accuracy: r.accuracy,
+        chapterId: r.chapterId
+    }));
 }
