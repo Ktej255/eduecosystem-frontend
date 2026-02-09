@@ -13,7 +13,8 @@ import {
     Sparkles,
     Target,
     Flame,
-    Newspaper
+    Newspaper,
+    FileText
 } from 'lucide-react';
 import StandardMCQInterface from '@/components/common/mcq/StandardMCQInterface';
 import StandardTestReport from '@/components/common/reports/StandardTestReport';
@@ -21,6 +22,8 @@ import { Badge } from '@/components/ui/badge';
 import { getRevisionDataById } from '../data/RevisionRegistry';
 import Link from 'next/link';
 import { saveChapterReport } from '@/lib/report-persistence';
+import { updateFlashcardProgress, updateMcqProgress } from './progress-utils';
+import { toast } from 'sonner';
 
 interface Props {
     chapterId: number;
@@ -71,6 +74,55 @@ interface TestResultData {
     totalTimeTaken: number;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     questions: any[]; // Kept as any for flexibility with StandardMCQInterface output
+}
+
+// ChapterReportHistory - Displays past test reports for a chapter
+function ChapterReportHistory({ chapterId, subject }: { chapterId: number; subject: 'polity' | 'history' }) {
+    const [reports, setReports] = useState<{ score: number; totalQuestions: number; accuracy: number; timestamp: string; level: number }[]>([]);
+
+    useEffect(() => {
+        const loadReports = async () => {
+            if (typeof window !== 'undefined') {
+                try {
+                    const mod = await import('@/lib/report-persistence');
+                    const chapterReports = mod.getChapterReports(subject)
+                        .filter(r => r.chapterId === chapterId)
+                        .slice(0, 5); // Show last 5 reports
+                    setReports(chapterReports);
+                } catch (e) {
+                    console.error('Error loading chapter reports:', e);
+                }
+            }
+        };
+        loadReports();
+    }, [chapterId, subject]);
+
+    if (reports.length === 0) {
+        return (
+            <p className="text-sm text-slate-500 text-center py-4">
+                No test reports yet. Complete a Level 1 test to see your results here.
+            </p>
+        );
+    }
+
+    return (
+        <div className="space-y-2">
+            {reports.map((r, i) => (
+                <div key={i} className="flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg border border-slate-100 dark:border-gray-700">
+                    <div>
+                        <span className="text-sm font-medium text-slate-700 dark:text-white">Level {r.level}</span>
+                        <span className="text-xs text-slate-400 ml-2">{new Date(r.timestamp).toLocaleDateString()}</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <span className="text-sm text-slate-600 dark:text-slate-300">{r.score}/{r.totalQuestions}</span>
+                        <span className={`text-sm font-bold px-2 py-1 rounded ${r.accuracy >= 70 ? 'bg-green-100 text-green-700' : r.accuracy >= 50 ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700'}`}>
+                            {r.accuracy}%
+                        </span>
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
 }
 
 export default function ChapterRevisionView({ chapterId, subjectId = 'polity', backLink, backLabel, initialTab = 'content' }: Props) {
@@ -322,46 +374,62 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         {!mcqLevel ? (
                             // Level Selection Screen
-                            <div className="grid md:grid-cols-3 gap-6">
-                                {/* Level 1 */}
-                                <div
-                                    onClick={() => setMcqLevel(1)}
-                                    className="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-blue-500 hover:shadow-lg cursor-pointer transition-all group"
-                                >
-                                    <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                        <Target className="w-6 h-6" />
+                            <>
+                                <div className="grid md:grid-cols-3 gap-6">
+                                    {/* Level 1 */}
+                                    <div
+                                        onClick={() => setMcqLevel(1)}
+                                        className="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-blue-500 hover:shadow-lg cursor-pointer transition-all group"
+                                    >
+                                        <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                            <Target className="w-6 h-6" />
+                                        </div>
+                                        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Level 1: Foundation</h3>
+                                        <p className="text-sm text-gray-500 mb-4">Master the facts. Direct questions to build your base.</p>
+                                        <Badge variant="secondary" className="bg-blue-50 text-blue-700">Recommended Start</Badge>
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Level 1: Foundation</h3>
-                                    <p className="text-sm text-gray-500 mb-4">Master the facts. Direct questions to build your base.</p>
-                                    <Badge variant="secondary" className="bg-blue-50 text-blue-700">Recommended Start</Badge>
+
+                                    {/* Level 2 */}
+                                    <div
+                                        onClick={() => setMcqLevel(2)}
+                                        className="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-purple-500 hover:shadow-lg cursor-pointer transition-all group opacity-75 hover:opacity-100"
+                                    >
+                                        <div className="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                            <Layers className="w-6 h-6" />
+                                        </div>
+                                        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Level 2: Conceptual</h3>
+                                        <p className="text-sm text-gray-500 mb-4">Statement-based questions testing deep understanding.</p>
+                                        <Badge variant="secondary" className="bg-purple-50 text-purple-700">Coming Soon</Badge>
+                                    </div>
+
+                                    {/* Level 3 */}
+                                    <div
+                                        onClick={() => setMcqLevel(3)}
+                                        className="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-red-500 hover:shadow-lg cursor-pointer transition-all group opacity-75 hover:opacity-100"
+                                    >
+                                        <div className="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                            <Flame className="w-6 h-6" />
+                                        </div>
+                                        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Level 3: Applied</h3>
+                                        <p className="text-sm text-gray-500 mb-4">Complex scenarios and PYQ-style analysis.</p>
+                                        <Badge variant="secondary" className="bg-red-50 text-red-700">Coming Soon</Badge>
+                                    </div>
                                 </div>
 
-                                {/* Level 2 */}
-                                <div
-                                    onClick={() => setMcqLevel(2)}
-                                    className="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-purple-500 hover:shadow-lg cursor-pointer transition-all group opacity-75 hover:opacity-100"
-                                >
-                                    <div className="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                        <Layers className="w-6 h-6" />
+                                {/* View Past Reports Section */}
+                                <div className="mt-8 p-4 bg-slate-50 dark:bg-gray-900 rounded-xl border border-slate-200 dark:border-gray-800">
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h4 className="font-bold text-slate-700 dark:text-white flex items-center gap-2">
+                                            <FileText className="w-5 h-5 text-blue-600" />
+                                            Past Test Reports
+                                        </h4>
+                                        <Link href="/student/batch1-1/deep-report" className="text-sm text-blue-600 hover:underline">
+                                            View All in Deep Report →
+                                        </Link>
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Level 2: Conceptual</h3>
-                                    <p className="text-sm text-gray-500 mb-4">Statement-based questions testing deep understanding.</p>
-                                    <Badge variant="secondary" className="bg-purple-50 text-purple-700">Coming Soon</Badge>
+                                    <ChapterReportHistory chapterId={chapterId} subject="polity" />
                                 </div>
-
-                                {/* Level 3 */}
-                                <div
-                                    onClick={() => setMcqLevel(3)}
-                                    className="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-red-500 hover:shadow-lg cursor-pointer transition-all group opacity-75 hover:opacity-100"
-                                >
-                                    <div className="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                        <Flame className="w-6 h-6" />
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Level 3: Applied</h3>
-                                    <p className="text-sm text-gray-500 mb-4">Complex scenarios and PYQ-style analysis.</p>
-                                    <Badge variant="secondary" className="bg-red-50 text-red-700">Coming Soon</Badge>
-                                </div>
-                            </div>
+                            </>
                         ) : showReport && testResults ? (
                             <StandardTestReport
                                 results={testResults}
@@ -406,7 +474,10 @@ export default function ChapterRevisionView({ chapterId, subjectId = 'polity', b
                                         questions: results
                                     }, 1);
 
-                                    toast.success("Test Submitted Successfully!");
+                                    toast.success(
+                                        `✅ Test Submitted! Score: ${score}/${results.length} (${Math.round((score / results.length) * 100)}%) - Report saved to Deep Report Center → Chapters tab`,
+                                        { duration: 5000 }
+                                    );
                                 }}
                                 title={`${title} - Level 1`}
                                 subtitle="Topic Revision Test"

@@ -9,6 +9,7 @@ import HistoryFeaturePlaceholder from '@/components/batch1/history/HistoryFeatur
 import StandardMCQInterface, { MCQ, QuestionResult } from '@/components/common/mcq/StandardMCQInterface';
 import StandardTestReport, { TestResult } from '@/components/common/reports/StandardTestReport';
 import { saveChapterReport } from '@/lib/report-persistence';
+import { toast } from 'sonner';
 
 function MCQContent() {
     const searchParams = useSearchParams();
@@ -89,6 +90,11 @@ function MCQContent() {
             timeTaken: timeTaken,
             questions: results
         }, 1);
+
+        toast.success(
+            `✅ Test Submitted! Score: ${correct}/${questions.length} (${resultData.accuracy}%) - Report saved to Deep Report Center → Chapters tab`,
+            { duration: 5000 }
+        );
     };
 
     if (loading) {
