@@ -200,15 +200,7 @@ function ContentBlockRenderer({ block, onLaunchSimulation }: ContentBlockRendere
             );
 
         case 'quiz':
-            return (
-                <div className="my-8 p-6 rounded-lg bg-slate-800/50 border border-slate-700">
-                    <h4 className="text-lg font-bold mb-4 text-emerald-400">Micro-Quiz</h4>
-                    <p className="text-white mb-4">{block.content}</p>
-                    <Button variant="outline" className="border-emerald-500/50 text-emerald-300 hover:bg-emerald-950">
-                        Reveal Answer
-                    </Button>
-                </div>
-            );
+            return <QuizBlockRenderer block={block} />;
 
         case 'simulation':
             return (
@@ -239,4 +231,59 @@ function ContentBlockRenderer({ block, onLaunchSimulation }: ContentBlockRendere
         default:
             return null;
     }
+}
+
+function QuizBlockRenderer({ block }: { block: ContentBlock }) {
+    const [selectedOption, setSelectedOption] = useState<number | null>(null);
+    const [showResult, setShowResult] = useState(false);
+
+    if (!block.quizData) return null;
+
+    const { question, options, correctIndex, explanation } = block.quizData;
+    const isCorrect = selectedOption === correctIndex;
+
+    return (
+        <div className="my-8 p-6 rounded-xl bg-slate-900/80 border border-slate-800 shadow-xl">
+            <h4 className="text-sm font-black uppercase tracking-widest text-emerald-500 mb-4 flex items-center gap-2">
+                <Lightbulb className="w-4 h-4" /> Quick Check
+            </h4>
+            <p className="text-lg text-white font-medium mb-6">{question}</p>
+
+            <div className="space-y-3">
+                {options.map((option, idx) => (
+                    <button
+                        key={idx}
+                        onClick={() => { setSelectedOption(idx); setShowResult(true); }}
+                        disabled={showResult}
+                        className={`w-full text-left p-4 rounded-lg border transition-all ${showResult
+                                ? idx === correctIndex
+                                    ? 'bg-emerald-900/30 border-emerald-500 text-emerald-200'
+                                    : idx === selectedOption
+                                        ? 'bg-red-900/30 border-red-500 text-red-200'
+                                        : 'bg-black/20 border-transparent opacity-50'
+                                : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 text-slate-200'
+                            }`}
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border ${showResult && idx === correctIndex ? 'border-emerald-500 bg-emerald-500 text-black' : 'border-current'
+                                }`}>
+                                {String.fromCharCode(65 + idx)}
+                            </div>
+                            {option}
+                            {showResult && idx === correctIndex && <CheckCircle2 className="w-5 h-5 ml-auto text-emerald-500" />}
+                        </div>
+                    </button>
+                ))}
+            </div>
+
+            {showResult && (
+                <div className={`mt-6 p-4 rounded-lg border ${isCorrect ? 'bg-emerald-950/30 border-emerald-900/50' : 'bg-red-950/30 border-red-900/50'} animate-in fade-in slide-in-from-top-2`}>
+                    <p className={`font-bold mb-1 ${isCorrect ? 'text-emerald-400' : 'text-red-400'}`}>
+                        {isCorrect ? 'Correct!' : 'Incorrect'}
+                    </p>
+                    <p className="text-sm text-slate-300">{explanation}</p>
+                </div>
+            )}
+        </div>
+    );
 }

@@ -70,8 +70,34 @@ export const ORIGIN_OF_UNIVERSE_CONTENT: LessonContent = {
                 {
                     id: 'q1',
                     type: 'quiz',
-                    content: 'What is the primary evidence for the expansion of the universe?',
-                    // Note: This is a placeholder for the quiz data structure
+                    content: '',
+                    quizData: {
+                        question: "What is the primary evidence supporting the Big Bang Theory that indicates galaxies are moving away from us?",
+                        options: [
+                            "Cosmic Microwave Background",
+                            "Redshift of Galaxies",
+                            "Formation of Stars",
+                            "Steady State Theory"
+                        ],
+                        correctIndex: 1,
+                        explanation: "Edwin Hubble observed that the light from distant galaxies is shifted towards the red end of the spectrum (Redshift), indicating that they are moving away from us, which suggests the universe is expanding."
+                    }
+                },
+                {
+                    id: 'q2',
+                    type: 'quiz',
+                    content: '',
+                    quizData: {
+                        question: "Who first proposed the Big Bang Theory in 1927?",
+                        options: [
+                            "Edwin Hubble",
+                            "Albert Einstein",
+                            "Georges Lemaître",
+                            "Stephen Hawking"
+                        ],
+                        correctIndex: 2,
+                        explanation: "Georges Lemaître, a Belgian priest and physicist, first proposed the theory of the expansion of the universe, later known as the Big Bang Theory."
+                    }
                 }
             ]
         }

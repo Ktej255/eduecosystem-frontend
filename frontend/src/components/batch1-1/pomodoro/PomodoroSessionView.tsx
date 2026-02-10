@@ -812,6 +812,18 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                                 Proceed to Evening Session <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </Link>
+                        {subjectOverride === 'history' && (
+                            <Button
+                                onClick={() => {
+                                    const currentLinearDay = (weekId - 1) * 7 + dayId;
+                                    router.push(`/student/batch1/history/pomodoro?mode=study&subject=${historySection}&day=${currentLinearDay + 1}`);
+                                }}
+                                variant="outline"
+                                className="h-12 px-8 text-lg border-2 border-indigo-100 hover:bg-indigo-50 text-indigo-700"
+                            >
+                                Next Chapter <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                        )}
                     </div>
                 </div>
             </div>
@@ -823,19 +835,19 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
                 {showBackButton && (
-                    <Link href="/student/batch1">
-                        <Button variant="ghost">
+                    <Link href={subjectOverride === 'history' ? "/student/batch1/history" : "/student/batch1"}>
+                        <Button variant="ghost" className="hover:bg-gray-100 dark:hover:bg-gray-800">
                             <ArrowLeft className="mr-2 h-4 w-4" />
-                            Back
+                            Back to {subjectOverride === 'history' ? 'Dashboard' : 'Batch 1'}
                         </Button>
                     </Link>
                 )}
                 <div className="text-center">
                     <h1 className="text-xl font-bold text-gray-800 dark:text-gray-200">
-                        Week {weekId}, Day {dayId}
+                        {subjectOverride === 'history' ? (HISTORY_PLAN_CONFIGS[historySection as HistorySection]?.title || 'History') : 'Polity'} • Day {((weekId - 1) * 7) + dayId}
                     </h1>
                     <p className="text-sm text-gray-500">
-                        Session {currentSessionGlobal} of {TOTAL_SESSIONS} (Block {currentBlock}) • <span className="text-[10px] font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">v2.3</span>
+                        Session {currentSessionGlobal} of {TOTAL_SESSIONS} (Block {currentBlock}) • <span className="text-[10px] font-mono bg-green-50 text-green-700 border border-green-200 px-1.5 py-0.5 rounded">v2.4 Live</span>
                     </p>
                 </div>
                 <div className="flex items-center gap-3">

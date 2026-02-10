@@ -111,7 +111,18 @@ export const INTERIOR_EARTH_CONTENT: LessonContent = {
                 {
                     id: 'layers-quiz',
                     type: 'quiz',
-                    content: 'Which discontinuity separates the Crust from the Mantle?',
+                    content: '',
+                    quizData: {
+                        question: "Which discontinuity separates the Earth's Crust from the Mantle?",
+                        options: [
+                            "Conrad Discontinuity",
+                            "Mohorovicic Discontinuity",
+                            "Gutenberg Discontinuity",
+                            "Lehmann Discontinuity"
+                        ],
+                        correctIndex: 1,
+                        explanation: "The Mohorovicic Discontinuity (or Moho) marks the boundary between the crust and the mantle, characterized by a sharp increase in seismic wave velocity."
+                    }
                 },
                 {
                     id: 'list-disc',

@@ -28,8 +28,8 @@ import { indiaPhysiographyData } from "./content/india-physiography-data";
 import { indiaDrainageData } from "./content/india-drainage-data";
 import { indiaClimateData } from "./content/india-climate-data";
 import { indiaVegetationData } from "./content/india-vegetation-data";
-// import { resourcesAgricultureData } from "./content/resources-agriculture-data"; // Missing
-// import { industryTransportData } from "./content/industry-transport-data"; // Missing
+import { resourcesAgricultureData } from "./content/resources-agriculture-data";
+import { industryTransportData } from "./content/industry-transport-data";
 import { worldPopulationData as worldPopData } from "./content/human-population-data";
 import { humanDevelopmentData } from "./content/human-development-data";
 import { economicActivitiesData } from "./content/economic-activities-data";
@@ -183,11 +183,20 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
             case 'economic-activities':
             case 'primary-activities':
             case 'secondary-activities':
-            case 'tertiary-quaternary': content = economicActivitiesData; break;
+            case 'tertiary-quaternary': content = industryTransportData; break;
+
+            case 'resources-agriculture':
+            case 'land-resources':
+            case 'agriculture':
+            case 'minerals':
+            case 'energy-resources': content = resourcesAgricultureData; break;
 
             case 'transport-trade':
             case 'land-water-air-transport':
-            case 'intl-trade-patterns': content = transportTradeData; break;
+            case 'intl-trade-patterns': content = industryTransportData; break;
+
+            case 'manufacturing-industries':
+            case 'industrial-regions': content = industryTransportData; break;
 
             default:
                 // Fallback for sub-topics mapping to same parent content

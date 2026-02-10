@@ -116,6 +116,13 @@ export const MODERN_CHAPTER_29_MCQS: Question[] = [
     }
 ];
 
+export const MODERN_CHAPTER_29_CONTENT = `
+# Chapter 29: Development of Indian Press
+
+*Content to be added.*
+`;
+
+
 MODERN_CHAPTER_29_MCQS.push(
     {
         id: 11,

@@ -36,6 +36,15 @@ const POLITY_MAINS_QUESTIONS: Record<number, Array<{ id: string; question: strin
     ],
     32: [
         { id: "PQ32-1", question: "Analyze the role of the Election Commission of India in ensuring free and fair elections. Suggest reforms needed.", marks: 10 }
+    ],
+    22: [
+        { id: "PQ22-1", question: "Discuss the powers and functions of the Speaker of the Lok Sabha. How does the Speaker ensure the orderly conduct of business in the House?", marks: 15 }
+    ],
+    30: [
+        { id: "PQ30-1", question: "The office of the Governor has often been a subject of controversy in Indian federalism. Critically examine.", marks: 15 }
+    ],
+    38: [
+        { id: "PQ38-1", question: "Trace the evolution of Panchayati Raj Institutions in India. Have they been successful in achieving democratic decentralization?", marks: 15 }
     ]
 };
 

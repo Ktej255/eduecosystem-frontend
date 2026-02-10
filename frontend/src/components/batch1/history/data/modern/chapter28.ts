@@ -340,3 +340,424 @@ export const MODERN_CHAPTER_28_MCQS: Question[] = [
         cognitiveLevel: "Conceptual"
     }
 ];
+
+export const MODERN_CHAPTER_28_CONTENT = `
+# Chapter 28: Economic Impact of British Rule in India
+
+## BLOCK 1: DE-INDUSTRIALIZATION (1813-1880)
+*The Destruction of Handicrafts.*
+
+### 🧵 THE RUIN OF ARTISANS
+**The Phenomenon:**
+- Before British rule, India was the "Industrial Workshop of the World" (Textiles/Shipbuilding). By 1880, these industries were destroyed.
+
+**Causes:**
+1.  **Loss of Royal Patronage:** The collapse of Mughal/Princely courts meant no one bought luxury goods (silks/muslin).
+2.  **Competition:** Machine-made goods from Manchester/Lancashire were cheaper and flooded Indian markets.
+3.  **Discriminatory Tariffs:** Indian goods faced high duties in Britain (up to 80%), while British goods entered India duty-free.
+
+**The Quote:**
+> "The misery hardly finds a parallel in the history of commerce. The bones of the cotton weavers are bleaching the plains of India." — **William Bentinck (1834)**
+
+---
+
+## BLOCK 2: DRAIN OF WEALTH THEORY
+*The Economic Bleeding.*
+
+### 💰 THE UNREQUITED EXPORT
+**The Concept:**
+- India was exporting more than it imported (**Trade Surplus**), but this surplus was not coming back as gold/profit. It was being **siphoned off to Britain**.
+
+**The Theorist:**
+- **Dadabhai Naoroji** (The Grand Old Man of India).
+- **Book:** *Poverty and Un-British Rule in India*.
+
+**Thesis:** This "Drain" was the main cause of India's poverty.
+
+**Other Critics:**
+- **R.C. Dutt:** *Economic History of India*.
+- **M.G. Ranade:** *Essays on Indian Economics*.
+
+---
+
+## BLOCK 3: CONSTITUENTS OF THE DRAIN
+*Where did the money go?*
+
+### 📉 HOME CHARGES
+**Definition:** Expenses incurred in England by the Secretary of State on behalf of India.
+
+**Components:**
+1.  **Interest on Public Debt:** (Interest paid on loans taken to fight wars for Britain).
+2.  **Pensions:** Pensions of retired British officials/army men who lived in England.
+3.  **Store Purchases:** Military equipment and railway stores bought in England.
+4.  **Profits:** Profits of private British capital invested in India (Railways, Tea, Coffee) which were remitted back home.
+
+---
+
+## BLOCK 4: RURALIZATION OF INDIA
+*Back to the Village.*
+
+### 🌾 PRESSURE ON LAND
+**The Cycle:**
+- Artisans lost their jobs $\\to$ Moved back to villages.
+- They became agricultural laborers or tenants.
+
+**Result:** **Overcrowding of Agriculture.**
+
+**Impact:** This destroyed the balance between agriculture and industry. India became a purely agricultural colony supplying raw material (Cotton/Jute) to British factories.
+
+---
+
+## BLOCK 5: THE RAILWAY FACTOR (1853)
+*The Iron Knife.*
+
+### 🚂 SUBSIDIZED EXPLOITATION
+**Purpose:** Railways were not built for Indian passengers but for:
+1.  **Raw Material extraction:** Moving cotton from hinterland to ports (Bombay).
+2.  **Market Penetration:** Moving British cloth from ports to the interior villages.
+
+**Guarantee System:**
+- British investors were guaranteed a **5% return** on their capital by the Govt of India (paid from Indian taxes), regardless of profit/loss. This encouraged wasteful spending.
+
+**Tilak's View:** *"It is like decorating another's wife."*
+
+---
+
+## BLOCK 6: COMMERCIALIZATION OF AGRICULTURE
+*Food to Cash.*
+
+### 🌿 FORCED CULTIVATION
+**The Shift:**
+- Farmers were forced or induced to switch from growing food grains (Rice/Wheat) to **Cash Crops** (Indigo, Cotton, Jute, Opium, Tea).
+
+**The Drivers:**
+1.  **High Revenue Demand:** Farmers needed cash to pay the rigid British land tax.
+2.  **British Industries:** Manchester needed Cotton; Dundee needed Jute; China needed Opium.
+
+**The Trap:**
+- Farmers sold their crops at harvest time (low prices) to pay tax/debt and bought food back at lean times (high prices).
+
+**Result:**
+- **Loss of Food Security.** When a drought hit, there was no food reserve, leading to massive famines.
+
+---
+
+## BLOCK 7: RISE OF MODERN INDUSTRY
+*The Indian Effort.*
+
+### 🏭 COTTON vs JUTE
+**Cotton Textile:**
+- **First Mill:** Bombay (1854) by **Cowasjee Nanabhoy**.
+- **Ownership:** Mostly Indian (Parsis/Gujaratis).
+- **Region:** Western India (Bombay/Ahmedabad).
+
+**Jute Textile:**
+- **First Mill:** Rishra, Bengal (**1855**).
+- **Ownership:** Mostly British (Scottish capital).
+- **Region:** Eastern India (Calcutta).
+
+**Steel:**
+- **TISCO (1907):** Founded by **Jamsetji Tata** at Jamshedpur (Sakchi). Production started in 1911. It was the symbol of Swadeshi industrial success.
+
+---
+
+## BLOCK 8: THE MANAGING AGENCY SYSTEM
+*The Corporate Web.*
+
+### 🕸️ THE BRITISH STRANGLEHOLD
+**What was it?** A single British firm (Agency) would manage dozens of separate companies (Tea, Coal, Jute, Shipping).
+
+**Role:** They provided capital and technical expertise but charged high fees and controlled the board of directors.
+
+**Impact:** Even if Indians bought shares in a company, the real control remained with the British Managing Agency (like Andrew Yule, Martin Burn, Bird & Co).
+
+**Criticism:** It checked the growth of independent Indian entrepreneurship.
+
+---
+
+## BLOCK 9: THE FAMINE CYCLE
+*Man-made Starvation.*
+
+### 💀 FROM 1866 TO 1943
+**Nature:** Famines were no longer just about "shortage of rain"; they were about **"lack of purchasing power."** Food was often available (and even exported) while people starved outside grain silos.
+
+**Major Famines:**
+- **Orissa Famine (1866):** 1.3 million dead. Exposed the apathy of the "Laissez-Faire" policy.
+- **Great Famine (1876-78):** Madras/Mysore/Bombay. 5 million dead. Triggered the Famine Commission (Strachey).
+- **Bengal Famine (1943):** 3 million dead. Caused by war policies (Boat Denial Policy) and hoarding, not just crop failure.
+
+---
+
+## BLOCK 10: STAGES OF COLONIALISM (R.P. Dutt's Analysis)
+*The Evolution of Exploitation.*
+
+### 📊 THE THREE PHASES
+**Phase 1: Mercantile Phase (1757–1813):**
+- **Goal:** Direct Plunder. Buy cheap, sell dear. Monopoly of trade.
+- **Mechanism:** Use Bengal's revenue to buy Indian goods (Investments) and export them.
+
+**Phase 2: Industrial Free Trade (1813–1860):**
+- **Goal:** Market Expansion. India as a market for British factory goods and source of raw materials.
+- **Mechanism:** One-way Free Trade. Railways introduced to penetrate interior markets.
+
+**Phase 3: Financial Capitalism (1860–1947):**
+- **Goal:** Investment. Britain had surplus capital.
+- **Mechanism:** Investing British capital in India (Railways, Tea, Banks) and earning guaranteed interest. The "Drain" shifts from trade profits to interest payments.
+
+---
+
+## BLOCK 11: THE WAR BOOMS (1914 & 1939)
+*Unintended Industrialization.*
+
+### 🏭 IMPORT SUBSTITUTION
+**World War I (1914-18):**
+- British imports stopped. The Govt had to buy from Indian factories (Steel, Cloth, Jute) for the war effort.
+- **Result:** Massive profits for Indian industrialists (Birlas, Tatas).
+
+**World War II (1939-45):**
+- Again, imports ceased. Indian industries expanded into new areas (Chemicals, Paper, Sugar).
+
+**Significance:** This created a powerful **Indian Capitalist Class** that supported the Congress (funding the movement) to ensure an independent India would protect their industries.
+
+---
+
+## BLOCK 12: THE BOMBAY PLAN (1944)
+*Capitalists for Socialism?*
+
+### 📝 A PLAN FOR DEVELOPMENT
+**Authors:** J.R.D. Tata, G.D. Birla, Purshottamdas Thakurdas, and 5 others.
+
+**The Proposal:** A 15-year plan for India's economic development.
+
+**Surprise:** Even these capitalists argued for a **Planned Economy** with a strong Public Sector and government intervention.
+
+**Why?** They knew Indian private capital was too weak to build infrastructure (Roads/Power) and needed the State to do the heavy lifting.
+
+---
+
+## BLOCK 13: IMPERIAL PREFERENCE (1932)
+*The Trade Trap.*
+
+### 📜 OTTAWA AGREEMENT
+**Context:** The Great Depression (1929) hit world trade. Britain wanted to protect its own industries.
+
+**The Pact:** Signed in Ottawa (1932).
+
+**The Rule:** **"Imperial Preference."**
+- India was forced to give preferential lower tariff rates to British goods (Steel/Textiles).
+- In return, Britain promised to buy Indian raw materials.
+
+**Impact:** It was a one-sided deal. It hurt non-British imports (like Japanese cloth) and forced India to buy costlier British goods, hindering the growth of Indian industries.
+
+---
+
+## BLOCK 14: RISE OF FICCI (1927)
+*The Capitalist Union.*
+
+### 🏢 G.D. BIRLA & PURSHOTTAMDAS
+**Context:** Indian capitalists realized they needed a unified voice to fight British commercial interests (like the Associated Chambers of Commerce - ASSOCHAM, which was pro-British).
+
+**Formation:** **Federation of Indian Chambers of Commerce and Industry (FICCI)** founded in 1927.
+
+**Leaders:** G.D. Birla and Purshottamdas Thakurdas.
+
+**Role:** They acted as the "Economic Wing" of the Congress, lobbying for protectionist tariffs and funding the National Movement.
+
+---
+
+## BLOCK 15: DE-URBANIZATION
+*The Reverse Flow.*
+
+### 🏚️ RUIN OF CITIES
+**The Phenomenon:** While Europe was urbanizing due to the Industrial Revolution, India was de-urbanizing.
+
+**The Victims:** Old manufacturing towns like Dacca (Muslin), Murshidabad (Silk), and Surat (Shipbuilding) lost their population.
+
+**The Shift:** The artisans didn't move to new factory towns (which were few); they moved back to villages to become farm laborers.
+
+**Result:** The percentage of population dependent on agriculture actually **increased** from 63% (1881) to 70% (1941).
+
+---
+
+## BLOCK 16: WILLIAM DIGBY'S ESTIMATE
+*The Statistician of Poverty.*
+
+### 📉 "PROSPEROUS" BRITISH INDIA
+**The Man:** William Digby, a British author and journalist.
+
+**The Book:** *"Prosperous" British India* (1901) - the title was sarcastic.
+
+**The Data:** He calculated that the daily income of an Indian had fallen to **¾ pence**.
+
+**Significance:** His work provided the statistical ammunition for the Congress to claim that British rule was not "benevolent" but destructive.
+
+---
+
+## BLOCK 17: WHITLEY COMMISSION (1929)
+*Labor Conditions.*
+
+### 👷 ROYAL COMMISSION ON LABOR
+**Chairman:** J.H. Whitley.
+
+**Mandate:** To investigate the conditions of labor in industrial undertakings and plantations.
+
+**Findings:** It exposed the horrific conditions in factories and the **"Jobber"** system (middlemen who recruited workers and took a cut of their wages).
+
+**Outcome:** Led to minor amendments in the Factories Act but didn't change the structural exploitation.
+
+---
+
+## BLOCK 18: PERMANENT SETTLEMENT (1793)
+*The Zamindari System.*
+
+### 🏰 BENGAL, BIHAR, ORISSA
+**Architect:** **Lord Cornwallis** (Planned by John Shore).
+**Region:** Bengal, Bihar, Orissa, Northern Madras, and Varanasi. (Coverage: 19% of British India).
+
+**Key Features:**
+- **Ownership:** **Zamindars** were recognized as owners of the land (not the peasants).
+- **Revenue:** Fixed permanently. The State demand would never increase.
+- **Sunset Law:** If the Zamindar failed to pay by sunset on a specified date, his estate was auctioned.
+- **Division:** 10/11th to Company, 1/11th to Zamindar.
+
+**Impact:** Created a loyal class of landlords but left the peasants (tenants) with no rights, leading to extreme exploitation.
+
+---
+
+## BLOCK 19: RYOTWARI SYSTEM (1820)
+*The Peasant as Owner.*
+
+### 🌾 MADRAS & BOMBAY
+**Architect:** **Thomas Munro** and **Captain Alexander Read**.
+**Region:** Madras, Bombay, parts of Assam and Coorg. (Coverage: 51% of British India - The largest system).
+
+**Key Features:**
+- **Ownership:** The **Ryot (peasant)** was recognized as the owner.
+- **Revenue:** Collected directly from the peasant.
+- **Rates:** Very high (45% to 55% of produce). Not permanent; revised every 20-30 years.
+
+**Impact:** While it removed the Zamindar, the State itself acted like a "Super-Zamindar," confiscating land ruthlessly if taxes weren't paid.
+
+---
+
+## BLOCK 20: MAHALWARI SYSTEM (1822/1833)
+*The Village Community.*
+
+### 🏡 PUNJAB & NORTH-WEST
+**Architect:** **Holt Mackenzie** (Modified by William Bentinck).
+**Region:** North-West Frontier Province, Punjab, Central Provinces, and Agra. (Coverage: 30% of British India).
+
+**Key Features:**
+- **Unit:** The tax was assessed on the **Mahal (Village/Estate)** as a whole, not individual fields.
+- **Responsibility:** The **Village Headman (Lambardar)** collected it from the community and paid the Govt.
+
+**Impact:** It destroyed the traditional village brotherhood. The Lambardar became an oppressor, and land began to pass into the hands of moneylenders.
+
+---
+
+## BLOCK 21: PLANTATION INDUSTRIES
+*The European Monopolies.*
+
+### ☕ TEA, COFFEE & RUBBER
+**Tea:**
+- **First Garden:** Established in Assam (1835).
+- **Company:** Assam Tea Company (1839) was the first.
+- **Ownership:** Exclusively European until the 20th century.
+
+**Coffee:**
+- **Region:** Coorg, Chikmagalur (Mysore), and Wayanad.
+- **Status:** First introduced by Europeans in the 1820s.
+
+**Indigo:**
+- **Region:** Bengal and Bihar.
+- **Crisis:** The **Indigo Revolt (1859)** in Bengal forced planters to move to Bihar (Champaran), setting the stage for Gandhi's first Satyagraha.
+
+---
+
+## BLOCK 22: CHRONOLOGY OF FAMINE COMMISSIONS
+*The Bureaucracy of Death.*
+
+### 📅 THE LIST
+| Year | Commission | Chairman | Context |
+| :--- | :--- | :--- | :--- |
+| **1866** | Campbell Commission | George Campbell | After Orissa Famine. Blamed official apathy. |
+| **1880** | Strachey Commission | Richard Strachey | After Great Famine (1876-78). Created Famine Code. |
+| **1898** | Lyall Commission | James Lyall | Recommended using non-official charity. |
+| **1900** | MacDonnell Commission | Anthony MacDonnell | Appointed by Curzon. Focused on "Moral Strategy" (Prevention). |
+| **1945** | Woodhead Commission | John Woodhead | After Bengal Famine (1943). Blamed "man-made" factors. |
+
+---
+
+## BLOCK 23: EVOLUTION OF BANKING
+*Financing the Raj.*
+
+### 🏦 PRESIDENCY TO IMPERIAL
+**Early Phase:** Agency Houses (Alexander & Co.) started banking but failed.
+
+**Presidency Banks:** Established by the East India Company to facilitate trade.
+1.  Bank of Calcutta (1806).
+2.  Bank of Bombay (1840).
+3.  Bank of Madras (1843).
+
+**Consolidation:** In 1921, these three were merged to form the **Imperial Bank of India**.
+
+**Legacy:** After Independence (1955), the Imperial Bank was nationalized and renamed the **State Bank of India (SBI)**.
+
+---
+
+## BLOCK 24: THE FIRST BUDGET (1860)
+*Taxing the Subject.*
+
+### 💼 JAMES WILSON
+**Context:** After the 1857 Revolt, the British Government was bankrupt.
+
+**The Man:** James Wilson (Founder of *The Economist* magazine) was sent to India as the first Finance Member.
+
+**The Budget:** He presented India's first Budget in **1860**.
+
+**Income Tax:** He introduced the **Income Tax** for the first time in India (temporarily) to cover the "Mutiny debt."
+
+---
+
+## BLOCK 25: IRRIGATION vs RAILWAYS
+*The Misplaced Priority.*
+
+### 💧 ARTHUR COTTON'S PLEA
+**The Debate:**
+- **Sir Arthur Cotton** (Legendary Engineer) argued for **Canals** (Irrigation + Cheap Transport).
+- **British Capitalists** wanted **Railways** (Troop movement + Expensive Transport).
+
+**The Policy:** The Govt poured money into Railways (guaranteed profit) but neglected Irrigation (which would have stopped famines).
+
+**Result:** While Railways expanded rapidly, barely **3%** of India's land was irrigated by government canals by 1900.
+
+**Exceptions:** The Ganges Canal (1854) and the canal colonies in Punjab (Lyallpur) were rare successes.
+
+---
+
+## BLOCK 26: THE RUPEE RATIO CONTROVERSY (1920s)
+*The 1s 6d Fight.*
+
+### 💱 CURRENCY WAR
+**The Issue:** What should be the value of 1 Rupee against the British Shilling?
+- **British View:** **1s 6d** (High Rupee). This made British imports cheaper in India.
+- **Indian View:** **1s 4d** (Low Rupee). This made Indian exports competitive.
+
+**The Conflict:** The **Hilton Young Commission (1926)** recommended 1s 6d.
+
+**Resistance:** Indian capitalists (**Purshottamdas Thakurdas**) fought tooth and nail against this "overvalued rupee," arguing it killed Indian industry. The British forced the 1s 6d ratio anyway in 1927.
+
+---
+
+## BLOCK 27: STAGNATION STATISTICS
+*The Final Scorecard.*
+
+### 📉 0.4% GROWTH
+**The Reality:** Between 1900 and 1947, India's economy was **stagnant**.
+
+- **Per Capita Income:** grew at a microscopic rate of **0.1%** per year.
+- **Agriculture:** Food grain availability declined from 200kg per person (1900) to 150kg (1947).
+
+**Conclusion:** The British left India poorer, hungrier, and less industrial than they found it.
+`;
+

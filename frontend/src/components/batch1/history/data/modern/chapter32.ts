@@ -115,6 +115,185 @@ export const MODERN_CHAPTER_32_MCQS: Question[] = [
     }
 ];
 
+export const MODERN_CHAPTER_32_CONTENT = `
+# Chapter 32: The Movement of the Working Class
+
+*The "Hammer & The Wheel": From unorganized philanthropic efforts to the organized Trade Union movement that terrified the British.*
+
+## BLOCK 1: THE EARLY PHASE (1870-1915)
+**Philanthropy, not Politics.**
+
+### 🏭 THE PIONEERS (Pre-AITUC)
+*   **Nature:** Unorganized, isolated strikes. Leaders were social reformers, not politicians.
+
+**Sorabjee Shapoorji Bengalee (1878):**
+*   Tried to pass a bill for better working conditions in Bombay Legislative Council.
+
+**Narayan Meghaji Lokhande (1880):**
+*   **Title:** "Father of the Trade Union Movement in India".
+*   **Newspaper:** *Deenbandhu*.
+*   **Organization:** Bombay Millhands Association (1890) - Considered the first labor organization.
+
+**Swadeshi Impact (1903-08):**
+*   Strikes became political for the first time.
+*   **1908 Strike:** Bombay textile workers struck for 6 days to protest the arrest of Tilak. (Lenin hailed this as the awakening of the Indian proletariat).
+
+---
+
+## BLOCK 2: THE TURNING POINT (1915-1920)
+**War, Revolution & Gandhi.**
+
+### 🌍 THE CATALYSTS
+*   **World War I:** Rising prices + Low wages = Unrest.
+*   **Russian Revolution (1917):** Proved that workers could rule a country.
+
+**Madras Labour Union (1918):**
+*   **Founder:** B.P. Wadia.
+*   **Significance:** The First **Registered** Trade Union in India.
+
+**Ahmedabad Textile Labour Association (1918):**
+*   **Founder:** Mahatma Gandhi (and Anasuya Sarabhai).
+*   **Philosophy:** Trusteeship & Arbitration (Non-violent).
+
+---
+
+## BLOCK 3: ALL INDIA TRADE UNION CONGRESS (AITUC) - 1920
+**The National Body.**
+
+### 🚩 AITUC FOUNDATION (1920)
+*   **Date:** October 31, 1920.
+*   **Venue:** Bombay.
+*   **President:** **Lala Lajpat Rai**.
+*   **General Secretary:** Dewan Chaman Lal.
+*   **Context:** Founded to represent India at the International Labour Organization (ILO) in Geneva.
+*   **Ideology:** Initially influenced by Congress (moderates), later shifted to Socialists/Communists.
+
+**Lala Lajpat Rai's Speech:**
+> "Imperialism and militarism are the twin children of capitalism."
+
+---
+
+## BLOCK 4: THE TRADE UNION ACT (1926)
+**Legal Recognition.**
+
+### ⚖️ TRADE UNION ACT (1926)
+*   **Provisions:** Recognized trade unions as legal associations.
+*   **Immunity:** Granted immunity from civil/criminal prosecution for legitimate union activities.
+*   **Condition:** Unions had to register and submit audited accounts.
+
+---
+
+## BLOCK 5: THE SPLITS & MERGERS (1929-1947)
+
+### 💔 THE GREAT SPLIT - NAGPUR SESSION (1929)
+*   **President:** Jawaharlal Nehru.
+*   **Conflict:** Communists (Girni Kamgar Union) wanted affiliation with Comintern (Moscow). Moderates (N.M. Joshi) refused.
+*   **Result:** Moderates walked out and formed **Indian Trade Union Federation (ITUF)**.
+
+### 🚩 THE SECOND SPLIT (1931)
+*   **Red vs. Red:** Radical communists broke away to form **Red Trade Union Congress (RTUC)**.
+*   **Leaders:** B.T. Ranadive and S.V. Deshpande.
+
+### 🤝 THE REUNIFICATION (1938-40)
+*   **Process:** RTUC merged back into AITUC (1935). ITUF (now NTUF) merged back in 1940.
+*   **Context:** Rise of Fascism and need for United Front.
+
+---
+
+## BLOCK 6: CONSPIRACIES & LAWS
+
+### 🕵️ MEERUT CONSPIRACY CASE (1929)
+*   **Context:** Growing Communist influence.
+*   **Arrests:** 31 leaders (including 3 British Communists: Philip Spratt, Ben Bradley, Lester Hutchinson).
+*   **Charge:** Conspiring to deprive the King-Emperor of sovereignty.
+*   **Impact:** Massive publicity for Communist ideas.
+
+### ⚖️ TRADE DISPUTES ACT (1929)
+*   **Objective:** To prevent "lightning strikes" in public utilities.
+*   **Provisions:**
+    *   Compulsory Courts of Inquiry/Conciliation Boards.
+    *   **Illegal:** Sympathetic strikes & strikes with "political objectives".
+*   **Bhagat Singh:** Threw a bomb in the Central Assembly against this Act (and Public Safety Bill).
+
+### ⚖️ KANPUR BOLSHEVIK CONSPIRACY (1924)
+*   **Accused:** S.A. Dange, Muzaffar Ahmed, Shaukat Usmani, Nalini Gupta.
+*   **Significance:** British attempt to crush communism; led to founding of CPI in 1925.
+
+---
+
+## BLOCK 7: FACTORY LEGISLATION
+**Protection or Control?**
+
+| Act | Year | Viceroy | Key Provision |
+| :--- | :--- | :--- | :--- |
+| **First Factory Act** | 1881 | Ripon | Prohibited child labor (<7 years). |
+| **Second Factory Act** | 1891 | Lansdowne | Weekly holiday. Fixed hours for women (11 hrs). |
+| **Workmen's Compensation** | 1923 | Reading | Employer must pay for injury/death. |
+| **Proprietary: Payment of Wages** | 1936 | Willingdon | Wages paid within 7 days; no arbitrary fines. |
+
+---
+
+## BLOCK 8: KEY LEADERS & MOVEMENTS
+
+### 🦁 LEADERS
+*   **Sasipada Banerjea (1870):** Philanthropic phase (Workingmen's Club).
+*   **N.M. Joshi:** Father of Modern Trade Unions.
+*   **V.V. Giri:** Founder of AIRF (Railwaymen). Later President of India.
+*   **Subhas Chandra Bose:** President of AITUC (1931). Led TISCO strike (1928).
+
+### 🛑 HISTORIC STRIKES
+*   **GIP Railway Strike (1899):** First organized railway strike.
+*   **Bombay Textile Strike (1908):** Political strike for Tilak.
+*   **South Indian Railway Strike (1928):** Harsh crackdown (10 years jail for Singingravelu).
+*   **P&T Strike (1946):** Post-war wave; paralyzed communications.
+
+---
+
+## BLOCK 9: INTERNATIONAL & POLICY
+
+### 🌍 INDIA & THE ILO (1919)
+*   India was a founding member. N.M. Joshi attended the first conference.
+
+### 📜 WHITLEY COMMISSION (1929)
+*   **Royal Commission on Labour.**
+*   **Impact:** Blueprint for future labor laws (Report 1931).
+
+### 📋 REGE COMMITTEE (1944)
+*   **Labour Investigation Committee.**
+*   **Outcome:** Recommended comprehensive social security (ESI Act 1948).
+
+### 🚩 FIRST MAY DAY (1923)
+*   **Leader:** **M. Singaravelu Chettiar** (Madras).
+*   **Symbol:** Unfurled the Red Flag for the first time in India.
+
+---
+
+## BLOCK 10: THE FINAL PHASE (1940-1947)
+
+### 🇬🇧 INDIAN FEDERATION OF LABOUR (IFL) - 1941
+*   **Founder:** M.N. Roy.
+*   **Stance:** Supported British war effort (Anti-Fascist). Received British funding.
+
+### 🇮🇳 INTUC (1947)
+*   **Date:** May 1947.
+*   **Founders:** Vallabhbhai Patel, Gulzarilal Nanda.
+*   **Philosophy:** Gandhian (Negotiation, Anti-Strike).
+*   **First President:** Dr. Suresh Chandra Banerjee (Inaugurated by Patel).
+
+### 👨‍⚖️ DR. AMBEDKAR AS LABOUR MEMBER (1942-46)
+*   **Achievements:**
+    *   **8-Hour Workday** (Reduced from 12).
+    *   Employment Exchanges.
+    *   Tripartite Labour Conferences.
+
+> [!WARNING]
+> **🔥 PRELIMS TRAPS:**
+> *   **First Union:** Bombay Millhands (Loose) vs Madras Labour Union (Registered).
+> *   **First AITUC Prez:** Lajpat Rai.
+> *   **Bhagat Singh's Bomb:** Against **Public Safety Bill** & **Trade Disputes Bill**.
+> *   **Plague Bonus:** Origin of the "Bonus" concept (Bombay 1897).
+`;
+
 MODERN_CHAPTER_32_MCQS.push(
     {
         id: 11,

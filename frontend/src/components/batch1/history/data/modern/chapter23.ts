@@ -297,11 +297,74 @@ export const MODERN_CHAPTER_23_MCQS = [
         cognitiveLevel: "Fact"
     },
     {
-        id: 35,
-        question: "'Magna Carta of Western Education in India' refers to:",
-        options: ["The Act of 1813", "Macaulay's Minute", "Wood's Despatch", "The Hunter Commission"],
-        correctAnswer: 2,
-        explanation: "Wood's Despatch.",
         cognitiveLevel: "Fact"
     }
 ];
+
+export const MODERN_CHAPTER_23_CONTENT = `
+# Chapter 23: Constitutional Developments (1773-1947)
+
+From Company Rule to Crown Rule: The Evolution of Administration.
+
+## BLOCK 1: THE COMPANY RULE (1773-1858)
+**Laying the Foundations.**
+
+### 1. Regulating Act, 1773
+*   **Significance:** First step by British Govt to control EIC.
+*   **Governor of Bengal** -> **Governor-General of Bengal** (Warren Hastings).
+*   **Supreme Court:** Established at Calcutta (1774).
+*   **Executive Council:** 4 members to assist GG.
+
+### 2. Pitt's India Act, 1784
+*   **Double Government:**
+    *   **Court of Directors:** Commercial affairs.
+    *   **Board of Control:** Political affairs (6 members).
+
+### 3. Charter Acts
+*   **1813:** Ended EIC trade monopoly (except Tea & China). Allocated ₹1 Lakh for Education.
+*   **1833:**
+    *   **GG of Bengal** -> **GG of India** (William Bentinck).
+    *   Complete centralization. Law member (Macaulay) added.
+
+---
+
+## BLOCK 2: THE CROWN RULE (1858-1947)
+**Direct British Control.**
+
+### 1. Government of India Act, 1858
+*   **Context:** Post-1857 Revolt. "Act for the Good Government of India".
+*   ** Viceroy:** Title introduced (Lord Canning).
+*   **Secretary of State (SoS):** Cabinet minister in UK, assisted by 15-member **Council of India**.
+
+### 2. Indian Councils Act, 1861
+*   **Portfolio System:** Introduced by Canning.
+*   **Ordinances:** Viceroy could issue ordinances (6 months life).
+*   **Decentralization:** Restored legislative powers to Bombay & Madras.
+
+---
+
+## BLOCK 3: EVOLUTION OF REPRESENTATION
+
+### 1. Morley-Minto Reforms (1909)
+*   **Separate Electorates:** Introduced for Muslims.
+*   **Executive Council:** Satyendra Prasad Sinha became first Indian member (Law Member).
+*   **Critique:** "Legitimized Communalism".
+
+### 2. Montagu-Chelmsford Reforms (1919)
+*   **Dyarchy:** Introduced in **Provinces** (Transferred vs Reserved subjects).
+*   **Bicameralism:** Introduced at the Center.
+*   **Direct Elections:** Limited franchise.
+
+### 3. Government of India Act, 1935
+*   **Blueprint of Constitution.**
+*   **Provincial Autonomy:** Dyarchy abolished in provinces, introduced at Center.
+*   **All India Federation:** Proposed (Princes didn't join).
+*   **Institutions:** RBI, Federal Court, Public Service Commissions.
+
+> [!NOTE]
+> **Important Evolution:**
+> *   1773: Centralization begins.
+> *   1833: Centralization peaks.
+> *   1861: Decentralization begins.
+> *   1935: Provincial Autonomy.
+`;

@@ -116,6 +116,13 @@ export const MODERN_CHAPTER_30_MCQS: Question[] = [
     }
 ];
 
+export const MODERN_CHAPTER_30_CONTENT = `
+# Chapter 30: Development of Education
+
+*Content to be added.*
+`;
+
+
 MODERN_CHAPTER_30_MCQS.push(
     {
         id: 11,

@@ -58,6 +58,44 @@ export const ATMOSPHERE_STRUCTURE_CONTENT: LessonContent = {
 - Aurora Borealis/Australis occur here.`
                 }
             ]
+        },
+        {
+            id: 'quiz-section',
+            title: 'Test Your Knowledge',
+            content: [
+                {
+                    id: 'atmos-q1',
+                    type: 'quiz',
+                    content: '',
+                    quizData: {
+                        question: "In which layer of the atmosphere do most weather phenomena occur?",
+                        options: [
+                            "Stratosphere",
+                            "Mesosphere",
+                            "Troposphere",
+                            "Thermosphere"
+                        ],
+                        correctIndex: 2,
+                        explanation: "The Troposphere is the lowest layer where we live, and it contains almost all of the water vapor and aerosols, making it the site of almost all weather phenomena."
+                    }
+                },
+                {
+                    id: 'atmos-q2',
+                    type: 'quiz',
+                    content: '',
+                    quizData: {
+                        question: "The Ozone Layer, which protects us from harmful UV rays, is found in which layer?",
+                        options: [
+                            "Troposphere",
+                            "Stratosphere",
+                            "Mesosphere",
+                            "Ionosphere"
+                        ],
+                        correctIndex: 1,
+                        explanation: "The Ozone Layer is concentrated in the Stratosphere, absorbing the majority of the Sun's harmful ultraviolet radiation."
+                    }
+                }
+            ]
         }
     ]
 };

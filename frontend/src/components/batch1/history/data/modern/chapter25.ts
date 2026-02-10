@@ -305,3 +305,122 @@ export const MODERN_CHAPTER_25_MCQS = [
         cognitiveLevel: "Fact"
     }
 ];
+
+export const MODERN_CHAPTER_25_CONTENT = `
+# Chapter 25: Development of Education in India
+
+The "Battle for the Mind": From creating clerks to fueling nationalism.
+
+## BLOCK 1: THE ORIENTALIST PHASE (1781–1813)
+**Understanding the Natives.**
+
+*   **1781: Calcutta Madrasa** (Warren Hastings) - Muslim Law.
+*   **1791: Sanskrit College, Varanasi** (Jonathan Duncan) - Hindu Law.
+*   **1800: Fort William College** (Wellesley) - Training Civil Servants (Closed 1802).
+
+## BLOCK 2: THE GREAT DEBATE (1813–1835)
+**Anglicists vs. Orientalists.**
+
+*   **Charter Act of 1813:** Allocated **₹1 Lakh** annually for education.
+*   **The Debate:**
+    *   *Orientalists:* Promote traditional learning (Sanskrit/Persian).
+    *   *Anglicists:* Promote Western knowledge via English.
+*   **Macaulay's Minute (1835):**
+    *   "A single shelf of a good European library is worth the whole native literature of India and Arabia."
+    *   **William Bentinck** accepted it. English became the medium of instruction.
+
+### Downward Filtration Theory
+*   **The Logic:** Limited funds -> Educate only the upper classes.
+*   **The Hope:** Culture would "filter down" to the masses.
+*   **Result:** Failed. Created an elite class alienated from the masses.
+
+---
+
+## BLOCK 3: THE MAGNA CARTA (1854)
+**Wood's Despatch.**
+
+*   **Rejection of Filtration:** Govt must facilitate mass education.
+*   **Hierarchy:**
+    *   Universities (English)
+    *   High Schools (Anglo-Vernacular)
+    *   Primary Schools (Vernacular)
+*   **Outcome:** Universities established at **Calcutta, Bombay, Madras (1857)**.
+
+## BLOCK 4: COMMISSIONS & ACTS
+
+### Hunter Commission (1882)
+*   **Focus:** Primary & Secondary Education.
+*   **Recommendation:** Transfer control of primary education to District/Municipal Boards.
+
+### Indian Universities Act (1904)
+*   **Curzon's Tool:** To curb nationalism in universities.
+*   **Raleigh Commission (1902):** Validated the act.
+*   **Feature:** Stricter govt control over university senate and affiliation.
+
+### Government Resolution on Education Policy (1913)
+*   **Context:** Gokhale's demand for Compulsory Primary Education.
+*   **Outcome:** Govt refused compulsory education but accepted the policy of removing illiteracy.
+
+### Sadler Commission (1917-19)
+*   **Focus:** Calcutta University.
+*   **Key Idea:** 12-Year School Course (10+2 system precursor). Separation of Intermediate from Degree.
+
+---
+
+## BLOCK 5: THE QUALITY DEBATE
+
+### Hartog Committee (1929)
+*   **Focus:** Quality over Quantity.
+*   **Wastage:** Dropout before primary completion.
+*   **Stagnation:** Repeating classes.
+*   **Verdict:** Policy of "Consolidation".
+
+### Wardha Scheme / Nai Talim (1937)
+*   **Gandhi's Blueprint** (Zakir Hussain Committee).
+*   **Core:** Learning through craft (Spinning/Weaving).
+*   **Medium:** Mother Tongue.
+*   **Self-Supporting:** Sale of craft products to cover salaries.
+
+### Sargent Plan (1944)
+*   **Goal:** Reach British standards in 40 years.
+*   **Universal Free Ed:** For 6-14 years.
+
+---
+
+## BLOCK 6: PRIVATE INITIATIVES & PIONEERS
+
+### Early Private Initiatives
+*   **Hindu College (1817):** Raja Rammohan Roy & David Hare. First Western ed college.
+*   **Bethune School (1849):** J.E.D. Bethune. Women's education.
+*   **Sanskrit College:** Ishwar Chandra Vidyasagar opened it to non-Brahmins.
+
+### Technical Education
+*   **Engineering:** Roorkee (1847) - First in India.
+*   **Medicine:** Calcutta Medical College (1835).
+*   **Agriculture:** Pusa Institute (1905, Curzon).
+
+### Nationalist Education
+*   **NCE (1906):** National Council of Education (Satish Chandra Mukherjee).
+*   **Institutions:** Bengal National College (Aurobindo), Bihar Vidyapith (Rajendra Prasad), Gujarat Vidyapith (Gandhi).
+*   **Shantiniketan:** Tagore's Visva-Bharati (1921). Nature-based learning.
+
+### Women's Education
+*   **D.K. Karve:** SNDT Women's University (1916) - First in India.
+*   **Jyotiba & Savitribai Phule:** First girl's school in Pune (1848).
+
+### Rise of Universities (Chronology)
+1.  **1857:** Calcutta, Bombay, Madras.
+2.  **1882:** Punjab.
+3.  **1887:** Allahabad.
+4.  **1916:** BHU & Mysore.
+5.  **1917:** Patna.
+6.  **1918:** Osmania (Urdu medium).
+7.  **1920:** AMU.
+8.  **1921:** Visva-Bharati.
+9.  **1922:** Delhi.
+
+> [!WARNING]
+> **🔥 LITERACY REALITY (1947):**
+> *   **Overall:** ~16%
+> *   **Female:** ~8%
+`;

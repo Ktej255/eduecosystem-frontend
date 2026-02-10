@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { POLITY_PARTS, TOPIC_TITLES, getPartColors, getTopicsByPart, PartId } from "@/components/batch1-1/polity/data/polity-types-95";
 import { MAJOR_CURRENT_AFFAIRS } from "@/components/batch1-1/polity/data/MajorCurrentAffairsRegistry";
+import { getSRSStats } from "@/components/batch1/polity/revision/srs-engine";
 import TopicAnalyticsModal from "./TopicAnalyticsModal";
 
 interface TopicProgress {
@@ -42,6 +43,8 @@ export default function PolityUnifiedDashboard() {
     const [selectedReportTopic, setSelectedReportTopic] = useState<number | null>(null);
 
     // Load progress from localStorage
+    const [srsDueCount, setSrsDueCount] = useState(0);
+
     useEffect(() => {
         const saved = localStorage.getItem('polity_95_progress');
         if (saved) {
@@ -49,6 +52,10 @@ export default function PolityUnifiedDashboard() {
         }
         // Expand first part by default
         setExpandedParts({ 'I': true });
+
+        // Load SRS Stats
+        const stats = getSRSStats();
+        setSrsDueCount(stats.due);
     }, []);
 
     // Calculate statistics
@@ -139,9 +146,14 @@ export default function PolityUnifiedDashboard() {
                     <Button
                         size="sm"
                         onClick={() => router.push('/student/batch1-1/polity/revision')}
-                        className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold border-2 border-slate-900"
+                        className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold border-2 border-slate-900 relative"
                     >
                         <Sparkles className="w-4 h-4 mr-2" /> Revision Suite
+                        {srsDueCount > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm animate-pulse">
+                                {srsDueCount}
+                            </span>
+                        )}
                     </Button>
                     <Button
                         size="sm"
@@ -403,12 +415,12 @@ export default function PolityUnifiedDashboard() {
                                                                 <span>Level 1 MCQs</span>
                                                                 {topicProgress?.mcqsDone && <CheckCircle2 className="w-3 h-3 ml-auto text-green-500" />}
                                                             </DropdownMenuItem>
-                                                            <DropdownMenuItem disabled className="opacity-50 cursor-not-allowed">
-                                                                <Target className="w-4 h-4 mr-2" />
+                                                            <DropdownMenuItem onClick={(e) => handleAction(e as any, 'mcq', topic.id)}>
+                                                                <Target className="w-4 h-4 mr-2 text-purple-500" />
                                                                 <span>Level 2 (Pro)</span>
                                                             </DropdownMenuItem>
-                                                            <DropdownMenuItem disabled className="opacity-50 cursor-not-allowed">
-                                                                <Flame className="w-4 h-4 mr-2" />
+                                                            <DropdownMenuItem onClick={(e) => handleAction(e as any, 'mcq', topic.id)}>
+                                                                <Flame className="w-4 h-4 mr-2 text-red-500" />
                                                                 <span>Level 3 (Exam)</span>
                                                             </DropdownMenuItem>
                                                         </DropdownMenuContent>

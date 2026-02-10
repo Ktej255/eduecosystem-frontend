@@ -20,6 +20,16 @@ import { MODERN_CHAPTER_19_CONTENT } from './chapter19';
 import { MODERN_CHAPTER_20_CONTENT } from './chapter20';
 import { MODERN_CHAPTER_21_CONTENT } from './chapter21';
 import { MODERN_CHAPTER_22_CONTENT } from './chapter22';
+import { MODERN_CHAPTER_23_CONTENT } from './chapter23';
+import { MODERN_CHAPTER_24_CONTENT } from './chapter24';
+import { MODERN_CHAPTER_25_CONTENT } from './chapter25';
+import { MODERN_CHAPTER_26_CONTENT } from './chapter26';
+import { MODERN_CHAPTER_27_CONTENT } from './chapter27';
+import { MODERN_CHAPTER_28_CONTENT } from './chapter28';
+import { MODERN_CHAPTER_29_CONTENT } from './chapter29';
+import { MODERN_CHAPTER_30_CONTENT } from './chapter30';
+import { MODERN_CHAPTER_31_CONTENT } from './chapter31';
+import { MODERN_CHAPTER_32_CONTENT } from './chapter32';
 
 export const MODERN_HISTORY_CONTENT: Record<string, string> = {
     '1': MODERN_CHAPTER_1_CONTENT,
@@ -44,4 +54,15 @@ export const MODERN_HISTORY_CONTENT: Record<string, string> = {
     '20': MODERN_CHAPTER_20_CONTENT,
     '21': MODERN_CHAPTER_21_CONTENT,
     '22': MODERN_CHAPTER_22_CONTENT,
+    '23': MODERN_CHAPTER_23_CONTENT,
+    '24': MODERN_CHAPTER_24_CONTENT,
+    '25': MODERN_CHAPTER_25_CONTENT,
+    '26': MODERN_CHAPTER_26_CONTENT,
+    '27': MODERN_CHAPTER_27_CONTENT,
+    '28': MODERN_CHAPTER_28_CONTENT,
+    '29': MODERN_CHAPTER_29_CONTENT,
+    '30': MODERN_CHAPTER_30_CONTENT,
+    '31': MODERN_CHAPTER_31_CONTENT,
+    '32': MODERN_CHAPTER_32_CONTENT,
 };
+

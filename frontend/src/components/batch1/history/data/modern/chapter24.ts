@@ -295,11 +295,62 @@ export const MODERN_CHAPTER_24_MCQS = [
         cognitiveLevel: "Fact"
     },
     {
-        id: 35,
-        question: "'Land to the Tiller' became the slogan of which movement?",
-        options: ["Champaran", "Tebhaga", "Telangana", "Eka"],
-        correctAnswer: 2,
-        explanation: "Telangana Movement. (Also Tebhaga implies it, but Telangana was the armed struggle for land).",
-        cognitiveLevel: "Fact"
     }
 ];
+
+export const MODERN_CHAPTER_24_CONTENT = `
+# Chapter 24: Development of Indian Press (1780-1947)
+
+"A free press and a foreign dominion are two antagonistic things." - Thomas Munro.
+
+## BLOCK 1: EARLY BEGINNINGS
+
+### 1. The First Newspaper
+*   **Bengal Gazette (1780):** Started by **James Augustus Hicky**.
+*   **Nature:** Outspoken critic of Warren Hastings.
+*   **Fate:** Seized in 1782.
+
+### 2. Early Regulations
+*   **Censorship of Press Act, 1799:**
+    *   **Lord Wellesley** (fear of French invasion).
+    *   Pre-censorship imposed.
+*   **Licensing Regulations, 1823:**
+    *   **John Adams**.
+    *   **Mirat-ul-Akbar** (Raja Rammohan Roy) ceased publication due to this.
+
+### 3. The Liberator
+*   **Metcalfe Act, 1835:**
+    *   **Charles Metcalfe** repealed the 1823 ordinance.
+    *   Known as "Liberator of the Indian Press".
+
+---
+
+## BLOCK 2: THE GAGGING ACT
+**Vernacular Press Act, 1878.**
+
+*   **Viceroy:** Lord Lytton.
+*   **Target:** Vernacular (local language) newspapers only. English papers exempt.
+    *   *Som Prakash* (Ishwar Chandra Vidyasagar).
+    *   *Bharat Mihir*.
+*   **The Escape:** **Amrita Bazar Patrika** (Sisir Kumar Ghosh) turned into an English newspaper overnight to bypass the act.
+*   **Repeal:** By **Lord Ripon** in 1882.
+
+---
+
+## BLOCK 3: KEY JOURNALS & EDITORS
+
+| Newspaper | Founder/Editor | Significance |
+| :--- | :--- | :--- |
+| **The Hindu** | G. Subramaniya Iyer | Voice of Madras. |
+| **Kesari (Marathi)** | B.G. Tilak | "Swaraj is my birthright". |
+| **Voice of India** | Dadabhai Naoroji | Economic Drain Theory. |
+| **Sudharak** | G.K. Gokhale | Social Reform. |
+| **Indian Mirror** | N.N. Sen | Early Brahmo paper. |
+| **New India** | Annie Besant | Home Rule propagation. |
+| **Young India** | Mahatma Gandhi | Non-Cooperation era. |
+
+> [!WARNING]
+> **🔥 TILAK'S TRIALS:**
+> *   **1897:** Sentenced to 18 months for speech at Shivaji Festival.
+> *   **1908:** Sentenced to 6 years (Mandalay Jail) for defending revolutionaries.
+`;

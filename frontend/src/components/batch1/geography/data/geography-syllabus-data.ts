@@ -52,7 +52,7 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
             {
                 id: 'interior-earth',
                 title: '3. Interior of the Earth',
-                coordinates: [0.5, 0.3, 1.3],
+                coordinates: [2.8, -2.0, 1.5], // Africa (Rift Valley context)
                 microTopics: [
                     { id: 'sources-info', title: 'Sources of Information (Direct/Indirect)', status: 'locked' },
                     { id: 'seismic-waves', title: 'Seismic Waves (P-waves, S-waves)', status: 'locked' },
@@ -158,7 +158,7 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
             {
                 id: 'air-masses-cyclones',
                 title: '5. Air Masses & Cyclones',
-                coordinates: [-1.2, 0.8, 0],
+                coordinates: [1.5, 2.0, -2.8], // North Atlantic (Cyclones)
                 microTopics: [
                     { id: 'air-masses', title: 'Air Masses', status: 'active' },
                     { id: 'fronts', title: 'Fronts', status: 'active' },
@@ -186,7 +186,7 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
             {
                 id: 'ocean-relief',
                 title: '1. Ocean Relief',
-                coordinates: [1.2, -0.6, 0.3],
+                coordinates: [-3.8, 0, 1.3], // Pacific Ocean
                 microTopics: [
                     { id: 'major-relief', title: 'Major Divisions (Shelf, Slope)', status: 'active' },
                     { id: 'minor-relief', title: 'Minor Relief Features', status: 'active' }
@@ -233,7 +233,7 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
             {
                 id: 'india-location',
                 title: '1. India: Location & Size',
-                coordinates: [0.3, 0.4, 1.4],
+                coordinates: [0.6, 1.4, -3.7], // India (20N, 80E)
                 microTopics: [
                     { id: 'lat-long', title: 'Latitudinal & Longitudinal Extent', status: 'active' },
                     { id: 'frontiers', title: 'Frontiers & Boundaries', status: 'active' },
@@ -243,7 +243,7 @@ export const GEOGRAPHY_SYLLABUS: Module[] = [
             {
                 id: 'india-physiography',
                 title: '2. Physiography of India',
-                coordinates: [0.4, 0.5, 1.3],
+                coordinates: [0.5, 1.5, -3.6], // Himalayas/North India
                 microTopics: [
                     { id: 'himalayas', title: 'The Himalayas', status: 'active' },
                     { id: 'northern-plains', title: 'The Northern Plains', status: 'active' },

@@ -64,6 +64,44 @@ export const WATER_MOVEMENT_CONTENT: LessonContent = {
                     alt: 'Ocean waves'
                 }
             ]
+        },
+        {
+            id: 'quiz-section',
+            title: 'Review: Ocean Dynamics',
+            content: [
+                {
+                    id: 'ocean-q1',
+                    type: 'quiz',
+                    content: '',
+                    quizData: {
+                        question: "Which of the following causes 'Spring Tides'?",
+                        options: [
+                            "Sun and Moon at right angles to Earth",
+                            "Sun, Moon, and Earth in a straight line",
+                            "Earth is closest to the Sun (Perihelion)",
+                            "Strong winds during a cyclone"
+                        ],
+                        correctIndex: 1,
+                        explanation: "Spring tides occur when the Sun, Moon, and Earth align (syzygy), combining the gravitational pull of the Sun and Moon to create higher high tides."
+                    }
+                },
+                {
+                    id: 'ocean-q2',
+                    type: 'quiz',
+                    content: '',
+                    quizData: {
+                        question: "The Gulf Stream is an example of which type of ocean current?",
+                        options: [
+                            "Cold Current",
+                            "Warm Current",
+                            "Deep Water Current",
+                            "Upwelling Current"
+                        ],
+                        correctIndex: 1,
+                        explanation: "The Gulf Stream is a warm ocean current that originates in the Gulf of Mexico and flows into the Atlantic, significantly warming the climate of Western Europe."
+                    }
+                }
+            ]
         }
     ]
 };

@@ -342,3 +342,306 @@ MODERN_CHAPTER_27_MCQS.push(
         cognitiveLevel: "Fact"
     }
 );
+
+export const MODERN_CHAPTER_27_CONTENT = `
+# Chapter 27: Administrative Changes After 1857 (Part 2)
+
+## BLOCK 1: EVOLUTION OF FAMINE POLICY
+*From 'Laissez-Faire' to Responsibility.*
+
+### 🌾 STRACHEY TO MACDONNELL
+**Strachey Commission (1880):**
+- Established the basic **Famine Code**.
+- **Principle:** State must provide relief wages to the able-bodied.
+
+**Lyall Commission (1897):**
+- Appointed after the 1896-97 famine.
+- **Refinement:** Recommended early **suspension of land revenue** and utilizing non-official charity.
+
+**MacDonnell Commission (1900):**
+- Appointed by Lord Curzon.
+- **Key Shift:** Recommended **"Moral Strategy"**—putting money in people's pockets *before* they start starving (Famine Commissioner to be appointed).
+- **Result:** Better preparedness, though famines continued (e.g., Bengal 1943 was a man-made failure of this policy).
+
+---
+
+## BLOCK 2: CURRENCY POLICY
+*The Artificial Rupee.*
+
+### 💱 THE EXCHANGE RATE GAME
+**The Issue:**
+- The British Govt wanted a high exchange rate for the Rupee (to make British imports cheap in India and to make remitting money to London cheaper).
+
+**The Move:**
+- They **closed the mints to silver coinage in 1893** and artificially pegged the Rupee to Gold/Sterling (1s 4d).
+
+**Impact:**
+- **Indian Exporters:** Suffered (their goods became expensive abroad).
+- **British Importers:** Benefited (their cloth became cheaper in India).
+- **Nationalist Criticism:** **Dadabhai Naoroji** and the Congress vehemently opposed this "manipulation of exchange."
+
+---
+
+## BLOCK 3: ARMY'S "CLASS COMPANY" SYSTEM
+*Divide within the Regiment.*
+
+### ⚔️ BALANCING THE CASTES
+**The Tactic:**
+- After 1857, the British didn't just segregate the army; they structured it carefully.
+
+**Class Regiments:**
+- Pure regiments of one race (e.g., Gurkha, Sikh).
+
+**Class-Company Regiments:**
+- **Mixed regiments** where different companies belonged to different castes/races (e.g., 1 company Jat, 1 company Muslim, 1 company Rajput).
+
+**Logic:**
+- If one company mutinied, the others (of different castes) would not join them and could be used to suppress them. This was the **"Water-tight Compartment"** policy.
+
+---
+
+## BLOCK 4: NEPAL & BHUTAN POLICY
+*Securing the Northern Gate.*
+
+### 🏔️ SAGAULI & SINCHULA
+**Nepal (Treaty of Sagauli, 1816):**
+- Nepal gave up districts of **Garhwal and Kumaon** (giving British access to Simla/Nainital).
+- Accepted a British Resident in Kathmandu.
+- **Crucially:** Allowed the British to **recruit Gurkhas** into the army (who became the loyal backbone of the Raj).
+
+**Bhutan (Treaty of Sinchula, 1865):**
+- Bhutan surrendered the **passes (Duars)** leading to Assam.
+- In return, the British gave an annual subsidy.
+- **Significance:** Secured the **tea gardens of Assam** from raids.
+
+---
+
+## BLOCK 5: MISSIONARY POLICY (POST-1858)
+*Cautious Neutrality.*
+
+### ✝️ OFFICIAL NEUTRALITY
+**Pre-1857:** Active support for missionaries (seen as a cause of 1857 revolt).
+
+**Post-1858:**
+- The **Queen's Proclamation** promised **Religious Neutrality**.
+- **The Shift:** Officials were banned from openly supporting missionary activities.
+- **Reality:** Missionaries continued to work, focusing on education and hospitals (soft power) rather than aggressive conversion, often funded by **"Grants-in-Aid"** for their schools (under Wood's Despatch).
+
+---
+
+## BLOCK 6: THE FIRST WHITE MUTINY (1859)
+*The Forgotten Revolt.*
+
+### ⚔️ EUROPEAN TROOPS' REVOLT
+**Context:** The Act of 1858 transferred the Company's army to the Crown.
+
+**The Grievance:**
+- The European soldiers of the East India Company (who were tough mercenaries) refused to simply be "transferred" like cattle to the Queen's Army without a bounty (bonus) or the right to discharge.
+
+**The Mutiny:**
+- They agitated and threatened violence. This is called the **"White Mutiny"** (distinct from the Ilbert Bill controversy).
+
+**The Resolution:**
+- The Government had to bow down. They offered a "discharge" option. Over **10,000 soldiers** opted to go home, forcing the Govt to recruit fresh troops from England.
+
+---
+
+## BLOCK 7: ROYAL COMMISSION ON DECENTRALIZATION (1908)
+*Why Local Govt Failed.*
+
+### 🏙️ HOBHOUSE COMMISSION
+**Chairman:** C.E.H. Hobhouse.
+
+**Diagnosis:** It analyzed why Ripon's "Local Self-Government" hadn't worked.
+
+**Findings:**
+- **Lack of Funds:** Local bodies had responsibilities (roads/health) but no independent tax revenue.
+- **Official Control:** The **District Collector** still controlled everything.
+
+**Recommendation:**
+- It recommended less official interference, but the Govt ignored it until the 1919 reforms.
+
+---
+
+## BLOCK 8: CREATION OF NWFP (1901)
+*Curzon's Frontier Strategy.*
+
+### 🏔️ NORTH-WEST FRONTIER PROVINCE
+**Context:**
+- The tribal areas (Pathans) were previously managed by the Punjab Government. It was chaotic.
+
+**The Move:**
+- **Lord Curzon** separated the trans-Indus districts from Punjab and created a new province: **North-West Frontier Province (NWFP)**.
+
+**Policy:**
+- It was placed directly under the Central Government (**Chief Commissioner**) to ensure a unified **"Forward Policy"** against the tribes and Russia.
+
+---
+
+## BLOCK 9: RESTORATION OF TALUQDARS (1858)
+*Buying Loyalty.*
+
+### 🏰 THE OUDH COMPROMISE
+**Pre-1857:** The British had stripped the Taluqdars (Landlords) of Oudh of their lands, which caused them to lead the 1857 Revolt.
+
+**Post-1858 Policy:** Lord Canning reversed this.
+
+**The Deal:**
+- The Taluqdars were given back their estates and empowered with magisterial powers. In return, they became the most loyal supporters of the British Raj.
+
+**Impact:** This cemented the **Zamindar-British alliance** that lasted until 1947.
+
+---
+
+## BLOCK 10: EXTERNAL EMIGRATION POLICY
+*The Export of Labor.*
+
+### 🚢 THE COOLIE SYSTEM
+**Context:** Slavery was abolished in the British Empire in 1833. Sugar plantations in Fiji, Mauritius, South Africa, and the Caribbean needed cheap labor.
+
+**The Policy:**
+- The Government of India facilitated the recruitment of **"Indentured Labor" (Girmitiyas)**.
+
+**Conditions:**
+- 5-year contracts.
+- Brutal conditions akin to slavery.
+
+**Abolition:** Under pressure from nationalists (Gandhi/Gokhale), the system was finally abolished in **1917**.
+
+---
+
+## BLOCK 11: WELBY COMMISSION (1895)
+*Investigating the Drain.*
+
+### 💰 ROYAL COMMISSION ON EXPENDITURE
+**Context:** Dadabhai Naoroji and others argued that India was being bled dry to pay for British wars and pensions.
+
+**The Commission:** Appointed in 1895 to inquire into Indian expenditure.
+
+**The Member:** **Dadabhai Naoroji** was the first Indian to sit as a member of a Royal Commission.
+
+**Outcome:** It admitted some unfair charges but mostly justified British spending. However, it validated the nationalist claim that India was paying for Imperial wars.
+
+---
+
+## BLOCK 12: CURRENCY COMMITTEES
+*Fixing the Rupee.*
+
+### 💱 HERSCHELL & FOWLER
+**Herschell Committee (1893):**
+- Recommended closing the mints to silver to artificially raise the value of the Rupee.
+
+**Fowler Committee (1898):**
+- Recommended that the British Sovereign (Gold Pound) should be legal tender in India. It effectively put India on a **Gold Exchange Standard**.
+
+**Impact:** This fixed the exchange rate at **1s 4d** (1 Rupee = 1 shilling 4 pence), which favored British imports over Indian exports.
+
+---
+
+## BLOCK 13: CONTAGIOUS DISEASES ACTS (1864)
+*Protecting the Soldier, Blaming the Woman.*
+
+### ⚕️ HEALTH POLICY FOR TROOPS
+**Context:** High rates of venereal disease among British soldiers in India.
+
+**The Policy:** The Contagious Diseases Acts (1864, 1868).
+
+**The Rule:**
+- It allowed the police to arrest women suspected of being prostitutes, force them to undergo humiliating medical exams, and lock them in **"Lock Hospitals"** if infected.
+
+**Repeal:** Repealed in **1888** after massive protests by social reformers in England and India.
+
+---
+
+## BLOCK 14: SALT POLICY
+*The Tax on Survival.*
+
+### 🧂 THE INLAND CUSTOMS LINE
+**Policy:** The Company established a strict monopoly on salt manufacture.
+
+**The Barrier:**
+- To prevent "cheap" salt from Princely States entering British territory, they built a **2,500-mile long hedge (The Great Hedge of India)** made of thorns, guarded by 12,000 men.
+
+**Tax:**
+- The salt tax was so high (sometimes 1000% of production cost) that it became a primary grievance, eventually leading to Gandhi's Dandi March in 1930.
+
+---
+
+## BLOCK 15: THE WEAPON OF SEDITION (1870)
+*The Section that silenced freedom.*
+
+### ⚖️ SECTION 124A
+**Context:** The original Indian Penal Code (1860) did not have a specific section for "Sedition."
+
+**The Insertion:**
+- It was inserted in **1870** by **Sir James Stephen** (Law Member) specifically to deal with Wahabi rebels and later nationalists.
+
+**The Definition:**
+- "Whoever by words... excites or attempts to excite disaffection towards the Government established by law..."
+
+**Famous Victims:** Used against **Bal Gangadhar Tilak** (1897, 1908) and **Mahatma Gandhi** (1922).
+
+**Policy:** It became the primary legal tool to criminalize political dissent.
+
+---
+
+## BLOCK 16: THE CARROT AND STICK POLICY
+*Managing the Congress.*
+
+### 🥕 CONCESSION & REPRESSION
+**The Strategy:** A three-pronged approach to deal with the Modern Nationalism:
+
+1.  **Repression (The Stick):** Jail the "Extremists" (Tilak/Aurobindo) using mild to harsh laws.
+2.  **Conciliation (The Carrot):** Offer minor reforms (1909, 1919) to pacify the "Moderates" (Gokhale).
+3.  **Suppression:** Once the Moderates are isolated, crush the Extremists completely.
+
+**Failure:** This worked initially (Surat Split 1907) but failed when Gandhi united both wings in 1920.
+
+---
+
+## BLOCK 17: THE "STEEL FRAME" SPEECH (1922)
+*The Reality Check.*
+
+### 🏗️ LLOYD GEORGE'S DECLARATION
+**Context:** By 1922, Indians were demanding rapid Indianization of the Civil Services (ICS).
+
+**The Speech:** British PM Lloyd George gave a famous speech in the House of Commons.
+
+**The Quote:** He called the ICS the **"Steel Frame"** of the British administration in India.
+
+**The Meaning:** He declared that whatever changes happen, the character of the British administration must remain British, and the British element in the ICS must be maintained to prevent the structure from collapsing. It was a clear signal that full independence was not on the table.
+
+---
+
+## BLOCK 18: POLICY TOWARDS DEPRESSED CLASSES
+*The Late Discovery.*
+
+### 🗳️ FROM APATHY TO PROTECTION
+**Phase 1 (Pre-1917): Apathy.**
+- The British ignored the Dalits (Depressed Classes) because they didn't want to offend the Orthodox Upper Caste Hindus (their loyalists).
+
+**Phase 2 (Post-1917): Utilization.**
+- As the Congress became a mass movement, the British suddenly became "champions" of the Depressed Classes.
+
+**The Goal:** To detach them from the Hindu body and create a separate political bloc (like Muslims).
+
+**Climax:** The **Communal Award (1932)** which granted Separate Electorates to Depressed Classes (thwarted by Gandhi's Poona Pact).
+
+---
+
+## BLOCK 19: POLICY ON ARMS (1878)
+*Disarming the Nation.*
+
+### 🔫 THE ARMS ACT
+**Context:** Fearing another 1857, the British wanted to ensure Indians could not possess weapons.
+
+**The Act:** Indian Arms Act, 1878 (Lytton).
+
+**The Rule:**
+- No Indian could keep a weapon without a license (which was impossible to get).
+
+**The Exception:** Europeans and Anglo-Indians were exempt.
+
+**Gandhi's View:** He called this act the "blackest" of all British laws because it emasculated the entire nation, making them unable to defend themselves.
+`;
+

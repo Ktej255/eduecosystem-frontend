@@ -305,3 +305,119 @@ export const MODERN_CHAPTER_26_MCQS = [
         cognitiveLevel: "Fact"
     }
 ];
+
+export const MODERN_CHAPTER_26_CONTENT = `
+# Chapter 26: Peasant Movements (1857-1947)
+
+The "Battle of the Soil": From local grievances to anti-colonial struggle.
+
+## BLOCK 1: 19th CENTURY REVOLTS (Anti-Landlord/Moneylender)
+
+### 1. Indigo Revolt (1859-60)
+*   **Location:** Bengal (Nadia).
+*   **Issue:** Forced Indigo cultivation.
+*   **Leaders:** Digambar & Bishnu Charan Biswas.
+*   **Support:** *Nil Darpan* (play by Dinabandhu Mitra), *Hindu Patriot* (Harish Chandra Mukherjee).
+*   **Outcome:** Indigo Commission (1860) ruled against forced cultivation.
+
+### 2. Pabna Agrarian Leagues (1873-85)
+*   **Location:** East Bengal (Yusufshahi).
+*   **Method:** Legal resistance against rent hike.
+*   **Outcome:** Bengal Tenancy Act (1885).
+*   **Leaders:** Ishwar Chandra Roy, Shambhu Nath Pal.
+
+### 3. Deccan Riots (1875)
+*   **Location:** Maharashtra (Pune/Ahmednagar).
+*   **Target:** Marwari/Gujarati Moneylenders.
+*   **Action:** Burning of account bonds.
+*   **Outcome:** Deccan Agriculturists Relief Act (1879).
+
+### 4. Ramosi Peasant Force (1879)
+*   **Leader:** **Vasudev Balwant Phadke**.
+*   **Nature:** Armed rebellion; "Father of Indian Armed Rebellion".
+
+---
+
+## BLOCK 2: THE GANDHIAN ERA (1917-28)
+
+### 1. Champaran (1917)
+*   **Issue:** Tinkathia System (Indigo).
+*   **Leader:** Gandhi (invited by Raj Kumar Shukla).
+*   **Outcome:** First Civil Disobedience victory.
+
+### 2. Kheda (1918)
+*   **Issue:** Revenue collection despite crop failure.
+*   **Leader:** Gandhi & **Vallabhbhai Patel**.
+*   **Outcome:** First Non-Cooperation.
+
+### 3. Moplah Rebellion (1921)
+*   **Location:** Malabar (Kerala).
+*   **Nature:** Tenants (Muslim Moplahs) vs Landlords (Hindu Jenmis).
+*   **Tragedy:** Turned communal; isolated from national movement.
+
+### 4. Bardoli Satyagraha (1928)
+*   **Issue:** 30% Revenue Hike.
+*   **Leader:** Vallabhbhai Patel (Given title "**Sardar**" by Bardoli women).
+*   **Social Reform:** Hali System (bonded labor) - united Kali Paraj & Ujali Paraj.
+*   **Outcome:** Hike reduced to 6.03%.
+
+---
+
+## BLOCK 3: THE KISAN SABHAS (Organization)
+
+### 1. UP Kisan Sabha (1918)
+*   **Leaders:** Gauri Shankar Mishra, Madan Mohan Malaviya.
+*   **Nature:** Moderate.
+
+### 2. Awadh Kisan Sabha (1920)
+*   **Leader:** **Baba Ramchandra** (Recited Ramayana to mobilize).
+*   **Nature:** Radical (Nai-Dhobi bandhs).
+
+### 3. All India Kisan Sabha (AIKS) - 1936
+*   **Session:** Lucknow (with Congress).
+*   **President:** **Swami Sahajanand Saraswati**.
+*   **Gen Sec:** **N.G. Ranga**.
+*   **Manifesto:** Abolition of Zamindari.
+
+### 4. Eka Movement (1921)
+*   **Leader:** Madari Pasi.
+*   **Symbol:** Unity pledge with water.
+
+---
+
+## BLOCK 4: THE POST-WAR TRILOGY (1946)
+**The Final Struggle.**
+
+### 1. Tebhaga (Bengal, 1946)
+*   **Demand:** Sharecroppers (Bargadars) wanted **2/3rd** share (Floud Commission recommendation).
+*   **Slogan:** "Nij Khamare Dhan Tolo".
+*   **Led by:** Communist Party (Kisan Sabha).
+
+### 2. Telangana (Hyderabad, 1946-51)
+*   **Nature:** Armed Guerrilla Struggle.
+*   **Target:** Nizam & Deshmukhs (Vetti/Forced Labor).
+*   **Peak:** Seized 10 lakh acres of land.
+
+### 3. Varli (Maharashtra, 1945)
+*   **Leader:** Godavari Parulekar (Godutai).
+*   **Group:** Tribals (Adivasis) against timber merchants.
+
+---
+
+## BLOCK 5: KEY FIGURES & REGIONS
+
+| Region | Leader | Movement |
+| :--- | :--- | :--- |
+| **Punjab** | Ajit Singh, Bhagat Singh | Pagri Sambhal Jatta (1907), Kirti Kisan. |
+| **Bihar** | Swami Sahajanand | Bakasht Lands struggle. |
+| **Andhra** | **N.G. Ranga** | Ryots Association, Anti-Resettlement. |
+| **Kerala** | A.K. Gopalan, EMS | Karshak Sangams. |
+| **Orissa** | Malati Choudhury | Utkal Kisan Sabha. |
+| **Assam** | - | Patharughat Massacre (1894). |
+
+> [!NOTE]
+> **Who is Who:**
+> *   **Father of Peasant Movement:** N.G. Ranga.
+> *   **Writer-Leader:** Rahul Sankrityayan (Amwari Satyagraha).
+> *   **Armed Rebel:** Vasudev Balwant Phadke.
+`;
