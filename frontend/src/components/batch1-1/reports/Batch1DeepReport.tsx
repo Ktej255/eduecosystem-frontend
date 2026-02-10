@@ -252,6 +252,9 @@ interface ActivityStats {
     totalMCQsSolved: number;
     totalCorrect: number;
     totalFlashcards: number;
+    pomodoroMCQs: number;
+    pomodoroCorrect: number;
+    chapterMCQs: number;
     byTopic: Record<string, number>;
 }
 
@@ -279,7 +282,7 @@ function ActivityReport() {
                             <span className="font-semibold">Total MCQs Solved</span>
                         </div>
                         <div className="text-4xl font-bold text-gray-900">{stats.totalMCQsSolved}</div>
-                        <p className="text-xs text-indigo-600/70 mt-2">Combined Evening & PYQ Bank</p>
+                        <p className="text-xs text-indigo-600/70 mt-2">All Sources (Evening, PYQ, Pomodoro, Chapter)</p>
                     </CardContent>
                 </Card>
 
@@ -310,6 +313,34 @@ function ActivityReport() {
                 </Card>
             </div>
 
+            {/* Pomodoro Specific Stats */}
+            {stats.pomodoroMCQs > 0 && (
+                <Card className="bg-gradient-to-br from-orange-50 to-red-50 border-orange-200">
+                    <CardContent className="p-6">
+                        <div className="flex items-center gap-3 mb-3 text-orange-700">
+                            <Clock className="w-5 h-5" />
+                            <span className="font-semibold">Pomodoro MCQ Performance</span>
+                        </div>
+                        <div className="grid grid-cols-3 gap-3">
+                            <div className="text-center p-3 bg-white/80 rounded-xl">
+                                <div className="text-2xl font-bold text-orange-700">{stats.pomodoroMCQs}</div>
+                                <div className="text-[10px] font-bold text-orange-500 uppercase">Questions</div>
+                            </div>
+                            <div className="text-center p-3 bg-white/80 rounded-xl">
+                                <div className="text-2xl font-bold text-green-700">{stats.pomodoroCorrect}</div>
+                                <div className="text-[10px] font-bold text-green-500 uppercase">Correct</div>
+                            </div>
+                            <div className="text-center p-3 bg-white/80 rounded-xl">
+                                <div className="text-2xl font-bold text-indigo-700">
+                                    {stats.pomodoroMCQs > 0 ? Math.round((stats.pomodoroCorrect / stats.pomodoroMCQs) * 100) : 0}%
+                                </div>
+                                <div className="text-[10px] font-bold text-indigo-500 uppercase">Accuracy</div>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            )}
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Card>
                     <CardHeader>
@@ -322,7 +353,9 @@ function ActivityReport() {
                                 <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40">
                                     <div className={`mt-1 p-1.5 rounded-full shrink-0 ${log.type === 'MCQ_EVENING' ? 'bg-indigo-100 text-indigo-600' :
                                         log.type === 'MCQ_PYQ' ? 'bg-blue-100 text-blue-600' :
-                                            'bg-amber-100 text-amber-600'
+                                            log.type === 'MCQ_POMODORO' ? 'bg-orange-100 text-orange-600' :
+                                                log.type === 'MCQ_CHAPTER' ? 'bg-violet-100 text-violet-600' :
+                                                    'bg-amber-100 text-amber-600'
                                         }`}>
                                         {log.type.includes('MCQ') ? <Zap size={14} /> : <Brain size={14} />}
                                     </div>
@@ -332,7 +365,10 @@ function ActivityReport() {
                                                 {log.type === 'MCQ_EVENING' ? 'Solved Evening MCQ' :
                                                     log.type === 'MCQ_PYQ' ? 'Solved PYQ' :
                                                         log.type === 'MCQ_SATURDAY' ? 'Saturday Test MCQ' :
-                                                            'Flashcard Review'}
+                                                            log.type === 'MCQ_POMODORO' ? '🍅 Pomodoro MCQ' :
+                                                                log.type === 'MCQ_CHAPTER' ? '📚 Chapter MCQ' :
+                                                                    log.type === 'MCQ_CSAT' ? 'CSAT MCQ' :
+                                                                        'Flashcard Review'}
                                             </p>
                                             <span className="text-[10px] text-slate-400 whitespace-nowrap ml-2">
                                                 {new Date(log.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}

@@ -1,6 +1,6 @@
 import { ConfidenceLevel } from "@/components/batch1-1/pomodoro/CycleMCQs";
 
-export type ActivityType = 'MCQ_EVENING' | 'MCQ_PYQ' | 'MCQ_SATURDAY' | 'FLASHCARD_REVIEW' | 'MCQ_CSAT' | 'MCQ_POMODORO';
+export type ActivityType = 'MCQ_EVENING' | 'MCQ_PYQ' | 'MCQ_SATURDAY' | 'FLASHCARD_REVIEW' | 'MCQ_CSAT' | 'MCQ_POMODORO' | 'MCQ_CHAPTER';
 
 export interface ActivityLog {
     id: string;
@@ -58,9 +58,12 @@ export const ActivityLogger = {
     getStats: () => {
         const logs = ActivityLogger.getLogs();
         return {
-            totalMCQsSolved: logs.filter(l => l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY' || l.type === 'MCQ_POMODORO').length,
-            totalCorrect: logs.filter(l => (l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY' || l.type === 'MCQ_POMODORO') && l.details.isCorrect).length,
+            totalMCQsSolved: logs.filter(l => l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY' || l.type === 'MCQ_POMODORO' || l.type === 'MCQ_CHAPTER').length,
+            totalCorrect: logs.filter(l => (l.type === 'MCQ_EVENING' || l.type === 'MCQ_PYQ' || l.type === 'MCQ_SATURDAY' || l.type === 'MCQ_POMODORO' || l.type === 'MCQ_CHAPTER') && l.details.isCorrect).length,
             totalFlashcards: logs.filter(l => l.type === 'FLASHCARD_REVIEW').length,
+            pomodoroMCQs: logs.filter(l => l.type === 'MCQ_POMODORO').length,
+            pomodoroCorrect: logs.filter(l => l.type === 'MCQ_POMODORO' && l.details.isCorrect).length,
+            chapterMCQs: logs.filter(l => l.type === 'MCQ_CHAPTER').length,
             byTopic: logs.reduce((acc, log) => {
                 const topic = log.details.topic || 'Uncategorized';
                 acc[topic] = (acc[topic] || 0) + 1;

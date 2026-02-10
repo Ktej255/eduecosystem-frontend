@@ -29,6 +29,7 @@ import { Switch } from "@/components/ui/switch";
 import { Volume2, Volume1, VolumeX, Headphones } from "lucide-react";
 import { awardXP, checkAchievements, updateStreak } from "@/lib/gamification";
 import { upscSynapseService, CognitiveProfile } from "@/lib/upsc-synapse-service";
+import { ActivityLogger } from "@/lib/analytics/ActivityLogger";
 
 // Session states for the enhanced cycle
 type SessionState =
@@ -38,6 +39,7 @@ type SessionState =
     | 'subtopic_select'
     | 'flashcards'
     | 'mcqs'
+    | 'session_report'
     | 'reading'
     | 'break'
     | 'long_break'
@@ -288,6 +290,9 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
 
     // Session Goal
     const [sessionGoal, setSessionGoal] = useState("");
+
+    // Last MCQ results for immediate session report
+    const [lastMCQResults, setLastMCQResults] = useState<MCQResult[]>([]);
 
     // Detailed history: Store data for each of the 12 sessions
     const [sessionHistory, setSessionHistory] = useState<CycleData[]>([]);
@@ -603,13 +608,27 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
         checkAchievements();
         window.dispatchEvent(new Event('xp-updated'));
 
+        // Log EACH MCQ to ActivityLogger for Deep Report visibility
+        resultsArray.forEach(result => {
+            ActivityLogger.logActivity({
+                type: 'MCQ_POMODORO',
+                details: {
+                    questionId: result.questionId,
+                    topic: subject === 'polity' ? 'Polity' : 'History',
+                    subtopic: result.subtopicId || '',
+                    isCorrect: result.isCorrect,
+                    confidence: result.confidence,
+                    timeSpent: result.timeSpent,
+                }
+            });
+        });
+
         // 1. Record Data for this Session
         const newSessionData: CycleData = {
             cycleNumber: currentSessionGlobal,
             selectedSubtopics: currentSubtopics,
             flashcardsViewed: currentSubtopics.length * 2, // Approx
             mcqResults: results,
-            // timestamp: new Date().toISOString() // Optional if CycleData supports it
         };
 
         const updated = [...sessionHistory, newSessionData];
@@ -618,8 +637,9 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
         // Sync to unified progress store
         syncProgressToStore(weekId, dayId, currentSubtopics, results, currentSessionGlobal, subject, cognitiveProfile?.id);
 
-        // 2. Determine Next Step -> Reading Phase
-        setSessionState('reading');
+        // 2. Determine Next Step -> Session Report (shows immediate MCQ results)
+        setLastMCQResults(resultsArray);
+        setSessionState('session_report');
     };
 
     const handleReadingComplete = () => {
@@ -1138,6 +1158,107 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
                             }}
                         />
                     )}
+
+                    {sessionState === 'session_report' && lastMCQResults.length > 0 && (() => {
+                        const correct = lastMCQResults.filter(r => r.isCorrect).length;
+                        const total = lastMCQResults.length;
+                        const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+                        const avgTime = total > 0 ? Math.round(lastMCQResults.reduce((sum, r) => sum + r.timeSpent, 0) / total) : 0;
+
+                        // Confidence breakdown
+                        const confidenceGroups: Record<string, { correct: number; total: number }> = {};
+                        lastMCQResults.forEach(r => {
+                            const conf = r.confidence || 'unknown';
+                            if (!confidenceGroups[conf]) confidenceGroups[conf] = { correct: 0, total: 0 };
+                            confidenceGroups[conf].total++;
+                            if (r.isCorrect) confidenceGroups[conf].correct++;
+                        });
+
+                        const confidenceLabels: Record<string, { label: string; color: string; bg: string }> = {
+                            'sure': { label: '💪 Sure', color: 'text-green-700', bg: 'bg-green-50 border-green-200' },
+                            '50-50': { label: '🤔 50-50', color: 'text-yellow-700', bg: 'bg-yellow-50 border-yellow-200' },
+                            'one-option': { label: '🎯 One Known', color: 'text-blue-700', bg: 'bg-blue-50 border-blue-200' },
+                            'blind': { label: '🎲 Blind', color: 'text-red-700', bg: 'bg-red-50 border-red-200' },
+                            'unknown': { label: '❓ Unset', color: 'text-gray-700', bg: 'bg-gray-50 border-gray-200' },
+                        };
+
+                        return (
+                            <Card className="bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-slate-900 dark:to-indigo-900/20 border-indigo-200">
+                                <CardContent className="p-6 space-y-6">
+                                    {/* Header */}
+                                    <div className="text-center">
+                                        <div className={`w-16 h-16 mx-auto mb-3 rounded-full flex items-center justify-center ${accuracy >= 70 ? 'bg-green-100' : accuracy >= 40 ? 'bg-yellow-100' : 'bg-red-100'}`}>
+                                            <Trophy className={`h-8 w-8 ${accuracy >= 70 ? 'text-green-600' : accuracy >= 40 ? 'text-yellow-600' : 'text-red-600'}`} />
+                                        </div>
+                                        <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-1">Session {currentSessionGlobal} Report</h2>
+                                        <p className="text-sm text-gray-500">{correct}/{total} correct • {avgTime}s avg per question</p>
+                                    </div>
+
+                                    {/* Score Cards */}
+                                    <div className="grid grid-cols-3 gap-3">
+                                        <div className="text-center p-3 bg-white dark:bg-gray-900 rounded-xl border shadow-sm">
+                                            <div className={`text-3xl font-black ${accuracy >= 70 ? 'text-green-600' : accuracy >= 40 ? 'text-yellow-600' : 'text-red-600'}`}>{accuracy}%</div>
+                                            <div className="text-[10px] font-bold text-gray-500 uppercase mt-1">Accuracy</div>
+                                        </div>
+                                        <div className="text-center p-3 bg-white dark:bg-gray-900 rounded-xl border shadow-sm">
+                                            <div className="text-3xl font-black text-indigo-600">{correct}</div>
+                                            <div className="text-[10px] font-bold text-gray-500 uppercase mt-1">Correct</div>
+                                        </div>
+                                        <div className="text-center p-3 bg-white dark:bg-gray-900 rounded-xl border shadow-sm">
+                                            <div className="text-3xl font-black text-gray-700 dark:text-gray-300">{avgTime}s</div>
+                                            <div className="text-[10px] font-bold text-gray-500 uppercase mt-1">Avg Time</div>
+                                        </div>
+                                    </div>
+
+                                    {/* Confidence Breakdown */}
+                                    <div>
+                                        <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Confidence vs. Correctness</h3>
+                                        <div className="grid grid-cols-2 gap-2">
+                                            {Object.entries(confidenceGroups).map(([conf, data]) => {
+                                                const info = confidenceLabels[conf] || confidenceLabels['unknown'];
+                                                const confAcc = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
+                                                return (
+                                                    <div key={conf} className={`p-2.5 rounded-lg border ${info.bg}`}>
+                                                        <div className="flex justify-between items-center">
+                                                            <span className={`text-xs font-bold ${info.color}`}>{info.label}</span>
+                                                            <span className="text-xs font-mono text-gray-600">{data.correct}/{data.total}</span>
+                                                        </div>
+                                                        <div className="h-1.5 bg-gray-200 rounded-full mt-1.5 overflow-hidden">
+                                                            <div className={`h-full rounded-full ${confAcc >= 70 ? 'bg-green-500' : confAcc >= 40 ? 'bg-yellow-500' : 'bg-red-500'}`}
+                                                                style={{ width: `${confAcc}%` }} />
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+
+                                    {/* Individual Questions */}
+                                    <div>
+                                        <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Question Results</h3>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {lastMCQResults.map((r, idx) => (
+                                                <div key={idx} className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold border ${r.isCorrect
+                                                    ? 'bg-green-100 text-green-700 border-green-300'
+                                                    : 'bg-red-100 text-red-700 border-red-300'
+                                                    }`}>
+                                                    {idx + 1}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Continue Button */}
+                                    <Button
+                                        onClick={() => setSessionState('reading')}
+                                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white h-12 text-base font-bold"
+                                    >
+                                        Continue to Reading <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        );
+                    })()}
 
                     {sessionState === 'reading' && (
                         <ReadingMaterial
