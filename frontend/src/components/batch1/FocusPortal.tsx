@@ -12,7 +12,8 @@ import {
     Flame,
     Moon,
     Trophy,
-    ArrowLeft
+    ArrowLeft,
+    Target
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -29,8 +30,9 @@ import FocusAnalyticsDashboard from '@/components/batch1/FocusAnalyticsDashboard
 
 import Batch1DeepReport from '@/components/batch1-1/reports/Batch1DeepReport';
 import Batch1_1EveningSession from '@/components/batch1-1/evening/Batch1_1EveningSession';
+import SubjectPomodoro from '@/components/batch1-1/pomodoro/SubjectPomodoro';
 
-type FocusTab = 'pomodoro' | 'study' | 'analytics' | 'retention' | 'evening';
+type FocusTab = 'pomodoro' | 'subject_pomodoro' | 'study' | 'analytics' | 'retention' | 'evening';
 type Subject = 'polity' | 'history' | 'geography' | 'science';
 
 const WEEKS = Array.from({ length: 20 }, (_, i) => ({
@@ -83,6 +85,7 @@ export default function FocusPortal() {
 
     const tabs = [
         { id: 'pomodoro', label: 'Pomodoro Portal', icon: Timer, color: 'text-orange-500' },
+        { id: 'subject_pomodoro', label: 'Subject Pomodoro', icon: Target, color: 'text-rose-500' },
         { id: 'evening', label: 'Evening Session', icon: Moon, color: 'text-indigo-500' },
         { id: 'study', label: 'Subject Study', icon: BookOpen, color: 'text-blue-500' },
         { id: 'analytics', label: 'Deep Reports', icon: BarChart3, color: 'text-purple-500' },
@@ -262,6 +265,12 @@ export default function FocusPortal() {
                                         )}
                                     </div>
                                 )}
+                            </div>
+                        )}
+
+                        {activeTab === 'subject_pomodoro' && (
+                            <div className="space-y-6">
+                                <SubjectPomodoro />
                             </div>
                         )}
 

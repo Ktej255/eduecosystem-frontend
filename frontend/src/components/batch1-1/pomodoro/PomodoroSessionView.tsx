@@ -52,6 +52,8 @@ interface PomodoroSessionViewProps {
     showBackButton?: boolean;
     subjectOverride?: 'history' | 'polity';
     historySection?: string; // 'modern' | 'medieval' | 'ancient' | 'art_culture'
+    subject?: 'polity' | 'history'; // For standalone Subject Pomodoro mode
+    independentChapters?: number[]; // Chapter IDs for independent/standalone mode
 }
 
 interface MCQResult {
@@ -268,7 +270,7 @@ function syncProgressToStore(
     }
 }
 
-export default function PomodoroSessionView({ weekId, dayId, showBackButton = true, subjectOverride, historySection = 'modern' }: PomodoroSessionViewProps) {
+export default function PomodoroSessionView({ weekId, dayId, showBackButton = true, subjectOverride, historySection = 'modern', subject: subjectProp, independentChapters }: PomodoroSessionViewProps) {
     const router = useRouter();
     const { user } = useAuth();
     const TOTAL_BLOCKS = 3;         // 3 Blocks of 2 hours each
@@ -379,7 +381,26 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
     const currentSessionInBlock = ((currentSessionGlobal - 1) % SESSIONS_PER_BLOCK) + 1;
 
     // Get today's content (chapters & tasks)
-    const { chapters: todayChapters, tasks: todayTasks, isFabSchedule, morningTopic, eveningTopic, liveClassLink, subject } = useMemo(() => getDayContent(weekId, dayId), [weekId, dayId]);
+    const { chapters: todayChapters, tasks: todayTasks, isFabSchedule, morningTopic, eveningTopic, liveClassLink, subject } = useMemo(() => {
+        // Independent/Standalone mode: use provided chapters directly
+        if (independentChapters && independentChapters.length > 0) {
+            const chapterNames = independentChapters.map(id => {
+                const ch = LAXMIKANTH_CHAPTERS.find(c => c.chapter === id);
+                return ch ? ch.topic : `Chapter ${id}`;
+            });
+            return {
+                chapters: independentChapters,
+                tasks: [] as string[],
+                chapterNames,
+                subject: (subjectProp || 'polity') as 'polity' | 'history',
+                isFabSchedule: false,
+                morningTopic: 'Independent Study',
+                eveningTopic: undefined,
+                liveClassLink: undefined,
+            };
+        }
+        return getDayContent(weekId, dayId, subjectOverride, historySection);
+    }, [weekId, dayId, independentChapters, subjectProp, subjectOverride, historySection]);
 
     // Get chapter names / task names for display
     const scheduleItems = useMemo(() => {
