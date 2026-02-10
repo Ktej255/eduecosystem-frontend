@@ -11,20 +11,27 @@ export interface ChatMessage {
     sources?: string[];
 }
 
-export const sendMessageToDrAmbedkar = async (message: string, history: ChatMessage[] = []): Promise<ChatMessage> => {
-    try {
-        // Construct the context from history if needed, but for now sending just the message
-        // The backend `chatbot.py` or `ai_tutor.py` likely expects a specific payload.
-        // Using `ai_tutor.py` schema: { message: string, context_context: string } is one option
-        // using `chatbot.py` schema: { message: string, ... } might be another.
-        // Let's assume a generic robust call for now, and we can refine based on backend actual response.
+export interface ChatContext {
+    topicId?: number;
+    topicTitle?: string;
+    section?: string;
+}
 
-        // Simulating network delay for "Thinking" effect if backend is illustrative
-        // await new Promise(resolve => setTimeout(resolve, 1000));
+export const sendMessageToDrAmbedkar = async (message: string, history: ChatMessage[] = [], context?: ChatContext): Promise<ChatMessage> => {
+    try {
+        // Construct the context string
+        let contextContext = "subject:polity";
+        if (context?.topicTitle) {
+            contextContext += `, topic:${context.topicTitle}`;
+        }
+        if (context?.topicId) {
+            contextContext += `, topic_id:${context.topicId}`;
+        }
 
         const response = await axios.post(`${API_URL}/ai/tutor/chat`, {
             message: message,
-            context_context: "subject:polity" // Hinting the context
+            context_context: contextContext,
+            history: history.map(msg => ({ role: msg.role, content: msg.content })) // Send history for stateful chat
         });
 
         return {

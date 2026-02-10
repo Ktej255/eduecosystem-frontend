@@ -180,6 +180,15 @@ export default function TopicViewerPage() {
                     <Button
                         variant="outline"
                         size="sm"
+                        onClick={() => router.push(`/student/batch1-1/polity/ai-tutor?topicId=${topicId}`)}
+                        className="hidden md:flex gap-2 text-purple-600 border-purple-200 hover:bg-purple-50"
+                    >
+                        <Sparkles className="h-4 w-4" />
+                        Ask Dr. Ambedkar
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
                         onClick={() => goToTopic(topicId - 1)}
                         disabled={topicId <= 1}
                     >

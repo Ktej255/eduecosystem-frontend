@@ -8,10 +8,18 @@ import ChatWindow from '@/components/batch1-1/polity/ai-tutor/ui/ChatWindow';
 import QueryInput from '@/components/batch1-1/polity/ai-tutor/ui/QueryInput';
 import { ChatMessage, sendMessageToDrAmbedkar } from '@/components/batch1-1/polity/ai-tutor/services/ChatService';
 import { Sparkles, BookOpen, Scale, History, ChevronLeft } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import { TOPIC_TITLES } from '@/components/batch1-1/polity/data/polity-types-95';
 
 export default function AITutorPage() {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const topicIdParam = searchParams.get('topicId');
+    const topicId = topicIdParam ? parseInt(topicIdParam) : undefined;
+
+    // Resolve topic context
+    const currentTopic = topicId ? TOPIC_TITLES.find(t => t.id === topicId) : undefined;
+
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [isTyping, setIsTyping] = useState(false);
 
@@ -26,8 +34,13 @@ export default function AITutorPage() {
         setMessages(prev => [...prev, userMsg]);
         setIsTyping(true);
 
-        // 2. Call Service
-        const aiMsg = await sendMessageToDrAmbedkar(text, messages);
+        // 2. Call Service with Context
+        const context = currentTopic ? {
+            topicId: currentTopic.id,
+            topicTitle: currentTopic.title
+        } : undefined;
+
+        const aiMsg = await sendMessageToDrAmbedkar(text, messages, context);
 
         // 3. Add AI Message
         setMessages(prev => [...prev, aiMsg]);
