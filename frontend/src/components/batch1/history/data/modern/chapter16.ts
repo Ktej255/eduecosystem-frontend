@@ -1,507 +1,824 @@
-export interface Subtopic {
-    id: string | number;
-    name: string;
-    status?: string;
-}
+import { Question } from '../../../../types';
 
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic?: string | number;
-    difficulty?: string;
-    cognitiveLevel?: string;
-}
-
-export const MODERN_CHAPTER_16_SUBTOPICS: Subtopic[] = [
-    { id: 1, name: "Background (Khilafat, Hunter Committee)", status: 'commenced' },
-    { id: 2, name: "Launch of NCM (Aug 1, 1920)", status: 'commenced' },
-    { id: 3, name: "Congress Sessions (Calcutta & Nagpur 1920)", status: 'commenced' },
-    { id: 4, name: "Spread & Regional Variations", status: 'commenced' },
-    { id: 5, name: "Withdrawal (Chauri Chaura) & Split", status: 'commenced' },
-];
-
-export const MODERN_CHAPTER_16_MCQS = [
+export const MODERN_CHAPTER_16_MCQS: Question[] = [
     {
-        id: 1,
-        question: "The 'Khilafat Movement' was primarily organized to protest against the injustice done to:",
-        options: [
-            "The Caliph of Baghdad",
-            "The Sultan of Turkey (Ottoman Empire)",
-            "The Shah of Iran",
-            "The King of Afghanistan"
+        "id": 1,
+        "question": "After the withdrawal of NCM, the Congress split into two groups over the question of entering legislative councils. These groups were known as:",
+        "options": [
+            "Moderates and Extremists",
+            "Pro-Changers and No-Changers",
+            "Liberals and Radicals",
+            "Swarajists and Socialists"
         ],
-        correctAnswer: 1,
-        explanation: "The Sultan of Turkey was the Caliph. The Treaty of Sevres (1920) dismembered the Ottoman Empire."
+        "answerRaw": "B. Pro-Changers and No-Changers",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 2,
-        question: "Who among the following leaders was the first to link the Khilafat issue with the Indian National Movement, seeing it as 'an opportunity of uniting Hindus and Mohammedans as would not arise in a hundred years'?",
-        options: [
-            "Muhammad Ali Jinnah",
-            "Abul Kalam Azad",
-            "Mahatma Gandhi",
-            "Shaukat Ali"
+        "id": 2,
+        "question": "Who were the two primary leaders of the 'Pro-Changers' who advocated for \"ending or mending\" the councils from within?",
+        "options": [
+            "C.R. Das and Motilal Nehru",
+            "Vallabhbhai Patel and C. Rajagopalachari",
+            "Jawaharlal Nehru and Subhash Bose",
+            "Mahatma Gandhi and Rajendra Prasad"
         ],
-        correctAnswer: 2,
-        explanation: "Gandhi saw this as a golden opportunity for Hindu-Muslim unity."
+        "answerRaw": "A. C.R. Das and Motilal Nehru",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 3,
-        question: "The 'All India Khilafat Conference' held in Delhi in November 1919 decided to:",
-        options: [
-            "Launch a violent Jihad against the British",
-            "Boycott British goods if their demands were not met",
-            "Support the British in exchange for concessions",
-            "Merge with the Muslim League"
+        "id": 3,
+        "question": "Which group of leaders, known as 'No-Changers', opposed council entry and wanted to focus on Gandhi's constructive program?",
+        "options": [
+            "C.R. Das and Motilal Nehru",
+            "C. Rajagopalachari, Vallabhbhai Patel, and Rajendra Prasad",
+            "Hakim Ajmal Khan and Vithalbhai Patel",
+            "Satyamurti and Srinivas Iyengar"
         ],
-        correctAnswer: 1,
-        explanation: "It decided to boycott British goods if the Khilafat demands were not met."
+        "answerRaw": "B. C. Rajagopalachari, Vallabhbhai Patel, and Rajendra Prasad",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 4,
-        question: "The Non-Cooperation Movement was formally launched on August 1, 1920. This day is also significant because:",
-        options: [
-            "The Jallianwala Bagh massacre happened on this day",
-            "Lokmanya Tilak passed away",
-            "Gandhi returned the Kaiser-i-Hind medal",
-            "The Prince of Wales arrived in India"
+        "id": 4,
+        "question": "The 'Congress-Khilafat Swaraj Party' was formed in January 1923 following the deadlock at which Congress session?",
+        "options": [
+            "Nagpur Session (1920)",
+            "Gaya Session (1922)",
+            "Belgaum Session (1924)",
+            "Kanpur Session (1925)"
         ],
-        correctAnswer: 1,
-        explanation: "Lokmanya Tilak passed away in the early hours of Aug 1, 1920."
+        "answerRaw": "B. Gaya Session (1922)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 5,
-        question: "Who among the following leaders opposed the Non-Cooperation resolution at the Calcutta Special Session (1920) but later moved the same resolution at the Nagpur Session (1920)?",
-        options: [
+        "id": 5,
+        "question": "Who was the first President of the Swaraj Party?",
+        "options": [
             "Motilal Nehru",
-            "C.R. Das (Chittaranjan Das)",
-            "Lala Lajpat Rai",
-            "Vallabhbhai Patel"
+            "C.R. Das",
+            "Vithalbhai Patel",
+            "Lala Lajpat Rai"
         ],
-        correctAnswer: 1,
-        explanation: "C.R. Das opposed it at Calcutta (due to the boycott of councils) but was won over by Gandhi and moved the resolution at Nagpur."
+        "answerRaw": "B. C.R. Das",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 6,
-        question: "The 'Nagpur Session' (1920) of the Congress is a landmark in India's constitutional history because: (1) It changed the goal of the Congress to 'Swaraj by peaceful and legitimate means', (2) It established a CWC of 15 members, (3) It reorganized PCCs on a linguistic basis. Which are correct?",
-        options: [
+        "id": 6,
+        "question": "In the 1923 elections, the Swarajists won a clear majority in which provincial council?",
+        "options": [
+            "Madras",
+            "Central Provinces",
+            "United Provinces",
+            "Punjab"
+        ],
+        "answerRaw": "B. Central Provinces",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 7,
+        "question": "Who was elected as the Speaker (President) of the Central Legislative Assembly in 1925, marking a major victory for the Swarajists?",
+        "options": [
+            "Motilal Nehru",
+            "Vithalbhai Patel",
+            "Madan Mohan Malaviya",
+            "C.R. Das"
+        ],
+        "answerRaw": "B. Vithalbhai Patel",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 8,
+        "question": "The death of which leader in June 1925 led to a decline in the strength of the Swarajists?",
+        "options": [
+            "Motilal Nehru",
+            "C.R. Das",
+            "Lala Lajpat Rai",
+            "Hakim Ajmal Khan"
+        ],
+        "answerRaw": "B. C.R. Das",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 9,
+        "question": "Which group within the Swarajists, led by Madan Mohan Malaviya and Lala Lajpat Rai, advocated for cooperation with the government to protect Hindu interests?",
+        "options": [
+            "Responsivists",
+            "Non-Responsivists",
+            "Socialist Wing",
+            "Revolutionary Wing"
+        ],
+        "answerRaw": "A. Responsivists",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 10,
+        "question": "The 'Hindustan Republican Association' (HRA) was founded in 1924 at:",
+        "options": [
+            "Calcutta",
+            "Kanpur",
+            "Delhi",
+            "Lahore"
+        ],
+        "answerRaw": "B. Kanpur",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 11,
+        "question": "Who were the main founders of the HRA?",
+        "options": [
+            "Bhagat Singh and Sukhdev",
+            "Ram Prasad Bismil, Jogesh Chandra Chatterjee, and Sachin Sanyal",
+            "Surya Sen and Kalpana Datta",
+            "Chandrashekhar Azad and Batukeshwar Dutt"
+        ],
+        "answerRaw": "B. Ram Prasad Bismil, Jogesh Chandra Chatterjee, and Sachin Sanyal",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 12,
+        "question": "The famous 'Kakori Train Robbery' took place in which year?",
+        "options": [
+            "1924",
+            "1925",
+            "1926",
+            "1928"
+        ],
+        "answerRaw": "B. 1925",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 13,
+        "question": "The HRA was reorganized as the 'Hindustan Socialist Republican Association' (HSRA) in 1928 at:",
+        "options": [
+            "Jallianwala Bagh, Amritsar",
+            "Feroz Shah Kotla, Delhi",
+            "Alfred Park, Allahabad",
+            "Kakori, UP"
+        ],
+        "answerRaw": "B. Feroz Shah Kotla, Delhi",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 14,
+        "question": "Who added the word 'Socialist' to the HRA and gave it a new ideological direction?",
+        "options": [
+            "Bhagat Singh",
+            "Chandrashekhar Azad",
+            "Subhash Chandra Bose",
+            "Jawaharlal Nehru"
+        ],
+        "answerRaw": "A. Bhagat Singh",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 15,
+        "question": "To avenge the death of Lala Lajpat Rai, Bhagat Singh, Rajguru, and Azad assassinated which British officer in 1928?",
+        "options": [
+            "General Dyer",
+            "John Saunders",
+            "Michael O'Dwyer",
+            "Lord Irwin"
+        ],
+        "answerRaw": "B. John Saunders (Assistant Superintendent of Police)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 16,
+        "question": "Bhagat Singh and Batukeshwar Dutt threw bombs in the Central Legislative Assembly in April 1929 to protest against:",
+        "options": [
+            "The Partition of Bengal",
+            "The Public Safety Bill and Trade Dispute Bill",
+            "The Simon Commission",
+            "The Rowlatt Act"
+        ],
+        "answerRaw": "B. The Public Safety Bill and Trade Dispute Bill",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 17,
+        "question": "Which revolutionary died in 1929 after a 64-day hunger strike in jail demanding better conditions for political prisoners?",
+        "options": [
+            "Bhagat Singh",
+            "Jatin Das",
+            "Sukhdev",
+            "Surya Sen"
+        ],
+        "answerRaw": "B. Jatin Das",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 18,
+        "question": "Bhagat Singh, Rajguru, and Sukhdev were executed on March 23, 1931, in the:",
+        "options": [
+            "Alipore Conspiracy Case",
+            "Lahore Conspiracy Case",
+            "Meerut Conspiracy Case",
+            "Kakori Case"
+        ],
+        "answerRaw": "B. Lahore Conspiracy Case",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 19,
+        "question": "Who led the famous 'Chittagong Armoury Raid' in April 1930?",
+        "options": [
+            "Bhagat Singh",
+            "Surya Sen ('Master Da')",
+            "Chandrashekhar Azad",
+            "Sachin Sanyal"
+        ],
+        "answerRaw": "B. Surya Sen",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 20,
+        "question": "Chandrashekhar Azad died in a shootout with the police in February 1931 at:",
+        "options": [
+            "Victoria Park, Calcutta",
+            "Alfred Park, Allahabad",
+            "Chandni Chowk, Delhi",
+            "Lawrence Garden, Lahore"
+        ],
+        "answerRaw": "B. Alfred Park, Allahabad",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 21,
+        "question": "The 'Communist Party of India' (CPI) was first formed in Tashkent in 1920 by:",
+        "options": [
+            "M.N. Roy, Abani Mukherji, and others",
+            "S.A. Dange",
+            "Muzaffar Ahmed",
+            "P.C. Joshi"
+        ],
+        "answerRaw": "A. M.N. Roy, Abani Mukherji, and others",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 22,
+        "question": "The 'Kanpur Bolshevik Conspiracy Case' (1924) was directed against:",
+        "options": [
+            "Swarajists",
+            "Early Communists like S.A. Dange and Muzaffar Ahmed",
+            "Revolutionary Terrorists",
+            "Akalis"
+        ],
+        "answerRaw": "B. Early Communists",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 23,
+        "question": "Which leader was the main advocate of socialist ideas within the Congress during the late 1920s?",
+        "options": [
+            "Sardar Patel",
+            "Jawaharlal Nehru",
+            "Rajendra Prasad",
+            "C. Rajagopalachari"
+        ],
+        "answerRaw": "B. Jawaharlal Nehru (along with Subhash Bose)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 24,
+        "question": "The 'Meerut Conspiracy Case' (1929) involved the arrest of 31 labor leaders, including three British communists. Who were the British communists?",
+        "options": [
+            "Philip Spratt, Ben Bradley, and Lester Hutchinson",
+            "A.O. Hume, George Yule, and William Wedderburn",
+            "Annie Besant and Charles Bradlaugh",
+            "Lord Morley and Lord Minto"
+        ],
+        "answerRaw": "A. Philip Spratt, Ben Bradley, and Lester Hutchinson",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 25,
+        "question": "The 'Workers and Peasants Parties' (WPPs) were formed to:",
+        "options": [
+            "Support the British war effort",
+            "Provide a legal platform for communist activities and organize labor/peasantry",
+            "Oppose the formation of trade unions",
+            "Promote the interests of the Zamindars"
+        ],
+        "answerRaw": "B. Provide a legal platform for communist activities",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 26,
+        "question": "Bhagat Singh founded which youth organization in Punjab in 1926?",
+        "options": [
+            "Naujawan Bharat Sabha",
+            "Punjab Youth Congress",
+            "Bharat Mata Society",
+            "Ghadr Party (Punjab Wing)"
+        ],
+        "answerRaw": "A. Naujawan Bharat Sabha",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 27,
+        "question": "The book The Philosophy of the Bomb was written by which HSRA member?",
+        "options": [
+            "Bhagat Singh",
+            "Bhagwati Charan Vohra",
+            "Chandrashekhar Azad",
+            "Yashpal"
+        ],
+        "answerRaw": "B. Bhagwati Charan Vohra",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 28,
+        "question": "In 1928, a major peasant movement against revenue hike was led by Vallabhbhai Patel in:",
+        "options": [
+            "Kheda",
+            "Bardoli",
+            "Champaran",
+            "Borsad"
+        ],
+        "answerRaw": "B. Bardoli (Where he earned the title 'Sardar')",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 29,
+        "question": "The Self-Respect Movement in South India was started by:",
+        "options": [
+            "Jyotiba Phule",
+            "E.V. Ramaswamy Naicker (Periyar)",
+            "Dr. B.R. Ambedkar",
+            "Sri Narayana Guru"
+        ],
+        "answerRaw": "B. E.V. Ramaswamy Naicker",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 30,
+        "question": "Which revolutionary woman fired at the Governor while receiving her degree at the Convocation of Calcutta University in 1932?",
+        "options": [
+            "Kalpana Datta",
+            "Bina Das",
+            "Pritilata Waddedar",
+            "Shanti Ghosh"
+        ],
+        "answerRaw": "B. Bina Das",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "The debate between 'Pro-Changers' and 'No-Changers' after 1922 was essentially a debate over the strategy of the national movement. Which of the following best describes the 'Pro-Changer' argument?",
+        "options": [
+            "They wanted to permanently abandon the path of non-violence.",
+            "They believed that by entering the councils, they could \"wreck the reforms from within,\" expose the hollow nature of the 1919 Act, and keep up the political morale during a period of \"passive\" struggle.",
+            "They advocated for a total merger with the British Liberal Party.",
+            "They believed that only the peasantry could lead the next phase of the struggle."
+        ],
+        "answerRaw": "B. Wreck the reforms from within.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 32,
+        "question": "Consider the following statements regarding the 'Swaraj Party' and its relationship with the Congress: 1. The Swaraj Party was formed as a separate political party outside the organizational umbrella of the Indian National Congress. 2. Mahatma Gandhi, after his release in 1924, initially opposed council entry but eventually reached a compromise (the Belgaum Session) to maintain Congress unity. 3. The Swarajists agreed to work as an integral part of the Congress, following its basic principles of non-violence. Which of the statements given above are correct?",
+        "options": [
             "1 and 2 only",
             "2 and 3 only",
             "1 and 3 only",
-            "1, 2 and 3"
+            "1, 2, and 3"
         ],
-        correctAnswer: 3,
-        explanation: "All three are landmark changes. The CWC was created to lead the movement continuously (unlike the annual sessions)."
+        "answerRaw": "B. 2 and 3 only",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 7,
-        question: "Which prominent leader left the Congress after the Nagpur Session (1920) because he disagreed with the new unconstitutional methods and the mass character of the movement?",
-        options: [
-            "Muhammad Ali Jinnah",
-            "Jawaharlal Nehru",
-            "Abul Kalam Azad",
-            "Rajendra Prasad"
+        "id": 33,
+        "question": "The election of Vithalbhai Patel as the Speaker of the Central Legislative Assembly in 1925 was a landmark for the Swarajists because:",
+        "options": [
+            "It gave them the power to declare India's independence immediately.",
+            "It showed that Indians could master the parliamentary procedures of the colonizers and use their own institutions to challenge them.",
+            "It resulted in the abolition of all taxes on salt.",
+            "He was the first Indian to be appointed as the Viceroy's secretary."
         ],
-        correctAnswer: 0,
-        explanation: "Jinnah (along with Besant and B.C. Pal) left the Congress, calling the movement 'political anarchy'."
+        "answerRaw": "B. Mastered parliamentary procedures to challenge the British.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 8,
-        question: "The 'Tilak Swaraj Fund' was announced to collect money for the movement. What was the target amount?",
-        options: [
-            "1 Lakh Rupees",
-            "50 Lakh Rupees",
-            "1 Crore Rupees",
-            "10 Crore Rupees"
+        "id": 34,
+        "question": "The 'Hindustan Socialist Republican Association' (HSRA) marked a significant ideological shift in revolutionary terrorism. What was the most notable change under Bhagat Singh's leadership?",
+        "options": [
+            "A shift from purely 'individual heroic action' toward an understanding of the need for a mass-based revolution and the adoption of Socialist/Marxist ideas.",
+            "The total rejection of the 1857 Revolt as an inspiration.",
+            "The decision to support the British in World War II.",
+            "The demand for the restoration of the Caliphate in Turkey."
         ],
-        correctAnswer: 2,
-        explanation: "1 Crore Rupees. (It was oversubscribed)."
+        "answerRaw": "A. Shift toward mass-based revolution and Socialist ideas.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 9,
-        question: "Who was the President of the 'Special Session' of the Congress held at Calcutta in September 1920?",
-        options: [
-            "C. Vijayaraghavachariar",
-            "Lala Lajpat Rai",
-            "Motilal Nehru",
-            "Annie Besant"
+        "id": 35,
+        "question": "With reference to the 'Kakori Train Action' (1925), consider the following: Statement-I: It was organized by the HRA to fund their revolutionary activities by looting a government railway cash office. Statement-II: The incident led to the arrest and eventual execution of top leaders like Ram Prasad Bismil and Ashfaqullah Khan. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct",
+            "Both Statement-I and Statement-II are incorrect"
         ],
-        correctAnswer: 1,
-        explanation: "Lala Lajpat Rai."
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 10,
-        question: "The 'Chirala-Perala' movement in Andhra Pradesh during the NCM was related to:",
-        options: [
-            "Refusal to pay Municipal Taxes led by Duggirala Gopalakrishnayya",
-            "Forest Satyagraha",
-            "Temple Entry",
-            "Indigo cultivation"
+        "id": 36,
+        "question": "Why did Bhagat Singh and Batukeshwar Dutt throw a bomb in the Central Legislative Assembly in 1929, making sure not to hurt anyone?",
+        "options": [
+            "Because they ran out of high-quality explosives.",
+            "To \"make the deaf hear\"—protesting against the repressive Public Safety Bill and Trade Dispute Bill, and using the court trial as a platform to spread their revolutionary message.",
+            "It was a practice run for a larger attack on the Viceroy.",
+            "They were trying to help the Swarajists win the local elections."
         ],
-        correctAnswer: 0,
-        explanation: "Duggirala Gopalakrishnayya led the people to refuse municipal taxes; they vacated the town and lived in a settlement called 'Ramnagar'."
+        "answerRaw": "B. To \"make the deaf hear\" and use the trial for propaganda.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 11,
-        question: "The 'Eka Movement' (Unity Movement) in the Avadh region (1921) was led by:",
-        options: [
-            "Baba Ramchandra",
-            "Madari Pasi",
-            "Alluri Sitarama Raju",
-            "Sahajanand Saraswati"
+        "id": 37,
+        "question": "The 'Meerut Conspiracy Case' (1929) was a significant attempt by the British to:",
+        "options": [
+            "Suppress the growing influence of Socialist and Communist ideas in the Indian labor movement.",
+            "Arrest the leaders of the Swaraj Party.",
+            "End the influence of the Theosophical Society.",
+            "Punish the soldiers who participated in the 1857 revolt."
         ],
-        correctAnswer: 1,
-        explanation: "Madari Pasi led the Eka movement (tenants' movement). Baba Ramchandra led the earlier Kisan Sabha movement."
+        "answerRaw": "A. Suppress Socialist and Communist influence.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 12,
-        question: "The 'Moplah Rebellion' (1921) in Malabar started as an anti-British/anti-landlord struggle supporting the Khilafat but later turned communal. The Moplahs were:",
-        options: [
-            "Hindu peasants",
-            "Muslim tenants/leaseholders",
-            "Christian missionaries",
-            "Tribal warriors"
+        "id": 38,
+        "question": "Consider the following regarding the 'Bardoli Satyagraha' (1928): 1. It was a protest against the 22% increase in land revenue by the Bombay government. 2. Vallabhbhai Patel led the movement and successfully organized a total boycott of revenue payment. 3. The movement resulted in the government reducing the revenue hike to approximately 6%. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
         ],
-        correctAnswer: 1,
-        explanation: "Moplahs were Muslim tenants in Malabar fighting Hindu Jenmis (landlords)."
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
     },
     {
-        id: 13,
-        question: "In which region did the 'Anti-Union Board Tax' campaign achieve success during the Non-Cooperation Movement?",
-        options: [
-            "Midnapore (Bengal)",
-            "Kheda (Gujarat)",
-            "Guntur (Andhra)",
-            "Malabar (Kerala)"
+        "id": 39,
+        "question": "The 'Chittagong Armoury Raid' (1930) was unique because:",
+        "options": [
+            "It was led by a school teacher, Surya Sen, and involved a well-planned, large-scale paramilitary action rather than a small assassination attempt.",
+            "It was the first time the British army joined the revolutionaries.",
+            "It was funded by the League of Nations.",
+            "It took place in London."
         ],
-        correctAnswer: 0,
-        explanation: "Midnapore (and parts of Birbhum)."
+        "answerRaw": "A. Led by Surya Sen; large-scale paramilitary action.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 14,
-        question: "The 'Akali Movement' in Punjab during this period was primarily directed against:",
-        options: [
-            "The British recruiting officers",
-            "The corrupt Mahants (priests) of the Gurdwaras",
-            "The Muslim League",
-            "The Hindu moneylenders"
+        "id": 40,
+        "question": "The 'Swarajists' were eventually criticized by the 'No-Changers' because they began to:",
+        "options": [
+            "Adopt the violent methods of the HSRA.",
+            "Get \"absorbed\" into the colonial system, with some members (Responsivists) seeking government offices and moving away from the policy of \"constant obstruction.\"",
+            "Demand the return of the British to London.",
+            "Ban the use of Khadi in the councils."
         ],
-        correctAnswer: 1,
-        explanation: "Mahants (who were pro-British and corrupt)."
+        "answerRaw": "B. Moving away from constant obstruction.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 15,
-        question: "Who led the 'Forest Satyagraha' in the Palnadu region of Guntur (Andhra), where tribals sent their cattle into forests without paying the grazing fee?",
-        options: [
-            "T. Prakasam",
-            "Unnava Lakshminarayana",
-            "Alluri Sitarama Raju",
-            "K. Nageswara Rao"
+        "id": 41,
+        "question": "Who wrote the influential book Pather Dabi, which glorified the revolutionary struggle and was banned by the British?",
+        "options": [
+            "Rabindranath Tagore",
+            "Sarat Chandra Chattopadhyay",
+            "Bankim Chandra Chatterjee",
+            "Premchand"
         ],
-        correctAnswer: 1,
-        explanation: "Unnava Lakshminarayana (and local tribals)."
+        "answerRaw": "B. Sarat Chandra Chattopadhyay.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 16,
-        question: "During the NCM, many national educational institutions were founded. Which of the following was NOT founded during this period (1920–22)?",
-        options: [
-            "Jamia Millia Islamia",
-            "Kashi Vidyapeeth",
-            "Gujarat Vidyapeeth",
-            "Banaras Hindu University (BHU)"
+        "id": 42,
+        "question": "What was the 'Philosophy of the Bomb' (1930) a response to?",
+        "options": [
+            "A direct order from the Soviet Union.",
+            "Gandhi's article 'The Cult of the Bomb', where he criticized revolutionary violence.",
+            "The discovery of gunpowder in China.",
+            "The failure of the 1929 elections."
         ],
-        correctAnswer: 3,
-        explanation: "BHU was founded earlier (1916) by Malaviya. Jamia, Kashi Vidyapeeth, Gujarat Vidyapeeth were born during NCM."
+        "answerRaw": "B. Response to Gandhi's 'The Cult of the Bomb'.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 17,
-        question: "Who became the first Principal of the 'National College' in Calcutta founded during the NCM?",
-        options: [
-            "C.R. Das",
-            "Subhash Chandra Bose",
-            "J.M. Sengupta",
-            "B.C. Pal"
+        "id": 43,
+        "question": "Consider the following pairs of 'New Forces' in the 1920s and their leaders: 1. Communist Party of India — M.N. Roy 2. Self-Respect Movement — E.V. Ramaswamy 'Periyar' 3. Bahishkrit Hitakarini Sabha — B.R. Ambedkar How many of the above pairs are correctly matched?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
         ],
-        correctAnswer: 1,
-        explanation: "Subhash Chandra Bose resigned from the ICS to become the Principal."
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
     },
     {
-        id: 18,
-        question: "Which famous lawyer gave up his lucrative practice during the NCM?",
-        options: [
-            "Motilal Nehru and C.R. Das only",
-            "Motilal, C.R. Das, and C. Rajagopalachari only",
-            "C. Rajagopalachari and Vallabhbhai Patel only",
-            "Motilal Nehru, C.R. Das, C. Rajagopalachari, and Vallabhbhai Patel"
+        "id": 44,
+        "question": "The 'Responsivists' group within the Swarajists was led by:",
+        "options": [
+            "Motilal Nehru and C.R. Das",
+            "Madan Mohan Malaviya, Lala Lajpat Rai, and N.C. Kelkar",
+            "Jawaharlal Nehru and Subhash Bose",
+            "Vallabhbhai Patel and Rajendra Prasad"
         ],
-        correctAnswer: 3,
-        explanation: "All of them (Motilal, C.R. Das, C.R., Patel, Saifuddin Kitchlew) gave up their practice."
+        "answerRaw": "B. Malaviya, Lajpat Rai, and Kelkar.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 19,
-        question: "The 'Chauri Chaura' incident, which compelled Gandhi to withdraw the movement, took place in:",
-        options: [
-            "Bihar",
-            "Gorakhpur district, United Provinces (UP)",
-            "Punjab",
-            "Central Provinces"
+        "id": 45,
+        "question": "Ultimately, the period of the 1920s (Chapter 16) is significant because it:",
+        "options": [
+            "Saw the total decline of the national movement.",
+            "Was an era of \"intellectual fermentation\" and organizational diversification that prepared different sections of society for the final mass struggle for independence.",
+            "Led to the immediate grant of Purna Swaraj.",
+            "Was the only period where the British were not in power."
         ],
-        correctAnswer: 1,
-        explanation: "Gorakhpur, UP."
+        "answerRaw": "B. Era of intellectual fermentation and diversification.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 20,
-        question: "The resolution to withdraw the Non-Cooperation Movement was passed by the Congress Working Committee at:",
-        options: [
-            "Chauri Chaura",
-            "Bardoli",
-            "Ahmedabad",
-            "Delhi"
+        "id": 46,
+        "question": "Consider the following statements regarding the 'Swarajist' strategy within the Central Legislative Assembly: 1. Their primary tactic was 'Uniform, Continuous, and Consistent Obstruction' to make the governance under the 1919 Act impossible. 2. They successfully defeated the government on several proposals, including the 'Public Safety Bill' in 1928. 3. The Swarajists remained a monolithic block until 1930, strictly adhering to the policy of non-participation in any government committees. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
         ],
-        correctAnswer: 1,
-        explanation: "Bardoli. (Hence called the Bardoli Resolution)."
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 21,
-        question: "Who described the withdrawal of the movement after Chauri Chaura as a 'National Calamity'?",
-        options: [
-            "Jawaharlal Nehru",
-            "Subhash Chandra Bose",
-            "Motilal Nehru",
-            "C.R. Das"
+        "id": 47,
+        "question": "With reference to the 'Hindustan Socialist Republican Association' (HSRA), consider the following: Statement-I: The transition from HRA to HSRA in 1928 signified a shift from a focus on political independence to a broader vision of ending the exploitation of man by man. Statement-II: Bhagat Singh and his comrades were influenced by the October Revolution in Russia and sought to organize a revolution of the \"masses for the masses.\" Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+            "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct"
         ],
-        correctAnswer: 1,
-        explanation: "Subhash Chandra Bose called it a 'National Calamity'."
+        "answerRaw": "A. Both are correct and Statement-II is the explanation for Statement-I.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 22,
-        question: "Following the withdrawal, Gandhi was arrested in March 1922 and charged with sedition for his articles in:",
-        options: [
-            "Indian Opinion",
-            "Young India",
-            "Navjivan",
-            "Harijan"
+        "id": 48,
+        "question": "Arrange the following revolutionary legal cases in the correct chronological order: 1. Meerut Conspiracy Case 2. Kakori Train Robbery Case 3. Kanpur Bolshevik Conspiracy Case 4. Lahore Conspiracy Case (Trial of Bhagat Singh, Rajguru, and Sukhdev) Select the correct answer using the code given below:",
+        "options": [
+            "3 — 2 — 1 — 4",
+            "3 — 1 — 2 — 4",
+            "2 — 3 — 4 — 1",
+            "3 — 2 — 4 — 1"
         ],
-        correctAnswer: 1,
-        explanation: "Young India."
+        "answerRaw": "A. 3 — 2 — 1 — 4",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 23,
-        question: "Which judge presided over the historic trial of Mahatma Gandhi in 1922 and sentenced him to six years imprisonment?",
-        options: [
-            "Justice Broomfield",
-            "Justice Kingsford",
-            "Justice Rowlatt",
-            "Justice McNair"
+        "id": 49,
+        "question": "Consider the following pairs of 'New Organizations' and their Founders/Leaders in the 1920s: 1. Workers and Peasants Party (WPP) — S.S. Mirajkar and K.N. Joglekar 2. Bahishkrit Hitakarini Sabha — B.R. Ambedkar 3. Naujawan Bharat Sabha — Bhagat Singh 4. All India Trade Union Congress (AITUC) — N.M. Joshi (General Secretary) How many of the above pairs are correctly matched?",
+        "options": [
+            "Only one pair",
+            "Only two pairs",
+            "Only three pairs",
+            "All four pairs"
         ],
-        correctAnswer: 0,
-        explanation: "Justice Broomfield. He famously said, 'If the government releases you, no one will be happier than I.'"
+        "answerRaw": "D. All four pairs",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
     },
     {
-        id: 24,
-        question: "What was the 'Reading Offer' (Dec 1921) regarding the Non-Cooperation Movement?",
-        options: [
-            "An offer to grant Dominion Status immediately",
-            "An offer to release political prisoners and call a Round Table Conference if the boycott of the Prince of Wales was called off",
-            "An offer to withdraw the Rowlatt Act",
-            "An offer to separate Sindh from Bombay"
+        "id": 50,
+        "question": "The 'Public Safety Bill' of 1928 was a major point of contention in the Assembly. Why did the Nationalists (Swarajists and others) oppose it so vehemently?",
+        "options": [
+            "It proposed to ban the Indian National Congress.",
+            "It gave the government the power to deport \"undesirable\" British and foreign communists who were helping the Indian labor movement.",
+            "It aimed at increasing the salt tax by 200%.",
+            "It made the use of Khadi illegal in public offices."
         ],
-        correctAnswer: 1,
-        explanation: "Viceroy Reading offered this to ensure a smooth visit for the Prince of Wales."
+        "answerRaw": "B. Power to deport foreign communists.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 25,
-        question: "Why did Gandhi reject the 'Reading Offer' in December 1921?",
-        options: [
-            "It did not include the release of the Ali Brothers (who were fatwa prisoners)",
-            "It did not promise Independence",
-            "The Congress demanded the resignation of the Viceroy",
-            "He wanted to continue the movement till 1925"
+        "id": 51,
+        "question": "Regarding the 'Chittagong Armoury Raid' (1930) led by Surya Sen, consider the following statements: 1. The revolutionaries succeeded in capturing two armories and cutting off communication with the rest of India for a few days. 2. Surya Sen famously declared a Provisional Revolutionary Government of India and hoisted the National Flag. 3. The group included a significant number of women revolutionaries like Pritilata Waddedar and Kalpana Datta. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
         ],
-        correctAnswer: 0,
-        explanation: "Gandhi insisted that the Ali Brothers (who were arrested for calling on Muslims to resign from the army) must also be released."
+        "answerRaw": "C. All three",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
     },
     {
-        id: 26,
-        question: "'The movement was not a failure; it was a strategic retreat.' This view regarding the withdrawal of NCM is held by:",
-        options: [
-            "Subhash Chandra Bose",
-            "The Marxists",
-            "Bipin Chandra (Modern Historians)",
-            "The British"
+        "id": 52,
+        "question": "With reference to the 'Meerut Conspiracy Case' (1929), consider the following: Statement-I: It was an attempt by the British to decapitate the growing Communist and Trade Union movement in India. Statement-II: The trial gained international attention, with figures like Albert Einstein and Romain Rolland speaking out in defense of the accused. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct",
+            "Both Statement-I and Statement-II are incorrect"
         ],
-        correctAnswer: 2,
-        explanation: "Bipin Chandra argues it was a strategic retreat because the masses were getting exhausted and turning violent, which would give the British an excuse to use brutal force."
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 27,
-        question: "Who was the first woman to be arrested during the Non-Cooperation Movement?",
-        options: [
-            "Sarojini Naidu",
-            "Basanti Devi (Wife of C.R. Das)",
-            "Kasturba Gandhi",
-            "Annie Besant"
-        ],
-        correctAnswer: 1,
-        explanation: "Basanti Devi. Her arrest caused a massive stir in Bengal."
+        "id": 53,
+        "question": "Match the following HSRA members with their specific contributions/events: 1. Jatin Das — Martyrdom after a 64-day hunger strike 2. Bhagwati Charan Vohra — Author of The Philosophy of the Bomb 3. Chandrashekhar Azad — Reorganized HRA into HSRA 4. Batukeshwar Dutt — Accompanied Bhagat Singh to the Assembly bombing",
+        "options": [],
+        "answerRaw": "A. 1-B, 2-A, 3-C, 4-D (Mapped correctly)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 28,
-        question: "The 'Duke of Connaught' visited India in 1921 to:",
-        options: [
-            "Inaugurate the new Legislative Councils under the 1919 Act",
-            "Negotiate with Gandhi",
-            "Arrest the Ali Brothers",
-            "Attend the Delhi Durbar"
+        "id": 54,
+        "question": "Consider the following regarding 'Socialist' ideas within the Congress in the late 1920s: 1. Jawaharlal Nehru and Subhash Chandra Bose were the primary advocates of a socialist future for independent India. 2. They founded the 'Independence for India League' in 1928 to pressure the Congress to adopt 'Purna Swaraj' and socialist principles. 3. Mahatma Gandhi was the first to propose a socialist economic model in the 1924 Belgaum session. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
         ],
-        correctAnswer: 0,
-        explanation: "To inaugurate the Reforms of 1919."
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 29,
-        question: "The 'Mulshi Dam Satyagraha' (1920-24) in Maharashtra was led by:",
-        options: [
-            "Senapati Bapat",
-            "Vinoba Bhave",
-            "Sane Guruji",
-            "N.C. Kelkar"
+        "id": 55,
+        "question": "The 'Swarajist' era (1923-1926) is often called an \"interlude.\" What was its primary constitutional significance according to modern historians?",
+        "options": [
+            "It achieved the immediate repeal of the Diarchy.",
+            "It transformed the Legislative Assembly into a \"mirror of the nation's grievances\" and trained Indians in the technicalities of parliamentary debate and obstruction.",
+            "It resulted in the first Indian being elected as the Prime Minister of Britain.",
+            "It led to the permanent merger of the Muslim League with the Congress."
         ],
-        correctAnswer: 0,
-        explanation: "Senapati Bapat. (First anti-dam movement)."
-    },
-    {
-        id: 30,
-        question: "'Gandhi-Reading Talks' (May 1921) failed because:",
-        options: [
-            "Reading wanted Gandhi to condemn the violent speeches of the Ali Brothers, which Gandhi refused to do without them withdrawing the statements themselves",
-            "Gandhi demanded immediate Swaraj",
-            "Reading refused to meet Gandhi",
-            "The Khilafat issue was solved"
-        ],
-        correctAnswer: 0,
-        explanation: "Gandhi refused to fall into the trap of separating the Ali Brothers from the Congress."
-    },
-    {
-        id: 31,
-        question: "Arrange the following events in chronological order: (1) Death of Tilak, (2) Chauri Chaura Incident, (3) Nagpur Session of Congress, (4) Visit of Prince of Wales",
-        options: [
-            "1-3-4-2",
-            "1-4-3-2",
-            "3-1-4-2",
-            "1-3-2-4"
-        ],
-        correctAnswer: 0,
-        explanation: "Tilak (Aug 1920) -> Nagpur (Dec 1920) -> Prince of Wales (Nov 1921) -> Chauri Chaura (Feb 1922)."
-    },
-    {
-        id: 32,
-        question: "Match the Leader with the Region during NCM: (A) C. Rajagopalachari - Madras, (B) J.M. Sengupta - Bengal, (C) Vallabhbhai Patel - Gujarat, (D) Lala Lajpat Rai - Punjab.",
-        options: [
-            "A-2, B-1, C-3, D-4",
-            "A-1, B-2, C-3, D-4",
-            "A-2, B-1, C-4, D-3",
-            "A-3, B-2, C-1, D-4"
-        ],
-        correctAnswer: 0,
-        explanation: "All pairs are correctly matched."
-    },
-    {
-        id: 33,
-        question: "The 'Bijolia Peasant Movement' in Rajasthan was led by:",
-        options: [
-            "Vijay Singh Pathik",
-            "Motilal Tejawat",
-            "Govind Guru",
-            "Manikya Lal Verma"
-        ],
-        correctAnswer: 0,
-        explanation: "Vijay Singh Pathik."
-    },
-    {
-        id: 34,
-        question: "Which of the following slogans was widely used during the Non-Cooperation Movement?",
-        options: [
-            "Do or Die",
-            "Swaraj in One Year",
-            "Quit India",
-            "Delhi Chalo"
-        ],
-        correctAnswer: 1,
-        explanation: "'Swaraj in One Year' was the promise Gandhi made if the NCM was followed strictly."
-    },
-    {
-        id: 35,
-        question: "The 'Swaraj Party' was formed in late 1922/early 1923 as a result of:",
-        options: [
-            "The success of the NCM",
-            "The dissatisfaction with the suspension of the NCM and the desire to enter Legislative Councils",
-            "The merger of Congress and Muslim League",
-            "The British ban on Congress"
-        ],
-        correctAnswer: 1,
-        explanation: "C.R. Das and Motilal Nehru formed the Swaraj Party to end the boycott of councils and wreck the government from within."
+        "answerRaw": "B. Transformed Assembly into mirror of grievances.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     }
 ];
-
-export const MODERN_CHAPTER_16_CONTENT = `
-# Chapter 16: The Non-Cooperation Movement (1920-1922)
-
-The First All-India Mass Struggle. Gandhi takes the wheel.
-
-THE STRATEGY: "BOYCOTT & CALAMITY"
-*   **Visual Metaphor:** The Charkha vs. The Police Station (Chauri Chaura).
-*   **Key Comparison:** Constitutional Struggle -> Mass Satyagraha.
-
----
-
-## BLOCK 1: THE LAUNCH (1920)
-**From Khilafat to Swaraj.**
-
-### 🚀 ROAD TO NCM
-*   **Aug 1, 1920:** Movement formally launched. (Tilak died on the same day).
-*   **Calcutta Special Session (Sept 1920):** Approved the NCM plan (Lala Lajpat Rai Presided).
-*   **Nagpur Session (Dec 1920):**
-    *   **Ratification:** C.R. Das (who opposed earlier) moved the resolution.
-    *   **New Constitution:** 15-member Working Committee (CWC) formed to lead year-round.
-    *   **Goal:** "Swaraj by peaceful and legitimate means."
-
----
-
-## BLOCK 2: THE PROGRAM
-**Boycott, Swadeshi, and National Education.**
-
-*   **Boycott:** Schools, Colleges, Courts, Foreign Cloth.
-*   **Success:**
-    *   Imports of foreign cloth halved.
-    *   **Jamia Millia Islamia** & **Kashi Vidyapeeth** founded.
-    *   Lawyers like Motilal Nehru & C.R. Das gave up practice.
-
----
-
-## BLOCK 3: THE WITHDRAWAL (1922)
-**The Sudden Stop.**
-
-### 🛑 CHAURI CHAURA
-*   **Date:** Feb 5, 1922.
-*   **Event:** Mob burned 22 policemen alive in Gorakhpur (UP).
-*   **Gandhi's Response:** Withdrew NCM immediately. "**Himalayan Blunder**".
-*   **Bardoli Resolution:** Formally stopped the movement.
-*   **Reaction:**
-    *   **Subhash Bose:** "National Calamity".
-    *   **Jawaharlal Nehru:** Dismayed.
-*   **Outcome:** Gandhi arrested (March 1922). 6 Years Jail.
-
----
-
-## BLOCK 4: PYQ CORNER
-
-> [!WARNING]
-> **🔥 PYQ ALERT:**
-> *   **Q:** Who moved the NCM resolution at Nagpur? -> **C.R. Das**.
-> *   **Q:** Target of Tilak Swaraj Fund? -> **1 Crore**.
-> *   **Q:** Why did Gandhi withdraw? -> **Violence at Chauri Chaura**.
-> *   **Q:** Who called it a National Calamity? -> **Subhash Bose**.
-`;

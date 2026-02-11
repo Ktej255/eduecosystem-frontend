@@ -11,6 +11,8 @@ import EmpireMapViz from './visuals/EmpireMapViz';
 import HistoryTunnelViz from './visuals/HistoryTunnelViz';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import QuestionBankDashboard from './question-bank/QuestionBankDashboard';
 
 const HISTORY_ERAS = [
     {
@@ -70,7 +72,6 @@ export default function HistoryDashboard() {
                     <p className="text-gray-500 dark:text-gray-400">Track your journey across Ancient, Medieval, and Modern India.</p>
                 </div>
                 <div className="flex gap-3">
-
                     <Link href="/student/pyq">
                         <Button variant="outline" className="border-amber-500 text-amber-700 hover:bg-amber-50 dark:text-amber-300 dark:hover:bg-amber-900/20">
                             <BookOpen className="mr-2 h-4 w-4" />
@@ -102,72 +103,85 @@ export default function HistoryDashboard() {
                 />
             </div>
 
-            {/* Main Content Grid: Modern History (Left) + Eras (Right/Bottom) */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Modern History Detailed Timeline (Takes 2 columns) */}
-                <div className="lg:col-span-2 space-y-8">
-                    {/* Interactive Empire Map - Phase M */}
-                    <EmpireMapViz />
+            <Tabs defaultValue="overview" className="space-y-6">
+                <TabsList className="bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+                    <TabsTrigger value="overview" className="rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Overview</TabsTrigger>
+                    <TabsTrigger value="bank" className="rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Question Bank</TabsTrigger>
+                </TabsList>
 
-                    <Card className="border-amber-100 dark:border-amber-900/50 overflow-hidden">
-                        <CardHeader className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30">
-                            <CardTitle className="text-amber-900 dark:text-amber-100">Modern History Syllabus Tracker</CardTitle>
-                            <CardDescription>Based on Spectrum (Rajiv Ahir)</CardDescription>
-                        </CardHeader>
-                        <CardContent className="p-0">
-                            <ModernHistoryTimeline />
-                        </CardContent>
-                    </Card>
+                <TabsContent value="overview">
+                    {/* Main Content Grid: Modern History (Left) + Eras (Right/Bottom) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        {/* Modern History Detailed Timeline (Takes 2 columns) */}
+                        <div className="lg:col-span-2 space-y-8">
+                            {/* Interactive Empire Map - Phase M */}
+                            <EmpireMapViz />
 
-                    {/* 3D History Tunnel - Phase M */}
-                    <HistoryTunnelViz />
-                </div>
+                            <Card className="border-amber-100 dark:border-amber-900/50 overflow-hidden">
+                                <CardHeader className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30">
+                                    <CardTitle className="text-amber-900 dark:text-amber-100">Modern History Syllabus Tracker</CardTitle>
+                                    <CardDescription>Based on Spectrum (Rajiv Ahir)</CardDescription>
+                                </CardHeader>
+                                <CardContent className="p-0">
+                                    <ModernHistoryTimeline />
+                                </CardContent>
+                            </Card>
 
-                {/* Ancient & Medieval Summaries (Takes 1 column) */}
-                <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Historical Eras</h3>
-                    {HISTORY_ERAS.map((era) => (
-                        <Card key={era.id} className="hover:shadow-md transition-all">
-                            <div className={`p-4 border-b-2 ${era.color} bg-opacity-10 border-opacity-20`}>
-                                <div className="flex items-center gap-3">
-                                    <era.icon className="w-6 h-6" />
-                                    <div>
-                                        <h3 className="font-bold text-lg">{era.title}</h3>
-                                        <span className="text-xs font-mono opacity-80">{era.period}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <CardContent className="p-4 bg-slate-50 dark:bg-slate-900/20">
-                                <div className="space-y-4 relative pl-4 border-l-2 border-dashed border-gray-200 dark:border-gray-800">
-                                    {era.events.map((event, idx) => (
-                                        <div key={idx} className="relative">
-                                            <div className="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-gray-300 dark:border-gray-700" />
+                            {/* 3D History Tunnel - Phase M */}
+                            <HistoryTunnelViz />
+                        </div>
+
+                        {/* Ancient & Medieval Summaries (Takes 1 column) */}
+                        <div className="space-y-6">
+                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Historical Eras</h3>
+                            {HISTORY_ERAS.map((era) => (
+                                <Card key={era.id} className="hover:shadow-md transition-all">
+                                    <div className={`p-4 border-b-2 ${era.color} bg-opacity-10 border-opacity-20`}>
+                                        <div className="flex items-center gap-3">
+                                            <era.icon className="w-6 h-6" />
                                             <div>
-                                                <div className="font-bold text-xs text-indigo-600 dark:text-indigo-400">{event.year}</div>
-                                                <div className="text-sm text-gray-700 dark:text-gray-300">{event.title}</div>
+                                                <h3 className="font-bold text-lg">{era.title}</h3>
+                                                <span className="text-xs font-mono opacity-80">{era.period}</span>
                                             </div>
                                         </div>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
-                    ))}
+                                    </div>
+                                    <CardContent className="p-4 bg-slate-50 dark:bg-slate-900/20">
+                                        <div className="space-y-4 relative pl-4 border-l-2 border-dashed border-gray-200 dark:border-gray-800">
+                                            {era.events.map((event, idx) => (
+                                                <div key={idx} className="relative">
+                                                    <div className="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-gray-300 dark:border-gray-700" />
+                                                    <div>
+                                                        <div className="font-bold text-xs text-indigo-600 dark:text-indigo-400">{event.year}</div>
+                                                        <div className="text-sm text-gray-700 dark:text-gray-300">{event.title}</div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            ))}
 
-                    <Card className="bg-indigo-50 border-indigo-200 dark:bg-indigo-900/20 dark:border-indigo-800">
-                        <CardContent className="p-6 text-center">
-                            <h4 className="font-bold text-indigo-800 dark:text-indigo-200 mb-2">Ready to Practice?</h4>
-                            <p className="text-sm text-indigo-600 dark:text-indigo-300 mb-4">
-                                Test your knowledge with Previous Year Questions.
-                            </p>
-                            <Link href="/student/pyq">
-                                <Button className="w-full bg-indigo-600 hover:bg-indigo-700">
-                                    Launch PYQ Bank
-                                </Button>
-                            </Link>
-                        </CardContent>
-                    </Card>
-                </div>
-            </div>
+                            <Card className="bg-indigo-50 border-indigo-200 dark:bg-indigo-900/20 dark:border-indigo-800">
+                                <CardContent className="p-6 text-center">
+                                    <h4 className="font-bold text-indigo-800 dark:text-indigo-200 mb-2">Ready to Practice?</h4>
+                                    <p className="text-sm text-indigo-600 dark:text-indigo-300 mb-4">
+                                        Test your knowledge with Previous Year Questions.
+                                    </p>
+                                    <Link href="/student/pyq">
+                                        <Button className="w-full bg-indigo-600 hover:bg-indigo-700">
+                                            Launch PYQ Bank
+                                        </Button>
+                                    </Link>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                </TabsContent>
+
+                <TabsContent value="bank">
+                    <QuestionBankDashboard />
+                </TabsContent>
+            </Tabs>
         </div>
     );
 }

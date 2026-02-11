@@ -1,19 +1,4 @@
-export interface Subtopic {
-    id: string | number;
-    name: string;
-    status?: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic?: string | number;
-    difficulty?: string;
-    cognitiveLevel?: string;
-}
+import { Question, Subtopic } from '../../../types';
 
 export const MODERN_CHAPTER_2_SUBTOPICS: Subtopic[] = [
     { id: 'colonial', name: 'Colonial Approach' },

@@ -17,6 +17,8 @@ function MCQContent() {
     const chapterParam = searchParams.get('chapter');
 
     const section = searchParams.get('section') || 'modern';
+    const levelParam = searchParams.get('level');
+    const level = levelParam ? parseInt(levelParam) : null;
 
     // Parse chapter param
     const chapterIds = chapterParam
@@ -33,15 +35,28 @@ function MCQContent() {
             const timer = setTimeout(() => {
                 const rawMcqs = getMCQsForHistoryChapters(chapterIds, section);
 
+                // Filter by Level if param exists
+                const filteredRawMcqs = level
+                    ? rawMcqs.filter(m => {
+                        // Map difficulty string to level number
+                        const diff = m.difficulty?.toLowerCase() || 'easy';
+                        let qLevel = 1;
+                        if (diff === 'hard' || diff === 'level 3') qLevel = 3;
+                        else if (diff === 'moderate' || diff === 'level 2') qLevel = 2;
+
+                        return qLevel === level;
+                    })
+                    : rawMcqs;
+
                 // Transform to Standard MCQ format
-                const formattedMCQs: MCQ[] = rawMcqs.map((m, idx) => ({
+                const formattedMCQs: MCQ[] = filteredRawMcqs.map((m, idx) => ({
                     id: parseInt(m.id) || (idx + 1000), // Ensure ID is number
                     question: m.question,
                     options: m.options,
                     correctAnswer: m.correctAnswer,
                     explanation: m.explanation || "No explanation provided.",
                     category: "History",
-                    tags: [`Chapter ${m.chapterId || chapterIds[0]}`]
+                    tags: [`Chapter ${m.chapterId || chapterIds[0]}`, level ? `Level ${level}` : 'Mixed']
                 }));
 
                 setQuestions(formattedMCQs);
@@ -51,7 +66,7 @@ function MCQContent() {
         } else {
             setLoading(false);
         }
-    }, [chapterParam]);
+    }, [chapterParam, level, section]);
 
     const handleComplete = (results: QuestionResult[], timeTaken: number) => {
         // Calculate stats
@@ -85,13 +100,17 @@ function MCQContent() {
         // Save to Universal Report Persistence
         // Use the first chapterId if multiple selected, or default to 0
         const primaryChapterId = chapterIds[0] || 0;
+
+        // Use level as 'attemptType' (1, 2, 3) or default to 10 (Mixed/Drill)
+        const reportType = level || 10;
+
         saveChapterReport('history', primaryChapterId, {
             score: correct,
             totalQuestions: questions.length,
             accuracy: resultData.accuracy,
             timeTaken: timeTaken,
             questions: results
-        }, 1);
+        }, reportType);
 
         toast.success(
             `✅ Test Submitted! Score: ${correct}/${questions.length} (${resultData.accuracy}%) - Report saved to Deep Report Center → Chapters tab`,
@@ -142,7 +161,7 @@ function MCQContent() {
     return (
         <StandardMCQInterface
             questions={questions}
-            title={`History Chapter ${chapterIds.join(', ')} Practice`}
+            title={`History Ch. ${chapterIds.join(', ')} ${level ? `(Level ${level})` : 'Practice'}`}
             onComplete={handleComplete}
             onExit={() => router.back()}
         />

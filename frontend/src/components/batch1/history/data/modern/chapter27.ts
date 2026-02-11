@@ -1,647 +1,1343 @@
-export interface Subtopic {
-    id: string;
-    name: string;
-    status?: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    cognitiveLevel?: string;
-}
-
-export const MODERN_CHAPTER_27_SUBTOPICS: Subtopic[] = [
-    { id: '1', name: "Administrative Policies (Centralization vs Decentralization)", status: 'done' },
-    { id: '2', name: "Policy towards Princely States (Recap)", status: 'done' },
-    { id: '3', name: "Foreign Policy (Afghanistan, Burma, Tibet)", status: 'done' },
-    { id: '4', name: "Social & Cultural Policy", status: 'done' },
-    { id: '5', name: "Divide and Rule Strategy", status: 'done' },
-];
+import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_27_MCQS: Question[] = [
     {
-        id: 1,
-        question: "The British policy of 'Divide and Rule' was most prominently implemented after which major event?",
-        options: ["Battle of Plassey", "Revolt of 1857", "Partition of Bengal", "Formation of INC"],
-        correctAnswer: 1,
-        explanation: "Post 1857, the British decided to drive a wedge between Hindus and Muslims to prevent a united front.",
-        subtopic: '5',
-        cognitiveLevel: "Conceptual"
+        "id": 1,
+        "question": "Who is considered the pioneer of the 'Bengal School of Art' and is famous for the painting 'Bharat Mata'?",
+        "options": [
+            "Raja Ravi Varma",
+            "Abanindranath Tagore",
+            "Nandalal Bose",
+            "Jamini Roy"
+        ],
+        "answerRaw": "B. Abanindranath Tagore",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 2,
-        question: "Which of the following describes the British attitude towards social reforms after 1857?",
-        options: ["Highly proactive and progressive.", "Caution and withdrawal (policy of non-intervention to avoid offending conservative elements).", "Complete ban on all Indian traditions.", "Focusing only on female education."],
-        correctAnswer: 1,
-        explanation: "The British feared that social reforms (like Sati abolition) had triggered the 1857 revolt, so they became conservative.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
+        "id": 2,
+        "question": "Which artist is known for fusing European academic realism with Indian mythological themes?",
+        "options": [
+            "Amrita Sher-Gil",
+            "Raja Ravi Varma",
+            "M.F. Husain",
+            "Tyeb Mehta"
+        ],
+        "answerRaw": "B. Raja Ravi Varma",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 3,
-        question: "The 'Durand Line' (1893) was demarcated to define the boundary between:",
-        options: ["India and China", "India and Afghanistan", "India and Burma", "India and Tibet"],
-        correctAnswer: 1,
-        explanation: "British India and Afghanistan (Mortimer Durand).",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 3,
+        "question": "The architectural style that combined Islamic, Hindu, and Victorian Gothic elements during the British Raj is known as:",
+        "options": [
+            "Neoclassical",
+            "Indo-Saracenic",
+            "Neo-Roman",
+            "Art Deco"
+        ],
+        "answerRaw": "B. Indo-Saracenic",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 4,
-        question: "Which Viceroy followed the policy of 'Masterly Inactivity' towards Afghanistan?",
-        options: ["Lord Lytton", "John Lawrence", "Lord Curzon", "Lord Dufferin"],
-        correctAnswer: 1,
-        explanation: "John Lawrence (also followed by Mayo and Northbrook).",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 4,
+        "question": "Who was the chief architect responsible for the planning and design of New Delhi?",
+        "options": [
+            "Le Corbusier",
+            "Edwin Lutyens (with Herbert Baker)",
+            "Laurie Baker",
+            "Charles Correa"
+        ],
+        "answerRaw": "B. Edwin Lutyens",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 5,
-        question: "The 'Forward Policy' towards Afghanistan, which led to the Second Anglo-Afghan War, was a signature policy of:",
-        options: ["Lord Ripon", "Lord Lytton", "Lord Curzon", "Lord Lansdowne"],
-        correctAnswer: 1,
-        explanation: "Lord Lytton.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 5,
+        "question": "The Victoria Memorial in Calcutta (Kolkata) was designed in which architectural style?",
+        "options": [
+            "Pure Gothic",
+            "Indo-Saracenic with Italian Renaissance elements",
+            "Modernist",
+            "Mughal"
+        ],
+        "answerRaw": "B. Indo-Saracenic/Renaissance fusion (Architect: William Emerson).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 6,
-        question: "The 'Treaty of Gandamak' (1879) was signed between the British and:",
-        options: ["The Afghans", "The Burmese", "The Sikhs", "The Gurkhas"],
-        correctAnswer: 0,
-        explanation: "Afghans (after the Second Anglo-Afghan War).",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 6,
+        "question": "Which famous student of Abanindranath Tagore illustrated the original manuscript of the Constitution of India?",
+        "options": [
+            "Jamini Roy",
+            "Nandalal Bose",
+            "Ramkinkar Baij",
+            "Binode Behari Mukherjee"
+        ],
+        "answerRaw": "B. Nandalal Bose",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 7,
-        question: "The First Anglo-Burmese War (1824-26) ended with the Treaty of:",
-        options: ["Treaty of Sagaing", "Treaty of Yandabo", "Treaty of Rangoon", "Treaty of Mandalay"],
-        correctAnswer: 1,
-        explanation: "Treaty of Yandabo (1826).",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 7,
+        "question": "The 'Company School' of painting (Kampani Qalam) was characterized by:",
+        "options": [
+            "Abstract expressionism",
+            "A blend of traditional Indian elements with Western perspectives and techniques (miniature meets realism)",
+            "Purely religious themes only",
+            "Use of only oil paints on large canvases"
+        ],
+        "answerRaw": "B. Traditional Indian elements with Western perspectives.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 8,
-        question: "The 'Younghusband Expedition' (1904) was sent to:",
-        options: ["Nepal", "Tibet", "Bhutan", "Sikkim"],
-        correctAnswer: 1,
-        explanation: "Curzon sent it to Tibet due to fears of Russian influence.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 8,
+        "question": "Which artist is famous for her work 'Three Girls' and for bringing a 'Modernist' sensibility to Indian village themes?",
+        "options": [
+            "Sarojini Naidu",
+            "Amrita Sher-Gil",
+            "Anjolie Ela Menon",
+            "Arpana Caur"
+        ],
+        "answerRaw": "B. Amrita Sher-Gil",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 9,
-        question: "The 'Policy of Equal Federation' (1935-1947) refers to:",
-        options: ["The British treating all states as equal to the Crown.", "The attempt to create a federation including both British Provinces and Princely States.", "Granting equal status to Hindus and Muslims.", "The decentralization of finances."],
-        correctAnswer: 1,
-        explanation: "GOI Act 1935 proposed a federation (which never came into being).",
-        subtopic: '2',
-        cognitiveLevel: "Conceptual"
+        "id": 9,
+        "question": "The Gateway of India in Mumbai was built to commemorate the visit of:",
+        "options": [
+            "Queen Victoria",
+            "King George V and Queen Mary",
+            "Lord Curzon",
+            "Mahatma Gandhi"
+        ],
+        "answerRaw": "B. King George V and Queen Mary (1911).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 10,
-        question: "The 'McMahon Line' (1914) defines the boundary between:",
-        options: ["India and Pakistan", "India and China (Eastern Sector)", "India and Nepal", "India and Afghanistan"],
-        correctAnswer: 1,
-        explanation: "India and China (Tibet-Shimla Convention).",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 10,
+        "question": "Who founded the 'Indian Society of Oriental Art' in 1907?",
+        "options": [
+            "Rabindranath Tagore",
+            "Abanindranath Tagore and Gaganendranath Tagore",
+            "Raja Ravi Varma",
+            "E.B. Havell"
+        ],
+        "answerRaw": "B. Abanindranath and Gaganendranath Tagore.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 11,
+        "question": "The Chhatrapati Shivaji Maharaj Terminus (formerly Victoria Terminus) in Mumbai is a prime example of:",
+        "options": [
+            "Indo-Saracenic Architecture",
+            "Victorian Italianate Gothic Revival Architecture",
+            "Neoclassical Architecture",
+            "Mughal Architecture"
+        ],
+        "answerRaw": "B. Victorian Gothic Revival.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 12,
+        "question": "Which artist moved away from the 'Bengal School' to adopt a simplified, folk-inspired style based on Kalighat paintings?",
+        "options": [
+            "Nandalal Bose",
+            "Jamini Roy",
+            "Ram Kumar",
+            "Satish Gujral"
+        ],
+        "answerRaw": "B. Jamini Roy",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 13,
+        "question": "The 'Madras School of Art' (the first art institution in India) was established in 1850 by:",
+        "options": [
+            "Alexander Hunter",
+            "E.B. Havell",
+            "Lord Dalhousie",
+            "Lord Mayo"
+        ],
+        "answerRaw": "A. Alexander Hunter",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 14,
+        "question": "Who was the British principal of the Government School of Art, Calcutta, who encouraged Abanindranath Tagore to rediscover Indian traditions?",
+        "options": [
+            "Lord Curzon",
+            "E.B. Havell",
+            "Mortimer Wheeler",
+            "James Fergusson"
+        ],
+        "answerRaw": "B. E.B. Havell",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 15,
+        "question": "The 'Rashtrapati Bhavan' (formerly Viceroy’s House) was designed by:",
+        "options": [
+            "Herbert Baker",
+            "Edwin Lutyens",
+            "Robert Tor Russell",
+            "Henry Irwin"
+        ],
+        "answerRaw": "B. Edwin Lutyens",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 16,
+        "question": "'Santhal Family' is a famous modernist sculpture created by:",
+        "options": [
+            "D.P. Roy Choudhury",
+            "Ramkinkar Baij",
+            "Sadanand Bakre",
+            "Mrinalini Mukherjee"
+        ],
+        "answerRaw": "B. Ramkinkar Baij",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 17,
+        "question": "The 'All-India War Memorial' in Delhi is now popularly known as:",
+        "options": [
+            "Raj Ghat",
+            "India Gate",
+            "Vijay Chowk",
+            "Shakti Sthal"
+        ],
+        "answerRaw": "B. India Gate",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 18,
+        "question": "Which style of architecture is characterized by 'curved facades', 'nautical motifs', and 'streamlined' shapes, popular in Mumbai in the 1930s?",
+        "options": [
+            "Gothic",
+            "Art Deco",
+            "Indo-Saracenic",
+            "Baroque"
+        ],
+        "answerRaw": "B. Art Deco",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 19,
+        "question": "The painting 'Shiva and Sati' is a notable work by:",
+        "options": [
+            "Raja Ravi Varma",
+            "Nandalal Bose",
+            "M.F. Husain",
+            "Amrita Sher-Gil"
+        ],
+        "answerRaw": "B. Nandalal Bose",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 20,
+        "question": "Who designed the 'Secretariat' buildings (North and South Block) in New Delhi?",
+        "options": [
+            "Edwin Lutyens",
+            "Herbert Baker",
+            "Le Corbusier",
+            "William Emerson"
+        ],
+        "answerRaw": "B. Herbert Baker",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 21,
+        "question": "The 'Progressive Artists' Group' (PAG) was formed in 1947 in which city?",
+        "options": [
+            "Calcutta",
+            "Bombay (Mumbai)",
+            "Delhi",
+            "Madras"
+        ],
+        "answerRaw": "B. Bombay",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 22,
+        "question": "Which of the following was a key feature of 'Indo-Saracenic' architecture?",
+        "options": [
+            "Use of steel frames only",
+            "Use of onion domes, pointed arches, and vaulted roofs",
+            "Absence of any decoration",
+            "Flat roofs and glass walls"
+        ],
+        "answerRaw": "B. Onion domes and pointed arches.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 23,
+        "question": "The 'Kalighat Paintings' originated around which temple in Calcutta?",
+        "options": [
+            "Dakshineswar Temple",
+            "Kalighat Temple",
+            "Belur Math",
+            "Birla Temple"
+        ],
+        "answerRaw": "B. Kalighat Temple",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 24,
+        "question": "Who is known for the famous sculpture 'Triumph of Labour' at Marina Beach, Chennai?",
+        "options": [
+            "Ramkinkar Baij",
+            "D.P. Roy Choudhury",
+            "Chintamoni Kar",
+            "Pilloo Pochkhanawala"
+        ],
+        "answerRaw": "B. D.P. Roy Choudhury",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 25,
+        "question": "The architectural style of the 'High Court' and 'University' buildings in Mumbai is predominantly:",
+        "options": [
+            "Mughal",
+            "Gothic Revival",
+            "Neoclassical",
+            "Modernist"
+        ],
+        "answerRaw": "B. Gothic Revival",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 26,
+        "question": "Which artist is associated with the 'Cubist' influence in early 20th-century Indian art?",
+        "options": [
+            "Abanindranath Tagore",
+            "Gaganendranath Tagore",
+            "Jamini Roy",
+            "Nandalal Bose"
+        ],
+        "answerRaw": "B. Gaganendranath Tagore",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 27,
+        "question": "The 'Writer’s Building' in Kolkata was originally built for:",
+        "options": [
+            "Freedom fighters",
+            "Clerks (writers) of the East India Company",
+            "Local kings",
+            "Religious scholars"
+        ],
+        "answerRaw": "B. Clerks of the East India Company.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 28,
+        "question": "'Village Scene' and 'Brahmacharis' are famous works by which artist?",
+        "options": [
+            "Raja Ravi Varma",
+            "Amrita Sher-Gil",
+            "Tyeb Mehta",
+            "S.H. Raza"
+        ],
+        "answerRaw": "B. Amrita Sher-Gil",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 29,
+        "question": "The 'Council House', which now serves as the Parliament House (Sansad Bhavan), was designed by:",
+        "options": [
+            "Edwin Lutyens",
+            "Herbert Baker",
+            "Edwin Lutyens and Herbert Baker jointly",
+            "Le Corbusier"
+        ],
+        "answerRaw": "C. Lutyens and Baker (specifically Baker’s circular design concept).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 30,
+        "question": "The movement to revive Indian art by looking back at Ajanta and Mughal miniatures was known as:",
+        "options": [
+            "The Modernist Movement",
+            "The Bengal School / Nationalist School",
+            "The Company School",
+            "The Bombay School"
+        ],
+        "answerRaw": "B. The Bengal School.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "The 'Bengal School of Art' emerged as a reaction against 'Raja Ravi Varma's' style. What was the primary nationalist critique of Ravi Varma’s work?",
+        "options": [
+            "He didn't use enough colors.",
+            "His style was seen as \"too Westernized\" because it used European oil painting techniques and academic realism to depict Indian gods, which some felt lacked \"Indian spirituality.\"",
+            "He only painted for the British.",
+            "He refused to paint mythological themes."
+        ],
+        "answerRaw": "B. Critique of European academic realism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 32,
+        "question": "Consider the following statements regarding 'Abanindranath Tagore’s' painting 'Bharat Mata' (1905): 1. It was originally titled 'Bangamata' during the Swadeshi movement. 2. The deity is depicted with four arms, holding a book, sheaves of paddy, a piece of white cloth, and a rudraksha mala. 3. It was painted using the 'Wash Technique', influenced by Japanese art. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "D. 1, 2, and 3.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
+    },
+    {
+        "id": 33,
+        "question": "The 'Indo-Saracenic' style of architecture was strategically used by the British to:",
+        "options": [
+            "Save money on construction.",
+            "Legitimize their rule by visually linking the British Raj to the architectural glory of India's past (Mughal and Rajput), presenting themselves as the \"natural successors\" to the Indian emperors.",
+            "Promote the Islamic religion.",
+            "Hide their buildings from the public."
+        ],
+        "answerRaw": "B. Legitimizing rule via architectural continuity.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 34,
+        "question": "With reference to 'Amrita Sher-Gil', consider the following: Statement-I: She is often called the \"Indian Frida Kahlo\" for her pioneering role in modern Indian art. Statement-II: Her style was a unique synthesis of Western oil techniques and the empathy for the \"real India\"—the melancholy and poverty of the Indian peasantry. Which one of the following is correct?",
+        "options": [
+            "Both are correct and Statement-II explains why her work was different from the Bengal School.",
+            "Both are correct but unrelated.",
+            "Statement-I is false.",
+            "Statement-II is false."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 35,
+        "question": "Why did 'Jamini Roy' move away from the Bengal School and Western traditions to adopt a \"folk\" style?",
+        "options": [
+            "He wanted to make art cheaper to produce.",
+            "He sought to create a \"truly national\" art that was rooted in the soil, drawing inspiration from the Patua scrolls of Bengal and local village crafts.",
+            "He was ordered by the Congress to do so.",
+            "He ran out of oil paints."
+        ],
+        "answerRaw": "B. Seeking a national art rooted in folk traditions.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 36,
+        "question": "The 'Lutyens’ Delhi' plan was criticized for being 'Imperialist' because:",
+        "options": [
+            "It used only British materials.",
+            "Its layout emphasized hierarchy and power, with wide avenues and monumental buildings designed to overawe the Indian subjects and showcase the permanence of British rule.",
+            "It didn't have any parks.",
+            "It was too small for the population."
+        ],
+        "answerRaw": "B. Emphasis on imperial power and hierarchy.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 37,
+        "question": "Consider the following regarding the 'Victoria Terminus' (CSMT) in Mumbai: 1. It was designed by F.W. Stevens. 2. It represents a \"Gothic Revival\" style, but incorporates Indian decorative elements like the peacock and lion. 3. It was built specifically to celebrate the end of the 1857 Revolt. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "A. 1 and 2 only.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 38,
+        "question": "The 'Nandalal Bose' panels at the 'Haripura Congress Session' (1938) were significant because:",
+        "options": [
+            "They were painted on gold.",
+            "They depicted ordinary Indian people—farmers, potters, and musicians—bringing art directly into the political and public sphere of the masses.",
+            "They were bought by the British Museum.",
+            "They were portraits of British generals."
+        ],
+        "answerRaw": "B. Bringing art to the common people.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 39,
+        "question": "With reference to 'Raja Ravi Varma', consider the following: 1. He set up a 'Lithographic Press' in Mumbai to make his paintings accessible to the masses. 2. His depictions of Hindu deities defined the visual imagery of gods in Indian calendar art for decades. 3. He was a vocal member of the extremist faction of the Congress. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 40,
+        "question": "The 'Art Deco' style in Mumbai (the second largest collection in the world) was a symbol of:",
+        "options": [
+            "Poverty.",
+            "The rising aspirations of the Indian middle class and their desire for a \"modern\" and \"global\" identity in the 1930s and 40s.",
+            "British religious control.",
+            "The return to the Mughal era."
+        ],
+        "answerRaw": "B. Modern/Global identity for the rising middle class.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 41,
+        "question": "The 'Wash Technique' of the Bengal School was specifically intended to create an effect of:",
+        "options": [
+            "Sharp, photographic reality.",
+            "Hazy, ethereal, and spiritual atmosphere, which was seen as a rejection of the \"materialistic\" realism of the West.",
+            "Total darkness.",
+            "Bright, metallic surfaces."
+        ],
+        "answerRaw": "B. Ethereal/Spiritual atmosphere.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 42,
+        "question": "Which of the following describes the 'Bombay School of Art' (Sir J.J. School) in contrast to the Bengal School?",
+        "options": [
+            "It was more focused on religious art.",
+            "It stayed closer to the Western 'Academic Realism' and technical proficiency, often specializing in portraiture and sculpture.",
+            "it was led by Mahatma Gandhi.",
+            "It only used crayons."
+        ],
+        "answerRaw": "B. Academic Realism and technical proficiency.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 43,
+        "question": "'Ramkinkar Baij' is known as the 'Father of Modern Indian Sculpture'. His use of which material was revolutionary in the 1930s?",
+        "options": [
+            "Gold and Silver",
+            "Concrete, laterite, and cement—common materials used to depict the strength and struggle of rural labor.",
+            "Plastic",
+            "Marble from Italy"
+        ],
+        "answerRaw": "B. Concrete and cement for depicting rural labor.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 44,
+        "question": "The 'Gateway of India' design by George Wittet is a fusion of:",
+        "options": [
+            "16th-century Gujarati architecture and Roman triumphal arches.",
+            "Purely American skyscrapers.",
+            "Japanese pagodas.",
+            "Ancient Egyptian pyramids."
+        ],
+        "answerRaw": "A. Gujarati architecture and Roman arches.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 45,
+        "question": "Consider the following pairs of 'Architectural Projects' and their 'Designers': 1. High Court of Bombay — Fuller 2. Victoria Memorial — William Emerson 3. University of Bombay — Gilbert Scott How many of the above pairs are correctly matched?",
+        "options": [
+            "Only one pair",
+            "Only two pairs",
+            "All three pairs",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 46,
+        "question": "The 'Indian Society of Oriental Art' organized exhibitions that helped:",
+        "options": [
+            "Sell British paintings in India.",
+            "Popularize the 'Nationalist Art' movement and build a sense of pride in Indian cultural heritage among the intelligentsia.",
+            "Train Indians to become British officers.",
+            "Build more churches."
+        ],
+        "answerRaw": "B. Popularize Nationalist Art and cultural pride.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 47,
+        "question": "'Gaganendranath Tagore' is often considered a pioneer of 'Cubism' in India. His work focused on:",
+        "options": [
+            "Only the faces of gods.",
+            "Play of light and shadow, geometric shapes, and a critique of the \"urban\" and \"colonial\" social life through satire.",
+            "Painting the British flag.",
+            "Village scenes only."
+        ],
+        "answerRaw": "B. Light, shadow, geometric shapes, and social satire.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 48,
+        "question": "What was the 'Imperial Style' of Lutyens’ New Delhi often called?",
+        "options": [
+            "The Mughal style.",
+            "'Neo-Roman' or 'Classicist' style, but with significant Indian motifs like 'Chhatris', 'Jaalis', and 'Chhajjas'.",
+            "The Communist style.",
+            "The Village style."
+        ],
+        "answerRaw": "B. Neo-Roman with Indian motifs.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 49,
+        "question": "The 'Bengal School' artists often used 'History Painting' to:",
+        "options": [
+            "Tell the story of the British victory in 1857.",
+            "Reclaim the Indian past by depicting scenes from the Gupta, Mughal, and Rajput eras to inspire national confidence.",
+            "Teach dates to students.",
+            "Paint the history of London."
+        ],
+        "answerRaw": "B. Reclaim the past to inspire national confidence.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 50,
+        "question": "'Binode Behari Mukherjee' is famous for his mural 'The Medieval Saints'. It is significant because:",
+        "options": [
+            "It was painted in gold leaf.",
+            "It used a modern, minimalist style to depict the Bhakti and Sufi saints as symbols of a composite Indian culture.",
+            "It was painted by a British officer.",
+            "It promoted the partition of India."
+        ],
+        "answerRaw": "B. Modernist depiction of composite culture.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 51,
+        "question": "'D.P. Roy Choudhury's' sculpture 'Triumph of Labour' symbolizes:",
+        "options": [
+            "The victory of the British army.",
+            "The collective strength, dignity, and struggle of the working class (the real \"builders\" of the nation).",
+            "The end of the labor unions.",
+            "The invention of the steam engine."
+        ],
+        "answerRaw": "B. Strength/Dignity of the working class.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 52,
+        "question": "In the 1920s, the 'Madras School' was influenced by 'Devi Prasad Roy Choudhury' to move toward:",
+        "options": [
+            "Only abstract art.",
+            "Realistic and monumental sculptures and paintings of everyday life and labor.",
+            "British royalty portraits.",
+            "Ancient Greek styles."
+        ],
+        "answerRaw": "B. Realism/Monumentalism of everyday life.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 53,
+        "question": "The 'Victoria Memorial' in Calcutta was described by Curzon as:",
+        "options": [
+            "A small house.",
+            "A \"Taj Mahal of the British Empire\" to rival the Mughal glory.",
+            "A park for children.",
+            "A place for the Congress meetings."
+        ],
+        "answerRaw": "B. Rival to the Taj Mahal.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 54,
+        "question": "'Nandalal Bose' was chosen by Gandhi to decorate the 'Pandal' of the Congress sessions because:",
+        "options": [
+            "He was the cheapest artist.",
+            "Gandhi believed that art should be simple, accessible, and rooted in the lives of the common Indian peasants.",
+            "He wanted to impress the British.",
+            "Bose was a high-ranking politician."
+        ],
+        "answerRaw": "B. Art for the common Indian.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 55,
+        "question": "'Jamini Roy’s' paintings are characterized by:",
+        "options": [
+            "Complex, multi-dimensional perspectives.",
+            "Bold lines, flat colors, and a simplified, \"primitive\" look that rejected Western three-dimensional shading.",
+            "Only black and white colors.",
+            "Use of digital tools."
+        ],
+        "answerRaw": "B. Bold lines/flat colors (Folk style).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 56,
+        "question": "Why is the architectural layout of 'New Delhi' circular (like the Parliament) and axial (like Rajpath)?",
+        "options": [
+            "Because they ran out of square tiles.",
+            "To create grand vistas and symbolic axes of power, centered on the Viceroy’s House (power) and the Secretariat (administration).",
+            "To confuse the Indian protesters.",
+            "To match the shape of the moon."
+        ],
+        "answerRaw": "B. Grand vistas and symbolic axes of power.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 57,
+        "question": "Consider the following regarding the 'Wash Technique' of Abanindranath Tagore:",
+        "options": [
+            "It involved washing the painting multiple times with water to create a soft, blurred effect.",
+            "It was a way to clean the canvas.",
+            "It was used only for painting the sea.",
+            "It was a British technique for oil painting.",
+            "British lions.",
+            "Sunbursts, stylized animals, and tropical foliage, reflecting a modern, tropical aesthetic.",
+            "Pictures of the Viceroy.",
+            "Ancient Egyptian hieroglyphs only."
+        ],
+        "answerRaw": "B. Sunbursts/Tropical motifs.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 58,
+        "question": "'Amrita Sher-Gil's' return to India in 1934 led to her famous statement:",
+        "options": [
+            "\"I want to paint the British King.\"",
+            "\"I wish to paint the real India... with its infinite sadness and poverty.\"",
+            "\"I hate Indian colors.\"",
+            "\"I want to stay in Paris forever.\""
+        ],
+        "answerRaw": "B. Painting the \"real\" India.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 59,
+        "question": "Ultimately, 'Modern Indian Art' (Chapter 27) was a journey of:",
+        "options": [
+            "Copying the West.",
+            "Finding a unique 'Indian' modern identity by balancing tradition, local folk influences, and international modernist trends.",
+            "Returning to pre-historic times.",
+            "Pleasing the British rulers."
+        ],
+        "answerRaw": "B. Finding a unique Indian modern identity.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 60,
+        "question": "Consider the following statements regarding the 'Bengal School of Art': 1. It was an aesthetic movement that sought to reject 'Materialism' through the use of the Japanese 'Wash' technique. 2. It was heavily influenced by the spiritual and cultural ideas of E.B. Havell and Sister Nivedita. 3. It promoted the use of large-scale oil canvases as the primary medium for Indian historical subjects. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 61,
+        "question": "With reference to the 'Indo-Saracenic' style of architecture, consider the following: Statement-I: It was the first architectural style in India to use modern materials like steel, iron, and poured concrete while masking them under traditional motifs. Statement-II: The style was intended to portray the British as \"Enlightened Despots\" who were the legitimate heirs to the Mughal Empire. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both are correct and Statement-II explains the political logic behind Statement-I.",
+            "Both are correct but Statement-II does not explain Statement-I.",
+            "Statement-I is correct but Statement-II is incorrect.",
+            "Both are incorrect."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 62,
+        "question": "The 'Company School' of painting (Patna/Kampani Qalam) is often described as a hybrid. What was its most significant contribution to the visual record of India?",
+        "options": [
+            "It recorded the lives of the Indian peasants in a purely mythological way.",
+            "It documented the flora, fauna, and local trades/occupations of India using European techniques of linear perspective and shading.",
+            "It was the first school to use abstract art in India.",
+            "It only focused on the portraits of the British Kings."
+        ],
+        "answerRaw": "B. Documentation of local life/nature via perspective.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 63,
+        "question": "Arrange the following movements/trends in Indian Art in the correct chronological order: 1. Dominance of the Company School. 2. Rise of the Bengal School of Art. 3. The 'Folk-Revival' of Jamini Roy. 4. The formation of the Progressive Artists' Group (PAG). Select the correct answer using the code given below:",
+        "options": [
+            "1 — 2 — 3 — 4",
+            "2 — 1 — 3 — 4",
+            "1 — 3 — 2 — 4",
+            "2 — 3 — 1 — 4"
+        ],
+        "answerRaw": "A. 1 — 2 — 3 — 4",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 64,
+        "question": "Regarding 'Edwin Lutyens' and New Delhi, consider the following statements: 1. Lutyens personally despised Indian architecture, describing it as \"pointless\" and \"clumsy.\" 2. Despite his personal views, he was forced to incorporate Indian motifs like the 'Sanchi Stupa' dome (for the Rashtrapati Bhavan) to satisfy political requirements. 3. The layout of New Delhi was based on a 'Hexagonal' grid to ensure maximum military control over the streets. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 65,
+        "question": "The 'Raja Ravi Varma' lithographs were significant for the socio-political landscape because they:",
+        "options": [
+            "Were only sold to the British.",
+            "Democratized the consumption of 'High Art,' allowing even the marginalized sections to own images of gods that were previously restricted to temple sanctums.",
+            "Encouraged people to join the army.",
+            "Were banned by the Congress for being too Western."
+        ],
+        "answerRaw": "B. Democratized consumption of art.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 66,
+        "question": "Why did 'Amrita Sher-Gil' describe the Bengal School as \"effeminate\" and \"anaemic\"?",
+        "options": [
+            "Because they used too much pink.",
+            "She felt their focus on mythological nostalgia and hazy washes was disconnected from the \"raw, pulsating, and often tragic\" reality of modern India.",
+            "She wanted them to use more oil paint.",
+            "She believed they were secret British agents."
+        ],
+        "answerRaw": "B. Disconnect from modern reality.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 67,
+        "question": "The 'Victoria Terminus' (CSMT) architecture is a symbol of the 'Age of Steam.' Which of the following is a \"local\" element integrated into its Gothic structure?",
+        "options": [
+            "The use of marble from Italy.",
+            "The carving of Indian animals (peacocks, tigers) and scenes of local flora alongside the statues of 'Progress' and 'Commerce.'",
+            "The dome of the Taj Mahal.",
+            "A statue of Mahatma Gandhi."
+        ],
+        "answerRaw": "B. Integration of Indian fauna/flora carvings.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 68,
+        "question": "With reference to 'Gaganendranath Tagore', consider the following: Statement-I: He used 'Cubism' as a medium to critique the internal contradictions of the Indian Bhadralok (elite) and the absurdity of colonial urbanization. Statement-II: He was the first Indian artist to experiment with 'Cartooning' and 'Political Satire' as a high-art form. Which one is correct?",
+        "options": [
+            "Both are correct.",
+            "Statement-I is false.",
+            "Statement-II is false.",
+            "Both are false."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 69,
+        "question": "The 'Haripura Posters' by Nandalal Bose (1938) were commissioned by Gandhi to:",
+        "options": [
+            "Sell more khadi.",
+            "Create a \"People's Art\" that reflected the dignity of rural Indian life and integrated the political space of the Congress with the aesthetic life of the village.",
+            "Paint portraits of the Congress Working Committee.",
+            "Mock the British generals."
+        ],
+        "answerRaw": "B. Creation of a \"People's Art.\"",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 70,
+        "question": "The 'Madras School' under D.P. Roy Choudhury moved toward 'Heroic Realism'. His sculpture 'Triumph of Labour' is a tribute to:",
+        "options": [
+            "The victory of the British in WWI.",
+            "The universal struggle and collective power of the human spirit represented through the physical toil of Indian laborers.",
+            "The end of the caste system.",
+            "The invention of the bicycle."
+        ],
+        "answerRaw": "B. Tribute to collective human toil/spirit.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 71,
+        "question": "The 'Art Deco' buildings of Mumbai are often nicknamed 'Bombay Deco'. What distinguishes them from their Western counterparts?",
+        "options": [
+            "They used only wood.",
+            "The incorporation of 'Tropical' imagery (palm trees, sunbursts) and the use of local materials like Malad stone.",
+            "They were built underground.",
+            "They had no windows."
+        ],
+        "answerRaw": "B. Tropical imagery and local materials.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 72,
+        "question": "In the context of the 'Bengal School', what was the 'Spirit of Ajanta' supposed to provide?",
+        "options": [
+            "A new way to paint caves.",
+            "A \"Classical Indian\" lineage that proved Indian art was inherently superior in its inner, spiritual expression compared to the \"outer\" realism of the West.",
+            "A map for archaeologists.",
+            "A reason to stop painting."
+        ],
+        "answerRaw": "B. Lineage of spiritual expression.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 73,
+        "question": "The 'Bombay School' (Sir J.J. School) was accused by the Bengal School of being \"soulless.\" Why?",
+        "options": [
+            "Because they didn't believe in God.",
+            "Because their focus on 'Academic Realism' and anatomical perfection was seen as a slave-like imitation of European Victorian tastes.",
+            "They only painted in black and white.",
+            "They were located in a different city."
+        ],
+        "answerRaw": "B. Imitation of Victorian academic realism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 74,
+        "question": "Consider the following regarding the 'Victoria Memorial' in Kolkata: 1. It was designed by William Emerson in a 'Folk' style. 2. It was funded by the \"donations\" of Indian Princes and the public, often under British pressure. 3. It was intended to serve as a 'Museum of the Empire.' How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 75,
+        "question": "'Jamini Roy’s' art is often described as \"Primitivist.\" This refers to his:",
+        "options": [
+            "Lack of talent.",
+            "Conscious rejection of complex perspective in favor of the bold, two-dimensional simplicity of the village 'Pat' scrolls.",
+            "Use of ancient stone tools for painting.",
+            "Focus on painting dinosaurs."
+        ],
+        "answerRaw": "B. Rejection of perspective for folk simplicity.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 76,
+        "question": "The 'Gateway of India' and the 'Taj Mahal Palace Hotel' together represent:",
+        "options": [
+            "The total dominance of the British over the landscape.",
+            "The visual contrast between 'Imperial Authority' (Gateway) and 'Indian Capitalist Enterprise' (Taj Hotel) during the colonial era.",
+            "Two different religious buildings.",
+            "The same architect."
+        ],
+        "answerRaw": "B. Contrast between Imperial and Native capitalist visual presence.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 77,
+        "question": "Match the 'Artistic Philosophy' with the 'Artist': 1. Spiritual Revivalism — A. Jamini Roy 2. Folk Modernism — B. Amrita Sher-Gil 3. Poetic Realism (Melancholy) — C. Abanindranath Tagore Select the correct matching code:",
+        "options": [
+            "1-C, 2-A, 3-B",
+            "1-A, 2-B, 3-C",
+            "1-B, 2-C, 3-A",
+            "1-C, 2-B, 3-A"
+        ],
+        "answerRaw": "A. 1-C, 2-A, 3-B.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 78,
+        "question": "'Ramkinkar Baij's' sculpture 'Santhal Family' (1938) was revolutionary because it was:",
+        "options": [
+            "Made of solid gold.",
+            "The first major modernist outdoor public sculpture in India, using industrial materials (cement/gravel) to depict tribal life.",
+            "Commissioned by the British King.",
+            "A tribute to the French Revolution."
+        ],
+        "answerRaw": "B. First public modernist sculpture using industrial materials.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 79,
+        "question": "Why did the 'Bengal School' eventually lose its dominance by the late 1920s?",
+        "options": [
+            "Because they were arrested.",
+            "It was increasingly perceived as 'repetitive' and 'escapist,' failing to engage with the urgent socio-economic crises of the Great Depression and the rising mass movements.",
+            "They ran out of water-colors.",
+            "They moved to London."
+        ],
+        "answerRaw": "B. Perception of being repetitive and escapist.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 80,
+        "question": "The 'Secretariat' in New Delhi features 'Jaalis' (stone screens). This was a deliberate attempt by Herbert Baker to:",
+        "options": [
+            "Keep the flies out.",
+            "Synthesize Indian climatic solutions with Western monumentalism to create a \"Imperial-Indian\" architectural language.",
+            "Hide the British officers from view.",
+            "Save on the cost of glass."
+        ],
+        "answerRaw": "B. Synthesis of climatic solutions and monumentalism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 81,
+        "question": "'Binode Behari Mukherjee', despite being almost blind, created murals that:",
+        "options": [
+            "Followed the Bengal School style exactly.",
+            "Introduced a 'Minimalist' and 'Calligraphic' quality, focusing on the simple, everyday beauty of nature and human figures.",
+            "Were purely abstract.",
+            "Were only about the British army."
+        ],
+        "answerRaw": "B. Minimalist/Calligraphic focus on everyday beauty.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 82,
+        "question": "The 'Victoria Terminus' was a \"Cathedral of Commerce.\" What did this label signify?",
+        "options": [
+            "It was used as a church on Sundays.",
+            "It bestowed a religious-like grandeur and sanctity upon the most vital tool of British colonial exploitation—the Railways.",
+            "It was built by the Pope.",
+            "It was where the British kept their bibles."
+        ],
+        "answerRaw": "B. Bestowing grandeur on the tool of colonial utility.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 83,
+        "question": "'Nandalal Bose' is known as 'Master Moshai'. His work 'Village Drummer' is an example of:",
+        "options": [
+            "His love for music.",
+            "His effort to elevate 'local' and 'lowly' subjects into the realm of 'high' nationalist art.",
+            "A painting for a British music school.",
+            "A cartoon."
+        ],
+        "answerRaw": "B. Elevating local subjects to high nationalist art.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 84,
+        "question": "The 'Art Deco' cinemas of Mumbai (Metro, Eros, Liberty) were significant because they:",
+        "options": [
+            "Only showed British films.",
+            "Were the ultimate spaces of 'Modernity' for the Indian public, representing a glamorous, global escape from the colonial reality.",
+            "Were built of mud.",
+            "Were used as warehouses during the war."
+        ],
+        "answerRaw": "B. Spaces of modernity and global escape.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 85,
+        "question": "Consider the following regarding the 'Kalighat' paintings:",
+        "options": [
+            "They were traditional temple art that never changed.",
+            "They were a vibrant, urban \"street art\" that satirized the 'Babus' (Westernized Indians) and reflected the social tensions of 19th-century Calcutta.",
+            "They were painted by British officers.",
+            "They were only about the weather."
+        ],
+        "answerRaw": "B. Urban street art satirizing Westernized Indians.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 86,
+        "question": "'Amrita Sher-Gil's' return to India in 1934 marked the beginning of her 'Indian Phase.' What was the core of her aesthetic transformation?",
+        "options": [
+            "She started using water-colors only.",
+            "She adopted the 'flat' colors and 'static' quality of Basohli/Pahari miniatures but maintained her Western psychological depth.",
+            "She began painting for the Viceroy.",
+            "She stopped painting people."
+        ],
+        "answerRaw": "B. Synthesis of Pahari miniatures and Western psychology.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 87,
+        "question": "The 'India Gate' (All-India War Memorial) is inscribed with the names of:",
+        "options": [
+            "The British Kings.",
+            "Over 13,000 Indian and British soldiers who died in the First World War and the Third Anglo-Afghan War.",
+            "The members of the Congress.",
+            "The architects Lutyens and Baker."
+        ],
+        "answerRaw": "B. Names of WWI and Afghan War martyrs.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 88,
+        "question": "'D.P. Roy Choudhury's' \"Martyrs' Memorial\" in Patna commemorates:",
+        "options": [
+            "The 1857 Revolt.",
+            "The seven students who were shot while trying to hoist the National Flag at the Secretariat during the Quit India Movement (1942).",
+            "The victims of the Bengal Famine.",
+            "The soldiers of the INA."
+        ],
+        "answerRaw": "B. Quit India student martyrs.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 89,
+        "question": "Ultimately, the 'Art and Architecture' of the British era was a \"Battle of Styles\" between:",
+        "options": [
+            "Old and New.",
+            "The 'Architecture of Dominance' (Empire) vs. the 'Art of Re-imagining' (Nationalist Identity).",
+            "Brick and Stone.",
+            "Black and White."
+        ],
+        "answerRaw": "B. Architecture of Dominance vs. Art of Re-imagining.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     }
 ];
-// Note: Extending with more MCQs to reach 35
-MODERN_CHAPTER_27_MCQS.push(
-    {
-        id: 11,
-        question: "Under the British, the 'District Officer' (Collector) became the 'kingpin' of local administration. Who introduced this office in its modern form?",
-        options: ["Lord Cornwallis", "Warren Hastings", "William Bentinck", "Lord Dalhousie"],
-        correctAnswer: 1,
-        explanation: "Warren Hastings in 1772.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 12,
-        question: "The British policy towards the 'Muslims' underwent a significant shift after 1870 (following the publication of W.W. Hunter's 'The Indian Mussalmans'). This shift was from:",
-        options: ["Hostility to Patronage.", "Patronage to Hostility.", "Neutrality to Persecution.", "Assimilation to Exclusion."],
-        correctAnswer: 0,
-        explanation: "Initially, the British blamed Muslims for 1857. Later, they decided to patronize them to use as a counter-weight to the Congress.",
-        subtopic: '5',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 13,
-        question: "Lord Lytton's 'Statutory Civil Service' (1878-79) proved to be a failure because:",
-        options: ["Indians didn't join.", "The British officers resigned.", "It was based on nomination from high-status families rather than merit, and the positions were socially inferior.", "The salary was too high."],
-        correctAnswer: 2,
-        explanation: "It was a way to keep high-caste Indians separate from the regular ICS.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 14,
-        question: "The first Indian woman to graduate from Calcutta University and address the INC session (1890) was:",
-        options: ["Sarojini Naidu", "Kadambini Ganguly", "Annie Besant", "Pandita Ramabai"],
-        correctAnswer: 1,
-        explanation: "Kadambini Ganguly.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 15,
-        question: "In the 19th century, the British justified their rule in India through the theory of:",
-        options: ["Socialism", "Democratic Peace", "White Man’s Burden / Civilizing Mission", "Marxism"],
-        correctAnswer: 2,
-        explanation: "The belief that they were in India to civilize the 'backward' natives.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 16,
-        question: "The 'Grand Delhi Durbar' of 1877 was organized to:",
-        options: ["Celebrate the victory in the Afghan war.", "Proclaim Queen Victoria as 'Kaiser-i-Hind' (Empress of India).", "End the famine.", "Coronate King George V."],
-        correctAnswer: 1,
-        explanation: "By Lord Lytton while South India was facing a severe famine.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 17,
-        question: "Who was the 'Secretary of State for India'?",
-        options: ["An official sitting in Calcutta.", "A member of the British Cabinet sitting in London.", "A representative of the Marathas.", "The head of the East India Company."],
-        correctAnswer: 1,
-        explanation: "Created by the 1858 Act, a British Cabinet minister in London.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 18,
-        question: "Which among the following was the 'Last' major annexation by the British under the Policy of Annexation?",
-        options: ["Punjab", "Lower Burma", "Awadh", "Nagpur"],
-        correctAnswer: 2,
-        explanation: "Awadh (1856). After 1857, annexation of native states stopped.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 19,
-        question: "The 'Indian Forest Act' of 1865 gave the government the right to:",
-        options: ["Protect wildlife.", "Declare any land covered with trees as government forest.", "Give land to tribals.", "Export timber for free."],
-        correctAnswer: 1,
-        explanation: "It was the start of state control over forests for commercial exploitation (railways).",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 20,
-        question: "The 'Age of Consent Act' (1891) raised the age of consent for marriage for girls from 10 to:",
-        options: ["12", "14", "16", "18"],
-        correctAnswer: 0,
-        explanation: "12 years (Behramji Malabari's efforts).",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 21,
-        question: "The 'Sarda Act' (1929) fixed the minimum age for marriage for boys and girls at:",
-        options: ["18 for boys, 14 for girls", "21 for boys, 18 for girls", "15 for boys, 12 for girls", "14 for boys, 10 for girls"],
-        correctAnswer: 0,
-        explanation: "Harbilas Sarda (18 for boys, 14 for girls).",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 22,
-        question: "British policies in India were aimed at protecting the interests of:",
-        options: ["The Indian masses.", "The British manufacturers, merchants, and investors.", "The Princely States exclusively.", "The French allies."],
-        correctAnswer: 1,
-        explanation: "Economic interests of the metropole (Britain).",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 23,
-        question: "Who described the 19th-century British administration in India as a 'Despotism tempered by the absence of local knowledge'?",
-        options: ["Lord Lytton", "Lord Curzon", "Marquess of Hastings", "Lord Auckland"],
-        correctAnswer: 2,
-        explanation: "Commonly used to describe the lack of sensitivity towards local conditions.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 24,
-        question: "The 'Council of India' in London was abolished by:",
-        options: ["The Act of 1909", "The Act of 1919", "The Act of 1935", "The Act of 1947"],
-        correctAnswer: 2,
-        explanation: "Act of 1935 abolished it and gave the SOS 'advisers' instead.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 25,
-        question: "The British followed the policy of 'Strict Neutrality' in religious matters after 1857. This was stated in:",
-        options: ["The Charter Act of 1853", "The Queen's Proclamation of 1858", "The Act of 1892", "The 1919 Declaration"],
-        correctAnswer: 1,
-        explanation: "Queen Victoria's proclamation promised no interference in religious beliefs.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 26,
-        question: "The 'Gorkha War' (1814-16) was fought during the tenure of:",
-        options: ["Lord Hastings", "Lord Amherst", "Lord Auckland", "Lord Ellenborough"],
-        correctAnswer: 0,
-        explanation: "Lord Hastings.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 27,
-        question: "The 'Policy of Equal Electorates' was rejected in favor of 'Separate Electorates' to:",
-        options: ["Promote democracy.", "Appease the Muslims and divide the nationalist movement.", "Involve the Princes in voting.", "Exclude the British from voting."],
-        correctAnswer: 1,
-        explanation: "Communal electorates (1909).",
-        subtopic: '5',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 28,
-        question: "Which boundary commission was appointed for the partition of Punjab and Bengal in 1947?",
-        options: ["Cyril Radcliffe", "Lord Pethick-Lawrence", "Sir Stafford Cripps", "Lord Mountbatten"],
-        correctAnswer: 0,
-        explanation: "Radcliffe Commission.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 29,
-        question: "The 'Montagu Declaration' of 1917 promised:",
-        options: ["Complete Independence.", "Development of self-governing institutions and responsible government as the goal.", "Abolition of the Viceroy’s post.", "Handing over Finance to Indians."],
-        correctAnswer: 1,
-        explanation: "Gradual development of self-governing institutions.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 30,
-        question: "The 'First Census' in India (not synchronous) was held in 1872 during the time of:",
-        options: ["Lord Lytton", "Lord Mayo", "Lord Ripon", "Lord Curzon"],
-        correctAnswer: 1,
-        explanation: "Lord Mayo (1872). First synchronous census was 1881 (Ripon).",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 31,
-        question: "The 'Official Secrets Act' (1904) was passed by Curzon to:",
-        options: ["Protect government data.", "Suppress the freedom of the press and restrict reporting on government activities.", "Promote transparency.", "Allow Indians to see files."],
-        correctAnswer: 1,
-        explanation: "To curb nationalism by restricting information.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 32,
-        question: "The 'Vandaboo' (Yandabo) Treaty of 1826 was between British and:",
-        options: ["Kingdom of Nepal", "Kingdom of Ava (Burma)", "Kingdom of Siam", "Sikh Empire"],
-        correctAnswer: 1,
-        explanation: "Burma.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 33,
-        question: "The 'Buffer State' policy was most critical for which region according to Curzon?",
-        options: ["The North-West Frontier", "The South", "The Eastern Archipelago", "The Central Provinces"],
-        correctAnswer: 0,
-        explanation: "To keep Russia away from India.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 34,
-        question: "Why was the 'Subordinate Isolation' policy changed to 'Subordinate Union'?",
-        options: ["British were tired of isolation.", "Princes had proved their loyalty in 1857 ('breakwaters to the storm').", "The Princes asked for a union.", "The US pressurized the UK."],
-        correctAnswer: 1,
-        explanation: "Canning wanted to preserve the states as potential allies against future revolts.",
-        subtopic: '2',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 35,
-        question: "The British created a 'New Class' of loyalists among the Indians who were educated in English. Macaulay called them:",
-        options: ["The Native Elite.", "A class of persons Indian in blood and colour, but English in taste, in opinions, in morals and in intellect.", "The Brown Sahibs.", "The Interpreters."],
-        correctAnswer: 1,
-        explanation: "Direct quote from Macaulay's Minute.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    }
-);
-
-export const MODERN_CHAPTER_27_CONTENT = `
-# Chapter 27: Administrative Changes After 1857 (Part 2)
-
-## BLOCK 1: EVOLUTION OF FAMINE POLICY
-*From 'Laissez-Faire' to Responsibility.*
-
-### 🌾 STRACHEY TO MACDONNELL
-**Strachey Commission (1880):**
-- Established the basic **Famine Code**.
-- **Principle:** State must provide relief wages to the able-bodied.
-
-**Lyall Commission (1897):**
-- Appointed after the 1896-97 famine.
-- **Refinement:** Recommended early **suspension of land revenue** and utilizing non-official charity.
-
-**MacDonnell Commission (1900):**
-- Appointed by Lord Curzon.
-- **Key Shift:** Recommended **"Moral Strategy"**—putting money in people's pockets *before* they start starving (Famine Commissioner to be appointed).
-- **Result:** Better preparedness, though famines continued (e.g., Bengal 1943 was a man-made failure of this policy).
-
----
-
-## BLOCK 2: CURRENCY POLICY
-*The Artificial Rupee.*
-
-### 💱 THE EXCHANGE RATE GAME
-**The Issue:**
-- The British Govt wanted a high exchange rate for the Rupee (to make British imports cheap in India and to make remitting money to London cheaper).
-
-**The Move:**
-- They **closed the mints to silver coinage in 1893** and artificially pegged the Rupee to Gold/Sterling (1s 4d).
-
-**Impact:**
-- **Indian Exporters:** Suffered (their goods became expensive abroad).
-- **British Importers:** Benefited (their cloth became cheaper in India).
-- **Nationalist Criticism:** **Dadabhai Naoroji** and the Congress vehemently opposed this "manipulation of exchange."
-
----
-
-## BLOCK 3: ARMY'S "CLASS COMPANY" SYSTEM
-*Divide within the Regiment.*
-
-### ⚔️ BALANCING THE CASTES
-**The Tactic:**
-- After 1857, the British didn't just segregate the army; they structured it carefully.
-
-**Class Regiments:**
-- Pure regiments of one race (e.g., Gurkha, Sikh).
-
-**Class-Company Regiments:**
-- **Mixed regiments** where different companies belonged to different castes/races (e.g., 1 company Jat, 1 company Muslim, 1 company Rajput).
-
-**Logic:**
-- If one company mutinied, the others (of different castes) would not join them and could be used to suppress them. This was the **"Water-tight Compartment"** policy.
-
----
-
-## BLOCK 4: NEPAL & BHUTAN POLICY
-*Securing the Northern Gate.*
-
-### 🏔️ SAGAULI & SINCHULA
-**Nepal (Treaty of Sagauli, 1816):**
-- Nepal gave up districts of **Garhwal and Kumaon** (giving British access to Simla/Nainital).
-- Accepted a British Resident in Kathmandu.
-- **Crucially:** Allowed the British to **recruit Gurkhas** into the army (who became the loyal backbone of the Raj).
-
-**Bhutan (Treaty of Sinchula, 1865):**
-- Bhutan surrendered the **passes (Duars)** leading to Assam.
-- In return, the British gave an annual subsidy.
-- **Significance:** Secured the **tea gardens of Assam** from raids.
-
----
-
-## BLOCK 5: MISSIONARY POLICY (POST-1858)
-*Cautious Neutrality.*
-
-### ✝️ OFFICIAL NEUTRALITY
-**Pre-1857:** Active support for missionaries (seen as a cause of 1857 revolt).
-
-**Post-1858:**
-- The **Queen's Proclamation** promised **Religious Neutrality**.
-- **The Shift:** Officials were banned from openly supporting missionary activities.
-- **Reality:** Missionaries continued to work, focusing on education and hospitals (soft power) rather than aggressive conversion, often funded by **"Grants-in-Aid"** for their schools (under Wood's Despatch).
-
----
-
-## BLOCK 6: THE FIRST WHITE MUTINY (1859)
-*The Forgotten Revolt.*
-
-### ⚔️ EUROPEAN TROOPS' REVOLT
-**Context:** The Act of 1858 transferred the Company's army to the Crown.
-
-**The Grievance:**
-- The European soldiers of the East India Company (who were tough mercenaries) refused to simply be "transferred" like cattle to the Queen's Army without a bounty (bonus) or the right to discharge.
-
-**The Mutiny:**
-- They agitated and threatened violence. This is called the **"White Mutiny"** (distinct from the Ilbert Bill controversy).
-
-**The Resolution:**
-- The Government had to bow down. They offered a "discharge" option. Over **10,000 soldiers** opted to go home, forcing the Govt to recruit fresh troops from England.
-
----
-
-## BLOCK 7: ROYAL COMMISSION ON DECENTRALIZATION (1908)
-*Why Local Govt Failed.*
-
-### 🏙️ HOBHOUSE COMMISSION
-**Chairman:** C.E.H. Hobhouse.
-
-**Diagnosis:** It analyzed why Ripon's "Local Self-Government" hadn't worked.
-
-**Findings:**
-- **Lack of Funds:** Local bodies had responsibilities (roads/health) but no independent tax revenue.
-- **Official Control:** The **District Collector** still controlled everything.
-
-**Recommendation:**
-- It recommended less official interference, but the Govt ignored it until the 1919 reforms.
-
----
-
-## BLOCK 8: CREATION OF NWFP (1901)
-*Curzon's Frontier Strategy.*
-
-### 🏔️ NORTH-WEST FRONTIER PROVINCE
-**Context:**
-- The tribal areas (Pathans) were previously managed by the Punjab Government. It was chaotic.
-
-**The Move:**
-- **Lord Curzon** separated the trans-Indus districts from Punjab and created a new province: **North-West Frontier Province (NWFP)**.
-
-**Policy:**
-- It was placed directly under the Central Government (**Chief Commissioner**) to ensure a unified **"Forward Policy"** against the tribes and Russia.
-
----
-
-## BLOCK 9: RESTORATION OF TALUQDARS (1858)
-*Buying Loyalty.*
-
-### 🏰 THE OUDH COMPROMISE
-**Pre-1857:** The British had stripped the Taluqdars (Landlords) of Oudh of their lands, which caused them to lead the 1857 Revolt.
-
-**Post-1858 Policy:** Lord Canning reversed this.
-
-**The Deal:**
-- The Taluqdars were given back their estates and empowered with magisterial powers. In return, they became the most loyal supporters of the British Raj.
-
-**Impact:** This cemented the **Zamindar-British alliance** that lasted until 1947.
-
----
-
-## BLOCK 10: EXTERNAL EMIGRATION POLICY
-*The Export of Labor.*
-
-### 🚢 THE COOLIE SYSTEM
-**Context:** Slavery was abolished in the British Empire in 1833. Sugar plantations in Fiji, Mauritius, South Africa, and the Caribbean needed cheap labor.
-
-**The Policy:**
-- The Government of India facilitated the recruitment of **"Indentured Labor" (Girmitiyas)**.
-
-**Conditions:**
-- 5-year contracts.
-- Brutal conditions akin to slavery.
-
-**Abolition:** Under pressure from nationalists (Gandhi/Gokhale), the system was finally abolished in **1917**.
-
----
-
-## BLOCK 11: WELBY COMMISSION (1895)
-*Investigating the Drain.*
-
-### 💰 ROYAL COMMISSION ON EXPENDITURE
-**Context:** Dadabhai Naoroji and others argued that India was being bled dry to pay for British wars and pensions.
-
-**The Commission:** Appointed in 1895 to inquire into Indian expenditure.
-
-**The Member:** **Dadabhai Naoroji** was the first Indian to sit as a member of a Royal Commission.
-
-**Outcome:** It admitted some unfair charges but mostly justified British spending. However, it validated the nationalist claim that India was paying for Imperial wars.
-
----
-
-## BLOCK 12: CURRENCY COMMITTEES
-*Fixing the Rupee.*
-
-### 💱 HERSCHELL & FOWLER
-**Herschell Committee (1893):**
-- Recommended closing the mints to silver to artificially raise the value of the Rupee.
-
-**Fowler Committee (1898):**
-- Recommended that the British Sovereign (Gold Pound) should be legal tender in India. It effectively put India on a **Gold Exchange Standard**.
-
-**Impact:** This fixed the exchange rate at **1s 4d** (1 Rupee = 1 shilling 4 pence), which favored British imports over Indian exports.
-
----
-
-## BLOCK 13: CONTAGIOUS DISEASES ACTS (1864)
-*Protecting the Soldier, Blaming the Woman.*
-
-### ⚕️ HEALTH POLICY FOR TROOPS
-**Context:** High rates of venereal disease among British soldiers in India.
-
-**The Policy:** The Contagious Diseases Acts (1864, 1868).
-
-**The Rule:**
-- It allowed the police to arrest women suspected of being prostitutes, force them to undergo humiliating medical exams, and lock them in **"Lock Hospitals"** if infected.
-
-**Repeal:** Repealed in **1888** after massive protests by social reformers in England and India.
-
----
-
-## BLOCK 14: SALT POLICY
-*The Tax on Survival.*
-
-### 🧂 THE INLAND CUSTOMS LINE
-**Policy:** The Company established a strict monopoly on salt manufacture.
-
-**The Barrier:**
-- To prevent "cheap" salt from Princely States entering British territory, they built a **2,500-mile long hedge (The Great Hedge of India)** made of thorns, guarded by 12,000 men.
-
-**Tax:**
-- The salt tax was so high (sometimes 1000% of production cost) that it became a primary grievance, eventually leading to Gandhi's Dandi March in 1930.
-
----
-
-## BLOCK 15: THE WEAPON OF SEDITION (1870)
-*The Section that silenced freedom.*
-
-### ⚖️ SECTION 124A
-**Context:** The original Indian Penal Code (1860) did not have a specific section for "Sedition."
-
-**The Insertion:**
-- It was inserted in **1870** by **Sir James Stephen** (Law Member) specifically to deal with Wahabi rebels and later nationalists.
-
-**The Definition:**
-- "Whoever by words... excites or attempts to excite disaffection towards the Government established by law..."
-
-**Famous Victims:** Used against **Bal Gangadhar Tilak** (1897, 1908) and **Mahatma Gandhi** (1922).
-
-**Policy:** It became the primary legal tool to criminalize political dissent.
-
----
-
-## BLOCK 16: THE CARROT AND STICK POLICY
-*Managing the Congress.*
-
-### 🥕 CONCESSION & REPRESSION
-**The Strategy:** A three-pronged approach to deal with the Modern Nationalism:
-
-1.  **Repression (The Stick):** Jail the "Extremists" (Tilak/Aurobindo) using mild to harsh laws.
-2.  **Conciliation (The Carrot):** Offer minor reforms (1909, 1919) to pacify the "Moderates" (Gokhale).
-3.  **Suppression:** Once the Moderates are isolated, crush the Extremists completely.
-
-**Failure:** This worked initially (Surat Split 1907) but failed when Gandhi united both wings in 1920.
-
----
-
-## BLOCK 17: THE "STEEL FRAME" SPEECH (1922)
-*The Reality Check.*
-
-### 🏗️ LLOYD GEORGE'S DECLARATION
-**Context:** By 1922, Indians were demanding rapid Indianization of the Civil Services (ICS).
-
-**The Speech:** British PM Lloyd George gave a famous speech in the House of Commons.
-
-**The Quote:** He called the ICS the **"Steel Frame"** of the British administration in India.
-
-**The Meaning:** He declared that whatever changes happen, the character of the British administration must remain British, and the British element in the ICS must be maintained to prevent the structure from collapsing. It was a clear signal that full independence was not on the table.
-
----
-
-## BLOCK 18: POLICY TOWARDS DEPRESSED CLASSES
-*The Late Discovery.*
-
-### 🗳️ FROM APATHY TO PROTECTION
-**Phase 1 (Pre-1917): Apathy.**
-- The British ignored the Dalits (Depressed Classes) because they didn't want to offend the Orthodox Upper Caste Hindus (their loyalists).
-
-**Phase 2 (Post-1917): Utilization.**
-- As the Congress became a mass movement, the British suddenly became "champions" of the Depressed Classes.
-
-**The Goal:** To detach them from the Hindu body and create a separate political bloc (like Muslims).
-
-**Climax:** The **Communal Award (1932)** which granted Separate Electorates to Depressed Classes (thwarted by Gandhi's Poona Pact).
-
----
-
-## BLOCK 19: POLICY ON ARMS (1878)
-*Disarming the Nation.*
-
-### 🔫 THE ARMS ACT
-**Context:** Fearing another 1857, the British wanted to ensure Indians could not possess weapons.
-
-**The Act:** Indian Arms Act, 1878 (Lytton).
-
-**The Rule:**
-- No Indian could keep a weapon without a license (which was impossible to get).
-
-**The Exception:** Europeans and Anglo-Indians were exempt.
-
-**Gandhi's View:** He called this act the "blackest" of all British laws because it emasculated the entire nation, making them unable to defend themselves.
-`;
-

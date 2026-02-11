@@ -1,884 +1,1192 @@
-export interface Subtopic {
-    id: string;
-    name: string;
-    status?: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    cognitiveLevel?: string;
-}
-
-export const MODERN_CHAPTER_31_SUBTOPICS: Subtopic[] = [
-    { id: '1', name: "Early Uprisings (BENGAL to Deccan)", status: 'done' },
-    { id: '2', name: "Kisan Sabhas & Eka Movement (1920s)", status: 'done' },
-    { id: '3', name: "Bardoli Satyagraha & Vallabhbhai Patel", status: 'done' },
-    { id: '4', name: "All India Kisan Sabha (AIKS) - 1936", status: 'done' },
-    { id: '5', name: "Peasant Movements during WWII & Quit India", status: 'done' },
-    { id: '6', name: "Tebhaga, Telangana & Punnapra-Vayalar", status: 'done' },
-];
+import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_31_MCQS: Question[] = [
     {
-        id: 1,
-        question: "The 'Indigo Revolt' (1859-60) was against which of the following?",
-        options: ["Land revenue tax.", "Forced cultivation of indigo by British planters.", "Salt tax.", "Zamindari system."],
-        correctAnswer: 1,
-        explanation: "Planters forced peasants to grow indigo under illegal/coercive contracts.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 1,
+        "question": "Who is considered the pioneer of the organized labor movement in India and founded the 'Bombay Millhands Association' in 1890?",
+        "options": [
+            "N.M. Lokhande",
+            "B.P. Wadia",
+            "N.M. Joshi",
+            "Lala Lajpat Rai"
+        ],
+        "answerRaw": "A. N.M. Lokhande",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 2,
-        question: "Who were the leaders of the Indigo Revolt in Nadia district?",
-        options: ["Digambar Biswas and Bishnu Biswas", "Siddhu and Kanhu", "Birsa Munda", "Titu Mir"],
-        correctAnswer: 0,
-        explanation: "Digambar and Bishnu Biswas of Govindpur village.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 2,
+        "question": "The first factory in India was established at:",
+        "options": [
+            "Bombay (Cotton)",
+            "Rishra (Jute)",
+            "Surat (Silk)",
+            "Ahmedabad (Textile)"
+        ],
+        "answerRaw": "A. Bombay (1854)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 3,
-        question: "The 'Pabna Agrarian League' (1873) in Bengal was primarily against:",
-        options: ["The British government.", "High land revenue and enhancement of rents by Zamindars.", "Forest laws.", "Indigo cultivation."],
-        correctAnswer: 1,
-        explanation: "It was an'anti-zamindar' movement by legal means.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 3,
+        "question": "The first 'Indian Factories Act' was passed in which year?",
+        "options": [
+            "1872",
+            "1881",
+            "1891",
+            "1911"
+        ],
+        "answerRaw": "B. 1881 (Under Lord Ripon).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 4,
-        question: "The 'Deccan Riots' (1875) were directed against whom?",
-        options: ["The British officials.", "The Gujarati and Marwari moneylenders.", "The Peshwa.", "The Nizam."],
-        correctAnswer: 1,
-        explanation: "Peasants in Pune and Ahmednagar attacked the houses and shops of moneylenders.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 4,
+        "question": "The 'Indian Factories Act of 1881' primarily focused on the problem of:",
+        "options": [
+            "Minimum wages",
+            "Child labor (prohibiting employment of children under 7)",
+            "Women's working hours",
+            "Housing for workers"
+        ],
+        "answerRaw": "B. Child labor.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 5,
-        question: "Which Act was passed to provide relief to the peasants after the Deccan Riots?",
-        options: ["Deccan Agriculturists' Relief Act, 1879", "Punjab Land Alienation Act", "Zamindari Abolition Act", "Rent Act"],
-        correctAnswer: 0,
-        explanation: "Deccan Agriculturists' Relief Act, 1879.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 5,
+        "question": "Which early labor organization was founded by B.P. Wadia in 1918, often cited as the first modern trade union in India?",
+        "options": [
+            "Madras Labour Union",
+            "Bombay Textile Labour Association",
+            "Ahmedabad Textile Labour Association",
+            "All India Trade Union Congress"
+        ],
+        "answerRaw": "A. Madras Labour Union",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 6,
-        question: "The 'Eka Movement' (1921) in Oudh was led by:",
-        options: ["Baba Ramchandra", "Madari Pasi", "Sahajanand Saraswati", "N.G. Ranga"],
-        correctAnswer: 1,
-        explanation: "Madari Pasi and other low-caste leaders.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 6,
+        "question": "The 'All India Trade Union Congress' (AITUC) was founded in which year?",
+        "options": [
+            "1918",
+            "1920",
+            "1924",
+            "1929"
+        ],
+        "answerRaw": "B. 1920",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 7,
-        question: "Who was the principal leader behind the formation of the 'Oudh Kisan Sabha' in 1920?",
-        options: ["Jawaharlal Nehru", "Baba Ramchandra", "Gauri Shankar Misra", "All of the above"],
-        correctAnswer: 1,
-        explanation: "Baba Ramchandra, a sanyasi who lived among the peasants.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 7,
+        "question": "Who was the first President of the AITUC?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Lala Lajpat Rai",
+            "N.M. Joshi",
+            "C.R. Das"
+        ],
+        "answerRaw": "B. Lala Lajpat Rai",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 8,
-        question: "The 'Bardoli Satyagraha' (1928) was caused by:",
-        options: ["A 22% hike in land revenue by the government.", "Forced indigo cultivation.", "Communal riots.", "Shortage of seeds."],
-        correctAnswer: 0,
-        explanation: "Peasants refused to pay the enhanced revenue.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 8,
+        "question": "Who served as the first General Secretary of the AITUC?",
+        "options": [
+            "Dewan Chaman Lall",
+            "Joseph Baptista",
+            "N.M. Joshi",
+            "V.V. Giri"
+        ],
+        "answerRaw": "A. Dewan Chaman Lall",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 9,
-        question: "After the successful Bardoli Satyagraha, who gave Vallabhbhai Patel the title of 'Sardar'?",
-        options: ["Mahatma Gandhi", "The women of Bardoli", "Jawaharlal Nehru", "Vithalbhai Patel"],
-        correctAnswer: 1,
-        explanation: "The title was given by the women of Bardoli.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 9,
+        "question": "The 'Ahmedabad Textile Labour Association' (TLA), based on the principles of 'Trusteeship', was founded in 1918 by:",
+        "options": [
+            "Sardar Patel",
+            "Mahatma Gandhi (along with Anasuya Sarabhai)",
+            "N.M. Joshi",
+            "Ambalal Sarabhai"
+        ],
+        "answerRaw": "B. Mahatma Gandhi and Anasuya Sarabhai.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 10,
-        question: "The 'All India Kisan Sabha' (1936) was founded at its first session in:",
-        options: ["Lucknow", "Patna", "Faizpur", "Calcutta"],
-        correctAnswer: 0,
-        explanation: "Lucknow session of Congress (1936).",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
+        "id": 10,
+        "question": "The 'International Labour Organization' (ILO) was established in 1919. Who was the first Indian workers' delegate to the ILO?",
+        "options": [
+            "Lala Lajpat Rai",
+            "N.M. Joshi",
+            "B.P. Wadia",
+            "S.A. Dange"
+        ],
+        "answerRaw": "B. N.M. Joshi",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 11,
+        "question": "The 'Indian Trade Unions Act', which provided legal recognition to trade unions, was passed in:",
+        "options": [
+            "1920",
+            "1923",
+            "1926",
+            "1929"
+        ],
+        "answerRaw": "C. 1926",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 12,
+        "question": "The first split in the AITUC occurred in 1929 at the Nagpur session presided over by:",
+        "options": [
+            "Subhash Chandra Bose",
+            "Jawaharlal Nehru",
+            "N.M. Joshi",
+            "S.A. Dange"
+        ],
+        "answerRaw": "B. Jawaharlal Nehru",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 13,
+        "question": "The 'Meerut Conspiracy Case' (1929) was directed against:",
+        "options": [
+            "Peasant leaders",
+            "Communist and labor leaders",
+            "Revolutionary terrorists",
+            "Moderate Congressmen"
+        ],
+        "answerRaw": "B. Communist and labor leaders.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 14,
+        "question": "The 'Girni Kamgar Union' (Red Flag Union), which led massive strikes in Bombay in 1928, was dominated by:",
+        "options": [
+            "Moderates",
+            "Communists",
+            "Liberals",
+            "The British government"
+        ],
+        "answerRaw": "B. Communists.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 15,
+        "question": "Which Act was passed in 1929 to restrict the right to strike in \"public utility services\"?",
+        "options": [
+            "Trade Unions Act",
+            "Trade Disputes Act",
+            "Factory Act",
+            "Rowlatt Act"
+        ],
+        "answerRaw": "B. Trade Disputes Act.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 16,
+        "question": "The 'Royal Commission on Labour' (1929), which studied the conditions of workers in India, was chaired by:",
+        "options": [
+            "J.H. Whitley",
+            "Lord Hunter",
+            "Sir John Simon",
+            "Lord Linlithgow"
+        ],
+        "answerRaw": "A. J.H. Whitley (Whitley Commission).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 17,
+        "question": "The 'Hindustan Socialist Republican Association' (HSRA) had strong links with labor. Which leader represented this link by working with the Bhagat Singh group and labor unions?",
+        "options": [
+            "Bhagwati Charan Vohra",
+            "Ajay Ghosh",
+            "Batukeshwar Dutt",
+            "Rajguru"
+        ],
+        "answerRaw": "B. Ajay Ghosh.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 18,
+        "question": "The 'Indian Federation of Labour' (IFL) was started in 1941 by which leader who supported the British war effort?",
+        "options": [
+            "N.M. Joshi",
+            "M.N. Roy",
+            "S.A. Dange",
+            "P.C. Joshi"
+        ],
+        "answerRaw": "B. M.N. Roy.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 19,
+        "question": "The 'Indian National Trade Union Congress' (INTUC), affiliated with the Congress party, was formed in:",
+        "options": [
+            "1920",
+            "1947",
+            "1948",
+            "1950"
+        ],
+        "answerRaw": "B. 1947.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 20,
+        "question": "Who was the first President of the INTUC?",
+        "options": [
+            "Gulzari Lal Nanda",
+            "Khandubhai Desai",
+            "Sardar Vallabhbhai Patel (Inaugurated) / Hariharnath Shastri"
+        ],
+        "answerRaw": "C. Sardar Patel inaugurated it; Khandubhai Desai was a key founder.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 21,
+        "question": "The 'Socialist' faction within the labor movement formed the 'Hind Mazdoor Sabha' (HMS) in:",
+        "options": [
+            "1947",
+            "1948",
+            "1952",
+            "1955"
+        ],
+        "answerRaw": "B. 1948.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 22,
+        "question": "Which journal was started by N.M. Lokhande to highlight the grievances of workers?",
+        "options": [
+            "Kesari",
+            "Deenbandhu",
+            "Mooknayak",
+            "Kranti"
+        ],
+        "answerRaw": "B. Deenbandhu",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 23,
+        "question": "The 'Workmen’s Compensation Act' was passed in:",
+        "options": [
+            "1911",
+            "1923",
+            "1934",
+            "1948"
+        ],
+        "answerRaw": "B. 1923.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 24,
+        "question": "The 'Mines Act', which regulated the working conditions in mines, was first passed in:",
+        "options": [
+            "1881",
+            "1901",
+            "1923",
+            "1952"
+        ],
+        "answerRaw": "B. 1901.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 25,
+        "question": "'S.A. Dange', 'Muzaffar Ahmed', and 'Shaukat Usmani' were convicted in which famous conspiracy case in 1924?",
+        "options": [
+            "Meerut Conspiracy Case",
+            "Kanpur Bolshevik Conspiracy Case",
+            "Peshawar Conspiracy Case",
+            "Alipore Conspiracy Case"
+        ],
+        "answerRaw": "B. Kanpur Bolshevik Conspiracy Case.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 26,
+        "question": "The journal The Socialist, the first communist journal in India, was started by:",
+        "options": [
+            "M.N. Roy",
+            "S.A. Dange",
+            "Singaravelu Chettiar",
+            "P.C. Joshi"
+        ],
+        "answerRaw": "B. S.A. Dange.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 27,
+        "question": "Who presided over the AITUC session at Jharia in 1928?",
+        "options": [
+            "C.R. Das",
+            "M.N. Joshi",
+            "Jawaharlal Nehru",
+            "B.F. Bradley"
+        ],
+        "answerRaw": "B. M.N. Joshi.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 28,
+        "question": "The 'Workers and Peasants Parties' (WPPs) were formed in the late 1920s to:",
+        "options": [
+            "Support the British King",
+            "Provide a legal cover for communist activities and organize the masses",
+            "Fight against the Congress",
+            "Promote religious education"
+        ],
+        "answerRaw": "B. Legal cover for communist activities and mass organization.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 29,
+        "question": "The first 'May Day' (Labor Day) was celebrated in India in 1923 at Madras by:",
+        "options": [
+            "N.M. Joshi",
+            "Singaravelu Chettiar",
+            "B.P. Wadia",
+            "V.V. Giri"
+        ],
+        "answerRaw": "B. Singaravelu Chettiar.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 30,
+        "question": "The 'Bombay Industrial Disputes Act' was passed by the Congress Ministry in:",
+        "options": [
+            "1937",
+            "1938",
+            "1939",
+            "1940"
+        ],
+        "answerRaw": "B. 1938.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "Early labor efforts in the 1870s and 80s (like those of S.S. Bengalee and N.M. Lokhande) are often described as \"philanthropic\" rather than \"political.\" Why?",
+        "options": [
+            "They were funded by the British government.",
+            "Their focus was on social welfare and basic humanitarian improvements (like a weekly holiday) rather than challenging the colonial state or the capitalist system.",
+            "They were secret organizations.",
+            "They only worked for the welfare of the British soldiers."
+        ],
+        "answerRaw": "B. Focus on humanitarian welfare over systemic challenge.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 32,
+        "question": "The 'Indian Factories Act of 1881' was passed by Lord Ripon. However, historians argue that the push for this act came from 'Lancashire (British) Textile Manufacturers' because:",
+        "options": [
+            "They loved Indian children.",
+            "They wanted to increase the cost of production for Indian mills to protect British textiles from competition.",
+            "They wanted to move their factories to India.",
+            "They were members of the Indian National Congress."
+        ],
+        "answerRaw": "B. Protecting British textiles via labor regulation.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 33,
+        "question": "Consider the following statements regarding the 'All India Trade Union Congress' (AITUC) in its early years: 1. It was formed to give India a representation at the International Labour Organization (ILO). 2. Its first session was presided over by Lala Lajpat Rai, who emphasized that \"Imperialism and Militarism are the twin children of Capitalism.\" 3. It was strictly controlled by the Communist Party from its inception. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "A. 1 and 2 only.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 34,
+        "question": "Mahatma Gandhi's 'Ahmedabad Textile Labour Association' followed the 'Trusteeship' model. This meant:",
+        "options": [
+            "The workers should own the factory.",
+            "The mill-owners should act as \"trustees\" of the workers' interests, and disputes should be settled through arbitration and non-violence rather than class war.",
+            "The government should run the mills.",
+            "The British King was the final judge of all disputes."
+        ],
+        "answerRaw": "B. Mill-owners as trustees and use of arbitration.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 35,
+        "question": "With reference to the 'Meerut Conspiracy Case' (1929), consider the following: Statement-I: The British government arrested 31 labor leaders, including three British communists (Philip Spratt, Ben Bradley, and Lester Hutchinson). Statement-II: The trial was a move to suppress the growing influence of the Communist Party and the 'Workers and Peasants Parties' in the labor movement. Which one of the following is correct?",
+        "options": [
+            "Both are correct and Statement-II explains the motive for Statement-I.",
+            "Statement-I is correct but Statement-II is false.",
+            "Both are false.",
+            "Statement-II is correct but Statement-I is false."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 36,
+        "question": "Why did the 'AITUC' split in 1929 at the Nagpur session?",
+        "options": [
+            "Due to a disagreement over the color of the flag.",
+            "Because of a fundamental ideological conflict between the 'Moderates' (led by N.M. Joshi) who wanted to work within the law and the 'Extremists/Communists' who wanted more radical political action.",
+            "Because the British banned the organization.",
+            "Because Nehru resigned from politics."
+        ],
+        "answerRaw": "B. Ideological conflict between Moderates and Radicals.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 37,
+        "question": "The 'Trade Disputes Act' of 1929 was widely condemned by the labor movement because it:",
+        "options": [
+            "Abolished all taxes on workers.",
+            "Made strikes in public utility services illegal unless preceded by a one-month notice, and banned \"sympathetic\" strikes.",
+            "Increased the minimum wage too much.",
+            "Allowed only British people to join unions."
+        ],
+        "answerRaw": "B. Restriction on strikes and sympathetic action.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 38,
+        "question": "The 'Girni Kamgar Union' (1928) in Bombay was famous for its \"Red Flag.\" What was its impact on the textile industry?",
+        "options": [
+            "It convinced the British to leave Mumbai.",
+            "It led the longest and most disciplined strike in the history of the industry, demonstrating the power of organized communist labor.",
+            "It resulted in the closure of all mills.",
+            "It promoted the use of traditional handlooms."
+        ],
+        "answerRaw": "B. Disciplined strike and communist organization.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 39,
+        "question": "Consider the following regarding the 'Working Class' during the Non-Cooperation Movement: 1. The workers of the TISCO (Jamshedpur) went on strike in 1920. 2. The strikes were mostly spontaneous and lacked a centralized national trade union leadership. 3. Gandhi initially discouraged workers from mixing their economic demands with the political movement. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 40,
+        "question": "The 'Whitley Commission' (Royal Commission on Labour, 1929) was appointed to:",
+        "options": [
+            "Investigate the 1857 revolt.",
+            "Study the health, efficiency, and standard of living of the Indian industrial workers and suggest improvements to avoid labor unrest.",
+            "Arrest communist leaders.",
+            "Build more factories in London."
+        ],
+        "answerRaw": "B. Study labor conditions and suggest reforms.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 41,
+        "question": "'N.M. Joshi' is a key figure in Indian labor history. Apart from his role in AITUC, he is known for founding the:",
+        "options": [
+            "Servants of India Society.",
+            "Social Service League (1911) to conduct welfare work among the poor and the workers.",
+            "Ghadar Party.",
+            "Muslim League."
+        ],
+        "answerRaw": "B. Social Service League.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 42,
+        "question": "The 'Ahmedabad Strike' of 1918 saw Gandhi's first use of which technique in a labor dispute?",
+        "options": [
+            "Armed rebellion.",
+            "Hunger strike (to pressure the workers to stay firm and the owners to arbitrate).",
+            "Moving to the High Court.",
+            "Leaving the city."
+        ],
+        "answerRaw": "B. Hunger strike for arbitration.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 43,
+        "question": "'B.P. Wadia' and the 'Madras Labour Union' faced a unique legal challenge in 1920. The Madras High Court issued an injunction against them because:",
+        "options": [
+            "They were seen as a \"conspiracy\" to cause a breach of contract by inciting workers to strike.",
+            "They used the wrong name.",
+            "They didn't pay the court fees.",
+            "They were supporting the French."
+        ],
+        "answerRaw": "A. Strike seen as a \"conspiracy\" to breach contract.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 44,
+        "question": "The 'Bombay Industrial Disputes Act' (1938) passed by the Congress Ministry was criticized by the 'Left' because:",
+        "options": [
+            "It was too radical.",
+            "It required a mandatory cooling-off period and arbitration, which the Left saw as a way to \"castrate\" the right to strike.",
+            "It only helped the British.",
+            "It abolished the minimum wage."
+        ],
+        "answerRaw": "B. Restriction on the right to strike via mandatory arbitration.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 45,
+        "question": "Consider the following pairs of 'Labour Leaders' and their 'Political/Ideological Leanings': 1. B.P. Wadia — Theosophist/Nationalist 2. S.A. Dange — Communist 3. Gulzarilal Nanda — Gandhian How many of the above are correctly matched?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 46,
+        "question": "The 'Workers and Peasants Parties' (WPP) played a 'dual' role. What was it?",
+        "options": [
+            "They worked for both the British and the Indians.",
+            "They acted as a legal political front for the (then illegal) Communist Party while working within the Indian National Congress.",
+            "They only worked during the night.",
+            "They were a religious group."
+        ],
+        "answerRaw": "B. Legal front for Communists within the Congress.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 47,
+        "question": "The 'International Labour Organization' (ILO) influenced Indian labor laws by:",
+        "options": [
+            "Giving money to the Indian workers.",
+            "Creating international standards for working hours and conditions which the British government in India felt pressured to adopt partially.",
+            "Sending British soldiers to the factories.",
+            "Taking all workers to Europe."
+        ],
+        "answerRaw": "B. International pressure/standards for labor laws.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 48,
+        "question": "Why did the 'Working Class' participation in the Civil Disobedience Movement (1930) differ from the Non-Cooperation phase?",
+        "options": [
+            "They didn't participate at all.",
+            "It was more intense in places like Sholapur (where they virtually took over the city for a few days) but was generally more localized.",
+            "It was lead by the British Queen.",
+            "They only used non-violence."
+        ],
+        "answerRaw": "B. Intense localized participation (e.g., Sholapur).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 49,
+        "question": "'M.N. Roy' and the 'Indian Federation of Labour' (1941) split from the AITUC during WWII because:",
+        "options": [
+            "They wanted a holiday.",
+            "Roy believed that the workers should support the British in the \"People's War\" against Fascism, whereas the AITUC followed the Congress's anti-war policy.",
+            "They didn't like the AITUC leaders.",
+            "They wanted to join the Japanese army."
+        ],
+        "answerRaw": "B. Support for the \"People's War\" against Fascism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 50,
+        "question": "Ultimately, the 'Working Class Movement' (Chapter 31) added a 'Class' dimension to the national struggle. This meant:",
+        "options": [
+            "Only the upper-class people could join.",
+            "The movement began to address not just 'Political Independence', but also 'Social and Economic Liberation' from both foreign and domestic exploitation.",
+            "The workers only wanted to go to school.",
+            "The movement became a religious war."
+        ],
+        "answerRaw": "B. Addressing economic and social liberation.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 51,
+        "question": "Consider the following statements regarding the 'Indian Factories Act, 1881': 1. It was the first legislative attempt to regulate labor, but it excluded tea, coffee, and indigo plantations. 2. It applied only to factories using mechanical power and employing more than 100 workers. 3. It provided for a weekly holiday for all workers, including adults. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 52,
+        "question": "The 'Bombay Millhands Association' (1890) is often termed the \"first labor organization\" but not a \"trade union.\" What is the technical basis for this distinction?",
+        "options": [
+            "It had no office.",
+            "It lacked a formal membership base, a fund, and a set of rules for collective bargaining; it acted more as a petitioning body.",
+            "It was led by the mill-owners themselves.",
+            "It was a secret society."
+        ],
+        "answerRaw": "B. Lack of formal membership and bargaining structure.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 53,
+        "question": "With reference to the 'Madras Labour Union' (1918), consider the following: Statement-I: It is regarded as the first \"modern\" trade union because it had a regular membership, a membership fee, and a systematic organization. Statement-II: Its formation was significantly influenced by the high cost of living during WWI and the 'theosophical' leadership of B.P. Wadia. Which one of the following is correct?",
+        "options": [
+            "Both are correct and Statement-II is a contributing factor to Statement-I.",
+            "Statement-I is correct but Statement-II is false.",
+            "Statement-I is incorrect but Statement-II is correct.",
+            "Both are incorrect."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 54,
+        "question": "The 'AITUC' (1920) was a byproduct of which international development?",
+        "options": [
+            "The end of the Mughal Empire.",
+            "The establishment of the International Labour Organization (ILO), which required a central national body to nominate labor delegates.",
+            "The Great Depression.",
+            "The French Revolution."
+        ],
+        "answerRaw": "B. Requirement for ILO representation.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 55,
+        "question": "In his 1920 Presidential address at AITUC, Lala Lajpat Rai made a famous analytical link. What was it?",
+        "options": [
+            "He linked labor rights to the price of cotton.",
+            "He linked the struggle of the Indian working class to the global struggle against \"Imperialism\" and \"Capitalism,\" calling them \"twin children.\"",
+            "He suggested that workers should never join politics.",
+            "He argued that the British King was the best protector of labor."
+        ],
+        "answerRaw": "B. Link between Labor, Imperialism, and Capitalism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 56,
+        "question": "Regarding 'Gandhian Trusteeship' in the Ahmedabad Textile Labour Association (TLA), consider the following: 1. It rejected the Marxist concept of \"Class Struggle.\" 2. It advocated for \"Arbitration\" by a third party to resolve disputes. 3. It believed that strikes should only be used as a \"last resort\" after all other means had failed. How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 57,
+        "question": "The 'Kanpur Bolshevik Conspiracy Case' (1924) was significant because it was the first time the British government:",
+        "options": [
+            "Legalized the Communist Party.",
+            "Tried to crush the nascent Communist movement by arresting leaders like M.N. Roy (in absentia), S.A. Dange, and Muzaffar Ahmed for \"conspiring to overthrow the King.\"",
+            "Abolished all factories.",
+            "Allowed workers to join the British Cabinet."
+        ],
+        "answerRaw": "B. First major legal crackdown on Communism in India.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 58,
+        "question": "The 'Trade Unions Act of 1926' was a major legal victory for labor because it:",
+        "options": [
+            "Gave workers the right to own the factory.",
+            "Provided \"Immunity\" to registered trade unions from civil and criminal liability for actions taken in furtherance of a trade dispute.",
+            "Abolished the income tax for workers.",
+            "Made the British Queen the head of all unions."
+        ],
+        "answerRaw": "B. Legal immunity for legitimate union activities.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 59,
+        "question": "Consider the following regarding the 'Meerut Conspiracy Case' (1929): 1. It lasted for nearly four years and gained international attention (including from Albert Einstein and H.G. Wells). 2. The government used it as a pretext to declare the Communist Party of India illegal. 3. The arrested leaders used the courtroom as a platform to propagate their socialist ideology. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 60,
+        "question": "The 'Trade Disputes Act' (1929) contained a clause that was particularly harmful to \"National Solidarity.\" What was it?",
+        "options": [
+            "It banned the use of the national flag.",
+            "It banned \"Sympathetic Strikes\" (strikes by workers in one industry to support those in another) and strikes aimed at coercing the government.",
+            "It required all workers to speak English.",
+            "It abolished the weekend."
+        ],
+        "answerRaw": "B. Ban on Sympathetic Strikes.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 61,
+        "question": "The 'Nagpur Split' of 1929 in AITUC led to the formation of the 'Indian Trades Union Federation' (ITUF) by:",
+        "options": [
+            "The Communists.",
+            "The Moderates (led by N.M. Joshi and V.V. Giri) who opposed the affiliation with international communist bodies.",
+            "The British government.",
+            "The Muslim League."
+        ],
+        "answerRaw": "B. Moderates (ITUF).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 62,
+        "question": "What was the \"Red Flag\" movement of the late 1920s in Bombay?",
+        "options": [
+            "A movement to paint all buildings red.",
+            "The rise of the 'Girni Kamgar Union', which organized the most militant and disciplined strikes in the textile mills, often replacing the older moderate leadership.",
+            "A religious movement.",
+            "A plan to build a new parliament."
+        ],
+        "answerRaw": "B. Militant/Communist organization in Bombay mills.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 63,
+        "question": "'M.N. Roy' is often associated with 'Radical Humanism' later, but in the 1920s he was the primary link between:",
+        "options": [
+            "India and the USA.",
+            "The Indian labor movement and the 'Comintern' (Communist International) in Moscow.",
+            "The Congress and the Muslim League.",
+            "The British King and the Indian Princes."
+        ],
+        "answerRaw": "B. Link to Comintern/Moscow.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 64,
+        "question": "The 'Royal Commission on Labour' (1929) recommended the establishment of 'Works Councils'. Why?",
+        "options": [
+            "To give workers total power.",
+            "To provide a forum for \"internal\" consultation between management and labor to prevent the growth of \"external\" (political/communist) influence.",
+            "To teach workers how to build councils.",
+            "To replace the trade unions entirely."
+        ],
+        "answerRaw": "B. Internal consultation to prevent political radicalization.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 65,
+        "question": "Consider the following pairs regarding 'Labor Journals': 1. Langal (The Plow) — Muzaffar Ahmed (Bengal) 2. Kranthi (Revolution) — S.S. Mirajkar/Dange (Bombay) 3. Thozhilali (Worker) — Singaravelu Chettiar (Madras) How many of the above are correctly matched?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 66,
+        "question": "The 'Sholapur Commune' during the Civil Disobedience Movement (1930) was a historic moment because:",
+        "options": [
+            "The British gave the city to the workers.",
+            "For a few days, the workers virtually controlled the city administration, setting up their own \"court\" and \"police\" after the British officials fled.",
+            "It was where the first Indian car was built.",
+            "It was a purely religious gathering."
+        ],
+        "answerRaw": "B. Virtual worker-control of the city.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 67,
+        "question": "Why did the 'Congress Ministries' (1937-39) have a \"checkered\" relationship with labor?",
+        "options": [
+            "They wanted to close all factories.",
+            "While they passed some welfare laws, they also used repressive measures (like Section 144) to curb strikes, fearing that labor unrest would discourage \"national capitalists\" and disrupt the movement.",
+            "They were secret members of the British army.",
+            "They abolished all trade unions."
+        ],
+        "answerRaw": "B. Tension between labor radicalism and the need for capitalist support.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 68,
+        "question": "The 'Hindustan Mazdoor Sevak Sangh' (1937) was formed to:",
+        "options": [
+            "Promote communism.",
+            "Organize labor on \"Gandhian lines\" (truth, non-violence, and arbitration) as an alternative to the growing socialist/communist influence in AITUC.",
+            "Fight against the Congress.",
+            "Build more houses for workers."
+        ],
+        "answerRaw": "B. Gandhian alternative to radical unionism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 69,
+        "question": "During WWII, the AITUC's stance was one of 'Neutrality' or 'Anti-War' because:",
+        "options": [
+            "They were afraid of bombs.",
+            "They followed the Congress policy of not supporting the British war effort without a promise of independence.",
+            "They wanted the Japanese to win.",
+            "They had no opinion on the war."
+        ],
+        "answerRaw": "B. Adherence to Congress's anti-war policy.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 70,
+        "question": "Match the 'Labor Movement Event' with its 'Significance': 1. Madras Labour Union (1918) — A. First modern trade union 2. AITUC Formation (1920) — B. Unified national representation 3. Meerut Trial (1929) — C. International ideological impact Select the correct code:",
+        "options": [
+            "1-A, 2-B, 3-C",
+            "1-B, 2-A, 3-C",
+            "1-C, 2-B, 3-A",
+            "1-A, 2-C, 3-B"
+        ],
+        "answerRaw": "A. 1-A, 2-B, 3-C.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 71,
+        "question": "The 'Trade Disputes Act' (1929) was the first to introduce the concept of 'Public Utility Services'. Which of the following was included in this?",
+        "options": [
+            "Railways, Post, Telegaph, and Water/Light supply.",
+            "Only the British army.",
+            "Only the primary schools.",
+            "Only the tea gardens."
+        ],
+        "answerRaw": "A. Essential infrastructure services.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 72,
+        "question": "The 'Workers and Peasants Parties' (WPP) were described as the 'Two-Pillar' strategy of the Communists. Why?",
+        "options": [
+            "Because they had two leaders.",
+            "They allowed communists to organize the masses (Pillar 1) while maintaining a legal political presence within the Congress (Pillar 2).",
+            "They only worked in two cities.",
+            "They used two different flags."
+        ],
+        "answerRaw": "B. Mass organization and legal political entry.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 73,
+        "question": "'Singaravelu Chettiar' in 1923 made history by:",
+        "options": [
+            "Starting the first factory in the South.",
+            "Organizing the first May Day celebration in India and hoisting the Red Flag at Marina Beach.",
+            "Joining the British civil service.",
+            "Writing the first English novel in Madras."
+        ],
+        "answerRaw": "B. First May Day celebration and Red Flag hoisting.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 74,
+        "question": "'N.M. Joshi' resigned from the AITUC in 1929 because:",
+        "options": [
+            "He was tired of politics.",
+            "He felt the organization was being hijacked by \"extremist\" communists whose political goals would destroy the \"pure\" trade union work of labor welfare.",
+            "He wanted to join the Muslim League.",
+            "The British paid him to resign.",
+            "It stopped workers from speaking.",
+            "It essentially gave the owners four months to prepare, hire strikebreakers, or intimidate workers, making the strike ineffective.",
+            "It required all notices to be in Latin.",
+            "It was passed by the British."
+        ],
+        "answerRaw": "B. Strategic disadvantage for strikers.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 75,
+        "question": "Consider the following regarding the 'Whitley Commission' recommendations:",
+        "options": [
+            "It suggested that all workers should be given a 50% pay hike immediately.",
+            "It recommended the appointment of 'Labour Officers' and the creation of 'Joint Committees' to improve industrial relations.",
+            "It recommended the arrest of all union leaders.",
+            "It suggested that India should stop all industrialization."
+        ],
+        "answerRaw": "B. Labour Officers and Joint Committees for better relations.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 76,
+        "question": "'V.V. Giri' (later the President of India) was a prominent leader of the labor movement in which industry?",
+        "options": [
+            "Tea gardens.",
+            "Railways (he led the Bengal Nagpur Railway strike).",
+            "Mining.",
+            "Banking."
+        ],
+        "answerRaw": "B. Railways.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 77,
+        "question": "The 'Indian National Trade Union Congress' (INTUC, 1947) was founded by the Congress to:",
+        "options": [
+            "Promote communism.",
+            "Ensure that the labor movement in independent India remained under a \"responsible\" and \"non-communist\" leadership aligned with the government.",
+            "Abolish all other unions.",
+            "Fight against the British."
+        ],
+        "answerRaw": "B. \"Responsible\" non-communist leadership for independent India.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 78,
+        "question": "What was the 'Spirit of 1946' in the labor movement?",
+        "options": [
+            "A desire to stop working.",
+            "A massive, nationwide wave of strikes (Post & Telegaph, Railways, etc.) that signaled the total breakdown of British authority and the extreme economic hardship of the post-war years.",
+            "A movement to return to the Mughal era.",
+            "A plan to build only British factories."
+        ],
+        "answerRaw": "B. Nationwide post-war strike wave and breakdown of authority.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 79,
+        "question": "Ultimately, 'The Working Class Movements' (Chapter 31) proved that:",
+        "options": [
+            "Workers only care about money.",
+            "The economic struggle against the 'Capitalist' (internal/external) was inseparable from the political struggle against the 'Imperialist' (external).",
+            "Labor unions are harmful to the nation.",
+            "The British were the best managers."
+        ],
+        "answerRaw": "B. Inseparability of economic and political struggle.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     }
 ];
-
-MODERN_CHAPTER_31_MCQS.push(
-    {
-        id: 11,
-        question: "Who was the first President of the All India Kisan Sabha?",
-        options: ["Swami Sahajanand Saraswati", "N.G. Ranga", "Indulal Yagnik", "Bankim Mukherji"],
-        correctAnswer: 0,
-        explanation: "Swami Sahajanand Saraswati. N.G. Ranga was the General Secretary.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 12,
-        question: "The 'Tebhaga Movement' (1946) in Bengal demanded:",
-        options: ["Abolition of Zamindari.", "Two-thirds share of the harvest for the sharecroppers (Bargadars) instead of half.", "Free land for the landless.", "Reduction in land revenue."],
-        correctAnswer: 1,
-        explanation: "Tebhaga = Three shares (Peasant keeps 2/3, Zamindar gets 1/3).",
-        subtopic: '6',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 13,
-        question: "The 'Telangana Movement' (1946-51) was directed against:",
-        options: ["The British.", "The Nizam's officials and the local landlords (Deshmukhs/Vetti system).", "The Maratha raiders.", "The French."],
-        correctAnswer: 1,
-        explanation: "It was a massive peasant insurrection against the Nizam's feudal structure.",
-        subtopic: '6',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 14,
-        question: "What was the 'Vetti' system?",
-        options: ["A system of crop sharing.", "Forced labor without pay.", "A type of tax.", "A land survey technique."],
-        correctAnswer: 1,
-        explanation: "Forced unpaid labor common in princely states like Hyderabad.",
-        subtopic: '6',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 15,
-        question: "Which peasant movement used the slogan 'He who tills the land, shall own the land'?",
-        options: ["Champaran", "Telangana", "Tebhaga", "Kalyan Singh Revolt"],
-        correctAnswer: 1,
-        explanation: "Prominent during the radical phase of Telangana struggle.",
-        subtopic: '6',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 16,
-        question: "The 'Bakasht' land dispute (1930s-40s) was a major issue in which province?",
-        options: ["UP", "Bihar", "Punjab", "Bengal"],
-        correctAnswer: 1,
-        explanation: "Bakasht were lands the Zamindars had taken back from tenants due to inability to pay rent during the Depression.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 17,
-        question: "Who among the following was a key leader of the peasant movement in Andhra and wrote 'Economic Conditions of the Zamindari Ryots'?",
-        options: ["P. Sundarayya", "N.G. Ranga", "A.K. Gopalan", "E.M.S. Namboodiripad"],
-        correctAnswer: 1,
-        explanation: "N.G. Ranga was a pioneer of peasant organization in Andhra.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 18,
-        question: "The 'Moplah (Mapilla) Rebellion' of 1921 occurred in:",
-        options: ["Malabar (Kerala)", "Coastal Andhra", "Tamil Nadu", "Karnataka"],
-        correctAnswer: 0,
-        explanation: "Muslim tenants (Moplahs) against Hindu landlords and British administration.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 19,
-        question: "Initially, the Moplah rebellion was an integral part of which nationwide movement?",
-        options: ["Swadeshi", "Non-Cooperation & Khilafat Movement", "Civil Disobedience", "Quit India"],
-        correctAnswer: 1,
-        explanation: "It later took a communal turn.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 20,
-        question: "The 'Punnapra-Vayalar' uprising took place in which princely state?",
-        options: ["Hyderabad", "Travancore", "Mysore", "Gwalior"],
-        correctAnswer: 1,
-        explanation: "Travancore (1946), led by communists.",
-        subtopic: '6',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 21,
-        question: "The 'Pagalpanti' movement (1820s-30s) in Bengal was a religious-peasant movement among:",
-        options: ["Santhals", "Garos and Hajongs", "Mundas", "Kols"],
-        correctAnswer: 1,
-        explanation: "Led by Karam Shah and Tipu Shah.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 22,
-        question: "Why was the 'Kisan Sabha' movement so strong in UP between 1918-1922?",
-        options: ["The presence of Baba Ramchandra.", "High rents and 'Bedakhli' (Eviction).", "Support from Home Rule League members like Malaviya.", "All of the above."],
-        correctAnswer: 3,
-        explanation: "All factors contributed to the strength of Oudh Kisan Sabha.",
-        subtopic: '2',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 23,
-        question: "The 'Faizpur Session' (1936) of the Congress was significant for peasants because:",
-        options: ["It was the first session held in a rural area.", "It adopted an Agrarian Programme.", "It demanded the abolition of Intermediate tenures.", "All of the above."],
-        correctAnswer: 3,
-        explanation: "Held in a village, it focused on peasant needs.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 24,
-        question: "Peasant movements in the 1930s were strongly influenced by which ideology?",
-        options: ["Gandhism alone.", "Socialism and Communism.", "Capitalism.", "Religious fundamentalism."],
-        correctAnswer: 1,
-        explanation: "Leaders like Sahajanand, N.G. Ranga, and E.M.S. were left-leaning.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 25,
-        question: "Match the leader with the region:\nA. Sahajanand Saraswati -> 1. Bihar\nB. N.G. Ranga -> 2. Andhra\nC. Nana Patil -> 3. Satara (Maharashtra)\n\nSelect the correct code:",
-        options: ["A-1, B-2, C-3", "A-2, B-1, C-3", "A-3, B-2, C-1", "A-1, B-3, C-2"],
-        correctAnswer: 0,
-        explanation: "Sahajanand (Bihar), N.G. Ranga (Andhra), Nana Patil (Satara - Prati Sarkar).",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 26,
-        question: "Which of the following was NOT a characteristic of peasant movements in the first half of the 20th century?",
-        options: ["Integration with the national freedom struggle.", "Organized through Kisan Sabhas.", "Requirement for complete non-attachment from the Congress.", "Transition from localized to all-India platforms."],
-        correctAnswer: 2,
-        explanation: "They were increasingly integrated with the Congress or the Left.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 27,
-        question: "The 'Worli Revolt' (1945) was a tribal-peasant struggle in which province?",
-        options: ["Bihar", "Bombay", "Bengal", "Central Provinces"],
-        correctAnswer: 1,
-        explanation: "Worli tribals in Thane (led by AIKS and Godavari Parulekar).",
-        subtopic: '6',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 28,
-        question: "Who was the 'General Secretary' of the All India Kisan Sabha at its inception?",
-        options: ["Sahajanand Saraswati", "N.G. Ranga", "Indulal Yagnik", "P.C. Joshi"],
-        correctAnswer: 1,
-        explanation: "N.G. Ranga.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 29,
-        question: "Which Viceroy described the peasant problem in India as the 'Achilles heel' of British rule?",
-        options: ["Lord Linlithgow", "Lord Wavell", "Lord Irwin", "Lord Willingdon"],
-        correctAnswer: 0,
-        explanation: "Recognizing that rural misery was the fodder for nationalist mobilization.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 30,
-        question: "The 'Bijolia Movement' (1905-1920) was a famous peasant struggle in which state?",
-        options: ["Punjab", "Rajasthan (Mewar)", "Gujarat", "MP"],
-        correctAnswer: 1,
-        explanation: "One of the longest organized peasant movements in India.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 31,
-        question: "Who wrote 'Neel Darpan' to highlight the plight of Indigo peasants?",
-        options: ["Bankim Chandra", "Dinabandhu Mitra", "R.C. Dutt", "G.K. Gokhale"],
-        correctAnswer: 1,
-        explanation: "Dinabandhu Mitra (1860).",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 32,
-        question: "The 'Kayyur Riot' (1941) was related to peasant resistance in:",
-        options: ["Madras", "Kasargod (Malabar)", "Surat", "Patna"],
-        correctAnswer: 1,
-        explanation: "Peasant resistance against the 'Feudal-cum-Colonial' rule.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 33,
-        question: "The 'Kisan Manifesto' was adopted in which year by AIKS?",
-        options: ["1936", "1937", "1939", "1942"],
-        correctAnswer: 1,
-        explanation: "1937 (Lucknow-Faizpur timeline).",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 34,
-        question: "The 'No-Tax' movements in Surat district in 1923 were a precursor to:",
-        options: ["Salt Satyagraha", "Bardoli Satyagraha", "Quit India", "Independence"],
-        correctAnswer: 1,
-        explanation: "Successful mobilization led by Patel.",
-        subtopic: '3',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 35,
-        question: "The primary success of the 19th-century peasant uprisings was that they:",
-        options: ["Abolished British rule.", "Forced the British to pass various Tenancy Acts and Rent Acts for protection.", "Distributed land to everyone.", "None of the above."],
-        correctAnswer: 1,
-        explanation: "They forced the colonial state into legislative action for peasant protection.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    }
-);
-
-export const MODERN_CHAPTER_31_CONTENT = `
-# Chapter 31: Peasant Movements 1857-1947
-
-## BLOCK 1: INDIGO REVOLT (1859-60)
-*The Blue Mutiny.*
-
-### 🔵 NEEL DARPAN
-**Context:** European planters in Bengal forced peasants to grow **Indigo** instead of rice. They paid meager advances and used armed thugs (Lathiyals) to coerce them.
-
-**The Spark:** In Nadia district (Govindpur village), led by **Digambar Biswas and Bishnu Biswas**.
-
-**The Method:**
-- The peasants refused to take advances.
-- They physically resisted the Lathiyals with spears and swords.
-- They used the legal system (filing lawsuits) and social boycott.
-
-**Intellectual Support:**
-- **Harish Chandra Mukherjee** (Editor of *The Hindu Patriot*) supported them.
-- **Dinabandhu Mitra** wrote the play ***"Neel Darpan"*** (Mirror of Indigo) depicting the planters' brutality.
-
-**Outcome:** The Government appointed an **Indigo Commission (1860)**. It ruled that the planter could not *force* the ryot to grow indigo. The planters closed their factories in Bengal and moved to Bihar.
-
----
-
-## BLOCK 2: PABNA AGRARIAN LEAGUES (1873-85)
-*The Legal Battle.*
-
-### ⚖️ "WE WANT TO BE THE QUEEN'S RYOTS"
-**Region:** Yusufshahi Pargana (East Bengal).
-
-**Grievance:** Zamindars were enhancing rent beyond legal limits and preventing tenants from acquiring occupancy rights (under Act X of 1859).
-
-**The Movement:**
-- Peasants formed **Agrarian Leagues**.
-- They refused to pay the enhanced rent (but paid the old rent).
-- **Strategy:** **Litigation.** They fought the Zamindars in courts rather than using violence.
-
-**Slogan:** They famously declared they wanted to be **"Ryots of Her Majesty the Queen"** (direct tenants of the Crown) and not of the Zamindars.
-
-**Outcome:** The **Bengal Tenancy Act (1885)** was passed to protect tenants.
-
----
-
-## BLOCK 3: DECCAN RIOTS (1875)
-*Burning the Bonds.*
-
-### 🔥 AGAINST THE MONEYLENDER
-**Region:** Pune and Ahmednagar districts (Maharashtra).
-
-**Target:** The Marwari and Gujarati moneylenders (Sahukars).
-
-**Context:** High land revenue + Fall in cotton prices (after US Civil War ended) drove peasants into debt. The moneylenders used the courts to seize their land.
-
-**The Action:**
-- Peasants attacked the houses of moneylenders.
-- **Objective:** Not to kill, but to **seize and burn the Debt Bonds (account books)**.
-- **Social Boycott:** Barbers, washermen, and shoemakers refused to serve the moneylenders.
-
-**Outcome:** The **Deccan Agriculturists Relief Act (1879)** was passed to restrict the alienation of land.
-
----
-
-## BLOCK 4: NATURE OF 19th CENTURY MOVEMENTS
-*Limited Goals.*
-
-### 🎯 LOCAL GRIEVANCES
-**Target:** The immediate enemy (Planter/Zamindar/Moneylender), not the British Colonial State.
-
-**Goal:** Removal of specific grievances (high rent/fraud), not "Swaraj" or ending the system.
-
-**Leadership:** Often local village headmen or better-off peasants.
-
-**Religion:** Sometimes used to mobilize people (e.g., Moplahs), but the core issues were economic.
-
----
-
-## BLOCK 5: RAMOSI PEASANT FORCE (1879)
-*The Robin Hood Style.*
-
-### 🏹 VASUDEV BALWANT PHADKE
-**Region:** Maharashtra.
-
-**Leader:** **Vasudev Balwant Phadke** (The Father of Indian Armed Rebellion).
-
-**The Force:** He organized a group of peasants (**Ramosis**) to commit dacoities on rich merchants/moneylenders to fund an uprising against the British.
-
-**Significance:** It was a bridge between peasant unrest and revolutionary nationalism.
-
----
-
-## BLOCK 6: THE KISAN SABHAS OF UP (1918-1920)
-*Organizing the Heartland.*
-
-### 🚩 GAURI SHANKAR & BABA RAMCHANDRA
-**UP Kisan Sabha (1918):**
-- **Founders:** Gauri Shankar Mishra and Indra Narain Dwivedi. Supported by **Madan Mohan Malaviya**.
-- **Context:** Set up during the Home Rule League movement to mobilize peasants in Avadh.
-
-**Awadh Kisan Sabha (1920):**
-- **Leader:** **Baba Ramchandra** (a sanyasi who had been an indentured laborer in Fiji).
-- **Reason:** The UP Kisan Sabha was too "moderate." Ramchandra wanted stronger action against Taluqdars (Landlords).
-- **Methods:** Social Boycott (**Nai-Dhobi Bandh**—no barbers or washermen for landlords) and refusing to till *bedakhali* land (land from which a tenant was evicted).
-
----
-
-## BLOCK 7: EKA MOVEMENT (1921)
-*The Unity Oath.*
-
-### 🤝 MADARI PASI
-**Region:** Hardoi, Bahraich, and Sitapur (Northern UP).
-
-**Leadership:** Came from the lower castes (**Madari Pasi**).
-
-**The Oath:** Peasants gathered at a religious ritual and took an oath:
-- We will pay only the recorded rent.
-- We will not do forced labor (*begar*).
-- We will not leave the land if evicted.
-
-**End:** It was severely repressed by the British by 1922.
-
----
-
-## BLOCK 8: MOPLAH REBELLION (1921)
-*Agrarian Grievance turned Communal War.*
-
-### ⚔️ MALABAR, KERALA
-**The Players:** **Moplahs** (Muslim tenants) vs **Jenmis** (Hindu Landlords).
-
-**The Grievance:** High rent, insecurity of tenure, and renewal fees.
-
-**The Trigger:** The Khilafat/Non-Cooperation Movement gave them political courage. Leaders like **Ali Musaliyar** were arrested.
-
-**The Turn:** Initially anti-British and anti-Landlord, it turned **Communal**. The Moplahs attacked Hindu landlords and forced conversions.
-
-**Result:** The British crushed it with brutal force (**Wagon Tragedy**—67 prisoners suffocated in a closed railway wagon). The Congress distanced itself due to the violence.
-
----
-
-## BLOCK 9: BARDOLI SATYAGRAHA (1928)
-*The Textbook Victory.*
-
-### 🦁 SARDAR PATEL'S RISE
-**Context:** The Bombay Govt increased land revenue by **30%** despite a fall in cotton prices.
-
-**The Leader:** **Vallabhbhai Patel** was invited to lead.
-
-**The Title:** The women of Bardoli gave him the title **"Sardar"** (Leader).
-
-**Strategy:**
-- **Non-Payment:** Complete refusal to pay the enhanced tax.
-- **Intelligence:** He set up an intelligence wing to track government officials.
-- **Social Boycott:** Anyone who paid the tax or bought confiscated land was socially boycotted.
-
-**Outcome:** The Govt surrendered. The **Maxwell-Broomfield Inquiry** reduced the hike from 30% to **6.03%**.
-
----
-
-## BLOCK 10: FOREST SATYAGRAHAS
-*Fighting for Rights over Jungle.*
-
-### 🌲 CUDDAPAH & VIZAG
-**Context:** The British restricted tribal access to forests (for grazing/firewood) under Forest Laws.
-
-**Andhra (1920s):** N.V. Rama Naidu and N.G. Ranga organized forest satyagrahas in Nellore and Cuddapah.
-
-**Methods:** Sending cattle into reserved forests without paying grazing fees.
-
----
-
-## BLOCK 11: ALL INDIA KISAN SABHA (1936)
-*The National Umbrella.*
-
-### 🚩 LUCKNOW SESSION
-**Context:** By the 1930s, the Congress Socialist Party (CSP) and Communists wanted a separate organization for peasants.
-
-**Formation:** **April 1936** at the Lucknow session of the Congress.
-
-**Key Leaders:**
-- **President:** **Swami Sahajanand Saraswati** (The militant leader from Bihar).
-- **General Secretary:** **N.G. Ranga** (The peasant intellectual from Andhra).
-
-**Significance:** It linked the peasant struggle to the national freedom struggle but maintained a separate identity.
-
-**Manifesto:** Demanded abolition of Zamindari and occupancy rights for all tenants.
-
----
-
-## BLOCK 12: TEBHAGA MOVEMENT (1946)
-*Two-Thirds for the Tiller.*
-
-### 🌾 BENGAL (NORTH)
-**Region:** Dinajpur, Rangpur, Jalpaiguri (North Bengal).
-
-**The Demand:** The sharecroppers (Bargadars) demanded **2/3rd (Tebhaga)** of the produce for themselves, leaving only 1/3rd for the Jotedar (Landlord).
-- **Previous Custom:** 50-50 split.
-
-**Basis:** The **Floud Commission (1940)** had recommended this 2/3rd share, but the Govt never implemented it.
-
-**Slogan:** *"Nij khamare dhan tolo"* (Stock paddy in your own granary, not the landlord's).
-
-**Outcome:** The Muslim League ministry suppressed it, but it paved the way for land reforms in West Bengal later.
-
----
-
-## BLOCK 13: TELANGANA MOVEMENT (1946-51)
-*The Largest Armed Struggle.*
-
-### ⚔️ HYDERABAD STATE
-**Target:** The Nizam of Hyderabad and his feudal lords (Deshmukhs).
-**Context:** Forced labor (*Vethi*) and illegal exactions were rampant.
-**The Spark:** The killing of a village militant, **Doddi Komarayya** (July 1946).
-
-**Nature:** It was a **Guerrilla War**.
-- Peasants seized land and distributed it.
-- They formed **"Village Republics" (Sanghams)**.
-- It continued even after Independence (against the Indian Army) until 1951 when the Communists called it off.
-
-**Result:** It accelerated the integration of Hyderabad into India and led to the **Bhoodan Movement** (Vinoba Bhave realized land hunger was the root cause).
-
----
-
-## BLOCK 14: VARLI REVOLT (1945)
-*The Adivasi Awakening.*
-
-### 🏹 THANE, MAHARASHTRA
-**Tribe:** Varli (Warlis).
-**Leader:** **Godavari Parulekar** (A Communist leader, known as "Godutai").
-
-**Target:** Forest contractors and landlords who used them as forced labor.
-
-**Success:** It was unique because it was an Adivasi movement led by a woman from the outside, which successfully ended forced labor in the region.
-
----
-
-## BLOCK 15: BAKASHT LAND STRUGGLE (1930s)
-*The Return of the Land.*
-
-### 🏞️ BIHAR
-**What is Bakasht?** Land where the tenant lost occupancy rights because of non-payment of rent during the Depression, and it reverted to the Zamindar (who cultivated it himself).
-
-**The Struggle:** Led by **Karyanand Sharma** in Munger (Barahiya Tal).
-
-**Demand:** Return of the Bakasht lands to the original tenants.
-
-**Method:** Satyagraha and forcible cultivation.
-
----
-
-## BLOCK 16: BIJOLIA MOVEMENT (1897-1941)
-*The Marathon Struggle.*
-
-### 🌵 MEWAR STATE (RAJASTHAN)
-**Significance:** It was the longest non-violent peasant movement in Indian history (44 years).
-
-**Grievance:** 84 different types of taxes (*lag-bag*) imposed by the Thikanedar (Feudal Lord).
-
-**Phases:**
-1.  **Sadhu Sitaram Das (1897-1915):** Early phase, local leadership.
-2.  **Vijay Singh Pathik (1915-1923):** He nationalized the issue. He started the newspaper *"Rajasthan Kesari"* and linked it to the Congress.
-3.  **Manikya Lal Verma (1927-1941):** Final phase.
-
-**Outcome:** It inspired Prajamandal movements in other Princely States.
-
----
-
-## BLOCK 17: PUNJAB AGITATION (1907)
-*Protecting the Pagri.*
-
-### 👳 PAGRI SAMBHAL JATTA
-**Context:** The British passed the **Colonization Bill (1906)** which increased water rates in the canal colonies (Lyallpur) and restricted property rights.
-
-**Leaders:** **Ajit Singh** (Bhagat Singh's uncle) and **Lala Lajpat Rai**.
-
-**Method:**
-- Formation of *Anjuman-i-Mohisban-i-Watan*.
-- The song **"Pagri Sambhal Jatta"** (Take care of your turban/dignity) became the anthem.
-
-**Outcome:** The Government was forced to repeal the Colonization Act.
-
----
-
-## BLOCK 18: KHEDA SATYAGRAHA (1918)
-*Gandhian Peasantry.*
-
-### 🏚️ THE FIRST NON-COOPERATION
-**Context:** Crops failed in Kheda (Gujarat). Under the Revenue Code, if the yield was less than 1/4th of normal, the tax should be suspended.
-
-**Issue:** The Govt refused to suspend the tax.
-
-**Leaders:** **Gandhi** (Spiritual head) and **Vallabhbhai Patel** (Operational head - his first major role).
-
-**Method:** Peasants signed a pledge not to pay. They faced confiscation of cattle and property but remained non-violent.
-
-**Outcome:** The Govt secretly issued orders to collect tax only from those who could afford to pay. Gandhi declared victory.
-
----
-
-## BLOCK 19: PUNNAPRA-VAYALAR (1946)
-*The Communist Revolt.*
-
-### 🚩 TRAVANCORE STATE
-**Region:** Alleppey (Alappuzha), Kerala.
-
-**Target:** The Prime Minister of Travancore (**C.P. Ramaswamy Iyer**) who wanted to create an "American model" independent Travancore (not joining India).
-
-**The Struggle:** Led by the Communists. It was a violent uprising of coir workers and peasants.
-
-**Slogan:** *"American Model Arabi Kadalil"* (Dump the American Model in the Arabian Sea).
-
-**Significance:** It prevented Travancore from staying independent and forced its accession to India.
-
----
-
-## BLOCK 20: NO-RENT vs NO-REVENUE
-*The Technical Difference.*
-
-### 💰 WHO DO YOU PAY?
-**No-Revenue Campaign:**
-- **Target:** The Government.
-- **Where:** In **Ryotwari areas** (like Bardoli, Kheda, Coastal Andhra) where peasants paid directly to the State.
-
-**No-Rent Campaign:**
-- **Target:** The Zamindar.
-- **Where:** In **Zamindari areas** (like UP, Bengal, Bihar).
-
-**Complexity:** The Congress was often hesitant here because many Zamindars supported the Congress. They didn't want a "Class War" (Peasant vs Zamindar) to disrupt the "Anti-Colonial War" (Indian vs British).
-
----
-
-## BLOCK 21: CHAMPARAN SATYAGRAHA (1917)
-*The First Lab Experiment.*
-
-### 🔵 TINKATHIA SYSTEM
-**Context:** European planters in Champaran (Bihar) forced peasants to grow indigo on **3/20th (Tinkathia)** of their land.
-
-**The Squeeze:** When German synthetic dyes replaced indigo, planters demanded heavy compensation (*Tawan*) to release peasants from this obligation.
-
-**The Leader:** **Raj Kumar Shukla** (a local peasant) obstinately pursued Gandhi to come to Champaran.
-
-**Gandhi's Entry:** He disobeyed the order to leave the district and was ready to go to jail. This was the first use of **Civil Disobedience**.
-
-**Outcome:** A Committee of Inquiry (with Gandhi as a member) was formed. The Tinkathia system was abolished, and planters had to refund **25%** of the illegal money taken.
-
----
-
-## BLOCK 22: DARBHANGA PEASANT MOVEMENT (1919-20)
-*The Forgotten Swami.*
-
-### 🚩 SWAMI VIDYANAND
-**Region:** Darbhanga Raj (The largest Zamindari in Bihar).
-**Leader:** **Swami Vidyanand**.
-**Target:** The Maharaja of Darbhanga.
-**Issue:** Peasants were protesting against the Maharaja's agents who were extracting illegal taxes and denying forest rights.
-**Significance:** It showed that peasant unrest was brewing in Bihar even before the Congress formally launched the Non-Cooperation Movement.
-
----
-
-## BLOCK 23: SYSTEMS OF BONDED LABOR
-*Slavery by Custom.*
-
-### ⛓️ HALI & KAMIAUTI
-**Hali System (Gujarat):**
-- **Region:** Surat/Bardoli.
-- **Nature:** The **Halis** (agricultural laborers) were hereditary bondsmen of the upper-caste landlords (Kaliparaj).
-- **Reform:** Gandhi and Vallabhbhai Patel worked to rename them **Raniparaj** (Forest People) and end this system.
-
-**Kamiauti System (Bihar/Orissa):**
-- **Nature:** A system where low-caste laborers (**Kamias**) were bound to serve the landlord for life in exchange for a small loan and interest.
-
----
-
-## BLOCK 24: EVOLUTION OF PEASANT MOVEMENTS
-*The Great Shift.*
-
-### 📊 19th vs 20th CENTURY
-| Feature | 19th Century (1857-1900) | 20th Century (1900-1947) |
-| :--- | :--- | :--- |
-| **Target** | Immediate enemy (Moneylender/Planter/Zamindar). | The Colonial State and the Landlord. |
-| **Goal** | Redressal of specific grievances (rent reduction). | Abolition of the System (Zamindari) + Swaraj. |
-| **Ideology** | No specific ideology. Often religious (Moplah). | Linked to Nationalism, Socialism, and Communism. |
-| **Leadership** | Local village headmen or small landlords. | National Leaders (Gandhi, Patel, Sahajanand). |
-| **Outcome** | Government passed minor relief acts (Tenancy Acts). | Became a mass base for Independence. |
-
----
-
-## BLOCK 25: KISAN SABHA IN BENGAL (1930s)
-*Before Tebhaga.*
-
-### 🌾 BANKIM MUKHERJEE
-**Context:** Before the massive Tebhaga uprising (1946), the groundwork was laid in the 1930s.
-
-**Organization:** The Bengal Provincial Kisan Sabha (BPKS).
-
-**Leader:** **Bankim Mukherjee** and **Krishna Binod Ray**.
-
-**Role:** They mobilized peasants against the Damodar Canal Tax (**Canal Tax Satyagraha**) in Burdwan, proving that the Left was gaining ground in rural Bengal.
-
----
-
-## BLOCK 26: BIHAR PROVINCIAL KISAN SABHA (1929)
-*The Engine of the East.*
-
-### 🚩 SAHAJANAND'S START
-**Founder:** **Swami Sahajanand Saraswati**.
-**Formed:** 1929 (at the Sonepur Fair).
-**Secretary:** **Shrikrishna Sinha** (who later became the first CM of Bihar).
-
-**Context:** It was formed to mobilize peasants against the Zamindars' attacks on occupancy rights.
-
-**Significance:** It was the first major organized Kisan Sabha that later expanded into the All India Kisan Sabha (AIKS) in 1936.
-
----
-
-## BLOCK 27: ANDHRA PROVINCIAL RYOTS ASSOCIATION (1928)
-*The Southern Pillar.*
-
-### 🚜 N.G. RANGA
-**Founder:** **N.G. Ranga** and M.B. Naidu.
-**Formed:** 1928.
-**Focus:** Reduction of land revenue, abolition of Zamindari, and addressing rural indebtedness.
-**School:** Ranga also started the **Indian Peasants' Institute (1933)** in Nidubrolu to train peasant workers, which became a nursery for peasant leaders.
-
----
-
-## BLOCK 28: FAIZPUR AGRARIAN PROGRAMME (1936)
-*The Congress Adopts the Cause.*
-
-### 🏡 FIRST VILLAGE SESSION
-**Context:** The Congress held its session in a **village (Faizpur, Maharashtra)** for the first time in 1936.
-**President:** Jawaharlal Nehru.
-
-**The Resolution:** The Congress adopted the **"Agrarian Programme"**.
-
-**Demands:**
-- 50% reduction in rent and revenue.
-- Exemption of uneconomic holdings from tax.
-- Abolition of feudal levies and forced labor.
-- Recognition of peasant unions (Kisan Sabhas).
-
----
-
-## BLOCK 29: AMBARI SATYAGRAHA (1939)
-*The Scholar as Leader.*
-
-### 📚 RAHUL SANKRITYAYAN
-**Region:** North Bihar.
-**Leader:** **Rahul Sankrityayan** (The famous Hindi writer and polymath).
-**Issue:** The **Bakasht lands** (lands resumed by landlords for self-cultivation during depression).
-**Action:** He led peasants to forcibly harvest crops on these lands. He was beaten and jailed, but the movement forced the government to pass legislation protecting tenancy rights.
-
----
-
-## BLOCK 30: KARSHAKA SANGHAMS (1930s)
-*The Red Base in Kerala.*
-
-### 🌴 MALABAR PEASANT UNIONS
-**Context:** After the collapse of the Moplah Rebellion (1921), the peasant movement in Kerala was rebuilt by Socialists and Communists in the 1930s.
-
-**Organization:** **Karshaka Sanghams** (Peasant Unions).
-
-**Method:** Marching of *Jathas* (groups) to the landlords' houses to demand reduction of rent.
-
-**Specific Tactic:** They popularized the practice of stopping the payment of illegal levies (like *Vighi* and *Nuri*).
-
-**Significance:** These Sanghams created the mass base that led to the first Communist government in Kerala in 1957.
-
----
-
-## BLOCK 31: WOMEN IN PEASANT MOVEMENTS
-*The Silent Warriors.*
-
-### 👩🌾 MANIBEHN TO GODAVARI
-**Bardoli (1928):**
-- **Mithuben Petit** and **Bhaktiba Desai** lived in the villages to mobilize women.
-- **Manibehn Patel** (Sardar Patel's daughter) kept the morale high.
-- **Significance:** It was the women of Bardoli who gave Patel the title **"Sardar"**.
-
-**Warli (1945):**
-- **Godavari Parulekar** (Godutai) was the soul of the movement. She was the first woman to lead an Adivasi revolt.
-
-**Tebhaga (1946):**
-- Women formed **"Nari Bahinis"** (Women's Brigades) to defend their harvest with broomsticks and pestles against the police.
-
----
-
-## BLOCK 32: KIRTI KISAN PARTY (1927)
-*The Revolutionary Peasants.*
-
-### ☭ PUNJAB'S RED TURN
-**Founders:** **Sohan Singh Josh** and **Teja Singh Swatantar**.
-**Ideology:** A mix of Ghadar Party revolutionary nationalism and Marxism.
-
-**Goal:** To organize small peasants and landless laborers against the British and the moneylenders.
-
-**Significance:** It bridged the gap between the terrorist movement (Bhagat Singh's Naujawan Bharat Sabha) and the peasant movement. It later merged with the Communist Party.
-
----
-
-## BLOCK 33: ANDHRA MAHASABHA (1930s)
-*The Root of Telangana.*
-
-### 🏛️ MADAPATI & RAVI NARAYANA
-**Origin:** Started as a cultural organization for Telugu people in Hyderabad State.
-**Founder:** **Madapati Hanumantha Rao**.
-
-**Transformation:** In the 1940s, under **Ravi Narayana Reddy** (Communist), it shifted focus to agrarian issues (forced labor/land).
-
-**Outcome:** It became the organizational vehicle for the **Telangana Armed Struggle (1946)**.
-
----
-
-## BLOCK 34: CONGRESS MINISTRIES vs KISAN SABHA (1937-39)
-*The Great Disappointment.*
-
-### 💔 THE RIFT
-**Context:** In the 1937 elections, peasants voted for Congress hoping for radical land reform.
-
-**Reality:** The Congress Ministries (in Bihar/UP) passed only mild tenancy laws but did not abolish Zamindari.
-
-**Conflict:**
-- They often used **Section 144** against peasant leaders (including Sahajanand) to maintain "law and order."
-- They made compromises with Zamindars to ensure political stability.
-
-**Result:** This led to a split. **Swami Sahajanand** left the Congress and moved closer to the Communist Party by 1940.
-
----
-
-## BLOCK 35: UTKAL PROVINCIAL KISAN SABHA
-*The Odisha Chapter.*
-
-### 🌾 MALATI CHOUDHURY
-**Founders:** **Malati Choudhury** and **Nabakrushna Choudhury**.
-**Formation:** 1935.
-**Issue:** Abolition of Zamindari and reduction of land revenue.
-
-**Surma Valley (Assam):** A similar movement rose in the Surma Valley (Karimganj) led by **Karuna Sindhu Roy**, fighting for the rights of tea garden laborers and tenants.
-`;
-

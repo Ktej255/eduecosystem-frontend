@@ -1,443 +1,824 @@
-export interface Subtopic {
-    id: string | number;
-    name: string;
-    status?: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic?: string | number;
-    difficulty?: string;
-    cognitiveLevel?: string;
-}
-
-export const MODERN_CHAPTER_13_SUBTOPICS: Subtopic[] = [
-    { id: 'bengal_activities', name: 'Activities in Bengal (Anushilan, Alipore)' },
-    { id: 'maharashtra_activities', name: 'Activities in Maharashtra (Abhinav Bharat)' },
-    { id: 'punjab_delhi', name: 'Activities in Punjab & Delhi' },
-    { id: 'abroad', name: 'Revolutionary Activities Abroad (Europe)' },
-    { id: 'ghadar_party', name: 'The Ghadar Party' },
-    { id: 'chronology_matching', name: 'Chronology & Matching' },
-    { id: 'conceptual', name: 'Conceptual & Deep Dive' }
-];
+import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_13_MCQS: Question[] = [
-    // Set 1: Bengal
     {
-        id: 1,
-        question: "The \"Anushilan Samiti\" (1902) was the first secret revolutionary society in Bengal. It was founded by:",
-        options: ["Promotha Mitter", "Barindra Kumar Ghosh", "Bagha Jatin", "Pulin Das"],
-        correctAnswer: 0, // (a)
-        explanation: "Promotha Mitter founded the Anushilan Samiti in Calcutta. (Pulin Das led the Dhaka branch which became more active).",
-        subtopic: 'bengal_activities',
-        difficulty: 'Easy'
+        "id": 1,
+        "question": "When the First World War broke out in 1914, what was the initial reaction of the Moderates in the Congress?",
+        "options": [
+            "To launch an immediate revolt against the British.",
+            "To support the British war effort as a matter of duty.",
+            "To seek help from Germany for independence.",
+            "To go on a permanent strike."
+        ],
+        "answerRaw": "B. To support the British war effort as a matter of duty.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 2,
-        question: "Who among the following was the editor of the revolutionary journal \"Yugantar\" (1906), which advocated armed rebellion?",
-        options: ["Aurobindo Ghosh", "Bhupendranath Datta and Barindra Kumar Ghosh", "Hemchandra Kanungo", "Rashbehari Bose"],
-        correctAnswer: 1, // (b)
-        explanation: "Bhupendranath Datta (Swami Vivekananda's brother) and Barindra Ghosh started Yugantar.",
-        subtopic: 'bengal_activities',
-        difficulty: 'Moderate'
+        "id": 2,
+        "question": "Which leader was released from Mandalay Jail in June 1914, just before the start of the Home Rule movement?",
+        "options": [
+            "Lala Lajpat Rai",
+            "Bal Gangadhar Tilak",
+            "Aurobindo Ghosh",
+            "Bipin Chandra Pal"
+        ],
+        "answerRaw": "B. Bal Gangadhar Tilak",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 3,
-        question: "The \"Alipore Conspiracy Case\" (1908) was launched following the discovery of:",
-        options: ["A bomb factory at Maniktala (Calcutta).", "A cache of arms in Dhaka.", "The murder of Kingsford.", "The Delhi Durbar plot."],
-        correctAnswer: 0, // (a)
-        explanation: "The police raided the garden house at Maniktala and found a bomb factory.",
-        subtopic: 'bengal_activities',
-        difficulty: 'Easy'
+        "id": 3,
+        "question": "The Home Rule League movement in India was inspired by a similar movement in:",
+        "options": [
+            "South Africa",
+            "Ireland",
+            "United States",
+            "Russia"
+        ],
+        "answerRaw": "B. Ireland",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 4,
-        question: "In the Alipore Conspiracy Case, Aurobindo Ghosh was brilliantly defended by which lawyer, leading to his acquittal?",
-        options: ["C.R. Das (Chittaranjan Das)", "Motilal Nehru", "Bhulabhai Desai", "Tej Bahadur Sapru"],
-        correctAnswer: 0, // (a)
-        explanation: "C.R. Das famously defended Aurobindo, calling him the \"Prophet of Indian Nationalism\".",
-        subtopic: 'bengal_activities',
-        difficulty: 'Easy'
+        "id": 4,
+        "question": "Who were the two main leaders who started the Home Rule Leagues in India?",
+        "options": [
+            "Mahatma Gandhi and Jawaharlal Nehru",
+            "Bal Gangadhar Tilak and Annie Besant",
+            "Motilal Nehru and C.R. Das",
+            "Dadabhai Naoroji and G.K. Gokhale"
+        ],
+        "answerRaw": "B. Bal Gangadhar Tilak and Annie Besant",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 5,
-        question: "The \"Muzaffarpur Murders\" (1908) involved an attempt to kill Kingsford (the unpopular judge). Who were the two young revolutionaries involved?",
-        options: ["Bhagat Singh and Batukeshwar Dutt", "Prafulla Chaki and Khudiram Bose", "Binoy, Badal, and Dinesh", "Rajguru and Sukhdev"],
-        correctAnswer: 1, // (b)
-        explanation: "Prafulla Chaki (committed suicide) and Khudiram Bose (hanged). They mistakenly killed two British ladies (Kennedys).",
-        subtopic: 'bengal_activities',
-        difficulty: 'Easy'
+        "id": 5,
+        "question": "Tilak set up his Home Rule League in April 1916 at:",
+        "options": [
+            "Bombay",
+            "Belgaum",
+            "Poona",
+            "Madras"
+        ],
+        "answerRaw": "B. Belgaum",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 6,
-        question: "\"Bagha Jatin\" (Jatindranath Mukherjee) died fighting the British police in the \"Battle of Balasore\" (1915). He was trying to receive:",
-        options: ["German arms and ammunition (Zimerman Plan).", "Japanese soldiers.", "Russian gold.", "Ghadarite revolutionaries from Canada."],
-        correctAnswer: 0, // (a)
-        explanation: "Zimerman Plan (German Plot) involved receiving arms at Balasore coast.",
-        subtopic: 'bengal_activities',
-        difficulty: 'Moderate'
-    },
-    // Set 2: Maharashtra
-    {
-        id: 7,
-        question: "The \"Chapekar Brothers\" (Damodar and Balkrishna) are historically significant because:",
-        options: ["They threw a bomb in the Central Legislative Assembly.", "They assassinated Rand and Ayerst (Plague Commissioners) in Poona in 1897 (First political assassination).", "They founded the Abhinav Bharat.", "They led the textile strike in Bombay."],
-        correctAnswer: 1, // (b)
-        explanation: "Assassination of Rand (Plague Commissioner) in 1897.",
-        subtopic: 'maharashtra_activities',
-        difficulty: 'Easy'
+        "id": 6,
+        "question": "Annie Besant’s Home Rule League was formally started in September 1916 at:",
+        "options": [
+            "Calcutta",
+            "Adyar (Madras)",
+            "Bombay",
+            "Allahabad"
+        ],
+        "answerRaw": "B. Adyar (Madras)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 8,
-        question: "The secret society \"Mitra Mela\" aimed at overthrowing British rule was reorganized in 1904 as:",
-        options: ["Anushilan Samiti", "Abhinav Bharat", "Ghadar Party", "Hindustan Socialist Republican Association"],
-        correctAnswer: 1, // (b)
-        explanation: "Abhinav Bharat (Young India Society) was the new name given by Savarkar.",
-        subtopic: 'maharashtra_activities',
-        difficulty: 'Easy'
+        "id": 7,
+        "question": "Tilak’s League was restricted to which of the following regions?",
+        "options": [
+            "All of India except Maharashtra",
+            "Maharashtra (excluding Bombay city), Karnataka, Central Provinces, and Berar",
+            "Only the Madras Presidency",
+            "Only the United Provinces"
+        ],
+        "answerRaw": "B. Maharashtra (excluding Bombay), Karnataka, Central Provinces, and Berar",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 9,
-        question: "Who among the following assassinated A.M.T. Jackson (Collector of Nasik) in the \"Nasik Conspiracy Case\" (1909)?",
-        options: ["Anant Kanhare", "V.D. Savarkar", "Ganesh Savarkar", "Vishnu Ganesh Pingley"],
-        correctAnswer: 0, // (a)
-        explanation: "Anant Kanhare killed Jackson.",
-        subtopic: 'maharashtra_activities',
-        difficulty: 'Moderate'
-    },
-    // Set 3: Punjab & Delhi
-    {
-        id: 10,
-        question: "The famous slogan \"Pagri Sambhal Jatta\" is associated with the agrarian unrest led by:",
-        options: ["Bhagat Singh", "Ajit Singh", "Lala Lajpat Rai", "Saifuddin Kitchlew"],
-        correctAnswer: 1, // (b)
-        explanation: "Ajit Singh (Bhagat Singh's uncle).",
-        subtopic: 'punjab_delhi',
-        difficulty: 'Easy'
+        "id": 8,
+        "question": "Which of the following journals was started by Annie Besant to propagate her ideas?",
+        "options": [
+            "Kesari and Mahratta",
+            "New India and Commonweal",
+            "Young India",
+            "Harijan"
+        ],
+        "answerRaw": "B. New India and Commonweal",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 11,
-        question: "The \"Delhi Conspiracy Case\" (1912) refers to the attempt on the life of:",
-        options: ["Lord Curzon", "Lord Hardinge II", "Lord Minto", "Lord Chelmsford"],
-        correctAnswer: 1, // (b)
-        explanation: "Bomb throw on Lord Hardinge while he was entering Delhi on an elephant.",
-        subtopic: 'punjab_delhi',
-        difficulty: 'Easy'
+        "id": 9,
+        "question": "Which journals were used by Tilak to support the Home Rule cause?",
+        "options": [
+            "New India and Commonweal",
+            "Kesari and Mahratta",
+            "Al-Hilal",
+            "Comrade"
+        ],
+        "answerRaw": "B. Kesari and Mahratta",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 12,
-        question: "Who was the mastermind behind the bomb attack on Lord Hardinge in Chandni Chowk, Delhi, who managed to escape to Japan and later helped found the INA?",
-        options: ["Rashbehari Bose", "Subhash Chandra Bose", "Sachindranath Sanyal", "Kartar Singh Sarabha"],
-        correctAnswer: 0, // (a)
-        explanation: "Rashbehari Bose. (Not to be confused with Subhash Bose).",
-        subtopic: 'punjab_delhi',
-        difficulty: 'Easy'
-    },
-    // Set 4: Abroad
-    {
-        id: 13,
-        question: "\"India House\" in London was a hostel for Indian students which became a centre for revolutionary activities. It was founded by:",
-        options: ["Dadabhai Naoroji", "Shyamji Krishna Varma", "V.D. Savarkar", "Madan Lal Dhingra"],
-        correctAnswer: 1, // (b)
-        explanation: "Shyamji Krishna Varma.",
-        subtopic: 'abroad',
-        difficulty: 'Easy'
+        "id": 10,
+        "question": "Who was the General Secretary of Annie Besant’s Home Rule League?",
+        "options": [
+            "George Arundale",
+            "B.P. Wadia",
+            "C.P. Ramaswami Aiyar",
+            "All of the above (as key organizers)"
+        ],
+        "answerRaw": "A. George Arundale",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 14,
-        question: "The journal \"The Indian Sociologist\" was published from:",
-        options: ["Paris", "London", "Berlin", "Geneva"],
-        correctAnswer: 1, // (b)
-        explanation: "London (initially), then Paris/Geneva after crackdown.",
-        subtopic: 'abroad',
-        difficulty: 'Moderate'
+        "id": 11,
+        "question": "The Lucknow Session of the Congress (1916) is famous for the 'Lucknow Pact' between the Congress and:",
+        "options": [
+            "The British Government",
+            "The Muslim League",
+            "The Ghadar Party",
+            "The Justice Party"
+        ],
+        "answerRaw": "B. The Muslim League",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 15,
-        question: "Who assassinated Curzon Wyllie (a British official) in London in 1909 as a protest against the \"inhuman hangings\" in India?",
-        options: ["Udham Singh", "Madan Lal Dhingra", "V.D. Savarkar", "Lala Hardayal"],
-        correctAnswer: 1, // (b)
-        explanation: "Madan Lal Dhingra.",
-        subtopic: 'abroad',
-        difficulty: 'Easy'
+        "id": 12,
+        "question": "Who presided over the historic Lucknow Session of 1816?",
+        "options": [
+            "Annie Besant",
+            "Ambica Charan Mazumdar",
+            "Motilal Nehru",
+            "Rashbehari Ghosh"
+        ],
+        "answerRaw": "B. Ambica Charan Mazumdar",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 16,
-        question: "Who is known as the \"Mother of Indian Revolution\" and famously unfurled the first Indian National Flag at the International Socialist Congress in Stuttgart (Germany) in 1907?",
-        options: ["Annie Besant", "Madam Bhikaji Cama", "Sarojini Naidu", "Sister Nivedita"],
-        correctAnswer: 1, // (b)
-        explanation: "Madam Bhikaji Cama.",
-        subtopic: 'abroad',
-        difficulty: 'Easy'
+        "id": 13,
+        "question": "In which session did the Moderates and Extremists formally reunite after the 1907 split?",
+        "options": [
+            "1915 Bombay Session",
+            "1916 Lucknow Session",
+            "1917 Calcutta Session",
+            "1918 Delhi Session"
+        ],
+        "answerRaw": "B. 1916 Lucknow Session",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 17,
-        question: "The \"Berlin Committee for Indian Independence\" (1915) was established by:",
-        options: ["Virendranath Chattopadhyaya (Chatto)", "Subhash Chandra Bose", "Raja Mahendra Pratap", "Lala Hardayal"],
-        correctAnswer: 0, // (a)
-        explanation: "Virendranath Chattopadhyaya (Sarojini Naidu's brother).",
-        subtopic: 'abroad',
-        difficulty: 'Moderate'
-    },
-    // Set 5: Ghadar Party
-    {
-        id: 18,
-        question: "The Ghadar Party was founded in 1913 with its headquarters at:",
-        options: ["Vancouver", "San Francisco (Yugantar Ashram)", "Seattle", "Berlin"],
-        correctAnswer: 1, // (b)
-        explanation: "San Francisco.",
-        subtopic: 'ghadar_party',
-        difficulty: 'Easy'
+        "id": 14,
+        "question": "The \"August Declaration\" of 1917, which promised the gradual development of self-governing institutions, was made by:",
+        "options": [
+            "Lord Curzon",
+            "Edwin Montagu",
+            "Lord Chelmsford",
+            "Lord Morley"
+        ],
+        "answerRaw": "B. Edwin Montagu (Secretary of State for India)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 19,
-        question: "Who was the founding President of the Ghadar Party?",
-        options: ["Lala Hardayal", "Sohan Singh Bhakna", "Kartar Singh Sarabha", "Tarak Nath Das"],
-        correctAnswer: 1, // (b)
-        explanation: "Sohan Singh Bhakna was the President. Lala Hardayal was the General Secretary/Intellectual leader.",
-        subtopic: 'ghadar_party',
-        difficulty: 'Moderate'
+        "id": 15,
+        "question": "Who renounced his knighthood in protest against the arrest of Annie Besant in 1917?",
+        "options": [
+            "Rabindranath Tagore",
+            "S. Subramania Aiyar",
+            "Mahatma Gandhi",
+            "Jawaharlal Nehru"
+        ],
+        "answerRaw": "B. S. Subramania Aiyar",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 20,
-        question: "The weekly newspaper \"Ghadar\" carried the caption on its masthead:",
-        options: ["\"Enemy of the British Raj\"", "\"Angrezi Raj Ka Dushman\" (Enemy of English Rule)", "\"Vande Mataram\"", "\"Satyameva Jayate\""],
-        correctAnswer: 1, // (b)
-        explanation: "\"Angrezi Raj Ka Dushman\".",
-        subtopic: 'ghadar_party',
-        difficulty: 'Easy'
+        "id": 16,
+        "question": "Which prominent leader joined Annie Besant’s League in Allahabad?",
+        "options": [
+            "Sardar Patel",
+            "Jawaharlal Nehru",
+            "Muhammad Ali Jinnah",
+            "Both B and C"
+        ],
+        "answerRaw": "D. Both B and C",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
     },
     {
-        id: 21,
-        question: "The \"Komagata Maru\" incident (1914) involved:",
-        options: ["A Japanese ship carrying Indian immigrants to Canada which was turned back.", "A German ship carrying arms to Bengal.", "A British ship hijacked by Ghadarites.", "A naval mutiny in Bombay."],
-        correctAnswer: 0, // (a)
-        explanation: "Japanese ship, Indian passengers, denied entry to Canada (Continuous Passage Act).",
-        subtopic: 'ghadar_party',
-        difficulty: 'Easy'
+        "id": 17,
+        "question": "The Home Rule movement primarily demanded:",
+        "options": [
+            "Purna Swaraj (Complete Independence)",
+            "Home Rule (Self-government) for India within the British Empire",
+            "The restoration of the Mughal Caliphate",
+            "The complete withdrawal of British troops"
+        ],
+        "answerRaw": "B. Home Rule (Self-government) within the British Empire",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 22,
-        question: "Who was the central figure in the Komagata Maru voyage?",
-        options: ["Baba Gurdit Singh", "Bhagat Singh", "Udham Singh", "Teja Singh Swatantra"],
-        correctAnswer: 0, // (a)
-        explanation: "Baba Gurdit Singh.",
-        subtopic: 'ghadar_party',
-        difficulty: 'Moderate'
+        "id": 18,
+        "question": "Tilak was defended in a sedition case in 1916 by a legal team led by:",
+        "options": [
+            "Motilal Nehru",
+            "Muhammad Ali Jinnah",
+            "Bhulabhai Desai",
+            "Tej Bahadur Sapru"
+        ],
+        "answerRaw": "B. Muhammad Ali Jinnah",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 23,
-        question: "The \"Singapore Mutiny\" of 1915 was a rare instance of army revolt during WWI. It was led by:",
-        options: ["Jamadar Chishti Khan and Subedar Dundey Khan", "Rashbehari Bose", "Mohan Singh", "Shah Nawaz Khan"],
-        correctAnswer: 0, // (a)
-        explanation: "Chishti Khan and Dundey Khan.",
-        subtopic: 'ghadar_party',
-        difficulty: 'Hard'
-    },
-    // Set 6: Chronology
-    {
-        id: 24,
-        question: "Arrange the following events in chronological order:\n1. Alipore Conspiracy Case\n2. Assassination of Rand and Ayerst\n3. Formation of Ghadar Party\n4. Delhi Conspiracy Case (Bomb on Hardinge)\n\nSelect the correct answer:",
-        options: ["2-1-4-3", "2-4-1-3", "1-2-3-4", "2-1-3-4"],
-        correctAnswer: 0, // (a)
-        explanation: "Rand (1897) -> Alipore (1908) -> Delhi (1912) -> Ghadar (1913).",
-        subtopic: 'chronology_matching',
-        difficulty: 'Moderate'
+        "id": 19,
+        "question": "Annie Besant was the President of the Theosophical Society. Where was its headquarters?",
+        "options": [
+            "Banaras",
+            "Adyar",
+            "Bombay",
+            "London"
+        ],
+        "answerRaw": "B. Adyar",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 25,
-        question: "Match the Conspirator with the Case:\nA. Barindra Ghosh -> 1. Nasik Conspiracy\nB. Amir Chand -> 2. Alipore Conspiracy\nC. Anant Kanhare -> 3. Delhi Conspiracy\nD. Ashfaqullah Khan -> 4. Kakori Conspiracy\n\nSelect the correct answer:",
-        options: ["A-2, B-3, C-1, D-4", "A-2, B-1, C-3, D-4", "A-3, B-2, C-1, D-4", "A-1, B-2, C-4, D-3"],
-        correctAnswer: 0, // (a)
-        explanation: "Barindra (Alipore), Amir Chand (Delhi/Hardinge), Anant Kanhare (Nasik), Ashfaqullah (Kakori).",
-        subtopic: 'chronology_matching',
-        difficulty: 'Moderate'
-    },
-    // Set 7: Conceptual
-    {
-        id: 26,
-        question: "The \"Zimerman Plan\" was a conspiracy to:",
-        options: ["Assassinate the Viceroy.", "Organize an armed insurrection in India with German help during WWI.", "Bomb the Central Assembly.", "Capture the Calcutta Fort."],
-        correctAnswer: 1, // (b)
-        explanation: "Indo-German conspiracy during WWI.",
-        subtopic: 'conceptual',
-        difficulty: 'Moderate'
+        "id": 20,
+        "question": "Why did the Home Rule movement decline by 1919?",
+        "options": [
+            "Lack of an effective organization",
+            "Annie Besant’s wavering attitude after her release",
+            "Tilak’s departure to England for a libel case",
+            "All of the above"
+        ],
+        "answerRaw": "D. All of the above",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
     },
     {
-        id: 27,
-        question: "Why did the Ghadar movement fail to achieve its objective of an armed revolt in Punjab in 1915?",
-        options: ["Lack of arms.", "Treachery within the party (informers) and lack of organized leadership.", "The British army was too strong.", "Gandhi asked them to stop."],
-        correctAnswer: 1, // (b)
-        explanation: "A traitor Kirpal Singh leaked the date of the revolt to the police.",
-        subtopic: 'conceptual',
-        difficulty: 'Moderate'
+        "id": 21,
+        "question": "The Lucknow Pact (1916) saw the Congress accept which controversial demand of the Muslim League?",
+        "options": [
+            "Separate Electorates",
+            "Partition of Bengal",
+            "Complete Independence",
+            "Withdrawal of Urdu as an official language"
+        ],
+        "answerRaw": "A. Separate Electorates",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 28,
-        question: "The \"Provisional Government of India\" was established in Kabul in 1915 by:",
-        options: ["Raja Mahendra Pratap and Barkatullah", "Subhash Chandra Bose", "Rashbehari Bose", "M.N. Roy"],
-        correctAnswer: 0, // (a)
-        explanation: "Raja Mahendra Pratap became President, Barkatullah became PM.",
-        subtopic: 'conceptual',
-        difficulty: 'Easy'
+        "id": 22,
+        "question": "Who were the main architects of the Lucknow Pact?",
+        "options": [
+            "Gandhi and Nehru",
+            "Tilak and Jinnah",
+            "Gokhale and Pherozeshah Mehta",
+            "Annie Besant and Curzon"
+        ],
+        "answerRaw": "B. Tilak and Jinnah",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 29,
-        question: "Which of the following journals advocated \"Barter for Barter\" (Blood for Blood)?",
-        options: ["Yugantar", "Sandhya", "Kal", "All of the above"],
-        correctAnswer: 3, // (d)
-        explanation: "Yugantar, Sandhya, and Kal were the three pillars of revolutionary journalism in Bengal/Maharashtra.",
-        subtopic: 'conceptual',
-        difficulty: 'Moderate'
+        "id": 23,
+        "question": "Which event in 1914 acted as a catalyst for Indian nationalism by highlighting racial discrimination against Indians abroad?",
+        "options": [
+            "The Boer War",
+            "The Komagata Maru Incident",
+            "The Jallianwala Bagh Massacre",
+            "The Rowlatt Act"
+        ],
+        "answerRaw": "B. The Komagata Maru Incident",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 30,
-        question: "The \"United India House\" in Seattle was set up by:",
-        options: ["Tarak Nath Das and G.D. Kumar", "Lala Hardayal", "Sohan Singh Bhakna", "Ramnath Puri"],
-        correctAnswer: 0, // (a)
-        explanation: "A precursor to the Ghadar party.",
-        subtopic: 'conceptual',
-        difficulty: 'Hard'
+        "id": 24,
+        "question": "In the August Declaration of 1917, the British government for the first time used which term to define the goal of British rule in India?",
+        "options": [
+            "Independence",
+            "Responsible Government",
+            "Purna Swaraj",
+            "Dominion Status"
+        ],
+        "answerRaw": "B. Responsible Government",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 31,
-        question: "The \"Silk Letter Conspiracy\" (Reshmi Rumal Tehrik) was associated with:",
-        options: ["The Deoband leaders (Maulana Mahmud Hasan/Obeidullah Sindhi) trying to get foreign help (Turkey/Afghanistan) against the British.", "The Ghadar Party sending secret messages.", "The supply of arms to Bengal revolutionaries.", "The Theosophical Society."],
-        correctAnswer: 0, // (a)
-        explanation: "Silk Letter Conspiracy (letters written on silk cloth) involving Deobandis.",
-        subtopic: 'conceptual',
-        difficulty: 'Moderate'
+        "id": 25,
+        "question": "Who was the Viceroy of India during the peak of the Home Rule movement (1916)?",
+        "options": [
+            "Lord Hardinge",
+            "Lord Chelmsford",
+            "Lord Reading",
+            "Lord Irwin"
+        ],
+        "answerRaw": "B. Lord Chelmsford",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 32,
-        question: "Who among the following revolutionaries became a communist and helped found the Communist Party of Mexico and India?",
-        options: ["M.N. Roy (Naren Bhattacharya)", "Virendranath Chattopadhyaya", "Rashbehari Bose", "Bhagat Singh"],
-        correctAnswer: 0, // (a)
-        explanation: "M.N. Roy (original name Naren Bhattacharya) left India as a revolutionary (Bagha Jatin's associate) and became a global communist leader.",
-        subtopic: 'conceptual',
-        difficulty: 'Moderate'
+        "id": 26,
+        "question": "Annie Besant became the first woman President of the Indian National Congress in which session?",
+        "options": [
+            "1916 Lucknow",
+            "1917 Calcutta",
+            "1918 Delhi",
+            "1925 Kanpur"
+        ],
+        "answerRaw": "B. 1917 Calcutta",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 33,
-        question: "The \"Budge Budge Riot\" is associated with:",
-        options: ["The arrival of the Komagata Maru ship in Calcutta.", "The Indigo revolt.", "The communal riots in Noakhali.", "The Jallianwala Bagh massacre."],
-        correctAnswer: 0, // (a)
-        explanation: "When the ship returned to Calcutta, the British tried to arrest the passengers, leading to a riot.",
-        subtopic: 'conceptual',
-        difficulty: 'Easy'
+        "id": 27,
+        "question": "The Montagu-Chelmsford Reforms (1919) were a direct result of which declaration?",
+        "options": [
+            "Queen’s Proclamation 1858",
+            "August Declaration 1917",
+            "Delhi Declaration 1911",
+            "Nehru Report 1928"
+        ],
+        "answerRaw": "B. August Declaration 1917",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 34,
-        question: "The \"Defense of India Act, 1915\" was primarily enacted to:",
-        options: ["Recruit soldiers for WWI.", "Arm the civil population.", "Smash the Ghadar movement and revolutionary activities using draconian powers.", "Defend India from Japanese invasion."],
-        correctAnswer: 2, // (c)
-        explanation: "It gave the government wide powers to arrest without trial (Special Tribunals) to crush the Ghadarites.",
-        subtopic: 'conceptual',
-        difficulty: 'Moderate'
+        "id": 28,
+        "question": "Which Moderate leader died in 1915, easing the way for the Extremists to rejoin the Congress?",
+        "options": [
+            "Dadabhai Naoroji",
+            "Gopal Krishna Gokhale",
+            "Pherozeshah Mehta",
+            "Both B and C"
+        ],
+        "answerRaw": "D. Both B and C",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
     },
     {
-        id: 35,
-        question: "\"We shall die to awaken the nation.\" This was the dying declaration of:",
-        options: ["Bagha Jatin", "Kartar Singh Sarabha", "Madan Lal Dhingra", "Khudiram Bose"],
-        correctAnswer: 0, // (a)
-        explanation: "Bagha Jatin (Jatindranath Mukherjee). \"Amra morbo, jagat jagbe\" (We shall die to awaken the nation).",
-        subtopic: 'conceptual',
-        difficulty: 'Easy'
+        "id": 29,
+        "question": "Tilak's Home Rule League had how many branches?",
+        "options": [
+            "6",
+            "200",
+            "50",
+            "100"
+        ],
+        "answerRaw": "A. 6 (It was more compact and organized than Besant's)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 30,
+        "question": "The \"Commonweal\" was a:",
+        "options": [
+            "Secret revolutionary society",
+            "Weekly journal started by Annie Besant",
+            "Pro-British political party",
+            "Treaty signed between Tilak and Jinnah"
+        ],
+        "answerRaw": "B. Weekly journal started by Annie Besant",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "The Home Rule League movement represented a new phase in the Indian national struggle. How did it differ fundamentally from the earlier Swadeshi Movement?",
+        "options": [
+            "It relied exclusively on the support of the Indian peasantry.",
+            "It focused on the demand for 'Self-Government' as a permanent political goal rather than just a reaction to a specific administrative measure like the Partition of Bengal.",
+            "It completely rejected the use of the English language.",
+            "It was the first movement to demand the total expulsion of all Europeans from India."
+        ],
+        "answerRaw": "B. It focused on 'Self-Government' as a permanent goal.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 32,
+        "question": "Consider the following statements regarding the organizational structure of the Home Rule Leagues: 1. Tilak’s League was organized on a linguistic basis and was more compact compared to Annie Besant’s League. 2. Annie Besant’s League was loosely organized and covered the parts of India not covered by Tilak’s League. 3. Both leaders merged their leagues into a single unified organization in 1917 to ensure better coordination. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "A. 1 and 2 only",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 33,
+        "question": "The 'Lucknow Pact' (1916) is often described as a double-edged sword in Indian history. Why is it criticized by many modern historians?",
+        "options": [
+            "Because it led to the permanent dissolution of the Muslim League.",
+            "Because, by accepting 'Separate Electorates', the Congress provided official recognition to the principle of communal politics, which eventually contributed to the partition of India.",
+            "Because it demanded the continuation of British rule for another 100 years.",
+            "Because it excluded the Extremists from the Congress."
+        ],
+        "answerRaw": "B. It provided official recognition to communal politics.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 34,
+        "question": "With reference to the 'August Declaration' of 1917, consider the following: Statement-I: It was a response to the growing strength of the Home Rule movement and the revolutionary activities during the war. Statement-II: The declaration for the first time made 'Responsible Government' the official goal of British policy in India, although it did not specify a timeframe. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+            "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "answerRaw": "B. Both Statement-I and Statement-II are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 35,
+        "question": "Annie Besant’s arrest in June 1917 proved to be a turning point for the movement. How did the 'Moderates' react to her arrest?",
+        "options": [
+            "They celebrated it as a victory for British law.",
+            "They were pushed into active protest, with many moderate leaders like Jawaharlal Nehru and B.P. Wadia joining the Home Rule League in solidarity.",
+            "They immediately called for an armed revolution.",
+            "They resigned from the Congress in protest against Besant."
+        ],
+        "answerRaw": "B. They were pushed into active protest and joined the League.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 36,
+        "question": "What was the primary reason for the 'reunion' of the Moderates and Extremists at the 1916 Lucknow session?",
+        "options": [
+            "The death of moderate giants like Gokhale and Pherozeshah Mehta, who had earlier blocked the return of the Extremists.",
+            "A direct order from the British Queen.",
+            "The Extremists agreed to give up their demand for Swaraj.",
+            "The Moderates agreed to use the method of bomb-making."
+        ],
+        "answerRaw": "A. The death of Gokhale and Pherozeshah Mehta.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 37,
+        "question": "Consider the following regarding the social base of the Home Rule Movement: 1. It saw significant participation from the urban educated middle class and professional groups. 2. It gained substantial traction among the students who acted as messengers for the league. 3. The Anglo-Indians, most Muslims, and non-Brahmins from South India largely stayed away, fearing it would lead to 'Brahmin Raj'. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 38,
+        "question": "The 'Ghadar' revolutionaries and the 'Home Rule' leagues represented two different responses to the First World War. What was the common ground between them?",
+        "options": [
+            "Both believed in non-violent constitutional methods.",
+            "Both shared the objective of achieving Indian independence/self-rule by exploiting the 'opportunity' provided by Britain's involvement in the war.",
+            "Both were led by Annie Besant.",
+            "Both were founded in San Francisco."
+        ],
+        "answerRaw": "B. Both aimed to exploit the war for Indian interests.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 39,
+        "question": "Which of the following describes Tilak’s attitude toward the British during the First World War?",
+        "options": [
+            "He called for a total boycott of the British army.",
+            "He advocated for 'Responsive Cooperation', meaning India would help the British in the war effort if the British promised self-government in return.",
+            "He became a secret advisor to the German Kaiser.",
+            "He retired to the Himalayas to avoid the war."
+        ],
+        "answerRaw": "B. He advocated for 'Responsive Cooperation'.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 40,
+        "question": "The 'Montagu-Chelmsford Reforms' (1919) disappointed many Home Rule supporters because:",
+        "options": [
+            "They abolished the Indian National Congress.",
+            "They introduced 'Diarchy' at the center instead of the provinces.",
+            "They failed to grant the 'Responsible Government' promised in the 1817 Declaration and kept most powers in the hands of the British bureaucracy.",
+            "They made Annie Besant the Empress of India."
+        ],
+        "answerRaw": "C. They failed to grant real 'Responsible Government'.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 41,
+        "question": "Why did the Home Rule Movement fail to maintain its momentum after 1918?",
+        "options": [
+            "The Moderates were pacified by the 1917 Declaration and the 1919 Reforms.",
+            "There was no single unified leader, as Besant wavered and Tilak went to London to fight a court case against Valentine Chirol.",
+            "The rise of Mahatma Gandhi provided a new, more effective method of mass struggle (Satyagraha).",
+            "All of the above."
+        ],
+        "answerRaw": "D. All of the above.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
+    },
+    {
+        "id": 42,
+        "question": "Consider the following pairs of leaders and their roles in the Home Rule era: 1. George Arundale — Organizing secretary of Besant’s League. 2. S. Subramania Aiyar — Renounced knighthood after Besant's arrest. 3. Joseph Baptista — First President of Tilak’s League. How many of the above pairs are correctly matched?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 43,
+        "question": "The Lucknow Pact (1916) included a proposal for 'Weighted Representation'. What did this mean?",
+        "options": [
+            "Every Indian would be given a weight based on their education.",
+            "Muslims were given more seats in the legislative councils than their population percentage in provinces where they were in a minority (like UP).",
+            "Only the heavy-weight wrestlers could vote.",
+            "The British government’s vote carried more weight than the Indian vote."
+        ],
+        "answerRaw": "B. Muslims were given more seats in minority provinces.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 44,
+        "question": "Annie Besant’s entry into Indian politics was significant because she brought which of the following to the national movement?",
+        "options": [
+            "An international perspective and a highly organized propaganda machine based on the Irish model.",
+            "A secret supply of Irish weapons.",
+            "The support of the Pope.",
+            "A plan to convert all Indians to Theosophy."
+        ],
+        "answerRaw": "A. International perspective and organized propaganda machine.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 45,
+        "question": "Ultimately, the Home Rule Movement was a landmark because it:",
+        "options": [
+            "Won complete independence for India in 1919.",
+            "Created a generation of political workers and a nationwide network that prepared the ground for the mass movements of the Gandhian era.",
+            "Abolished the separate electorates.",
+            "Led to the victory of Germany in WWI."
+        ],
+        "answerRaw": "B. Prepared the ground for the Gandhian era.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 46,
+        "question": "Consider the following statements regarding the Home Rule League Movement (1916-1918): 1. Tilak’s League was first to be established and its headquarters were located at Poona. 2. The movement aimed at the overthrow of the British Crown and the establishment of an independent Indian Republic. 3. While the Moderates initially stayed away, the arrest of Annie Besant in 1917 forced many of them to join the League. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 47,
+        "question": "With reference to the 'Lucknow Pact' (1916), consider the following: Statement-I: The Congress agreed to the Muslim League's demand for Separate Electorates in the provincial legislative elections. Statement-II: The Congress and the Muslim League presented a joint demand to the British government for a 'Responsible Government' and a fixed timeframe for self-rule. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+            "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "answerRaw": "B. Both Statement-I and Statement-II are correct",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 48,
+        "question": "Arrange the following events of the First World War era in the correct chronological order: 1. Death of Pherozeshah Mehta. 2. The August Declaration (Montagu’s Statement). 3. The Lucknow Session of the INC. 4. Formation of Tilak’s Home Rule League. Select the correct answer using the code given below:",
+        "options": [
+            "1 — 4 — 3 — 2",
+            "1 — 3 — 4 — 2",
+            "4 — 1 — 2 — 3",
+            "1 — 4 — 2 — 3"
+        ],
+        "answerRaw": "A. 1 — 4 — 3 — 2",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 49,
+        "question": "Consider the following pairs of Leaders and the Journals they used for the Home Rule campaign: 1. Annie Besant — Commonweal 2. Bal Gangadhar Tilak — The Mahratta 3. S. Subramania Aiyar — New India How many of the above pairs are correctly matched?",
+        "options": [
+            "Only one pair",
+            "Only two pairs",
+            "All three pairs",
+            "None"
+        ],
+        "answerRaw": "B. Only two pairs",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 50,
+        "question": "The 'August Declaration' (1917) by Edwin Montagu is significant because: 1. It for the first time officially defined 'Responsible Government' as the goal of British rule in India. 2. It was a direct response to the pressure created by the Home Rule Leagues. 3. It granted universal adult franchise to all Indian citizens. Select the correct answer using the code given below:",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "All of the above"
+        ],
+        "answerRaw": "A. 1 and 2 only",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 51,
+        "question": "\"He was a former president of the Congress who was nominated as a member of the British Parliament's House of Commons. He was also the first Indian to provide a statistical proof of the economic drain of India.\" The above description refers to:",
+        "options": [
+            "Gopal Krishna Gokhale",
+            "Dadabhai Naoroji",
+            "Pherozeshah Mehta",
+            "Dinshaw Wacha"
+        ],
+        "answerRaw": "B. Dadabhai Naoroji",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 52,
+        "question": "Regarding the decline of the Home Rule Movement by 1919, consider the following: Statement-I: The movement lost its momentum because the British government effectively used the 'policy of the carrot and the stick'. Statement-II: The 'carrot' was the August Declaration of 1917, while the 'stick' was the Rowlatt Act. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+            "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "answerRaw": "A. Both Statement-I and Statement-II are correct",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 53,
+        "question": "Match the following regions with the respective Home Rule League influence: 1. Karnataka — Tilak’s League 2. United Provinces — Annie Besant’s League 3. Bihar — Annie Besant’s League 4. Central Provinces — Tilak’s League",
+        "options": [],
+        "answerRaw": "A. 1-B, 2-A, 3-A, 4-B (Mapped correctly)",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 54,
+        "question": "Consider the following regarding the 'Lucknow Session' (1916): 1. It saw the return of the Extremists to the Congress after nine years. 2. It was the first session where the Congress and the Muslim League met simultaneously and approved the 'Lucknow Pact'. 3. It was presided over by Annie Besant. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 55,
+        "question": "The 'Home Rule League' movement is considered a precursor to the Gandhian mass movements because:",
+        "options": [
+            "It for the first time used the methods of fast-unto-death and picketing.",
+            "It created a network of local branches and trained political workers who later formed the backbone of the Non-Cooperation movement.",
+            "It was the first movement to be led by Mahatma Gandhi himself.",
+            "It successfully abolished the Salt Tax."
+        ],
+        "answerRaw": "B. It created a network and trained political workers.",
+        "explanation": "",
+        "difficulty": "Hard",
+        "subtopic": "",
+        "correctAnswer": 1
     }
 ];
-
-export const MODERN_CHAPTER_13_CONTENT = `
-# Chapter 13: Revolutionary Activities (Phase I)
-
-This chapter covers the era of "Individual Heroism" (The Bomb & Pistol phase).
-
-THE STRATEGY: "THE UNDERGROUND & THE ABROAD"
-*   **Visual Metaphor:** The loaded pistol and the secret letter.
-*   **Core Theme:** Violent overthrow of British rule.
-*   **Geography:** Bengal, Maharashtra, Punjab, and Abroad (London/USA).
-
----
-
-## BLOCK 1: BENGAL (The Hotbed)
-**Anushilan & Yugantar.**
-
-### 💣 KEY GROUPS
-*   **Anushilan Samiti (1902):** Promotha Mitter (First).
-*   **Yugantar Group:** Barindra Kumar Ghosh & Bhupendranath Datta.
-    *   Journal: *Yugantar* ("Force must be stopped by force").
-
-### ⚔️ KEY ACTIONS
-*   **Muzaffarpur Murders (1908):**
-    *   Target: Kingsford (Judge).
-    *   Actors: **Khudiram Bose** (Hanged) & Prafulla Chaki (Suicide).
-*   **Alipore Conspiracy Case (1908):**
-    *   **Aurobindo Ghosh** arrested (Defended by C.R. Das -> Acquitted).
-    *   Barindra Ghosh sent to Cellular Jail.
-*   **"Bagha" Jatin:**
-    *   **Zimerman Plan:** German Plot to smuggle arms during WWI.
-    *   **Battle of Balasore (1915):** Died fighting like a tiger.
-
----
-
-## BLOCK 2: MAHARASHTRA
-**The Pioneers.**
-
-### 🚩 SAVARKAR & CHAPEKARS
-*   **1897:** **Chapekar Brothers** (Damodar & Balkrishna) killed Rand & Ayerst (Plague Commissioners) in Poona. (First Political Assassination).
-*   **Abhinav Bharat (1904):** Founded by **V.D. Savarkar** (Evolution of Mitra Mela).
-*   **Nasik Conspiracy (1909):** Anant Kanhare killed Jackson (Collector).
-
----
-
-## BLOCK 3: PUNJAB & DELHI
-**The Ghadar Link.**
-
-*   **Rashbehari Bose:** Mastermind.
-*   **Delhi Conspiracy Case (1912):** Bomb thrown on Viceroy **Lord Hardinge** in Chandni Chowk.
-    *   Hardinge survived.
-    *   Rashbehari escaped to Japan (Influenced INA later).
-
----
-
-## BLOCK 4: ABROAD (London & Europe)
-**The Intellectual Terrorists.**
-
-*   **Shyamji Krishna Varma:**
-    *   **India House** (London hostel).
-    *   Journal: *The Indian Sociologist*.
-*   **Madam Bhikaji Cama:**
-    *   **Mother of Indian Revolution**.
-    *   Unfurled first Indian flag at **Stuttgart** (Germany) in 1907.
-*   **Madan Lal Dhingra:** Assassinated **Curzon Wyllie** in London (1909).
-
----
-
-## BLOCK 5: THE GHADAR PARTY (1913)
-**The Global Revolt.**
-
-### 🌍 GHADAR MOVEMENT
-*   **HQ:** **San Francisco** (Yugantar Ashram).
-*   **Founders:** **Lala Hardayal** (Intellectual), **Sohan Singh Bhakna** (President).
-*   **Journal:** *Ghadar* (Masthead: "Angrezi Raj Ka Dushman").
-*   **The Spark:** **Komagata Maru Incident (1914)**.
-    *   Ship turned away from Canada.
-*   **The Plan:** 1915 Armed Revolt in Punjab.
-    *   **Failure:** Treachery (Kirpal Singh).
-    *   **Defense of India Act, 1915:** Passed to crush them.
-
----
-
-## BLOCK 6: PYQ CORNER
-
-> [!WARNING]
-> **🔥 PYQ ALERT:**
-> *   **Q:** Who founded Abhinav Bharat? -> **V.D. Savarkar**.
-> *   **Q:** Who defended Aurobindo in Alipore Case? -> **C.R. Das**.
-> *   **Q:** HQ of Ghadar Party? -> **San Francisco**.
-> *   **Q:** Unfurled flag at Stuttgart? -> **Madam Cama**.
-> *   **Q:** Who killed Curzon Wyllie? -> **Madan Lal Dhingra**.
-`;

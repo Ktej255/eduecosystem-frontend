@@ -1,417 +1,1204 @@
-export interface Subtopic {
-    id: string;
-    name: string;
-    status?: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    cognitiveLevel?: string;
-}
-
-export const MODERN_CHAPTER_33_SUBTOPICS: Subtopic[] = [
-    { id: '1', name: "Partition & The Refugee Crisis", status: 'done' },
-    { id: '2', name: "Integration of Princely States (Sardar Patel)", status: 'done' },
-    { id: '3', name: "The Assassination of Gandhi", status: 'done' },
-    { id: '4', name: "Linguistic Reorganization of States", status: 'done' },
-    { id: '5', name: "Early Economic Planning", status: 'done' },
-];
+import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_33_MCQS: Question[] = [
     {
-        id: 1,
-        question: "At the time of independence, there were approximately how many princely states in India?",
-        options: ["250", "362", "562", "600"],
-        correctAnswer: 2,
-        explanation: "There were 562 princely states ranging from tiny estates to large kingdoms.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 1,
+        "question": "Who was elected the President of the Indian National Congress at the Haripura Session in 1938?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Subhas Chandra Bose",
+            "Rajendra Prasad",
+            "Pattabhi Sitaramayya"
+        ],
+        "answerRaw": "B. Subhas Chandra Bose",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 2,
-        question: "Who was the 'Secretary' of the Ministry of States who worked closely with Sardar Patel for the integration of states?",
-        options: ["V.P. Menon", "Lord Mountbatten", "Jawaharlal Nehru", "Dr. B.R. Ambedkar"],
-        correctAnswer: 0,
-        explanation: "V.P. Menon played a crucial administrative role in the integration process.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 2,
+        "question": "In the 1939 Tripuri session election, whom did Subhas Chandra Bose defeat to become President?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Pattabhi Sitaramayya",
+            "Sardar Patel",
+            "Maulana Azad"
+        ],
+        "answerRaw": "B. Pattabhi Sitaramayya",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 3,
-        question: "Which of the following states initially refused to join the Indian Union?",
-        options: ["Junagadh", "Hyderabad", "Kashmir", "All of the above"],
-        correctAnswer: 3,
-        explanation: "All three posed significant challenges to the new government.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 3,
+        "question": "Following the defeat of his candidate in 1939, who famously remarked, \"Pattabhi’s defeat is my defeat\"?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Mahatma Gandhi",
+            "Sardar Patel",
+            "J.B. Kripalani"
+        ],
+        "answerRaw": "B. Mahatma Gandhi",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 4,
-        question: "The 'Standstill Agreement' was signed by India with which state in 1947?",
-        options: ["Hyderabad", "Kashmir", "Both (a) and (b)", "None of the above"],
-        correctAnswer: 2,
-        explanation: "India signed standstill agreements with both Hyderabad and Kashmir.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 4,
+        "question": "The 1939 Congress session took place in Tripuri. In which modern-day Indian state is Tripuri located?",
+        "options": [
+            "Gujarat",
+            "Madhya Pradesh (near Jabalpur)",
+            "Maharashtra",
+            "Bihar"
+        ],
+        "answerRaw": "B. Madhya Pradesh",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 5,
-        question: "Integration of Junagadh into India was achieved through:",
-        options: ["Police action.", "A plebiscite where people voted overwhelmingly to join India.", "A treaty of accession.", "None of the above."],
-        correctAnswer: 1,
-        explanation: "A plebiscite was held in Feb 1948.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 5,
+        "question": "Which resolution was passed at the Tripuri session that required the Congress President to nominate the Working Committee in accordance with the wishes of Mahatma Gandhi?",
+        "options": [
+            "Nehru Resolution",
+            "Pant Resolution (moved by Govind Ballabh Pant)",
+            "Patel Resolution",
+            "Bose Resolution"
+        ],
+        "answerRaw": "B. Pant Resolution",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 6,
-        question: "What was the name of the military operation to integrate Hyderabad into India?",
-        options: ["Operation Vijay", "Operation Polo", "Operation Cactus", "Operation Meghdoot"],
-        correctAnswer: 1,
-        explanation: "Operation Polo (1948) was the police action against the Nizam.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 6,
+        "question": "After resigning from the Presidentship of the Congress in 1939, Subhas Chandra Bose founded which party?",
+        "options": [
+            "Swaraj Party",
+            "Forward Bloc",
+            "Socialist Party of India",
+            "Azad Hind Fauj"
+        ],
+        "answerRaw": "B. Forward Bloc",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 7,
-        question: "Who were the 'Razakars' in the context of Hyderabad?",
-        options: ["Village landlords.", "Volunteer paramilitary force of the Ittehad-ul-Muslimeen supportive of the Nizam.", "Refugees from Pakistan.", "Indian undercover agents."],
-        correctAnswer: 1,
-        explanation: "They committed atrocities against the people to prevent accession to India.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 7,
+        "question": "Who was elected as the Congress President after Subhas Chandra Bose resigned in April 1939?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Rajendra Prasad",
+            "Maulana Azad",
+            "J.B. Kripalani"
+        ],
+        "answerRaw": "B. Rajendra Prasad",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 8,
-        question: "Mahatma Gandhi was assassinated on which date?",
-        options: ["Jan 26, 1948", "Jan 30, 1948", "Aug 15, 1948", "Oct 2, 1948"],
-        correctAnswer: 1,
-        explanation: "Jan 30, 1948, by Nathuram Godse.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 8,
+        "question": "On which date did the Second World War officially break out?",
+        "options": [
+            "August 15, 1939",
+            "September 1, 1939",
+            "October 2, 1939",
+            "November 11, 1939"
+        ],
+        "answerRaw": "B. September 1, 1939 (With Germany's invasion of Poland).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 9,
-        question: "The first linguistic state created in India was:",
-        options: ["Maharashtra", "Tamil Nadu", "Andhra State", "Gujarat"],
-        correctAnswer: 2,
-        explanation: "Created in 1953 following the death of Potti Sreeramulu.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
+        "id": 9,
+        "question": "The 'August Offer' of 1940 was issued by which Viceroy?",
+        "options": [
+            "Lord Irwin",
+            "Lord Linlithgow",
+            "Lord Wavell",
+            "Lord Mountbatten"
+        ],
+        "answerRaw": "B. Lord Linlithgow",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 10,
-        question: "Who became the first Prime Minister of free India?",
-        options: ["Sardar Patel", "Jawaharlal Nehru", "Rajendra Prasad", "Lal Bahadur Shastri"],
-        correctAnswer: 1,
-        explanation: "Jawaharlal Nehru took oath on Aug 15, 1947.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 10,
+        "question": "The 'August Offer' (1940) for the first time explicitly recognized the right of Indians to:",
+        "options": [
+            "Immediate independence",
+            "Frame their own Constitution (after the war)",
+            "Leave the British Commonwealth",
+            "Control the British Army"
+        ],
+        "answerRaw": "B. Frame their own Constitution.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 11,
+        "question": "Who was the first person to offer 'Individual Satyagraha' in October 1940?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Acharya Vinoba Bhave",
+            "Brahma Dutt",
+            "Sarojini Naidu"
+        ],
+        "answerRaw": "B. Acharya Vinoba Bhave",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 12,
+        "question": "Who was the second person to offer 'Individual Satyagraha' after Vinoba Bhave?",
+        "options": [
+            "Sardar Patel",
+            "Jawaharlal Nehru",
+            "Rajendra Prasad",
+            "Maulana Azad"
+        ],
+        "answerRaw": "B. Jawaharlal Nehru",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 13,
+        "question": "The Individual Satyagraha is also popularly known as the:",
+        "options": [
+            "Dandi March",
+            "Delhi Chalo Movement",
+            "Do or Die Movement",
+            "Civil Disobedience 2.0"
+        ],
+        "answerRaw": "B. Delhi Chalo Movement (The Satyagrahis aimed to march towards Delhi if not arrested).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 14,
+        "question": "In 1940, the Muslim League passed a resolution demanding a separate state for Muslims. At which session was this passed?",
+        "options": [
+            "Karachi",
+            "Lahore",
+            "Aligarh",
+            "Dhaka"
+        ],
+        "answerRaw": "B. Lahore (The \"Pakistan Resolution\").",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 15,
+        "question": "The 'Two-Nation Theory' was most prominently advocated by:",
+        "options": [
+            "Sir Syed Ahmed Khan",
+            "Muhammad Ali Jinnah",
+            "Muhammad Iqbal",
+            "Liaquat Ali Khan"
+        ],
+        "answerRaw": "B. Muhammad Ali Jinnah",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 16,
+        "question": "Who was the President of the Congress during the longest continuous term from 1940 to 1946?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Maulana Abul Kalam Azad",
+            "Sardar Patel",
+            "J.B. Kripalani"
+        ],
+        "answerRaw": "B. Maulana Abul Kalam Azad",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 17,
+        "question": "The 'Linlithgow Statement' of October 1939 refused to define Britain's war aims, leading to:",
+        "options": [
+            "The start of the Quit India Movement",
+            "The resignation of Congress Provincial Ministries",
+            "The formation of the INA",
+            "Jinnah becoming the Viceroy"
+        ],
+        "answerRaw": "B. Resignation of Congress Ministries.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 18,
+        "question": "Subhas Chandra Bose was removed from the post of President of the Bengal Provincial Congress Committee and debarred from holding any elective office in the Congress for three years in 1939 due to:",
+        "options": [
+            "Corruption",
+            "Insubordination (protesting against AICC decisions)",
+            "Joining the British Army",
+            "Leaving India without permission"
+        ],
+        "answerRaw": "B. Insubordination.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 19,
+        "question": "The 'Ramgarh Session' of the Congress in March 1940 was presided over by:",
+        "options": [
+            "Subhas Chandra Bose",
+            "Maulana Abul Kalam Azad",
+            "Rajendra Prasad",
+            "Jawaharlal Nehru"
+        ],
+        "answerRaw": "B. Maulana Abul Kalam Azad",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 20,
+        "question": "At the Ramgarh Session (1940), the Congress declared that nothing short of __________ would be acceptable to the people of India.",
+        "options": [
+            "Dominion Status",
+            "Complete Independence (Purna Swaraj)",
+            "Provincial Autonomy",
+            "A seat in the British Parliament"
+        ],
+        "answerRaw": "B. Complete Independence.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 21,
+        "question": "The 'Deliverance Day' (December 22, 1939) was supported by which Dalit leader along with the Muslim League?",
+        "options": [
+            "Jagjivan Ram",
+            "Dr. B.R. Ambedkar",
+            "M.C. Rajah",
+            "Jyotiba Phule"
+        ],
+        "answerRaw": "B. Dr. B.R. Ambedkar (He viewed the Congress exit as a relief for minorities).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 22,
+        "question": "In the 'August Offer', the British proposed the expansion of the __________ to include more Indians.",
+        "options": [
+            "British Parliament",
+            "Viceroy’s Executive Council",
+            "Indian Civil Service",
+            "Royal Air Force"
+        ],
+        "answerRaw": "B. Viceroy’s Executive Council.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 23,
+        "question": "The 'Lahore Resolution' (1940) of the Muslim League used which term to describe the proposed Muslim state(s)?",
+        "options": [
+            "Pakistan",
+            "Independent States",
+            "Islamic Republic",
+            "Mughalstan"
+        ],
+        "answerRaw": "B. Independent States (The word \"Pakistan\" was not explicitly in the text of the resolution).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 24,
+        "question": "Who was the Viceroy of India when the Second World War ended?",
+        "options": [
+            "Lord Linlithgow",
+            "Lord Wavell",
+            "Lord Mountbatten",
+            "Lord Reading"
+        ],
+        "answerRaw": "B. Lord Wavell",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 25,
+        "question": "Subhas Chandra Bose escaped from house arrest in Calcutta in which year?",
+        "options": [
+            "1939",
+            "1940",
+            "1941",
+            "1942"
+        ],
+        "answerRaw": "C. 1941 (In January).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 26,
+        "question": "Which country did Subhas Chandra Bose reach first after escaping from India via Afghanistan and the USSR?",
+        "options": [
+            "Japan",
+            "Germany",
+            "Italy",
+            "Singapore"
+        ],
+        "answerRaw": "B. Germany",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 27,
+        "question": "The 'Individual Satyagraha' was launched by Gandhi because:",
+        "options": [
+            "He wanted a violent revolution.",
+            "He wanted to assert the right to free speech (to speak against the war) without causing a massive upheaval that might help the Fascists.",
+            "The British asked him to.",
+            "He wanted to show support for the Muslim League."
+        ],
+        "answerRaw": "B. Right to free speech/Non-disruptive protest.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 28,
+        "question": "The 'Viceroy’s Executive Council' was finally expanded in 1941, giving Indians a majority for the first time, but the British kept control of:",
+        "options": [
+            "Education and Health",
+            "Defense, Finance, and Home Affairs",
+            "Agriculture and Forest",
+            "Local Government"
+        ],
+        "answerRaw": "B. Defense, Finance, and Home.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 29,
+        "question": "The Atlantic Charter (1941) was a joint declaration by the US and UK. Winston Churchill later clarified that its principle of 'Self-Determination' did NOT apply to:",
+        "options": [
+            "Europe",
+            "India and other British colonies",
+            "Germany",
+            "Japan"
+        ],
+        "answerRaw": "B. India and colonies.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 30,
+        "question": "Who was the third Satyagrahi in the Individual Satyagraha of 1940?",
+        "options": [
+            "Sardar Patel",
+            "Brahma Dutt",
+            "Sarojini Naidu",
+            "C. Rajagopalachari"
+        ],
+        "answerRaw": "B. Brahma Dutt.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "The election of Subhas Chandra Bose as Congress President in 1939 was a watershed moment because:",
+        "options": [
+            "It was the first time the President was elected by a unanimous vote.",
+            "It represented a victory for the 'Left Wing' (Socialists/Communists) within the Congress over the 'Right Wing' backed by Mahatma Gandhi.",
+            "It led to the immediate declaration of independence.",
+            "It resulted in the Congress joining the British military."
+        ],
+        "answerRaw": "B. Victory for the Left Wing over the Right Wing.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 32,
+        "question": "The 'Pant Resolution' at Tripuri (1939) is often described as a \"Constitutional Coup\" against Bose. What was its actual effect?",
+        "options": [
+            "It removed Bose from the Presidency immediately.",
+            "It mandated that the President nominate the Working Committee in accordance with Gandhi’s wishes, effectively stripping Bose of his power to lead independently.",
+            "It banned the Forward Bloc.",
+            "It forced the Congress to support the British in the war."
+        ],
+        "answerRaw": "B. Stripping Bose of independent leadership power.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 33,
+        "question": "Consider the following statements regarding the 'Forward Bloc': 1. It was formed as a separate party within the Congress to consolidate the Leftist forces. 2. Bose intended it to be a \"vanguard\" party to lead a radical struggle against British imperialism. 3. It was immediately supported by Jawaharlal Nehru and the Congress Socialists. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "A. 1 and 2 only.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 34,
+        "question": "Why did Mahatma Gandhi and the 'Old Guard' initially oppose a mass movement at the start of World War II (1939-40)?",
+        "options": [
+            "They believed the British would give independence voluntarily.",
+            "They felt that taking advantage of Britain's crisis was \"not in the spirit of Satyagraha\" and feared that a mass struggle would turn violent or help Fascist powers.",
+            "They were waiting for a secret signal from the USA.",
+            "They didn't have enough money for a movement."
+        ],
+        "answerRaw": "B. Moral grounds of Satyagraha and fear of violence/Fascism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 35,
+        "question": "With reference to the 'August Offer' (1940), consider the following: Statement-I: It was the first time the British explicitly promised \"Dominion Status\" as the objective of constitutional progress in India. Statement-II: The offer was rejected by the Congress because it did not offer a clear timeline for independence and allowed a \"Veto\" to minorities over any future constitution. Which one of the following is correct?",
+        "options": [
+            "Both are correct and Statement-II explains the reason for rejection.",
+            "Statement-I is correct but Statement-II is false.",
+            "Statement-II is correct but Statement-I is false.",
+            "Both are false."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 36,
+        "question": "The 'Individual Satyagraha' (1940) was a \"Strategic Retreat\" by Gandhi. How so?",
+        "options": [
+            "He wanted to surrender to the British.",
+            "It allowed the Congress to register its protest against the war and for \"Freedom of Speech\" without creating a massive disruption that would invite heavy British repression or help the Axis powers.",
+            "It was meant to give the leaders a holiday in jail.",
+            "It was a secret plan to join the Muslim League."
+        ],
+        "answerRaw": "B. Registering protest without massive disruption.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 37,
+        "question": "The 'Pakistan Resolution' (1940) marked a \"Point of No Return\" for the Muslim League. What was the core shift in their demand?",
+        "options": [
+            "From \"Proportionate Representation\" in a united India to \"Independent Sovereign States\" in the Muslim-majority zones.",
+            "From a demand for jobs to a demand for land.",
+            "From supporting the British to supporting the Japanese.",
+            "From Urdu to Arabic as the national language."
+        ],
+        "answerRaw": "A. Shift to independent sovereign states.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 38,
+        "question": "Consider the following regarding the 'Tripuri Crisis': 1. Subhas Chandra Bose accused the 'Right Wing' of the Congress of planning a secret deal with the British for Dominion Status. 2. The crisis resulted in the isolation of Bose and his eventual exit from the Congress. 3. Gandhi remained neutral during the entire election process. How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 39,
+        "question": "The 'Delhi Chalo' movement (Individual Satyagraha) was terminated by Gandhi in December 1941 because:",
+        "options": [
+            "He was tired.",
+            "The international situation changed (Japan's entry into the war) and the British released the Satyagrahis to seek Indian cooperation against the Japanese threat.",
+            "All Indians were arrested.",
+            "The British promised independence by 1942."
+        ],
+        "answerRaw": "B. Japanese entry and British release of prisoners.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 40,
+        "question": "Match the following 'Positions' during the early WWII years: 1. Subhas Chandra Bose — A. \"Britain's difficulty is India's opportunity\" (Immediate Struggle) 2. Jawaharlal Nehru — B. \"Neither support for war nor embarrassment to Britain\" (Mixed feelings) 3. Mahatma Gandhi — C. \"Moral support to Britain, but no active participation\" (Ethical stand) Select the correct matching code:",
+        "options": [
+            "1-A, 2-B, 3-C",
+            "1-B, 2-A, 3-C",
+            "1-C, 2-B, 3-A",
+            "1-A, 2-C, 3-B"
+        ],
+        "answerRaw": "A. 1-A, 2-B, 3-C.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 41,
+        "question": "The 'Ramgarh Session' (1940) is significant because it was here that the Congress:",
+        "options": [
+            "Accepted the August Offer.",
+            "Formally decided to launch 'Civil Disobedience' as soon as the organization was ready, rejecting any offer short of Purna Swaraj.",
+            "Merged with the Forward Bloc.",
+            "Banned all Muslim members."
+        ],
+        "answerRaw": "B. Decision to launch struggle for Purna Swaraj.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 42,
+        "question": "Why did 'Jawaharlal Nehru' differ from Bose on the issue of starting a movement during WWII?",
+        "options": [
+            "Nehru supported the British King.",
+            "Nehru, as an internationalist, viewed the war as a struggle between Democracy/Socialism (Allies) and Fascism (Axis), and didn't want India's struggle to inadvertently help Fascism.",
+            "Nehru wanted to be the Viceroy.",
+            "Nehru believed the British army was too strong."
+        ],
+        "answerRaw": "B. Anti-Fascist internationalist perspective.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 43,
+        "question": "The 'August Offer' (1940) was called \"as dead as a door-nail\" by which leader?",
+        "options": [
+            "Subhas Chandra Bose",
+            "Jawaharlal Nehru",
+            "Mahatma Gandhi",
+            "Muhammad Ali Jinnah"
+        ],
+        "answerRaw": "B. Jawaharlal Nehru.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 44,
+        "question": "The 'Muslim Mass Contact Programme' of the Congress failed primarily because:",
+        "options": [
+            "No Muslims lived in the villages.",
+            "The Muslim League successfully countered it by using \"Islam in Danger\" as a religious rallying cry, which the secular economic arguments of the Congress could not beat.",
+            "Nehru stopped the program himself.",
+            "The British banned it."
+        ],
+        "answerRaw": "B. \"Islam in Danger\" counter-propaganda.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 45,
+        "question": "Consider the following regarding 'Individual Satyagraha': 1. It was the first mass movement since the Civil Disobedience Movement. 2. It emphasized 'Quality' of Satyagrahis over 'Quantity'. 3. The Satyagrahis were required to preach against participation in the war effort. How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 46,
+        "question": "The 'Lahore Resolution' (1940) did not mention the word 'Pakistan' because:",
+        "options": [
+            "Jinnah forgot the name.",
+            "The name was coined by Rahmat Ali (a student) and was not yet adopted as an official term by the League's drafting committee.",
+            "They wanted to name the country 'Mughalstan'.",
+            "The British didn't like the name."
+        ],
+        "answerRaw": "B. Not yet adopted as official terminology.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 47,
+        "question": "'Subhas Chandra Bose's' escape in 1941 was aided by which group in the North-West?",
+        "options": [
+            "The British Police.",
+            "The 'Forward Bloc' and the 'Kirti Kisan' activists (Communists) in Afghanistan.",
+            "The Muslim League.",
+            "The US Army."
+        ],
+        "answerRaw": "B. Forward Bloc and Kirti Kisan activists.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 48,
+        "question": "The 'Two-Nation Theory' argued that Hindus and Muslims were two different nations because:",
+        "options": [
+            "They lived in different countries.",
+            "Their religious philosophies, social customs, and literatures were so fundamentally different that they could never live under a single democratic government.",
+            "They spoke only different languages.",
+            "They had different skin colors."
+        ],
+        "answerRaw": "B. Fundamental religious and cultural differences.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 49,
+        "question": "Why did the 'Congress' reject the expansion of the Viceroy's Executive Council in 1941?",
+        "options": [
+            "Because they wanted more money.",
+            "Because it gave only \"Advisory\" powers to Indians without any real control over the crucial departments like Defense or Finance.",
+            "Because they wanted all British officers to leave immediately.",
+            "Because they were not invited."
+        ],
+        "answerRaw": "B. Lack of real power in crucial departments.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 50,
+        "question": "Ultimately, the 'Tripuri to WWII' period (Chapter 33) showed that:",
+        "options": [
+            "The Congress was falling apart.",
+            "Even amidst internal crisis, the Congress remained the \"Central Sun\" of the Indian political solar system, around which all other movements revolved.",
+            "Subhas Bose was a failure.",
+            "The British would stay in India forever."
+        ],
+        "answerRaw": "B. Congress as the \"Central Sun\" of Indian politics.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 51,
+        "question": "The 1939 election of Subhas Chandra Bose was contested on a \"Principle of Policy.\" What was the core policy difference Bose highlighted against the 'Old Guard'?",
+        "options": [
+            "The total rejection of non-violence.",
+            "The demand for a \"Time-Bound Ultimatum\" to the British government and the preparation for an immediate mass struggle, which the Right Wing viewed as premature and hazardous.",
+            "The merger of the Congress with the Communist Party.",
+            "The complete focus on rural industries over urban ones."
+        ],
+        "answerRaw": "B. Time-Bound Ultimatum vs. Right Wing's caution.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 52,
+        "question": "Consider the 'Pant Resolution' (1939). Historically, it is analyzed as a strategic move by the Right Wing to:",
+        "options": [
+            "Support Bose's radical agenda.",
+            "Re-establish the moral and political authority of Mahatma Gandhi over the Congress organization, effectively creating a \"veto\" over the elected President’s executive powers.",
+            "Force the British to leave India within six months.",
+            "Align the Congress with the Axis powers."
+        ],
+        "answerRaw": "B. Re-establishing Gandhi's authority.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 53,
+        "question": "The 'Forward Bloc' (1939) was technically defined by Bose as:",
+        "options": [
+            "A new religion.",
+            "A \"platform\" within the Congress to rally all radical and anti-imperialist elements for the final phase of the struggle.",
+            "A separate military organization to fight the British.",
+            "A branch of the Muslim League."
+        ],
+        "answerRaw": "B. A platform within the Congress for radical elements.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 54,
+        "question": "With reference to Britain's war aims in 1939, why did the Congress Working Committee (CWC) refuse to cooperate?",
+        "options": [
+            "Because they wanted more money for the ministries.",
+            "Because Britain refused to promise that the principles of \"Democracy and Self-Determination\" for which the war was being fought would be applied to India.",
+            "Because they were secretly supporting Hitler.",
+            "Because the British didn't allow the Congress to lead the army."
+        ],
+        "answerRaw": "B. Denial of \"Self-Determination\" application to India.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 55,
+        "question": "In the context of the 'August Offer' (1940), the term \"Veto to Minorities\" referred to the British assurance that:",
+        "options": [
+            "Only Muslims could vote in the future.",
+            "No future constitution would be adopted without the consent of \"large and powerful elements in India's national life\" (i.e., the Muslim League).",
+            "The Princes would be removed from power.",
+            "The British would leave India only if the Congress asked."
+        ],
+        "answerRaw": "B. British assurance of minority (League) consent for any future constitution.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 56,
+        "question": "The 'Lahore Resolution' (1940) is often called the \"Pakistan Resolution.\" However, the document itself emphasized:",
+        "options": [
+            "A single united Pakistan.",
+            "That \"geographically contiguous units\" in the North-West and East should be grouped to constitute \"Independent States\" in which the constituent units shall be \"autonomous and sovereign.\"",
+            "The return to the Khilafat system.",
+            "A federation with a strong central government."
+        ],
+        "answerRaw": "B. Concept of \"Independent States\" (Plurality in the original text).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 57,
+        "question": "'Individual Satyagraha' (1940) was fundamentally a protest for which specific Civil Liberty?",
+        "options": [
+            "Right to property.",
+            "Freedom of Speech to express a non-violent protest against the war and the forced involvement of India.",
+            "Right to form associations.",
+            "Freedom of religion."
+        ],
+        "answerRaw": "B. Freedom of Speech against the war.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 58,
+        "question": "Consider the following regarding the 'Tripuri Crisis': 1. Bose’s health was so poor that he was carried on a stretcher during the session. 2. The Congress Socialists (CSP) remained neutral during the Pant Resolution, which led to Bose's defeat. 3. Gandhi attended the Tripuri session in person to oppose Bose. How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 59,
+        "question": "The 'Atlantic Charter' (1941) created a crisis in Indo-British relations because:",
+        "options": [
+            "It was written in German.",
+            "Winston Churchill explicitly excluded India and other colonies from the scope of its \"Right to Self-Determination\" clause.",
+            "It promoted Communism.",
+            "It abolished the British Navy."
+        ],
+        "answerRaw": "B. Churchill's exclusion of India from self-determination.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 60,
+        "question": "Why did 'Jawaharlal Nehru' describe the 'August Offer' as being \"as dead as a door-nail\"?",
+        "options": [
+            "Because it offered nothing on the issue of 'Dominion Status'.",
+            "Because it offered Dominion Status (which was now obsolete for the Congress) while maintaining British control over key sectors and giving a veto to the League.",
+            "Because the British withdrew it the next day.",
+            "Because it was too radical for him."
+        ],
+        "answerRaw": "B. Obsolete offer with restrictive conditions.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 61,
+        "question": "The 'Delhi Chalo' slogan of 1940 was a symbolic march toward the capital to:",
+        "options": [
+            "Capture the Parliament.",
+            "Assert the right to protest and force the government to arrest the Satyagrahis, thereby keeping the nationalist spirit alive without a mass uprising.",
+            "Support the British war effort.",
+            "Meet the Japanese agents."
+        ],
+        "answerRaw": "B. Assertive symbolic protest for arrest.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 62,
+        "question": "What was the 'Spirit of Ramgarh' (1940)?",
+        "options": [
+            "A plan to join the British government.",
+            "The re-assertion of 'Purna Swaraj' as the only goal and the declaration that no constitution made by an outside authority (British) would be accepted.",
+            "A compromise with the Muslim League.",
+            "The end of the non-violence policy."
+        ],
+        "answerRaw": "B. Re-assertion of Purna Swaraj and sovereignty.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 63,
+        "question": "In 1941, 'Subhas Chandra Bose' escaped from India using the alias:",
+        "options": [
+            "Netaji",
+            "Orlando Mazzotta (on an Italian passport)",
+            "Ziauddin (as a Pathan insurance agent)",
+            "Both B and C"
+        ],
+        "answerRaw": "D. Both B and C",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
+    },
+    {
+        "id": 64,
+        "question": "The expansion of the 'Viceroy’s Executive Council' in 1941 was rejected by the Congress because it:",
+        "options": [
+            "Included only British members.",
+            "Was an \"eyewash\" that increased the number of Indians but left the \"veto\" and real power (Defense/Finance) in the hands of the British.",
+            "Required everyone to wear uniforms.",
+            "Was too small."
+        ],
+        "answerRaw": "B. \"Eyewash\" with no real power transfer.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 65,
+        "question": "Match the following 'Phases of WWII' with the 'Indian Political Response': 1. Phoney War (1939-40) — A. Individual Satyagraha 2. Fall of France (1940) — B. August Offer & Internal debate on violence 3. Japanese Threat (1941) — C. Suspension of Satyagraha & Cripps Mission background Select the correct matching code:",
+        "options": [
+            "1-A, 2-B, 3-C",
+            "1-B, 2-A, 3-C",
+            "1-C, 2-B, 3-A",
+            "1-A, 2-C, 3-B"
+        ],
+        "answerRaw": "A. 1-A, 2-B, 3-C.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 66,
+        "question": "The 'Kirti Kisan' activists who helped Bose in Kabul were essentially:",
+        "options": [
+            "British spies.",
+            "Indian Communists and revolutionary peasants who maintained a network between Punjab and the USSR/Europe.",
+            "Members of the Muslim League.",
+            "Followers of Gandhi."
+        ],
+        "answerRaw": "B. Communist-Revolutionary network.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 67,
+        "question": "The 'Two-Nation Theory' as articulated by Jinnah in 1940 was a \"Strategic Shift\" from:",
+        "options": [
+            "Religion to Language.",
+            "Seeking 'Safeguards' as a Minority to demanding 'Sovereignty' as a Nation.",
+            "Supporting the Congress to supporting Japan.",
+            "Non-violence to violence."
+        ],
+        "answerRaw": "B. Safeguards (Minority) to Sovereignty (Nation).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 68,
+        "question": "Consider the following regarding 'Maulana Abul Kalam Azad’s' Presidency (1940-46):",
+        "options": [
+            "He was a supporter of the Two-Nation Theory.",
+            "As a scholar of Islam, he argued that the Indian Muslims were \"part and parcel\" of the Indian nation and that their religious identity was not in conflict with a united India.",
+            "He resigned in 1941 to join the army.",
+            "He was a member of the Muslim League."
+        ],
+        "answerRaw": "B. Integrated Muslim-Nationalist identity.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 69,
+        "question": "The 'Individual Satyagraha' was carefully controlled by Gandhi to prevent it from becoming a 'Mass Movement'. Why?",
+        "options": [
+            "He didn't want too many people in jail.",
+            "He feared that a mass movement would be infiltrated by \"uncontrolled\" radical elements or result in a communal clash during the war years.",
+            "He was waiting for a signal from the USA.",
+            "He thought mass movements were ineffective."
+        ],
+        "answerRaw": "B. Prevention of radical infiltration or communal friction.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 70,
+        "question": "The 'Defense of India Rules' (1939) were used by the British to:",
+        "options": [
+            "Protect the Indian peasants.",
+            "Suppress all forms of nationalist activity, strikes, and protests under the pretext of 'War Necessity'.",
+            "Build more schools.",
+            "Pay the Congress ministers."
+        ],
+        "answerRaw": "B. Suppression under 'War Necessity'.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 71,
+        "question": "'Subhas Chandra Bose' argued at Tripuri that the \"Great Powers\" of Europe were on the verge of war. He saw this as:",
+        "options": [
+            "A disaster for India.",
+            "A \"God-sent opportunity\" for India to strike for freedom while Britain was preoccupied elsewhere.",
+            "A reason to stay quiet.",
+            "A chance to help the British King."
+        ],
+        "answerRaw": "B. Crisis as an opportunity for freedom.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 72,
+        "question": "The 'Working Committee' members who resigned in protest against Bose in 1939 included:",
+        "options": [
+            "Sardar Patel, Rajendra Prasad, and J.B. Kripalani.",
+            "Jawaharlal Nehru and Bose.",
+            "Only Mahatma Gandhi.",
+            "None, they all stayed."
+        ],
+        "answerRaw": "A. Patel, Prasad, and Kripalani",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 73,
+        "question": "The 'Lahore Resolution' was drafted by which committee members of the Muslim League?",
+        "options": [
+            "Jinnah and Nehru.",
+            "Sikandar Hayat Khan, Fazlul Huq, and Khaliquzzaman.",
+            "Mahatma Gandhi and Ambedkar.",
+            "The British Viceroy."
+        ],
+        "answerRaw": "B. Sikandar Hayat Khan, Fazlul Huq, and Khaliquzzaman.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 74,
+        "question": "In the 'August Offer', the British explicitly stated that the \"Constituent Assembly\" (post-war) would be:",
+        "options": [
+            "Appointed by the King.",
+            "Primarily the responsibility of Indians themselves to frame a constitution.",
+            "Led by the Muslim League only.",
+            "Abolished."
+        ],
+        "answerRaw": "B. Primarily the responsibility of Indians themselves.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 75,
+        "question": "Why did the 'Congress Socialists' (CSP) eventually break with Bose?",
+        "options": [
+            "They became capitalists.",
+            "They realized that a split in the Congress would only help the British and decided that \"Unity under Gandhi\" was a greater priority than \"Radicalism under Bose.\"",
+            "They joined the British army.",
+            "Bose fired them."
+        ],
+        "answerRaw": "B. Priority of Congress unity over radical split.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 76,
+        "question": "'Subhas Chandra Bose's' escape to Germany was fundamentally based on the \"Enemy's Enemy is a Friend\" logic. Who was his main target for an alliance?",
+        "options": [
+            "The USA.",
+            "The Axis Powers (Germany, Italy, and later Japan).",
+            "The Muslim League.",
+            "The French resistance."
+        ],
+        "answerRaw": "B. The Axis Powers.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 77,
+        "question": "The 'Individual Satyagraha' saw approximately how many arrests by 1941?",
+        "options": [
+            "100",
+            "25,000",
+            "5,00,000",
+            "None"
+        ],
+        "answerRaw": "B. 25,000",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 78,
+        "question": "The 'Two-Nation Theory' was a challenge not just to the Congress, but to the \"Composite Culture\" of India. What was the Congress's main counter-argument?",
+        "options": [
+            "That religion is the only basis of a nation.",
+            "That \"Common Economic Interests\" and a \"Common History of Struggle\" against the British united all Indians regardless of religion.",
+            "That all Muslims should move to Pakistan.",
+            "That there was no such thing as a nation."
+        ],
+        "answerRaw": "B. Common Economic Interests and History of Struggle.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 79,
+        "question": "'Winston Churchill's' refusal to apply the Atlantic Charter to India led to the US President, __________, putting pressure on Britain to solve the Indian deadlock.",
+        "options": [
+            "Theodore Roosevelt",
+            "Franklin D. Roosevelt (FDR)",
+            "Woodrow Wilson",
+            "Harry Truman"
+        ],
+        "answerRaw": "B. Franklin D. Roosevelt (FDR).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 80,
+        "question": "Ultimately, 'Chapter 33' marks the end of the \"Constitutional Phase\" and the beginning of the:",
+        "options": [
+            "\"Cooperation Phase.\"",
+            "\"Final Conflict\" (1942–47) phase of the Indian freedom struggle.",
+            "\"Mughal Revival.\"",
+            "\"British Dominance\" phase."
+        ],
+        "answerRaw": "B. \"Final Conflict\" (1942–47) phase.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     }
 ];
-
-MODERN_CHAPTER_33_MCQS.push(
-    {
-        id: 11,
-        question: "The 'Instrument of Accession' specified that the states surrendered which three subjects to the Union?",
-        options: ["Defense, Foreign Affairs, Communications", "Defense, Finance, Education", "Foreign Affairs, Trade, Health", "Railway, Post, Law"],
-        correctAnswer: 0,
-        explanation: "Defense, External Affairs, and Communications.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 12,
-        question: "Why was the 'Dhar Commission' (1948) appointed?",
-        options: ["To recommend on Linguistic Provinces.", "To look into refugee rehabilitation.", "To study princely states' finances.", "To plan for primary education."],
-        correctAnswer: 0,
-        explanation: "The S.K. Dhar Commission was appointed to examine the feasibility of linguistic states.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 13,
-        question: "What was the Dhar Commission’s recommendation on linguistic states?",
-        options: ["It supported them immediately.", "It opposed them, suggesting administrative convenience as the criterion.", "It suggested multi-lingual states.", "It suggested 100 small states."],
-        correctAnswer: 1,
-        explanation: "It felt that language as a basis might threaten national unity.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 14,
-        question: "The JVP Committee (Nehru, Patel, Sitaramayya) in 1949:",
-        options: ["Accepted linguistic states.", "Formally rejected language as the basis of reorganization for the time being.", "Dissolved the Dhar Commission.", "None of the above."],
-        correctAnswer: 1,
-        explanation: "Like the Dhar Commission, it prioritized unity and security over language.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 15,
-        question: "The sudden creation of Andhra in 1953 was triggered by:",
-        options: ["Large scale riots in Madras.", "The 56-day fast and death of Potti Sreeramulu.", "A directive from the UN.", "A deal with the Nizam."],
-        correctAnswer: 1,
-        explanation: "His death forced the government's hand.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 16,
-        question: "The 'States Reorganisation Commission' (1953) was headed by:",
-        options: ["Fazl Ali", "K.M. Panikkar", "H.N. Kunzru", "Vallabhbhai Patel"],
-        correctAnswer: 0,
-        explanation: "Fazl Ali was the chairman; Panikkar and Kunzru were members.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 17,
-        question: "The States Reorganisation Act of 1956 divided India into:",
-        options: ["14 States and 6 Union Territories", "28 States and 8 Union Territories", "20 States and 10 Union Territories", "None of the above"],
-        correctAnswer: 0,
-        explanation: "14 States and 6 Union Territories.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 18,
-        question: "The problem of 'Partition' was most acute in which two provinces?",
-        options: ["UP and Bihar", "Punjab and Bengal", "Madras and Bombay", "Assam and Orissa"],
-        correctAnswer: 1,
-        explanation: "Large scale communal violence and migration happened in these divided provinces.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 19,
-        question: "Who was the first President of Independent India?",
-        options: ["Dr. S. Radhakrishnan", "Dr. Rajendra Prasad", "C. Rajagopalachari", "Zakir Hussain"],
-        correctAnswer: 1,
-        explanation: "Rajendra Prasad was the first President.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 20,
-        question: "The 'Planning Commission' of India was established in which year?",
-        options: ["1947", "1950", "1952", "1956"],
-        correctAnswer: 1,
-        explanation: "March 1950, through a Cabinet resolution.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 21,
-        question: "Jawaharlal Nehru's approach to the economy was termed as:",
-        options: ["Capitalist.", "Communist.", "Mixed Economy with a Socialist Pattern of Society.", "Gandhian Decentralization."],
-        correctAnswer: 2,
-        explanation: "Focused on heavy industry and public sector dominance.",
-        subtopic: '5',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 22,
-        question: "What was the 'Privy Purse'?",
-        options: ["A handbag for queens.", "The annual allowance paid to former rulers of princely states as part of the integration deal.", "A secret fund for the PM.", "The budget for Delhi."],
-        correctAnswer: 1,
-        explanation: "It was a guarantee given to the princes in exchange for joining India.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 23,
-        question: "Accession of Jammu and Kashmir was formalized via the Signing of the Instrument of Accession by:",
-        options: ["Sheikh Abdullah", "Maharaja Hari Singh", "Karan Singh", "Gulab Singh"],
-        correctAnswer: 1,
-        explanation: "Maharaja Hari Singh signed it on Oct 26, 1947.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 24,
-        question: "The 'Tryst with Destiny' speech was delivered by Nehru at:",
-        options: ["Red Fort.", "Constituent Assembly, Midnight of Aug 14-15.", "Gateway of India.", "Sabarmati Ashram."],
-        correctAnswer: 1,
-        explanation: "The historic address to the nation on the eve of independence.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 25,
-        question: "Which of the following describes the 'Refugee Crisis' post-1947 accurately?",
-        options: ["Around 8 million people moved across the new borders.", "It was entirely peaceful.", "Only Hindus moved south.", "Only Muslims moved north."],
-        correctAnswer: 0,
-        explanation: "One of the largest mass migrations in human history with massive casualties.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 26,
-        question: "Who was known as the 'Bismarck of India' for his role in unifying the nation?",
-        options: ["Mahatma Gandhi", "Jawaharlal Nehru", "Sardar Vallabhbhai Patel", "Subhash Bose"],
-        correctAnswer: 2,
-        explanation: "For integrating the princely states.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 27,
-        question: "After partition, the 'Indian Independence Act, 1947' gave the princely states the option to:",
-        options: ["Join India.", "Join Pakistan.", "Remain independent.", "All of the above."],
-        correctAnswer: 3,
-        explanation: "The lapse of Paramountcy left them technically free to choose.",
-        subtopic: '2',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 28,
-        question: "The boundary between India and Pakistan was demarcated by:",
-        options: ["Cyril Radcliffe", "Stafford Cripps", "Lord Pethick Lawrence", "Louis Mountbatten"],
-        correctAnswer: 0,
-        explanation: "Radcliffe Line.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 29,
-        question: "Linguistic Reorganization aimed at:",
-        options: ["Promoting regionalism over nationalism.", "Strengthening administrative efficiency and democratic reach by using local languages.", "Converting India into a federation of nations.", "Supporting the British system."],
-        correctAnswer: 1,
-        explanation: "Language was seen as a way to engage the masses in democracy.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 30,
-        question: "The 'Bifurcation of Bombay State' (1960) led to the creation of:",
-        options: ["Maharashtra and Gujarat.", "Madhya Pradesh and Maharashtra.", "Karnataka and Maharashtra.", "Orissa and Bengal."],
-        correctAnswer: 0,
-        explanation: "Following the Samyukta Maharashtra and Mahagujarat movements.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 31,
-        question: "Who was the first Indian Governor-General of India?",
-        options: ["C. Rajagopalachari", "Lord Mountbatten", "Rajendra Prasad", "Zakir Hussain"],
-        correctAnswer: 0,
-        explanation: "Rajaji served as GG after Mountbatten left in 1948 until 1950.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 32,
-        question: "In the context of refugee relief, the 'Faridabad' and 'Chandigarh' townships are notable for:",
-        options: ["Being built to rehabilitate refugees.", "Being military bases.", "Being old Mughal cities.", "Being port cities."],
-        correctAnswer: 0,
-        explanation: "Many new areas were developed for housing people from West Punjab.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 33,
-        question: "What happened to the 'Paramountcy' of the British Crown over Indian states on Aug 15, 1947?",
-        options: ["It was transferred to India.", "It was transferred to Pakistan.", "It lapsed.", "It was extended by 10 years."],
-        correctAnswer: 2,
-        explanation: "Lapse of paramountcy meant states were legally sovereign for a brief period.",
-        subtopic: '2',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 34,
-        question: "The 'States Ministry' was created in June 1947. Who was its head?",
-        options: ["Nehru", "Patel", "Mountbatten", "Rajaji"],
-        correctAnswer: 1,
-        explanation: "Sardar Patel headed the ministry.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 35,
-        question: "Which of the following challenges was NOT faced by India in 1947?",
-        options: ["Refugee Rehabilitation.", "Food Shortage.", "Integration of States.", "Over-abundance of foreign exchange."],
-        correctAnswer: 3,
-        explanation: "India was economically drained and faced huge debt and shortages.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    }
-);
-
-export const MODERN_CHAPTER_33_CONTENT = `
-# Chapter 33: Challenges Before the New-born Nation
-
-## BLOCK 1: THE PARTITION TRAUMA
-*The Largest Migration in History.*
-
-### 🚂 14 MILLION DISPLACED
-**The Scale:** Approximately **14 to 16 million people** crossed the borders (West Pakistan to India, India to West Pakistan, East Pakistan to West Bengal).
-
-**The Violence:**
-- **Punjab:** The epicenter of violence. Complete ethnic cleansing occurred in West Punjab (Muslims stayed, Hindus/Sikhs left) and East Punjab (Hindus/Sikhs stayed, Muslims left).
-- **Bengal:** The migration was slower and continued for years, unlike the sudden "exchange of population" in Punjab.
-
-**The Death Toll:** Estimates range from 200,000 to 500,000 killed in communal riots.
-
----
-
-## BLOCK 2: REHABILITATION OF REFUGEES
-*Building from Ashes.*
-
-### ⛺ KURUKSHETRA & PURANA QILA
-**The Challenge:** Feeding and housing millions of destitute people.
-**The Camps:** Massive camps were set up at **Kurukshetra** (holding 300,000 people) and **Purana Qila** (Delhi).
-
-**Resettlement Policy:**
-- **Rural:** Refugees were allotted "evacuee land" (land left behind by Muslims who went to Pakistan) based on a "standard acre" formula.
-- **Urban:** New townships were built (e.g., **Faridabad, Nilokheri, Chandigarh**) to house urban refugees.
-
-**Success:** By 1951, most refugees from West Pakistan were successfully resettled. Bengal refugees remained a lingering issue.
-
----
-
-## BLOCK 3: ASSASSINATION OF GANDHI (Jan 30, 1948)
-*The Light Goes Out.*
-
-### 🕊️ THE LAST FAST
-**Context:** Communal riots were raging in Delhi. Refugees were occupying mosques. Pakistan was owed **₹55 Crore** as its share of assets, which the Indian Govt withheld due to the Kashmir war.
-
-**The Fast:** Gandhi undertook a fast unto death (Jan 13, 1948) demanding:
-- Restoration of peace in Delhi.
-- Payment of ₹55 Crore to Pakistan (moral obligation).
-
-**The Assassination:** Angered by his "pro-Muslim" stance, **Nathuram Godse** shot him on **January 30, 1948** at Birla House.
-
-**Impact:** The shock of his death actually stopped the riots. The RSS was banned temporarily, and communal passions cooled down in shame.
-
----
-
-## BLOCK 4: THE COMMUNIST INSURGENCY (1948)
-*The Internal Threat.*
-
-### 🚩 "YEH AZAADI JHOOTHI HAI"
-**The Slogan:** "This Freedom is False."
-**The Stance:** Under **B.T. Ranadive**, the CPI declared that 1947 was not real independence but a deal between the British and the Indian bourgeoisie.
-
-**The Revolt:** They launched violent armed struggles in **Telangana**, West Bengal (Kakdwip), and Travancore (Punnapra-Vayalar).
-
-**Govt Response:** Nehru cracked down hard. Thousands were jailed. The CPI eventually abandoned the armed path in 1951 and joined the democratic process.
-
----
-
-## BLOCK 5: DIVISION OF ASSETS
-*Splitting the Furniture.*
-
-### 💰 CASH & ARMY
-**Financial Assets:** India agreed to give Pakistan **₹75 Crore** (₹20 Crore paid, ₹55 Crore withheld then paid).
-
-**Military:** The British Indian Army was divided on communal lines (Muslim units to Pakistan, Non-Muslim to India). This chaos made handling the riots even harder as the police/army themselves were partisan.
-
-**Civil Service:** 101 ICS officers opted for Pakistan; the rest stayed in India.
-`;
-

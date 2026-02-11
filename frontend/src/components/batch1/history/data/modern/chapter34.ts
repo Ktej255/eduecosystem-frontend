@@ -1,777 +1,1204 @@
-
-export interface Subtopic {
-    id: string;
-    name: string;
-    status?: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    cognitiveLevel?: string;
-}
-
-export const MODERN_CHAPTER_34_SUBTOPICS: Subtopic[] = [
-    { id: '1', name: "Integration Strategy (Paramountcy, Patel, Menon)", status: 'done' },
-    { id: '2', name: "The Big Three (Junagadh, Kashmir, Hyderabad)", status: 'done' },
-    { id: '3', name: "Other Key States (Travancore, Jodhpur, Manipur)", status: 'done' },
-    { id: '4', name: "Formation of Unions & Reorganization", status: 'done' },
-    { id: '5', name: "Post-Independence Adjustments (Privy Purse, French/Portuguese territories)", status: 'done' },
-];
+import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_34_MCQS: Question[] = [
     {
-        id: 1,
-        question: "Who served as the Secretary of the States Department under Sardar Patel?",
-        options: ["V.P. Menon", "H.V. Kamath", "K.M. Panikkar", "Mountbatten"],
-        correctAnswer: 0,
-        explanation: "V.P. Menon was the civil servant genius who worked closely with Patel to draft the Instrument of Accession.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 1,
+        "question": "The Cripps Mission was sent to India in March 1942. Who headed this mission?",
+        "options": [
+            "Lord Pethick-Lawrence",
+            "Sir Stafford Cripps",
+            "A.V. Alexander",
+            "Lord Wavell"
+        ],
+        "answerRaw": "B. Sir Stafford Cripps",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 2,
-        question: "Which Princely State's people organized the 'Aarzi Hukumat' (Provisional Government) in revolt?",
-        options: ["Hyderabad", "Kashmir", "Junagadh", "Bhopal"],
-        correctAnswer: 2,
-        explanation: "The people of Junagadh rose in revolt (Aarzi Hukumat) led by Samaldas Gandhi after the Nawab acceded to Pakistan.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 2,
+        "question": "The main purpose of the Cripps Mission was to:",
+        "options": [
+            "Grant immediate independence to India.",
+            "Secure Indian cooperation for the British war effort in WWII.",
+            "Divide India into two nations.",
+            "Abolish the Indian National Congress."
+        ],
+        "answerRaw": "B. Secure war cooperation.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 3,
-        question: "'Operation Polo' was the code name for the police action in:",
-        options: ["Kashmir", "Junagadh", "Hyderabad", "Goa"],
-        correctAnswer: 2,
-        explanation: "It was conducted in September 1948 to integrate Hyderabad into the Indian Union.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 3,
+        "question": "Which of the following was a key proposal of the Cripps Mission regarding India's status after the war?",
+        "options": [
+            "Purna Swaraj",
+            "Dominion Status with the right to secede from the Commonwealth",
+            "Becoming a colony of the USA",
+            "Remaining under direct British rule for 50 more years"
+        ],
+        "answerRaw": "B. Dominion Status with the right to secede.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 4,
-        question: "Which was the first Princely State to hold an election based on Universal Adult Franchise?",
-        options: ["Travancore", "Mysore", "Manipur", "Jodhpur"],
-        correctAnswer: 2,
-        explanation: "Manipur held elections in June 1948, becoming the first part of India to do so.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 4,
+        "question": "Mahatma Gandhi described the Cripps Mission proposals as:",
+        "options": [
+            "A masterpiece of statesmanship.",
+            "A \"post-dated cheque on a crashing bank.\"",
+            "The final solution to the Indian problem.",
+            "A declaration of war."
+        ],
+        "answerRaw": "B. Post-dated cheque on a crashing bank.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 5,
-        question: "The 'Butler Committee' (1927) is associated with:",
-        options: ["Education Reform", "Relationship between Princely States and Paramount Power", "Police Reforms", "Press Censorship"],
-        correctAnswer: 1,
-        explanation: "It stated that 'Paramountcy must remain paramount', asserting British supremacy over the states.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
+        "id": 5,
+        "question": "The 'Quit India' Resolution was passed by the Congress Working Committee on July 14, 1942, at:",
+        "options": [
+            "Bombay",
+            "Wardha",
+            "Calcutta",
+            "Delhi"
+        ],
+        "answerRaw": "B. Wardha.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 6,
-        question: "Which state was the only one to sign a 'Standstill Agreement' with India without signing the Instrument of Accession?",
-        options: ["Kashmir", "Hyderabad", "Travancore", "Bhopal"],
-        correctAnswer: 1,
-        explanation: "The Nizam signed it in Nov 1947 to buy time, while Kashmir wanted one but India refused.",
-        subtopic: '2',
-        cognitiveLevel: "Conceptual"
+        "id": 6,
+        "question": "The historic 'Quit India' Session of the All India Congress Committee (AICC) began on August 7, 1942, at:",
+        "options": [
+            "Sabarmati Ashram",
+            "Gowalia Tank Maidan (August Kranti Maidan), Bombay",
+            "Ramgarh",
+            "Tripuri"
+        ],
+        "answerRaw": "B. Gowalia Tank Maidan.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 7,
-        question: "Who was the first ruler to sign the Instrument of Accession, breaking the unity of the princes?",
-        options: ["Maharaja of Baroda", "Maharaja of Bikaner", "Nawab of Bhopal", "Maharaja of Patiala"],
-        correctAnswer: 1,
-        explanation: "Sadul Singh I of Bikaner signed on August 7, 1947, encouraging others to follow.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 7,
+        "question": "What was the famous slogan given by Mahatma Gandhi during the Quit India speech?",
+        "options": [
+            "Jai Hind",
+            "Do or Die (Karo ya Maro)",
+            "Inquilab Zindabad",
+            "Dilli Chalo"
+        ],
+        "answerRaw": "B. Do or Die.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 8,
-        question: "The 'Dickie Bird Plan' proposed by Mountbatten was also known as:",
-        options: ["Plan Balkan", "June 3rd Plan", "Cabinet Mission Plan", "Wavell Plan"],
-        correctAnswer: 0,
-        explanation: "It proposed transferring power to separate provinces/states, which would have Balkanized India.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 8,
+        "question": "On the morning of August 9, 1942, the British government launched which operation to arrest all top Congress leaders?",
+        "options": [
+            "Operation Blue Star",
+            "Operation Zero Hour",
+            "Operation Thunderbolt",
+            "Operation Vijay"
+        ],
+        "answerRaw": "B. Operation Zero Hour.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 9,
-        question: "Which amendment abolished the 'Privy Purses' of the former rulers?",
-        options: ["24th Amendment", "26th Amendment", "42nd Amendment", "44th Amendment"],
-        correctAnswer: 1,
-        explanation: "Passed in 1971 under Indira Gandhi, it abolished the privileges and privy purses.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
+        "id": 9,
+        "question": "Who hoisted the National Flag at the Gowalia Tank Maidan on August 9 after the senior leaders were arrested?",
+        "options": [
+            "Sarojini Naidu",
+            "Aruna Asaf Ali",
+            "Sucheta Kripalani",
+            "Usha Mehta"
+        ],
+        "answerRaw": "B. Aruna Asaf Ali.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 10,
-        question: "The 'States Reorganization Act' (1956) was based on the report of which commission?",
-        options: ["JVP Committee", "Dhar Commission", "Fazl Ali Commission", "Sarkaria Commission"],
-        correctAnswer: 2,
-        explanation: "The Fazl Ali Commission (SRC) recommended reorganization primarily on linguistic lines.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
+        "id": 10,
+        "question": "During the Quit India Movement, an underground radio station was operated to spread news. Who was its most prominent organizer?",
+        "options": [
+            "Ram Manohar Lohia",
+            "Usha Mehta",
+            "J.P. Narayan",
+            "Achyut Patwardhan"
+        ],
+        "answerRaw": "B. Usha Mehta.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 11,
+        "question": "Which leader escaped from Hazaribagh Jail and organized underground activities and the 'Azad Dasta' during the movement?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Jayaprakash Narayan (J.P.)",
+            "Sardar Patel",
+            "Rajendra Prasad"
+        ],
+        "answerRaw": "B. Jayaprakash Narayan.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 12,
+        "question": "In which place was the first 'Parallel Government' (Prati Sarkar) established during the Quit India Movement?",
+        "options": [
+            "Satara",
+            "Ballia",
+            "Tamluk",
+            "Talcher"
+        ],
+        "answerRaw": "B. Ballia (led by Chittu Pandey).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 13,
+        "question": "The 'Jatiya Sarkar' was a parallel government formed in Midnapore (Bengal). Where exactly was it located?",
+        "options": [
+            "Tamluk",
+            "Dacca",
+            "Howrah",
+            "Darjeeling"
+        ],
+        "answerRaw": "A. Tamluk.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 14,
+        "question": "The longest-lasting parallel government during the 1942 movement was established in:",
+        "options": [
+            "Ballia",
+            "Satara (Maharashtra)",
+            "Tamluk",
+            "Talcher (Odisha)"
+        ],
+        "answerRaw": "B. Satara (led by Y.B. Chavan and Nana Patil).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 15,
+        "question": "Which major political party did NOT support the Quit India Movement and asked its members to stay away?",
+        "options": [
+            "Forward Bloc",
+            "Muslim League",
+            "Communist Party of India (CPI)",
+            "Both B and C"
+        ],
+        "answerRaw": "D. Both B and C",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
+    },
+    {
+        "id": 16,
+        "question": "Mahatma Gandhi was imprisoned during the Quit India Movement in which building?",
+        "options": [
+            "Yerwada Jail",
+            "Aga Khan Palace, Pune",
+            "Cellular Jail",
+            "Ahmednagar Fort"
+        ],
+        "answerRaw": "B. Aga Khan Palace.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 17,
+        "question": "Where were Jawaharlal Nehru and the other members of the Working Committee imprisoned?",
+        "options": [
+            "Aga Khan Palace",
+            "Ahmednagar Fort",
+            "Tihar Jail",
+            "Naini Jail"
+        ],
+        "answerRaw": "B. Ahmednagar Fort.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 18,
+        "question": "The 'August Revolution' is another name for:",
+        "options": [
+            "The Non-Cooperation Movement",
+            "The Quit India Movement",
+            "The Swadeshi Movement",
+            "The 1857 Revolt"
+        ],
+        "answerRaw": "B. Quit India Movement.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 19,
+        "question": "Who led the Quit India struggle in Odisha and was executed in 1943?",
+        "options": [
+            "Baji Rout",
+            "Lakshman Nayak",
+            "Harekrushna Mahatab",
+            "Birsa Munda"
+        ],
+        "answerRaw": "B. Lakshman Nayak.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 20,
+        "question": "In the Quit India Movement, the participation of which section was notably absent or minimal compared to previous movements?",
+        "options": [
+            "Students",
+            "Peasants",
+            "The Muslim masses (due to the League's influence)",
+            "Women"
+        ],
+        "answerRaw": "C. Muslim masses.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 21,
+        "question": "Gandhi went on a 21-day fast in February 1943 while in prison to protest against:",
+        "options": [
+            "The Partition of India.",
+            "The government’s violence and its attempt to blame the Congress for the movement's violence.",
+            "The lack of food in jail.",
+            "The Cripps Mission."
+        ],
+        "answerRaw": "B. Government violence and blame-shifting.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 22,
+        "question": "Who among the following was NOT an underground leader during the 1942 movement?",
+        "options": [
+            "Ram Manohar Lohia",
+            "Achyut Patwardhan",
+            "Sucheta Kripalani",
+            "C. Rajagopalachari"
+        ],
+        "answerRaw": "D. C. Rajagopalachari",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
+    },
+    {
+        "id": 23,
+        "question": "The 'Beti Sarkar' was a subdivision of the parallel government in:",
+        "options": [
+            "Satara",
+            "Tamluk",
+            "Ballia",
+            "Talcher"
+        ],
+        "answerRaw": "A. Satara.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 24,
+        "question": "Which international leader put heavy pressure on Winston Churchill to grant concessions to India in 1942?",
+        "options": [
+            "Joseph Stalin",
+            "Franklin D. Roosevelt (USA)",
+            "Chiang Kai-shek (China)",
+            "Both B and C"
+        ],
+        "answerRaw": "D. Both B and C.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
+    },
+    {
+        "id": 25,
+        "question": "The slogan \"Quit India\" was actually coined by which leader?",
+        "options": [
+            "Mahatma Gandhi",
+            "Yusuf Meherally",
+            "Jawaharlal Nehru",
+            "Aruna Asaf Ali"
+        ],
+        "answerRaw": "B. Yusuf Meherally",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 26,
+        "question": "What was the reaction of the Princely States' rulers to the Quit India call?",
+        "options": [
+            "They supported Gandhi fully.",
+            "They remained loyal to the British and suppressed the movement in their states.",
+            "They declared independence.",
+            "They joined the INA."
+        ],
+        "answerRaw": "B. Remained loyal to the British.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 27,
+        "question": "The British utilized which weapon to suppress the 1942 movement in rural areas, especially in Bihar and UP?",
+        "options": [
+            "Nuclear bombs",
+            "Machine-gunning from aeroplanes",
+            "Tanks",
+            "Only lathi charges"
+        ],
+        "answerRaw": "B. Machine-gunning from planes.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 28,
+        "question": "During the 1942 movement, 'Matangini Hazra', a 73-year-old woman, was shot dead while leading a procession in:",
+        "options": [
+            "Tamluk (Bengal)",
+            "Satara",
+            "Ballia",
+            "Patna"
+        ],
+        "answerRaw": "A. Tamluk.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 29,
+        "question": "The movement was characterized by the 'Spontaneous' nature of the masses because:",
+        "options": [
+            "There were no leaders left to guide them (all were in jail).",
+            "Gandhi told them to do whatever they liked.",
+            "It was a planned violent revolt.",
+            "The British told them to protest."
+        ],
+        "answerRaw": "A. Leadership vacuum.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 30,
+        "question": "Which of the following describes the 'Quit India' Movement's impact?",
+        "options": [
+            "It won immediate independence.",
+            "It showed the British that their days in India were numbered as they could no longer rule without the consent of the people.",
+            "It was a total failure with no impact.",
+            "It led to the return of the East India Company."
+        ],
+        "answerRaw": "B. Showed British rule was untenable.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "The Cripps Mission (1942) is often called a \"propaganda exercise\" for the US and Chinese audience. What was the most controversial \"Opt-out Clause\" in its proposals?",
+        "options": [
+            "Any province not prepared to accept the new Constitution would have the right to sign a separate agreement with Britain (essentially giving the right to secede).",
+            "Indians were not allowed to join the United Nations.",
+            "The British King would remain the religious head of India.",
+            "Only English-speaking Indians could vote."
+        ],
+        "answerRaw": "A. The right of provinces to secede.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 32,
+        "question": "Why did the 'Muslim League' reject the Cripps Mission if it contained a provision for secession?",
+        "options": [
+            "Because they wanted more money.",
+            "Because it did not explicitly concede the creation of Pakistan and the machinery for the formation of a separate Constituent Assembly for Muslims was not clear.",
+            "Jinnah wanted Stafford Cripps to resign.",
+            "They wanted to stay with the British forever."
+        ],
+        "answerRaw": "B. Lack of explicit Pakistan and clear machinery.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 33,
+        "question": "Consider the following statements regarding the 'Quit India Movement': 1. It was the first time Gandhi did not condemn the violence of the masses, putting the blame instead on the \"Leonine Violence\" of the state. 2. The movement saw the participation of the 'Underground' Socialists like J.P. Narayan and Ram Manohar Lohia. 3. The movement was a total success in terms of achieving its immediate goal of British withdrawal. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "A. 1 and 2 only.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 34,
+        "question": "The \"Do or Die\" call by Gandhi in 1942 represented a departure from his traditional \"Satyagraha.\" How?",
+        "options": [
+            "He told people to use guns.",
+            "He signaled that this was the 'Final Struggle' and if the leadership was arrested, every Indian should act as their own leader to ensure the British left, even if the line of non-violence became blurred.",
+            "He joined the British army.",
+            "He asked the Japanese to invade."
+        ],
+        "answerRaw": "B. Final struggle/Individual leadership in the absence of a command structure.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 35,
+        "question": "With reference to 'Parallel Governments' (Prati Sarkar) in 1942, consider the following: Statement-I: These governments performed functions like justice delivery, grain distribution, and police work. Statement-II: The 'Satara' parallel government in Maharashtra survived until 1946 and was noted for its \"Nyaydan Mandals\" (People's Courts). Which one of the following is correct?",
+        "options": [
+            "Both are correct and Statement-II is a specific example of Statement-I.",
+            "Statement-I is correct but Statement-II is false.",
+            "Both are false.",
+            "Statement-II is correct but Statement-I is false."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 36,
+        "question": "Why did the 'Communist Party of India' (CPI) oppose the Quit India Movement?",
+        "options": [
+            "They were secret fans of the British.",
+            "Following Germany's invasion of the USSR, the \"Imperialist War\" became a \"People's War\" for them, and they believed that hindering the British war effort would hurt the Soviet Union.",
+            "They wanted to start their own movement in 1945.",
+            "Gandhi fired them from the Congress."
+        ],
+        "answerRaw": "B. Shift from \"Imperialist\" to \"People's War\" due to the USSR.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 37,
+        "question": "The 'Tamluk Jatiya Sarkar' in Midnapore (Bengal) was unique for its 'Biplabi' (Revolutionary) unit. What was its main role?",
+        "options": [
+            "Teaching children.",
+            "Providing relief during the 1943 Famine and organizing a 'Vidyut Vahini' (Lightning Force) for armed resistance.",
+            "Painting the town red.",
+            "Escaping to Japan."
+        ],
+        "answerRaw": "B. Famine relief and armed resistance.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 38,
+        "question": "Consider the following regarding the 'Underground Radio' of 1942: 1. It was broadcast from various hidden locations in Bombay. 2. It provided news about the movement that the British-controlled media suppressed. 3. It was caught by the British within two days. How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 39,
+        "question": "The \"A-Political\" nature of the 1942 movement refers to:",
+        "options": [
+            "The fact that no politicians joined it.",
+            "The absence of a formal \"Central Command\" after August 9, making it a truly 'Leaderless' mass uprising.",
+            "It was only about sports.",
+            "It was a purely religious gathering."
+        ],
+        "answerRaw": "B. Leaderless nature due to the arrest of the high command.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 40,
+        "question": "Match the following 'Parallel Governments' with their 'Key Leaders': 1. Ballia (UP) — A. Chittu Pandey 2. Satara (Maharashtra) — B. Nana Patil / Y.B. Chavan 3. Tamluk (Bengal) — C. Satish Samanta Select the correct matching code:",
+        "options": [
+            "1-A, 2-B, 3-C",
+            "1-B, 2-A, 3-C",
+            "1-C, 2-B, 3-A",
+            "1-A, 2-C, 3-B"
+        ],
+        "answerRaw": "A. 1-A, 2-B, 3-C.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 41,
+        "question": "The 'Quit India' movement is often called the 'Peasant's Revolution' of 1942. Why?",
+        "options": [
+            "Because they were the only ones who knew how to fight.",
+            "Because in provinces like Bihar and Eastern UP, the movement shifted to the countryside, where peasants attacked symbols of authority (Police stations, Post offices, Railway tracks).",
+            "Because all cities were closed.",
+            "Because the British gave land to the peasants."
+        ],
+        "answerRaw": "B. Shift of intensity to the rural peasantry.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 42,
+        "question": "What was the 'Azad Dasta' organized by Jayaprakash Narayan?",
+        "options": [
+            "A group of dancers.",
+            "A guerrilla force based in the Terai region of Nepal to carry out sabotage and raids against British communications and infrastructure.",
+            "A group of school teachers.",
+            "A wing of the British army."
+        ],
+        "answerRaw": "B. Guerrilla force for sabotage in Nepal Terai.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 43,
+        "question": "Why did 'C. Rajagopalachari' (CR) resign from the Congress during the Quit India phase?",
+        "options": [
+            "He wanted to join the British government.",
+            "He believed the movement was premature and that the Congress should concede the League's demand for Pakistan to present a 'United Front' for independence.",
+            "He didn't like Gandhi's slogan.",
+            "He was arrested before he could resign."
+        ],
+        "answerRaw": "B. Advocacy for a compromise with the League (CR Formula).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 44,
+        "question": "The 'British Repression' of 1942 was described by many as 'unprecedented' because:",
+        "options": [
+            "They used only polite letters.",
+            "They utilized machine-gunning from aircraft, collective fines on whole villages, and public floggings to crush the rebellion.",
+            "They stopped all trade.",
+            "They moved the capital back to Calcutta."
+        ],
+        "answerRaw": "B. Extreme/Violent state repression methods.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 45,
+        "question": "Consider the following regarding 'Women' in the Quit India Movement: 1. Aruna Asaf Ali became a legendary figure of the underground movement. 2. Usha Mehta managed the secret radio. 3. Matangini Hazra died while carrying the national flag in Bengal. How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 46,
+        "question": "The 'Quit India' movement differed from the 'Non-Cooperation' and 'Civil Disobedience' movements because:",
+        "options": [
+            "It was much shorter.",
+            "It lacked the initial period of 'Training' or 'Preparation', starting with immediate mass arrests and a violent outburst of popular anger.",
+            "It was led by the British themselves.",
+            "It was only for the upper class."
+        ],
+        "answerRaw": "B. Lack of preparation and immediate radical outburst.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 47,
+        "question": "The 'Viceroy’s Executive Council' members who resigned in protest against Gandhi's fast in 1943 included:",
+        "options": [
+            "H.P. Mody, N.R. Sarkar, and M.S. Aney.",
+            "Sardar Patel and Nehru.",
+            "Jinnah and Liaquat Ali.",
+            "None, they all stayed."
+        ],
+        "answerRaw": "A. H.P. Mody, N.R. Sarkar, and M.S. Aney.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 48,
+        "question": "The '1943 Bengal Famine' occurred during the movement's aftermath. How did it affect the nationalist struggle?",
+        "options": [
+            "It stopped the movement entirely.",
+            "It showed the total failure of British administration and became a major point of critique for the underground leaders (Lohia, etc.).",
+            "The British used it as a weapon to feed the protesters.",
+            "It only affected the British soldiers."
+        ],
+        "answerRaw": "B. Critique of administrative failure.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 49,
+        "question": "Why is the 'August Revolution' considered the \"point of no return\" for the British?",
+        "options": [
+            "Because they ran out of money.",
+            "It demonstrated that the British could only rule through brute force, not consent, and that even the 'loyal' sections (police/lower bureaucracy) were beginning to sympathize with the movement.",
+            "Because all British people left India in 1942.",
+            "Because the movement was supported by the King of England."
+        ],
+        "answerRaw": "B. Breakdown of consent and internal loyalty.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 50,
+        "question": "Ultimately, 'The Quit India Movement' (Chapter 34) was the 'Grand Finale' because:",
+        "options": [
+            "It was the last chapter of the book.",
+            "It changed the demand from 'Constitutional Reforms' to a simple, non-negotiable \"Quit India.\"",
+            "It was a movie.",
+            "It was the only movement that Gandhi ever led."
+        ],
+        "answerRaw": "B. Shift to non-negotiable demand for withdrawal.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 51,
+        "question": "The Cripps Mission's 'Draft Declaration' (1942) introduced a novel constitutional concept regarding the \"Princely States.\" What was it?",
+        "options": [
+            "The States were forced to join the Indian Union immediately.",
+            "The States were given the right to appoint their own representatives to the Constitution-making body, but these representatives would be nominated by the Rulers, not elected by the people.",
+            "The States were abolished.",
+            "The States were to be merged with the British Provinces."
+        ],
+        "answerRaw": "B. Nomination by Rulers.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 52,
+        "question": "With reference to the 'Quit India' Resolution, consider the following regarding the \"Struggle for the Defense of India\": Statement-I: The Congress was willing to accept the presence of Allied troops in India to defend against Japanese aggression, provided India was declared independent. Statement-II: Gandhi argued that only a \"Free India\" could provide the moral and physical resistance necessary to stop a Fascist invasion. Which one of the following is correct?",
+        "options": [
+            "Both are correct and Statement-II provides the ideological justification for Statement-I.",
+            "Both are correct but unrelated.",
+            "Statement-I is incorrect.",
+            "Both are incorrect."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 53,
+        "question": "The 'Quit India' Movement is historically categorized as a \"Spontaneous Revolution.\" However, what was the role of the 'August 8 instructions' issued by Gandhi?",
+        "options": [
+            "They were a detailed 50-page manual for guerilla warfare.",
+            "They were broad guidelines for different sections (students, peasants, government servants, soldiers) on how to act if the leaders were arrested, emphasizing that \"every Indian is his own leader.\"",
+            "They told everyone to stay at home and pray.",
+            "They ordered a total surrender to the British."
+        ],
+        "answerRaw": "B. Broad guidelines for self-leadership.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 54,
+        "question": "The 'Underground' movement of 1942 was structurally divided into two layers. What were they?",
+        "options": [
+            "The 'Rich' and the 'Poor'.",
+            "The 'Central Directorate' (Lohia, Patwardhan, Aruna Asaf Ali) for coordination and the 'Local Action Groups' for execution.",
+            "The 'Men' and the 'Women'.",
+            "The 'British' and the 'Indians'."
+        ],
+        "answerRaw": "B. Central Directorate and Local Action Groups.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 55,
+        "question": "Regarding the 'Parallel Governments', the 'Tamluk Jatiya Sarkar' (Bengal) was notable for its longevity and administrative depth. Which of the following departments did it NOT operate?",
+        "options": [
+            "Justice (Adalat)",
+            "Revenue and War",
+            "Foreign Affairs",
+            "Health and Education"
+        ],
+        "answerRaw": "C. Foreign Affairs",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 56,
+        "question": "The 'Azad Dasta' organized by Jayaprakash Narayan in the Nepal Terai was specialized in 'Sabotage.' What was their primary target?",
+        "options": [
+            "Killing British officers only.",
+            "Disrupting the \"Sinews of War\"—communications (telegraph lines), transport (railway tracks), and supply lines to hamper British military mobility.",
+            "Building schools in Nepal.",
+            "Recruiting for the British army."
+        ],
+        "answerRaw": "B. Disrupting war-time communications/logistics.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 57,
+        "question": "Consider the following regarding the 'Communist Party of India' (CPI) during 1942: 1. They were legalised by the British in July 1942 for the first time since 1934. 2. They actively helped the British in identifying and arresting underground Congress workers. 3. They supported the demand for Pakistan during this period based on the \"Right of Nationalities to Self-Determination.\" How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 58,
+        "question": "The 'Sutara' (Parallel Government) in Satara was unique for its \"Nyaydan Mandals.\" These were:",
+        "options": [
+            "Dancing groups.",
+            "People's Courts that provided quick, accessible, and \"anti-colonial\" justice to the villagers, effectively making the British courts redundant in the region.",
+            "Secret military units.",
+            "Tax collection offices."
+        ],
+        "answerRaw": "B. People's Courts bypassing colonial justice.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 59,
+        "question": "Why did 'Winston Churchill' send the Cripps Mission despite his personal dislike for Indian independence?",
+        "options": [
+            "He had a change of heart.",
+            "Pressure from the US President (Roosevelt), the Chinese leader (Chiang Kai-shek), and the disastrous British defeats in Southeast Asia (Singapore, Burma) forced him to make a symbolic gesture.",
+            "He wanted to visit India.",
+            "He wanted to help the Muslim League."
+        ],
+        "answerRaw": "B. Pressure from Allies and military disasters.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 60,
+        "question": "The 'Quit India' movement saw a massive strike in which major industrial center, where the strike lasted for nearly three months?",
+        "options": [
+            "Bombay",
+            "Jamshedpur (TATA Steel)",
+            "Ahmedabad",
+            "Calcutta"
+        ],
+        "answerRaw": "B. Jamshedpur (TATA Steel).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 61,
+        "question": "'Aruna Asaf Ali' is called the \"Heroine of 1942.\" What was her most significant tactical contribution?",
+        "options": [
+            "Writing a book.",
+            "Remaining underground for nearly 4 years, dodging the police, and acting as the main link between the underground directorate and the students.",
+            "Joining the British army.",
+            "Flying a plane to Japan."
+        ],
+        "answerRaw": "B. Enduring underground leadership/linkage.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 62,
+        "question": "The 'Beti Sarkar' of Satara was a subdivision. What was its main characteristic?",
+        "options": [
+            "It was led by children.",
+            "It was a \"government within a government,\" operating at the taluka/village level with its own volunteer corps (Toofan Sena).",
+            "It only allowed women.",
+            "It was supported by the British."
+        ],
+        "answerRaw": "B. Micro-level administration with volunteer forces.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 63,
+        "question": "In the context of the 1942 movement, what was the \"Scorched Earth Policy\" mentioned by the Congress?",
+        "options": [
+            "A plan to burn all the crops.",
+            "A British military plan to destroy all resources (boats, cycles, grains) in areas like Bengal to prevent them from falling into Japanese hands—a policy that the Congress opposed as it would starve the Indians.",
+            "A method of farming.",
+            "A way to build roads."
+        ],
+        "answerRaw": "B. British destruction of resources to thwart Japanese.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 64,
+        "question": "The 'C.R. Formula' (1944) was an attempt to solve the Congress-League deadlock. It suggested that:",
+        "options": [
+            "Jinnah should be the King of India.",
+            "The League should support the demand for independence and cooperate with the Congress in forming a provisional government, in return for a post-war plebiscite in Muslim-majority areas.",
+            "All Hindus should move to the South.",
+            "The British should never leave."
+        ],
+        "answerRaw": "B. Support for independence in exchange for a post-war plebiscite.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 65,
+        "question": "Consider the following regarding the 'Vidyut Vahini' in Tamluk: 1. It was an armed volunteer corps of the parallel government. 2. It included a dedicated women's wing. 3. It was primarily used for robbery. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "A. 1 and 2 only.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 66,
+        "question": "The 'Individual Satyagraha' of 1940 is considered a \"Dress Rehearsal\" for 1942. What was the main 'Lesson' learned?",
+        "options": [
+            "That non-violence is always successful.",
+            "That the British would not be moved by symbolic protests and that a \"Total\" struggle was necessary.",
+            "That Jinnah was a friend.",
+            "That the USA would help."
+        ],
+        "answerRaw": "B. Ineffectiveness of symbolic protest; need for total struggle.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 67,
+        "question": "The 'Quit India' Movement's success in the rural areas was due to the mobilization of the 'Middle Peasantry'. These were groups like:",
+        "options": [
+            "Landless laborers.",
+            "Small and medium landholders (like the Jats in UP/Haryana or Marathas in Satara) who had the resources and social network to sustain a rebellion.",
+            "The big Zamindars.",
+            "The British traders."
+        ],
+        "answerRaw": "B. Middle peasantry as the backbone of rural rebellion.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 68,
+        "question": "Match the 'Movement Figure' with their 'Contribution in 1942': 1. Sucheta Kripalani — A. Leading the underground women’s wing 2. Achyut Patwardhan — B. Evading arrest and managing the 'Central Directorate' 3. Chhotubhai Puranik — C. Organizing the movement in Gujarat Select the correct matching code:",
+        "options": [
+            "1-A, 2-B, 3-C",
+            "1-B, 2-A, 3-C",
+            "1-C, 2-B, 3-A",
+            "1-A, 2-C, 3-B"
+        ],
+        "answerRaw": "A. 1-A, 2-B, 3-C.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 69,
+        "question": "The 'Hindustan Socialist Republican Association' (HSRA) ideology resurfaced in 1942 through which group?",
+        "options": [
+            "The Forward Bloc.",
+            "The 'Revolutionary Socialist Party' (RSP) and certain sections of the Congress Socialists who believed in armed sabotage.",
+            "The Muslim League.",
+            "The Theosophical Society."
+        ],
+        "answerRaw": "B. RSP and radical Congress Socialists.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 70,
+        "question": "Why did the 'British Indian Army' generally remain loyal during the 1942 movement?",
+        "options": [
+            "They hated the Congress.",
+            "Strict discipline, isolated barracks, and the fact that the war was still ongoing, making \"desertion\" a capital offense in a combat situation.",
+            "They were all British.",
+            "They didn't know about the movement."
+        ],
+        "answerRaw": "B. Discipline and wartime desertion penalties.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 71,
+        "question": "The 'Quit India' movement led to the \"Physical Defeat\" of the Congress, but the \"Moral Victory\" of the People. What does this mean?",
+        "options": [
+            "The Congress lost the elections.",
+            "While the British successfully crushed the revolt using the army, they realized that the \"Will to Rule\" was gone because the people no longer feared the Raj.",
+            "The British won the war.",
+            "The people were given prizes."
+        ],
+        "answerRaw": "B. Military suppression vs. total loss of political legitimacy.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 72,
+        "question": "In 1942, 'Linlithgow' wrote to Churchill: \"I am engaged here in much the most serious rebellion since that of 1857.\" This suggests that:",
+        "options": [
+            "He was exaggerated.",
+            "The scale of the uprising, especially the disruption of railways and police authority in North India, had genuinely threatened the colonial state's survival.",
+            "He wanted more vacation.",
+            "He liked the rebels."
+        ],
+        "answerRaw": "B. Genuine threat to state survival.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 73,
+        "question": "The 'Azad Dasta's' training included which unique skill for the time?",
+        "options": [
+            "Computers.",
+            "Manufacturing and using \"Molotov Cocktails\" and \"Time Bombs\" for sabotage.",
+            "Flying helicopters.",
+            "Speaking Japanese."
+        ],
+        "answerRaw": "B. Sabotage techniques (Molotovs/Time bombs).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 74,
+        "question": "'Gandhi's 21-day Fast' in 1943 was a masterstroke of 'Moral Pressure' because:",
+        "options": [
+            "It made the British give him better food.",
+            "It shifted the blame for the violence back to the British \"Leonine\" repression, creating a massive wave of sympathy and reviving the morale of the suppressed masses.",
+            "It resulted in the end of the war.",
+            "He did it for his health."
+        ],
+        "answerRaw": "B. Shifting blame and reviving mass morale.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 75,
+        "question": "Why did the 'Quit India' movement NOT spread as effectively in South India (except pockets of Andhra/Karnataka) compared to the North?",
+        "options": [
+            "They didn't like Gandhi.",
+            "The strong influence of the Justice Party and the relative stability of the administration in the Madras Presidency.",
+            "There were no railways to disrupt.",
+            "They didn't speak Hindi."
+        ],
+        "answerRaw": "B. Influence of non-Congress parties and administrative stability.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 76,
+        "question": "Consider the 'Cripps Mission' and the 'Post-war' scenario:",
+        "options": [
+            "Cripps promised that India would be free as soon as the mission ended.",
+            "He promised a \"Constituent Assembly\" consisting of both elected representatives from provinces and nominated members from States.",
+            "He promised to make Nehru the King.",
+            "He promised to stay in India forever."
+        ],
+        "answerRaw": "B. Mixed (Elected/Nominated) Constituent Assembly.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 77,
+        "question": "'Ram Manohar Lohia' used to broadcast on the secret radio. His main message was:",
+        "options": [
+            "To support the British.",
+            "To explain the global nature of the struggle and to give instructions for non-violent \"destruction\" of the machinery of the Raj.",
+            "To teach history.",
+            "To promote the Muslim League."
+        ],
+        "answerRaw": "B. Instructions for sabotaging the Raj machinery.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 78,
+        "question": "What was the 'Collective Fine' system used by the British in 1942?",
+        "options": [
+            "A fine paid by the British officers.",
+            "A punitive tax imposed on entire villages if a single person from there was involved in sabotage—a method used to break community support for rebels.",
+            "A way to collect money for the war.",
+            "A fine on the Congress leaders only."
+        ],
+        "answerRaw": "B. Punitive taxes on villages to deter support.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 79,
+        "question": "'Usha Mehta's' radio was finally caught in Nov 1942 because of:",
+        "options": [
+            "A technical fault.",
+            "A \"betrayal\" (spy) within the technical team who helped the British locate the transmitter.",
+            "They ran out of batteries.",
+            "The British used a satellite."
+        ],
+        "answerRaw": "B. Betrayal/spy.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 80,
+        "question": "Ultimately, 'The Quit India Movement' (Chapter 34) was the \"Trial of Strength\" that proved:",
+        "options": [
+            "The British were stronger.",
+            "The \"Nationalist Consciousness\" had reached the point of no return—where the people were willing to \"Die\" for the goal of \"Quit India.\"",
+            "India was too poor for independence.",
+            "The Congress should have waited longer."
+        ],
+        "answerRaw": "B. Irreversible nationalist consciousness.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     }
 ];
-
-
-export const MODERN_CHAPTER_34_CONTENT = `
-# Chapter 34: The Integration of Indian States
-
-## BLOCK 1: THE LAPSE OF PARAMOUNTCY
-*The Legal Vacuum.*
-
-### 👑 INDEPENDENT KINGS?
-**The Rule:** Under the Indian Independence Act, 1947, British Paramountcy over the Princely States lapsed.
-
-**The Choice:** The **562 rulers** were technically free to:
-- Join India.
-- Join Pakistan.
-- Remain Independent.
-
-**The Danger:** Leaders like the **Nawab of Bhopal** and **Travancore (C.P. Ramaswamy Iyer)** declared they would stay independent. This threatened to **Balkanize India** into hundreds of small countries.
-
----
-
-## BLOCK 2: SARDAR PATEL'S STRATEGY
-*The Iron Man's Plan.*
-
-### 🤝 VP MENON & THE SARDAR
-**States Department:** Formed on **June 27, 1947**.
-**Minister:** **Sardar Vallabhbhai Patel**.
-**Secretary:** **V.P. Menon** (The civil servant genius).
-
-**The Offer:** Rulers were asked to sign the **Instrument of Accession** handing over only **3 subjects**:
-1.  Defence.
-2.  External Affairs.
-3.  Communications.
-
-**The Threat:** Patel warned that if they didn't join by Aug 15, the "people would rise" against them, and he wouldn't be able to protect them.
-
-**Result:** By Aug 15, 1947, 136 states had joined. Only **Junagadh, Hyderabad, and Kashmir** held out.
-
----
-
-## BLOCK 3: JUNAGADH (Sept 1947)
-*The First Domino.*
-
-### 🏰 NAWAB vs PEOPLE
-**Location:** Kathiawar (Gujarat). 80% Hindu population.
-**Ruler:** Nawab Mahabat Khan III (Muslim).
-
-**The Crisis:** The Nawab acceded to Pakistan on **Sept 15, 1947**. Pakistan accepted it.
-
-**The Revolt:** The people of Junagadh rose in revolt (**Aarzi Hukumat**) led by **Samaldas Gandhi**. The Nawab fled to Karachi.
-
-**Resolution:** A **Plebiscite** was held in Feb 1948.
-- **Votes for India:** 190,870.
-- **Votes for Pakistan:** 91.
-
----
-
-## BLOCK 4: KASHMIR (Oct 1947)
-*The Unfinished Business.*
-
-### 🏔️ MAHARAJA HARI SINGH
-**Location:** Border state. Muslim majority population.
-**Ruler:** **Maharaja Hari Singh** (Hindu).
-
-**The Stance:** He wanted to remain independent ("Switzerland of the East") and signed a **Standstill Agreement** with both India and Pakistan.
-
-**The Invasion:** On Oct 22, 1947, Pakistan sent tribal raiders (backed by its army) to seize Kashmir.
-
-**The Accession:** Hari Singh panicked and signed the **Instrument of Accession with India on Oct 26, 1947**.
-
-**The War:** Indian troops were airlifted to Srinagar on Oct 27. They saved the valley but the war dragged on until a UN Ceasefire in Dec 1948, leaving the state divided (PoK vs J&K).
-
----
-
-## BLOCK 5: HYDERABAD (Sept 1948)
-*The Belly of India.*
-
-### 👮 OPERATION POLO
-**Location:** Largest Princely State, right in the center of India.
-**Ruler:** **Nizam Osman Ali Khan** (One of the richest men in the world).
-
-**The Ambition:** He wanted complete independence and recruited a private militia called **Razakars** (led by **Kasim Rizvi**) to terrorize the Hindu population.
-
-**The Action:** Patel lost patience. On **Sept 13, 1948**, Indian troops entered Hyderabad under Major General J.N. Chaudhuri.
-
-**Code Name:** **Operation Polo**.
-
-**Result:** The Nizam surrendered in 5 days (Sept 18). Hyderabad acceded to India.
-
----
-
-## BLOCK 6: PLAN BALKAN (May 1947)
-*The Blueprint for Disaster.*
-
-### 🧩 DICKIE BIRD PLAN
-**The Plan:** Before the Partition Plan (June 3), Mountbatten proposed a plan where power would be transferred to separate provinces and states, not to a central India or Pakistan.
-
-**Implication:** Every province (Bengal, Punjab, Madras) and every Princely State could choose to be independent. This would have "**Balkanized**" India into dozens of weak nations.
-
-**Nehru's Reaction:** When Mountbatten showed this secret plan to Nehru at Shimla, Nehru rejected it violently, calling it a "**blueprint for anarchy**."
-
-**Result:** Mountbatten tore it up and replaced it with the **June 3rd Plan** (Partition into two strong dominions).
-
----
-
-## BLOCK 7: TRAVANCORE (June 1947)
-*The First Domino to Fall.*
-
-### 🗡️ C.P. RAMASWAMY IYER
-**The Declaration:** On June 11, 1947, the Dewan of Travancore, **Sir C.P. Ramaswamy Iyer**, declared that the state would become an independent sovereign nation.
-
-**The Reason:** Travancore had huge **Thorium reserves** (monazite sands) and a strong export economy. The Dewan believed they could survive alone.
-
-**The Turn:** On July 25, an assassination attempt was made on Sir C.P. by a Kerala Socialist Party member. He survived but realized the people were against him.
-
-**Result:** He advised the Maharaja to accede to India immediately.
-
----
-
-## BLOCK 8: JODHPUR (Aug 1947)
-*The Pistol on the Table.*
-
-### 🔫 HANWANT SINGH
-**The Temptation:** Jinnah offered the young Hindu Maharaja, **Hanwant Singh**, a blank sheet of paper to write his terms if he joined Pakistan.
-- **Offer:** Full access to Karachi port and free import of arms.
-
-**The Intervention:** V.P. Menon rushed to Jodhpur and took the Maharaja to meet Mountbatten.
-
-**The Drama:** During a meeting, Hanwant Singh pulled out a revolver, pointed it at V.P. Menon, and shouted, "I refuse to accept your dictation!"
-
-**Result:** After Mountbatten calmed him down, he signed the Instrument of Accession on **Aug 11, 1947**.
-
----
-
-## BLOCK 9: MANIPUR (Sept 1949)
-*The First Election.*
-
-### 🗳️ BODHACHANDRA SINGH
-**Fact:** Manipur was the **first part of India to hold an election based on Universal Adult Franchise** in June 1948.
-
-**The Context:** Maharaja Bodhachandra Singh signed the Instrument of Accession in Aug 1947 (only for Defence/External Affairs/Communication).
-
-**The Merger:** In Sept 1949, the Maharaja was summoned to Shillong and **practically forced to sign the Merger Agreement** (fully integrating the state into India), bypassing the elected Legislative Assembly.
-
-**Legacy:** This "forced merger" remains a source of insurgency in Manipur to this day.
-
----
-
-## BLOCK 10: BHOPAL (1949)
-*The Chancellor's Defiance.*
-
-### 🏰 HAMIDULLAH KHAN
-**The Role:** Nawab Hamidullah Khan was the Chancellor of the Chamber of Princes.
-**The Plan:** He wanted to form a **"Third Force"** of princes separate from India and Pakistan.
-**The Reality:** He held out for a long time but eventually realized that being a Muslim ruler in a Hindu-majority state in the middle of India (surrounded by Patel's forces) was impossible.
-
-**Result:** He signed the Instrument of Accession in **May 1949**.
-
----
-
-## BLOCK 11: INSTRUMENT vs MERGER
-*The Legal Distinction.*
-
-### 📜 TWO STEPS
-| Instrument | Purpose |
-| :--- | :--- |
-| **Instrument of Accession** | The ruler agrees to join the Union of India only for **3 subjects** (Defence, Foreign Affairs, Communications). He remains the ruler internally. |
-| **Standstill Agreement** | A temporary stop-gap arrangement to maintain the status quo (services, trade) until a final decision is made. |
-| **Merger Agreement** | The ruler agrees to **dissolve his state entirely**. It is merged into a neighboring province (e.g., Baroda into Bombay) or formed into a new Union (e.g., Rajasthan). The ruler loses power and gets a Privy Purse (Pension). |
-
----
-
-## BLOCK 12: THE PRIVY PURSE
-*The Price of Peace.*
-
-### 💰 TAX-FREE PENSION
-**The Deal:** In exchange for surrendering their sovereignty, the rulers were guaranteed a **Privy Purse** (a tax-free annual pension) and the right to keep their titles/palaces.
-
-**The Logic:** Patel argued that the cost of the pension was a "small price to pay" for the unity of India and to avoid civil war.
-
-**Abolition:** This controversial system continued until **1971**, when **Indira Gandhi** abolished it via the **26th Amendment**, calling it incompatible with an egalitarian society.
-
----
-
-## BLOCK 13: THE FOUR-FOLD CLASSIFICATION (1950)
-*The Temporary Map.*
-
-### 🗺️ PART A, B, C, D
-Before the modern states existed, the Constitution (1950) divided India into 4 categories:
-- **Part A:** Former British Provinces (e.g., Bombay, Madras, Assam). Ruled by an elected Governor.
-- **Part B:** Former Princely States or Unions of States (e.g., Hyderabad, Mysore, PEPSU, Rajasthan). Ruled by a Rajpramukh (former Prince).
-- **Part C:** Former Chief Commissioner's Provinces (e.g., Delhi, Ajmer, Coorg). Ruled by a Chief Commissioner appointed by the President.
-- **Part D:** Andaman & Nicobar Islands. (Territories).
-
----
-
-## BLOCK 14: STATES REORGANIZATION COMMISSION (1953)
-*The Final Map.*
-
-### ⚖️ FAZL ALI COMMISSION
-**Context:** The death of Potti Sriramulu (demanding Andhra) forced the Govt to rethink the map.
-**Members:** **Fazl Ali** (Chairman), **K.M. Panikkar**, and **H.N. Kunzru**.
-
-**Report (1955):**
-- Accepted **Language** as the primary basis for reorganization.
-- Rejected "One Language, One State" (unity comes first).
-- Recommended abolishing the A, B, C, D classification.
-
-**Outcome:** The **States Reorganization Act (1956)** created 14 States and 6 Union Territories. The office of Rajpramukh was abolished.
-
----
-
-## BLOCK 15: SIKKIM (1975)
-*The Late Entrant.*
-
-### 🏔️ THE 36th AMENDMENT
-**Status (1947):** Sikkim was a "**Protectorate**" of India (India handled Defence/Foreign Affairs, but the Chogyal ruled internally).
-
-**The Crisis:** By 1973, the people (mostly Nepali origin) revolted against the Chogyal's minority rule and demanded democracy.
-
-**Process:**
-- **35th Amendment (1974):** Made Sikkim an "**Associate State**" (a unique status).
-- **Referendum (1975):** 97% voted to join India.
-- **36th Amendment (1975):** Made Sikkim a **Full State** of India.
-
----
-
-## BLOCK 16: LORD MOUNTBATTEN'S ROLE
-*The Royal Persuader.*
-
-### 👑 "BASKET OF APPLES"
-**The Role:** While Patel used the "Stick," Mountbatten used his royal connection as the "Carrot."
-**The Speech:** In a famous speech to the Chamber of Princes (July 25, 1947), he advised them to join the dominion geographically closest to them.
-**Influence:** Rulers like Jodhpur, who were tilting towards Pakistan, were personally dissuaded by Mountbatten, who reminded them of their Hindu subjects and geographical reality.
-
----
-
-## BLOCK 17: THE PRAJA MANDALS (AISPC)
-*The Pressure from Below.*
-
-### 🚩 SHEIKH ABDULLAH to J.N. VYAS
-**What were they?** While Congress fought the British in British India, **Praja Mandals** (People's Conferences) fought the Princes in the Princely States for democracy.
-**Organization:** **All India States Peoples' Conference (AISPC)** formed in 1927.
-**Ludhiana Session (1939):** Presided by **Jawaharlal Nehru**. It declared that the "Treaty Rights" of the Princes could not override the "Human Rights" of the people.
-
-**Role:** When Independence came, these organizations (like National Conference in Kashmir, Mysore Congress in Mysore) mobilized the people, leaving the Rulers with no support base to resist Patel.
-
----
-
-## BLOCK 18: THE ORISSA MERGER (Dec 1947)
-*The Pilot Project.*
-
-### 🧪 CUTTACK CONFERENCE
-**Context:** There were 26 tiny states in Orissa and 14 in Chhattisgarh. They were too small to be viable (some were just a few villages).
-**The Action:** Patel went to Cuttack in Dec 1947. He locked the rulers in a room and told them: "If you don't sign, I can't guarantee your safety from your own people."
-
-**Result:** They signed the merger agreement within 24 hours.
-
-**Significance:** This was the first time the principle of "**merger**" (dissolving the state entirely into a neighboring province) was successfully applied. It became the template for the rest of India.
-
----
-
-## BLOCK 19: PEPSU & SAURASHTRA
-*The Great Unions.*
-
-### 🗺️ CLUMPING THE SMALL
-**Problem:** Some states were too big to be merged into a province but too small to stand alone.
-**Solution:** They were united into "**Unions of States**."
-
-**PEPSU (1948):** Patiala and East Punjab States Union.
-- **Head:** Maharaja of Patiala (**Yadavindra Singh**) became the Rajpramukh.
-- **Capital:** Patiala.
-- **Fate:** Merged into Punjab in 1956.
-
-**Saurashtra (1948):** United State of Kathiawar.
-- **Head:** Jam Saheb of Nawanagar.
-- **Fate:** Merged into Bombay State in 1956, later Gujarat (1960).
-
----
-
-## BLOCK 20: MYSORE CHALO (Oct 1947)
-*The Palace Siege.*
-
-### 🏰 JAYACHAMARAJA WADIYAR
-**Context:** Mysore was a progressive state, but the Maharaja wanted to retain power even after signing the Instrument of Accession (Aug 1947).
-**The Movement:** The Mysore Congress launched the "**Mysore Chalo**" agitation on Sept 1, 1947, demanding a "Responsible Government" (democracy).
-**Outcome:** After 42 days of protests, the Maharaja surrendered on Oct 12, 1947, and K.C. Reddy became the first Chief Minister.
-
----
-
-## BLOCK 21: STANDSTILL AGREEMENT (Nov 1947)
-*The Hyderabad Trick.*
-
-### ⏳ BUYING TIME
-**Uniqueness:** Hyderabad was the only state to sign a **Standstill Agreement** with India (Nov 29, 1947) without signing the Instrument of Accession.
-**Terms:** The Nizam agreed to let Indian currency and posts operate but did not accede.
-**Hidden Agenda:** The Nizam used this 1-year pause to smuggle arms (via Sydney Cotton) and strengthen his Razakars for a war. Patel used the time to prepare the Indian Army for Operation Polo.
-
----
-
-## BLOCK 22: THE FIRST MOVERS
-*Breaking the Unity of Princes.*
-
-### 👑 BARODA & BIKANER
-**Baroda (Pratap Singh Gaekwad):**
-- **The Move:** He was the first ruler to join the Constituent Assembly of India in **April 1947**, signaling that the Princes would not boycott the new nation.
-
-**Bikaner (Sadul Singh I):**
-- **The Move:** He was the first ruler to sign the Instrument of Accession on **August 7, 1947**.
-- **Impact:** His signature broke the "wait and watch" alliance of the other Rajput princes, causing a domino effect where most others signed within a week.
-
----
-
-## BLOCK 23: BUTLER COMMITTEE (1927)
-*The Definition of Paramountcy.*
-
-### ⚖️ "PARAMOUNTCY MUST REMAIN PARAMOUNT"
-**Chairman:** Sir Harcourt Butler.
-**Context:** The Princes were worried that if the British left, the Congress would take over their rights. They wanted a guarantee that their relationship was with the British Crown, not the Government of India.
-**The Verdict:** The Committee rejected this. It stated that "**Paramountcy must remain paramount**," meaning the British Government (and its successor) held supreme power over the states.
-**Legacy:** This legal precedent allowed Patel to argue that the Government of Independent India inherited this "Paramountcy."
-
----
-
-## BLOCK 24: TRAVANCORE-COCHIN (1949)
-*The Precursor to Kerala.*
-
-### 🌴 THIRU-KOCHI
-**The Union:** While the North had PEPSU and Saurashtra, the South had Travancore-Cochin.
-**Formed:** July 1, 1949.
-**Head:** The Maharaja of Travancore became the Rajpramukh.
-**Capital:** Trivandrum.
-**Fate:** In 1956, the Tamil-speaking areas (Kanyakumari) were given to Madras, and the Malayalam-speaking Malabar district (from Madras) was added to it to form the modern state of **Kerala**.
-
----
-
-## BLOCK 25: V.P. MENON
-*The Architect's Record.*
-
-### 📚 THE STORY OF INTEGRATION
-**The Man:** **Vappala Pangunni Menon**. He rose from a lowly clerk to the Constitutional Adviser to the Viceroy.
-**The Book:** *The Story of the Integration of the Indian States*.
-**Significance:** It is the primary historical source for everything we know about the threats, diplomacy, and drama of this period. Without his meticulous record-keeping, much of this history would be lost.
-
----
-
-## BLOCK 26: FORMATION OF RAJASTHAN (1948-49)
-*The Largest Merger.*
-
-### 🏰 MATSYA to GREATER RAJASTHAN
-The integration of Rajputana was so complex it took 7 stages. The key ones were:
-1.  **Matsya Union (March 1948):** Alwar, Bharatpur, Dholpur, Karauli.
-2.  **Rajasthan Union (March 1948):** Kota, Bundi, Jhalawar, etc.
-3.  **United State of Rajasthan (April 1948):** Udaipur (Mewar) joined. Maharana Bhopal Singh became the Rajpramukh.
-4.  **Greater Rajasthan (March 30, 1949):** The giants joined—Jaipur, Jodhpur, Bikaner, Jaisalmer.
-    - **Capital:** Jaipur.
-    - **Premier:** Hiralal Shastri.
-    - **Significance:** March 30 is celebrated as **Rajasthan Diwas**.
-
----
-
-## BLOCK 27: HIMACHAL PRADESH (April 1948)
-*The Hill State Model.*
-
-### 🏔️ Y.S. PARMAR
-**Context:** There were 30 small hill states (Mandi, Chamba, Suket, Sirmour, etc.) in the Shimla hills.
-**The Merger:** Unlike others that merged into a large province (like Punjab), these states were merged together to form a Chief Commissioner's Province named **Himachal Pradesh** on April 15, 1948.
-**Leader:** **Dr. Yashwant Singh Parmar** (The architect of Himachal).
-**Evolution:** It remained a Union Territory until 1971, when it became the 18th full state of India.
-
----
-
-## BLOCK 28: VINDHYA PRADESH (1948)
-*The Central Union.*
-
-### 🛤️ REW & BUNDELKHAND
-**Formation:** Created by merging 35 princely states of Bundelkhand and Baghelkhand (including Rewa, Panna, Orchha).
-**Capital:** Rewa.
-**Fate:** It existed as a Part B/Part C state until 1956, when the States Reorganization Act merged it into **Madhya Pradesh**.
-
----
-
-## BLOCK 29: TRIPURA (Oct 1949)
-*The Regent Queen.*
-
-### 👑 MAHARANI KANCHAN PRABHA DEVI
-**Context:** The King died in 1947, leaving a minor son. The kingdom was ruled by the Regent Queen, **Kanchan Prabha Devi**.
-**Pressure:** With refugees flooding in from East Pakistan and communist insurgents rising, the state administration collapsed.
-**The Merger:** She signed the Merger Agreement on **Oct 15, 1949**, dissolving the monarchy to save the state from chaos.
-**Unique Fact:** Unlike Manipur (forced), Tripura's merger was largely seen as a necessity for survival against the demographic pressure from East Pakistan.
-
----
-
-## BLOCK 30: TEHRI GARHWAL (Aug 1949)
-*The Martyrdom.*
-
-### 🕯️ SRI DEV SUMAN
-**Context:** Tehri was a hill state in present-day Uttarakhand.
-**The Hero:** **Sri Dev Suman**, a Praja Mandal leader.
-**The Sacrifice:** He demanded civil rights and responsible government. He was jailed and died after an **84-day hunger strike** in 1944.
-**Impact:** His death galvanized the people. When India became independent, the Saklana Revolt (1947) broke out.
-**Merger:** The Maharaja (Manabendra Shah) signed the merger agreement in Aug 1949. Tehri became part of UP (now Uttarakhand).
-
----
-
-## BLOCK 31: COOCH BEHAR (Jan 1950)
-*The Last Piece of Bengal.*
-
-### 🏰 JAGADDIPENDRA NARAYAN
-**Location:** North Bengal.
-**The Issue:** It had a mixed population and was close to East Pakistan.
-**The Merger:** It first signed the Instrument of Accession (1947) but was finally merged into the province of **West Bengal** on Jan 1, 1950, just days before the Republic was born.
-
----
-
-## BLOCK 32: THE NEHRU-PATEL DIVIDE
-*Who Handled What?*
-
-### 📁 STATES DEPT vs MEA
-**The General Rule:** **Sardar Patel** (Home/States Minister) handled 561 states.
-**The Exception:** **Jawaharlal Nehru** (PM/External Affairs) handled **Jammu & Kashmir**.
-
-**Why?**
-- **International Issue:** Because of the UN involvement and Pakistan's invasion, it was treated as a foreign affairs/defense issue.
-- **Personal Link:** Nehru was a Kashmiri Pandit and had a close friendship with Sheikh Abdullah (leader of the National Conference).
-
-**Result:** This dual track is often debated by historians as a reason for the complexity of the Kashmir issue today.
-
----
-
-## BLOCK 33: THE IRON LEGACY
-*The Modern Symbol.*
-
-### 🗽 STATUE OF UNITY
-**Location:** Kevadia, Gujarat (facing the Narmada Dam).
-**Height:** 182 meters (Tallest in the world).
-**Symbolism:** Dedicated to Sardar Vallabhbhai Patel for his role in unifying the 562 princely states.
-**Connection:** It stands on the land of the former princely state of **Rajpipla**, symbolizing the very integration he achieved.
-
----
-
-## BLOCK 34: MADHYA BHARAT (May 1948)
-*The Rivalry of Giants.*
-
-### ⚔️ GWALIOR vs INDORE
-**Context:** Central India had two powerful Maratha states: Gwalior (Scindias) and Indore (Holkars). They were historical rivals and refused to merge.
-**Patel's Solution:** He forced them into a Union called **Madhya Bharat**.
-
-**The Compromise:**
-- **Rajpramukh (Head):** Jiwajirao Scindia (Gwalior).
-- **Up-Rajpramukh (Deputy):** Yashwantrao Holkar II (Indore).
-- **Capitals:** Two capitals! Gwalior (Winter) and Indore (Summer).
-- **Fate:** Merged into Madhya Pradesh in 1956.
-
----
-
-## BLOCK 35: THE COVENANT
-*Beyond Accession.*
-
-### 📜 CREATING A NEW STATE
-**Instrument of Accession:** Signed by a single ruler to join India (e.g., Hari Singh of Kashmir).
-**The Covenant:** A more complex treaty signed by multiple rulers to **dissolve their individual states and form a new Union** (e.g., The Covenant of Rajasthan, The Covenant of PEPSU).
-**Significance:** This legal instrument permanently ended the existence of the old princely states, creating a new political entity within the Indian Union.
-
----
-
-## BLOCK 36: KASHMIR STANDSTILL AGREEMENT
-*The Nuance.*
-
-### ⏳ INDIA REFUSED
-**Fact:** Maharaja Hari Singh wanted to sign a Standstill Agreement with both India and Pakistan in Aug 1947 to buy time.
-**Pakistan:** Accepted it immediately (hoping to eventually swallow the state).
-**India:** **Refused** to sign it. Nehru and Patel insisted that no agreement could be signed without a popular government (democracy) in place first. This refusal is why Indian troops could not legally enter Kashmir until the actual Accession on Oct 26.
-
----
-
-## BLOCK 37: RAMPUR & BANARAS
-*The UP States.*
-
-### 🏰 MERGER INTO PROVINCE
-**Context:** The United Provinces (UP) had two significant states: Rampur (Muslim Nawab) and Banaras (Hindu Maharaja).
-**Process:** Unlike Rajasthan or MP where new unions were formed, these were simply merged into the existing United Provinces.
-**Banaras:** The state of Banaras was dissolved and merged into UP in 1949. The Maharaja remained a titular head of Kashi culture but lost political power.
-
----
-
-## BLOCK 38: MOUNTBATTEN'S DUAL ROLE
-*Governor-General till 1948.*
-
-### 🇬🇧 WHY HE STAYED
-**The Request:** Nehru asked Mountbatten to stay on as the first **Governor-General of Independent India** (Aug 1947 - June 1948).
-**The Reason:** To use his influence with the Princes (who trusted him as royalty) and to manage the military division/partition chaos.
-**Jinnah's Choice:** Pakistan refused this arrangement; Jinnah became his own Governor-General.
-
----
-
-## BLOCK 39: THE RACE FOR LAKSHADWEEP (Aug 1947)
-*The 30-Minute Victory.*
-
-### 🏝️ PATEL'S NAVY
-**Context:** Lakshadweep (then Laccadive, Minicoy, and Amindivi Islands) was a Muslim-majority territory administered from Madras.
-**The Threat:** Pakistan assumed that since it was Muslim-majority and an island, they could claim it. A Pakistani warship was reportedly sent from Karachi to hoist their flag.
-**Patel's Action:** The Mudaliar brothers (Arcot Ramasamy and Lakshmanasamy) alerted Patel. He immediately ordered the Mudaliar ship (with a police party) to sail from Travancore.
-**The Climax:** The Indian police landed on the islands and hoisted the Indian Tricolor. **About 30 minutes later**, the Pakistani ship arrived, saw the Indian flag, and turned back.
-**Significance:** If India had lost Lakshadweep, its control over the Arabian Sea trade routes would have been compromised forever.
-
----
-
-## BLOCK 40: ANDAMAN & NICOBAR ISLANDS
-*The Strategic Outpost.*
-
-### ⚓ JINNAH'S CLAIM
-**The Claim:** Jinnah demanded the Andaman & Nicobar Islands for Pakistan, arguing they were part of the "chain of Muslim lands" connecting West and East Pakistan by sea.
-**The Reality:** The British (Chiefs of Staff) considered keeping them as a British strategic base (like Diego Garcia) in the Indian Ocean.
-**Nehru's Stance:** Nehru firmly told Mountbatten that the islands were integral to India (referencing the Freedom Struggle history of the Cellular Jail).
-**Outcome:** The British agreed to hand them over to India on August 15, 1947.
-
----
-
-## BLOCK 41: THE FRENCH LOGES (1947)
-*The Tiny Enclaves.*
-
-### 🏰 MASULIPATNAM & CALICUT
-**What were they?** Apart from the 5 main settlements (Pondicherry, etc.), the French had "Loges" (small factories/trading posts) inside British Indian cities like Masulipatnam, Calicut, and Surat.
-**The Action:** In October 1947, local Indian activists (with tacit support from the Madras Government) occupied these Loges.
-**Result:** France protested but eventually accepted the fait accompli, realizing they could not defend isolated buildings inside Indian territory.
-
----
-
-## BLOCK 42: THE KHASI STATES (1947-48)
-*The Northeast Exception.*
-
-### 🏔️ FEDERATION OF 25
-**Context:** The Khasi Hills (Meghalaya) had 25 small chieftains (Syierns).
-**The Leader:** **G.G. Swell** and other leaders formed a "Federation of Khasi States."
-**The Instrument:** They signed a Standstill Agreement in Aug 1947 but hesitated to sign the Instrument of Accession, wanting special status.
-**Integration:** Patel and Akbar Hydari (Governor of Assam) negotiated patiently. They signed the Instrument of Accession in 1948, becoming part of Assam (later Meghalaya).
-
----
-
-## BLOCK 43: BILASPUR (1948-1954)
-*The Dam State.*
-
-### 🌊 RAJA ANAND CHAND
-**The Anomaly:** While other hill states merged to form Himachal Pradesh in 1948, the tiny state of Bilaspur was kept separate as a Part C State.
-**The Reason:** The massive **Bhakra Nangal Dam** was being built there.
-- The Raja (Anand Chand) demanded control over the rehabilitation of his submerged capital.
-- The Central Govt needed direct control over the dam site.
-**The Merger:** Once the dam construction was stable, Bilaspur was finally merged into Himachal Pradesh in 1954 (becoming the 5th district).
-
----
-
-## BLOCK 44: DADRA & NAGAR HAVELI (1954-1961)
-*The "Free State" of India.*
-
-### 🚩 VARISHTA PANCHAYAT
-**Liberation:** Volunteers (**Azad Gomantak Dal**) liberated these Portuguese enclaves in July/August 1954. The Portuguese fled.
-**Status:** For 7 years (1954-1961), it was **neither Portuguese nor officially Indian** (due to a case in the International Court of Justice).
-**Administration:** It was ruled by a "Varishta Panchayat" (Senior Council) as a **de facto independent country** managed by an Indian administrator (K.G. Badlani).
-**Integration:** It formally merged with India as a Union Territory in 1961 (10th Amendment).
-
----
-
-## BLOCK 45: ECONOMIC INTEGRATION
-*Killing the Feudal Economy.*
-
-### 💰 JAGIRDARI ABOLITION
-**Political vs Economic:** Accession meant the King lost power. Jagirdari Abolition meant the feudal lords (Thakurs/Zamindars) lost their land.
-**Rajasthan:** The most difficult state. Jagirdars controlled 60% of the land.
-**The Act:** The Rajasthan Land Reforms and Resumption of Jagirs Act (1952).
-**Resistance:** The Jagirdars formed the **Bhooswami Sangh** to oppose it violently. It took years of negotiation by Govind Ballabh Pant to finally end feudalism in the states.
-
----
-
-## BLOCK 46: WOMEN IN PRAJA MANDALS
-*The Silent Force.*
-
-### 👩💼 RATNA SHASTRI & ANJANA DEVI
-**Jaipur:** **Ratna Shastri** (wife of Hiralal Shastri) mobilized women during the 1939 satyagraha when men were jailed.
-**Udaipur:** **Anjana Devi Chaudhary** was a fierce leader in the Mewar Praja Mandal.
-**Mysore:** **Yashodhara Dasappa** played a key role in the "Mysore Chalo" movement (1947).
-
----
-
-## BLOCK 47: THE ATTACHÉ SCHEME (1943)
-*The Precursor.*
-
-### 📎 CLUMPING BEFORE MERGER
-**Context:** Long before Patel, the British realized small states were unviable.
-**The Scheme:** In 1943, the Crown Representative "attached" hundreds of tiny states in Kathiawar and Gujarat to larger states (like Baroda) for administrative purposes (police/justice).
-**Significance:** This created the administrative precedent that Patel later used to justify full mergers.
-
----
-
-## BLOCK 48: SUNDERLAL COMMITTEE (1949)
-*The Aftermath of Hyderabad.*
-
-### 📄 THE HIDDEN TRAGEDY
-**Context:** After Operation Polo (Sept 1948), there were reports of massive retaliatory violence against Muslims in the districts of Hyderabad.
-**The Committee:** Nehru appointed a goodwill mission led by **Pandit Sunderlal** and **Qazi Abdul Ghaffar**.
-**The Report:** It estimated that between 27,000 to 40,000 people lost their lives in the violence after the police action.
-**Significance:** The report was not made public for decades but highlighted the messy, bloody reality of integration that often gets glossed over.
-
----
-
-## BLOCK 49: KUTCH (June 1948)
-*The Border Sentinel.*
-
-### 🏜️ MAHARAO MADANSINHJI
-**Context:** Kutch was a large state bordering Pakistan (Sindh). It was strategically vital.
-**The Action:** The Maharao signed the merger agreement on May 4, 1948.
-**Status:** Unlike other states that merged into provinces, Kutch was made a **Chief Commissioner's Province** (centrally administered) because of its sensitive border with Pakistan.
-**Fate:** It remained under central control until 1956, when it was merged into the Bombay State (and later Gujarat in 1960).
-
----
-
-## BLOCK 50: MADHAV RAO SCINDIA CASE (1971)
-*The Legal Epilogue.*
-
-### ⚖️ PRIVY PURSE ABOLITION
-**Context:** In 1970, Indira Gandhi's government passed an order derecognizing all rulers and stopping their Privy Purses.
-**The Challenge:** **Madhav Rao Scindia** (Gwalior) challenged this in the Supreme Court.
-**The Verdict (Dec 1970):** The Supreme Court struck down the government order, calling it unconstitutional and a breach of the solemn promises made by Patel in 1947.
-**The Counter:** Indira Gandhi then passed the **26th Constitutional Amendment (1971)** to legally abolish the Privy Purses and titles forever.
-
----
-
-## BLOCK 51: MAHE (1954)
-*The Revolt in the West.*
-
-### 🌴 THE MAYYAZHI REVOLT
-**Context:** While Pondicherry (East Coast) was the main French HQ, Mahe (West Coast, Kerala) had a distinct revolt.
-**Leader:** **I.K. Kumaran** (The "Mayyazhi Gandhi").
-**Action:** In July 1954, activists stormed the government house and lowered the French flag before the official de facto transfer.
-**Significance:** It showed that the French enclaves were falling like dominoes due to local pressure.
-
----
-
-## BLOCK 52: THE STATE DEPARTMENT'S END
-*Mission Accomplished.*
-
-### 🏁 CLOSING THE FILE
-**Date:** The Ministry of States (created in June 1947) was dissolved in **1955**.
-**Reason:** Its work was done. The distinction between "British India" and "Princely India" had vanished.
-**Legacy:** The surviving files of this ministry are the most crucial primary sources for understanding modern India's creation.
-
----
-
-## BLOCK 53: THE "THIRD FORCE" ATTEMPT
-*The Princes' Last Stand.*
-
-### 👑 PRINCESSTAN
-**The Plot:** Led by the **Nawab of Bhopal** (Hamidullah Khan) and the **Maharaja of Indore**.
-**The Idea:** To form a confederation of Princely States (Rajasthan + Central India + Hyderabad) that would be a third dominion ("**Princesstan**") alongside India and Pakistan.
-
-**The Failure:**
-- **Jodhpur defected** (thanks to Menon).
-- **Udaipur refused to join**, saying "My ancestors did not bow to the Mughals, I will not bow to Pakistan."
-- **Patel's Divide & Rule:** He offered better Privy Purses to individual rulers who broke away from the confederation.
-`;
-

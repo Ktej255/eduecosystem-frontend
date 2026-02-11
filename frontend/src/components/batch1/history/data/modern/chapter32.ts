@@ -1,780 +1,1160 @@
-export interface Subtopic {
-    id: string;
-    name: string;
-    status?: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    cognitiveLevel?: string;
-}
-
-export const MODERN_CHAPTER_32_SUBTOPICS: Subtopic[] = [
-    { id: '1', name: "Rise of Trade Unionism After WWI", status: 'done' },
-    { id: '2', name: "Formation of AITUC (1920)", status: 'done' },
-    { id: '3', name: "The Trade Union Act, 1926", status: 'done' },
-    { id: '4', name: "Communist Influence & Splits in AITUC", status: 'done' },
-    { id: '5', name: "The Working Class During WWII & Independence", status: 'done' },
-];
+import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_32_MCQS: Question[] = [
     {
-        id: 1,
-        question: "Who is considered the 'Father of the Trade Union Movement' in India?",
-        options: ["B.P. Wadia", "N.M. Lokhande", "Lala Lajpat Rai", "V.V. Giri"],
-        correctAnswer: 1,
-        explanation: "N.M. Lokhande founded the Bombay Millhands Association in 1890.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 1,
+        "question": "The Congress Ministries were formed in the provinces following the elections held under which Act?",
+        "options": [
+            "Government of India Act 1919",
+            "Government of India Act 1935",
+            "Indian Councils Act 1909",
+            "Indian Independence Act 1947"
+        ],
+        "answerRaw": "B. Government of India Act 1935",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 2,
-        question: "The first Factory Act in India was passed in which year?",
-        options: ["1881", "1891", "1911", "1922"],
-        correctAnswer: 0,
-        explanation: "The Factory Act of 1881 primarily focused on child labor issues.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 2,
+        "question": "In how many provinces did the Congress form ministries initially in 1937?",
+        "options": [
+            "5",
+            "7",
+            "9",
+            "11"
+        ],
+        "answerRaw": "B. 7 (Later increased to 8).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 3,
-        question: "The 'Madras Labour Union', formed in 1918, was led by:",
-        options: ["N.M. Joshi", "B.P. Wadia", "Diwan Chaman Lall", "Joseph Baptista"],
-        correctAnswer: 1,
-        explanation: "It was the first clearly registered trade union in the modern sense.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 3,
+        "question": "Which of the following provinces did NOT have a Congress ministry immediately after the 1937 elections?",
+        "options": [
+            "United Provinces",
+            "Bihar",
+            "Bengal",
+            "Madras"
+        ],
+        "answerRaw": "C. Bengal (A coalition led by the Krishak Praja Party and Muslim League was formed).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
     },
     {
-        id: 4,
-        question: "Who was the first President of the All India Trade Union Congress (AITUC)?",
-        options: ["Jawaharlal Nehru", "Lala Lajpat Rai", "V.V. Giri", "C.R. Das"],
-        correctAnswer: 1,
-        explanation: "Lala Lajpat Rai was the first president at the Bombay session in 1920.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 4,
+        "question": "The Congress ministries remained in power for a period of approximately:",
+        "options": [
+            "12 months",
+            "28 months",
+            "48 months",
+            "6 months"
+        ],
+        "answerRaw": "B. 28 months (From July 1937 to October 1939).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 5,
-        question: "The 'Textile Labour Association' in Ahmedabad was founded by:",
-        options: ["N.M. Lokhande", "Anusuya Sarabhai", "Mahatma Gandhi", "Both (b) and (c)"],
-        correctAnswer: 3,
-        explanation: "It was based on Gandhi's theory of Trusteeship.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 5,
+        "question": "Who was the Premier (Chief Minister) of the Congress ministry in the Madras Presidency?",
+        "options": [
+            "C. Rajagopalachari",
+            "T. Prakasam",
+            "K. Kamaraj",
+            "S. Satyamurti"
+        ],
+        "answerRaw": "A. C. Rajagopalachari",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 6,
-        question: "The Trade Union Act, 1926, provided for:",
-        options: ["Compulsory membership.", "Legal status and protection for registered trade unions.", "Ban on strikes.", "Minimum wage fixing."],
-        correctAnswer: 1,
-        explanation: "It allowed unions to be registered and provided immunity from civil and criminal liability in some cases.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 6,
+        "question": "The Congress ministries resigned in October 1939 primarily because:",
+        "options": [
+            "They failed to handle the economy.",
+            "The British government involved India in World War II without consulting the Indian people or the provincial ministries.",
+            "The Muslim League won a vote of no-confidence.",
+            "Mahatma Gandhi ordered a new Satyagraha."
+        ],
+        "answerRaw": "B. Unilateral involvement of India in WWII.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 7,
-        question: "The 'Meerut Conspiracy Case' (1929) was directed against:",
-        options: ["Landlords", "Communist and labor leaders", "British officers", "Congress leaders"],
-        correctAnswer: 1,
-        explanation: "It was an attempt by the British to suppress the rising influence of Communists in the labor movement.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
+        "id": 7,
+        "question": "Which day was celebrated by the Muslim League as the 'Day of Deliverance' following the resignation of Congress ministries?",
+        "options": [
+            "August 15, 1939",
+            "December 22, 1939",
+            "January 26, 1940",
+            "March 23, 1940"
+        ],
+        "answerRaw": "B. December 22, 1939.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 8,
-        question: "Who was the first General Secretary of AITUC?",
-        options: ["Diwan Chaman Lall", "N.M. Joshi", "V.V. Giri", "S.A. Dange"],
-        correctAnswer: 0,
-        explanation: "Diwan Chaman Lall was the first General Secretary.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 8,
+        "question": "The 'Wardha Scheme of Basic Education' (Nai Talim) was launched during the Congress rule in:",
+        "options": [
+            "1935",
+            "1937",
+            "1939",
+            "1942"
+        ],
+        "answerRaw": "B. 1937.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 9,
-        question: "Which ideological group led the split in AITUC at the Nagpur session (1929)?",
-        options: ["Reformists (led by N.M. Joshi)", "Communists", "Congressites", "Gadhites"],
-        correctAnswer: 0,
-        explanation: "Differences over the issue of affiliation with international labor bodies led to the split.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
+        "id": 9,
+        "question": "To coordinate the activities of the provincial ministries and ensure they followed the Congress policy, a 'Parliamentary Sub-Committee' was formed. Who were its members?",
+        "options": [
+            "Nehru, Bose, and Azad",
+            "Sardar Patel, Rajendra Prasad, and Maulana Azad",
+            "Gandhi, Nehru, and Patel",
+            "C.R. Das and Motilal Nehru"
+        ],
+        "answerRaw": "B. Sardar Patel, Rajendra Prasad, and Maulana Azad.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 10,
-        question: "The 'Bombay Millhands Association' (1890) was notable because it was:",
-        options: ["A registered union.", "The first organization for workers in India.", "A political party.", "Led by the British."],
-        correctAnswer: 1,
-        explanation: "It was a pioneer organization, though not a union in the strictly modern legal sense.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 10,
+        "question": "In which province did the Congress form a coalition ministry with the Northwest Frontier Akali Party and others?",
+        "options": [
+            "Punjab",
+            "NWFP (North-West Frontier Province)",
+            "Sindh",
+            "Assam"
+        ],
+        "answerRaw": "B. NWFP (Under Dr. Khan Sahib).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 11,
+        "question": "The Congress ministries took significant steps to release political prisoners. In which provinces did the Governors initially create a constitutional crisis by opposing this?",
+        "options": [
+            "Madras and Bombay",
+            "Bihar and United Provinces",
+            "Punjab and Bengal",
+            "Assam and Orissa"
+        ],
+        "answerRaw": "B. Bihar and United Provinces.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 12,
+        "question": "The 'National Planning Committee' (1938) was set up by the Congress President:",
+        "options": [
+            "Jawaharlal Nehru",
+            "Subhash Chandra Bose",
+            "Mahatma Gandhi",
+            "Vallabhbhai Patel"
+        ],
+        "answerRaw": "B. Subhash Chandra Bose (though Nehru was the Chairman).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 13,
+        "question": "Who was the Chairman of the National Planning Committee?",
+        "options": [
+            "Subhash Chandra Bose",
+            "Jawaharlal Nehru",
+            "M. Visvesvaraya",
+            "Meghnad Saha"
+        ],
+        "answerRaw": "B. Jawaharlal Nehru.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 14,
+        "question": "The Congress ministries passed several laws to provide relief to which section of society from rural indebtedness?",
+        "options": [
+            "Industrialists",
+            "Peasants",
+            "Zamindars",
+            "British Officers"
+        ],
+        "answerRaw": "B. Peasants.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 15,
+        "question": "Which Congress-ruled province introduced 'Prohibition' (ban on liquor) for the first time on a large scale?",
+        "options": [
+            "Bihar",
+            "Madras",
+            "United Provinces",
+            "Orissa"
+        ],
+        "answerRaw": "B. Madras (under C. Rajagopalachari).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 16,
+        "question": "The 'Pirpur Committee' (1938) was appointed by the Muslim League to:",
+        "options": [
+            "Support the Congress ministries.",
+            "Prepare a report on the \"atrocities\" and discrimination allegedly committed by Congress ministries against Muslims.",
+            "Plan for the education of Muslims.",
+            "Negotiate with the British."
+        ],
+        "answerRaw": "B. Report on alleged Congress atrocities.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 17,
+        "question": "During the Congress rule, the 'Public Safety Act' and other repressive laws were:",
+        "options": [
+            "Doubled in strength.",
+            "Repealed or their implementation was suspended in most Congress provinces.",
+            "Used against the Congress leaders themselves.",
+            "Renamed."
+        ],
+        "answerRaw": "B. Repealed or suspended.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 18,
+        "question": "The 'Hindustani Seva Dal' and other volunteer organizations were:",
+        "options": [
+            "Banned by the Congress.",
+            "Given freedom to operate, and previous bans on them were lifted.",
+            "Absorbed into the British Army.",
+            "Sent to Japan."
+        ],
+        "answerRaw": "B. Bans lifted/given freedom.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 19,
+        "question": "The Congress ministries faced a challenge in 1938 when the Governor of Orissa wanted to appoint a junior British officer as acting Governor. This is known as the:",
+        "options": [
+            "Orissa Incident",
+            "Dain Case",
+            "Nilgiri Crisis",
+            "Cuttack Conflict"
+        ],
+        "answerRaw": "B. Dain Case (After J.R. Dain).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 20,
+        "question": "In Bombay, the Congress ministry passed the 'Industrial Disputes Act' in 1938. Which leader/group opposed it through a massive strike?",
+        "options": [
+            "Sardar Patel",
+            "B.R. Ambedkar and the Communists",
+            "The Muslim League",
+            "The British Mill-owners"
+        ],
+        "answerRaw": "B. B.R. Ambedkar and the Communists.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 21,
+        "question": "The 'Sri Narayana Guru' influence helped the Congress in which province's social reform agenda?",
+        "options": [
+            "Madras",
+            "Travancore (though not a province, influence was felt in Malabar/Madras)",
+            "Bihar",
+            "Bombay"
+        ],
+        "answerRaw": "B. Influence felt in the Malabar region of Madras province.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 22,
+        "question": "Which province's Congress ministry was led by Govind Ballabh Pant?",
+        "options": [
+            "Bihar",
+            "United Provinces",
+            "Central Provinces",
+            "Orissa"
+        ],
+        "answerRaw": "B. United Provinces.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 23,
+        "question": "The 'Vidya Mandir' scheme of education was introduced in which province?",
+        "options": [
+            "United Provinces",
+            "Central Provinces and Berar",
+            "Bombay",
+            "Madras"
+        ],
+        "answerRaw": "B. Central Provinces and Berar.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 24,
+        "question": "Who was the Premier of the Congress ministry in Bihar?",
+        "options": [
+            "Anugrah Narayan Sinha",
+            "Sri Krishna Sinha",
+            "Rajendra Prasad",
+            "Jagjivan Ram"
+        ],
+        "answerRaw": "B. Sri Krishna Sinha.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 25,
+        "question": "The Congress ministries worked under the 'Special Powers' of the Governors. These powers were popularly known as:",
+        "options": [
+            "Veto Powers",
+            "Safeguards",
+            "Ordinances",
+            "Royal Prerogatives"
+        ],
+        "answerRaw": "B. Safeguards.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 26,
+        "question": "To increase contact with the Muslim masses, the Congress launched which program in 1937?",
+        "options": [
+            "Muslim Outreach",
+            "Muslim Mass Contact Programme",
+            "Khilafat Revival",
+            "Urdu Education Scheme"
+        ],
+        "answerRaw": "B. Muslim Mass Contact Programme (led by Nehru).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 27,
+        "question": "The 'Sharecroppers' (Bargadars) of Bengal felt neglected by the ministries because the Congress was not in power there. Which movement did they start later?",
+        "options": [
+            "Indigo",
+            "Tebhaga",
+            "Bakasht",
+            "Eka"
+        ],
+        "answerRaw": "B. Tebhaga.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 28,
+        "question": "The Congress ministries took steps to promote which type of industries?",
+        "options": [
+            "Heavy Steel only",
+            "Village and Cottage industries (Khadi)",
+            "British imports",
+            "Weapon factories"
+        ],
+        "answerRaw": "B. Village and Cottage industries.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 29,
+        "question": "'Linguistic Provinces' was a demand supported by Congress. During 1937-39, which province's legislature passed a resolution for a separate Andhra province?",
+        "options": [
+            "Bombay",
+            "Madras",
+            "Central Provinces",
+            "Orissa",
+            "Lord Irwin",
+            "Lord Linlithgow",
+            "Lord Willingdon",
+            "Lord Wavell"
+        ],
+        "answerRaw": "B. Lord Linlithgow.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 30,
+        "question": "Before accepting office in 1937, the Congress demanded an assurance from the British government regarding the Governors' 'Special Powers.' What was the core of this demand?",
+        "options": [
+            "That the Governors should be replaced by Indians immediately.",
+            "That the Governors would not use their \"discretionary powers\" or \"safeguards\" to interfere in the day-to-day constitutional activities of the ministries.",
+            "That the Congress would be allowed to stop paying all taxes to the British.",
+            "That the Governors must join the Congress party."
+        ],
+        "answerRaw": "B. Non-interference in constitutional activities.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "The \"Office Acceptance\" in 1937 was a subject of intense debate within the Congress. What was the 'Leftist' (Nehru/Bose) view on this?",
+        "options": [
+            "They felt it would lead to total independence in one year.",
+            "They opposed it, fearing it would lead to \"Reformism\" and a loss of revolutionary spirit, essentially making the Congress a partner in British administration.",
+            "They wanted to accept office to get high-paying jobs for themselves.",
+            "They believed the British had finally become democratic."
+        ],
+        "answerRaw": "B. Fear of reformism and loss of revolutionary spirit.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 32,
+        "question": "Consider the following statements regarding the 'Civil Liberties' during the Congress rule (1937-39): 1. Emergency powers acquired by the provincial governments during the Civil Disobedience era were repealed. 2. The ban on several radical organizations like the Communist Party remained in place in most provinces. 3. Confiscated arms licenses and lands were restored to the original owners in many cases. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "C. 1 and 3 only.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 33,
+        "question": "The 'Bombay Industrial Disputes Act' (1938) created a rift between the Congress and the Leftists/Labor leaders. Why?",
+        "options": [
+            "The Act provided too much money to the workers.",
+            "It made arbitration compulsory and restricted the right to strike, which the Left saw as an attempt to curb class struggle in favor of \"National Capitalists.\"",
+            "It abolished the minimum wage.",
+            "It forced all workers to join the Congress."
+        ],
+        "answerRaw": "B. Compulsory arbitration and strike restriction.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 34,
+        "question": "With reference to the 'Agrarian Reforms' of 1937-39, consider the following: Statement-I: The Congress ministries were more successful in providing debt relief than in implementing radical land redistribution or abolishing Zamindari. Statement-II: The Congress leadership wanted to maintain a \"United Front\" of all classes against the British and feared that radical land reform would alienate the powerful landlords. Which one of the following is correct?",
+        "options": [
+            "Both are correct and Statement-II explains the limitation mentioned in Statement-I.",
+            "Both are correct but Statement-II is false.",
+            "Statement-I is incorrect.",
+            "Both are false."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 35,
+        "question": "Why did the 'Muslim League's' strategy change from 'Cooperation' to 'Hostility' after the 1937 elections?",
+        "options": [
+            "The British ordered them to fight the Congress.",
+            "The Congress's \"Total Victory\" led them to reject the League's offer for a coalition in the United Provinces, convincing Jinnah that Muslims would be a \"marginalized minority\" under Congress rule.",
+            "The League won more seats than the Congress.",
+            "Jinnah wanted to become the Viceroy."
+        ],
+        "answerRaw": "B. Rejection of coalition and fear of marginalization.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 36,
+        "question": "The 'Pirpur Report' and the 'Shareef Report' were propaganda tools used by the League to claim that:",
+        "options": [
+            "The Congress was the best friend of the Muslims.",
+            "The \"Hindu Raj\" under Congress was suppressing Islamic culture and discriminating against Muslims in jobs and education.",
+            "The British were planning to leave India in 1940.",
+            "All Muslims should join the Congress."
+        ],
+        "answerRaw": "B. Allegations of \"Hindu Raj\" and discrimination.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 37,
+        "question": "The 'National Planning Committee' (1938) represented a significant shift in Congress's vision. What was it?",
+        "options": [
+            "A shift toward a purely agricultural economy.",
+            "The realization that political freedom must be accompanied by a state-led, planned industrial development of the country.",
+            "A plan to move the capital to Wardha.",
+            "A move to ban all foreign technology."
+        ],
+        "answerRaw": "B. State-led planned industrial development.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 38,
+        "question": "Consider the following regarding the 'Constitutional Crisis' in Bihar and UP (1938): 1. The Ministries resigned because the Governors refused to release political prisoners involved in revolutionary activities. 2. The crisis was resolved when the Viceroy and Governors eventually gave in, realizing that the Congress was prepared for a massive agitation. 3. Gandhi initially opposed the resignation. How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 39,
+        "question": "The 'Vidya Mandir' scheme in the Central Provinces was criticized by some Muslim leaders because:",
+        "options": [
+            "It was too expensive.",
+            "The name and certain rituals (like prayers) were seen as being \"too Hindu\" in character, contributing to communal tension.",
+            "It didn't teach English.",
+            "It was managed by the British army.",
+            "A decrease in the number of Congress members.",
+            "A massive jump in Congress membership (from 5 lakhs to 45 lakhs), making it a truly formidable mass organization.",
+            "The British government becoming a member of the Congress.",
+            "The end of all other political parties."
+        ],
+        "answerRaw": "B. Massive jump in membership/mass base.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 40,
+        "question": "The Congress ministries faced a dilemma when 'Peasant Movements' became radicalized and used \"unconstitutional\" methods. How did they respond?",
+        "options": [
+            "They always supported the peasants with arms.",
+            "They often used the police and \"law and order\" machinery to stop radical agitations, which led to criticism from the Congress's own Left wing.",
+            "They resigned immediately.",
+            "They joined the Kisan Sabhas."
+        ],
+        "answerRaw": "B. Use of state machinery against radicalism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 41,
+        "question": "What was the 'Dain Case' in Orissa?",
+        "options": [
+            "A dispute over a river.",
+            "A constitutional crisis where the Congress ministry successfully blocked the appointment of a junior British official as an acting Governor.",
+            "A fight between two landlords.",
+            "A scientific discovery in Cuttack."
+        ],
+        "answerRaw": "B. Blocking of a junior official's appointment as acting Governor.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 42,
+        "question": "The 'Congress Parliamentary Board' (Sardar Patel, etc.) was often called the \"High Command.\" Its main function was to:",
+        "options": [
+            "Lead the army.",
+            "Maintain strict discipline and ensure that the provincial ministries did not deviate from the national goals of the Congress.",
+            "Choose the Viceroy.",
+            "Collect taxes from the British."
+        ],
+        "answerRaw": "B. Maintain discipline and national policy alignment.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 43,
+        "question": "The 'Haripura Session' (1938) presided over by Bose is notable for:",
+        "options": [
+            "Ending the Congress ministries.",
+            "The formal resolution that the Congress would support the struggle of the people in the 'Princely States' (Praja Mandals).",
+            "Declaring war on Germany.",
+            "Gandhi's retirement from politics."
+        ],
+        "answerRaw": "B. Support for Praja Mandals in Princely States.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 44,
+        "question": "Why did the '28-month rule' prove that \"Indians could govern\"?",
+        "options": [
+            "Because they built a lot of palaces.",
+            "Because the ministries showed administrative efficiency, legislative capability, and a commitment to social welfare despite the \"safeguards\" of the Governors.",
+            "Because the British officers all resigned.",
+            "Because the economy of Britain grew faster."
+        ],
+        "answerRaw": "B. Demonstrated administrative and legislative capability.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 45,
+        "question": "The 'Harijan' welfare work during this period included:",
+        "options": [
+            "Giving everyone a government job.",
+            "Passing laws for 'Temple Entry' and providing educational scholarships/facilities for the depressed classes.",
+            "Forcing everyone to live in the same house.",
+            "Sending all Dalits to London."
+        ],
+        "answerRaw": "B. Temple Entry laws and educational facilities.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 46,
+        "question": "Consider the following regarding the 'resignation' in 1939:",
+        "options": [
+            "It was a sign of Congress's failure.",
+            "It was a \"Moral and Political Protest\" against the denial of India's right to self-determination during a global war for \"democracy.\"",
+            "It was done because the ministers were tired.",
+            "It was a secret plan to join the Japanese."
+        ],
+        "answerRaw": "B. Protest against denial of self-determination.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 47,
+        "question": "The 'Day of Deliverance' celebrated by the League was a signal that:",
+        "options": [
+            "They were happy the British were staying.",
+            "The bridge between the Congress and the League had almost completely broken, setting the stage for the 'Pakistan Resolution' of 1940.",
+            "The war was over.",
+            "They wanted to join the Congress ministries."
+        ],
+        "answerRaw": "B. Final breakdown of Congress-League relations.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 48,
+        "question": "Ultimately, the '1937–39' period was a \"dress rehearsal\" for:",
+        "options": [
+            "The 1942 movement.",
+            "The final transfer of power and the administration of independent India.",
+            "A movie about the freedom struggle.",
+            "The Olympics."
+        ],
+        "answerRaw": "B. Final transfer of power and administration.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 49,
+        "question": "The Government of India Act 1935 provided for \"Provincial Autonomy.\" However, the Congress viewed this autonomy as a \"hollow shell\" primarily because:",
+        "options": [
+            "The provinces had no control over agriculture.",
+            "The \"Special Responsibilities\" of the Governor gave him overriding powers in matters of \"safety and tranquility,\" making the ministers' authority precarious.",
+            "There were no provincial legislatures.",
+            "The British King could dissolve any ministry without reason."
+        ],
+        "answerRaw": "B. Governor's overriding powers via Special Responsibilities.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 50,
+        "question": "During the 1937 elections, the Congress used a specific strategy called the \"United Front.\" What did this entail?",
+        "options": [
+            "Joining hands with the Muslim League in every province.",
+            "Mobilizing all anti-imperialist classes—peasants, workers, and the middle class—under the single goal of wrecking the 1935 Act from within.",
+            "A military alliance with the French.",
+            "Ignoring the rural voters entirely."
+        ],
+        "answerRaw": "B. Mobilization of all anti-imperialist classes.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 51,
+        "question": "Consider the following regarding the 'Office Acceptance' debate: 1. The 'Right-Wing' (Patel/Rajagopalachari) argued that accepting office would provide a \"short-term relief\" to the masses and prove Indian administrative capability. 2. The 'Left-Wing' (Nehru/Bose) argued that it would lead to \"co-option\" into the colonial structure. 3. Mahatma Gandhi acted as the final mediator, suggesting that office should be accepted but with the spirit of \"non-cooperation from within.\" How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 52,
+        "question": "The 'AICC Resolution' of March 1937 permitted the acceptance of office only if:",
+        "options": [
+            "The British promised to leave by 1940.",
+            "The Governors gave an assurance that they would not use their 'special powers' to interfere with the constitutional activities of the ministries.",
+            "All political prisoners were released immediately.",
+            "Taxes were halved."
+        ],
+        "answerRaw": "B. Assurance of non-interference.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 53,
+        "question": "With reference to 'Civil Liberties' under the Congress Ministries, consider the following: Statement-I: In most provinces, the ministries successfully lifted bans on \"seditious\" literature and released \"political\" prisoners. Statement-II: However, they often struggled with \"Revolutionary Terrorists\" (as categorized by the British) whose release was strictly vetoed by the Governors. Which one is correct?",
+        "options": [
+            "Both are correct and represent the \"Constitutional Deadlock\" of 1938.",
+            "Statement-I is correct; Statement-II is false.",
+            "Statement-II is correct; Statement-I is false.",
+            "Both are false."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 54,
+        "question": "The 'Pant-Bose' conflict during the 1939 Tripuri session was a byproduct of the tension created by:",
+        "options": [
+            "The failure of the ministries.",
+            "Differing views on the \"timing\" of a mass struggle against the British now that the ministries had been in power for over two years.",
+            "A disagreement over the color of the flag.",
+            "Personal rivalry between the two leaders over the premiership of UP."
+        ],
+        "answerRaw": "B. Disagreement over the timing of a new mass struggle.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 55,
+        "question": "Which legal mechanism did the Congress use to provide 'Debt Relief' to peasants without technically violating the \"property rights\" of creditors?",
+        "options": [
+            "Total cancellation of all loans.",
+            "The 'Debt Conciliation Boards' and 'Moratorium Acts' which stayed the execution of court decrees and scaled down principal amounts.",
+            "Printing more money.",
+            "Moving all debts to the British Treasury."
+        ],
+        "answerRaw": "B. Debt Conciliation and Moratorium Acts.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 56,
+        "question": "The 'Muslim Mass Contact Programme' launched by Nehru in 1937 was primarily aimed at:",
+        "options": [
+            "Converting Muslims to Hinduism.",
+            "Reaching out directly to Muslim peasants and workers to show that their economic interests were aligned with the Congress, bypassing the \"communal\" elite.",
+            "Signing a deal with the Muslim League.",
+            "Teaching Urdu in all Congress schools."
+        ],
+        "answerRaw": "B. Reaching out to Muslim masses on economic grounds.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 57,
+        "question": "Consider the following regarding the 'National Planning Committee' (1938): 1. It was the first formal attempt by an Indian political body to envision a \"mixed economy.\" 2. It emphasized \"Industrialization\" while also supporting \"Cottage Industries\" as a transitional necessity. 3. It was chaired by Subhash Chandra Bose. How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 58,
+        "question": "The 'Shareef Report' (1938) published by the Bihar Muslim League was similar to the 'Pirpur Report' in that it:",
+        "options": [
+            "Praised the Congress for its secularism.",
+            "Listed alleged \"Hindu atrocities\" in Bihar to consolidate the Muslim vote behind the League.",
+            "Demanded a separate country named Pakistan.",
+            "Recommended that Muslims should join the Congress."
+        ],
+        "answerRaw": "B. Compilation of alleged \"Hindu atrocities.\"",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 59,
+        "question": "Why did the 'Congress Ministries' use Section 144 and the 'Criminal Law Amendment Act' against their own supporters (Labor/Peasant leaders) occasionally?",
+        "options": [
+            "They had become British agents.",
+            "To maintain \"Law and Order\" and prevent radical class-based violence that might jeopardize the \"National United Front.\"",
+            "By mistake.",
+            "To please the Muslim League.",
+            "Was too scientific.",
+            "Replaced the \"Academic\" curriculum with \"Manual/Craft\" labor, which they felt would keep Indians backward.",
+            "Was too expensive.",
+            "Taught only in Latin."
+        ],
+        "answerRaw": "B. Focus on manual craft over traditional academics.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 60,
+        "question": "In the 1937-39 period, the 'Congress High Command' (Parliamentary Board) acted as a \"Shadow Cabinet.\" This ensured:",
+        "options": [
+            "That all ministers got paid.",
+            "A uniform national policy across provinces, preventing the \"provincialization\" of the Congress movement.",
+            "That the British stayed in power.",
+            "The partition of India."
+        ],
+        "answerRaw": "B. Prevention of \"provincialization\" and ensuring uniform policy.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 61,
+        "question": "The 'Dain Case' in Orissa (1938) was a victory for the Congress because it:",
+        "options": [
+            "Won a court case about land.",
+            "Successfully asserted that the Ministry must be consulted on the appointment of even 'Acting' Governors, forcing the British to retreat.",
+            "Resulted in the arrest of J.R. Dain.",
+            "Led to the formation of a separate Andhra state."
+        ],
+        "answerRaw": "B. Asserted ministerial consultation rights.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 62,
+        "question": "Match the following 'Challenges' with the 'Response' of the Congress Ministries: 1. Rural Indebtedness — A. Prohibition 2. Low Literacy — B. Debt Conciliation Acts 3. Social Evils (Drinking) — C. Vidya Mandir/Basic Education Select the correct matching code:",
+        "options": [
+            "1-B, 2-C, 3-A",
+            "1-A, 2-B, 3-C",
+            "1-C, 2-B, 3-A",
+            "1-B, 2-A, 3-C"
+        ],
+        "answerRaw": "A. 1-B, 2-C, 3-A.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 63,
+        "question": "The 'Linguistic Provinces' demand was officially shelved during 1937-39 by the Congress ministries. Why?",
+        "options": [
+            "They hated regional languages.",
+            "They feared that creating linguistic provinces would trigger administrative chaos and divert focus from the primary goal of independence.",
+            "The British promised to do it themselves.",
+            "There was no demand for it."
+        ],
+        "answerRaw": "B. Fear of chaos and distraction from independence.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 64,
+        "question": "The 'Harijan' tour of Gandhi (1933-34) provided the \"Social Capital\" for the 1937-39 ministries to:",
+        "options": [
+            "Build more factories.",
+            "Pass legislation for 'Temple Entry' and 'Removal of Untouchability' in various provinces with minimal upper-caste backlash.",
+            "Join the British army.",
+            "Abolish the Congress."
+        ],
+        "answerRaw": "B. Passing of social reform legislation.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 65,
+        "question": "Consider the following regarding the 'Resignation of 1939': Statement-I: It was an \"escape route\" for the Congress because the ministries were failing to meet mass expectations. Statement-II: It was a \"principled withdrawal\" because India was declared a belligerent without the people's consent. Which is the dominant historical view?",
+        "options": [
+            "Statement-I",
+            "Statement-II",
+            "Both are equally true.",
+            "Neither is true."
+        ],
+        "answerRaw": "B. Statement-II",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 66,
+        "question": "The 'Day of Deliverance' (1939) marked the beginning of Jinnah’s:",
+        "options": [
+            "Return to the Congress.",
+            "\"Two-Nation Theory\" entering the phase of \"Direct Confrontation\" with the Congress.",
+            "Retirement.",
+            "Career as a British officer."
+        ],
+        "answerRaw": "B. Move toward direct confrontation.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 67,
+        "question": "'C. Rajagopalachari' in Madras was particularly praised by the British for his:",
+        "options": [
+            "Revolutionary speeches.",
+            "Financial and administrative skill, which showed that the \"Shadow of the 1935 Act\" could be made to work efficiently.",
+            "Support for the Japanese.",
+            "Hatred of English.",
+            "Congress, British, and Japan.",
+            "Congress Ministry, Peasants (Kisan Sabhas), and Landlords.",
+            "Hindus, Muslims, and Sikhs.",
+            "Men, Women, and Children."
+        ],
+        "answerRaw": "B. Ministry, Peasants, and Landlords.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 68,
+        "question": "How did the '1935 Act' restrict the 'Financial Autonomy' of the ministries?",
+        "options": [
+            "The British took all the money to London.",
+            "A large part of the budget (defense, debt interest, etc.) was \"Non-Votable\" and under the Governor-General’s control.",
+            "The ministries were not allowed to collect any taxes.",
+            "Only coins were allowed, no paper money."
+        ],
+        "answerRaw": "B. Large portion of the budget was \"Non-Votable.\"",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 69,
+        "question": "The 'Public Safety Act' was used by some Congress ministries to:",
+        "options": [
+            "Protect the British Governor.",
+            "Curb 'Communal Violence' and 'Incitement to Hatred', showing that they were \"Responsible Governments.\"",
+            "Arrest Mahatma Gandhi.",
+            "Close all schools."
+        ],
+        "answerRaw": "B. Curbing communal violence and incitement.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 70,
+        "question": "'Subhash Chandra Bose' as Congress President (1938) emphasized which of the following?",
+        "options": [
+            "Total non-violence always.",
+            "The need for a \"Time-Bound Ultimatum\" to the British for independence.",
+            "Joining the British Cabinet.",
+            "Supporting the Muslim League."
+        ],
+        "answerRaw": "B. Time-bound ultimatum for independence.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 71,
+        "question": "The 'Congress ministries' promoted 'Primary Education' by:",
+        "options": [
+            "Forcing everyone to go to Oxford.",
+            "Increasing the education budget and launching 'Mass Literacy' campaigns.",
+            "Making only Latin compulsory.",
+            "Closing all private schools."
+        ],
+        "answerRaw": "B. Increased budget and mass literacy campaigns.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 72,
+        "question": "Why did the 'Labour' movement feel \"betrayed\" by the Congress ministries by 1939?",
+        "options": [
+            "The ministries gave too much money to landlords.",
+            "The use of police against strikes and the passing of the 'Industrial Disputes Act' (Bombay) were seen as \"Anti-Worker.\"",
+            "The ministers refused to meet them.",
+            "The ministries supported the war."
+        ],
+        "answerRaw": "B. Use of police and \"Anti-Worker\" legislation.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 73,
+        "question": "The '28-month' rule proved that the 'ICS' (Indian Civil Service) could:",
+        "options": [
+            "Be fired by the ministers easily.",
+            "Work under Indian political masters, provided there was a clear chain of command and constitutional backing.",
+            "Only work for the British.",
+            "Join the Congress party."
+        ],
+        "answerRaw": "B. Civil service capability to work under Indian political leadership.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 74,
+        "question": "'Prohibition' was a 'Gandhian' policy implemented by the ministries. What was its \"economic\" impact?",
+        "options": [
+            "It made the government very rich.",
+            "It led to a significant loss of 'Excise Revenue', which the ministries tried to compensate for by introducing 'Sales Tax'.",
+            "It stopped all trade with Britain.",
+            "It resulted in the end of farming."
+        ],
+        "answerRaw": "B. Loss of excise revenue and introduction of Sales Tax.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 75,
+        "question": "'Linguistic Provinces' resolution in Madras (1938) was specifically for which language group?",
+        "options": [
+            "Tamil",
+            "Telugu (Andhra)",
+            "Kannada",
+            "Malayalam"
+        ],
+        "answerRaw": "B. Telugu (Andhra).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 76,
+        "question": "Ultimately, the 'Challenges Before the Congress (1937–39)' (Chapter 32) demonstrated that:",
+        "options": [
+            "Congress was a failing party.",
+            "The struggle for independence was as much \"Internal\" (managing contradictions/governance) as it was \"External\" (fighting the British).",
+            "The British would never leave.",
+            "Jinnah was the real leader of India."
+        ],
+        "answerRaw": "B. Struggle involved both internal governance and external fight.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     }
 ];
-
-export const MODERN_CHAPTER_32_CONTENT = `
-# Chapter 32: The Movement of the Working Class
-
-*The "Hammer & The Wheel": From unorganized philanthropic efforts to the organized Trade Union movement that terrified the British.*
-
-## BLOCK 1: THE EARLY PHASE (1870-1915)
-**Philanthropy, not Politics.**
-
-### 🏭 THE PIONEERS (Pre-AITUC)
-*   **Nature:** Unorganized, isolated strikes. Leaders were social reformers, not politicians.
-
-**Sorabjee Shapoorji Bengalee (1878):**
-*   Tried to pass a bill for better working conditions in Bombay Legislative Council.
-
-**Narayan Meghaji Lokhande (1880):**
-*   **Title:** "Father of the Trade Union Movement in India".
-*   **Newspaper:** *Deenbandhu*.
-*   **Organization:** Bombay Millhands Association (1890) - Considered the first labor organization.
-
-**Swadeshi Impact (1903-08):**
-*   Strikes became political for the first time.
-*   **1908 Strike:** Bombay textile workers struck for 6 days to protest the arrest of Tilak. (Lenin hailed this as the awakening of the Indian proletariat).
-
----
-
-## BLOCK 2: THE TURNING POINT (1915-1920)
-**War, Revolution & Gandhi.**
-
-### 🌍 THE CATALYSTS
-*   **World War I:** Rising prices + Low wages = Unrest.
-*   **Russian Revolution (1917):** Proved that workers could rule a country.
-
-**Madras Labour Union (1918):**
-*   **Founder:** B.P. Wadia.
-*   **Significance:** The First **Registered** Trade Union in India.
-
-**Ahmedabad Textile Labour Association (1918):**
-*   **Founder:** Mahatma Gandhi (and Anasuya Sarabhai).
-*   **Philosophy:** Trusteeship & Arbitration (Non-violent).
-
----
-
-## BLOCK 3: ALL INDIA TRADE UNION CONGRESS (AITUC) - 1920
-**The National Body.**
-
-### 🚩 AITUC FOUNDATION (1920)
-*   **Date:** October 31, 1920.
-*   **Venue:** Bombay.
-*   **President:** **Lala Lajpat Rai**.
-*   **General Secretary:** Dewan Chaman Lal.
-*   **Context:** Founded to represent India at the International Labour Organization (ILO) in Geneva.
-*   **Ideology:** Initially influenced by Congress (moderates), later shifted to Socialists/Communists.
-
-**Lala Lajpat Rai's Speech:**
-> "Imperialism and militarism are the twin children of capitalism."
-
----
-
-## BLOCK 4: THE TRADE UNION ACT (1926)
-**Legal Recognition.**
-
-### ⚖️ TRADE UNION ACT (1926)
-*   **Provisions:** Recognized trade unions as legal associations.
-*   **Immunity:** Granted immunity from civil/criminal prosecution for legitimate union activities.
-*   **Condition:** Unions had to register and submit audited accounts.
-
----
-
-## BLOCK 5: THE SPLITS & MERGERS (1929-1947)
-
-### 💔 THE GREAT SPLIT - NAGPUR SESSION (1929)
-*   **President:** Jawaharlal Nehru.
-*   **Conflict:** Communists (Girni Kamgar Union) wanted affiliation with Comintern (Moscow). Moderates (N.M. Joshi) refused.
-*   **Result:** Moderates walked out and formed **Indian Trade Union Federation (ITUF)**.
-
-### 🚩 THE SECOND SPLIT (1931)
-*   **Red vs. Red:** Radical communists broke away to form **Red Trade Union Congress (RTUC)**.
-*   **Leaders:** B.T. Ranadive and S.V. Deshpande.
-
-### 🤝 THE REUNIFICATION (1938-40)
-*   **Process:** RTUC merged back into AITUC (1935). ITUF (now NTUF) merged back in 1940.
-*   **Context:** Rise of Fascism and need for United Front.
-
----
-
-## BLOCK 6: CONSPIRACIES & LAWS
-
-### 🕵️ MEERUT CONSPIRACY CASE (1929)
-*   **Context:** Growing Communist influence.
-*   **Arrests:** 31 leaders (including 3 British Communists: Philip Spratt, Ben Bradley, Lester Hutchinson).
-*   **Charge:** Conspiring to deprive the King-Emperor of sovereignty.
-*   **Impact:** Massive publicity for Communist ideas.
-
-### ⚖️ TRADE DISPUTES ACT (1929)
-*   **Objective:** To prevent "lightning strikes" in public utilities.
-*   **Provisions:**
-    *   Compulsory Courts of Inquiry/Conciliation Boards.
-    *   **Illegal:** Sympathetic strikes & strikes with "political objectives".
-*   **Bhagat Singh:** Threw a bomb in the Central Assembly against this Act (and Public Safety Bill).
-
-### ⚖️ KANPUR BOLSHEVIK CONSPIRACY (1924)
-*   **Accused:** S.A. Dange, Muzaffar Ahmed, Shaukat Usmani, Nalini Gupta.
-*   **Significance:** British attempt to crush communism; led to founding of CPI in 1925.
-
----
-
-## BLOCK 7: FACTORY LEGISLATION
-**Protection or Control?**
-
-| Act | Year | Viceroy | Key Provision |
-| :--- | :--- | :--- | :--- |
-| **First Factory Act** | 1881 | Ripon | Prohibited child labor (<7 years). |
-| **Second Factory Act** | 1891 | Lansdowne | Weekly holiday. Fixed hours for women (11 hrs). |
-| **Workmen's Compensation** | 1923 | Reading | Employer must pay for injury/death. |
-| **Proprietary: Payment of Wages** | 1936 | Willingdon | Wages paid within 7 days; no arbitrary fines. |
-
----
-
-## BLOCK 8: KEY LEADERS & MOVEMENTS
-
-### 🦁 LEADERS
-*   **Sasipada Banerjea (1870):** Philanthropic phase (Workingmen's Club).
-*   **N.M. Joshi:** Father of Modern Trade Unions.
-*   **V.V. Giri:** Founder of AIRF (Railwaymen). Later President of India.
-*   **Subhas Chandra Bose:** President of AITUC (1931). Led TISCO strike (1928).
-
-### 🛑 HISTORIC STRIKES
-*   **GIP Railway Strike (1899):** First organized railway strike.
-*   **Bombay Textile Strike (1908):** Political strike for Tilak.
-*   **South Indian Railway Strike (1928):** Harsh crackdown (10 years jail for Singingravelu).
-*   **P&T Strike (1946):** Post-war wave; paralyzed communications.
-
----
-
-## BLOCK 9: INTERNATIONAL & POLICY
-
-### 🌍 INDIA & THE ILO (1919)
-*   India was a founding member. N.M. Joshi attended the first conference.
-
-### 📜 WHITLEY COMMISSION (1929)
-*   **Royal Commission on Labour.**
-*   **Impact:** Blueprint for future labor laws (Report 1931).
-
-### 📋 REGE COMMITTEE (1944)
-*   **Labour Investigation Committee.**
-*   **Outcome:** Recommended comprehensive social security (ESI Act 1948).
-
-### 🚩 FIRST MAY DAY (1923)
-*   **Leader:** **M. Singaravelu Chettiar** (Madras).
-*   **Symbol:** Unfurled the Red Flag for the first time in India.
-
----
-
-## BLOCK 10: THE FINAL PHASE (1940-1947)
-
-### 🇬🇧 INDIAN FEDERATION OF LABOUR (IFL) - 1941
-*   **Founder:** M.N. Roy.
-*   **Stance:** Supported British war effort (Anti-Fascist). Received British funding.
-
-### 🇮🇳 INTUC (1947)
-*   **Date:** May 1947.
-*   **Founders:** Vallabhbhai Patel, Gulzarilal Nanda.
-*   **Philosophy:** Gandhian (Negotiation, Anti-Strike).
-*   **First President:** Dr. Suresh Chandra Banerjee (Inaugurated by Patel).
-
-### 👨‍⚖️ DR. AMBEDKAR AS LABOUR MEMBER (1942-46)
-*   **Achievements:**
-    *   **8-Hour Workday** (Reduced from 12).
-    *   Employment Exchanges.
-    *   Tripartite Labour Conferences.
-
-> [!WARNING]
-> **🔥 PRELIMS TRAPS:**
-> *   **First Union:** Bombay Millhands (Loose) vs Madras Labour Union (Registered).
-> *   **First AITUC Prez:** Lajpat Rai.
-> *   **Bhagat Singh's Bomb:** Against **Public Safety Bill** & **Trade Disputes Bill**.
-> *   **Plague Bonus:** Origin of the "Bonus" concept (Bombay 1897).
-
----
-
-## BLOCK 26: INDEPENDENT LABOUR PARTY (1936)
-*Caste meets Class.*
-
-### 🗳️ DR. AMBEDKAR'S VISION
-**Founder:** **Dr. B.R. Ambedkar**.
-**Context:** The 1935 Act gave reserved seats to labor. Ambedkar realized that the Dalit struggle was also a worker's struggle.
-**Ideology:** It was not a Marxist party but a Socialist one. It fought against "Brahmanism" and "Capitalism" simultaneously.
-
-**Success:** In the 1937 Bombay elections, it won **15 out of 17** seats it contested, proving that Dalits could organize as a political labor force.
-
-**Action:** It organized massive strikes against the "Black Act" (Industrial Disputes Act, 1938) along with the Communists.
-
----
-
-## BLOCK 27: LABOUR SWARAJ PARTY (1925)
-*The Bengal Pioneer.*
-
-### ☭ MUZAFFAR AHMED & NAZRUL ISLAM
-**Founders:** **Muzaffar Ahmed**, **Qazi Nazrul Islam** (The Rebel Poet), and **Hemanta Kumar Sarkar**.
-**Context:** Formed within the Congress in Bengal to push for socialist demands.
-
-**Significance:** It was the first open Communist organization in India (before the CPI was formally legalized or WPPs were formed).
-
-**Journal:** It published *"Langal"* (The Plough), edited by Nazrul Islam.
-
----
-
-## BLOCK 28: WOMEN IN TRADE UNIONS
-*The Militant Sisters.*
-
-### 👩🔧 MANIBEN KARA & USHABAI
-**Maniben Kara:** A socialist leader of the All India Railwaymen's Federation. She led the Western Railway strike and was a key figure in the Royist (M.N. Roy's) group.
-
-**Ushabai Dange:** Wife of S.A. Dange. She was a prominent leader of the **Girni Kamgar Union** in Bombay, organizing women textile workers during the 1928 strike.
-
-**Parvati Bhore:** Another key Communist woman leader who organized the Municipal Workers' Union.
-
----
-
-## BLOCK 29: GIRNI KAMGAR UNION (1928)
-*The Red Flag over Bombay.*
-
-### 🏭 THE GKU
-**Context:** The 1928 Textile Strike in Bombay lasted 6 months.
-**Organization:** The strike committee transformed into the **Girni Kamgar Union (GKU)**.
-**Strength:** It had **54,000 members** within months, making it one of the largest unions in Asia.
-
-**Leadership:** S.A. Dange, S.S. Mirajkar, and K.N. Joglekar.
-
-**Impact:** The massive success of GKU terrified the British and directly led to the Meerut Conspiracy Case (1929) to behead its leadership.
-
----
-
-## BLOCK 30: ALL INDIA RAILWAYMEN'S FEDERATION (1924)
-*The Giant Union.*
-
-### 🚂 AIRF
-**Founder:** **Chandrika Prasad**. Later led by V.V. Giri and Jamnadas Mehta.
-**Role:** It was a federation of various railway unions (GIP, BNR, NWR).
-**Ideology:** Unlike the textile unions (which were Communist), the Railway Federation remained largely Socialist/Moderate.
-**Significance:** It negotiated with the Railway Board and prevented many wildcat strikes, acting as a stabilizing force.
-
----
-
-## BLOCK 31: THE CONSPIRACY TRILOGY
-*The British Fear of Bolshevism.*
-
-### ⚖️ PESHAWAR TO MEERUT
-The British tried to crush the infant Communist movement through three successive conspiracy cases:
-
-**Peshawar Conspiracy Case (1922-23):**
-- **Target:** Mujahirs (Muslims who went to Russia during the Khilafat movement) trying to return to India to start a revolution.
-- **Result:** Leaders like Mian Akbar Shah were jailed.
-
-**Kanpur Bolshevik Conspiracy Case (1924):**
-- **Target:** The early organizers (Dange, Muzaffar Ahmed, Shaukat Usmani, Nalini Gupta).
-- **Significance:** This trial actually publicized Communist ideas across India.
-
-**Meerut Conspiracy Case (1929):**
-- **Target:** The mature trade union leaders (31 accused).
-- **Scale:** The longest and most expensive trial in British Indian history.
-
----
-
-## BLOCK 32: THE LEGAL TRIGGER (1920)
-*Why the 1926 Act was passed.*
-
-### 🏭 BUCKINGHAM & CARNATIC MILLS CASE
-**The Incident:** B.P. Wadia led a strike at the **Buckingham & Carnatic Mills** in Madras (1920).
-**The Blow:** The mill owners filed a civil suit against Wadia for "inducing breach of contract" and won an **injunction (order)** fining the union ₹75,000.
-
-**The Realization:** Labor leaders realized that without legal protection, any strike could be treated as a criminal conspiracy or civil wrong.
-
-**Outcome:** This case created the pressure that forced the Government to pass the **Trade Union Act, 1926** (which granted immunity from such suits).
-
----
-
-## BLOCK 33: THE MISSING FACTORY ACTS
-*Closing the Loop.*
-
-### 📜 1911, 1922, 1934
-**Factory Act, 1911:**
-- **Significance:** For the first time, it limited the working hours of adult **men** (to 12 hours/day) in textile factories. Before this, men could be worked to death.
-
-**Factory Act, 1922:**
-- **Context:** Passed to comply with ILO conventions.
-- **Provision:** Children under 12 could not be employed (raised from 9).
-
-**Factory Act, 1934:**
-- **Context:** Based on the Whitley Commission recommendations.
-- **Provision:** Distinguished between "Seasonal" and "Perennial" factories.
-
----
-
-## BLOCK 34: THE TWO FATHERS
-*Clearing the Confusion.*
-
-### 👴 LOKHANDE vs JOSHI
-| Title | Person | Reason |
-| :--- | :--- | :--- |
-| **Father of Labor Movement** | **N.M. Lokhande** | Started the agitation for workers' rights (weekly holiday) in the 1880s before unions existed. |
-| **Father of Trade Union Movement** | **N.M. Joshi** | Built the modern structure of unions (AITUC general secretary for years) and represented Indian labor at the ILO. |
-
----
-
-## BLOCK 35: NATIONAL PLANNING COMMITTEE (1938)
-*Labor in the Future India.*
-
-### 🏗️ SUBHAS & NEHRU
-**Context:** Subhas Chandra Bose (as Congress President) set up the NPC.
-**Chairman:** Jawaharlal Nehru.
-**Labor Member:** N.M. Joshi and V.V. Giri.
-**Vision:** They drafted the plan for a socialist economy where labor would be a partner in industry, not just a commodity. This laid the groundwork for the Industrial Disputes Act, 1947.
-
----
-
-## BLOCK 36: WORKMEN'S COMPENSATION ACT (1923)
-*The First Social Security.*
-
-### 🏥 INJURY PAYMENT
-**Context:** Before this, if a worker lost an arm or leg in a machine, the employer paid nothing.
-**The Act:** **Workmen's Compensation Act, 1923**.
-**Provision:** It made it mandatory for employers to pay compensation for injury or death caused by accidents during employment.
-**Significance:** It was the first step towards recognizing that the cost of industrial accidents should be borne by the industry, not the worker.
-
----
-
-## BLOCK 37: INDIAN MINES ACT (1923)
-*Underground Safety.*
-
-### ⛏️ BELOW THE SURFACE
-**Context:** Factory Acts applied only to surface factories. Mines (Coal/Iron) were death traps with no regulation.
-**The Act:** **Indian Mines Act, 1923**.
-**Provisions:**
-- Banned the employment of children under 13 underground.
-- Limited working hours for adults underground.
-- Safety Inspectors were appointed to check ventilation and roof stability.
-
----
-
-## BLOCK 38: ASSAM TEA STRIKES (1921)
-*The Great Exodus.*
-
-### ☕ CHARGOLA EXODUS
-**Context:** Tea garden workers in Assam (Surma Valley) were treated like slaves under the indentured system.
-**The Event:** Inspired by the Non-Cooperation Movement, over **8,000 workers** simultaneously walked out of the gardens in May 1921.
-**The Cry:** *"Gandhi Maharaj ki Jai"*. They believed Gandhi had sent a steamer to take them home.
-**The Tragedy:** The British stopped the trains and steamers (at Chandpur). The police brutally beat the stranded workers. This incident (**Chandpur firing**) led to a massive hartal in Bengal led by J.M. Sengupta.
-
----
-
-## BLOCK 39: THE ILO CONNECTION (1919)
-*The International Pressure.*
-
-### 🌍 FOUNDING MEMBER
-**Fact:** India was a **Founding Member** of the International Labour Organization (ILO) in 1919 (even though it was a colony).
-**Why?** The British wanted an extra vote in the League of Nations.
-**Impact:** Being a member, the Govt of India had to ratify ILO conventions. This external pressure forced them to pass the Factory Act (1922) and Mines Act (1923) against the wishes of British capitalists.
-**Representative:** N.M. Joshi was the first workers' delegate from India to the ILO.
-
----
-
-## BLOCK 40: PAYMENT OF WAGES ACT (1936)
-*Stopping the Deductions.*
-
-### 💸 NO MORE FINES
-**Problem:** Employers used to cut arbitrary "fines" from workers' wages for small mistakes (e.g., breaking a bobbin, coming late).
-**The Act:** **Payment of Wages Act, 1936**.
-**Provision:** It regulated when wages must be paid (by the 7th or 10th of the month) and strictly limited the fines an employer could deduct.
-
----
-
-## BLOCK 41: THE LABOUR PRESS
-*Voices of the Worker.*
-
-### 📰 KRANTI & THE SOCIALIST
-**"The Socialist" (1923):**
-- **Founder:** S.A. Dange.
-- **Significance:** It was the first English weekly in India to openly propagate Marxist ideas.
-
-**"Kranti" (1927):**
-- **Language:** Marathi.
-- **Role:** The official organ of the Workers' and Peasants' Party (WPP) in Bombay. It played a crucial role in the 1928 textile strike.
-
-**"Langal" (The Plough):**
-- **Language:** Bengali.
-- **Editor:** Qazi Nazrul Islam.
-- **Role:** Organ of the Labour Swaraj Party. Later renamed *"Ganavani"*.
-
----
-
-## BLOCK 42: SOUTH INDIAN RAILWAY STRIKE (1928)
-*The South Explodes.*
-
-### 🚂 SINGARAVELU & MUKUNDALAL
-**Context:** The railway management decided to retrench (fire) 3,000 workers to cut costs.
-**The Strike:** Led by **Singaravelu Chettiar** and **Mukundalal Sircar**.
-**Violence:** The strike turned violent. Workers derailed trains and burned stations. Police firing killed several.
-**Result:** Singaravelu and Mukundalal were arrested and sentenced to 10 years in prison (later reduced). It effectively crushed the militant leadership in the South for a decade.
-
----
-
-## BLOCK 43: TINPLATE STRIKE (1929)
-*The Longest Strike.*
-
-### 🏭 GOLMURI, JAMSHEDPUR
-**Context:** Workers at the Tinplate Company (a subsidiary of Tata/Burmah Oil) went on strike.
-**Duration:** It lasted for nearly one year.
-**Support:** **Subhas Chandra Bose** and **Rajendra Prasad** actively supported it. Even Jawaharlal Nehru visited.
-**Significance:** It was a rare instance where the Congress leadership fully backed a strike against a British-owned company (Burmah Oil), seeing it as part of the anti-imperialist struggle.
-
----
-
-## BLOCK 44: REGE COMMITTEE (1944)
-*The Data Gatherers.*
-
-### 📊 LABOUR INVESTIGATION COMMITTEE
-**Chairman:** **D.V. Rege**.
-**Mandate:** To collect data on wages, earnings, employment, housing, and social conditions of labor.
-**Significance:** The **Rege Committee Report (1946)** provided the most comprehensive data on Indian labor conditions ever collected. It became the basis for the **Minimum Wages Act, 1948** and the **Employees' State Insurance (ESI) Act, 1948**.
-
----
-
-## BLOCK 45: INDUSTRIAL TRUCE RESOLUTION (Dec 1947)
-*Production First.*
-
-### 🤝 CAPITAL & LABOUR
-**Context:** Post-Independence, strikes were crippling the economy.
-
-**The Conference:** Convened by the Industry Minister **Dr. Syama Prasad Mookerjee**.
-
-**The Resolution:** Both employers and workers agreed to maintain industrial peace and avoid lockouts/strikes for 3 years to boost production.
-
-**Result:** It marked the shift from "Class Struggle" (Colonial Era) to "Nation Building" (Independent India).
-`;
-
-MODERN_CHAPTER_32_MCQS.push(
-    {
-        id: 11,
-        question: "Which of the following acts for the first time regulated the hours of work for women?",
-        options: ["Factory Act, 1881", "Factory Act, 1891", "Trade Union Act, 1926", "None"],
-        correctAnswer: 1,
-        explanation: "The 1891 Act limited women's work to 11 hours per day.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 12,
-        question: "The 'Royal Commission on Labour' (1929) was chaired by:",
-        options: ["Lord Whitley", "Lord Curzon", "Lord Irwin", "Stafford Cripps"],
-        correctAnswer: 0,
-        explanation: "Commonly known as the Whitley Commission.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 13,
-        question: "Which leader founded the 'All India Red Trade Union Congress'?",
-        options: ["N.M. Joshi", "Deshpande and B.T. Ranadive", "V.V. Giri", "Subhash Bose"],
-        correctAnswer: 1,
-        explanation: "Formed by Communists after the 1931 split in AITUC.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 14,
-        question: "The 'Indian National Trade Union Congress' (INTUC) was formed in 1947 by:",
-        options: ["Communist Party", "The Congress Party (Sardar Patel and others)", "Socialists", "British Government"],
-        correctAnswer: 1,
-        explanation: "To give the labor movement a nationalist and non-communist direction.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 15,
-        question: "The 'Hind Mazdoor Sabha' (1948) was associated with:",
-        options: ["The Socialist Party", "The Congress", "The RSS", "The Forward Bloc"],
-        correctAnswer: 0,
-        explanation: "Formed by socialists like Ashok Mehta and others.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 16,
-        question: "The 'Girni Kamgar Union' was a powerful union of ______ workers in Bombay.",
-        options: ["Railway", "Textile", "Mining", "Port"],
-        correctAnswer: 1,
-        explanation: "It was led by communists and was very active in the late 1920s.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 17,
-        question: "Why were the early nationalists (Moderates) initially indifferent to factory acts?",
-        options: ["They hated workers.", "They feared it was a British plot to increase the cost of Indian production and help Lancashire.", "They were all mill owners.", "None of the above."],
-        correctAnswer: 1,
-        explanation: "They saw these acts as an attempt to stifle late-blooming Indian industry.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 18,
-        question: "The AITUC's first session goal was described as:",
-        options: ["Communist Revolution.", "To coordinate the activities of all labor organizations in India.", "To join the British Parliament.", "To ban all mills."],
-        correctAnswer: 1,
-        explanation: "It acted as an umbrella body for the nascent labor movement.",
-        subtopic: '2',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 19,
-        question: "The 'Public Safety Bill' (1928) was mainly aimed at:",
-        options: ["Stopping crime.", "Curbing the activities of communists and foreign subversives in the labor movement.", "Protecting factory owners.", "None of the above."],
-        correctAnswer: 1,
-        explanation: "Its rejection led to Bhagat Singh and Batukeshwar Dutt throwing bombs in the Assembly.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 20,
-        question: "Who was the president of AITUC during the 1929 Nagpur split?",
-        options: ["Jawaharlal Nehru", "Subhash Bose", "N.M. Joshi", "S.A. Dange"],
-        correctAnswer: 0,
-        explanation: "Nehru presided over the historic session where the rift became permanent.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 21,
-        question: "What was Gandhi's main contribution to the Ahmedabad labor strike (1918)?",
-        options: ["He provided weapons.", "He introduced the concept of Satyagraha and Hunger Strike to labor disputes.", "He asked the British to intervene.", "None."],
-        correctAnswer: 1,
-        explanation: "His intervention led to a settlement on the plague bonus issue.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 22,
-        question: "The AITUC was affiliated with which international body in its early years?",
-        options: ["Red International of Labour Unions (Profintern)", "International Federation of Trade Unions (IFTU)", "Both (a) and (b)", "None"],
-        correctAnswer: 2,
-        explanation: "Different factions favored different international affiliations.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 23,
-        question: "The 'Trade Disputes Act, 1929' made which of the following illegal?",
-        options: ["Sympathetic strikes and strikes in public utility services without notice.", "All strikes.", "All lockouts.", "Registration of new unions."],
-        correctAnswer: 0,
-        explanation: "It aimed to restrict the workers' strike power.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 24,
-        question: "During the 'Quit India Movement', the working class in which city showed the most remarkable resistance?",
-        options: ["Ahmedabad", "Jamshedpur", "Bombay", "All of the above"],
-        correctAnswer: 3,
-        explanation: "Strikes were widespread in major industrial hubs.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 25,
-        question: "Which leader is associated with the 'United Trades Union Congress' (UTGC)?",
-        options: ["K.T. Shah", "Mrinal Kanti Bose", "V.V. Giri", "Sardar Patel"],
-        correctAnswer: 1,
-        explanation: "Formed in 1949 as another splinter group.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 26,
-        question: "The 'Bharatiya Mazdoor Sangh' (BMS) was founded by:",
-        options: ["Dattopant Thengadi", "S.A. Dange", "V.V. Giri", "Ashok Mehta"],
-        correctAnswer: 0,
-        explanation: "Founded in 1955, aligned with RSS ideology.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 27,
-        question: "Gandhi's theory of 'Trusteeship' in labor relations meant:",
-        options: ["Capitalists should own everything.", "Workers and owners should see themselves as partners, with owners holding wealth in trust for society.", "The state should own all factories.", "Elimination of the capitalist class."],
-        correctAnswer: 1,
-        explanation: "It was a uniquely non-confrontational approach to industrial relations.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 28,
-        question: "AITUC became a primary organ of which political party in the post-1945 era?",
-        options: ["Indian National Congress", "Communist Party of India (CPI)", "Muslim League", "Socialist Party"],
-        correctAnswer: 1,
-        explanation: "The Congress formed INTUC to counter CPI's control of AITUC.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 29,
-        question: "The 'First Labour Member' of the Viceroy’s Executive Council was:",
-        options: ["B.R. Ambedkar", "N.M. Joshi", "V.V. Giri", "Jagjivan Ram"],
-        correctAnswer: 0,
-        explanation: "Ambedkar held this post during WWII.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 30,
-        question: "The main grievances of the early 20th-century workers were:",
-        options: ["Long working hours.", "Low wages and poor working conditions.", "Lack of housing and health facilities.", "All of the above."],
-        correctAnswer: 3,
-        explanation: "The industrial revolution in India was characterized by intense exploitation.",
-        subtopic: '1',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 31,
-        question: "Who founded the 'All India Railwaymen's Federation' (AIRF)?",
-        options: ["V.V. Giri", "N.M. Joshi", "Rai Saheb Chandrika Prasad", "All of the above"],
-        correctAnswer: 3,
-        explanation: "Various leaders contributed to the unification of railway workers.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 32,
-        question: "The emergence of 'Communism' in the 1920s in India was closely linked to:",
-        options: ["The success of the Russian Revolution.", "Intense economic hardship post-WWI.", "Inadequacy of Moderate politics for the masses.", "All of the above."],
-        correctAnswer: 3,
-        explanation: "It provided a radical alternative to the nationalist struggle.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 33,
-        question: "Which of the following describes the 'Modus Operandi' of communist labor leaders in the late 1920s?",
-        options: ["Secret meetings only.", "Intense unionization, mass strikes, and radical slogans.", "Cooperation with the British.", "None of the above."],
-        correctAnswer: 1,
-        explanation: "They transformed the AITUC into a militant body for a period.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
-    },
-    {
-        id: 34,
-        question: "Which of the following acts established the concept of 'Works Committees' to resolve employee-employer issues?",
-        options: ["Industrial Disputes Act, 1947", "Trade Union Act, 1926", "Factory Act, 1948", "None"],
-        correctAnswer: 0,
-        explanation: "A landmark act for industrial relations in independent India.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
-    },
-    {
-        id: 35,
-        question: "The 'Centre of Indian Trade Unions' (CITU) is associated with which party?",
-        options: ["CPI", "CPI (M)", "Congress", "BJP"],
-        correctAnswer: 1,
-        explanation: "Formed in 1970 after the split in the Communist party.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
-    }
-);

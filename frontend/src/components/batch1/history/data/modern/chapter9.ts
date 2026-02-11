@@ -1,420 +1,1354 @@
-export interface Subtopic {
-    id: string | number;
-    name: string;
-    status?: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic?: string | number;
-    difficulty?: string;
-    cognitiveLevel?: string;
-}
-
-export const MODERN_CHAPTER_9_SUBTOPICS: Subtopic[] = [
-    { id: 'muslim_reform', name: 'Muslim Reform Movements' },
-    { id: 'parsi_sikh', name: 'Parsi and Sikh Reforms' },
-    { id: 'lower_caste_south', name: 'Lower Caste & Non-Brahmin (South)' },
-    { id: 'caste_general', name: 'Caste Movements (General/West)' },
-    { id: 'chronology', name: 'Chronology & Matching' },
-    { id: 'conceptual', name: 'Conceptual & Advanced' }
-];
+import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_9_MCQS: Question[] = [
-    // Set 1: Muslim Reform Movements
     {
-        id: 1,
-        question: "Sir Syed Ahmed Khan founded the \"Mohammedan Anglo-Oriental College\" at Aligarh in 1875. What was his primary objective?",
-        options: ["To spread the Wahabi ideology.", "To promote Western education and scientific temper among Muslims to ensure their progress and government jobs.", "To unite Hindus and Muslims against British rule.", "To translate the Quran into English for Europeans."],
-        correctAnswer: 1, // (b)
-        explanation: "Sir Syed wanted Muslims to acquire Western education to catch up with Hindus in government services.",
-        subtopic: 'muslim_reform',
-        difficulty: 'Easy'
+        "id": 1,
+        "question": "Who was the founder of the Ahmadiyya Movement in 1889?",
+        "options": [
+            "Sir Syed Ahmed Khan",
+            "Mirza Ghulam Ahmad",
+            "Shariatullah",
+            "Rashid Ahmed Gangohi"
+        ],
+        "answerRaw": "B. Mirza Ghulam Ahmad",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 2,
-        question: "The journal \"Tahzib-ul-Akhlaq\" (Civilization of Morals) was published by:",
-        options: ["Maulana Abul Kalam Azad", "Sir Syed Ahmed Khan", "Altaf Hussain Hali", "Badruddin Tyabji"],
-        correctAnswer: 1, // (b)
-        explanation: "Tahzib-ul-Akhlaq was Sir Syed's journal to promote social reform.",
-        subtopic: 'muslim_reform',
-        difficulty: 'Easy'
+        "id": 2,
+        "question": "The Aligarh Movement was centered around the Mohammedan Anglo-Oriental College, which was founded in:",
+        "options": [
+            "1866",
+            "1875",
+            "1885",
+            "1898"
+        ],
+        "answerRaw": "B. 1875",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 3,
-        question: "Consider the following statements regarding the \"Deoband School\":\n1. It was founded by Muhammad Qasim Nanotavi and Rashid Ahmed Gangohi.\n2. It was a revivalist movement that aimed to propagate pure teachings of the Quran and Hadith.\n3. It welcomed the formation of the Indian National Congress and issued a fatwa against the Aligarh Movement.\n\nWhich of the statements given above are correct?",
-        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
-        correctAnswer: 3, // (d)
-        explanation: "All statements are correct. Deoband was anti-British, orthodox, and supported the formation of the INC (unlike Sir Syed).",
-        subtopic: 'muslim_reform',
-        difficulty: 'Moderate'
+        "id": 3,
+        "question": "Which Muslim movement was a revivalist movement that aimed at preaching the original teachings of the Quran and Hadis?",
+        "options": [
+            "Aligarh Movement",
+            "Deoband Movement",
+            "Ahmadiyya Movement",
+            "Titu Mir's Movement"
+        ],
+        "answerRaw": "B. Deoband Movement",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 4,
-        question: "The \"Ahmadiyya Movement\" founded by Mirza Ghulam Ahmad differed from other Muslim movements because:",
-        options: ["It supported the concept of Jihad against the British.", "It believed in the universal religion of all humanity and opposed Jihad.", "It was strictly confined to the Arabian peninsula.", "It rejected the Quran completely."],
-        correctAnswer: 1, // (b)
-        explanation: "Ahmadiyhya (Qadiani) movement opposed Jihad and preached universal brotherhood.",
-        subtopic: 'muslim_reform',
-        difficulty: 'Moderate'
+        "id": 4,
+        "question": "Who among the following founded the Deoband School along with Rashid Ahmed Gangohi?",
+        "options": [
+            "Muhammad Qasim Nanotavi",
+            "Mirza Ghulam Ahmad",
+            "Shah Waliullah",
+            "Sayyid Ahmed Bareilly"
+        ],
+        "answerRaw": "A. Muhammad Qasim Nanotavi",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 5,
-        question: "Who among the following helped Sir Syed Ahmed Khan in founding the \"Scientific Society\" in 1864?",
-        options: ["Theodore Beck", "Raja Jai Kishan Das", "Maulana Shibli Numani", "Altaf Hussain Hali"],
-        correctAnswer: 1, // (b)
-        explanation: "Raja Jai Kishan Das was a close Hindu associate of Sir Syed who helped found the Scientific Society.",
-        subtopic: 'muslim_reform',
-        difficulty: 'Hard'
+        "id": 5,
+        "question": "The Deoband School issued a 'fatwa' (religious decree) against the formation of which organization?",
+        "options": [
+            "Brahmo Samaj",
+            "Arya Samaj",
+            "United Indian Patriotic Association",
+            "Theosophical Society"
+        ],
+        "answerRaw": "C. United Indian Patriotic Association (It was formed by Sir Syed Ahmed Khan)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
     },
     {
-        id: 6,
-        question: "The \"Nadwat-al-Ulama\" (Lucknow) was founded to:",
-        options: ["Oppose the Deoband school.", "Work out a middle path between the extreme orthodoxy of Deoband and the modernity of Aligarh.", "Support the British war efforts in WWI.", "Spread Christianity."],
-        correctAnswer: 1, // (b)
-        explanation: "Nadwat-al-Ulama (Shibli Numani) aimed for a middle path (reform but within Islamic framework).",
-        subtopic: 'muslim_reform',
-        difficulty: 'Moderate'
-    },
-    // Set 2: Parsi and Sikh
-    {
-        id: 7,
-        question: "The \"Rahnumai Mazdayasnan Sabha\" was founded in 1851 to reform the Zoroastrian religion. Who among the following was associated with it?\n1. Dadabhai Naoroji\n2. Naoroji Furdonji\n3. S.S. Bengalee\n\nSelect the correct answer:",
-        options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
-        correctAnswer: 3, // (d)
-        explanation: "All three (Naoroji, Furdonji, Bengalee) were key figures in the Parsi Reform movement.",
-        subtopic: 'parsi_sikh',
-        difficulty: 'Moderate'
+        "id": 6,
+        "question": "The 'Parsi Reform Movement' began in 1851 with the foundation of the Rahnumai Mazdayasnan Sabha. Who was its first president?",
+        "options": [
+            "Dadabhai Naoroji",
+            "Naoroji Furdonji",
+            "S.S. Bengalee",
+            "J.B. Wacha"
+        ],
+        "answerRaw": "B. Naoroji Furdonji",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 8,
-        question: "The newspaper \"Rast Goftar\" (Truth Teller) was the mouthpiece of which reform movement?",
-        options: ["Arya Samaj", "Parsi Reform Movement", "Satnami Movement", "Aligarh Movement"],
-        correctAnswer: 1, // (b)
-        explanation: "Rast Goftar was a Parsi reform journal (Dadabhai Naoroji).",
-        subtopic: 'parsi_sikh',
-        difficulty: 'Easy'
+        "id": 7,
+        "question": "What was the name of the journal started by the Rahnumai Mazdayasnan Sabha to spread the message of reform?",
+        "options": [
+            "Rast Goftar (The Truth Teller)",
+            "Indian Mirror",
+            "Voice of India",
+            "Satyarth Prakash"
+        ],
+        "answerRaw": "A. Rast Goftar (The Truth Teller)",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 9,
-        question: "The \"Singh Sabha Movement\" was founded at Amritsar in 1873 with the aim of:",
-        options: ["Establishing a separate state for Sikhs (Khalistan).", "Countering the proselytizing activities of Christian missionaries and the Arya Samaj.", "Organizing an armed rebellion against the British.", "Taking control of Gurdwaras from Mahants."],
-        correctAnswer: 1, // (b)
-        explanation: "Singh Sabha was a cultural defense against the Arya Samaj and Christian missionaries.",
-        subtopic: 'parsi_sikh',
-        difficulty: 'Moderate'
+        "id": 8,
+        "question": "The 'Singh Sabha Movement' was first established in 1873 at:",
+        "options": [
+            "Lahore",
+            "Amritsar",
+            "Ludhiana",
+            "Patiala"
+        ],
+        "answerRaw": "B. Amritsar",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 10,
-        question: "The \"Akali Movement\" (1920s) was primarily a struggle against:",
-        options: ["The British government's tax policies.", "The corrupt Mahants (priests) who controlled the Gurdwaras.", "The Muslim League.", "The Singh Sabha leaders."],
-        correctAnswer: 1, // (b)
-        explanation: "Akali Movement was directed against the corrupt Mahants (priests).",
-        subtopic: 'parsi_sikh',
-        difficulty: 'Easy'
+        "id": 9,
+        "question": "Which organization was later formed as the political arm of the Akali Movement to represent Sikh interests?",
+        "options": [
+            "Khalsa Diwan",
+            "Shiromani Akali Dal",
+            "Singh Sabha",
+            "Namdhari Sect"
+        ],
+        "answerRaw": "B. Shiromani Akali Dal",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 11,
-        question: "The \"Gurudwara Reform Act\" which placed the management of Gurdwaras in the hands of the SGPC (Shiromani Gurdwara Parbandhak Committee) was passed in:",
-        options: ["1919", "1922", "1925", "1930"],
-        correctAnswer: 2, // (c)
-        explanation: "1925 Act gave control to SGPC.",
-        subtopic: 'parsi_sikh',
-        difficulty: 'Easy'
-    },
-    // Set 3: Lower Caste & Non-Brahmin
-    {
-        id: 12,
-        question: "\"One Caste, One Religion, One God for Mankind\" was the famous slogan of:",
-        options: ["Jyotiba Phule", "Sri Narayana Guru", "Periyar E.V. Ramaswamy", "Dr. B.R. Ambedkar"],
-        correctAnswer: 1, // (b)
-        explanation: "Sri Narayana Guru (SNDP).",
-        subtopic: 'lower_caste_south',
-        difficulty: 'Easy'
+        "id": 10,
+        "question": "The 'Theosophical Society' was inspired by which ancient Indian philosophy according to Madam Blavatsky?",
+        "options": [
+            "Samkhya",
+            "Upanishads and Vedanta",
+            "Nyaya",
+            "Charvaka"
+        ],
+        "answerRaw": "B. Upanishads and Vedanta",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 13,
-        question: "The \"Aruvipuram Movement\" (1888) was significant because:",
-        options: ["It was the first temple entry movement.", "Sri Narayana Guru consecrated a Shiva idol (stone) himself, defying the Brahmin monopoly on priesthood.", "It led to the formation of the Justice Party.", "It was supported by Gandhi."],
-        correctAnswer: 1, // (b)
-        explanation: "Narayana Guru picked up a stone from the river and installed it as Shiva, declaring that one does not need to be a Brahmin to consecrate an idol.",
-        subtopic: 'lower_caste_south',
-        difficulty: 'Moderate'
+        "id": 11,
+        "question": "Who among the following was the founder of the Bharat Dharma Mahamandala in 1902 to defend orthodox Hinduism?",
+        "options": [
+            "Madan Mohan Malaviya",
+            "Pandit Din Dayal Sharma",
+            "Radhakant Deb",
+            "Dayanand Saraswati"
+        ],
+        "answerRaw": "B. Pandit Din Dayal Sharma",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 14,
-        question: "The \"Justice Party\" (South Indian Liberal Federation) was formed in 1916 by:",
-        options: ["C.N. Annadurai and M. Karunanidhi", "T.M. Nair, P. Thyagaraja Chetti, and C. Natesa Mudaliar", "Periyar E.V. Ramaswamy", "K. Kamaraj"],
-        correctAnswer: 1, // (b)
-        explanation: "T.M. Nair and Thyagaraja Chetti founded the Justice Party.",
-        subtopic: 'lower_caste_south',
-        difficulty: 'Easy'
+        "id": 12,
+        "question": "The 'Self-Respect Movement' was started in Madras by:",
+        "options": [
+            "C.N. Mudaliar",
+            "T.M. Nair",
+            "E.V. Ramaswamy Naicker",
+            "P. Tyagaraja"
+        ],
+        "answerRaw": "C. E.V. Ramaswamy Naicker",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
     },
     {
-        id: 15,
-        question: "The \"Self-Respect Movement\" started by E.V. Ramaswamy Naicker (Periyar) in 1925 aimed to:",
-        options: ["Promote the Sanskrit language.", "Reject the Brahminical religion and conduct marriages without Brahmin priests.", "Support the Congress in the freedom struggle.", "Encourage the worship of Rama."],
-        correctAnswer: 1, // (b)
-        explanation: "Self-Respect Movement rejected Brahmin priests and rituals.",
-        subtopic: 'lower_caste_south',
-        difficulty: 'Easy'
+        "id": 13,
+        "question": "Which reformer is known for the \"One Religion, One Caste, One God\" slogan?",
+        "options": [
+            "Jyotiba Phule",
+            "Sri Narayana Guru",
+            "Sahodaran Ayyappan",
+            "Dr. B.R. Ambedkar"
+        ],
+        "answerRaw": "B. Sri Narayana Guru",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 16,
-        question: "The journal \"Kudi Arasu\" was associated with:",
-        options: ["The Justice Party", "The Self-Respect Movement (Periyar)", "The Theosophical Society", "The Communist Party of India"],
-        correctAnswer: 1, // (b)
-        explanation: "Kudi Arasu was Periyar's journal.",
-        subtopic: 'lower_caste_south',
-        difficulty: 'Moderate'
+        "id": 14,
+        "question": "The 'Tabaqat-i-Nasiri' style of education in Madrasas was criticized by Sir Syed Ahmed Khan in favor of:",
+        "options": [
+            "Sanskrit studies",
+            "Persian poetry",
+            "English and Western Science",
+            "Arabic theology"
+        ],
+        "answerRaw": "C. English and Western Science",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
     },
     {
-        id: 17,
-        question: "The \"Vaikom Satyagraha\" (1924) in Kerala was launched for:",
-        options: ["The right of tenants to own land.", "The opening of temple streets (roads around the temple) to the untouchables (Avarnas).", "The abolition of the Dowry system.", "Higher wages for toddy tappers."],
-        correctAnswer: 1, // (b)
-        explanation: "It was for the right of Avarnas to walk on the roads around the temple (not initially entry into the temple).",
-        subtopic: 'lower_caste_south',
-        difficulty: 'Moderate'
+        "id": 15,
+        "question": "The 'Nadvat-ul-Ulama' was founded in Lucknow in 1894 by:",
+        "options": [
+            "Shibli Numani",
+            "Sir Syed Ahmed Khan",
+            "Maulana Abul Kalam Azad",
+            "Shah Waliullah"
+        ],
+        "answerRaw": "A. Shibli Numani",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 18,
-        question: "Who among the following leaders played a key role in the Vaikom Satyagraha?",
-        options: ["K. Kelappan and T.K. Madhavan", "C. Rajagopalachari", "Subramania Bharati", "P. Krishna Pillai"],
-        correctAnswer: 0, // (a)
-        explanation: "K. Kelappan (Kerala Gandhi) and T.K. Madhavan were the leaders.",
-        subtopic: 'lower_caste_south',
-        difficulty: 'Easy'
+        "id": 16,
+        "question": "The first meeting of the Indian Social Conference was held in 1887 in:",
+        "options": [
+            "Bombay",
+            "Madras",
+            "Calcutta",
+            "Allahabad"
+        ],
+        "answerRaw": "B. Madras",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 19,
-        question: "The \"Guruvayur Satyagraha\" (1931) was related to:",
-        options: ["Temple Entry for all castes.", "Removal of the statue of General Neill.", "Prohibition of liquor.", "Freedom of the Press."],
-        correctAnswer: 0, // (a)
-        explanation: "Guruvayur was specifically for Temple Entry (led by Kelappan).",
-        subtopic: 'lower_caste_south',
-        difficulty: 'Easy'
-    },
-    // Set 4: Caste General
-    {
-        id: 20,
-        question: "Dr. B.R. Ambedkar founded the \"Bahishkrit Hitakarini Sabha\" in 1924 to:",
-        options: ["Promote the welfare of the outcastes and depressed classes.", "Fight elections against the Congress.", "Write the Constitution of India.", "Organize the Mahars for military service."],
-        correctAnswer: 0, // (a)
-        explanation: "Bahishkrit Hitakarini Sabha (1924) was for the upliftment of the depressed classes.",
-        subtopic: 'caste_general',
-        difficulty: 'Easy'
+        "id": 17,
+        "question": "Who founded the 'Madras Hindu Association' in 1892 to promote social purity?",
+        "options": [
+            "Veerasalingam Pantulu",
+            "T.M. Nair",
+            "P. Anandacharlu",
+            "C.P. Ramaswami Aiyar"
+        ],
+        "answerRaw": "A. Veerasalingam Pantulu",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 21,
-        question: "The \"Mahad Satyagraha\" (1927) led by Dr. Ambedkar was focused on:",
-        options: ["Temple entry at the Kalaram Temple.", "Asserting the right of untouchables to use water from the public tank (Chavadar Tank).", "Burning foreign cloth.", "Demand for separate electorates."],
-        correctAnswer: 1, // (b)
-        explanation: "Mahad Satyagraha asserted the right to water from the public tank.",
-        subtopic: 'caste_general',
-        difficulty: 'Easy'
+        "id": 18,
+        "question": "The 'Aravippuram Installation' (1888) was done by Sri Narayana Guru in which state?",
+        "options": [
+            "Tamil Nadu",
+            "Kerala",
+            "Karnataka",
+            "Andhra Pradesh"
+        ],
+        "answerRaw": "B. Kerala",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 22,
-        question: "The \"All India Harijan Sangh\" was founded by Mahatma Gandhi in:",
-        options: ["1924", "1930", "1932", "1942"],
-        correctAnswer: 2, // (c)
-        explanation: "Founded in 1932 after the Poona Pact.",
-        subtopic: 'caste_general',
-        difficulty: 'Easy'
+        "id": 19,
+        "question": "Which movement aimed to achieve 'Dar-ul-Islam' (land of Islam) by overthrowing the British?",
+        "options": [
+            "Aligarh Movement",
+            "Wahabi Movement",
+            "Ahmadiyya Movement",
+            "Faraizi Movement"
+        ],
+        "answerRaw": "B. Wahabi Movement",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 23,
-        question: "The \"Satyashodhak Samaj\" (Truth Seekers' Society) was active primarily in:",
-        options: ["Bengal", "Punjab", "Maharashtra", "Madras"],
-        correctAnswer: 2, // (c)
-        explanation: "Maharashtra (Phule).",
-        subtopic: 'caste_general',
-        difficulty: 'Easy'
+        "id": 20,
+        "question": "Who was the leader of the 'Faraizi Movement' after Haji Shariatullah?",
+        "options": [
+            "Titu Mir",
+            "Dudu Miyan",
+            "Syed Ahmed Bareilly",
+            "Shaukat Ali"
+        ],
+        "answerRaw": "B. Dudu Miyan",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 24,
-        question: "Who was the first President of the \"All India Depressed Classes Association\"?",
-        options: ["M.C. Rajah", "Dr. B.R. Ambedkar", "Jagjivan Ram", "Mahatma Gandhi"],
-        correctAnswer: 0, // (a)
-        explanation: "M.C. Rajah was the first president (Ambedkar was a key member but Rajah was the initial prominent leader of this specific association before they had differences).",
-        subtopic: 'caste_general',
-        difficulty: 'Hard'
-    },
-    // Set 5: Chronology
-    {
-        id: 25,
-        question: "Match the Movement with the Founder/Leader:\nA. Ahrar Movement -> 1. Maulana Mazhar Ali Khan\nB. Faraizi Movement -> 2. Haji Shariatullah\nC. Deoband School -> 3. Qasim Nanotavi\nD. Nadwat-al-Ulama -> 4. Shibli Numani\n\nSelect the correct answer:",
-        options: ["A-1, B-2, C-3, D-4", "A-2, B-3, C-4, D-1", "A-1, B-3, C-2, D-4", "A-4, B-2, C-3, D-1"],
-        correctAnswer: 0, // (a)
-        explanation: "All pairs are correctly matched.",
-        subtopic: 'chronology',
-        difficulty: 'Moderate'
+        "id": 21,
+        "question": "The 'Nirankari' movement among the Sikhs was founded by:",
+        "options": [
+            "Baba Dayal Das",
+            "Baba Ram Singh",
+            "Guru Gobind Singh",
+            "Ranjit Singh"
+        ],
+        "answerRaw": "A. Baba Dayal Das",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 26,
-        question: "Arrange the following events in chronological order:\n1. Formation of Justice Party\n2. Vaikom Satyagraha\n3. Foundation of SNDP Yogam\n4. Foundation of All India Harijan Sangh\n\nSelect the correct answer:",
-        options: ["3-1-2-4", "1-3-2-4", "3-2-1-4", "1-2-3-4"],
-        correctAnswer: 0, // (a)
-        explanation: "SNDP (1903) -> Justice Party (1916) -> Vaikom (1924) -> Harijan Sangh (1932).",
-        subtopic: 'chronology',
-        difficulty: 'Moderate'
+        "id": 22,
+        "question": "The 'Namdhari' (Kuka) movement was founded by:",
+        "options": [
+            "Baba Dayal Das",
+            "Balak Singh",
+            "Bhagat Jawahar Mal",
+            "Kapur Singh"
+        ],
+        "answerRaw": "B. Balak Singh",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 27,
-        question: "The \"Temple Entry Proclamation\" which opened all temples in the state to all castes was issued in 1936 by the Maharaja of:",
-        options: ["Mysore", "Travancore", "Cochin", "Baroda"],
-        correctAnswer: 1, // (b)
-        explanation: "Travancore (Maharaja Chithira Thirunal) was the first to issue such a proclamation.",
-        subtopic: 'chronology',
-        difficulty: 'Easy'
-    },
-    // Set 6: Conceptual
-    {
-        id: 28,
-        question: "Why did the \"Deoband School\" issue a fatwa against the \"United Patriotic Association\" of Syed Ahmed Khan?",
-        options: ["Because Syed Ahmed Khan supported the Congress.", "Because Syed Ahmed Khan was seen as too orthodox.", "Because Syed Ahmed Khan advised Muslims to stay away from the Congress, while Deoband supported the Congress's anti-British stance.", "Because Syed Ahmed Khan wanted to join the Ottoman Empire."],
-        correctAnswer: 2, // (c)
-        explanation: "Deoband was anti-British and wanted Muslims to join the Congress to fight the British, whereas Sir Syed (United Patriotic Association) was pro-British and anti-Congress.",
-        subtopic: 'conceptual',
-        difficulty: 'Moderate'
+        "id": 23,
+        "question": "The 'Prarthana Samaj' was heavily influenced by which Bengali reformer's visit to Bombay?",
+        "options": [
+            "Raja Rammohan Roy",
+            "Keshab Chandra Sen",
+            "Debendranath Tagore",
+            "Ishwar Chandra Vidyasagar"
+        ],
+        "answerRaw": "B. Keshab Chandra Sen",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 29,
-        question: "The \"Self-Respect Marriages\" advocated by Periyar were unique because:",
-        options: ["They required the bride to pay a dowry.", "They were conducted without priests and without the recitation of mantras.", "They were only for the Brahmins.", "They were legally invalid under British law."],
-        correctAnswer: 1, // (b)
-        explanation: "They were simple civil contracts without priests.",
-        subtopic: 'conceptual',
-        difficulty: 'Easy'
+        "id": 24,
+        "question": "Who was the chief mentor of the Prarthana Samaj who turned it into a powerful social reform body?",
+        "options": [
+            "Atmaram Pandurang",
+            "Justice M.G. Ranade",
+            "R.G. Bhandarkar",
+            "N.M. Joshi"
+        ],
+        "answerRaw": "B. Justice M.G. Ranade",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 30,
-        question: "\"Gopal Baba Walangkar\" is associated with which early Dalit movement?",
-        options: ["Anarya Dosh-Parihar Mandali (Maharashtra)", "Adi-Dravida Mahajana Sabha", "Namasudra Movement", "Pulaya Sabha"],
-        correctAnswer: 0, // (a)
-        explanation: "Walangkar was an early Dalit activist in Maharashtra (pre-Ambedkar).",
-        subtopic: 'conceptual',
-        difficulty: 'Hard'
+        "id": 25,
+        "question": "The 'Radhaswami Movement' was founded in 1861 by:",
+        "options": [
+            "Shiv Dayal Saheb",
+            "Tulsi Ram",
+            "Shiv Narain Agnihotri",
+            "Swami Prabhupada"
+        ],
+        "answerRaw": "A. Shiv Dayal Saheb",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 31,
-        question: "The \"Namasudra Movement\" was a movement of the untouchables (Chandalas) in:",
-        options: ["Bengal", "Kerala", "Punjab", "Andhra Pradesh"],
-        correctAnswer: 0, // (a)
-        explanation: "Namasudras were the Dalits of Bengal.",
-        subtopic: 'conceptual',
-        difficulty: 'Easy'
+        "id": 26,
+        "question": "The 'Seva Samiti' was founded in Allahabad in 1914 by:",
+        "options": [
+            "G.K. Gokhale",
+            "Hridayanath Kunzru",
+            "Annie Besant",
+            "Madan Mohan Malaviya"
+        ],
+        "answerRaw": "B. Hridayanath Kunzru",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 32,
-        question: "The \"Ezhava\" community, associated with the SNDP movement, was traditionally engaged in:",
-        options: ["Weaving", "Toddy tapping and agriculture", "Leather work", "Fishing"],
-        correctAnswer: 1, // (b)
-        explanation: "They were traditionally toddy tappers and agricultural laborers.",
-        subtopic: 'conceptual',
-        difficulty: 'Easy'
+        "id": 27,
+        "question": "Who among the following were prominent leaders of the Justice Party?",
+        "options": [
+            "C.N. Mudaliar and T.M. Nair",
+            "E.V.R. Periyar",
+            "Sri Narayana Guru",
+            "Jyotiba Phule"
+        ],
+        "answerRaw": "A. C.N. Mudaliar and T.M. Nair",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 33,
-        question: "Which of the following leaders founded the \"Indian Reform Association\" in 1870?",
-        options: ["Rammohan Roy", "Keshub Chandra Sen", "Vidyasagar", "Dayanand Saraswati"],
-        correctAnswer: 1, // (b)
-        explanation: "Keshub Chandra Sen formed the Indian Reform Association after visiting England.",
-        subtopic: 'conceptual',
-        difficulty: 'Easy'
+        "id": 28,
+        "question": "The 'SNDP Yogam' (Sri Narayana Dharma Paripalana) was formed in:",
+        "options": [
+            "1888",
+            "1893",
+            "1903",
+            "1910"
+        ],
+        "answerRaw": "C. 1903",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
     },
     {
-        id: 34,
-        question: "The \"Seva Sadan\" was founded by Behramji Malabari to:",
-        options: ["Reform the Parsi priesthood.", "Take care of socially discarded and exploited women of all castes.", "Provide medical aid to soldiers.", "Promote widow remarriage among Brahmins only."],
-        correctAnswer: 1, // (b)
-        explanation: "Seva Sadan focused on the welfare of women (widows, destitute).",
-        subtopic: 'conceptual',
-        difficulty: 'Moderate'
+        "id": 29,
+        "question": "Who led the 'Mahar Movement' in Maharashtra for the rights of the untouchables?",
+        "options": [
+            "Jyotiba Phule",
+            "B.R. Ambedkar",
+            "Gopal Baba Walangkar",
+            "Jagjivan Ram"
+        ],
+        "answerRaw": "B. B.R. Ambedkar",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 35,
-        question: "\"Jotiba Phule\" was bestowed with the title 'Mahatma' in 1888 by:",
-        options: ["Mahatma Gandhi", "The British Government", "Another social reformer, Vithalrao Krishnaji Vandekar", "The Gaekwad of Baroda"],
-        correctAnswer: 2, // (c)
-        explanation: "It was given at a public meeting by Vithalrao Krishnaji Vandekar (social activist) in 1888.",
-        subtopic: 'conceptual',
-        difficulty: 'Hard'
+        "id": 30,
+        "question": "The 'Theosophical Society' was popularized in India by Annie Besant, who was of:",
+        "options": [
+            "American origin",
+            "Irish origin",
+            "British origin",
+            "German origin"
+        ],
+        "answerRaw": "B. Irish origin",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "Sir Syed Ahmed Khan’s educational philosophy was grounded in the belief that the Quran should be interpreted in the light of modern reason. Which of the following statements best describes his 'rationalist' approach?",
+        "options": [
+            "He argued that the Quran is a static text that does not allow for any scientific inquiry.",
+            "He held that the 'Word of God' (Quran) and the 'Work of God' (Nature) could not be in contradiction; thus, any religious tenet conflicting with science should be re-interpreted.",
+            "He advocated for the replacement of the Quran with Western scientific texts in Madrasas.",
+            "He believed that only the Ulamas had the right to interpret the Quran using ancient traditions."
+        ],
+        "answerRaw": "B. He held that the 'Word of God' and the 'Work of God' could not be in contradiction.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 32,
+        "question": "Consider the following statements regarding the 'Deoband Movement': It was established as a liberal, pro-British movement to counter the Aligarh Movement. It aimed at the religious regeneration of the Muslim community through the propagation of pure Islamic teachings. It welcomed the formation of the Indian National Congress and issued a fatwa against Sir Syed’s United Indian Patriotic Association. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "B. 2 and 3 only",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 33,
+        "question": "The 'Ahmadiyya Movement', founded by Mirza Ghulam Ahmad in 1889, was unique in its ideological stance. How did it differ from the contemporary 'Wahabi Movement'?",
+        "options": [
+            "Ahmadiyya was an armed militant movement, whereas Wahabi was peaceful.",
+            "Ahmadiyya described itself as being based on the principles of the Brahmo Samaj, emphasizing universalism and the peaceful spread of Islam, unlike the revivalist/puritanical Wahabi approach.",
+            "Ahmadiyya rejected the Quran, while Wahabis strictly followed it.",
+            "Ahmadiyya was founded in London, while Wahabi was founded in Delhi."
+        ],
+        "answerRaw": "B. Ahmadiyya emphasized universalism and the peaceful spread of Islam.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 34,
+        "question": "The 'Rahnumai Mazdayasnan Sabha' (1851) was instrumental in the modernization of the Parsi community. Which of the following social practices did it successfully target?",
+        "options": [
+            "The caste system within the Parsi community.",
+            "The use of the Persian language in rituals.",
+            "The removal of the 'purdah' system and the education of Parsi women.",
+            "The banning of the 'Tower of Silence' for funerals."
+        ],
+        "answerRaw": "C. The removal of the 'purdah' system and the education of Parsi women.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 35,
+        "question": "The 'Singh Sabha Movement' (1873) was a milestone in Sikh history. What was its primary strategy to safeguard the Sikh identity?",
+        "options": [
+            "Launching an armed rebellion against the British to restore the Sikh Empire.",
+            "Setting up a network of Khalsa schools and colleges to promote modern education alongside the study of the Gurmukhi script and Sikh history.",
+            "Converting all Hindus in Punjab to Sikhism.",
+            "Banning the entry of any non-Sikh into the Golden Temple."
+        ],
+        "answerRaw": "B. Setting up a network of Khalsa schools and colleges.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 36,
+        "question": "The 'Akali Movement' (1920s) is considered a successful non-violent struggle. What was the core legal victory achieved by this movement?",
+        "options": [
+            "The complete independence of Punjab.",
+            "The enactment of the Sikh Gurdwaras Act (1925), which transferred the management of gurdwaras to the Shiromani Gurdwara Parbandhak Committee (SGPC).",
+            "The recognition of the Punjabi language as the official language of the British Empire.",
+            "The abolition of the land revenue system in Punjab."
+        ],
+        "answerRaw": "B. The enactment of the Sikh Gurdwaras Act (1925).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 37,
+        "question": "The 'Theosophical Society' was often critiqued by contemporary rationalists but was embraced by many nationalists. Why was it considered important for the Indian National Movement?",
+        "options": [
+            "It provided military training to the Congress volunteers.",
+            "It helped Indians recover their self-respect by glorifying ancient Indian culture and philosophies like Vedanta and Yoga.",
+            "It was the only movement that demanded a complete boycott of British goods in 1875.",
+            "It provided the first draft of the Government of India Act."
+        ],
+        "answerRaw": "B. It helped Indians recover their self-respect by glorifying ancient culture.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 38,
+        "question": "Sri Narayana Guru’s 'Aravippuram Installation' (1888) was a radical act of social protest. What message did he intend to convey through this act?",
+        "options": [
+            "That only Brahmins have the right to install deities.",
+            "That the right to perform religious rites and install idols is not a monopoly of the upper castes.",
+            "That all Hindu temples should be converted into schools.",
+            "That idols are unnecessary for worship."
+        ],
+        "answerRaw": "B. That religious rites are not a monopoly of the upper castes.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 39,
+        "question": "Consider the 'Wahabi Movement' in India. Which of the following statements regarding its objectives is correct?",
+        "options": [
+            "It aimed at Westernizing Islamic society through English education.",
+            "it was a revivalist movement that aimed to return to the primitive Islam of the Prophet's day and turn India into 'Dar-ul-Islam'.",
+            "It was a movement to support the Marathas against the British.",
+            "It aimed at creating a syncretic religion combining Islam and Hinduism."
+        ],
+        "answerRaw": "B. It aimed to return to the primitive Islam and turn India into 'Dar-ul-Islam'.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 40,
+        "question": "The 'Self-Respect Movement' (1925) launched by Periyar in Madras was a departure from traditional reform. Which of the following was its most radical feature?",
+        "options": [
+            "Organizing Sanskrit debates in temples.",
+            "Promoting 'self-respect' weddings without the presence of a Brahmin priest and attacking the varna system and religious orthodoxy.",
+            "Supporting the British government's policy of taxation.",
+            "Demanding a separate state for Christians in South India."
+        ],
+        "answerRaw": "B. Promoting weddings without a Brahmin priest and attacking the varna system.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 41,
+        "question": "The 'Faraizi Movement' (1818) in East Bengal, under Dudu Miyan, took on an egalitarian character. What was their primary demand?",
+        "options": [
+            "The conversion of all British officials to Islam.",
+            "The protection of the rights of the Muslim peasantry and the assertion that 'land belongs to God', thus no taxes should be paid to Zamindars.",
+            "The promotion of the Persian language in schools.",
+            "The abolition of the Khilafat."
+        ],
+        "answerRaw": "B. The assertion that 'land belongs to God' and no taxes should be paid to Zamindars.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 42,
+        "question": "The 'United Indian Patriotic Association' was formed by Sir Syed Ahmed Khan primarily to:",
+        "options": [
+            "Oppose the Indian National Congress and demonstrate Muslim loyalty to the British Crown.",
+            "Demand the immediate withdrawal of the British from India.",
+            "Support the Ilbert Bill.",
+            "Promote the Hindi language in educational institutions."
+        ],
+        "answerRaw": "A. Oppose the Indian National Congress.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 43,
+        "question": "Justice M.G. Ranade and the Prarthana Samaj were instrumental in the formation of the 'Indian Social Conference'. What was the 'Pledge Movement' associated with this conference?",
+        "options": [
+            "A pledge to never work for the British government.",
+            "A pledge to boycott all foreign cloth.",
+            "A pledge to inspire people to take an oath against child marriage.",
+            "A pledge to convert to the Brahmo Samaj."
+        ],
+        "answerRaw": "C. A pledge against child marriage.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 44,
+        "question": "The 'Aravippuram Movement' led to the formation of the SNDP (Sri Narayana Dharma Paripalana Yogam). What were the primary social groups that benefited from this organization?",
+        "options": [
+            "Nairs and Namboothiris",
+            "Ezhavas and other depressed classes in Kerala",
+            "The Pulayas and Marathas",
+            "The Syrian Christians"
+        ],
+        "answerRaw": "B. Ezhavas and other depressed classes in Kerala.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 45,
+        "question": "The 'Nadvat-ul-Ulama' (1894) was established as a middle path between two extremes. Which two educational approaches did it seek to reconcile?",
+        "options": [
+            "Traditional Sanskrit education and modern English education.",
+            "The extreme orthodox traditionalism of Deoband and the extreme modern rationalism of Aligarh.",
+            "The teachings of the Quran and the Bible.",
+            "The ideologies of the Congress and the Muslim League."
+        ],
+        "answerRaw": "B. Reconciling Deoband's traditionalism and Aligarh's modern rationalism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 46,
+        "question": "The 'Radhaswami Movement' founded by Shiv Dayal Saheb in 1861 emphasized:",
+        "options": [
+            "The strict study of the Vedas and performing animal sacrifice.",
+            "Belief in one supreme being, the supremacy of the 'Guru', and a simple social life.",
+            "The armed overthrow of the British government.",
+            "The complete isolation of women from society."
+        ],
+        "answerRaw": "B. Belief in one supreme being, supremacy of the 'Guru', and simple social life.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 47,
+        "question": "Consider the 'Justice Movement' in Madras. Which of the following describes its stance on the Indian National Movement?",
+        "options": [
+            "It was a radical wing of the Congress demanding Purna Swaraj.",
+            "It stayed away from the Congress, viewing it as a Brahmin-dominated organization, and sought to secure jobs and representation for non-Brahmins through loyalty to the British.",
+            "It merged with the Muslim League in 1916.",
+            "It advocated for the complete Westernization of the Tamil language."
+        ],
+        "answerRaw": "B. It stayed away from the Congress to secure representation for non-Brahmins.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 48,
+        "question": "The 'Singh Sabha Movement' was partially a response to the proselytizing activities of which of the following?",
+        "options": [
+            "The British Parliament only.",
+            "Christian missionaries and the Arya Samaj (Shuddhi movement).",
+            "The Brahmo Samaj and the Prarthana Samaj.",
+            "The Wahabi and Faraizi movements."
+        ],
+        "answerRaw": "B. Christian missionaries and the Arya Samaj.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 49,
+        "question": "The 'Namdhari' (Kuka) movement was notable for its distinct style of prayer and dress. What was its political stance toward the British?",
+        "options": [
+            "They were strictly loyalists who served in the British army.",
+            "They advocated for the use of English as a medium of instruction.",
+            "They adopted a policy of non-cooperation and boycott of British goods and services (precursor to Gandhi's methods).",
+            "They sought an alliance with the French to invade Punjab."
+        ],
+        "answerRaw": "C. They adopted a policy of non-cooperation and boycott.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 50,
+        "question": "Pandita Ramabai’s 'Sharada Sadan' was established in 1889 to provide:",
+        "options": [
+            "Military training to the Maratha soldiers.",
+            "Education and shelter to child widows.",
+            "A platform for Brahmin priests to debate.",
+            "Sanskrit lessons to the British officers."
+        ],
+        "answerRaw": "B. Education and shelter to child widows.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 51,
+        "question": "The 'Deva Samaj' founded by Shiv Narain Agnihotri eventually moved away from traditional theism. What became its primary focus?",
+        "options": [
+            "The worship of ancient Greek gods.",
+            "The eternity of the soul and the supremacy of the guru, focusing on ethical behavior rather than a traditional god.",
+            "The total rejection of the soul and reincarnation.",
+            "The promotion of industrialization in India."
+        ],
+        "answerRaw": "B. Focus on ethical behavior and supremacy of the guru.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 52,
+        "question": "The 'Rahnumai Mazdayasnan Sabha' was instrumental in creating a modern Parsi identity. Which of the following prominent journals was associated with this movement?",
+        "options": [
+            "Sambad Kaumudi",
+            "Rast Goftar (The Truth Teller)",
+            "Al-Hilal",
+            "Keshari"
+        ],
+        "answerRaw": "B. Rast Goftar.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 53,
+        "question": "The 'Titu Mir's Movement' in Bengal (1820s-30s) was primarily a struggle of:",
+        "options": [
+            "Urban intellectuals against the British education policy.",
+            "Muslim peasantry against the Hindu and British landlords (Zamindars) and indigo planters.",
+            "Hindu priests against the missionary activities.",
+            "The Nawab of Bengal against the Mughal Emperor."
+        ],
+        "answerRaw": "B. Muslim peasantry against the landlords and indigo planters.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 54,
+        "question": "The 'Bharat Dharma Mahamandala' (1902) was an attempt by the orthodox Hindu elements to:",
+        "options": [
+            "Support the Brahmo Samaj's monotheism.",
+            "Defend traditional Hinduism against the onslaught of Arya Samajists, Theosophists, and Christian missionaries.",
+            "Annex Nepal to India.",
+            "Form a coalition with the Aligarh movement."
+        ],
+        "answerRaw": "B. Defend traditional Hinduism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 55,
+        "question": "Which of the following describes the relationship between the 'Self-Respect Movement' and the 'Justice Party' in Madras?",
+        "options": [
+            "They were bitter enemies who fought over the leadership of the non-Brahmins.",
+            "The Self-Respect movement was the radical social wing that eventually transformed the Justice Party into a mass movement (Dravidar Kazhagam).",
+            "The Justice Party was founded to oppose the Self-Respect movement.",
+            "Both were founded by Raja Rammohan Roy."
+        ],
+        "answerRaw": "B. Self-Respect transformed the Justice Party into a mass movement.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 56,
+        "question": "What was the primary difference between the 'Nirankari' and 'Namdhari' movements within Sikhism?",
+        "options": [
+            "Nirankari focused on the formless (Nirankar) God and simplicity, while Namdhari (Kukas) adopted a more militant stance against British cultural influence.",
+            "Nirankari were pro-British, while Namdhari were anti-British.",
+            "Namdharis rejected the Guru Granth Sahib, while Nirankaris followed it.",
+            "Both were identical and merged into the Arya Samaj."
+        ],
+        "answerRaw": "A. Nirankari focused on simplicity/formless God; Namdhari were more militant against cultural influence.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 57,
+        "question": "The 'Social Service League' (N.M. Joshi) in Bombay was unique because it aimed to:",
+        "options": [
+            "Organize the wealthy merchants into a philanthropic club.",
+            "Collect and publish the folklore of Maharashtra.",
+            "Provide medical aid, night schools, and libraries specifically for the working class and the poor.",
+            "Boycott all forms of government-aided schools."
+        ],
+        "answerRaw": "C. Provide medical aid, night schools, and libraries for the working class.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 58,
+        "question": "The 'Ahmadiyya Movement's' founder, Mirza Ghulam Ahmad, claimed to be:",
+        "options": [
+            "The reincarnation of Akbar the Great.",
+            "The promised Messiah and a renewed manifestation of both Muhammad and Krishna.",
+            "The sole representative of the British Crown in Punjab.",
+            "A secular philosopher who did not believe in prophecy."
+        ],
+        "answerRaw": "B. The promised Messiah and a renewed manifestation of Muhammad and Krishna.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 59,
+        "question": "Which of the following reform movements was the first to establish a university specifically for women in 1916?",
+        "options": [
+            "Brahmo Samaj",
+            "Arya Samaj",
+            "Individual effort of D.K. Karve (supported by several reformist groups)",
+            "The British Government"
+        ],
+        "answerRaw": "C. Individual effort of D.K. Karve.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 60,
+        "question": "The 19th-century socio-religious reform movements are generally criticized by modern historians for:",
+        "options": [
+            "Being too radical for the masses to understand.",
+            "Failing to reach the rural peasantry and the urban lower classes, remaining largely an intellectual phenomenon of the urban middle class.",
+            "Being strictly anti-Western and rejecting all forms of science.",
+            "Completely ignoring the issue of women's education."
+        ],
+        "answerRaw": "B. Failing to reach the rural peasantry and the urban lower classes.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 61,
+        "question": "Consider the following statements regarding the 'Aligarh Movement' and Sir Syed Ahmed Khan: Sir Syed Ahmed Khan’s primary objective was to reconcile Western scientific education with the teachings of the Quran to ensure the material progress of Muslims. He founded the 'United Indian Patriotic Association' to encourage Muslims to participate in the activities of the Indian National Congress. He argued that the Quran alone was the authoritative guidance for Muslims and all later additions (Ahadis) should be examined in the light of reason. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect; the United Indian Patriotic Association was founded specifically to oppose the Congress and demonstrate Muslim loyalty to the British Crown.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 62,
+        "question": "With reference to the 'Deoband Movement', consider the following: Statement-I: The Deoband school focused on the religious regeneration of Muslims through the propagation of the original teachings of the Quran and Hadis. Statement-II: Unlike the Aligarh Movement, the Deoband school welcomed the formation of the Indian National Congress and issued a fatwa against Sir Syed’s pro-British organizations. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+            "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "answerRaw": "B. Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+        "explanation": "Both are factually correct. The Deoband school was a revivalist movement (Statement-I) that took a nationalist/anti-British stance (Statement-II), contrasting sharply with Aligarh’s pro-British reformism.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 63,
+        "question": "Arrange the following movements related to Islamic reform in correct chronological order of their inception: Ahmadiyya Movement Wahabi Movement Aligarh Movement Deoband Movement Select the correct answer using the code given below:",
+        "options": [
+            "2 — 4 — 3 — 1",
+            "2 — 3 — 4 — 1",
+            "4 — 2 — 1 — 3",
+            "2 — 4 — 1 — 3"
+        ],
+        "answerRaw": "A. 2 — 4 — 3 — 1",
+        "explanation": "Wahabi Movement (early 19th century) -> Deoband (1866) -> Aligarh (1875) -> Ahmadiyya (1889).",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 64,
+        "question": "Consider the following pairs of Reform Organizations and their associated leaders: Rahnumai Mazdayasnan Sabha — Naoroji Furdonji Tattvabodhini Sabha — Keshab Chandra Sen Seva Samiti — Hridayanath Kunzru SNDP Yogam — Sahodaran Ayyappan How many of the above pairs are correctly matched?",
+        "options": [
+            "Only one pair",
+            "Only two pairs",
+            "Only three pairs",
+            "All four pairs"
+        ],
+        "answerRaw": "B. Only two pairs",
+        "explanation": "Pairs 1 and 3 are correct. Pair 2 is incorrect (founded by Debendranath Tagore). Pair 4 is incorrect (founded by Sri Narayana Guru; Sahodaran Ayyappan was a disciple who led a more radical splinter group).",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 65,
+        "question": "Regarding the 'Ahmadiyya Movement', consider the following statements: It was founded by Mirza Ghulam Ahmad, who claimed to be the 'Messiah' and a manifestation of both Muhammad and Krishna. It was a militant revivalist movement that advocated for the immediate 'Dar-ul-Islam' through armed Jihad. The movement followed the principles of the Brahmo Samaj in its emphasis on universalism and peaceful coexistence. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "Statements 1 and 3 are correct. Statement 2 is incorrect; the Ahmadiyya movement was strictly non-militant and emphasized the peaceful spread of Islam.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 66,
+        "question": "\"He was an influential Parsi reformer who played a key role in the foundation of the Rahnumai Mazdayasnan Sabha. His journal, 'Rast Goftar', was a major vehicle for the propagation of Parsi social reforms.\" The above description refers to:",
+        "options": [
+            "Dadabhai Naoroji",
+            "Pherozeshah Mehta",
+            "Naoroji Furdonji",
+            "B.M. Malabari"
+        ],
+        "answerRaw": "A. Dadabhai Naoroji",
+        "explanation": "While Furdonji was the first President, Dadabhai Naoroji was the soul of the movement and started Rast Goftar (The Truth Teller) in 1851.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 67,
+        "question": "With reference to the 'Self-Respect Movement' (1925), consider the following: Statement-I: It was launched by E.V. Ramaswamy Naicker ('Periyar') as a radical revolt against Brahminical dominance and the caste system in South India. Statement-II: The movement encouraged the performance of religious rituals and weddings strictly through Vedic mantras to achieve social parity. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct",
+            "Both Statement-I and Statement-II are incorrect"
+        ],
+        "answerRaw": "B. Statement-I is correct but Statement-II is incorrect",
+        "explanation": "Periyar’s 'Self-Respect weddings' were specifically designed to be performed without priests or religious mantras to challenge Brahminical authority.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 68,
+        "question": "Consider the following statements regarding the 'Akali Movement' of the 1920s: It was a non-violent movement aimed at liberating the Gurdwaras from the control of corrupt, British-supported 'Udasi Mahants'. The movement led to the passing of the Sikh Gurdwaras Act of 1925. The movement resulted in the Shiromani Akali Dal becoming the primary political representative of the Sikhs. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "C. All three",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 69,
+        "question": "Consider the following pairs of Journals and the community reforms they represented: Rast Goftar — Parsi Social Reform Mooknayak — Dalit Rights Tahzib-ul-Akhlaq — Muslim Educational Reform How many of the above pairs are correctly matched?",
+        "options": [
+            "Only one pair",
+            "Only two pairs",
+            "All three pairs",
+            "None"
+        ],
+        "answerRaw": "C. All three pairs",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 70,
+        "question": "The 'Aravippuram Movement' (1888) in Kerala served as a precursor to several social changes. What was its most immediate and radical impact?",
+        "options": [
+            "The conversion of the Ezhava community to Buddhism.",
+            "The practical challenge to the Brahminical monopoly over the installation of idols and religious worship.",
+            "The formation of the first non-Brahmin government in Travancore.",
+            "The complete abolition of the land tax for lower castes."
+        ],
+        "answerRaw": "B. Challenge to the Brahminical monopoly over religious rites.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 71,
+        "question": "With reference to 'Shibli Numani' and the 'Nadvat-ul-Ulama', consider the following: Statement-I: Shibli Numani aimed to modernize the Madrasa curriculum by including English and European sciences while maintaining traditional Islamic learning. Statement-II: He was a staunch supporter of the pro-British political stance of Sir Syed Ahmed Khan and stayed away from the Indian National Congress. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct",
+            "Both Statement-I and Statement-II are incorrect"
+        ],
+        "answerRaw": "B. Statement-I is correct but Statement-II is incorrect",
+        "explanation": "Statement-II is false because Shibli Numani, unlike Sir Syed, believed in the Congress’s ideal of a united India and was critical of the Aligarh school's political loyalty to the British.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 72,
+        "question": "Consider the following movements and their regional focus: Aravippuram Movement — Kerala Self-Respect Movement — Tamil Nadu Vaikom Satyagraha — Andhra Pradesh Satyashodhak Samaj — Maharashtra How many of the above pairs are correctly matched?",
+        "options": [
+            "Only one pair",
+            "Only two pairs",
+            "Only three pairs",
+            "All four pairs"
+        ],
+        "answerRaw": "C. Only three pairs",
+        "explanation": "Vaikom Satyagraha took place in Kerala (Travancore), not Andhra Pradesh.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 73,
+        "question": "The 'Prarthana Samaj' did not regard the Vedas as infallible. Which of the following best describes its primary spiritual orientation?",
+        "options": [
+            "It focused on the 'Shuddhi' or purification rites for converts.",
+            "It was rooted in the Maharashtrian Bhakti tradition, emphasizing theistic devotion and social reform without breaking from Hinduism.",
+            "It was an atheistic movement that rejected all forms of worship.",
+            "it was a secret society aimed at the armed overthrow of the British."
+        ],
+        "answerRaw": "B. Rooted in Maharashtrian Bhakti tradition and social reform.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 74,
+        "question": "The 'Bharat Dharma Mahamandala' was a response of the 'Sanatana Dharma' followers. What was its primary objective?",
+        "options": [
+            "To support the Brahmo Samaj in its attack on idol worship.",
+            "To defend orthodox Hinduism and traditional practices against the reformist propaganda of Arya Samaj and Christian missionaries.",
+            "To promote the conversion of Hindus to Sikhism.",
+            "To demand the return of the British to London."
+        ],
+        "answerRaw": "B. To defend orthodox Hinduism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 75,
+        "question": "Consider the following regarding the 'Kuka Movement' (Namdhari Sect) in Punjab: Statement-I: It began as a religious purification movement but later transformed into a political struggle against British rule. Statement-II: The Kukas advocated for the total boycott of British goods, services, and laws, long before the non-cooperation movement of Gandhi. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+            "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct"
+        ],
+        "answerRaw": "A. Both Statement-I and Statement-II are correct",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 76,
+        "question": "\"He was a former high-ranking official of the Aligarh movement who broke away to form the 'Deva Samaj'. He eventually established a moral-ethical code that prioritized 'Ideal Social Behavior' over traditional theism.\" This passage refers to:",
+        "options": [
+            "Shibli Numani",
+            "Shiv Dayal Saheb",
+            "Shiv Narain Agnihotri",
+            "Mirza Ghulam Ahmad"
+        ],
+        "answerRaw": "C. Shiv Narain Agnihotri",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 77,
+        "question": "The 'Social Service League' (1911) founded by N.M. Joshi was significant because it was the first organization to:",
+        "options": [
+            "Organize armed strikes against textile mill owners.",
+            "Provide comprehensive social services (night schools, libraries, medical aid) specifically targeted at the urban working class and poor.",
+            "Demand the creation of a separate Dalit state.",
+            "Lobby the British Parliament for the abolition of the Salt tax."
+        ],
+        "answerRaw": "B. Provide social services targeted at the urban working class.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 78,
+        "question": "Consider the following statements regarding the 'Singh Sabha Movement': It sought to restore Sikhism to its pristine purity by removing non-Sikh practices and beliefs. It promoted the study of modern Western sciences while preserving the Gurmukhi script. It was strictly anti-British and refused to accept any government grants for its schools. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "Statement 3 is incorrect; the Singh Sabha movement was generally pro-government and actively sought British support to protect Sikh interests.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 79,
+        "question": "The 'Nirankari' movement among the Sikhs emphasized:",
+        "options": [
+            "The worship of the living Guru only.",
+            "The worship of God as 'Nirankar' (formless) and the rejection of all non-Sikh rituals that had crept into the community.",
+            "The military conquest of the Mughal territories.",
+            "The study of the Vedas alongside the Guru Granth Sahib."
+        ],
+        "answerRaw": "B. Worship of formless God and rejection of non-Sikh rituals.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 80,
+        "question": "During the 'Vaikom Satyagraha' (1924), which prominent national leader visited Kerala to offer support and negotiate with the state authorities?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Mahatma Gandhi",
+            "Subhash Chandra Bose",
+            "Sardar Vallabhbhai Patel"
+        ],
+        "answerRaw": "B. Mahatma Gandhi",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 81,
+        "question": "Consider the following regarding the 'Justice Party' (South Indian Liberal Federation): Statement-I: It was primarily an elite non-Brahmin movement that sought government patronage and representation in the legislature. Statement-II: The party was a staunch supporter of the Home Rule Movement led by Annie Besant. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct",
+            "Both Statement-I and Statement-II are incorrect"
+        ],
+        "answerRaw": "B. Statement-I is correct but Statement-II is incorrect",
+        "explanation": "The Justice Party opposed the Home Rule Movement, viewing it as a move to re-establish Brahminical dominance.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 82,
+        "question": "The 'SNDP Yogam' (1903) was the first major organization in India to:",
+        "options": [
+            "Demand the right of lower castes to wear certain clothes and use public roads.",
+            "Effectively mobilize a lower-caste community (the Ezhavas) for both religious and socio-political upliftment on a massive scale.",
+            "Advocate for the conversion of all Indians to Buddhism.",
+            "Form a coalition with the British to fight the Marathas."
+        ],
+        "answerRaw": "B. Effectively mobilize a lower-caste community.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 83,
+        "question": "Which reformer argued that \"religion should be used as a tool for social engineering and not for ritualistic stagnation\"?",
+        "options": [
+            "Raja Rammohan Roy",
+            "M.G. Ranade",
+            "Swami Vivekananda",
+            "B.R. Ambedkar"
+        ],
+        "answerRaw": "C. Swami Vivekananda",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 84,
+        "question": "The 'Radhaswami Movement' (1861) differed from many other 19th-century movements because it:",
+        "options": [
+            "Did not focus on any social reforms like women's education or caste.",
+            "Was a purely spiritual-mystical movement centered around the 'Satguru' and 'Surat-Shabda Yoga'.",
+            "Advocated for the destruction of all temples.",
+            "Was founded by a British civil servant."
+        ],
+        "answerRaw": "B. Spiritual-mystical movement centered around 'Satguru'.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 85,
+        "question": "Consider the impact of the 'Theosophical Society' on the Indian youth: Statement-I: It encouraged many young Indians to embrace Western materialistic philosophies. Statement-II: By providing a 'modern' and 'Western' validation of ancient Indian spiritualism, it helped overcome the sense of cultural inferiority induced by colonial education. Which one of the following is correct in respect of the above statements?",
+        "options": [
+            "Both Statement-I and Statement-II are correct",
+            "Statement-I is correct but Statement-II is incorrect",
+            "Statement-I is incorrect but Statement-II is correct",
+            "Both Statement-I and Statement-II are incorrect"
+        ],
+        "answerRaw": "C. Statement-I is incorrect but Statement-II is correct",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 86,
+        "question": "What was the 'Pledge Movement' associated with the Indian Social Conference?",
+        "options": [
+            "A pledge to never speak English.",
+            "A pledge to boycott all British administrative jobs.",
+            "A mass campaign to encourage people to take a pledge against the practice of child marriage.",
+            "A pledge to support the armed struggle of 1857."
+        ],
+        "answerRaw": "C. Campaign against child marriage.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 87,
+        "question": "The 'Faraizi Movement' in Bengal eventually merged with the broader:",
+        "options": [
+            "Wahabi Movement",
+            "Brahmo Samaj",
+            "Aligarh Movement",
+            "Arya Samaj"
+        ],
+        "answerRaw": "A. Wahabi Movement",
+        "explanation": "Due to similarities in their puritanical/revivalist Islamic outlook, the remnants of the Faraizis eventually aligned with the Wahabis.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 88,
+        "question": "\"He founded the Seva Samiti Boy Scouts Association and worked tirelessly for famine relief. He was a prominent member of the Servants of India Society and the Liberal Party.\" The above description refers to:",
+        "options": [
+            "G.K. Gokhale",
+            "N.M. Joshi",
+            "Hridayanath Kunzru",
+            "Madan Mohan Malaviya"
+        ],
+        "answerRaw": "C. Hridayanath Kunzru",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
+    },
+    {
+        "id": 89,
+        "question": "Consider the 'Rahnumai Mazdayasnan Sabha's' impact on the Parsi community: It successfully reduced the age of marriage for Parsi girls. It led to the complete abolition of the Parsi religion in favor of secularism. It modernized the Parsi social structure, making them the most Westernized community in India by the late 19th century. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "Statements 1 and 3 are correct. The movement aimed at reform, not abolition of the religion.",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 90,
+        "question": "Ultimately, the survey of 19th-century reform movements suggests that they were successful in:",
+        "options": [
+            "Creating a mass-based political revolution against the British.",
+            "Permanently ending the practice of the caste system in India.",
+            "Providing a rational-modernist critique of Indian society which served as the cultural-intellectual precursor to the Indian National Movement.",
+            "Converting the majority of Indians to monotheism."
+        ],
+        "answerRaw": "C. Providing a rational-modernist critique of Indian society.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 2
     }
 ];
-
-export const MODERN_CHAPTER_9_CONTENT = `
-# BLOCK 1: MUSLIM REFORM MOVEMENTS
-## ☪️ ALIGARH VS DEOBAND
-
-**1. Aligarh Movement (Modernist):**
-*   **Sir Syed Ahmed Khan.**
-*   **Goal:** Modern Education for Muslims + Loyalty to British = Govt Jobs.
-*   **Institution:** Mohammedan Anglo-Oriental College (1875) -> AMU.
-*   **Journal:** *Tahzib-ul-Akhlaq*.
-*   **Politics:** Opposed INC. Founded "United Patriotic Association".
-
-**2. Deoband School (Orthodox/Revivalist):**
-*   **Founders:** Nanotavi & Gangohi. (UP).
-*   **Goal:** Pure Islam (Hadith/Quran). Jihad against foreign rule.
-*   **Politics:** Supported INC. Issued Fatwa against Sir Syed.
-
-**3. Ahmadiyya Movement:**
-*   **Mirza Ghulam Ahmad.** (Qadian, Punjab).
-*   **Goal:** Universal religion. Opposed Jihad.
-
-# BLOCK 2: SIKH & PARSI REFORMS
-**Sikhs:**
-*   **Singh Sabha (1873):** Education & Religious purity.
-*   **Akali Movement (1920s):** To liberate Gurdwaras from corrupt Mahants.
-*   **Act:** Gurdwara Reform Act 1925 (SGPC formed).
-
-**Parsis:**
-*   **Rahnumai Mazdayasnan Sabha (1851):** Dadabhai Naoroji.
-*   **Theme:** "Restoration" of Zoroastrianism to purity. Women's education.
-
-# BLOCK 3: LOWER CASTE MOVEMENTS (South India)
-## ✊ SELF-RESPECT & JUSTICE
-
-**1. Justice Party (1916):**
-*   Founders: T.M. Nair, Thyagaraja Chetti. (Madras).
-*   Issue: Brahmin dominance in jobs/politics.
-*   Action: Supported British. Won elections under Dyarchy (1920).
-
-**2. Self-Respect Movement (1925):**
-*   Leader: **E.V. Ramaswamy Naicker (Periyar)**.
-*   Philosophy: Radical Anti-Brahmin. Burned Manusmriti. Kudi Arasu (Journal).
-*   Self-Respect Marriages: No priests within.
-
-**3. Temple Entry Movements:**
-*   **Vaikom Satyagraha (1924):** Kerala. K.P. Kesava Menon. (Right to use roads around temple).
-*   **Guruvayur Satyagraha (1931):** K. Kelappan.
-
-**4. SNDP (Kerala):**
-*   **Sri Narayana Guru.**
-*   Slogan: "One Caste, One Religion, One God for Mankind".
-*   Action: Consecrated idols himself (Aruvipuram).
-
-# BLOCK 4: CASTE MOVEMENTS (General/West)
-**Dr. B.R. Ambedkar:**
-*   **Organizations:** Bahishkrit Hitakarini Sabha (1924), Independent Labour Party, Scheduled Castes Federation.
-*   **Mahad Satyagraha (1927):** Right to water from tank.
-*   **Journals:** *Mooknayak* (Leader of Dumb), *Bahishkrit Bharat*.
-
-**Mahatma Gandhi:**
-*   **All India Harijan Sangh (1932):** After Poona Pact.
-*   **Journal:** *Harijan*.
-*   Focus: Temple entry, abolition of untouchability (as a sin), but within Hindu fold.
-
-> [!WARNING]
-> **EXAMINER'S TRAP:**
-> **Q:** Who started "Self-Respect Movement"? -> **Periyar**.
-> **Q:** Who started "Satya Shodhak Samaj"? -> **Jyotiba Phule** (Not Ambedkar).
-> **Q:** Difference between Aligarh and Deoband? -> Aligarh = Pro-British/Modern; Deoband = Anti-British/Traditional.
-`;
-

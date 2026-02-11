@@ -1,735 +1,903 @@
-
-export interface Subtopic {
-    id: string;
-    name: string;
-    status?: string;
-}
-
-export interface Question {
-    id: number;
-    question: string;
-    options: string[];
-    correctAnswer: number;
-    explanation: string;
-    subtopic: string;
-    cognitiveLevel?: string;
-}
-
-export const MODERN_CHAPTER_29_SUBTOPICS: Subtopic[] = [
-    { id: '1', name: "Early Beginnings & Censorship (1780-1835)", status: 'done' },
-    { id: '2', name: "The Vernacular Press Act & Tilak's Era", status: 'done' },
-    { id: '3', name: "Revolutionary Journals & Personalities", status: 'done' },
-    { id: '4', name: "Press Acts & Regulations (1908-1947)", status: 'done' },
-    { id: '5', name: "Post-Independence Institutions (PCI, RNI)", status: 'done' },
-];
+import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_29_MCQS: Question[] = [
     {
-        id: 1,
-        question: "Who is known as the 'Liberator of the Indian Press'?",
-        options: ["Lord Lytton", "Charles Metcalfe", "Lord Ripon", "Lord Hastings"],
-        correctAnswer: 1,
-        explanation: "Charles Metcalfe passed the Press Act of 1835, which repealed the restrictive 1823 ordinance.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 1,
+        "question": "Who was the first to organize a movement specifically for the \"untouchables\" in Maharashtra and founded the 'Anarya Dosh-Parihar Samaj' (1888)?",
+        "options": [
+            "Jyotiba Phule",
+            "Gopal Baba Walangkar",
+            "B.R. Ambedkar",
+            "Jagjivan Ram"
+        ],
+        "answerRaw": "B. Gopal Baba Walangkar",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 2,
-        question: "Which Act was specifically targeted at the Vernacular Press (Indian languages)?",
-        options: ["Censorship of Press Act, 1799", "Licensing Regulations, 1823", "Vernacular Press Act, 1878", "Indian Press Act, 1910"],
-        correctAnswer: 2,
-        explanation: "Lord Lytton's Vernacular Press Act of 1878 targeted Indian language papers to curb sedition.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 2,
+        "question": "The 'Satyashodhak Samaj' (1873) was primarily dedicated to the social and educational upliftment of:",
+        "options": [
+            "Brahmins",
+            "Shudras and Ati-Shudras",
+            "British Officers",
+            "Merchants"
+        ],
+        "answerRaw": "B. Shudras and Ati-Shudras",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 3,
-        question: "Raja Rammohun Roy shut down which newspaper in protest against the 1823 Licensing Regulations?",
-        options: ["Sambad Kaumudi", "Mirat-ul-Akbar", "Banga Duta", "Brahminical Magazine"],
-        correctAnswer: 1,
-        explanation: "He shut down his Persian journal 'Mirat-ul-Akbar' in protest against John Adams' Licensing Regulations.",
-        subtopic: '1',
-        cognitiveLevel: "Fact"
+        "id": 3,
+        "question": "Which leader led the 'Mahad Satyagraha' in 1927 to assert the right of untouchables to use water from the Chawdar Tank?",
+        "options": [
+            "Mahatma Gandhi",
+            "Dr. B.R. Ambedkar",
+            "Jyotiba Phule",
+            "Periyar"
+        ],
+        "answerRaw": "B. Dr. B.R. Ambedkar",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 4,
-        question: "Who founded the 'Amrita Bazar Patrika'?",
-        options: ["Sisir Kumar Ghosh", "Girish Chandra Ghosh", "Surendranath Banerjea", "Motilal Ghosh"],
-        correctAnswer: 0,
-        explanation: "Sisir Kumar Ghosh founded it. It famously turned into an English paper overnight to escape the Vernacular Press Act.",
-        subtopic: '2',
-        cognitiveLevel: "Fact"
+        "id": 4,
+        "question": "The 'Self-Respect Movement' (Suyamariyathai Iyakkam) was founded in 1925 by:",
+        "options": [
+            "C.N. Annadurai",
+            "E.V. Ramaswamy 'Periyar'",
+            "T.M. Nair",
+            "K. Kamaraj"
+        ],
+        "answerRaw": "B. E.V. Ramaswamy 'Periyar'",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 5,
-        question: "What was the first Hindi newspaper published in India?",
-        options: ["Samachar Darpan", "Udant Martand", "Banaras Akhbar", "Sudhakar"],
-        correctAnswer: 1,
-        explanation: "Udant Martand (The Rising Sun) was the first Hindi newspaper, started by Jugalkishore Shukla in 1826.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 5,
+        "question": "The 'Sri Narayana Dharma Paripalana (SNDP) Yogam' was founded in 1903 in:",
+        "options": [
+            "Tamil Nadu",
+            "Kerala",
+            "Karnataka"
+        ],
+        "answerRaw": "B. Kerala",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 6,
-        question: "The 'Official Secrets Act' was originally enacted during the viceroyalty of:",
-        options: ["Lord Curzon", "Lord Chelmsford", "Lord Reading", "Lord Irwin"],
-        correctAnswer: 0,
-        explanation: "It was originally enacted by Lord Curzon in 1904 to muzzle the press from reporting on government secrets.",
-        subtopic: '4',
-        cognitiveLevel: "Fact"
+        "id": 6,
+        "question": "Who was the first General Secretary of the SNDP Yogam and a famous Malayalam poet?",
+        "options": [
+            "Sri Narayana Guru",
+            "Kumaran Asan",
+            "Dr. Palpu",
+            "Sahodaran Ayyappan"
+        ],
+        "answerRaw": "B. Kumaran Asan",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 7,
-        question: "Which committee recommended the establishment of the 'Registrar of Newspapers for India' (RNI)?",
-        options: ["Press Committee of 1921", "Press Inquiry Committee (1947)", "First Press Commission (1952-54)", "Second Press Commission"],
-        correctAnswer: 2,
-        explanation: "The First Press Commission (1952-54) under Justice Rajadhyaksha recommended the RNI and Press Council.",
-        subtopic: '5',
-        cognitiveLevel: "Fact"
+        "id": 7,
+        "question": "The 'Justice Party' (South Indian Liberal Federation) was formed in 1916 to represent the interests of:",
+        "options": [
+            "Non-Brahmins in Madras Presidency",
+            "The British Army",
+            "The Congress party",
+            "Only the landless laborers"
+        ],
+        "answerRaw": "A. Non-Brahmins in Madras.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
     },
     {
-        id: 8,
-        question: "Leading up to the Swadeshi Movement, which paper gave the first call for the boycott of foreign goods?",
-        options: ["Sanjibani", "Hitabadi", "Bengalee", "Yugantar"],
-        correctAnswer: 0,
-        explanation: "Krishna Kumar Mitra's 'Sanjibani' gave the call for boycott on July 13, 1905.",
-        subtopic: '3',
-        cognitiveLevel: "Deep"
+        "id": 8,
+        "question": "The 'Vaikom Satyagraha' (1924–25) was a landmark struggle in Kerala for:",
+        "options": [
+            "Freedom from taxes",
+            "Temple entry and the right of untouchables to use roads leading to the Vaikom Temple",
+            "The promotion of the English language",
+            "The partition of India"
+        ],
+        "answerRaw": "B. Temple entry and road access.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 9,
-        question: "Who was the editor of the revolutionary journal 'Bande Mataram'?",
-        options: ["Barindra Kumar Ghosh", "Aurobindo Ghosh", "Bhupendranath Datta", "Bipin Chandra Pal"],
-        correctAnswer: 1,
-        explanation: "Aurobindo Ghosh was the editor of the English daily 'Bande Mataram'.",
-        subtopic: '3',
-        cognitiveLevel: "Fact"
+        "id": 9,
+        "question": "Who founded the 'All India Depressed Classes Association' in 1930?",
+        "options": [
+            "Dr. B.R. Ambedkar",
+            "M.C. Rajah",
+            "Mahatma Gandhi",
+            "Babu Jagjivan Ram"
+        ],
+        "answerRaw": "B. M.C. Rajah (Ambedkar founded the 'All India Depressed Classes Federation').",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     },
     {
-        id: 10,
-        question: "The 'Registration Act of 1867' is significant because:",
-        options: ["It imposed pre-censorship.", "It required the name of the printer/publisher on every book.", "It banned vernacular papers.", "It abolished stamp duties."],
-        correctAnswer: 1,
-        explanation: "It was regulatory, requiring every book/newspaper to print the name of the printer, publisher, and place of publication.",
-        subtopic: '4',
-        cognitiveLevel: "Conceptual"
+        "id": 10,
+        "question": "The 'Poona Pact' (1932) was signed between which two leaders?",
+        "options": [
+            "Nehru and Jinnah",
+            "Gandhi and Ambedkar",
+            "Patel and Bose",
+            "Ambedkar and Jinnah"
+        ],
+        "answerRaw": "B. Gandhi and Ambedkar",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 11,
+        "question": "Following the Poona Pact, Mahatma Gandhi founded which organization for the welfare of the 'Harijans'?",
+        "options": [
+            "Bahishkrit Hitakarini Sabha",
+            "Harijan Sevak Sangh",
+            "Satyashodhak Samaj",
+            "Self-Respect Movement"
+        ],
+        "answerRaw": "B. Harijan Sevak Sangh (1932).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 12,
+        "question": "The term 'Harijan' (Children of God) was popularized by:",
+        "options": [
+            "Dr. B.R. Ambedkar",
+            "Mahatma Gandhi",
+            "Jyotiba Phule",
+            "Periyar"
+        ],
+        "answerRaw": "B. Mahatma Gandhi",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 13,
+        "question": "Who was the leader of the 'Ezhava' community in Kerala who famously said, \"One Caste, One Religion, One God for Man\"?",
+        "options": [
+            "Sahodaran Ayyappan",
+            "Sri Narayana Guru",
+            "T.K. Madhavan",
+            "K. Kelappan"
+        ],
+        "answerRaw": "B. Sri Narayana Guru",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 14,
+        "question": "The 'Bahishkrit Hitakarini Sabha' (1924) had the motto:",
+        "options": [
+            "\"Jai Bhim\"",
+            "\"Educate, Agitate, and Organize\"",
+            "\"Do or Die\"",
+            "\"Satyamev Jayate\""
+        ],
+        "answerRaw": "B. \"Educate, Agitate, and Organize\"",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 15,
+        "question": "Which magazine was started by Dr. B.R. Ambedkar in 1920 with the help of the Maharaja of Kolhapur?",
+        "options": [
+            "Bahishkrit Bharat",
+            "Mooknayak (Leader of the Silent)",
+            "Janata",
+            "Prabuddha Bharat"
+        ],
+        "answerRaw": "B. Mooknayak",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 16,
+        "question": "The 'Kalaram Temple Satyagraha' (1930) took place in which city?",
+        "options": [
+            "Pune",
+            "Nashik",
+            "Nagpur",
+            "Mumbai"
+        ],
+        "answerRaw": "B. Nashik (Led by Ambedkar).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 17,
+        "question": "The 'Guruvayur Satyagraha' (1931–32) for temple entry was led by which Congress leader in Kerala?",
+        "options": [
+            "K. Kelappan",
+            "A.K. Gopalan",
+            "T.K. Madhavan",
+            "Both A and B"
+        ],
+        "answerRaw": "D. Both A and B (Kelappan went on a fast).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 3
+    },
+    {
+        "id": 18,
+        "question": "Who founded the 'Sadhujana Paripalana Yogam' (1907) for the upliftment of the Pulaya community in Kerala?",
+        "options": [
+            "Sri Narayana Guru",
+            "Ayyankali",
+            "Dr. Palpu",
+            "Sahodaran Ayyappan"
+        ],
+        "answerRaw": "B. Ayyankali",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 19,
+        "question": "The journal Kudi Arasu (Republic) was the mouthpiece of which movement?",
+        "options": [
+            "Satyashodhak Samaj",
+            "Self-Respect Movement",
+            "SNDP Yogam",
+            "Justice Party"
+        ],
+        "answerRaw": "B. Self-Respect Movement",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 20,
+        "question": "In his famous book Gulamgiri (1873), Jyotiba Phule dedicated his work to:",
+        "options": [
+            "The British Government",
+            "The American movement to abolish slavery",
+            "The Indian National Congress",
+            "The Brahmin community"
+        ],
+        "answerRaw": "B. The American anti-slavery movement.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 21,
+        "question": "The 'Temple Entry Proclamation' of 1936, which opened temples to all Hindus, was issued by the Maharaja of which state?",
+        "options": [
+            "Mysore",
+            "Travancore",
+            "Baroda",
+            "Hyderabad"
+        ],
+        "answerRaw": "B. Travancore",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 22,
+        "question": "Who started the 'Cheramar Mahajana Sabha' in 1921?",
+        "options": [
+            "Ayyankali",
+            "Pambadi John Joseph",
+            "Sri Narayana Guru",
+            "Dr. Palpu"
+        ],
+        "answerRaw": "B. Pambadi John Joseph",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 23,
+        "question": "The 'Depressed Classes Mission Society of India' (1906) was founded by:",
+        "options": [
+            "Dr. B.R. Ambedkar",
+            "V.R. Shinde (Vitthal Ramji Shinde)",
+            "Jyotiba Phule",
+            "Mahatma Gandhi"
+        ],
+        "answerRaw": "B. V.R. Shinde",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 24,
+        "question": "Who was the President of the first session of the All India Depressed Classes Federation in 1942?",
+        "options": [
+            "Dr. B.R. Ambedkar",
+            "N. Sivaraj",
+            "Babu Jagjivan Ram",
+            "M.C. Rajah"
+        ],
+        "answerRaw": "B. N. Sivaraj",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 25,
+        "question": "The movement led by E.V. Ramaswamy 'Periyar' strongly advocated for:",
+        "options": [
+            "The use of Hindi in schools",
+            "The eradication of Brahminical supremacy and the promotion of a Dravidian identity",
+            "The return to the Vedas",
+            "The maintenance of the Varna system"
+        ],
+        "answerRaw": "B. Eradication of Brahminical supremacy.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 26,
+        "question": "Who wrote the influential book Annihilation of Caste?",
+        "options": [
+            "Mahatma Gandhi",
+            "Dr. B.R. Ambedkar",
+            "Periyar",
+            "Kanshi Ram"
+        ],
+        "answerRaw": "B. Dr. B.R. Ambedkar (Originally written as a speech).",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 27,
+        "question": "The 'Ezhava Memorial' (1896) was a petition submitted to the Maharaja of Travancore demanding:",
+        "options": [
+            "Tax relief",
+            "Government jobs for the Ezhava community",
+            "A separate country",
+            "Freedom of the press"
+        ],
+        "answerRaw": "B. Government jobs for Ezhavas.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 28,
+        "question": "'Sahodaran Ayyappan' started the 'Sahodara Sangham' (1917) and popularized:",
+        "options": [
+            "Single-caste dining",
+            "'Misra-Bhojan' (Inter-dining) across caste lines",
+            "Only Vedic education",
+            "The use of Sanskrit"
+        ],
+        "answerRaw": "B. Misra-Bhojan.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 29,
+        "question": "Mahatma Gandhi’s 'Harijan' tour (1933–34) was aimed at:",
+        "options": [
+            "Raising money for the Quit India movement",
+            "Campaigning against untouchability and raising funds for the Harijan Sevak Sangh",
+            "Promoting the Salt Satyagraha",
+            "Opposing the Muslim League"
+        ],
+        "answerRaw": "B. Campaigning against untouchability.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 30,
+        "question": "The 'Communal Award' (1932) by Ramsay MacDonald provided for:",
+        "options": [
+            "Separate electorates for Muslims only",
+            "Separate electorates for the Depressed Classes (Dalits) among others",
+            "The partition of Bengal",
+            "The independence of Princely States"
+        ],
+        "answerRaw": "B. Separate electorates for Dalits.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "The 'Satyashodhak Samaj' founded by Jyotiba Phule was revolutionary because it was the first to:",
+        "options": [
+            "Use only English for its manifestos.",
+            "Propose a non-Brahminical social identity by claiming that the \"lower\" castes were the original inhabitants (sons of the soil) and the \"upper\" castes were alien 'Aryan' invaders.",
+            "Demand a separate country for Shudras.",
+            "Support the British during the 1857 revolt."
+        ],
+        "answerRaw": "B. Non-Brahminical identity and the 'Aryan' invasion theory.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 32,
+        "question": "Consider the following statements regarding 'Dr. B.R. Ambedkar’s' stance at the Round Table Conferences: 1. He argued that the 'Depressed Classes' were a distinct element in Indian society, separate from the Hindus. 2. He demanded separate electorates for the Dalits to ensure their true political representation. 3. He initially supported Gandhi’s 'Harijan' terminology as a respectful alternative. Which of the statements given above are correct?",
+        "options": [
+            "1 and 2 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2, and 3"
+        ],
+        "answerRaw": "A. 1 and 2 only.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 33,
+        "question": "The 'Poona Pact' (1932) is often seen as a political compromise. What was the core trade-off?",
+        "options": [
+            "Ambedkar gave up the demand for a separate country in exchange for reservation.",
+            "Ambedkar gave up 'Separate Electorates' for the Depressed Classes in exchange for an increased number of 'Reserved Seats' within the general electorate.",
+            "Gandhi agreed to join the Depressed Classes Federation.",
+            "The British agreed to leave India immediately."
+        ],
+        "answerRaw": "B. Reservation within General Electorate vs Separate Electorates.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 34,
+        "question": "With reference to 'E.V. Ramaswamy Periyar', consider the following: Statement-I: He believed that true liberation for the backward castes required a total rejection of Hinduism and the 'Brahmin-dominated' North Indian culture. Statement-II: He started the 'Self-Respect Movement' to instill a sense of pride in Dravidian identity and promote rationalism over superstition. Which one of the following is correct?",
+        "options": [
+            "Both are correct and Statement-II is the method to achieve Statement-I.",
+            "Both are correct but unrelated.",
+            "Statement-I is false.",
+            "Statement-II is false."
+        ],
+        "answerRaw": "A. Both are correct.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 35,
+        "question": "Why did 'Sri Narayana Guru' install a mirror instead of an idol in one of his temples later in life?",
+        "options": [
+            "Because he ran out of stone.",
+            "To symbolize that the \"Divine\" is within one's self and to emphasize the message of \"One God\" for all mankind beyond sectarian images.",
+            "To help people fix their clothes before worship.",
+            "Because the British banned the use of idols."
+        ],
+        "answerRaw": "B. Symbolizing the Divine within and universalism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 36,
+        "question": "The 'Justice Party' (1916) in Madras is significant because it:",
+        "options": [
+            "Led the armed struggle in the South.",
+            "Was the first successful non-Brahmin political party that utilized the colonial administrative structure to secure reservations in government jobs and education.",
+            "Merged with the Muslim League.",
+            "Abolished the salt tax in Madras."
+        ],
+        "answerRaw": "B. First successful non-Brahmin political mobilization for reservations.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 37,
+        "question": "Consider the following regarding the 'Mahad Satyagraha' (1927): 1. It was an assertion of 'Civil Rights' rather than just a religious demand. 2. During this movement, Ambedkar and his followers publicly burned the 'Manusmriti'. 3. The Satyagraha was immediately successful in ending untouchability in Mahad. How many of the above statements are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 38,
+        "question": "The 'Temple Entry Proclamation' of Travancore (1936) was a response to:",
+        "options": [
+            "A direct order from the British King.",
+            "The persistent and massive 'Temple Entry' movements (like Vaikom and Guruvayur) and the threat of large-scale conversion of lower castes to other religions.",
+            "The discovery of gold inside the temple.",
+            "A request from the Mughal Emperor."
+        ],
+        "answerRaw": "B. Pressure from grassroots movements and fear of conversion.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 39,
+        "question": "Match the following 'Social Movements' with their 'Region': 1. Satyashodhak Samaj — Maharashtra 2. Self-Respect Movement — Tamil Nadu 3. SNDP Yogam — Kerala 4. Namasudra Movement — Bengal Select the correct matching code:",
+        "options": [
+            "1-A, 2-B, 3-C, 4-D",
+            "1-B, 2-A, 3-D, 4-C",
+            "1-C, 2-D, 3-A, 4-B",
+            "1-D, 2-C, 3-B, 4-A"
+        ],
+        "answerRaw": "A. All are correctly matched.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 40,
+        "question": "'Vitthal Ramji Shinde' is often called the \"bridge\" between the Moderate Congress and the Dalit movement. Why?",
+        "options": [
+            "He built an actual bridge.",
+            "He worked within the Brahmo Samaj and the Congress while founding the 'Depressed Classes Mission' to sensitize the upper castes about untouchability.",
+            "He was Ambedkar's teacher.",
+            "He led the Quit India movement in the South."
+        ],
+        "answerRaw": "B. Sensitizing upper castes while working for Dalits.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 41,
+        "question": "The 'Self-Respect Movement' emphasized 'Rationalism'. In this context, it advocated for:",
+        "options": [
+            "The return to Vedic rituals.",
+            "Abandoning Sanskritized rituals and priestly control in favor of simple, logic-based social ceremonies.",
+            "Joining the British civil service.",
+            "Scientific farming only."
+        ],
+        "answerRaw": "B. Logic-based ceremonies vs priestly control.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 42,
+        "question": "What was the 'Vaikom Satyagraha' (1924) uniquely known for in the context of the National Movement?",
+        "options": [
+            "It was the first time an all-India leader like Gandhi got involved in a local 'caste' issue, linking social reform with the broader national struggle.",
+            "It was a violent revolt.",
+            "It was purely an economic strike by laborers.",
+            "It resulted in the independence of Kerala."
+        ],
+        "answerRaw": "A. Gandhi's involvement linking social reform to nationalism.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 43,
+        "question": "'Ayyankali's' struggle for the Pulayas in Kerala was characterized by:",
+        "options": [
+            "Only writing letters to the King.",
+            "Direct action, such as the 'Villuvandi' (bullock cart) journey to assert the right to use public roads reserved for upper castes.",
+            "Moving his community to America.",
+            "Supporting the British salt tax."
+        ],
+        "answerRaw": "B. Direct action via the 'Villuvandi' journey.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 44,
+        "question": "The 'All India Scheduled Castes Federation' (1942) was Ambedkar’s attempt to:",
+        "options": [
+            "Join the Congress.",
+            "Create an independent political party to safeguard Dalit interests during the negotiations for the transfer of power.",
+            "Start a new religion immediately.",
+            "Support the Quit India movement."
+        ],
+        "answerRaw": "B. Independent political party for post-war power negotiations.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 45,
+        "question": "Consider the following regarding 'Mahatma Gandhi’s' approach to Caste: 1. He believed that 'Untouchability' was a sin and a blot on Hinduism that must be removed. 2. He initially defended the 'Varna' system as a healthy social order while attacking its current \"degenerate\" form. 3. He advocated for the total destruction of the Hindu religion to end caste. How many of the above are correct?",
+        "options": [
+            "Only one",
+            "Only two",
+            "All three",
+            "None"
+        ],
+        "answerRaw": "B. Only two",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 46,
+        "question": "The 'Justice Party's' failure to survive in the 1930s was largely due to:",
+        "options": [
+            "Its pro-British stance and its inability to compete with the growing mass appeal and nationalist fervor of the Congress under Gandhi.",
+            "It had no money.",
+            "All its leaders died.",
+            "It was banned by the British."
+        ],
+        "answerRaw": "A. Pro-British stance vs Nationalist mass appeal.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 0
+    },
+    {
+        "id": 47,
+        "question": "The 'Ezhava' community in Kerala was unique because it utilized which 'strategy' to climb the social ladder?",
+        "options": [
+            "Only through religious conversion.",
+            "A combination of 'Sanskritization' (adopting upper-caste habits) and 'Modernization' (securing Western education and government jobs).",
+            "Armed rebellion.",
+            "Supporting the French."
+        ],
+        "answerRaw": "B. Sanskritization and Modernization.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 48,
+        "question": "Consider the following regarding 'Periyar’s' view on Women:",
+        "options": [
+            "He believed they should stay at home.",
+            "He was a radical feminist who argued that women’s liberation was central to the self-respect of the Dravidian race, advocating for the right to divorce and property.",
+            "He thought women shouldn't be educated.",
+            "He supported the practice of Sati."
+        ],
+        "answerRaw": "B. Radical feminism as part of self-respect.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 49,
+        "question": "The 'Poona Pact' resulted in the creation of 'Reserved Seats'. How does this differ from 'Separate Electorates'?",
+        "options": [
+            "In reserved seats, only Dalits vote.",
+            "In reserved seats, the candidate must be a Dalit, but the entire population of the constituency (all castes) votes for them.",
+            "There is no difference.",
+            "Reserved seats are only for the British."
+        ],
+        "answerRaw": "B. Joint electorate with a reserved candidate.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 50,
+        "question": "Why did 'Ambedkar' eventually convert to Buddhism in 1956?",
+        "options": [
+            "Because he liked the architecture.",
+            "He viewed it as an indigenous Indian religion that was egalitarian, rational, and free from the inherent hierarchy of the caste system.",
+            "To escape the British.",
+            "Because the Congress asked him to."
+        ],
+        "answerRaw": "B. Egalitarian, rational, and indigenous alternative.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 51,
+        "question": "The 'Namasudra Movement' in Bengal was primarily a struggle for:",
+        "options": [
+            "Separate country.",
+            "Dignity, education, and social rights by the 'Chandala' community against the dominance of the 'Bhadralok' (upper castes).",
+            "Joining the British Navy.",
+            "Building more temples in Delhi."
+        ],
+        "answerRaw": "B. Dignity/Rights of Namasudras vs Bhadralok.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 52,
+        "question": "'Sahodaran Ayyappan's' slogan \"No Caste, No Religion, No God for Man\" was a radical departure from whose teachings?",
+        "options": [
+            "Dr. B.R. Ambedkar.",
+            "Sri Narayana Guru (who had said \"One Caste, One Religion, One God\").",
+            "Mahatma Gandhi.",
+            "The British King."
+        ],
+        "answerRaw": "B. Sri Narayana Guru.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 53,
+        "question": "The 'Communal Award' (1932) was seen by Gandhi as a 'Divide and Rule' tactic because:",
+        "options": [
+            "It gave too much money to Dalits.",
+            "It threatened to separate the Dalit community from the Hindu fold permanently, creating a constitutional fracture in the Indian society.",
+            "It abolished the Congress.",
+            "it promoted the Russian language."
+        ],
+        "answerRaw": "B. Permanent constitutional fracture of Hindu society.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 54,
+        "question": "'B.R. Ambedkar's' role in the drafting of the Constitution ensured that:",
+        "options": [
+            "The caste system was made legal.",
+            "Provisions for the abolition of untouchability (Article 17) and reservation for SC/STs were firmly embedded in the legal framework of modern India.",
+            "Everyone was forced to become Buddhist.",
+            "The British stayed as advisors."
+        ],
+        "answerRaw": "B. Legal abolition of untouchability and reservation.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 55,
+        "question": "'Ayyankali' was called \"Pulayaraja\" (King of Pulayas) by whom?",
+        "options": [
+            "The British Queen.",
+            "Mahatma Gandhi.",
+            "Dr. B.R. Ambedkar.",
+            "The King of Travancore."
+        ],
+        "answerRaw": "B. Mahatma Gandhi.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 56,
+        "question": "Why did the 'Self-Respect Movement' burn the 'Ramayana'?",
+        "options": [
+            "Because they ran out of firewood.",
+            "They interpreted it as a tale of 'Aryan' (North Indian) victory over 'Dravidian' (South Indian) people, used to culturally subjugate the South.",
+            "To protest against the price of books.",
+            "By mistake."
+        ],
+        "answerRaw": "B. Interpretation as Aryan cultural subjugation of Dravidians.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 57,
+        "question": "The 'SNDP Yogam' was instrumental in creating which type of institutions?",
+        "options": [
+            "Only temples.",
+            "A vast network of schools, colleges, and hospitals to empower the community through education and professional efficiency.",
+            "Military academies.",
+            "Banks in London."
+        ],
+        "answerRaw": "B. Education and Health empowerment network.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 58,
+        "question": "'M.C. Rajah' and the 'Justice Party' eventually had a falling out because:",
+        "options": [
+            "They didn't like the food.",
+            "Rajah felt that the Justice Party was becoming dominated by 'Non-Brahmin' upper castes who were as oppressive toward Dalits as the Brahmins.",
+            "Rajah wanted to join the British army.",
+            "The British ordered them to fight."
+        ],
+        "answerRaw": "B. Exclusion of Dalits by Non-Brahmin upper castes.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 59,
+        "question": "'Bahishkrit Hitakarini Sabha' (1924) focused on which three pillars?",
+        "options": [
+            "Eat, Sleep, and Pray.",
+            "Educate, Agitate, and Organize.",
+            "Fight, Win, and Rule.",
+            "Study, Work, and Earn."
+        ],
+        "answerRaw": "B. Educate, Agitate, and Organize.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
+    },
+    {
+        "id": 60,
+        "question": "Ultimately, the 'Struggle Against Caste' (Chapter 29) changed the Indian National Movement from a 'Political' struggle to a:",
+        "options": [
+            "'Religious' struggle.",
+            "'Social Revolution' that aimed for a truly inclusive and democratic India.",
+            "'Commercial' struggle.",
+            "'Scientific' struggle."
+        ],
+        "answerRaw": "B. Social Revolution for an inclusive India.",
+        "explanation": "",
+        "difficulty": "Easy",
+        "subtopic": "",
+        "correctAnswer": 1
     }
 ];
-
-
-export const MODERN_CHAPTER_29_CONTENT = `
-# Chapter 29: Development of Indian Press
-
-## BLOCK 1: THE EARLY BEGINNINGS (1780-1823)
-*The Bold & The Censored.*
-
-### 📰 HICKY TO RAMMOHUN
-**First Newspaper:** **The Bengal Gazette** (or Calcutta General Advertiser).
-- **Founder:** James Augustus Hicky (1780).
-- **Nature:** It was critical of Warren Hastings. Hicky was jailed, and his press seized in 1782.
-
-**Early Censorship:** **Censorship of Press Act, 1799** (by Lord Wellesley).
-- **Reason:** Fear of French invasion (Napoleon). It imposed wartime censorship.
-
-**The Reformer:** **Raja Rammohun Roy**.
-- **Papers:** *Mirat-ul-Akbar* (Persian) and *Sambad Kaumudi* (Bengali).
-- **Crisis:** He shut down *Mirat-ul-Akbar* in protest against the **Licensing Regulations, 1823** (by John Adams) which required a license to start a press.
-
----
-
-## BLOCK 2: THE LIBERATION (1835)
-*The Golden Era.*
-
-### 🗽 CHARLES METCALFE
-**The Title:** "**Liberator of the Indian Press**".
-**The Act:** **Press Act of 1835** (Metcalfe Act).
-- **Action:** It repealed the oppressive 1823 ordinance. It led to a boom in newspapers across India for the next 20 years (until 1857).
-**Macaulay's Role:** T.B. Macaulay supported this liberal stance, arguing that a free press was a safety valve.
-
----
-
-## BLOCK 3: THE VERNACULAR PRESS ACT (1878)
-*The Gagging Act.*
-
-### 🤐 LORD LYTTON'S GAG
-**Target:** Newspapers in Indian languages (Vernacular), not English ones. (Specifically targeted *Amrita Bazar Patrika*).
-**Provisions:**
-1.  District Magistrate could call upon a printer to sign a bond not to publish anything likely to excite disaffection against the government.
-2.  No appeal to a court of law.
-3.  Exemption if they submitted proofs to a government censor.
-**The Trick:** ***Amrita Bazar Patrika*** (Sisir Kumar Ghosh) turned into an English newspaper overnight to escape the Act.
-**Repeal:** **Lord Ripon** repealed it in 1882.
-
----
-
-## BLOCK 4: TILAK & THE SEDITION ERA
-*Journalism as Warfare.*
-
-### 🔥 KESARI & MARATHA
-**Leader:** **Bal Gangadhar Tilak**.
-**Papers:** *Kesari* (Marathi) and *Mahratta* (English).
-**Impact:** He used these papers to organize the Ganapati and Shivaji festivals and to criticize the government's handling of the Plague (1896).
-**Arrest:** He was arrested in 1897 under **Section 124A (Sedition)** for defending the assassination of Rand (Plague Commissioner) by the Chapekar brothers. He was the first major leader to be jailed for journalism.
-
----
-
-## BLOCK 5: KEY NEWSPAPERS & FOUNDERS
-*The Prelims List.*
-
-### 📝 WHO WROTE WHAT?
-| Newspaper | Founder/Editor | Significance |
-| :--- | :--- | :--- |
-| **Hindu Patriot** | Girish Chandra Ghosh (later Harish Chandra Mukherjee) | Criticized Indigo Planters. |
-| **Som Prakash** | Ishwar Chandra Vidyasagar | First Bengali political paper. |
-| **The Hindu** | G. Subramaniya Aiyer (1878) | Started to counter Lytton's propaganda. |
-| **Swadeshibhimani** | K. Ramakrishna Pillai | Deported from Travancore for criticizing the Dewan. |
-| **Indian Mirror** | Devendranath Tagore | First Indian daily in English. |
-
----
-
-## BLOCK 6: THE SWADESHI CRACKDOWN (1908-1910)
-*Crushing the Extremists.*
-
-### 🤐 FORFEITING THE PRESS
-**Context:** The rise of militant nationalism (bomb throwing) led the British to panic.
-**Newspapers (Incitement to Offences) Act, 1908:**
-- **Target:** Papers inciting violence (specifically *Yugantar*).
-- **Power:** Magistrates could confiscate the press property if it incited murder/violence.
-- **Result:** *Yugantar* (Ghosh brothers) went underground.
-
-**Indian Press Act, 1910:**
-- **Target:** Everyone. It revived the worst features of the Vernacular Press Act (1878).
-- **Power:** Local government could demand a Security Deposit (₹500-₹2000) from any press. If they printed "sedition," the money was forfeited.
-- **Impact:** Over 990 presses were penalized.
-
----
-
-## BLOCK 7: THE INTER-WAR RELIEF (1921)
-*The Brief Thaw.*
-
-### 🕊️ TEJ BAHADUR SAPRU
-**Committee:** **Press Committee of 1921**.
-**Chairman:** **Tej Bahadur Sapru** (Law Member of Viceroy's Council).
-**Action:** It recommended the repeal of the 1908 and 1910 Acts.
-**Result:** The press enjoyed relative freedom during the 1920s (until the Civil Disobedience Movement started).
-
----
-
-## BLOCK 8: THE NEWS AGENCIES
-*The Wires of Empire.*
-
-### 📡 REUTERS & FREE PRESS
-Before 24/7 TV, news traveled by telegraph agencies.
-- **Reuters:** British agency. Had a monopoly. Often biased towards the Empire.
-- **Associated Press of India (API):** Founded by **K.C. Roy** (1905). Later bought by Reuters.
-- **Free Press of India (FPI):** Founded by **S. Sadanand** (1927).
-    - **Goal:** To break the Reuters monopoly and provide nationalist news.
-    - **Collapse:** Crushed by the British in 1935.
-
----
-
-## BLOCK 9: WORLD WAR II & INQUIRY (1939-1947)
-*The Final Censorship.*
-
-### ⚔️ DEFENCE OF INDIA RULES
-**During War:** Pre-censorship was imposed under the **Defence of India Rules**. The Press Emergency Powers Act, 1931 was used ruthlessly against Congress papers during the Quit India Movement.
-**Post-War:** **Press Inquiry Committee (1947)**.
-- **Chairman:** Justice G.S. Rajadhyaksha.
-- **Outcome:** Recommended the establishment of the **Press Council of India** (watchdog) and the repeal of emergency laws.
-
----
-
-## BLOCK 10: REVOLUTIONARY JOURNALS LIST
-*The Firebrands.*
-
-### 🔥 MATCH THE COLUMNS
-| Journal | Editor/Founder | Language/Place |
-| :--- | :--- | :--- |
-| **Yugantar** | Barindra Kumar Ghosh & Bhupendranath Datta | Bengali (Calcutta) |
-| **Sandhya** | Brahmabandhab Upadhyay | Bengali |
-| **Bande Mataram** | Aurobindo Ghosh (Madam Bhikaji Cama in Paris) | English |
-| **Ghadar** | Lala Hardayal | Urdu/Gurmukhi (San Francisco) |
-| **Talwar** | Virendranath Chattopadhyaya | Berlin |
-| **Al-Hilal** | Maulana Abul Kalam Azad | Urdu (Criticized Muslim loyalists) |
-| **Comrade** | Maulana Mohammad Ali | English |
-| **Commonweal** | Annie Besant | English |
-| **New India** | Annie Besant | English (Daily) |
-| **Young India** | Mahatma Gandhi | English |
-| **Navjeevan** | Mahatma Gandhi | Gujarati |
-
----
-
-## BLOCK 11: THE PORTUGUESE PRELUDE (1556)
-*The Forgotten First.*
-
-### ⛪ BEFORE HICKY
-**The Event:** The first printing press did not come to Calcutta; it came to **Goa in 1556**.
-**The Purpose:** It was brought by Jesuit Missionaries to print the Bible and Christian literature.
-**The Gap:** For nearly 200 years, the press remained a tool for missionaries only. It was **James Augustus Hicky (1780)** who turned it into a political tool (Newspaper).
-
----
-
-## BLOCK 12: THE REGULATORY FRAMEWORK (1867)
-*The Law that Stuck.*
-
-### 📜 REGISTRATION ACT
-**Act:** **Press and Registration of Books Act, 1867**.
-**Replaced:** It replaced Metcalfe's Act of 1835.
-**Nature:** It was regulatory, not restrictive.
-**Requirement:** Every book/newspaper had to print the name of the Printer, Publisher, and Place of Publication. A copy had to be submitted to the government.
-**Significance:** This created the database of Indian literature. It is still in force today.
-
----
-
-## BLOCK 13: THE OFFICIAL SECRETS ACT (1923)
-*The Spy Catcher.*
-
-### 🕵️ LORD CURZON TO 1923
-**Origins:** Originally enacted by **Lord Curzon in 1904** (Indian Official Secrets Act) to muzzle the press from reporting on government secrets.
-**Expansion:** It was expanded and replaced by the **Official Secrets Act, 1923**.
-**Impact:** It made it a criminal offense to possess or publish "secret" government documents. It remains the biggest hurdle for investigative journalism in India even today.
-
----
-
-## BLOCK 14: THE AGARKAR SPLIT (1888)
-*Social vs Political Reform.*
-
-### ⚔️ TILAK vs AGARKAR
-**Context:** Bal Gangadhar Tilak and Gopal Ganesh Agarkar were friends who co-founded *Kesari* and *Mahratta*.
-**The Split:**
-- **Tilak:** Believed in "**Political Freedom First**." He opposed the Age of Consent Bill (1891) to protect Hindu tradition.
-- **Agarkar:** Believed in "**Social Reform First**." He supported the bill and rationality.
-**The Outcome:** Agarkar left *Kesari* and started his own rationalist newspaper, ***Sudharak*** (The Reformer), in 1888.
-
----
-
-## BLOCK 15: KEY GANDHIAN & NEHRUVIAN PAPERS
-*The Icons.*
-
-### 📝 MATCH THE EDITORS
-| Newspaper | Founder/Editor | Significance |
-| :--- | :--- | :--- |
-| **Indian Opinion** | Mahatma Gandhi | Started in South Africa (1903). Crucial for Satyagraha experiments. |
-| **Harijan** | Mahatma Gandhi | Started in 1933 (English) to support the untouchability campaign. |
-| **National Herald** | Jawaharlal Nehru | Started in 1938 (Lucknow). The voice of the Congress. |
-| **Voice of India** | Dadabhai Naoroji | Expounded the "Drain Theory". |
-| **PTI (Press Trust of India)** | Consortium | Formed in Aug 1947 to take over the operations of the Associated Press of India (API) and Reuters. |
-
----
-
-## BLOCK 16: DR. AMBEDKAR’S JOURNALISM
-*The Voice of the Voiceless.*
-
-### 📰 MOOKNAYAK to PRABUDDHA BHARAT
-Dr. B.R. Ambedkar realized that the mainstream nationalist press often ignored the plight of the Depressed Classes. He started several papers to counter this:
-1.  **Mooknayak** (Leader of the Silent): Started in 1920 with the help of Shahu Maharaj.
-2.  **Bahishkrit Bharat** (Excluded India): Started in 1927 to organize the Mahad Satyagraha.
-3.  **Janata** (The People): Started in 1930.
-4.  **Prabuddha Bharat** (Enlightened India): The renamed version of *Janata* in 1956.
-**Note:** All were in Marathi.
-
----
-
-## BLOCK 17: THE LIBERAL & MODERATE GIANTS
-*The Constructive Critics.*
-
-### 🏛️ GOKHALE, MEHTA & MALAVIYA
-While Tilak was fiery, these leaders used the press for constructive criticism and reform:
-- **Gopal Krishna Gokhale:**
-    - *Sudharak*: English editor (Agarkar was Marathi editor).
-    - *The Hitavada* (The People's Paper): Started in 1911 (Nagpur).
-- **Pherozeshah Mehta:**
-    - *The Bombay Chronicle*: Started in 1913. It became the voice of the moderate Congress.
-- **Madan Mohan Malaviya:**
-    - *The Leader*: (Allahabad).
-    - *Hindustan*: (Hindi).
-    - *Abhyudaya*: (Hindi weekly).
-- **Motilal Nehru:**
-    - *The Independent*: Started in 1919 (Allahabad) to demand self-rule.
-
----
-
-## BLOCK 18: THE REGIONAL GIANTS
-*Voices from the Provinces.*
-
-### 🗺️ TAMIL, PUNJABI & BENGALI
-| Newspaper | Founder/Editor | Significance |
-| :--- | :--- | :--- |
-| **Swadesamitran** | G. Subramaniya Aiyer | First Tamil Daily (1882). He also founded *The Hindu*. |
-| **The Tribune** | Dayal Singh Majithia | Started in Lahore (1881). Became the voice of Punjab. |
-| **The Bengalee** | Surendranath Banerjea | The first paper to actively agitate against the Vernacular Press Act. |
-| **Hindoo Patriot** | Harish Chandra Mukherjee | Known for exposing the oppression of Indigo Planters (1860). |
-| **Kudi Arasu** | E.V. Ramasamy (Periyar) | Started in 1925. Mouthpiece of the Self-Respect Movement. |
-
----
-
-## BLOCK 19: FIRST PRESS COMMISSION (1952-54)
-*Setting the Rules.*
-
-### ⚖️ JUSTICE RAJADHYAKSHA
-**Appointment:** 1952.
-**Report:** Submitted in 1954.
-**Key Recommendations:**
-1.  Establishment of a **Press Council of India** (Statutory body to safeguard press freedom).
-2.  Establishment of the **Registrar of Newspapers for India (RNI)**.
-3.  Price-Page Schedule (to protect small papers from monopoly).
-
----
-
-## BLOCK 20: REGISTRAR OF NEWSPAPERS FOR INDIA (RNI)
-*The Database.*
-
-### 📂 OFFICE OF RNI
-**Established:** 1956.
-**Function:** Based on the recommendation of the First Press Commission.
-**Role:** It maintains a register of all newspapers published in India, issues Certificates of Registration, and verifies circulation claims.
-**Significance:** It formalized the chaotic press landscape of post-independence India.
-
----
-
-## BLOCK 21: THE SOCIALIST & COMMUNIST PRESS
-*The Voice of Labor.*
-
-### ☭ DANGE TO MUZAFFAR AHMED
-In the 1920s, the press began to focus on workers and peasants, moving beyond just "political freedom."
-- **The Socialist:** Started by **S.A. Dange** in 1922 (Bombay). The first communist journal in India.
-- **Langal** (The Plough): Started by **Kazi Nazrul Islam** and Muzaffar Ahmed in Bengal.
-- **Kirti** (The Worker): Started by **Santokh Singh** in Punjab (1926).
-- **Kranti** (Revolution): The Marathi mouthpiece of the Workers and Peasants Party (1927).
-
----
-
-## BLOCK 22: THE WOMEN'S JOURNALS
-*Her Voice.*
-
-### 👩💼 STREE DARPAN
-Women were not just subjects of reform; they were editors too.
-- **Stree Darpan:** Founded by **Rameshwari Nehru** in 1909 (Allahabad). It focused on women's education and rights.
-- **Tahzib-un-Niswan:** Founded by **Mumtaz Ali** (Lahore). A pioneering Urdu journal for Muslim women.
-- **Bharat Mahila:** Edited by **Sarojini Naidu** for a brief period.
-
----
-
-## BLOCK 23: THE ANGLO-INDIAN (LOYALIST) PRESS
-*The Empire's Mouthpiece.*
-
-### 🇬🇧 THE PIONEER & STATESMAN
-Not all papers were nationalist. The British community in India had their own powerful papers which often supported government policies:
-- **The Statesman:** Founded by **Robert Knight** in 1875 (Calcutta). It was the most influential Anglo-Indian paper.
-- **The Pioneer:** Founded in Allahabad (1865). **Rudyard Kipling** worked here. It had close links to the government.
-- **Times of India:** Founded in 1838 (Bombay). Originally *The Bombay Times*.
-- **Civil and Military Gazette:** (Lahore). Known for its conservative, pro-Empire stance.
-
----
-
-## BLOCK 24: DRAMATIC PERFORMANCES ACT (1876)
-*Censoring the Stage.*
-
-### 🎭 NIL DARPAN EFFECT
-**Context:** Just as the press was used for sedition, Theater was used to mock the British (e.g., ***Nil Darpan*** depicting Indigo planters' cruelty).
-**The Act:** **Lord Northbrook** passed this act in 1876.
-**Power:** It empowered the government to ban dramatic performances that were "scandalous, defamatory, or likely to excite feelings of disaffection."
-**Significance:** It was the precursor to the Vernacular Press Act (1878).
-
----
-
-## BLOCK 25: CHRONOLOGY OF PRESS ACTS (REVISION)
-*The Final List.*
-
-### ⏳ QUICK REVISION
-- **1799:** Censorship of Press Act (Wellesley) - Wartime censorship.
-- **1823:** Licensing Regulations (John Adams) - Must have a license.
-- **1835:** Liberation of Press Act (Metcalfe) - Repealed 1823.
-- **1857:** Licensing Act (Canning) - Emergency for Revolt.
-- **1867:** Registration Act - Names of printer/publisher required.
-- **1878:** Vernacular Press Act (Lytton) - Gagging the Indian languages.
-- **1908:** Newspaper (Incitement to Offences) Act - Confiscation of press.
-- **1910:** Indian Press Act - Security deposits.
-- **1931:** Indian Press (Emergency Powers) Act - Civil Disobedience crackdown.
-
----
-
-## BLOCK 26: THE LANGUAGE PIONEERS
-*The First of Their Kind.*
-
-### 📜 UDANT MARTAND & JAM-I-JAHAN NUMA
-While Hicky started the English press, who started the Indian language press?
-**First Hindi Newspaper:** ***Udant Martand*** (The Rising Sun).
-- **Founder:** Jugalkishore Shukla.
-- **Date:** May 30, 1826 (Calcutta).
-- **Fate:** It closed down in 1827 due to high postal rates for Hindi papers.
-
-**First Urdu Newspaper:** ***Jam-i-Jahan Numa***.
-- **Founder:** Harihar Dutta.
-- **Date:** 1822 (Calcutta).
-- **Note:** It was published by the same English firm that published the *Calcutta Journal*.
-
----
-
-## BLOCK 27: THE BOYCOTT SIGNAL (1905)
-*The Paper that Started Swadeshi.*
-
-### 📣 SANJIBANI & K.K. MITRA
-**The Myth:** Many think the Swadeshi movement started after the partition (Oct 16, 1905).
-**The Fact:** The call for Boycott was first given much earlier.
-**The Paper:** ***Sanjibani*** (Bengali).
-**The Editor:** **Krishna Kumar Mitra**.
-**The Date:** July 13, 1905.
-**Action:** He openly called for the boycott of foreign goods before the formal resolution was passed at the Town Hall.
-
----
-
-## BLOCK 28: THE TAX BURDEN
-*Censorship by Cost.*
-
-### 💰 STAMP DUTIES
-**Mechanism:** The British didn't always need a law to ban a paper; they just taxed it to death.
-**Stamp Duty:** Early newspapers had to pay a heavy Stamp Duty (tax on every printed sheet).
-**Impact:** This made newspapers too expensive for the common man, restricting circulation to the elite.
-**Abolition:** The Stamp Duty on newspapers was finally abolished in **1861**, leading to a boom in small vernacular papers.
-
----
-
-## BLOCK 29: NICHE EDITORS (MATCH THE FOLLOWING)
-*Deep Cuts for Prelims.*
-
-### 📝 THE FORGOTTEN LIST
-| Newspaper | Editor/Founder | Specific Factor |
-| :--- | :--- | :--- |
-| **Rast Goftar** (Truth Teller) | Dadabhai Naoroji | Gujarati. For Parsi social reform. |
-| **Hindu Intelligencer** | Kashi Prasad Ghosh | Voice of the Bhadralok. |
-| **Indian Field** | Kishori Chand Mitra | Early nationalist paper. |
-| **Native Opinion** | V.N. Mandlik | Conservative Hindu stance. |
-| **Advocate** | G.P. Varma | Lucknow-based. |
-| **Dyan Prakash** | Krishnaji Ranade | Poona (Daily). Supported social reform. |
-| **Kal** | S.M. Paranjape | Marathi. Extremist (Revolutionary). |
-
----
-
-## BLOCK 30: GANESH SHANKAR VIDYARTHI
-*The Martyr Journalist.*
-
-### 📰 PRATAP (KANPUR)
-**The Paper:** ***Pratap*** (Hindi Weekly, started 1913).
-**The Editor:** **Ganesh Shankar Vidyarthi**.
-**Significance:**
-- It was the mouthpiece of the revolutionary youth (Bhagat Singh worked there briefly) and the peasants of UP (Kisan Sabha movement).
-- It exposed the oppression of the Taluqdars (Landlords) in Avadh.
-**The Martyrdom:** Vidyarthi was killed in 1931 while trying to save people during a communal riot in Kanpur. He is considered the "**Patron Saint**" of Hindi journalism.
-
----
-
-## BLOCK 31: SUBRAMANIA BHARATI
-*The Poet Rebel.*
-
-### ✍️ INDIA & VIJAYA
-**Context:** A fiery Tamil nationalist and poet.
-**Papers:**
-- *Swadesamitran*: Assistant Editor (under G. Subramaniya Aiyer).
-- *India*: A radical Tamil weekly.
-- *Vijaya*: A Tamil daily.
-**The Exile:** To escape arrest by the British in 1908 (who were cracking down on the Swadeshi press), he fled to Pondicherry (French territory) and continued to publish his papers from there until 1910.
-
----
-
-## BLOCK 32: THE LICENSING ACT (1857)
-*The Revolt Gag.*
-
-### 🤐 LORD CANNING'S EMERGENCY
-**Context:** The Revolt of 1857 was raging. The British feared the press would aid the rebels.
-**The Act:** **Licensing Act, 1857**.
-**Provisions:**
-- It prohibited the keeping or using of a printing press without a license from the Government.
-- The Government could revoke the license at any time.
-**Target:** It applied to both Indian and English papers (unlike the 1878 Act).
-**Duration:** It was a temporary emergency measure, lasting only for a year.
-
----
-
-## BLOCK 33: THE SOUTHERN GIANTS
-*Beyond Tamil Nadu.*
-
-### 🌴 MANORAMA to KRISHNA PATRIKA
-| Newspaper | Founder/Editor | Region | Significance |
-| :--- | :--- | :--- | :--- |
-| **Malayala Manorama** | Kandathil Varghese Mappillai | Kerala (1888) | Started as a literary magazine, became the voice of the Syrian Christian community and later the freedom struggle in Travancore. |
-| **Krishna Patrika** | Mutnuri Krishna Rao | Andhra (1902) | The most influential nationalist paper in the Telugu-speaking areas (Machilipatnam). |
-| **Deshabhimani** | T.K. Madhavan | Kerala | Voice of the Ezhava community and temple entry movement (Vaikom). |
-
----
-
-## BLOCK 34: KRISTODAS PAL
-*The Prince of Journalists.*
-
-### 👑 HINDOO PATRIOT (LATER YEARS)
-**The Title:** Known as the "**Prince of Journalists**".
-**Paper:** Editor of the ***Hindoo Patriot*** after Harish Chandra Mukherjee.
-**Stance:** He represented the moderate view (British Indian Association) but was a fierce critic of the Ilbert Bill controversy and the Vernacular Press Act.
-**Style:** Known for his impeccable English and logical argumentation that even the Viceroys respected.
-
----
-
-## BLOCK 35: THE SERAMPORE MISSIONARIES (1818)
-*The True Vernacular Pioneers.*
-
-### ✝️ MARSHMAN & CAREY
-**The Myth:** Rammohun Roy is often called the father of the press, but he wasn't the first to print in Indian languages.
-**The Reality:** The **Serampore Missionaries** (William Carey, Joshua Marshman, William Ward) started the first vernacular newspapers to propagate Christianity and education.
-**The Papers:**
-- **Digdarshan:** First Bengali monthly (April 1818).
-- **Samachar Darpan:** First Bengali weekly (May 1818).
-- **Friend of India:** English monthly (became *The Statesman* later).
-**Significance:** They proved that printing in local scripts (Bengali) was technically possible and economically viable.
-
----
-
-## BLOCK 36: B.G. HORNIMAN (1919)
-*The Englishman Who Loved India.*
-
-### 🇬🇧 BOMBAY CHRONICLE
-**The Editor:** **B.G. Horniman** (British).
-**The Paper:** Editor of ***The Bombay Chronicle*** (founded by Pherozeshah Mehta).
-**The Crime:** He fearlessly reported on the **Jallianwala Bagh Massacre** and the atrocities of British martial law in Punjab when other papers were censored.
-**The Punishment:** The British government **deported him** from India to England in 1919 for his "anti-government" stance. He could only return years later.
-
----
-
-## BLOCK 37: ZAFAR ALI KHAN
-*The Father of Urdu Journalism.*
-
-### ☪️ ZAMINDAR (LAHORE)
-**The Paper:** ***Zamindar***.
-**The Editor:** **Maulana Zafar Ali Khan**.
-**Stance:** Initially pro-government, it turned fiercely nationalist and pan-Islamist during the Balkan Wars (1911) and the Khilafat Movement.
-**Impact:** It modernized Urdu journalism, moving it from lithography to type, and made it a tool for mass political mobilization in Punjab.
-
----
-
-## BLOCK 38: S. SADANAND (1930)
-*The Penny Press Revolution.*
-
-### 💰 FREE PRESS JOURNAL
-**The Founder:** **Swaminathan Sadanand**.
-**The Innovation:** He started the ***Free Press Journal*** (FPJ) in 1930.
-**Price:** He sold it for just **One Pice (Penny)**.
-**Goal:** To make news affordable for the poor, not just the elite.
-**Agency:** He also founded the **Free Press of India (FPI)** news agency to compete with the British-owned Reuters, but the British crushed it by choking its telegram access.
-
----
-
-## BLOCK 39: THE "FATHER" TITLES CLARIFIED
-*Avoid Confusion.*
-
-### 👑 WHO IS WHO?
-- **Father of Indian Press:** James Augustus Hicky (First paper).
-- **Liberator of Indian Press:** Charles Metcalfe (Removed restrictions).
-- **Father of Indian Journalism (Nationalist):** Raja Rammohun Roy (First Indian to use it for reform).
-- **Prince of Journalists:** Kristodas Pal (Editor of Hindoo Patriot).
-- **Father of Hindi Journalism:** Pandit Jugalkishore Shukla (Udant Martand).
-
----
-
-## BLOCK 40: THE CAXTON OF INDIA
-*The Greatest Publisher.*
-
-### 📚 MUNSHI NAVAL KISHORE
-**The Title:** Known as the "**Caxton of India**" (after William Caxton, the first English printer).
-**The Press:** Founded the **Naval Kishore Press** in Lucknow (1858).
-**The Paper:** *Oudh Akhbar* (1858).
-**Significance:**
-- He printed over 5,000 titles in Hindi, Urdu, Arabic, Persian, and Sanskrit.
-- He made religious texts (Quran, Ramayana) and classical literature affordable for the common man, preserving India's cultural heritage when the British were trying to anglicize it.
-- *Oudh Akhbar* was the first Urdu Daily in North India that championed social harmony.
-
----
-
-## BLOCK 41: THE REBEL PAPER (1857)
-*The Voice of the Mutiny.*
-
-### ⚔️ PAYAM-E-AZADI
-**The Paper:** ***Payam-e-Azadi*** (Message of Freedom).
-**The Editor:** **Azimullah Khan** (Advisor to Nana Saheb) and Mirza Bedar Bakht.
-**Method:** It was printed on lithographic stones in Delhi and distributed secretly to the sepoys to incite them against the British.
-**The End:** After the fall of Delhi, the British searched for every copy. Anyone found possessing it was executed. The press was destroyed.
-
----
-
-## BLOCK 42: THE TRIPLICANE SIX (1878)
-*The Hindu's Origin Story.*
-
-### 📰 ONE RUPEE & TWELVE ANNAS
-**Context:** The appointment of T. Muthuswami Iyer as the first Indian judge of the Madras High Court was criticized by the Anglo-Indian press (*The Madras Mail*).
-**The Reaction:** Six young men (The Triplicane Six), led by **G. Subramania Aiyer** and **M. Veeraraghavachariar**, decided to start a paper to counter this racism.
-**The Start:** They had no money. They borrowed **One Rupee and Twelve Annas** to print the first issue of ***The Hindu*** on Sept 20, 1878.
-**Evolution:** It started as a weekly, became a tri-weekly (1883), and finally a daily (1889).
-
----
-
-## BLOCK 43: ROBERT KNIGHT
-*The Fearless Englishman.*
-
-### 🛡️ BAYARD OF INDIA PRESS
-**The Title:** Known as the "**Bayard of the Indian Press**" (Fearless Knight).
-**Papers:**
-- Founded ***The Statesman*** (1875) in Calcutta.
-- Edited ***The Times of India*** in Bombay.
-**Stance:** Though British, he was critical of the government's aggressive foreign policy (Afghan Wars) and financial mismanagement. He merged the old *Friend of India* (Serampore) with *The Statesman*.
-
----
-
-## BLOCK 44: THE ILBERT BILL WAR (1883)
-*The Press Divided by Race.*
-
-### ⚔️ ENGLISHMAN vs HINDOO PATRIOT
-**The Bill:** Lord Ripon proposed to allow Indian judges to try European convicts.
-**The Anglo-Indian Press:** Led by ***The Englishman*** (Calcutta) and *Civil and Military Gazette*, they launched a vicious, racist campaign against Ripon and Indians, calling them "effeminate" and "unfit."
-**The Indian Press:** Led by **Kristodas Pal** (Hindoo Patriot) and **Sisir Kumar Ghosh** (Amrita Bazar Patrika), they counter-attacked.
-**Impact:** This was the first time the Indian press realized its collective power to fight a narrative war against the Europeans. It directly led to the founding of the Indian National Congress (1885).
-
----
-
-## BLOCK 45: THE LIBRARY MOVEMENT
-*How the Illiterate "Read".*
-
-### 📖 ANDHRA & KERALA
-**The Problem:** Literacy was low (approx 6-10%). How did newspapers reach the masses?
-**The Solution:** Reading Rooms (Libraries).
-- **Andhra:** The Andhra Library Movement (started by **Iyyanki Venkata Ramanayya** in 1914) set up village libraries where one person would read the newspaper aloud to hundreds of listeners.
-- **Kerala:** **P.N. Panicker** (Father of Library Movement) later institutionalized this.
-**Significance:** This turned newspapers from a "personal luxury" into a "community event," spreading nationalism to rural areas.
-
----
-
-## BLOCK 46: THE VANDE MATARAM TRIAL (1907)
-*The Editor in the Dock.*
-
-### ⚖️ AUROBINDO vs BIPIN PAL
-**The Paper:** ***Bande Mataram*** (English Daily).
-**The Charge:** Sedition against the Editor, **Aurobindo Ghosh**.
-**The Witness:** The police called **Bipin Chandra Pal** to testify against Aurobindo (to prove he was the editor).
-**The Defiance:** Pal refused to testify, citing "conscience." He was jailed for contempt of court for 6 months.
-**The Verdict:** Aurobindo was acquitted for lack of proof (as no name was printed on the articles). This trial made *Bande Mataram* a legend.
-
----
-
-## BLOCK 47: THE PRESS COMMISSIONER (1876-1881)
-*The Propaganda Officer.*
-
-### 📢 ROPER LETHBRIDGE
-**Created by:** **Lord Lytton**.
-**The Role:** He created a special post called "**Press Commissioner**".
-**Function:** To manage the press by "feeding" them official government versions of news and early intelligence in exchange for favorable coverage.
-**Abolished by:** **Lord Ripon** in 1881, who believed in a freer press.
-
----
-
-## BLOCK 48: KASTURI RANGA IYENGAR (1905)
-*The Business of Nationalism.*
-
-### 🗞️ THE HINDU'S SAVIOR
-**Context:** By 1905, *The Hindu* was failing financially.
-**The Takeover:** **S. Kasturi Ranga Iyengar** (a lawyer) bought the paper.
-**The Shift:** He turned it into a commercially viable, professional newspaper while maintaining its fierce nationalist stance. He introduced the Rotary Press and modern advertising.
-**Legacy:** The "Hindu" group today owes its existence to this turnaround.
-`;
-
