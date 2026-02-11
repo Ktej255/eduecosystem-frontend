@@ -1,6 +1,14 @@
 import { chapter1MCQs } from './mcqs/modern/chapter1';
 import { HISTORY_CH2_MCQS } from './mcqs/modern/chapter2';
 import { HISTORY_CH3_MCQS } from './mcqs/modern/chapter3';
+import { HISTORY_CH4_MCQS } from './mcqs/modern/chapter4';
+import { HISTORY_CH5_MCQS } from './mcqs/modern/chapter5';
+import { HISTORY_CH6_MCQS } from './mcqs/modern/chapter6';
+import { HISTORY_CH7_MCQS } from './mcqs/modern/chapter7';
+import { HISTORY_CH8_MCQS } from './mcqs/modern/chapter8';
+import { HISTORY_CH9_MCQS } from './mcqs/modern/chapter9';
+import { chapter10MCQs } from './mcqs/modern/chapter10';
+import { HISTORY_CH15_MCQS } from './mcqs/modern/chapter15';
 // ... Modern imports can remain if needed for individual access, but better to centralize
 
 import { MODERN_HISTORY_CONTENT } from './modern/content-registry'; // Assuming we might add MCQs to registry later, but currently they are separate.
@@ -43,6 +51,14 @@ export const MODERN_MCQS_DATA: Record<number, any[]> = {
     1: chapter1MCQs.map(m => ({ ...m, correctIndex: m.correctAnswer })),
     2: (HISTORY_CH2_MCQS || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
     3: (HISTORY_CH3_MCQS || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
+    4: (HISTORY_CH4_MCQS || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
+    5: (HISTORY_CH5_MCQS || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
+    6: (HISTORY_CH6_MCQS || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
+    7: (HISTORY_CH7_MCQS || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
+    8: (HISTORY_CH8_MCQS || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
+    9: (HISTORY_CH9_MCQS || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
+    10: (chapter10MCQs || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
+    15: (HISTORY_CH15_MCQS || []).map(m => ({ ...m, correctIndex: m.correctAnswer })),
     11: MODERN_CHAPTER_11_MCQS.map(m => ({ ...m, correctIndex: m.correctAnswer })),
     12: MODERN_CHAPTER_12_MCQS.map(m => ({ ...m, correctIndex: m.correctAnswer })),
     13: MODERN_CHAPTER_13_MCQS.map(m => ({ ...m, correctIndex: m.correctAnswer })),

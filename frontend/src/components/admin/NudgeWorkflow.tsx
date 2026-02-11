@@ -45,8 +45,16 @@ export function NudgeWorkflow() {
                 axios.get(`${API_URL}/api/v1/admin/nudges/workflows`, { headers: { Authorization: `Bearer ${token}` } }),
                 axios.get(`${API_URL}/api/v1/admin/nudges/history`, { headers: { Authorization: `Bearer ${token}` } })
             ]);
-            setWorkflows(wRes.data);
-            setHistory(hRes.data);
+            if (Array.isArray(wRes.data)) {
+                setWorkflows(wRes.data);
+            } else {
+                setWorkflows([]);
+            }
+            if (Array.isArray(hRes.data)) {
+                setHistory(hRes.data);
+            } else {
+                setHistory([]);
+            }
         } catch (error) {
             console.error("Failed to fetch nudge data", error);
         } finally {

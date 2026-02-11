@@ -7,12 +7,13 @@ import HistoryTimeline from './HistoryTimeline';
 import HistoryMainsPractice from './HistoryMainsPractice';
 import HistoryDashboard from './HistoryDashboard';
 import HistoryVisuals from './HistoryVisuals';
-import { Layout, Clock, PenTool, BookOpen, Map, Target, Landmark, Scroll, Flag, Sparkles, Flame } from 'lucide-react';
+import HistoryQuestionBank from './HistoryQuestionBank';
+import { Layout, Clock, PenTool, BookOpen, Map, Target, Landmark, Scroll, Flag, Sparkles, Flame, FileQuestion } from 'lucide-react';
 import HistorySectionPlanner from './HistorySectionPlanner';
 import { HistorySection } from './data/history-schedule-registry';
 
 export default function HistoryHome({ embedded = false }: { embedded?: boolean }) {
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'overview' | 'syllabus' | 'timeline' | 'mains' | 'visuals'>('dashboard');
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'overview' | 'syllabus' | 'timeline' | 'mains' | 'visuals' | 'question_bank'>('dashboard');
     const [selectedSection, setSelectedSection] = useState<HistorySection>('modern');
 
     const handleTopicSelect = (topicId: number) => {
@@ -48,7 +49,7 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                                         ? 'bg-indigo-600 text-white shadow-lg'
                                         : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                                         }`}
-                                >
+                                >0
                                     Study Dashboard
                                 </button>
                                 <button
@@ -100,6 +101,16 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                                 >
                                     <Map className="w-4 h-4" />
                                     Visuals
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab('question_bank')}
+                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hidden md:flex items-center gap-2 ${activeTab === 'question_bank'
+                                        ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200'
+                                        : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                                        }`}
+                                >
+                                    <FileQuestion className="w-4 h-4" />
+                                    Question Bank
                                 </button>
                                 <button
                                     onClick={() => window.location.href = '/student/batch1/current-affairs?subject=History'}
@@ -172,6 +183,10 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
 
                 {activeTab === 'visuals' && (
                     <HistoryVisuals />
+                )}
+
+                {activeTab === 'question_bank' && (
+                    <HistoryQuestionBank />
                 )}
             </div>
         </div >

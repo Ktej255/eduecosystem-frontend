@@ -37,10 +37,24 @@ export function MindscapeDashboard() {
                 axios.get(`${API_URL}/api/v1/admin/sentiment/trends?batch_name=Global&days=7`, config)
             ]);
 
-            setPulseData(pulseRes.data);
-            setTrends(trendsRes.data.reverse());
+            // Verify pulseData type and set fallback if invalid
+            if (pulseRes.data && typeof pulseRes.data === 'object') {
+                setPulseData(pulseRes.data);
+            } else {
+                setPulseData({ dominant_vibe: "Stable", sample_size: 0, focused_score: 0, inspired_score: 0, top_keywords: "" });
+            }
+
+            // Verify trends data type before processing
+            if (Array.isArray(trendsRes.data)) {
+                setTrends(trendsRes.data.reverse());
+            } else {
+                setTrends([]); // Fallback to empty array
+            }
         } catch (error) {
             console.error("Failed to fetch sentiment data", error);
+            // Set fallback data on API failure
+            setPulseData({ dominant_vibe: "Stable", sample_size: 0, focused_score: 0, inspired_score: 0, top_keywords: "" });
+            setTrends([]);
         } finally {
             setLoading(false);
         }
@@ -56,7 +70,24 @@ export function MindscapeDashboard() {
         }
     };
 
-    if (loading) return <div>Loading Mindscape...</div>;
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-96">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+            </div>
+        );
+    }
+
+    // Handle null pulseData in render after loading
+    if (!pulseData) {
+        return (
+            <div className="p-6 text-center text-gray-500">
+                <AlertCircle className="w-12 h-12 mx-auto mb-4 text-red-400" />
+                <h3 className="text-lg font-bold mb-2">Failed to load Mindscape Data</h3>
+                <p>Please check if the backend service is running or if there's an issue with the data.</p>
+            </div>
+        );
+    }
 
     const pulseColor = getPulseColor(pulseData?.dominant_vibe);
 

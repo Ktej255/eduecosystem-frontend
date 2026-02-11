@@ -22,15 +22,18 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 // Component Imports
-import PomodoroSessionView from '@/components/batch1-1/pomodoro/PomodoroSessionView';
-import PolityHome from '@/components/batch1/polity/PolityHome';
-import HistoryHome from '@/components/batch1/history/HistoryHome';
-import RetentionDashboard from '@/components/retention/RetentionDashboard';
-import FocusAnalyticsDashboard from '@/components/batch1/FocusAnalyticsDashboard';
+import dynamic from 'next/dynamic';
 
-import Batch1DeepReport from '@/components/batch1-1/reports/Batch1DeepReport';
-import Batch1_1EveningSession from '@/components/batch1-1/evening/Batch1_1EveningSession';
-import SubjectPomodoro from '@/components/batch1-1/pomodoro/SubjectPomodoro';
+// Component Imports
+const PomodoroSessionView = dynamic(() => import('@/components/batch1-1/pomodoro/PomodoroSessionView'), { loading: () => <div>Loading Session...</div> });
+const PolityHome = dynamic(() => import('@/components/batch1/polity/PolityHome'), { loading: () => <div>Loading Polity...</div> });
+const HistoryHome = dynamic(() => import('@/components/batch1/history/HistoryHome'), { loading: () => <div>Loading History...</div> });
+const RetentionDashboard = dynamic(() => import('@/components/retention/RetentionDashboard'), { loading: () => <div>Loading Retention...</div> });
+const FocusAnalyticsDashboard = dynamic(() => import('@/components/batch1/FocusAnalyticsDashboard'), { loading: () => <div>Loading Analytics...</div> });
+
+const Batch1DeepReport = dynamic(() => import('@/components/batch1-1/reports/Batch1DeepReport'), { loading: () => <div>Loading Report...</div> });
+const Batch1_1EveningSession = dynamic(() => import('@/components/batch1-1/evening/Batch1_1EveningSession'), { loading: () => <div>Loading Evening Session...</div> });
+const SubjectPomodoro = dynamic(() => import('@/components/batch1-1/pomodoro/SubjectPomodoro'), { loading: () => <div>Loading Subject Pomodoro...</div> });
 
 type FocusTab = 'pomodoro' | 'subject_pomodoro' | 'study' | 'analytics' | 'retention' | 'evening';
 type Subject = 'polity' | 'history' | 'geography' | 'science';

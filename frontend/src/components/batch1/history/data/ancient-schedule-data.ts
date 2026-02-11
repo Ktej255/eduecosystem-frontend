@@ -28,105 +28,105 @@ export const ANCIENT_SCHEDULE = [
         day: 1,
         title: "Stone Age & Indus Valley Civilization",
         chapters: [1, 2],
-        topics: ["Paleolithic, Mesolithic, Neolithic", "Harappan Town Planning"],
+        chapterNames: ["Paleolithic, Mesolithic, Neolithic", "Harappan Town Planning"],
         phase: 1
     },
     {
         day: 2,
         title: "Vedic Age & Mahajanapadas",
         chapters: [3, 4],
-        topics: ["Early vs Later Vedic Society", "Rise of Magadha"],
+        chapterNames: ["Early vs Later Vedic Society", "Rise of Magadha"],
         phase: 1
     },
     {
         day: 3,
         title: "Buddhism & Jainism",
         chapters: [5],
-        topics: ["Teachings of Buddha & Mahavira", "Buddhist Councils"],
+        chapterNames: ["Teachings of Buddha & Mahavira", "Buddhist Councils"],
         phase: 1
     },
     {
         day: 4,
         title: "The Mauryan Empire",
         chapters: [6],
-        topics: ["Chandragupta Maurya", "Ashoka's Dhamma", "Mauryan Administration"],
+        chapterNames: ["Chandragupta Maurya, Ashoka's Dhamma"],
         phase: 1
     },
     {
         day: 5,
-        title: "Revision: Pre-Mauryan & Mauryan",
-        chapters: [1, 2, 3, 4, 5, 6],
-        topics: ["Consolidation of Phase 1"],
+        title: "Post-Mauryan India",
+        chapters: [7],
+        chapterNames: ["Shungas, Kanvas, Indo-Greeks"],
         phase: 1
     },
     {
         day: 6,
-        title: "Post-Mauryan Invasions",
-        chapters: [7],
-        topics: ["Indo-Greeks", "Shakas", "Kushanas (Kanishka)"],
+        title: "Gupta Empire",
+        chapters: [8],
+        chapterNames: ["Samudragupta, Chandragupta II, Golden Age"],
         phase: 2
     },
     {
         day: 7,
-        title: "Satavahanas & Sangam Age",
-        chapters: [8, 9],
-        topics: ["Satavahana Administration", "Sangam Literature"],
+        title: "Post-Gupta Era: Harsha",
+        chapters: [9],
+        chapterNames: ["Harshavardhana, Kannauj Assembly"],
         phase: 2
     },
     {
         day: 8,
-        title: "Theme: Ancient Art & Culture",
+        title: "Sangam Age (South India)",
         chapters: [10],
-        topics: ["Gandhara vs Mathura School", "Stupa Architecture"],
+        chapterNames: ["Cheras, Cholas, Pandyas, Sangam Literature"],
         phase: 2
     },
     {
         day: 9,
-        title: "Gupta Empire",
+        title: "Pallavas & Chalukyas",
         chapters: [11],
-        topics: ["Samudragupta", "Chandragupta II", "Golden Age Debate"],
-        phase: 3
+        chapterNames: ["Art & Architecture, Pulakeshin II"],
+        phase: 2
     },
     {
         day: 10,
-        title: "Post-Gupta Period (Harsha)",
+        title: "Rashtrakutas & Imperial Cholas",
         chapters: [12],
-        topics: ["Harshavardhana", "Hiuen Tsang's Account"],
+        chapterNames: ["Kailash Temple, Brihadisvara Temple"],
         phase: 3
     },
     {
         day: 11,
-        title: "Chalukyas & Pallavas",
+        title: "Ancient Indian Art & Architecture",
         chapters: [13],
-        topics: ["South Indian Art", "Dravidian Style Temples"],
+        chapterNames: ["Cave Temples, Stupas, Temple Styles (Nagara, Dravida)"],
         phase: 3
     },
     {
         day: 12,
-        title: "Ancient Science & Technology",
+        title: "Ancient Indian Literature & Science",
         chapters: [14],
-        topics: ["Aryabhatta", "Varahamihira", "Metallurgy"],
+        chapterNames: ["Vedas, Upanishads, Aryabhatta, Sushruta"],
         phase: 3
     },
     {
         day: 13,
-        title: "Social Evolution in Ancient India",
+        title: "Philosophy Schools (Shad Darshana)",
         chapters: [15],
-        topics: ["Varna System", "Position of Women", "Slavery"],
+        chapterNames: ["Sankhya, Yoga, Nyaya, Vaisheshika, Mimamsa, Vedanta"],
         phase: 3
     },
     {
         day: 14,
-        title: "Revision: Post-Mauryan to Gupta",
-        chapters: [7, 8, 9, 11, 12],
-        topics: ["Consolidation of Phase 2 & 3"],
+        title: "Foreign Travelers in Ancient India",
+        chapters: [16],
+        chapterNames: ["Megasthenes, Fa-Hien, Hiuen Tsang"],
         phase: 3
     },
     {
         day: 15,
-        title: "Full Syllabus Mock Test",
-        chapters: [],
-        topics: ["Comprehensive Test on Ancient India"],
+        title: "Pre-Medieval Transition",
+        chapters: [17],
+        chapterNames: ["Feudalism, Rise of Rajputs"],
         phase: 3
     }
 ];

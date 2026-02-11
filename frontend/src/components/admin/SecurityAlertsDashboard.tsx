@@ -23,7 +23,11 @@ export function SecurityAlertsDashboard() {
             const res = await axios.get(`${API_URL}/api/v1/admin/security/alerts`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            setAlerts(res.data);
+            if (Array.isArray(res.data)) {
+                setAlerts(res.data);
+            } else {
+                setAlerts([]);
+            }
         } catch (error) {
             console.error("Failed to fetch security alerts", error);
         } finally {

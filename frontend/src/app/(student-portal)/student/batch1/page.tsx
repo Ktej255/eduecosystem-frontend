@@ -12,20 +12,22 @@ import {
     Atom,
     ShoppingBag
 } from 'lucide-react';
-import FocusPortal from '@/components/batch1/FocusPortal';
-import PolityHome from '@/components/batch1/polity/PolityHome';
-import HistoryHome from '@/components/batch1/history/HistoryHome';
-import GeographyHome from '@/components/batch1/geography/GeographyHome';
-import EconomyHome from '@/components/batch1/economy/EconomyHome';
-import EnvironmentHome from '@/components/batch1/environment/EnvironmentHome';
-import ScienceTechHome from '@/components/batch1/science-tech/ScienceTechHome';
-import ArtCultureHome from '@/components/batch1/art-culture/ArtCultureHome';
-import EthicsDashboard from '@/components/batch1/ethics/EthicsDashboard';
-import SecurityDashboard from '@/components/batch1/security/SecurityDashboard';
-import SocietyDashboard from '@/components/batch1/society/SocietyDashboard';
-import ValueAdditionDashboard from '@/components/batch1/value-addition/ValueAdditionDashboard';
-import IrHome from '@/components/batch1/international-relations/IrHome';
+import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const FocusPortal = dynamic(() => import('@/components/batch1/FocusPortal'), { loading: () => <div>Loading Focus Area...</div> });
+const PolityHome = dynamic(() => import('@/components/batch1/polity/PolityHome'), { loading: () => <div>Loading Polity...</div> });
+const HistoryHome = dynamic(() => import('@/components/batch1/history/HistoryHome'), { loading: () => <div>Loading History...</div> });
+const GeographyHome = dynamic(() => import('@/components/batch1/geography/GeographyHome'), { loading: () => <div>Loading Geography...</div> });
+const EconomyHome = dynamic(() => import('@/components/batch1/economy/EconomyHome'), { loading: () => <div>Loading Economy...</div> });
+const EnvironmentHome = dynamic(() => import('@/components/batch1/environment/EnvironmentHome'), { loading: () => <div>Loading Environment...</div> });
+const ScienceTechHome = dynamic(() => import('@/components/batch1/science-tech/ScienceTechHome'), { loading: () => <div>Loading Science & Tech...</div> });
+const ArtCultureHome = dynamic(() => import('@/components/batch1/art-culture/ArtCultureHome'), { loading: () => <div>Loading Art & Culture...</div> });
+const EthicsDashboard = dynamic(() => import('@/components/batch1/ethics/EthicsDashboard'), { loading: () => <div>Loading Ethics...</div> });
+const SecurityDashboard = dynamic(() => import('@/components/batch1/security/SecurityDashboard'), { loading: () => <div>Loading Security...</div> });
+const SocietyDashboard = dynamic(() => import('@/components/batch1/society/SocietyDashboard'), { loading: () => <div>Loading Society...</div> });
+const ValueAdditionDashboard = dynamic(() => import('@/components/batch1/value-addition/ValueAdditionDashboard'), { loading: () => <div>Loading Value Addition...</div> });
+const IrHome = dynamic(() => import('@/components/batch1/international-relations/IrHome'), { loading: () => <div>Loading IR...</div> });
 
 import { useRouter } from 'next/navigation';
 

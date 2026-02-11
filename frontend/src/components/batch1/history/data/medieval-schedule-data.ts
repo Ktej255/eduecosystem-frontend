@@ -28,105 +28,105 @@ export const MEDIEVAL_SCHEDULE = [
         day: 1,
         title: "Tripartite Struggle & The Cholas",
         chapters: [1, 2],
-        topics: ["Palas, Pratiharas, Rashtrakutas", "Chola Administration & Art"],
+        chapterNames: ["Palas, Pratiharas, Rashtrakutas", "Chola Administration & Art"],
         phase: 1
     },
     {
         day: 2,
         title: "Arab Conquest & Rajput States",
         chapters: [3],
-        topics: ["Mahmud of Ghazni", "Muhammad Ghori", "Rajput Clans"],
+        chapterNames: ["Mahmud of Ghazni", "Muhammad Ghori", "Rajput Clans"],
         phase: 1
     },
     {
         day: 3,
         title: "Delhi Sultanate: Slave & Khilji Dynasties",
         chapters: [4, 5],
-        topics: ["Qutbuddin Aibak, Iltutmish, Balban", "Alauddin Khilji's Market Reforms"],
+        chapterNames: ["Qutbuddin Aibak, Iltutmish, Balban", "Alauddin Khilji's Market Reforms"],
         phase: 2
     },
     {
         day: 4,
         title: "Delhi Sultanate: Tughlaqs",
         chapters: [6],
-        topics: ["Muhammad bin Tughlaq", "Firoz Shah Tughlaq"],
+        chapterNames: ["Muhammad bin Tughlaq", "Firoz Shah Tughlaq"],
         phase: 2
     },
     {
         day: 5,
-        title: "Sayyid, Lodi & Vijayanagar Empire",
-        chapters: [7, 8],
-        topics: ["Timur's Invasion", "Krishnadevaraya", "Bahmani Kingdom"],
+        title: "Delhi Sultanate: Sayyid & Lodi Dynasties",
+        chapters: [7],
+        chapterNames: ["Timur's Invasion", "Ibrahim Lodi & Battle of Panipat"],
         phase: 2
     },
     {
         day: 6,
-        title: "Bhakti & Sufi Movements",
-        chapters: [9],
-        topics: ["Kabir, Nanak, Mirabai", "Chishti & Suhrawardi Orders"],
+        title: "Vijayanagara & Bahmani Kingdoms",
+        chapters: [8, 9],
+        chapterNames: ["Krishnadevaraya", "Bahmani Sultanate Conflicts"],
         phase: 2
     },
     {
         day: 7,
-        title: "Coming of Mughals: Babur & Humayun",
+        title: "Bhakti & Sufi Movements",
         chapters: [10],
-        topics: ["Battle of Panipat", "Sher Shah Suri's Administration"],
-        phase: 3
+        chapterNames: ["Kabir, Guru Nanak, Mirabai", "Chishti & Suhrawardi Orders"],
+        phase: 2
     },
     {
         day: 8,
-        title: "The Age of Akbar",
+        title: "Mughal Empire: Babur & Humayun",
         chapters: [11],
-        topics: ["Mansabdari System", "Religious Policy (Din-i-Ilahi)", "Land Revenue"],
+        chapterNames: ["First Battle of Panipat", "Battle of Chausa & Kannauj"],
         phase: 3
     },
     {
         day: 9,
-        title: "Jahangir & Shah Jahan",
+        title: "Sher Shah Suri & Sur Empire",
         chapters: [12],
-        topics: ["Golden Age of Architecture", "Paintings"],
+        chapterNames: ["Administrative Reforms", "Grand Trunk Road"],
         phase: 3
     },
     {
         day: 10,
-        title: "Aurangzeb & Decline of Mughals",
+        title: "Akbar the Great",
         chapters: [13],
-        topics: ["Deccan Policy", "Rise of Marathas"],
+        chapterNames: ["Mansabdari System", "Din-i-Ilahi", "Rajput Policy"],
         phase: 3
     },
     {
         day: 11,
-        title: "Rise of Marathas",
+        title: "Jahangir & Shah Jahan",
         chapters: [14],
-        topics: ["Shivaji's Administration", "Peshwas"],
+        chapterNames: ["Golden Age of Architecture", "Arrival of Europeans"],
         phase: 3
     },
     {
         day: 12,
-        title: "Medieval Administration & Culture",
+        title: "Aurangzeb & Decline of Mughals",
         chapters: [15],
-        topics: ["Provincial Govt", "Literature", "Scientific Developments"],
+        chapterNames: ["Deccan Policy", "Religious Policies"],
         phase: 3
     },
     {
         day: 13,
-        title: "Revision: Early Medieval",
-        chapters: [1, 2, 3],
-        topics: ["Revision of North & South Indian Kingdoms"],
-        phase: 1
+        title: "Maratha Empire: Shivaji Maharaj",
+        chapters: [16],
+        chapterNames: ["Guerrilla Warfare", "Ashtapradhan System"],
+        phase: 3
     },
     {
         day: 14,
-        title: "Revision: Sultanate Period",
-        chapters: [4, 5, 6, 7, 8],
-        topics: ["Consolidation of Sultanate"],
-        phase: 2
+        title: "Later Mughals & Regional States",
+        chapters: [17],
+        chapterNames: ["Rise of Bengal, Awadh, Hyderabad"],
+        phase: 3
     },
     {
         day: 15,
-        title: "Revision: Mughal Empire",
-        chapters: [10, 11, 12, 13],
-        topics: ["Consolidation of Mughals"],
+        title: "Advent of Europeans in India",
+        chapters: [18],
+        chapterNames: ["Portuguese, Dutch, French, British Rivalry"],
         phase: 3
     }
 ];
