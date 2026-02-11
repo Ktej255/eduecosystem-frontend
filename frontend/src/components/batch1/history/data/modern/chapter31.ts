@@ -809,5 +809,76 @@ export const MODERN_CHAPTER_31_CONTENT = `
 **Specific Tactic:** They popularized the practice of stopping the payment of illegal levies (like *Vighi* and *Nuri*).
 
 **Significance:** These Sanghams created the mass base that led to the first Communist government in Kerala in 1957.
+
+---
+
+## BLOCK 31: WOMEN IN PEASANT MOVEMENTS
+*The Silent Warriors.*
+
+### 👩🌾 MANIBEHN TO GODAVARI
+**Bardoli (1928):**
+- **Mithuben Petit** and **Bhaktiba Desai** lived in the villages to mobilize women.
+- **Manibehn Patel** (Sardar Patel's daughter) kept the morale high.
+- **Significance:** It was the women of Bardoli who gave Patel the title **"Sardar"**.
+
+**Warli (1945):**
+- **Godavari Parulekar** (Godutai) was the soul of the movement. She was the first woman to lead an Adivasi revolt.
+
+**Tebhaga (1946):**
+- Women formed **"Nari Bahinis"** (Women's Brigades) to defend their harvest with broomsticks and pestles against the police.
+
+---
+
+## BLOCK 32: KIRTI KISAN PARTY (1927)
+*The Revolutionary Peasants.*
+
+### ☭ PUNJAB'S RED TURN
+**Founders:** **Sohan Singh Josh** and **Teja Singh Swatantar**.
+**Ideology:** A mix of Ghadar Party revolutionary nationalism and Marxism.
+
+**Goal:** To organize small peasants and landless laborers against the British and the moneylenders.
+
+**Significance:** It bridged the gap between the terrorist movement (Bhagat Singh's Naujawan Bharat Sabha) and the peasant movement. It later merged with the Communist Party.
+
+---
+
+## BLOCK 33: ANDHRA MAHASABHA (1930s)
+*The Root of Telangana.*
+
+### 🏛️ MADAPATI & RAVI NARAYANA
+**Origin:** Started as a cultural organization for Telugu people in Hyderabad State.
+**Founder:** **Madapati Hanumantha Rao**.
+
+**Transformation:** In the 1940s, under **Ravi Narayana Reddy** (Communist), it shifted focus to agrarian issues (forced labor/land).
+
+**Outcome:** It became the organizational vehicle for the **Telangana Armed Struggle (1946)**.
+
+---
+
+## BLOCK 34: CONGRESS MINISTRIES vs KISAN SABHA (1937-39)
+*The Great Disappointment.*
+
+### 💔 THE RIFT
+**Context:** In the 1937 elections, peasants voted for Congress hoping for radical land reform.
+
+**Reality:** The Congress Ministries (in Bihar/UP) passed only mild tenancy laws but did not abolish Zamindari.
+
+**Conflict:**
+- They often used **Section 144** against peasant leaders (including Sahajanand) to maintain "law and order."
+- They made compromises with Zamindars to ensure political stability.
+
+**Result:** This led to a split. **Swami Sahajanand** left the Congress and moved closer to the Communist Party by 1940.
+
+---
+
+## BLOCK 35: UTKAL PROVINCIAL KISAN SABHA
+*The Odisha Chapter.*
+
+### 🌾 MALATI CHOUDHURY
+**Founders:** **Malati Choudhury** and **Nabakrushna Choudhury**.
+**Formation:** 1935.
+**Issue:** Abolition of Zamindari and reduction of land revenue.
+
+**Surma Valley (Assam):** A similar movement rose in the Surma Valley (Karimganj) led by **Karuna Sindhu Roy**, fighting for the rights of tea garden laborers and tenants.
 `;
 

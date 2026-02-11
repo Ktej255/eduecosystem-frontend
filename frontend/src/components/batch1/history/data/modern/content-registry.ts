@@ -30,6 +30,9 @@ import { MODERN_CHAPTER_29_CONTENT } from './chapter29';
 import { MODERN_CHAPTER_30_CONTENT } from './chapter30';
 import { MODERN_CHAPTER_31_CONTENT } from './chapter31';
 import { MODERN_CHAPTER_32_CONTENT } from './chapter32';
+import { MODERN_CHAPTER_33_CONTENT } from './chapter33';
+import { MODERN_CHAPTER_34_CONTENT } from './chapter34';
+import { MODERN_CHAPTER_35_CONTENT } from './chapter35';
 
 export const MODERN_HISTORY_CONTENT: Record<string, string> = {
     '1': MODERN_CHAPTER_1_CONTENT,
@@ -64,5 +67,11 @@ export const MODERN_HISTORY_CONTENT: Record<string, string> = {
     '30': MODERN_CHAPTER_30_CONTENT,
     '31': MODERN_CHAPTER_31_CONTENT,
     '32': MODERN_CHAPTER_32_CONTENT,
+    '33': MODERN_CHAPTER_33_CONTENT,
+    '34': MODERN_CHAPTER_34_CONTENT,
+    '35': MODERN_CHAPTER_35_CONTENT,
 };
+
+
+
 

@@ -342,3 +342,76 @@ MODERN_CHAPTER_33_MCQS.push(
         cognitiveLevel: "Conceptual"
     }
 );
+
+export const MODERN_CHAPTER_33_CONTENT = `
+# Chapter 33: Challenges Before the New-born Nation
+
+## BLOCK 1: THE PARTITION TRAUMA
+*The Largest Migration in History.*
+
+### 🚂 14 MILLION DISPLACED
+**The Scale:** Approximately **14 to 16 million people** crossed the borders (West Pakistan to India, India to West Pakistan, East Pakistan to West Bengal).
+
+**The Violence:**
+- **Punjab:** The epicenter of violence. Complete ethnic cleansing occurred in West Punjab (Muslims stayed, Hindus/Sikhs left) and East Punjab (Hindus/Sikhs stayed, Muslims left).
+- **Bengal:** The migration was slower and continued for years, unlike the sudden "exchange of population" in Punjab.
+
+**The Death Toll:** Estimates range from 200,000 to 500,000 killed in communal riots.
+
+---
+
+## BLOCK 2: REHABILITATION OF REFUGEES
+*Building from Ashes.*
+
+### ⛺ KURUKSHETRA & PURANA QILA
+**The Challenge:** Feeding and housing millions of destitute people.
+**The Camps:** Massive camps were set up at **Kurukshetra** (holding 300,000 people) and **Purana Qila** (Delhi).
+
+**Resettlement Policy:**
+- **Rural:** Refugees were allotted "evacuee land" (land left behind by Muslims who went to Pakistan) based on a "standard acre" formula.
+- **Urban:** New townships were built (e.g., **Faridabad, Nilokheri, Chandigarh**) to house urban refugees.
+
+**Success:** By 1951, most refugees from West Pakistan were successfully resettled. Bengal refugees remained a lingering issue.
+
+---
+
+## BLOCK 3: ASSASSINATION OF GANDHI (Jan 30, 1948)
+*The Light Goes Out.*
+
+### 🕊️ THE LAST FAST
+**Context:** Communal riots were raging in Delhi. Refugees were occupying mosques. Pakistan was owed **₹55 Crore** as its share of assets, which the Indian Govt withheld due to the Kashmir war.
+
+**The Fast:** Gandhi undertook a fast unto death (Jan 13, 1948) demanding:
+- Restoration of peace in Delhi.
+- Payment of ₹55 Crore to Pakistan (moral obligation).
+
+**The Assassination:** Angered by his "pro-Muslim" stance, **Nathuram Godse** shot him on **January 30, 1948** at Birla House.
+
+**Impact:** The shock of his death actually stopped the riots. The RSS was banned temporarily, and communal passions cooled down in shame.
+
+---
+
+## BLOCK 4: THE COMMUNIST INSURGENCY (1948)
+*The Internal Threat.*
+
+### 🚩 "YEH AZAADI JHOOTHI HAI"
+**The Slogan:** "This Freedom is False."
+**The Stance:** Under **B.T. Ranadive**, the CPI declared that 1947 was not real independence but a deal between the British and the Indian bourgeoisie.
+
+**The Revolt:** They launched violent armed struggles in **Telangana**, West Bengal (Kakdwip), and Travancore (Punnapra-Vayalar).
+
+**Govt Response:** Nehru cracked down hard. Thousands were jailed. The CPI eventually abandoned the armed path in 1951 and joined the democratic process.
+
+---
+
+## BLOCK 5: DIVISION OF ASSETS
+*Splitting the Furniture.*
+
+### 💰 CASH & ARMY
+**Financial Assets:** India agreed to give Pakistan **₹75 Crore** (₹20 Crore paid, ₹55 Crore withheld then paid).
+
+**Military:** The British Indian Army was divided on communal lines (Muslim units to Pakistan, Non-Muslim to India). This chaos made handling the riots even harder as the police/army themselves were partisan.
+
+**Civil Service:** 101 ICS officers opted for Pakistan; the rest stayed in India.
+`;
+

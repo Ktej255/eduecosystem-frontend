@@ -30,6 +30,8 @@ import HandwrittenChapter21 from '@/components/batch1/history/modern/v2/Handwrit
 import HandwrittenChapter22 from '@/components/batch1/history/modern/v2/HandwrittenChapter22';
 import HandwrittenChapter23 from '@/components/batch1/history/modern/v2/HandwrittenChapter23';
 import HandwrittenChapter24 from '@/components/batch1/history/modern/v2/HandwrittenChapter24';
+import HandwrittenChapter25 from '@/components/batch1/history/modern/v2/HandwrittenChapter25';
+import HandwrittenChapter26 from '@/components/batch1/history/modern/v2/HandwrittenChapter26';
 
 function HistoryReadContent() {
     const params = useParams();
@@ -47,7 +49,7 @@ function HistoryReadContent() {
 
     useEffect(() => {
         if (searchParams.get('v') === '2') {
-            const v2Supported = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'];
+            const v2Supported = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'];
             if (v2Supported.includes(chapterId)) {
                 setVersion('v2');
             }
@@ -64,7 +66,7 @@ function HistoryReadContent() {
     const handleNext = () => {
         const currentId = parseInt(chapterId);
         // Assuming max 24 for now based on registry. Ideally check keys.
-        if (currentId < 24) {
+        if (currentId < 26) {
             router.push(`/student/batch1/history/read/${currentId + 1}`);
         }
     };
@@ -103,14 +105,16 @@ function HistoryReadContent() {
             case '20': return <HandwrittenChapter20 />;
             case '21': return <HandwrittenChapter21 />;
             case '22': return <HandwrittenChapter22 />;
-            // case '23': return <HandwrittenChapter23 />; // Reverted to V1
-            // case '24': return <HandwrittenChapter24 />; // Reverted to V1
+            case '23': return <HandwrittenChapter23 />;
+            case '24': return <HandwrittenChapter24 />;
+            case '25': return <HandwrittenChapter25 />;
+            case '26': return <HandwrittenChapter26 />;
             default: return null;
         }
     };
 
     // Render V2 if active (Support for Chapters 1-22)
-    if (version === 'v2' && ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22'].includes(chapterId)) {
+    if (version === 'v2' && ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'].includes(chapterId)) {
         return (
             <div>
                 <div className="fixed top-4 right-4 z-50 flex gap-2">
@@ -204,7 +208,7 @@ function HistoryReadContent() {
                     </Button>
 
                     <div className="flex items-center gap-2">
-                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'].includes(chapterId) && version === 'v1' && (
+                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'].includes(chapterId) && version === 'v1' && (
                             <Button
                                 size="sm"
                                 className="bg-gradient-to-r from-purple-600 to-blue-600 text-white border-2 border-white shadow-lg animate-pulse"
@@ -272,7 +276,7 @@ function HistoryReadContent() {
 
                     <Button
                         onClick={handleNext}
-                        disabled={parseInt(chapterId) >= 22}
+                        disabled={parseInt(chapterId) >= 26}
                         className="bg-stone-800 hover:bg-stone-700 text-amber-50 shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
                         size="lg"
                     >
