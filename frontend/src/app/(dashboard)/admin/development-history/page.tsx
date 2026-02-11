@@ -31,6 +31,20 @@ interface DevelopmentLog {
 // Static development history data - will be replaced by API
 const developmentHistory: DevelopmentLog[] = [
     {
+        id: "100",
+        date: "2026-02-11",
+        title: "Modern History Completion & Question Bank Refinement",
+        description: "Achieved 100% MCQ coverage for Modern History and standardized the Question Bank interface.",
+        features: [
+            "Integrated all 39 Modern History chapters (Spectrum)",
+            "Codified 3,500+ MCQs with Level 1/2/3 tagging",
+            "Renamed 'Qosian Bank' to 'Question Bank' for better clarity",
+            "Verified global question aggregation in QuestionBankService"
+        ],
+        challenges: ["Ensuring performance while aggregating 3500+ dynamic items"],
+        batch: "History"
+    },
+    {
         id: "101",
         date: "2026-01-25",
         title: "Complete Polity Chapter System",
@@ -227,6 +241,90 @@ const developmentHistory: DevelopmentLog[] = [
         ],
         challenges: ["Type error in Batch1_1EveningSession.tsx - ChapterSchedule handling"],
         batch: "Batch 1.1"
+    },
+    {
+        id: "11",
+        date: "2026-01-05",
+        title: "Advanced Test Analytics & Saturday Deep Reports",
+        description: "Implemented the Saturday (SAT) testing framework with detailed performance analytics.",
+        features: [
+            "Developed SaturdayTestReport.tsx with Gap Analysis",
+            "Added 'Auto-Schedule Revision' logic for weak topics",
+            "Created Batch1DeepReport.tsx across all subjects",
+            "Integrated persistent storage for history of mock tests"
+        ],
+        challenges: ["Handling complex data mapping for cross-subject reports"],
+        batch: "Reports"
+    },
+    {
+        id: "12",
+        date: "2025-12-28",
+        title: "Terra-Lab Geography Evolution",
+        description: "Significant expansion of the interactive geography learning module.",
+        features: [
+            "Implemented Climate Data Visualizer with world maps",
+            "Added Natural Vegetation interactive exploration",
+            "Developed India Climate and Rainfall module",
+            "Integrated Human & Economic Geography content engine"
+        ],
+        challenges: ["SVG coordinate scaling for responsive maps"],
+        batch: "Geography"
+    },
+    {
+        id: "13",
+        date: "2025-12-15",
+        title: "Mindscape: 3D Knowledge Tree",
+        description: "Launched the immersive 3D brain-mapping tool for hierarchical study topics.",
+        features: [
+            "Integrated ThreeJS/Canvas for 3D navigation",
+            "Implemented node-link hierarchy for UPSC syllabus",
+            "Added immersive 'Drill Down' mode for sub-topics",
+            "Created dynamic connection logic based on subject relationships"
+        ],
+        challenges: ["Optimizing render performance for large subject trees"],
+        batch: "Mindscape"
+    },
+    {
+        id: "14",
+        date: "2025-12-05",
+        title: "Teacher Portal V1 Launch",
+        description: "First production release of the content management system for faculty.",
+        features: [
+            "Developed MCQ Upload & Parser system",
+            "Added Batch Control Panel for managing student access",
+            "Implemented real-time Student Analytics for teachers",
+            "Created Global Content Registry"
+        ],
+        challenges: ["Ensuring secure access to administrative controls"],
+        batch: "Teacher Portal"
+    },
+    {
+        id: "15",
+        date: "2025-11-20",
+        title: "Core Platform Architecture & Security",
+        description: "Established the enterprise-grade foundation for the EduEcosystem.",
+        features: [
+            "Designed Split-Portal Architecture (Student/Teacher/Admin)",
+            "Implemented JWT-based Secure Authentication",
+            "Developed the Core Design System (Inter, Shadcn, Framer Motion)",
+            "Setup Automated CI/CD pipelines to Vercel/AWS"
+        ],
+        challenges: ["Handling persistent sessions across subdomains"],
+        batch: "Core Platform"
+    },
+    {
+        id: "16",
+        date: "2025-11-10",
+        title: "Project Kickoff & DB Schema Design",
+        description: "Initialization of the master software repository and backend infrastructure.",
+        features: [
+            "Designed PostgreSQL relational schema for Users, Batches, and MCQs",
+            "Setup FastAPI Backend with Pydantic validation",
+            "Implemented the shared QuestionBank interface",
+            "Drafted the UPSC Syllabus hierarchy mapping"
+        ],
+        challenges: [],
+        batch: "Backend"
     }
 ];
 
