@@ -779,7 +779,7 @@ MODERN_CHAPTER_32_MCQS.push(
     }
 );
 
-export const MODERN_CHAPTER_32_CONTENT = `
+export const MODERN_CHAPTER_32_CONTENT_V2 = `
 # Chapter 32: The Movement of the Working Class
 
 ## BLOCK 1: THE EARLY EFFORTS (1870-1915)
@@ -1149,3 +1149,4 @@ export const MODERN_CHAPTER_32_CONTENT = `
 - **The Left Wing (Communists):** Wanted to join the **Red International of Labor Unions (RILU)** based in Moscow. (Focus: Revolution, Comintern).
 
 **Result:** This was the primary cause of the **1929 Split** in AITUC.
+`;

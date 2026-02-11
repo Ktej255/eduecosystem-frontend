@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
     Plus,
     BookOpen,
@@ -13,6 +14,7 @@ import {
     Layout,
     Upload
 } from "lucide-react";
+import api from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import {
     Dialog,
@@ -29,9 +31,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { useActivityLogStore } from "@/store/activityLogStore";
 
-export default function CourseCreationWizard() {
+export default function CourseCreationWizard({ onCourseCreated }: { onCourseCreated?: () => void }) {
+    const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     const [step, setStep] = useState<1 | 2 | 3>(1);
+    const [loading, setLoading] = useState(false);
 
     // Form State
     const [courseName, setCourseName] = useState("");
@@ -39,28 +43,40 @@ export default function CourseCreationWizard() {
     const [price, setPrice] = useState("");
     const [duration, setDuration] = useState("");
     const [description, setDescription] = useState("");
+    const [createdCourseId, setCreatedCourseId] = useState<number | null>(null);
 
     const [error, setError] = useState<string | null>(null);
 
     const { addLog } = useActivityLogStore();
 
-    const handleCreate = () => {
+    const handleCreate = async () => {
         if (!courseName || !category) {
             setError("Please fill in the required fields.");
             return;
         }
         setError(null);
         setStep(2);
+        setLoading(true);
 
         try {
-            // Simulate "AI Structuring"
-            setTimeout(() => {
-                setStep(3);
-            }, 1500);
-        } catch (err) {
+            const courseData = {
+                title: courseName,
+                description: description || `${courseName} - ${category}`,
+                category: category,
+                level: "beginner",
+                price: parseFloat(price) || 0,
+                tags: [category],
+            };
+
+            const response = await api.post("/courses/", courseData);
+            setCreatedCourseId(response.data.id);
+            setStep(3);
+        } catch (err: any) {
             console.error("Course creation failed:", err);
-            setError("Internal error during generation.");
+            setError(err.response?.data?.detail || "Failed to create course. Please try again.");
             setStep(1);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -70,13 +86,15 @@ export default function CourseCreationWizard() {
             addLog({
                 action: 'Course Created',
                 description: `Successfully published course: ${courseName}`,
-                user: 'Faculty Alpha', // Placeholder, ideally from auth context
-                role: 'Instructor', // Placeholder
+                user: 'Faculty Alpha',
+                role: 'Instructor',
                 status: 'success',
                 module: 'content'
             });
 
             setIsOpen(false);
+            // Refresh the course list
+            onCourseCreated?.();
             // Reset form
             setTimeout(() => {
                 setStep(1);
@@ -86,7 +104,13 @@ export default function CourseCreationWizard() {
                 setDuration("");
                 setDescription("");
                 setError(null);
+                setCreatedCourseId(null);
             }, 300);
+
+            // Navigate to course editor if we have an ID
+            if (createdCourseId) {
+                router.push(`/lms/courses/${createdCourseId}/edit`);
+            }
         } catch (err) {
             setIsOpen(false);
         }

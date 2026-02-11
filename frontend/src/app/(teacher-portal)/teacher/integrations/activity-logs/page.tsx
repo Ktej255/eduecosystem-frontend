@@ -6,6 +6,7 @@ import {
     AlertCircle, CheckCircle2, Clock, Globe
 } from "lucide-react";
 import Link from "next/link";
+import api from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -27,14 +28,37 @@ import {
 } from "@/components/ui/select";
 
 export default function IntegrationLogsPage() {
-    const logs = [
-        { id: "log_1", event: "user.created", source: "API", status: "success", code: 201, latency: "45ms", timestamp: "Today, 10:45 AM", details: "User ID 45890 created via API" },
-        { id: "log_2", event: "payment.failed", source: "Stripe Webhook", status: "error", code: 402, latency: "120ms", timestamp: "Today, 10:42 AM", details: "Card declined for Invoice #9001" },
-        { id: "log_3", event: "course.updated", source: "System", status: "success", code: 200, latency: "38ms", timestamp: "Today, 10:30 AM", details: "Course 'Polity 101' updated" },
-        { id: "log_4", event: "email.sent", source: "Mailchimp", status: "success", code: 200, latency: "245ms", timestamp: "Today, 10:15 AM", details: "Welcome email sent to user@example.com" },
-        { id: "log_5", event: "webhook.delivery", source: "Slack", status: "success", code: 200, latency: "180ms", timestamp: "Today, 09:55 AM", details: "Notification posted to #alerts" },
-        { id: "log_6", event: "db.backup", source: "System Automation", status: "warning", code: 200, latency: "15s", timestamp: "Today, 04:00 AM", details: "Backup completed with warnings" },
-    ];
+    const [logs, setLogs] = React.useState<any[]>([]);
+    const [loading, setLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        const fetchLogs = async () => {
+            try {
+                const res = await api.get('/admin/activity-logs?limit=50');
+                const data = Array.isArray(res.data) ? res.data : res.data?.logs || [];
+                setLogs(data.map((log: any, i: number) => ({
+                    id: log.id || `log_${i}`,
+                    event: log.action || log.event || 'unknown',
+                    source: log.source || 'System',
+                    status: log.status || 'success',
+                    code: log.status_code || 200,
+                    latency: log.latency || '-',
+                    timestamp: log.created_at ? new Date(log.created_at).toLocaleString() : 'Unknown',
+                    details: log.details || log.description || '-'
+                })));
+            } catch {
+                // Fallback to sample data
+                setLogs([
+                    { id: "log_1", event: "user.created", source: "API", status: "success", code: 201, latency: "45ms", timestamp: new Date().toLocaleString(), details: "Sample log — API unavailable" },
+                    { id: "log_2", event: "course.updated", source: "System", status: "success", code: 200, latency: "38ms", timestamp: new Date().toLocaleString(), details: "Sample log — connect backend for live data" },
+                ]);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchLogs();
+    }, []);
+
 
     return (
         <div className="p-4 md:p-6 space-y-6 max-w-6xl mx-auto">
@@ -119,8 +143,8 @@ export default function IntegrationLogsPage() {
                                 <TableRow key={log.id}>
                                     <TableCell>
                                         <div className={`p-1.5 rounded-full w-fit ${log.status === 'success' ? 'bg-green-100 text-green-600' :
-                                                log.status === 'error' ? 'bg-red-100 text-red-600' :
-                                                    'bg-yellow-100 text-yellow-600'
+                                            log.status === 'error' ? 'bg-red-100 text-red-600' :
+                                                'bg-yellow-100 text-yellow-600'
                                             }`}>
                                             {log.status === 'success' ? <CheckCircle2 className="h-4 w-4" /> :
                                                 log.status === 'error' ? <AlertCircle className="h-4 w-4" /> :

@@ -64,7 +64,7 @@ export default function MarketingPage() {
                 <TabsContent value="campaigns" className="space-y-4 focus-visible:outline-none animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                     <div className="flex items-center justify-between mb-2">
                         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-200">Campaign Blueprint</h2>
-                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 21</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Live</span>
                     </div>
                     <CampaignBlueprint />
                 </TabsContent>
@@ -72,7 +72,7 @@ export default function MarketingPage() {
                 <TabsContent value="discounts" className="space-y-4 focus-visible:outline-none animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                     <div className="flex items-center justify-between mb-2">
                         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-200">Discount Engine</h2>
-                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 22</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Live</span>
                     </div>
                     <DiscountEngine />
                 </TabsContent>
@@ -80,7 +80,7 @@ export default function MarketingPage() {
                 <TabsContent value="social" className="space-y-4 focus-visible:outline-none animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                     <div className="flex items-center justify-between mb-2">
                         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-200">Social Post Previewer</h2>
-                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 23</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Live</span>
                     </div>
                     <SocialPostPreviewer />
                 </TabsContent>
@@ -88,7 +88,7 @@ export default function MarketingPage() {
                 <TabsContent value="leads" className="space-y-4 focus-visible:outline-none animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                     <div className="flex items-center justify-between mb-2">
                         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-200">Lead Magnet Builder</h2>
-                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 24</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Live</span>
                     </div>
                     <LeadMagnetBuilder />
                 </TabsContent>
@@ -96,7 +96,7 @@ export default function MarketingPage() {
                 <TabsContent value="affiliates" className="space-y-4 focus-visible:outline-none animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                     <div className="flex items-center justify-between mb-2">
                         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-200">Affiliate Dashboard</h2>
-                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 25</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Live</span>
                     </div>
                     <AffiliateDashboard />
                 </TabsContent>

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import api from '@/lib/api';
 
 export interface StudentLead {
     id: number;
@@ -25,45 +26,47 @@ export interface EmailStep {
 interface CRMState {
     leads: StudentLead[];
     emailSequence: EmailStep[];
+    loading: boolean;
+    error: string | null;
 
     // Actions
+    fetchLeads: () => Promise<void>;
     updateWarmthScores: () => void;
     addSequenceStep: (step: EmailStep) => void;
+    removeSequenceStep: (stepId: string) => void;
     reorderSequence: (startIndex: number, endIndex: number) => void;
 }
 
-// Mock Data Generators
-const generateLeads = (count: number): StudentLead[] => {
-    return Array.from({ length: count }).map((_, i) => {
-        const drills = Math.floor(Math.random() * 20);
-        const logins = Math.floor(Math.random() * 10);
-        const store = Math.floor(Math.random() * 5);
+// Transform backend student data to lead format
+const transformStudentToLead = (student: any, index: number): StudentLead => {
+    const drills = student.streak_days || 0;
+    const coins = student.coins || 0;
 
-        // Algorithm: (Logins * 3) + (Drills * 5) + (Store * 10)
-        let score = (logins * 3) + (drills * 5) + (store * 10);
-        score = Math.min(100, score);
+    // Warmth score: engagement-based calculation
+    let score = Math.min(100, (drills * 5) + (coins > 0 ? 20 : 0) + (student.is_batch1_authorized ? 30 : 0));
 
-        let status: 'Hot' | 'Warm' | 'Cold' = 'Cold';
-        if (score > 80) status = 'Hot';
-        else if (score > 50) status = 'Warm';
+    let status: 'Hot' | 'Warm' | 'Cold' = 'Cold';
+    if (score > 70) status = 'Hot';
+    else if (score > 40) status = 'Warm';
 
-        return {
-            id: i + 1,
-            name: `Student ${i + 1}`,
-            email: `student${i + 1}@example.com`,
-            avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${i}`,
-            lastLogin: new Date(Date.now() - Math.random() * 1000000000).toISOString(),
-            drillsCompleted: drills,
-            storeVisits: store,
-            warmthScore: score,
-            status,
-            tags: score > 90 ? ['High Intent'] : []
-        };
-    });
+    return {
+        id: student.id || index + 1,
+        name: student.full_name || `Student ${index + 1}`,
+        email: student.email || `student${index + 1}@example.com`,
+        avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${student.id || index}`,
+        lastLogin: student.last_login || new Date().toISOString(),
+        drillsCompleted: drills,
+        storeVisits: 0,
+        warmthScore: score,
+        status,
+        tags: score > 80 ? ['High Intent'] : student.is_batch1_authorized ? ['Batch 1'] : []
+    };
 };
 
 export const useCRMStore = create<CRMState>((set, get) => ({
-    leads: generateLeads(15).sort((a, b) => b.warmthScore - a.warmthScore),
+    leads: [],
+    loading: false,
+    error: null,
 
     emailSequence: [
         { id: '1', name: 'Welcome Series', trigger: 'Signup', delayDays: 0, template: 'Nudge', stats: { sent: 120, openRate: 85 } },
@@ -71,13 +74,56 @@ export const useCRMStore = create<CRMState>((set, get) => ({
         { id: '3', name: 'Level 2 Upsell', trigger: 'Completed L1', delayDays: 1, template: 'Upsell', stats: { sent: 45, openRate: 40 } },
     ],
 
+    fetchLeads: async () => {
+        set({ loading: true, error: null });
+        try {
+            const response = await api.get('/admin/students');
+            const students = Array.isArray(response.data) ? response.data : [];
+            const leads = students
+                .map(transformStudentToLead)
+                .sort((a, b) => b.warmthScore - a.warmthScore);
+            set({ leads, loading: false });
+        } catch (err: any) {
+            console.error('Failed to fetch leads:', err);
+            // Fallback: generate sample data if API unavailable
+            const fallbackLeads: StudentLead[] = Array.from({ length: 8 }).map((_, i) => {
+                const drills = Math.floor(Math.random() * 20);
+                let score = Math.min(100, drills * 5 + Math.floor(Math.random() * 30));
+                let status: 'Hot' | 'Warm' | 'Cold' = score > 70 ? 'Hot' : score > 40 ? 'Warm' : 'Cold';
+                return {
+                    id: i + 1,
+                    name: `Student ${i + 1}`,
+                    email: `student${i + 1}@example.com`,
+                    avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${i}`,
+                    lastLogin: new Date().toISOString(),
+                    drillsCompleted: drills,
+                    storeVisits: 0,
+                    warmthScore: score,
+                    status,
+                    tags: []
+                };
+            }).sort((a, b) => b.warmthScore - a.warmthScore);
+            set({ leads: fallbackLeads, loading: false, error: 'Using offline data. API unavailable.' });
+        }
+    },
+
     updateWarmthScores: () => {
-        // In a real app, this would re-fetch or re-calc
-        console.log("Recalculating Warmth Scores...");
+        // Recalculate from current data
+        const { leads } = get();
+        const updated = leads.map(lead => {
+            let score = Math.min(100, (lead.drillsCompleted * 5) + (lead.storeVisits * 10));
+            let status: 'Hot' | 'Warm' | 'Cold' = score > 70 ? 'Hot' : score > 40 ? 'Warm' : 'Cold';
+            return { ...lead, warmthScore: score, status };
+        }).sort((a, b) => b.warmthScore - a.warmthScore);
+        set({ leads: updated });
     },
 
     addSequenceStep: (step) => set(state => ({
         emailSequence: [...state.emailSequence, step]
+    })),
+
+    removeSequenceStep: (stepId) => set(state => ({
+        emailSequence: state.emailSequence.filter(s => s.id !== stepId)
     })),
 
     reorderSequence: (startIndex, endIndex) => set(state => {

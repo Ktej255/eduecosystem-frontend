@@ -41,11 +41,12 @@ export default function TeacherDashboard() {
             // Calculate stats
             const batch1Count = studentList.filter((s: StudentData) => s.is_batch1_authorized).length;
             const rasCount = studentList.filter((s: StudentData) => s.is_ras_authorized).length;
+            const activeCount = studentList.filter((s: StudentData) => s.streak_days > 0).length;
             setStats({
                 totalStudents: studentList.length,
                 batch1: batch1Count,
                 ras: rasCount,
-                activeToday: Math.ceil(studentList.length * 0.3) // Placeholder
+                activeToday: activeCount
             });
 
             // Fetch Polity Task

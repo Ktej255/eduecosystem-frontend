@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Sparkles, Linkedin, Twitter, Instagram, Copy, Check } from 'lucide-react';
+import { Sparkles, Linkedin, Twitter, Instagram, Copy, Check, RefreshCw, Loader2, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
+import api from '@/lib/api';
 
-// Mock Generator Logic
-const GENERATE_TIPS = (topic: string) => ({
+// Fallback Generator (used when AI API is unavailable)
+const GENERATE_TIPS_LOCAL = (topic: string) => ({
     linkedin: `🚀 Mastering ${topic}: A Strategic Approach\n\nTo crack UPSC questions on ${topic}, focus on these 3 key dimensions:\n\n1️⃣ Historical Context: What led to this event/concept?\n2️⃣ Current Relevance: How does it impact policy today?\n3️⃣ Comparative Analysis: Relate it to global examples.\n\n💡 Pro Tip: Don't just memorize facts; understand the "Why" and "How".\n\n#UPSC #Education #${topic.replace(/\s/g, '')} #StudySmart`,
     twitter: `⚡ Quick Study Tip: ${topic}\n\nDon't get lost in the details! Focus on:\n✅ Key Dates/Definitions\n✅ Major Impacts\n✅ Recent SC Judgments (if applicable)\n\nKeep it simple. Keep it consistent. 📚\n\n#UPSCPre2026 #${topic.replace(/\s/g, '')}`,
     instagram: `🧠 ${topic} in 60 Seconds!\n\nHere is your daily dose of wisdom:\n\n🔹 Point 1: Core definition.\n🔹 Point 2: Critical analysis.\n🔹 Point 3: Way forward.\n\nSwipe left for the mind map! 👉\n\nSave this for your revision. 📌\n\n#Learning #${topic.replace(/\s/g, '')} #StudentLife`
@@ -22,25 +22,52 @@ export default function SocialContentGenerator() {
     const [isGenerating, setIsGenerating] = useState(false);
     const [generatedContent, setGeneratedContent] = useState<{ linkedin: string, twitter: string, instagram: string } | null>(null);
     const [copied, setCopied] = useState<string | null>(null);
+    const [source, setSource] = useState<'ai' | 'local' | null>(null);
 
-    const handleGenerate = () => {
+    const handleGenerate = async () => {
         if (!topic) {
             toast.error("Please enter a topic");
             return;
         }
 
         setIsGenerating(true);
-        setTimeout(() => {
-            setGeneratedContent(GENERATE_TIPS(topic));
+
+        try {
+            // Try AI backend first
+            const response = await api.post("/ai-tools/generate-social-content", {
+                topic,
+                platforms: ["linkedin", "twitter", "instagram"],
+                context: "UPSC preparation content"
+            });
+
+            if (response.data && response.data.linkedin) {
+                setGeneratedContent(response.data);
+                setSource('ai');
+                toast.success("AI-generated content ready!");
+            } else {
+                throw new Error("Invalid response format");
+            }
+        } catch (err) {
+            // Fallback to local template generation
+            console.log("AI API unavailable, falling back to local generation");
+            setGeneratedContent(GENERATE_TIPS_LOCAL(topic));
+            setSource('local');
+            toast.success("Content generated (local template)");
+        } finally {
             setIsGenerating(false);
-            toast.success("Content generated!");
-        }, 1500);
+        }
+    };
+
+    const handleRegenerate = () => {
+        setGeneratedContent(null);
+        setSource(null);
+        handleGenerate();
     };
 
     const copyToClipboard = (text: string, platform: string) => {
         navigator.clipboard.writeText(text);
         setCopied(platform);
-        toast.success(`Copied used for ${platform}`);
+        toast.success(`Copied for ${platform}`);
         setTimeout(() => setCopied(null), 2000);
     };
 
@@ -60,13 +87,14 @@ export default function SocialContentGenerator() {
                         placeholder="Enter topic (e.g., Monetary Policy)..."
                         value={topic}
                         onChange={(e) => setTopic(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
                     />
                     <Button
                         onClick={handleGenerate}
                         disabled={isGenerating}
                         className="bg-pink-600 hover:bg-pink-700 text-white min-w-[120px]"
                     >
-                        {isGenerating ? <Sparkles className="w-4 h-4 animate-spin" /> : "Generate"}
+                        {isGenerating ? <Loader2 className="w-4 h-4 animate-spin" /> : "Generate"}
                     </Button>
                 </div>
 
@@ -75,6 +103,26 @@ export default function SocialContentGenerator() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
+                        {/* Source indicator */}
+                        <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center gap-2 text-xs text-neutral-400">
+                                {source === 'ai' ? (
+                                    <>
+                                        <Sparkles className="w-3 h-3 text-pink-500" />
+                                        AI-Generated
+                                    </>
+                                ) : (
+                                    <>
+                                        <AlertCircle className="w-3 h-3 text-amber-500" />
+                                        Template-Based (AI unavailable)
+                                    </>
+                                )}
+                            </div>
+                            <Button variant="ghost" size="sm" onClick={handleRegenerate} className="text-xs text-neutral-500 hover:text-pink-600">
+                                <RefreshCw className="w-3 h-3 mr-1" /> Regenerate
+                            </Button>
+                        </div>
+
                         <Tabs defaultValue="linkedin" className="w-full">
                             <TabsList className="grid w-full grid-cols-3 mb-4">
                                 <TabsTrigger value="linkedin" className="flex items-center gap-2"><Linkedin className="w-4 h-4" /> LinkedIn</TabsTrigger>
@@ -98,7 +146,7 @@ export default function SocialContentGenerator() {
                                         </Button>
                                     </div>
                                     <p className="text-[10px] text-neutral-400 mt-2 text-right">
-                                        AI-generated draft. Please review before posting.
+                                        {source === 'ai' ? 'AI-generated draft. Review before posting.' : 'Template-generated. Customize before posting.'}
                                     </p>
                                 </TabsContent>
                             ))}

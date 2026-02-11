@@ -1,17 +1,51 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useCRMStore, EmailStep } from './store/CRMStore';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Mail, Clock, ArrowRight, GripVertical, Send } from 'lucide-react';
+import { Mail, Clock, ArrowRight, GripVertical, Send, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { motion, Reorder } from 'framer-motion';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+    DialogFooter,
+} from "@/components/ui/dialog";
+import { Label } from '@/components/ui/label';
+import { motion } from 'framer-motion';
 
 export default function EmailSequencer() {
-    const { emailSequence, addSequenceStep, reorderSequence } = useCRMStore();
+    const { emailSequence, addSequenceStep, removeSequenceStep } = useCRMStore();
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [newStepName, setNewStepName] = useState('');
+    const [newStepTrigger, setNewStepTrigger] = useState('');
+    const [newStepDelay, setNewStepDelay] = useState('1');
+    const [newStepTemplate, setNewStepTemplate] = useState<'Nudge' | 'Reward' | 'Upsell'>('Nudge');
 
-    // Handling drag reorder would require wiring up Reorder.Group correctly with state
-    // For this prototype, we'll just render list and mock the interaction
+    const handleAddStep = () => {
+        if (!newStepName || !newStepTrigger) return;
+
+        const newStep: EmailStep = {
+            id: `step-${Date.now()}`,
+            name: newStepName,
+            trigger: newStepTrigger,
+            delayDays: parseInt(newStepDelay) || 1,
+            template: newStepTemplate,
+            stats: { sent: 0, openRate: 0 },
+        };
+
+        addSequenceStep(newStep);
+        setIsDialogOpen(false);
+        setNewStepName('');
+        setNewStepTrigger('');
+        setNewStepDelay('1');
+        setNewStepTemplate('Nudge');
+    };
 
     return (
         <Card className="h-full border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
@@ -23,9 +57,72 @@ export default function EmailSequencer() {
                     </CardTitle>
                     <p className="text-xs text-neutral-500">Nurture leads automatically based on behavior triggers.</p>
                 </div>
-                <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white">
-                    + New Step
-                </Button>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                        <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white">
+                            <Plus className="mr-1 h-3 w-3" /> New Step
+                        </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-md">
+                        <DialogHeader>
+                            <DialogTitle>Add Automation Step</DialogTitle>
+                            <DialogDescription>
+                                Define a new email step in your nurture sequence.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <div className="space-y-4 py-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="step-name">Step Name</Label>
+                                <Input
+                                    id="step-name"
+                                    placeholder="e.g. Follow-up Reminder"
+                                    value={newStepName}
+                                    onChange={(e) => setNewStepName(e.target.value)}
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="step-trigger">Trigger Event</Label>
+                                <Input
+                                    id="step-trigger"
+                                    placeholder="e.g. Signup, Completed L1, Inactive 7d"
+                                    value={newStepTrigger}
+                                    onChange={(e) => setNewStepTrigger(e.target.value)}
+                                />
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-2">
+                                    <Label htmlFor="step-delay">Delay (days)</Label>
+                                    <Input
+                                        id="step-delay"
+                                        type="number"
+                                        min="0"
+                                        value={newStepDelay}
+                                        onChange={(e) => setNewStepDelay(e.target.value)}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label>Template</Label>
+                                    <Select value={newStepTemplate} onValueChange={(v) => setNewStepTemplate(v as any)}>
+                                        <SelectTrigger>
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="Nudge">Nudge</SelectItem>
+                                            <SelectItem value="Reward">Reward</SelectItem>
+                                            <SelectItem value="Upsell">Upsell</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            </div>
+                        </div>
+                        <DialogFooter>
+                            <Button variant="ghost" onClick={() => setIsDialogOpen(false)}>Cancel</Button>
+                            <Button onClick={handleAddStep} disabled={!newStepName || !newStepTrigger} className="bg-indigo-600 hover:bg-indigo-700 text-white">
+                                Add Step
+                            </Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
             </CardHeader>
             <CardContent className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-xl min-h-[400px]">
 
@@ -53,15 +150,25 @@ export default function EmailSequencer() {
                                 </div>
 
                                 {/* Content Card */}
-                                <div className="flex-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-move">
+                                <div className="flex-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl p-4 shadow-sm hover:shadow-md transition-all">
                                     <div className="flex justify-between items-start mb-2">
                                         <div className="flex items-center gap-2">
                                             <GripVertical className="w-4 h-4 text-neutral-300" />
                                             <h4 className="font-bold text-neutral-800 dark:text-neutral-200">{step.name}</h4>
                                         </div>
-                                        <div className="flex items-center gap-2 text-[10px] text-neutral-500 bg-neutral-100 dark:bg-neutral-900 px-2 py-1 rounded-full">
-                                            <Send className="w-3 h-3" />
-                                            {step.stats.openRate}% Open Rate
+                                        <div className="flex items-center gap-2">
+                                            <div className="flex items-center gap-2 text-[10px] text-neutral-500 bg-neutral-100 dark:bg-neutral-900 px-2 py-1 rounded-full">
+                                                <Send className="w-3 h-3" />
+                                                {step.stats.openRate}% Open Rate
+                                            </div>
+                                            <Button
+                                                variant="ghost"
+                                                size="sm"
+                                                className="h-6 w-6 p-0 text-neutral-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                onClick={() => removeSequenceStep(step.id)}
+                                            >
+                                                <Trash2 className="w-3 h-3" />
+                                            </Button>
                                         </div>
                                     </div>
 

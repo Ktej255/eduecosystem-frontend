@@ -56,7 +56,7 @@ export default function SettingsPage() {
                 <TabsContent value="theme" className="space-y-4 focus-visible:outline-none animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                     <div className="flex items-center justify-between mb-2">
                         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-200">Theme Customizer</h2>
-                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 29</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Live</span>
                     </div>
                     <ThemeCustomizer />
                 </TabsContent>
@@ -64,7 +64,7 @@ export default function SettingsPage() {
                 <TabsContent value="notifications" className="space-y-4 focus-visible:outline-none animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                     <div className="flex items-center justify-between mb-2">
                         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-200">Notification Preferences</h2>
-                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 28</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Live</span>
                     </div>
                     <NotificationPreferences />
                 </TabsContent>
@@ -72,7 +72,7 @@ export default function SettingsPage() {
                 <TabsContent value="roles" className="space-y-4 focus-visible:outline-none animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                     <div className="flex items-center justify-between mb-2">
                         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-200">Role & Permission Matrix</h2>
-                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 26</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Live</span>
                     </div>
                     <RolePermissionMatrix />
                 </TabsContent>
@@ -80,7 +80,7 @@ export default function SettingsPage() {
                 <TabsContent value="audit" className="space-y-4 focus-visible:outline-none animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
                     <div className="flex items-center justify-between mb-2">
                         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-200">System Audit Log</h2>
-                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 27</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Live</span>
                     </div>
                     <AuditLogViewer />
                 </TabsContent>
