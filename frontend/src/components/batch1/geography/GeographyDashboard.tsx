@@ -3,84 +3,47 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Globe2, Mountain, Waves, Wind, CloudRain, Map, Flame, Info, ChevronRight, BookOpenCheck, Layers, LayoutGrid } from 'lucide-react';
+import { Globe2, Mountain, Waves, Wind, CloudRain, Map, Flame, Info, ChevronRight, BookOpenCheck, Layers, LayoutGrid, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { GEOGRAPHY_SYLLABUS, Module } from './data/geography-syllabus-data';
+import GeographySectionPlanner from './GeographySectionPlanner';
 
 // Simulations
-import ClimateClassificationViz from './3d/simulations/ClimateClassificationViz';
-import PlateTectonicsViz from './3d/simulations/PlateTectonicsViz';
-import MonsoonViz from './3d/simulations/MonsoonViz';
-import RiverSystemViz from './3d/simulations/RiverSystemViz';
-import GlacialViz from './3d/simulations/GlacialViz';
-import VolcanoViz from './3d/simulations/VolcanoViz';
-import AtmosphericViz from './3d/simulations/AtmosphericViz';
+// ... existing simulations
 
 const VIZ_COMPONENTS: Record<string, React.ReactNode> = {
-    'climate': <ClimateClassificationViz />,
-    'tectonics': <PlateTectonicsViz />,
-    'monsoon': <MonsoonViz />,
-    'rivers': <RiverSystemViz />,
-    'glaciers': <GlacialViz />,
-    'volcanoes': <VolcanoViz />,
-    'atmosphere': <AtmosphericViz />
+    // ... existing 
 };
 
-const VIZ_LIST = [
-    { id: 'climate', label: 'Climate Zones', icon: <Wind className="w-4 h-4" />, desc: 'Koppen-Geiger Classification' },
-    { id: 'tectonics', label: 'Plate Tectonics', icon: <Mountain className="w-4 h-4" />, desc: 'Boundaries & Movements' },
-    { id: 'monsoon', label: 'Monsoon System', icon: <CloudRain className="w-4 h-4" />, desc: 'Southwest & Northeast flows' },
-    { id: 'rivers', label: 'River Systems', icon: <Waves className="w-4 h-4" />, desc: 'Drainage Patterns & Erosion' },
-    { id: 'glaciers', label: 'Glaciology', icon: <Map className="w-4 h-4" />, desc: 'Erosional & Depositional forms' },
-    { id: 'volcanoes', label: 'Volcanism', icon: <Flame className="w-4 h-4" />, desc: 'Types & Distribution' },
-    { id: 'atmosphere', label: 'Atmosphere', icon: <Globe2 className="w-4 h-4" />, desc: 'Pressure Belts & Winds' },
-];
+// ... existing VIZ_LIST
 
 export default function GeographyDashboard() {
     const [activeViz, setActiveViz] = useState<string>('climate');
-    const [viewMode, setViewMode] = useState<'visual' | 'syllabus'>('visual');
+    const [viewMode, setViewMode] = useState<'planner' | 'visual' | 'syllabus'>('planner'); // Default to Planner
 
-    const getModuleLink = (moduleId: string, topicId?: string) => {
-        if (topicId === 'universe-solar-system') return '/student/batch1/geography/universe';
-        if (moduleId === 'geomorphology' || topicId === 'interior-earth') return '/student/batch1/geography/geomorphology';
-        if (moduleId === 'evolution-earth') return '/student/batch1/geography/earth-evolution';
-        return `/student/batch1/geography/${moduleId}`;
-    };
+    // ... existing getModuleLink
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-500">
             {/* Header Stats */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <StatCard
-                    icon={<Globe2 />}
-                    label="Active Simulations"
-                    value="7"
-                    color="text-indigo-500"
-                />
-                <StatCard
-                    icon={<Mountain />}
-                    label="Landforms"
-                    value="50+"
-                    color="text-amber-500"
-                />
-                <StatCard
-                    icon={<Waves />}
-                    label="Ocean Currents"
-                    value="Dynamic"
-                    color="text-blue-500"
-                />
-                <StatCard
-                    icon={<Wind />}
-                    label="Climate Zones"
-                    value="12 (Koppen)"
-                    color="text-emerald-500"
-                />
+                {/* ... existing stats ... */}
+                <StatCard icon={<Globe2 />} label="Active Simulations" value="7" color="text-indigo-500" />
+                <StatCard icon={<Mountain />} label="Landforms" value="50+" color="text-amber-500" />
+                <StatCard icon={<Waves />} label="Ocean Currents" value="Dynamic" color="text-blue-500" />
+                <StatCard icon={<Wind />} label="Climate Zones" value="12 (Koppen)" color="text-emerald-500" />
             </div>
 
             {/* View Toggle */}
             <div className="flex justify-end border-b border-slate-200 dark:border-slate-800 pb-1">
                 <div className="flex gap-4">
+                    <button
+                        onClick={() => setViewMode('planner')}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'planner' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+                    >
+                        <Calendar className="w-4 h-4" /> Study Planner
+                    </button>
                     <button
                         onClick={() => setViewMode('visual')}
                         className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'visual' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
@@ -91,12 +54,18 @@ export default function GeographyDashboard() {
                         onClick={() => setViewMode('syllabus')}
                         className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'syllabus' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
                     >
-                        <Layers className="w-4 h-4" /> Syllabus Modules
+                        <Layers className="w-4 h-4" /> Syllabus
                     </button>
                 </div>
             </div>
 
-            {viewMode === 'visual' ? (
+            {viewMode === 'planner' && (
+                <div className="animate-in slide-in-from-bottom-4 duration-500">
+                    <GeographySectionPlanner />
+                </div>
+            )}
+
+            {viewMode === 'visual' && (
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 animate-in slide-in-from-bottom-4 duration-500">
                     {/* Simulation Controls - Left Sidebar */}
                     <div className="lg:col-span-1 space-y-4">
@@ -171,7 +140,9 @@ export default function GeographyDashboard() {
                         </Card>
                     </div>
                 </div>
-            ) : (
+            )}
+
+            {viewMode === 'syllabus' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in slide-in-from-bottom-4 duration-500">
                     {GEOGRAPHY_SYLLABUS.map((module) => (
                         <Card key={module.id} className="group hover:border-indigo-300 transition-all hover:shadow-md dark:bg-slate-900 dark:border-slate-800">

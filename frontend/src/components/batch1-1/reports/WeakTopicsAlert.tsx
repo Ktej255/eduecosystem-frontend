@@ -71,7 +71,11 @@ export default function WeakTopicsAlert() {
                                     <span className="text-xs font-bold text-red-500">{alert.accuracy}%</span>
                                 </div>
                             </div>
-                            <Link href={`/student/batch1-1/${alert.subject.toLowerCase()}/revision/${alert.chapterId}`}>
+                            <Link href={
+                                alert.subject.toLowerCase() === 'polity'
+                                    ? `/student/batch1-1/polity/${alert.chapterId}`
+                                    : `/student/batch1/history/topic/${alert.chapterId}`
+                            }>
                                 <Button size="sm" variant="ghost" className="h-8 w-8 p-0 rounded-full hover:bg-amber-100 dark:hover:bg-amber-900/40">
                                     <ArrowRight className="h-4 w-4 text-amber-600" />
                                 </Button>

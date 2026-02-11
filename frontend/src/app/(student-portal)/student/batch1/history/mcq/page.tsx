@@ -16,6 +16,8 @@ function MCQContent() {
     const router = useRouter();
     const chapterParam = searchParams.get('chapter');
 
+    const section = searchParams.get('section') || 'modern';
+
     // Parse chapter param
     const chapterIds = chapterParam
         ? chapterParam.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id))
@@ -29,7 +31,7 @@ function MCQContent() {
     useEffect(() => {
         if (chapterIds.length > 0) {
             const timer = setTimeout(() => {
-                const rawMcqs = getMCQsForHistoryChapters(chapterIds);
+                const rawMcqs = getMCQsForHistoryChapters(chapterIds, section);
 
                 // Transform to Standard MCQ format
                 const formattedMCQs: MCQ[] = rawMcqs.map((m, idx) => ({

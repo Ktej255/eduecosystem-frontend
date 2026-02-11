@@ -6,6 +6,9 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, Highlighter, Share2, ZoomIn, ZoomOut, Pencil, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MODERN_HISTORY_CONTENT } from '@/components/batch1/history/data/modern/content-registry';
+import { MEDIEVAL_CONTENT_MAP } from '@/components/batch1/history/data/medieval/content-registry';
+import { ANCIENT_CONTENT_MAP } from '@/components/batch1/history/data/ancient/content-registry';
+
 import HandwrittenChapter1 from '@/components/batch1/history/modern/v2/HandwrittenChapter1';
 import HandwrittenChapter2 from '@/components/batch1/history/modern/v2/HandwrittenChapter2';
 import HandwrittenChapter3 from '@/components/batch1/history/modern/v2/HandwrittenChapter3';
@@ -38,9 +41,21 @@ function HistoryReadContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const chapterId = params.chapterId as string;
+    const section = searchParams.get('section') || 'modern';
 
-    // Ensure we handle both string "1" and number 1 just in case, though keys are strings
-    const content = MODERN_HISTORY_CONTENT[chapterId] || MODERN_HISTORY_CONTENT[String(chapterId)];
+    let content = '';
+
+    // Select Content Map based on section
+    if (section === 'medieval') {
+        const chapterData = MEDIEVAL_CONTENT_MAP[parseInt(chapterId)] || MEDIEVAL_CONTENT_MAP[1]; // Fallback to 1 if not found
+        content = chapterData?.content || "Content not found.";
+    } else if (section === 'ancient') {
+        const chapterData = ANCIENT_CONTENT_MAP[parseInt(chapterId)] || ANCIENT_CONTENT_MAP[1];
+        content = chapterData?.content || "Content not found.";
+    } else {
+        // Default to Modern
+        content = MODERN_HISTORY_CONTENT[chapterId] || MODERN_HISTORY_CONTENT[String(chapterId)];
+    }
 
     // V2 Trial Logic
     // Allow toggle via query param ?v=2 or UI
@@ -208,7 +223,7 @@ function HistoryReadContent() {
                     </Button>
 
                     <div className="flex items-center gap-2">
-                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'].includes(chapterId) && version === 'v1' && (
+                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'].includes(chapterId) && version === 'v1' && section === 'modern' && (
                             <Button
                                 size="sm"
                                 className="bg-gradient-to-r from-purple-600 to-blue-600 text-white border-2 border-white shadow-lg animate-pulse"

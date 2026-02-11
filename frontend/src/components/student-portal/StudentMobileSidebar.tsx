@@ -14,6 +14,12 @@ import {
     Settings,
     User,
 } from "lucide-react";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 
 const menuItems = [
@@ -94,27 +100,122 @@ export default function StudentMobileSidebar() {
                     </SheetTitle>
                 </SheetHeader>
 
-                {/* Main Navigation */}
-                <nav className="p-4 space-y-2">
-                    {menuItems.map((item) => {
-                        const Icon = item.icon;
-                        const isActive = pathname === item.href;
+                <nav className="p-4 space-y-1">
+                    <Link
+                        href="/student/dashboard"
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${pathname === "/student/dashboard"
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                            }`}
+                    >
+                        <LayoutDashboard className="h-5 w-5 shrink-0" />
+                        <span className="font-medium">Dashboard</span>
+                    </Link>
 
-                        return (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                onClick={() => setIsOpen(false)}
-                                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 min-h-[48px] ${isActive
-                                    ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700"
-                                    }`}
-                            >
-                                <Icon className="h-5 w-5 shrink-0" />
-                                <span className="font-medium">{item.name}</span>
-                            </Link>
-                        );
-                    })}
+                    <Accordion type="single" collapsible className="w-full">
+                        {/* GS 1 */}
+                        <AccordionItem value="gs1" className="border-b-0">
+                            <AccordionTrigger className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 decoration-0 hover:no-underline">
+                                <span className="flex items-center gap-3">
+                                    <BookOpen className="h-5 w-5 shrink-0" />
+                                    <span>GS 1 (History/Geo)</span>
+                                </span>
+                            </AccordionTrigger>
+                            <AccordionContent className="pl-12 space-y-2 pb-2">
+                                {[
+                                    { label: "History", href: "/student/batch1/history" },
+                                    { label: "Geography", href: "/student/batch1/geography" },
+                                    { label: "Art & Culture", href: "/student/batch1/art-culture" },
+                                    { label: "Indian Society", href: "/student/batch1/society" },
+                                ].map(sub => (
+                                    <Link key={sub.href} href={sub.href} onClick={() => setIsOpen(false)} className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600">
+                                        {sub.label}
+                                    </Link>
+                                ))}
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        {/* GS 2 */}
+                        <AccordionItem value="gs2" className="border-b-0">
+                            <AccordionTrigger className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 decoration-0 hover:no-underline">
+                                <span className="flex items-center gap-3">
+                                    <BookOpen className="h-5 w-5 shrink-0" />
+                                    <span>GS 2 (Polity/IR)</span>
+                                </span>
+                            </AccordionTrigger>
+                            <AccordionContent className="pl-12 space-y-2 pb-2">
+                                {[
+                                    { label: "Polity", href: "/student/batch1/polity" },
+                                    { label: "Governance", href: "/student/batch1/polity" },
+                                    { label: "International Relations", href: "/student/batch1/international-relations" },
+                                    { label: "Social Justice", href: "/student/batch1/society" },
+                                ].map(sub => (
+                                    <Link key={sub.href} href={sub.href} onClick={() => setIsOpen(false)} className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600">
+                                        {sub.label}
+                                    </Link>
+                                ))}
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        {/* GS 3 */}
+                        <AccordionItem value="gs3" className="border-b-0">
+                            <AccordionTrigger className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 decoration-0 hover:no-underline">
+                                <span className="flex items-center gap-3">
+                                    <BookOpen className="h-5 w-5 shrink-0" />
+                                    <span>GS 3 (Eco/Env/Sci)</span>
+                                </span>
+                            </AccordionTrigger>
+                            <AccordionContent className="pl-12 space-y-2 pb-2">
+                                {[
+                                    { label: "Economy", href: "/student/batch1/economy" },
+                                    { label: "Environment", href: "/student/batch1/environment" },
+                                    { label: "Science & Tech", href: "/student/batch1/science-tech" },
+                                    { label: "Security", href: "/student/batch1/security" },
+                                ].map(sub => (
+                                    <Link key={sub.href} href={sub.href} onClick={() => setIsOpen(false)} className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600">
+                                        {sub.label}
+                                    </Link>
+                                ))}
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        {/* GS 4 */}
+                        <AccordionItem value="gs4" className="border-b-0">
+                            <AccordionTrigger className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 decoration-0 hover:no-underline">
+                                <span className="flex items-center gap-3">
+                                    <BookOpen className="h-5 w-5 shrink-0" />
+                                    <span>GS 4 (Ethics)</span>
+                                </span>
+                            </AccordionTrigger>
+                            <AccordionContent className="pl-12 space-y-2 pb-2">
+                                {[
+                                    { label: "Ethics Theory", href: "/student/batch1/ethics" },
+                                    { label: "Case Studies", href: "/student/batch1/ethics/case-studies" },
+                                ].map(sub => (
+                                    <Link key={sub.href} href={sub.href} onClick={() => setIsOpen(false)} className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600">
+                                        {sub.label}
+                                    </Link>
+                                ))}
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+
+                    {/* Tools */}
+                    <div className="pt-2 space-y-1">
+                        <Link href="/student/graphotherapy" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+                            <PenTool className="h-5 w-5 shrink-0" />
+                            <span className="font-medium">Graphotherapy</span>
+                        </Link>
+                        <Link href="/student/meditation" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+                            <Brain className="h-5 w-5 shrink-0" />
+                            <span className="font-medium">Meditation</span>
+                        </Link>
+                        <Link href="/student/daily-action" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+                            <CheckSquare className="h-5 w-5 shrink-0" />
+                            <span className="font-medium">Daily Action</span>
+                        </Link>
+                    </div>
                 </nav>
 
                 {/* Progress Section */}

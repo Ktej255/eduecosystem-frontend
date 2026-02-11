@@ -295,9 +295,6 @@ export const MODERN_CHAPTER_23_MCQS = [
         correctAnswer: 0,
         explanation: "Reuters owned API.",
         cognitiveLevel: "Fact"
-    },
-    {
-        cognitiveLevel: "Fact"
     }
 ];
 

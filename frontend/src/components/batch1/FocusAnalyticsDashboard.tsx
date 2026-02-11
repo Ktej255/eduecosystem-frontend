@@ -38,37 +38,30 @@ export default function FocusAnalyticsDashboard() {
 
     // If a specific test is selected, show the detailed report
     if (selectedTestId) {
-        // In a real app we'd fetch the specific test result details here.
-        // For now, we'll just show the detailed report if we have the list ID, 
+        // Fetch detailed result from service
+        const detailedResult = FocusAnalyticsService.getTestDetails(selectedTestId);
 
-        const selectedTest = recentTests.find(t => t.id === selectedTestId);
-
-        // Construct a partial result for display
-        const displayResult = selectedTest ? {
-            id: selectedTest.id,
-            cycle_id: 1, // Generic
-            day_number: 1, // Generic
-            score: Math.round(selectedTest.score * (selectedTest.totalQuestions * 2 / 100)), // Reverse calc rough score
-            total_questions: selectedTest.totalQuestions,
-            correct_count: selectedTest.correctCount,
-            incorrect_count: selectedTest.totalQuestions - selectedTest.correctCount, // Approx
-            unanswered_count: 0,
-            answers: [], // We don't have per-question answers in summary service yet
-            timestamp: selectedTest.date
-        } : null;
-
-        if (displayResult) {
+        if (detailedResult) {
             return (
                 <div className="animate-in fade-in slide-in-from-right-4 duration-300">
                     <DetailedTestReport
-                        testResult={displayResult}
-                        mcqs={[]} // Question data would be needed for deep review
+                        testResult={detailedResult}
+                        mcqs={[]} // Question data is now embedded in detailedResult answers
                         onClose={() => setSelectedTestId(null)}
                     />
                 </div>
             );
+        } else {
+            // Fallback if details not found (shouldn't happen if list is fresh)
+            return (
+                <div className="p-6 text-center">
+                    <p className="text-red-500 mb-4">Error loading test details. Data might be missing.</p>
+                    <Button onClick={() => setSelectedTestId(null)}>Go Back</Button>
+                </div>
+            );
         }
     }
+
 
     return (
         <div className="space-y-6">

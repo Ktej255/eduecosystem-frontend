@@ -279,7 +279,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
 
                                                     {/* 2. Level 1 MCQs */}
                                                     <button
-                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=1`); }}
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=1&section=${section}`); }}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 1: Foundation"
                                                     >
@@ -291,7 +291,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
 
                                                     {/* 3. Level 2 MCQs */}
                                                     <button
-                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=2`); }}
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=2&section=${section}`); }}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 2: Conceptual"
                                                     >
@@ -303,7 +303,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
 
                                                     {/* 4. Level 3 MCQs */}
                                                     <button
-                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=3`); }}
+                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=3&section=${section}`); }}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 3: Applied"
                                                     >
@@ -318,7 +318,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         onClick={(e) => {
                                                             e.stopPropagation();
                                                             console.log('[DEBUG] Navigating to Read:', dayData.chapters[idx]);
-                                                            router.push(`/student/batch1/history/read/${dayData.chapters[idx]}`);
+                                                            router.push(`/student/batch1/history/read/${dayData.chapters[idx]}?section=${section}`);
                                                         }}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Read Content"

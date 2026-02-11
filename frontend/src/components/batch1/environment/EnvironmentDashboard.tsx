@@ -1,22 +1,18 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import FoodWebViz from './visualizations/FoodWebViz';
 import CarbonCycleViz from './visualizations/CarbonCycleViz';
 import ClimateAgreementsViz from './visualizations/ClimateAgreementsViz';
 import ClimateTimeMachine from './visualizations/ClimateTimeMachine';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Leaf, Droplets, ThermometerSun } from 'lucide-react';
-
+import { Leaf, Droplets, ThermometerSun, BookOpenCheck, ChevronRight, Calendar, LayoutGrid, Layers } from 'lucide-react';
 import { ENVIRONMENT_SYLLABUS } from './data/environment-schedule-data';
-import { BookOpenCheck, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
-
-// ... (Keep existing imports)
+import EnvironmentSectionPlanner from './EnvironmentSectionPlanner';
 
 export default function EnvironmentDashboard() {
-    const [viewMode, setViewMode] = useState<'visual' | 'syllabus'>('visual');
+    const [viewMode, setViewMode] = useState<'planner' | 'visual' | 'syllabus'>('planner');
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-500">
@@ -32,18 +28,24 @@ export default function EnvironmentDashboard() {
                     </div>
                 </div>
                 {/* View Toggle */}
-                <div className="flex bg-white/50 dark:bg-black/20 p-1 rounded-lg border border-emerald-100 dark:border-emerald-800">
+                <div className="flex bg-white/50 dark:bg-black/20 p-1 rounded-lg border border-emerald-100 dark:border-emerald-800 gap-1">
+                    <button
+                        onClick={() => setViewMode('planner')}
+                        className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all flex items-center gap-2 ${viewMode === 'planner' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-700 hover:bg-emerald-100'}`}
+                    >
+                        <Calendar className="w-3 h-3" /> Planner
+                    </button>
                     <button
                         onClick={() => setViewMode('visual')}
-                        className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all ${viewMode === 'visual' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-700 hover:bg-emerald-100'}`}
+                        className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all flex items-center gap-2 ${viewMode === 'visual' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-700 hover:bg-emerald-100'}`}
                     >
-                        Visual Hub
+                        <LayoutGrid className="w-3 h-3" /> Visual Hub
                     </button>
                     <button
                         onClick={() => setViewMode('syllabus')}
-                        className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all ${viewMode === 'syllabus' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-700 hover:bg-emerald-100'}`}
+                        className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all flex items-center gap-2 ${viewMode === 'syllabus' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-700 hover:bg-emerald-100'}`}
                     >
-                        Syllabus
+                        <Layers className="w-3 h-3" /> Syllabus
                     </button>
                 </div>
             </div>
@@ -70,7 +72,13 @@ export default function EnvironmentDashboard() {
                 />
             </div>
 
-            {viewMode === 'visual' ? (
+            {viewMode === 'planner' && (
+                <div className="animate-in slide-in-from-bottom-4 duration-500">
+                    <EnvironmentSectionPlanner />
+                </div>
+            )}
+
+            {viewMode === 'visual' && (
                 <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
                     {/* Climate Time Machine */}
                     <ClimateTimeMachine />
@@ -90,15 +98,17 @@ export default function EnvironmentDashboard() {
                     {/* Climate Agreements - Full Width */}
                     <ClimateAgreementsViz />
                 </div>
-            ) : (
+            )}
+
+            {viewMode === 'syllabus' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in slide-in-from-bottom-4 duration-500">
                     {ENVIRONMENT_SYLLABUS.map((topic) => (
                         <Card key={topic.id} className="group hover:border-emerald-300 transition-all hover:shadow-md">
                             <CardHeader className="pb-3">
                                 <div className="flex justify-between items-start">
                                     <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider ${topic.category === 'Climate' ? 'bg-orange-100 text-orange-700' :
-                                            topic.category === 'Biodiversity' ? 'bg-teal-100 text-teal-700' :
-                                                'bg-emerald-100 text-emerald-700'
+                                        topic.category === 'Biodiversity' ? 'bg-teal-100 text-teal-700' :
+                                            'bg-emerald-100 text-emerald-700'
                                         }`}>
                                         {topic.category}
                                     </span>

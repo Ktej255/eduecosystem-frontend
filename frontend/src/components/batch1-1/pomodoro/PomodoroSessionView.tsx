@@ -71,6 +71,7 @@ interface CycleData {
     selectedSubtopics: SubTopic[];
     flashcardsViewed: number;
     mcqResults: { correct: number; total: number };
+    mcqDetails?: MCQResult[]; // Store detailed results for analytics
 }
 
 // Get schedule items for the day (Chapters and/or Tasks)
@@ -650,6 +651,7 @@ export default function PomodoroSessionView({ weekId, dayId, showBackButton = tr
             selectedSubtopics: currentSubtopics,
             flashcardsViewed: currentSubtopics.length * 2, // Approx
             mcqResults: results,
+            mcqDetails: resultsArray, // Save detailed breakdown
         };
 
         const updated = [...sessionHistory, newSessionData];

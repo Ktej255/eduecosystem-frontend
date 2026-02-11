@@ -161,5 +161,123 @@ export const FocusAnalyticsService = {
 
         // Sort by date descending
         return tests.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    },
+
+    /**
+     * Retrieves detailed test results for a specific test ID.
+     */
+    getTestDetails(id: number): any | null {
+        if (typeof window === 'undefined') return null;
+
+        // 1. Check Pomodoro Sessions
+        let foundDetails: any = null;
+
+        Object.keys(localStorage).forEach(key => {
+            if (foundDetails) return; // Stop if found
+
+            if (key.startsWith('batch11_pomodoro_')) {
+                const parts = key.split('_');
+                let weekId, dayId, subjectName = 'polity';
+
+                if (parts.length === 5) {
+                    subjectName = parts[2];
+                    weekId = parts[3];
+                    dayId = parts[4];
+                } else if (parts.length === 4) {
+                    weekId = parts[2];
+                    dayId = parts[3];
+                } else {
+                    return;
+                }
+
+                const generatedId = parseInt(`${weekId}${dayId}${subjectName === 'history' ? '1' : '0'}`);
+
+                if (generatedId === id) {
+                    try {
+                        const data = JSON.parse(localStorage.getItem(key) || '{}');
+                        const history = data.sessionHistory || [];
+
+                        let totalQ = 0;
+                        let correctQ = 0;
+                        const answers: any[] = [];
+
+                        history.forEach((h: any) => {
+                            totalQ += (h.mcqResults?.total || 0);
+                            correctQ += (h.mcqResults?.correct || 0);
+
+                            // Aggregate detailed answers if available
+                            if (h.mcqDetails && Array.isArray(h.mcqDetails)) {
+                                h.mcqDetails.forEach((d: any) => {
+                                    answers.push({
+                                        qId: d.questionId,
+                                        answer: d.selectedAnswer ?? -1,
+                                        isCorrect: d.isCorrect,
+                                        confidence: d.confidence === 'sure' ? 1 : d.confidence === '50-50' ? 2 : d.confidence === 'one-option' ? 3 : d.confidence === 'blind' ? 4 : null,
+                                        timeSpentSeconds: d.timeSpent,
+                                        subtopic: d.subtopicId // Pass subtopic for detailed report topic analysis
+                                    });
+                                });
+                            }
+                        });
+
+                        foundDetails = {
+                            id: generatedId,
+                            cycle_id: parseInt(weekId),
+                            day_number: parseInt(dayId),
+                            score: Math.round((correctQ / totalQ) * 100),
+                            total_questions: totalQ,
+                            correct_count: correctQ,
+                            incorrect_count: totalQ - correctQ,
+                            unanswered_count: 0,
+                            answers: answers,
+                            timestamp: data.lastUpdated || new Date().toISOString()
+                        };
+                    } catch (e) {
+                        console.error("Error parsing details", e);
+                    }
+                }
+            }
+        });
+
+        if (foundDetails) return foundDetails;
+
+        // 2. Check History Drills (Spectrum)
+        // Keys: history_drill_ID
+        const drillKey = `history_drill_${id}`;
+        const drillDataStr = localStorage.getItem(drillKey);
+
+        if (drillDataStr) {
+            try {
+                const d = JSON.parse(drillDataStr);
+                // Drills store 'answers' directly? checking spectrum-mcq-loader or HistoryMCQPage
+                // Usually we might store them. If not, we reconstruction is limited.
+                // Assuming History Drill stores 'results' array.
+
+                const answers = (d.results || []).map((r: any) => ({
+                    qId: r.questionId,
+                    answer: r.selectedAnswer ?? -1,
+                    isCorrect: r.isCorrect,
+                    confidence: null, // History drills might not have confidence yet
+                    timeSpentSeconds: 0
+                }));
+
+                return {
+                    id: id,
+                    cycle_id: 0,
+                    day_number: 0,
+                    score: d.score || 0,
+                    total_questions: d.totalQuestions || 0,
+                    correct_count: d.correctCount || 0,
+                    incorrect_count: (d.totalQuestions || 0) - (d.correctCount || 0),
+                    unanswered_count: 0,
+                    answers: answers,
+                    timestamp: d.timestamp || new Date().toISOString()
+                };
+            } catch (e) {
+                console.error("Error parsing drill details", e);
+            }
+        }
+
+        return null;
     }
-}
+};

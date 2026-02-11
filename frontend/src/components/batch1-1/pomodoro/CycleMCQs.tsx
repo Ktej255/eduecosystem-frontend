@@ -280,6 +280,7 @@ export default function CycleMCQs({
                 correctAnswer: r.correctAnswer,
                 selectedAnswer: r.selectedAnswer ?? -1,
                 isCorrect: r.isCorrect,
+                confidence: r.confidence, // Save confidence level
                 explanation: mcqs.find(m => String(m.id) === r.questionId)?.explanation || ''
             }))
         }, cycleNumber);
