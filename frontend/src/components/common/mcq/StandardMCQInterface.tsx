@@ -10,6 +10,8 @@ import { QuestionResult } from '../reports/StandardTestReport';
 // Shared Types
 export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind';
 
+export type MCQ = StandardMCQ;
+
 export interface StandardMCQ {
     id: number | string;
     question: string;

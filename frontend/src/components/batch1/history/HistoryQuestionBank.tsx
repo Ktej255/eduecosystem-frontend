@@ -58,8 +58,8 @@ export default function HistoryQuestionBank() {
                             key={section}
                             onClick={() => setActiveSection(section)}
                             className={`px-4 py-2 rounded-md text-sm font-medium transition-all capitalize ${activeSection === section
-                                    ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/30 dark:text-amber-200 shadow-sm'
-                                    : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-300'
+                                ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/30 dark:text-amber-200 shadow-sm'
+                                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-300'
                                 }`}
                         >
                             {section} History
@@ -128,23 +128,38 @@ export default function HistoryQuestionBank() {
                                 {chapter.title}
                             </h3>
 
-                            <button
-                                onClick={() => router.push(`/student/batch1/history/mcq?chapterId=${chapter.id}&section=${activeSection}`)}
-                                className="w-full py-2 bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white rounded-lg text-sm font-medium group-hover:bg-amber-600 group-hover:text-white transition-all flex items-center justify-center gap-2"
-                            >
-                                <Play className="w-4 h-4 fill-current" />
-                                Start Practice
-                            </button>
+                            </h3>
+
+                            <div className="grid grid-cols-3 gap-2">
+                                <button
+                                    onClick={() => router.push(`/student/batch1/history/mcq?chapter=${chapter.id}&section=${activeSection}&level=1`)}
+                                    className="py-1.5 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 rounded-lg text-xs font-bold hover:bg-green-100 hover:scale-105 transition-all border border-green-200 dark:border-green-800"
+                                >
+                                    Level 1
+                                </button>
+                                <button
+                                    onClick={() => router.push(`/student/batch1/history/mcq?chapter=${chapter.id}&section=${activeSection}&level=2`)}
+                                    className="py-1.5 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300 rounded-lg text-xs font-bold hover:bg-amber-100 hover:scale-105 transition-all border border-amber-200 dark:border-amber-800"
+                                >
+                                    Level 2
+                                </button>
+                                <button
+                                    onClick={() => router.push(`/student/batch1/history/mcq?chapter=${chapter.id}&section=${activeSection}&level=3`)}
+                                    className="py-1.5 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 rounded-lg text-xs font-bold hover:bg-red-100 hover:scale-105 transition-all border border-red-200 dark:border-red-800"
+                                >
+                                    Level 3
+                                </button>
+                            </div>
                         </div>
                     ))}
 
-                    {chaptersWithMCQs.length === 0 && (
-                        <div className="col-span-full py-12 text-center text-neutral-500 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700">
-                            No MCQs available for this section yet.
-                        </div>
-                    )}
-                </div>
+                {chaptersWithMCQs.length === 0 && (
+                    <div className="col-span-full py-12 text-center text-neutral-500 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700">
+                        No MCQs available for this section yet.
+                    </div>
+                )}
             </div>
         </div>
+        </div >
     );
 }

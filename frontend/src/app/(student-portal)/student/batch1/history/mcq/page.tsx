@@ -56,6 +56,8 @@ function MCQContent() {
                     correctAnswer: m.correctAnswer,
                     explanation: m.explanation || "No explanation provided.",
                     category: "History",
+                    chapter: `Chapter ${m.chapterId || chapterIds[0]}`,
+                    subtopic: "General",
                     tags: [`Chapter ${m.chapterId || chapterIds[0]}`, level ? `Level ${level}` : 'Mixed']
                 }));
 
