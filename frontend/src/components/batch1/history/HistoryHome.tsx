@@ -187,7 +187,7 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                 )}
 
                 {activeTab === 'question_bank' && (
-                    <UniversalQuestionBank />
+                    <UniversalQuestionBank initialSubject="history" />
                 )}
             </div>
         </div >
