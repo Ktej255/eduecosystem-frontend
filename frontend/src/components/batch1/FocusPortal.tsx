@@ -76,10 +76,34 @@ export default function FocusPortal() {
 
     // Load saved state or default
     React.useEffect(() => {
+        // Load Week
         const savedWeek = localStorage.getItem('batch11_portal_week');
         if (savedWeek) setSelectedWeek(Number(savedWeek));
         else setSelectedWeek(currentContext.week);
+
+        // Load Active Tab
+        const savedTab = localStorage.getItem('batch11_active_tab');
+        if (savedTab && ['pomodoro', 'subject_pomodoro', 'study', 'analytics', 'retention'].includes(savedTab)) {
+            setActiveTab(savedTab as FocusTab);
+        }
+
+        // Load Selected Subject
+        const savedSubject = localStorage.getItem('batch11_selected_subject');
+        if (savedSubject && ['polity', 'history', 'geography', 'science'].includes(savedSubject)) {
+            setSelectedSubject(savedSubject as Subject);
+        }
     }, [currentContext]);
+
+    // Save state on change
+    const handleTabChange = (tab: FocusTab) => {
+        setActiveTab(tab);
+        localStorage.setItem('batch11_active_tab', tab);
+    };
+
+    const handleSubjectChange = (subject: Subject) => {
+        setSelectedSubject(subject);
+        localStorage.setItem('batch11_selected_subject', subject);
+    };
 
     const handleDayClick = (dayId: number) => {
         setSelectedDay(dayId);
@@ -117,7 +141,7 @@ export default function FocusPortal() {
                                 return (
                                     <button
                                         key={tab.id}
-                                        onClick={() => setActiveTab(tab.id as FocusTab)}
+                                        onClick={() => handleTabChange(tab.id as FocusTab)}
                                         className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap
                                             ${isActive
                                                 ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-gray-200 dark:ring-gray-700'
@@ -284,7 +308,7 @@ export default function FocusPortal() {
                                 {/* Study Tab Content (Preserved) */}
                                 <div className="flex items-center justify-between">
                                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Subject Study</h2>
-                                    <Select value={selectedSubject} onValueChange={(v) => setSelectedSubject(v as Subject)}>
+                                    <Select value={selectedSubject} onValueChange={(v) => handleSubjectChange(v as Subject)}>
                                         <SelectTrigger className="w-[180px]">
                                             <SelectValue />
                                         </SelectTrigger>
