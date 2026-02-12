@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { PolityTopic, getModuleById, getModuleColors, POLITY_MODULES as POLITY_PARTS, ModuleId as PartId } from './data/polity-types';
 import { getTopicById } from './data/polity-registry'; // Using 50-topic registry for now
 import { POLITY_REVISION_CHAPTERS } from './data/RevisionRegistry'; // For 95-topic fallback
-import EveningSessionDayView from '../EveningSessionDayView';
+
 import TopicPYQWidget from '../../batch1-1/polity/revision/TopicPYQWidget';
 
 // Adapter for TOPIC_TITLES using the 95-chapter registry
@@ -308,10 +308,7 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                     </Link>
                 </div>
 
-                {/* Evening Session Section */}
-                <div id="evening-session" className="pt-8 border-t border-gray-200 dark:border-gray-800">
-                    <EveningSessionDayView cycleId={1} day={topic.id} />
-                </div>
+
             </div>
         </div>
     );
