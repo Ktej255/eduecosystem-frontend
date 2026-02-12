@@ -8,6 +8,7 @@ import HistoryMainsPractice from './HistoryMainsPractice';
 import HistoryDashboard from './HistoryDashboard';
 import HistoryVisuals from './HistoryVisuals';
 import HistoryQuestionBank from './HistoryQuestionBank';
+import UniversalQuestionBank from '@/components/common/mcq/UniversalQuestionBank';
 import { Layout, Clock, PenTool, BookOpen, Map, Target, Landmark, Scroll, Flag, Sparkles, Flame, FileQuestion } from 'lucide-react';
 import HistorySectionPlanner from './HistorySectionPlanner';
 import { HistorySection } from './data/history-schedule-registry';
@@ -186,7 +187,7 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                 )}
 
                 {activeTab === 'question_bank' && (
-                    <HistoryQuestionBank />
+                    <UniversalQuestionBank />
                 )}
             </div>
         </div >

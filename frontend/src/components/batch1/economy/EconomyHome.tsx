@@ -6,10 +6,11 @@ import { ECONOMY_CONFIG } from './data/economy-config';
 import { economyFlashcards as ECONOMY_FLASHCARDS } from './data/flashcards/economy-flashcards';
 import GenericFlashcardSession from '../framework/GenericFlashcardSession';
 import EconomyDashboard from './EconomyDashboard';
-import { Layout, Zap, BarChart3, BookOpen } from 'lucide-react';
+import { Layout, Zap, BarChart3, BookOpen, Database } from 'lucide-react';
+import UniversalQuestionBank from '@/components/common/mcq/UniversalQuestionBank';
 
 export default function EconomyHome() {
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'flashcards'>('dashboard');
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'flashcards' | 'question_bank'>('dashboard');
 
     return (
         <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a]">
@@ -56,6 +57,16 @@ export default function EconomyHome() {
                                 Flashcards
                             </button>
                             <button
+                                onClick={() => setActiveTab('question_bank')}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'question_bank'
+                                    ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200'
+                                    : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                                    }`}
+                            >
+                                <Database className="w-4 h-4" />
+                                Question Bank
+                            </button>
+                            <button
                                 onClick={() => window.location.href = '/student/batch1/current-affairs?subject=Economy'}
                                 className="px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20"
                             >
@@ -70,6 +81,12 @@ export default function EconomyHome() {
             <div className="w-full">
                 {activeTab === 'dashboard' && (
                     <EconomyDashboard />
+                )}
+
+                {activeTab === 'question_bank' && (
+                    <div className="py-8 px-4">
+                        <UniversalQuestionBank initialSubject="economy" />
+                    </div>
                 )}
 
                 {activeTab === 'planner' && (

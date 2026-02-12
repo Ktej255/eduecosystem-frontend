@@ -7,7 +7,8 @@ export interface SciTechMCQ {
     options: string[];
     correctAnswer: number;
     explanation: string;
-    topic: string;
+    chapter: number;
+    subtopic: string;
     difficulty: 'easy' | 'medium' | 'hard';
 }
 
@@ -18,7 +19,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         options: ["GSLV Mk II", "PSLV", "GSLV Mk III", "SSLV"],
         correctAnswer: 1,
         explanation: "PSLV (Polar Satellite Launch Vehicle) is ISRO's workhorse for launching satellites to LEO and Sun-synchronous orbits.",
-        topic: "Space",
+        chapter: 1,
+        subtopic: "Launch Vehicles",
         difficulty: "easy"
     },
     {
@@ -32,7 +34,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "NavIC (Navigation with Indian Constellation) is India's regional satellite navigation system providing GPS-like coverage over India and surrounding region.",
-        topic: "Space",
+        chapter: 1,
+        subtopic: "Navigation Missions",
         difficulty: "easy"
     },
     {
@@ -46,7 +49,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         ],
         correctAnswer: 3,
         explanation: "Agni-V is an intercontinental ballistic missile with range of 5,000+ km, making India a nuclear power with ICBM capability.",
-        topic: "Defense",
+        chapter: 2,
+        subtopic: "Missile Systems",
         difficulty: "medium"
     },
     {
@@ -55,7 +59,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         options: ["USA", "France", "Russia", "Israel"],
         correctAnswer: 2,
         explanation: "BrahMos is a supersonic cruise missile jointly developed by India and Russia. It's the world's fastest cruise missile.",
-        topic: "Defense",
+        chapter: 2,
+        subtopic: "International Cooperation",
         difficulty: "easy"
     },
     {
@@ -69,7 +74,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "CRISPR-Cas9 is a revolutionary gene editing technology that can cut DNA at specific locations. Nobel Prize 2020.",
-        topic: "Biotech",
+        chapter: 3,
+        subtopic: "Biotechnology",
         difficulty: "easy"
     },
     {
@@ -83,7 +89,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "Homi J. Bhabha conceived India's three-stage nuclear program to utilize India's thorium reserves.",
-        topic: "Nuclear",
+        chapter: 5,
+        subtopic: "Nuclear Energy",
         difficulty: "medium"
     },
     {
@@ -97,7 +104,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "Quantum computers use qubits which can exist in superposition (0 and 1 simultaneously), enabling parallel processing.",
-        topic: "IT",
+        chapter: 4,
+        subtopic: "Modern Tech",
         difficulty: "medium"
     },
     {
@@ -106,7 +114,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         options: ["RBI", "NPCI", "IRDAI", "SEBI"],
         correctAnswer: 1,
         explanation: "UPI was developed by NPCI (National Payments Corporation of India) and launched in 2016. Part of India Stack.",
-        topic: "IT",
+        chapter: 4,
+        subtopic: "Digital Public Infrastructure",
         difficulty: "easy"
     },
     {
@@ -120,7 +129,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "5G uses low band (<1 GHz), mid band (1-6 GHz), and high band/mmWave (24-100 GHz) for different applications.",
-        topic: "IT",
+        chapter: 4,
+        subtopic: "Telecommunications",
         difficulty: "medium"
     },
     {
@@ -134,7 +144,8 @@ export const sciTechMCQs: SciTechMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "Tejas is India's indigenous Light Combat Aircraft (LCA) developed by HAL and ADA. A 4th generation multirole fighter.",
-        topic: "Defense",
+        chapter: 2,
+        subtopic: "Defense Tech",
         difficulty: "easy"
     }
 ];

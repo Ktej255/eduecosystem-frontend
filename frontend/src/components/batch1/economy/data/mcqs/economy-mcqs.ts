@@ -11,6 +11,8 @@ export interface EconomyMCQ {
     topic: string;
     difficulty: 'easy' | 'medium' | 'hard';
     year?: number; // PYQ year if applicable
+    chapter?: string; // Standardized metadata
+    subtopic?: string; // Standardized metadata
 }
 
 export const economyMCQs: EconomyMCQ[] = [
@@ -229,7 +231,9 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Gini = 0 means perfect equality (everyone has equal income). Gini = 1 means perfect inequality (one person has all income).",
         module: "social",
         topic: "Inequality",
-        difficulty: "medium"
+        difficulty: "medium",
+        chapter: "5",
+        subtopic: "Social Development"
     },
     {
         id: "ec-mcq-18",
@@ -239,6 +243,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "India's demographic dividend window (large working-age population) is estimated from 2020-2055, after which dependency ratio will increase.",
         module: "social",
         topic: "Demographics",
-        difficulty: "medium"
+        difficulty: "medium",
+        chapter: "5",
+        subtopic: "Social Development"
     }
 ];

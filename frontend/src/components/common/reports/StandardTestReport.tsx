@@ -47,15 +47,20 @@ export interface SubtopicStats {
 }
 
 export interface TestResult {
-    testTitle: string;
+    testTitle?: string;
     startTime?: string;
     endTime?: string;
     totalTimeTaken: number;
-    score?: number; // Optional as it might be calculated
-    accuracy?: number; // Optional
-    timeTaken?: number; // Alias for totalTimeTaken in some contexts
+    score: number;
+    accuracy: number;
+    timeTaken?: number;
+    totalQuestions: number;
+    correctCount: number;
+    incorrectCount: number;
+    unansweredCount: number;
+    topicBreakdown?: Record<string, { total: number; correct: number }>;
+    questionAnalysis?: { questionId: string | number; wasted: boolean }[];
     questions: QuestionResult[];
-    totalQuestions?: number; // Optional
 }
 
 export interface TestReportProps {
@@ -334,8 +339,8 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                             <tbody className="divide-y divide-slate-800/50">
                                 {questions.filter(q => !q.isCorrect && q.userAnswer !== null).slice(0, 5).map((q, i) => (
                                     <tr key={i} className="group hover:bg-slate-800/20 transition-all">
-                                        <td className="py-4 text-sm font-medium text-slate-300">{q.chapter}</td>
-                                        <td className="py-4 text-sm text-slate-400">{q.subtopic}</td>
+                                        <td className="py-4 text-sm font-medium text-slate-300">{q.chapter || "General"}</td>
+                                        <td className="py-4 text-sm text-slate-400">{q.subtopic || "N/A"}</td>
                                         <td className="py-4">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-16 h-1.5 bg-slate-800 rounded-full overflow-hidden">
@@ -388,7 +393,7 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                                     acc[key].total++;
                                     if (q.isCorrect) acc[key].correct++;
                                     return acc;
-                                }, {})).sort((a, b) => a.chapter.localeCompare(b.chapter)).map((item, i) => {
+                                }, {})).sort((a, b) => (a.chapter || "").localeCompare(b.chapter || "")).map((item, i) => {
                                     const acc = Math.round((item.correct / item.total) * 100);
                                     return (
                                         <tr key={i} className="group hover:bg-slate-800/20 transition-all">

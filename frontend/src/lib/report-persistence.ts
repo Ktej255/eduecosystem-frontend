@@ -4,7 +4,7 @@ export interface ChapterReportEntry {
     id: string; // unique ID
     timestamp: string;
     chapterId: number;
-    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science';
+    subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'scitech';
     score: number;
     totalQuestions: number;
     accuracy: number;
@@ -59,7 +59,7 @@ export function getChapterReports(subject: ChapterReportEntry['subject']): Chapt
 
 export function getAllChapterReports(): Record<string, ChapterReportEntry[]> {
     if (typeof window === 'undefined') return {};
-    const subjects = ['polity', 'history', 'geography', 'economy', 'environment', 'science'] as const;
+    const subjects = ['polity', 'history', 'geography', 'economy', 'environment', 'scitech'] as const;
     const all: Record<string, ChapterReportEntry[]> = {};
 
     subjects.forEach(sub => {

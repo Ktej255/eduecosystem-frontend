@@ -263,8 +263,16 @@ export default function StandardMCQInterface({
                             <span className="inline-block px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-bold mb-4">
                                 QUESTION {currentIndex + 1}
                             </span>
-                            <div className="text-lg md:text-xl font-medium text-slate-900 dark:text-slate-100 leading-relaxed space-y-3 whitespace-pre-wrap">
-                                {currentMCQ.question}
+                            <div className="text-lg md:text-xl font-medium text-slate-900 dark:text-slate-100 leading-relaxed space-y-3">
+                                {currentMCQ.question.split('\n').map((line, lIdx) => {
+                                    // Detect statements like "1.", "(a)", "Statement I"
+                                    const isStatement = /^\s*(\d+\.|[a-zA-I]\.|Statement\s+[IVX]+:)/i.test(line);
+                                    return (
+                                        <p key={lIdx} className={`${isStatement ? 'ml-4 pl-4 border-l-2 border-slate-200 dark:border-slate-800 italic text-slate-700 dark:text-slate-400' : ''} whitespace-pre-wrap`}>
+                                            {line.trim()}
+                                        </p>
+                                    );
+                                })}
                             </div>
                         </div>
 

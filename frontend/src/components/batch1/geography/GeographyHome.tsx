@@ -9,8 +9,9 @@ import SyllabusListView from "./components/SyllabusListView";
 import LessonView from "./components/LessonView";
 import { MicroTopic, GEOGRAPHY_SYLLABUS } from "./data/geography-syllabus-data";
 import { Button } from "@/components/ui/button";
-import { Compass, Globe, BookOpen, Layers, BarChart2, ArrowLeft, CalendarRange } from "lucide-react";
+import { Compass, Globe, BookOpen, Layers, BarChart2, ArrowLeft, CalendarRange, Database } from "lucide-react";
 import { LessonContent } from "./content/types";
+import UniversalQuestionBank from "@/components/common/mcq/UniversalQuestionBank";
 
 // Content Imports
 import { ORIGIN_OF_UNIVERSE_CONTENT } from "./content/universe-data";
@@ -41,7 +42,7 @@ interface GeographyHomeProps {
 }
 
 export default function GeographyHome({ initialModuleId = 'geomorphology', initialView = 'dashboard' }: GeographyHomeProps) {
-    const [view, setView] = useState<'dashboard' | 'syllabus' | 'globe' | 'lesson' | 'schedule'>(initialView);
+    const [view, setView] = useState<'dashboard' | 'syllabus' | 'globe' | 'lesson' | 'schedule' | 'question_bank'>(initialView);
     const [activeModuleId, setActiveModuleId] = useState<string>(initialModuleId);
     const [lessonContent, setLessonContent] = useState<LessonContent | null>(null);
 
@@ -264,6 +265,15 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                             3D Globe
                         </Button>
                         <Button
+                            variant={view === 'question_bank' ? 'secondary' : 'ghost'}
+                            size="sm"
+                            onClick={() => setView('question_bank')}
+                            className="gap-2 text-xs font-semibold"
+                        >
+                            <Database className="h-4 w-4" />
+                            Question Bank
+                        </Button>
+                        <Button
                             variant='ghost'
                             size="sm"
                             onClick={() => window.location.href = '/student/batch1/current-affairs?subject=Geography'}
@@ -322,6 +332,10 @@ export default function GeographyHome({ initialModuleId = 'geomorphology', initi
                             onSelectTopic={handleStartLearning}
                         />
                     </div>
+                )}
+
+                {view === 'question_bank' && (
+                    <UniversalQuestionBank initialSubject="geography" />
                 )}
 
                 {view === 'lesson' && lessonContent && (

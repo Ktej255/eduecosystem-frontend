@@ -10,6 +10,8 @@ export interface GeographyMCQ {
     module: 'physical' | 'world' | 'indian' | 'human';
     topic: string;
     difficulty: 'easy' | 'medium' | 'hard';
+    chapter?: string; // Standardized metadata
+    subtopic?: string; // Standardized metadata
 }
 
 export const geographyMCQs: GeographyMCQ[] = [
@@ -198,7 +200,9 @@ export const geographyMCQs: GeographyMCQ[] = [
         explanation: "India is in Stage 3 with declining birth rates but still higher than developed countries. Moving towards Stage 4.",
         module: "human",
         topic: "Demographics",
-        difficulty: "medium"
+        difficulty: "medium",
+        chapter: "20",
+        subtopic: "Human Geography"
     },
     {
         id: "geo-mcq-13",
@@ -213,7 +217,9 @@ export const geographyMCQs: GeographyMCQ[] = [
         explanation: "Agriculture (primary sector) employs ~42% of workforce and is considered backbone though services contribute more to GDP.",
         module: "human",
         topic: "Economic Activities",
-        difficulty: "easy"
+        difficulty: "easy",
+        chapter: "21",
+        subtopic: "Economic Geography"
     },
     {
         id: "geo-mcq-14",
@@ -228,7 +234,9 @@ export const geographyMCQs: GeographyMCQ[] = [
         explanation: "Smart City Mission (2015) covers 100 cities with focus on ICT-based infrastructure and sustainable development.",
         module: "human",
         topic: "Urbanization",
-        difficulty: "easy"
+        difficulty: "easy",
+        chapter: "21",
+        subtopic: "Economic Geography"
     },
     {
         id: "geo-mcq-15",
@@ -243,6 +251,8 @@ export const geographyMCQs: GeographyMCQ[] = [
         explanation: "About 35% of India is urban, projected to reach 50% by 2050. Urbanization is increasing rapidly.",
         module: "human",
         topic: "Urbanization",
-        difficulty: "medium"
+        difficulty: "medium",
+        chapter: "21",
+        subtopic: "Economic Geography"
     }
 ];

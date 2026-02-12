@@ -6,10 +6,11 @@ import { ENVIRONMENT_CONFIG } from './data/environment-config';
 import { environmentFlashcards as ENVIRONMENT_FLASHCARDS } from './data/flashcards/environment-flashcards';
 import GenericFlashcardSession from '../framework/GenericFlashcardSession';
 import EnvironmentDashboard from './EnvironmentDashboard';
-import { Layout, Zap, Sprout, BookOpen } from 'lucide-react';
+import { Layout, Zap, Sprout, BookOpen, Database } from 'lucide-react';
+import UniversalQuestionBank from '@/components/common/mcq/UniversalQuestionBank';
 
 export default function EnvironmentHome() {
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'flashcards'>('dashboard');
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'flashcards' | 'question_bank'>('dashboard');
 
     return (
         <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a]">
@@ -56,6 +57,26 @@ export default function EnvironmentHome() {
                                 Flashcards
                             </button>
                             <button
+                                onClick={() => setActiveTab('question_bank')}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'question_bank'
+                                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200'
+                                    : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                                    }`}
+                            >
+                                <Database className="w-4 h-4" />
+                                Question Bank
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('question_bank')}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'question_bank'
+                                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200'
+                                    : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                                    }`}
+                            >
+                                <Database className="w-4 h-4" />
+                                Question Bank
+                            </button>
+                            <button
                                 onClick={() => window.location.href = '/student/batch1/current-affairs?subject=Environment'}
                                 className="px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20"
                             >
@@ -91,6 +112,12 @@ export default function EnvironmentHome() {
                             title="Environment"
                             onClose={() => setActiveTab('planner')}
                         />
+                    </div>
+                )}
+
+                {activeTab === 'question_bank' && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 py-8">
+                        <UniversalQuestionBank initialSubject="environment" />
                     </div>
                 )}
             </div>

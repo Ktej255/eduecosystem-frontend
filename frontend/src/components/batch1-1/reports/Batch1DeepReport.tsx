@@ -629,7 +629,7 @@ function SaturdayTestsReport() {
 function ChapterMCQReport() {
     const [allReports, setAllReports] = useState<{ chapterId: number; reports: ChapterTestResult[], subject?: string }[]>([]);
     const [selectedReport, setSelectedReport] = useState<ChapterTestResult | null>(null);
-    const [selectedSubject, setSelectedSubject] = useState<'polity' | 'history'>('polity');
+    const [selectedSubject, setSelectedSubject] = useState<'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'scitech'>('polity');
 
     useEffect(() => {
         // Scan localStorage for all chapter reports
@@ -654,6 +654,110 @@ function ChapterMCQReport() {
             import('@/lib/report-persistence').then(mod => {
                 const historyReports = mod.getChapterReports('history');
                 const polityUniversalReports = mod.getChapterReports('polity');
+                const geographyReports = mod.getChapterReports('geography');
+                const economyReports = mod.getChapterReports('economy');
+                const environmentReports = mod.getChapterReports('environment');
+                const scitechReports = mod.getChapterReports('scitech');
+
+                // Group by chapter - Geography
+                const geographyByChapter: Record<number, ChapterTestResult[]> = {};
+                geographyReports.forEach(r => {
+                    if (!geographyByChapter[r.chapterId]) geographyByChapter[r.chapterId] = [];
+                    const mapped: ChapterTestResult = {
+                        chapterNumber: r.chapterId,
+                        chapterId: r.chapterId,
+                        chapterTitle: `Geography Day ${r.chapterId}`,
+                        levelId: (r.level || 1) as 1 | 2 | 3,
+                        levelTitle: 'Level ' + (r.level || 1),
+                        score: r.score,
+                        totalQuestions: r.totalQuestions,
+                        percentage: r.accuracy,
+                        totalTimeTaken: r.timeTaken,
+                        endTime: r.timestamp,
+                        startTime: r.timestamp,
+                        questions: r.details?.questions || []
+                    };
+                    geographyByChapter[r.chapterId].push(mapped);
+                });
+
+                Object.entries(geographyByChapter).forEach(([cid, reports]) => {
+                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'Geography' });
+                });
+
+                // Group by chapter - Economy
+                const economyByChapter: Record<number, ChapterTestResult[]> = {};
+                economyReports.forEach(r => {
+                    if (!economyByChapter[r.chapterId]) economyByChapter[r.chapterId] = [];
+                    const mapped: ChapterTestResult = {
+                        chapterNumber: r.chapterId,
+                        chapterId: r.chapterId,
+                        chapterTitle: `Economy Topic ${r.chapterId}`,
+                        levelId: (r.level || 1) as 1 | 2 | 3,
+                        levelTitle: 'Level ' + (r.level || 1),
+                        score: r.score,
+                        totalQuestions: r.totalQuestions,
+                        percentage: r.accuracy,
+                        totalTimeTaken: r.timeTaken,
+                        endTime: r.timestamp,
+                        startTime: r.timestamp,
+                        questions: r.details?.questions || []
+                    };
+                    economyByChapter[r.chapterId].push(mapped);
+                });
+
+                Object.entries(economyByChapter).forEach(([cid, reports]) => {
+                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'Economy' });
+                });
+
+                // Group by chapter - Environment
+                const environmentByChapter: Record<number, ChapterTestResult[]> = {};
+                environmentReports.forEach(r => {
+                    if (!environmentByChapter[r.chapterId]) environmentByChapter[r.chapterId] = [];
+                    const mapped: ChapterTestResult = {
+                        chapterNumber: r.chapterId,
+                        chapterId: r.chapterId,
+                        chapterTitle: `Environment Topic ${r.chapterId}`,
+                        levelId: (r.level || 1) as 1 | 2 | 3,
+                        levelTitle: 'Level ' + (r.level || 1),
+                        score: r.score,
+                        totalQuestions: r.totalQuestions,
+                        percentage: r.accuracy,
+                        totalTimeTaken: r.timeTaken,
+                        endTime: r.timestamp,
+                        startTime: r.timestamp,
+                        questions: r.details?.questions || []
+                    };
+                    environmentByChapter[r.chapterId].push(mapped);
+                });
+
+                Object.entries(environmentByChapter).forEach(([cid, reports]) => {
+                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'Environment' });
+                });
+
+                // Group by chapter - Sci-Tech
+                const scitechByChapter: Record<number, ChapterTestResult[]> = {};
+                scitechReports.forEach(r => {
+                    if (!scitechByChapter[r.chapterId]) scitechByChapter[r.chapterId] = [];
+                    const mapped: ChapterTestResult = {
+                        chapterNumber: r.chapterId,
+                        chapterId: r.chapterId,
+                        chapterTitle: `Science & Tech Topic ${r.chapterId}`,
+                        levelId: (r.level || 1) as 1 | 2 | 3,
+                        levelTitle: 'Level ' + (r.level || 1),
+                        score: r.score,
+                        totalQuestions: r.totalQuestions,
+                        percentage: r.accuracy,
+                        totalTimeTaken: r.timeTaken,
+                        endTime: r.timestamp,
+                        startTime: r.timestamp,
+                        questions: r.details?.questions || []
+                    };
+                    scitechByChapter[r.chapterId].push(mapped);
+                });
+
+                Object.entries(scitechByChapter).forEach(([cid, reports]) => {
+                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'Science & Tech' });
+                });
 
                 // Group by chapter - History
                 const historyByChapter: Record<number, ChapterTestResult[]> = {};
@@ -808,15 +912,39 @@ function ChapterMCQReport() {
                 <div className="inline-flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
                     <button
                         onClick={() => setSelectedSubject('polity')}
-                        className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${selectedSubject === 'polity' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'polity' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
                     >
                         Polity
                     </button>
                     <button
                         onClick={() => setSelectedSubject('history')}
-                        className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${selectedSubject === 'history' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'history' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
                     >
                         History
+                    </button>
+                    <button
+                        onClick={() => setSelectedSubject('geography')}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'geography' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                    >
+                        Geography
+                    </button>
+                    <button
+                        onClick={() => setSelectedSubject('economy')}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'economy' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                    >
+                        Economy
+                    </button>
+                    <button
+                        onClick={() => setSelectedSubject('environment')}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'environment' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                    >
+                        Environment
+                    </button>
+                    <button
+                        onClick={() => setSelectedSubject('scitech')}
+                        className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${selectedSubject === 'scitech' ? 'bg-white dark:bg-black shadow text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+                    >
+                        Sci-Tech
                     </button>
                 </div>
             </div>

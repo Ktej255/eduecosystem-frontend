@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,7 @@ import { CheckCircle2, XCircle, Trophy, Play, Lock, AlertTriangle, RefreshCw, Ch
 import { motion, AnimatePresence } from 'framer-motion';
 import { getChapterLevels } from '../data/chapter-level-index';
 import { LevelQuestion, LevelData } from '../data/level-types';
+import { saveChapterReport } from '@/lib/report-persistence';
 // @ts-ignore
 import confetti from 'canvas-confetti';
 
@@ -28,7 +30,7 @@ export interface QuestionResult {
 
 export interface ChapterTestResult {
     chapterNumber: number;
-    chapterTitle: string;
+    topicName: string;
     levelId: 1 | 2 | 3;
     levelTitle: string;
     startTime: string;
@@ -90,6 +92,7 @@ function ConfidenceStrip({
 
 // --- Main Component ---
 export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGameProps) {
+    const router = useRouter();
     const [activeLevel, setActiveLevel] = useState<number | null>(null);
     const [unlockedLevels, setUnlockedLevels] = useState<number[]>([1]);
     const [showReport, setShowReport] = useState(false);
@@ -131,6 +134,19 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
         reports.unshift(result); // Add new result at the beginning
         localStorage.setItem(storageKey, JSON.stringify(reports.slice(0, 20))); // Keep last 20 reports
 
+        // Save to universal persistence for Deep Report
+        saveChapterReport('polity', topicId, {
+            totalQuestions: result.totalQuestions,
+            correctCount: result.score,
+            incorrectCount: result.totalQuestions - result.score,
+            unansweredCount: result.totalQuestions - result.questions.filter(q => q.userAnswer !== null).length,
+            score: result.score,
+            accuracy: result.percentage,
+            timeTaken: result.totalTimeTaken,
+            topicBreakdown: { "Polity": { total: result.totalQuestions, correct: result.score } },
+            questionAnalysis: result.questions.map(q => ({ questionId: q.id, wasted: !q.isCorrect && q.timeSpent > 60 }))
+        }, levelId);
+
         // Unlock next level if passed
         if (scorePercentage >= 50 && levelId < 3 && !unlockedLevels.includes(levelId + 1)) {
             const newUnlocked = [...unlockedLevels, levelId + 1];
@@ -168,7 +184,7 @@ export default function ChapterLevelGame({ topicId, onComplete }: ChapterLevelGa
             <GameInterface
                 levelData={levelData}
                 chapterNumber={topicId}
-                chapterTitle={chapterData.chapterTitle}
+                topicName={`Polity Ch. ${topicId}`}
                 onBack={() => setActiveLevel(null)}
                 onFinish={(score, result) => handleLevelFinish(activeLevel, score, result)}
             />
@@ -293,13 +309,13 @@ function ReportHistoryButton({ topicId }: { topicId: number }) {
 function GameInterface({
     levelData,
     chapterNumber,
-    chapterTitle,
+    topicName,
     onBack,
     onFinish
 }: {
     levelData: LevelData;
     chapterNumber: number;
-    chapterTitle: string;
+    topicName: string;
     onBack: () => void;
     onFinish: (score: number, result: ChapterTestResult) => void;
 }) {
@@ -365,7 +381,7 @@ function GameInterface({
 
         const testResult: ChapterTestResult = {
             chapterNumber,
-            chapterTitle,
+            topicName,
             levelId: levelData.levelId as 1 | 2 | 3,
             levelTitle: levelData.title,
             startTime,

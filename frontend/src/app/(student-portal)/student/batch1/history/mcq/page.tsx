@@ -50,7 +50,7 @@ function MCQContent() {
 
                 // Transform to Standard MCQ format
                 const formattedMCQs: MCQ[] = filteredRawMcqs.map((m, idx) => ({
-                    id: parseInt(m.id) || (idx + 1000), // Ensure ID is number
+                    id: m.id || `h-${idx}`, // Use existing ID string or fallback to index-based string
                     question: m.question,
                     options: m.options,
                     correctAnswer: m.correctAnswer,
@@ -152,7 +152,7 @@ function MCQContent() {
     if (showResults && testResult) {
         return (
             <StandardTestReport
-                data={testResult}
+                results={testResult}
                 onRetry={() => { setShowResults(false); setTestResult(null); }}
                 onBack={() => router.back()}
                 topicName={`History Ch. ${chapterIds.join(', ')}`}

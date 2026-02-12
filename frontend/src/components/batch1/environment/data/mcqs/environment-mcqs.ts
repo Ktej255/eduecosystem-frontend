@@ -7,7 +7,8 @@ export interface EnvironmentMCQ {
     options: string[];
     correctAnswer: number;
     explanation: string;
-    topic: string;
+    chapter: number;
+    subtopic: string;
     difficulty: 'easy' | 'medium' | 'hard';
 }
 
@@ -18,7 +19,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         options: ["2", "3", "4", "5"],
         correctAnswer: 2,
         explanation: "India has 4 biodiversity hotspots: Western Ghats, Eastern Himalayas, Indo-Burma, and Sundaland (Andaman & Nicobar).",
-        topic: "Biodiversity",
+        chapter: 2,
+        subtopic: "Biodiversity Hotspots",
         difficulty: "easy"
     },
     {
@@ -27,7 +29,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         options: ["Carbon dioxide", "Methane", "Nitrogen", "Nitrous oxide"],
         correctAnswer: 2,
         explanation: "Nitrogen (N2) is not a greenhouse gas. Major GHGs are CO2, CH4, N2O, CFCs, and water vapor.",
-        topic: "Climate Change",
+        chapter: 3,
+        subtopic: "Greenhouse Effect",
         difficulty: "easy"
     },
     {
@@ -36,7 +39,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         options: ["Forests", "Wetlands", "Deserts", "Mountains"],
         correctAnswer: 1,
         explanation: "Ramsar Convention (1971) is an international treaty for the conservation of wetlands. India has 75+ Ramsar sites.",
-        topic: "Conservation",
+        chapter: 2,
+        subtopic: "Protected Areas",
         difficulty: "easy"
     },
     {
@@ -50,7 +54,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "Only about 10% of energy is transferred from one trophic level to the next. Rest is lost as heat.",
-        topic: "Ecology",
+        chapter: 1,
+        subtopic: "Energy Flow",
         difficulty: "medium"
     },
     {
@@ -64,7 +69,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         ],
         correctAnswer: 2,
         explanation: "Gulf of Kutch Marine National Park was established in 1982, becoming India's first marine national park.",
-        topic: "Conservation",
+        chapter: 2,
+        subtopic: "Protected Areas",
         difficulty: "medium"
     },
     {
@@ -78,7 +84,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "CITES (Convention on International Trade in Endangered Species) regulates wildlife trade through Appendices I, II, III.",
-        topic: "Conservation",
+        chapter: 4,
+        subtopic: "International Conventions",
         difficulty: "medium"
     },
     {
@@ -92,7 +99,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "Warming sea temperatures cause corals to expel symbiotic algae, leading to bleaching. Climate change is the main driver.",
-        topic: "Biodiversity",
+        chapter: 2,
+        subtopic: "Biodiversity",
         difficulty: "medium"
     },
     {
@@ -106,7 +114,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "Montreal Protocol (1987) successfully phased out CFCs and other ozone-depleting substances. Most successful environmental treaty.",
-        topic: "Pollution",
+        chapter: 3,
+        subtopic: "Ozone Protection",
         difficulty: "easy"
     },
     {
@@ -115,7 +124,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         options: ["5", "6", "8", "10"],
         correctAnswer: 2,
         explanation: "NAPCC has 8 missions including Solar, Energy Efficiency, Sustainable Habitat, Water, Himalayan Ecosystem, Green India, Sustainable Agriculture, and Strategic Knowledge.",
-        topic: "Climate Change",
+        chapter: 3,
+        subtopic: "NAPCC Missions",
         difficulty: "medium"
     },
     {
@@ -129,7 +139,8 @@ export const environmentMCQs: EnvironmentMCQ[] = [
         ],
         correctAnswer: 1,
         explanation: "Eutrophication is caused by excess nitrogen and phosphorus (from fertilizers, sewage) leading to algal blooms and oxygen depletion.",
-        topic: "Pollution",
+        chapter: 1,
+        subtopic: "Ecosystem Health",
         difficulty: "medium"
     }
 ];

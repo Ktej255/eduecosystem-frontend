@@ -5,10 +5,11 @@ import SubjectPlanner from '../framework/SubjectPlanner';
 import { SCIENCE_TECH_CONFIG } from './data/science-tech-config';
 import SciTechDashboard from './SciTechDashboard';
 import ScienceVisuals from './ScienceVisuals';
-import { Layout, Microscope, Rocket, BookOpen, Atom } from 'lucide-react';
+import { Layout, Microscope, Rocket, BookOpen, Atom, Database } from 'lucide-react';
+import UniversalQuestionBank from '@/components/common/mcq/UniversalQuestionBank';
 
 export default function ScienceTechHome() {
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'visuals'>('dashboard');
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'visuals' | 'question_bank'>('dashboard');
 
     return (
         <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a]">
@@ -55,6 +56,16 @@ export default function ScienceTechHome() {
                                 Visuals
                             </button>
                             <button
+                                onClick={() => setActiveTab('question_bank')}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'question_bank'
+                                    ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200'
+                                    : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                                    }`}
+                            >
+                                <Database className="w-4 h-4" />
+                                Question Bank
+                            </button>
+                            <button
                                 onClick={() => window.location.href = '/student/batch1/current-affairs?subject=Science'}
                                 className="px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20"
                             >
@@ -77,6 +88,12 @@ export default function ScienceTechHome() {
 
                 {activeTab === 'visuals' && (
                     <ScienceVisuals />
+                )}
+
+                {activeTab === 'question_bank' && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 py-8">
+                        <UniversalQuestionBank initialSubject="scitech" />
+                    </div>
                 )}
             </div>
         </div>
