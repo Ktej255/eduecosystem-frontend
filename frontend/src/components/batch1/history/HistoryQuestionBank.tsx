@@ -128,7 +128,7 @@ export default function HistoryQuestionBank() {
                                 {chapter.title}
                             </h3>
 
-                            </h3>
+
 
                             <div className="grid grid-cols-3 gap-2">
                                 <button
@@ -153,13 +153,13 @@ export default function HistoryQuestionBank() {
                         </div>
                     ))}
 
-                {chaptersWithMCQs.length === 0 && (
-                    <div className="col-span-full py-12 text-center text-neutral-500 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700">
-                        No MCQs available for this section yet.
-                    </div>
-                )}
+                    {chaptersWithMCQs.length === 0 && (
+                        <div className="col-span-full py-12 text-center text-neutral-500 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700">
+                            No MCQs available for this section yet.
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
         </div >
     );
 }
