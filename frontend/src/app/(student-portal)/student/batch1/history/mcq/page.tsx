@@ -80,6 +80,7 @@ function MCQContent() {
         const score = (correct * 2) - (incorrect * 0.66);
 
         const resultData: TestResult = {
+            questions: results, // Explicitly assign questions array
             totalQuestions: questions.length,
             correctCount: correct,
             incorrectCount: incorrect,
@@ -91,7 +92,7 @@ function MCQContent() {
                 "History": { total: questions.length, correct: correct }
             },
             questionAnalysis: results.map(r => ({
-                questionId: r.questionId,
+                questionId: r.id,
                 wasted: !r.isCorrect && r.timeSpent > 60
             }))
         };
@@ -153,9 +154,8 @@ function MCQContent() {
         return (
             <StandardTestReport
                 results={testResult}
-                onRetry={() => { setShowResults(false); setTestResult(null); }}
+                onRetake={() => { setShowResults(false); setTestResult(null); }}
                 onBack={() => router.back()}
-                topicName={`History Ch. ${chapterIds.join(', ')}`}
             />
         );
     }

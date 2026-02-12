@@ -376,8 +376,8 @@ export default function PolityUnifiedDashboard() {
                                                     </div>
                                                 </div>
 
-                                                {/* 4-Icon Action Row */}
-                                                <div className="grid grid-cols-4 gap-1 pt-3 border-t border-gray-100 dark:border-gray-800">
+                                                {/* 7-Icon Action Row */}
+                                                <div className="grid grid-cols-7 gap-1 pt-3 border-t border-gray-100 dark:border-gray-800">
 
                                                     {/* 1. Read */}
                                                     <button
@@ -391,42 +391,55 @@ export default function PolityUnifiedDashboard() {
                                                         <span className={`text-[8px] font-medium group-hover/btn:text-indigo-500 ${topicProgress?.readDone ? 'text-indigo-500' : 'text-gray-400'}`}>Read</span>
                                                     </button>
 
-                                                    {/* 2. Practice (Dropdown) */}
-                                                    <DropdownMenu>
-                                                        <DropdownMenuTrigger asChild>
-                                                            <button
-                                                                className="flex flex-col items-center gap-0.5 group/btn outline-none"
-                                                                title="Practice Questions & Flashcards"
-                                                            >
-                                                                <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.flashcardsDone || topicProgress?.mcqsDone ? 'bg-blue-100 text-blue-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-blue-50 group-hover/btn:text-blue-500'}`}>
-                                                                    <Target className="w-3.5 h-3.5" />
-                                                                </div>
-                                                                <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-blue-500">Practice</span>
-                                                            </button>
-                                                        </DropdownMenuTrigger>
-                                                        <DropdownMenuContent align="center" className="w-48">
-                                                            <DropdownMenuItem onClick={(e) => handleAction(e as any, 'flashcard', topic.id)}>
-                                                                <StickyNote className="w-4 h-4 mr-2" />
-                                                                <span>Flashcards</span>
-                                                                {topicProgress?.flashcardsDone && <CheckCircle2 className="w-3 h-3 ml-auto text-green-500" />}
-                                                            </DropdownMenuItem>
-                                                            <DropdownMenuItem onClick={(e) => handleAction(e as any, 'mcq', topic.id)}>
-                                                                <Target className="w-4 h-4 mr-2" />
-                                                                <span>Level 1 MCQs</span>
-                                                                {topicProgress?.mcqsDone && <CheckCircle2 className="w-3 h-3 ml-auto text-green-500" />}
-                                                            </DropdownMenuItem>
-                                                            <DropdownMenuItem onClick={(e) => handleAction(e as any, 'mcq', topic.id)}>
-                                                                <Target className="w-4 h-4 mr-2 text-purple-500" />
-                                                                <span>Level 2 (Pro)</span>
-                                                            </DropdownMenuItem>
-                                                            <DropdownMenuItem onClick={(e) => handleAction(e as any, 'mcq', topic.id)}>
-                                                                <Flame className="w-4 h-4 mr-2 text-red-500" />
-                                                                <span>Level 3 (Exam)</span>
-                                                            </DropdownMenuItem>
-                                                        </DropdownMenuContent>
-                                                    </DropdownMenu>
+                                                    {/* 2. Flashcards */}
+                                                    <button
+                                                        onClick={(e) => handleAction(e, 'flashcard', topic.id)}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Flashcards"
+                                                    >
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.flashcardsDone ? 'bg-blue-100 text-blue-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-blue-50 group-hover/btn:text-blue-500'}`}>
+                                                            <StickyNote className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className={`text-[8px] font-medium group-hover/btn:text-blue-500 ${topicProgress?.flashcardsDone ? 'text-blue-500' : 'text-gray-400'}`}>Cards</span>
+                                                    </button>
 
-                                                    {/* 3. Current Affairs */}
+                                                    {/* 3. Level 1 */}
+                                                    <button
+                                                        onClick={(e) => handleAction(e, 'mcq', topic.id)}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Level 1 MCQs"
+                                                    >
+                                                        <div className={`p-1.5 rounded-lg transition-colors ${topicProgress?.mcqsDone ? 'bg-green-100 text-green-600' : 'bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-green-50 group-hover/btn:text-green-500'}`}>
+                                                            <Target className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className={`text-[8px] font-medium group-hover/btn:text-green-500 ${topicProgress?.mcqsDone ? 'text-green-500' : 'text-gray-400'}`}>L1</span>
+                                                    </button>
+
+                                                    {/* 4. Level 2 */}
+                                                    <button
+                                                        onClick={(e) => handleAction(e, 'mcq', topic.id)}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Level 2 MCQs (Pro)"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-purple-50 group-hover/btn:text-purple-500 transition-colors">
+                                                            <Target className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-purple-500">L2</span>
+                                                    </button>
+
+                                                    {/* 5. Level 3 */}
+                                                    <button
+                                                        onClick={(e) => handleAction(e, 'mcq', topic.id)}
+                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        title="Level 3 MCQs (Exam)"
+                                                    >
+                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-500 group-hover/btn:bg-red-50 group-hover/btn:text-red-500 transition-colors">
+                                                            <Flame className="w-3.5 h-3.5" />
+                                                        </div>
+                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-red-500">L3</span>
+                                                    </button>
+
+                                                    {/* 6. Current Affairs */}
                                                     <button
                                                         onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1-1/polity/${topic.id}/current-affairs`); }}
                                                         className={`flex flex-col items-center gap-0.5 group/btn ${hasUpdates ? '' : 'opacity-40'}`}
@@ -438,7 +451,7 @@ export default function PolityUnifiedDashboard() {
                                                         <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-amber-600">CA</span>
                                                     </button>
 
-                                                    {/* 4. Report */}
+                                                    {/* 7. Report */}
                                                     <button
                                                         onClick={(e) => handleAction(e, 'report', topic.id)}
                                                         className="flex flex-col items-center gap-0.5 group/btn"

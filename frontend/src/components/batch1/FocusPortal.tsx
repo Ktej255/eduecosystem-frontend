@@ -32,10 +32,10 @@ const RetentionDashboard = dynamic(() => import('@/components/retention/Retentio
 const FocusAnalyticsDashboard = dynamic(() => import('@/components/batch1/FocusAnalyticsDashboard'), { loading: () => <div>Loading Analytics...</div> });
 
 const Batch1DeepReport = dynamic(() => import('@/components/batch1-1/reports/Batch1DeepReport'), { loading: () => <div>Loading Report...</div> });
-const Batch1_1EveningSession = dynamic(() => import('@/components/batch1-1/evening/Batch1_1EveningSession'), { loading: () => <div>Loading Evening Session...</div> });
+
 const SubjectPomodoro = dynamic(() => import('@/components/batch1-1/pomodoro/SubjectPomodoro'), { loading: () => <div>Loading Subject Pomodoro...</div> });
 
-type FocusTab = 'pomodoro' | 'subject_pomodoro' | 'study' | 'analytics' | 'retention' | 'evening';
+type FocusTab = 'pomodoro' | 'subject_pomodoro' | 'study' | 'analytics' | 'retention';
 type Subject = 'polity' | 'history' | 'geography' | 'science';
 
 const WEEKS = Array.from({ length: 20 }, (_, i) => ({
@@ -89,7 +89,7 @@ export default function FocusPortal() {
     const tabs = [
         { id: 'pomodoro', label: 'Pomodoro Portal', icon: Timer, color: 'text-orange-500' },
         { id: 'subject_pomodoro', label: 'Subject Pomodoro', icon: Target, color: 'text-rose-500' },
-        { id: 'evening', label: 'Evening Session', icon: Moon, color: 'text-indigo-500' },
+
         { id: 'study', label: 'Subject Study', icon: BookOpen, color: 'text-blue-500' },
         { id: 'analytics', label: 'Deep Reports', icon: BarChart3, color: 'text-purple-500' },
         { id: 'retention', label: 'Retention Tracker', icon: Brain, color: 'text-green-500' }
@@ -277,15 +277,7 @@ export default function FocusPortal() {
                             </div>
                         )}
 
-                        {activeTab === 'evening' && (
-                            <div className="space-y-6">
-                                <Batch1_1EveningSession
-                                    weekId={selectedWeek}
-                                    dayId={selectedDay || currentContext.day}
-                                    onDayChange={(dayId) => setSelectedDay(dayId)}
-                                />
-                            </div>
-                        )}
+
 
                         {activeTab === 'study' && (
                             <div className="space-y-6">

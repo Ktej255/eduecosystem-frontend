@@ -49,29 +49,31 @@ function EnvironmentMCQContent() {
         }
     }, [chapterParam, level]);
 
-    const handleComplete = (result: any) => {
+    const handleComplete = (result: any[], totalTime: number) => {
         const stats = {
-            totalQuestions: result.questions.length,
-            correctCount: result.questions.filter((q: any) => q.isCorrect).length,
-            incorrectCount: result.questions.filter((q: any) => q.userAnswer !== null && !q.isCorrect).length,
-            unansweredCount: result.questions.filter((q: any) => q.userAnswer === null).length,
-            score: result.questions.filter((q: any) => q.isCorrect).length,
-            accuracy: Math.round((result.questions.filter((q: any) => q.isCorrect).length / result.questions.length) * 100),
-            timeTaken: result.totalTimeTaken,
+            totalQuestions: result.length,
+            correctCount: result.filter((q: any) => q.isCorrect).length,
+            incorrectCount: result.filter((q: any) => q.userAnswer !== null && !q.isCorrect).length,
+            unansweredCount: result.filter((q: any) => q.userAnswer === null).length,
+            score: result.filter((q: any) => q.isCorrect).length,
+            accuracy: Math.round((result.filter((q: any) => q.isCorrect).length / result.length) * 100),
+            timeTaken: totalTime,
             topicBreakdown: {
                 "Environment": {
-                    total: result.questions.length,
-                    correct: result.questions.filter((q: any) => q.isCorrect).length
+                    total: result.length,
+                    correct: result.filter((q: any) => q.isCorrect).length
                 }
             },
-            questionAnalysis: result.questions.map((q: any) => ({
+            questionAnalysis: result.map((q: any) => ({
                 questionId: q.id,
                 wasted: !q.isCorrect && q.timeSpent > 60
             }))
         };
 
+
         const finalResult = {
-            ...result,
+            questions: result, // Explicitly assign questions array
+            totalTimeTaken: finalResult.totalTimeTaken,
             ...stats,
             testTitle: `Environment Practice - Level ${level}`
         };

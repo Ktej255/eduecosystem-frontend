@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useMCQShortcuts } from '@/hooks/useKeyboardShortcuts';
 import { QuestionResult } from '../reports/StandardTestReport';
+import { formatQuestionText } from '@/lib/mcq-formatter';
 
 // Shared Types
 export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind';
@@ -264,7 +265,7 @@ export default function StandardMCQInterface({
                                 QUESTION {currentIndex + 1}
                             </span>
                             <div className="text-lg md:text-xl font-medium text-slate-900 dark:text-slate-100 leading-relaxed space-y-3">
-                                {currentMCQ.question.split('\n').map((line, lIdx) => {
+                                {formatQuestionText(currentMCQ.question).map((line, lIdx) => {
                                     // Detect statements like "1.", "(a)", "Statement I"
                                     const isStatement = /^\s*(\d+\.|[a-zA-I]\.|Statement\s+[IVX]+:)/i.test(line);
                                     return (

@@ -61,6 +61,7 @@ function GeographyMCQContent() {
         const accuracy = Math.round((correct / questions.length) * 100) || 0;
 
         const resultData: TestResult = {
+            questions: results, // Explicitly assign questions array
             totalQuestions: questions.length,
             correctCount: correct,
             incorrectCount: questions.length - correct,
@@ -86,7 +87,7 @@ function GeographyMCQContent() {
     if (loading) return <div className="flex h-screen items-center justify-center"><Loader2 className="animate-spin" /></div>;
 
     if (showResults && testResult) {
-        return <StandardTestReport results={testResult} onRetry={() => { setShowResults(false); setTestResult(null); }} onBack={() => router.back()} topicName="Geography Practice" />;
+        return <StandardTestReport results={testResult} onRetake={() => { setShowResults(false); setTestResult(null); }} onBack={() => router.back()} />;
     }
 
     return (

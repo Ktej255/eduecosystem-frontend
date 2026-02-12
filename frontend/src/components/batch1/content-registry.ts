@@ -4,8 +4,9 @@
  * for any day without hardcoding specific day checks.
  */
 
-// === CSAT DATA IMPORTS ===
-import { CSAT_BATCH1_1_DATA, CSATDayData as SessionData } from "../batch1-1/evening/data/csat-data";
+// === CSAT DATA IMPORTS === (REMOVED - Evening session deleted)
+// CSAT content has been removed. Stub types and empty registry remain for compatibility.
+interface SessionData { passages: any[] }
 
 // === FLASHCARD DATA IMPORTS ===
 import { DAY2_FLASHCARDS } from "./polity/data/day2-flashcards";
@@ -93,44 +94,19 @@ import { generateWeeklySchedule, LAXMIKANTH_CHAPTERS } from "./polity/data/polit
 import { CHAPTER_SUBTOPICS } from "./polity/data/polity-subtopics";
 import { POLITY_FLASHCARDS_DATA } from "./polity/data/polity-flashcards-data";
 
-// === CSAT CONTENT REGISTRY ===
-/**
- * Maps day numbers to their CSAT session data.
- * To add a new day's CSAT content:
- * 1. Create the data file (e.g., day3-csat.ts)
- * 2. Import it above
- * 3. Add an entry here: [3]: DAY3_CSAT_DATA
- */
-export const CSAT_CONTENT_REGISTRY: Record<number, SessionData | undefined> = {
-    1: CSAT_BATCH1_1_DATA[1],
-    2: CSAT_BATCH1_1_DATA[2],
-    3: CSAT_BATCH1_1_DATA[3],
-    // Add more days as content is created:
-};
+// === CSAT CONTENT REGISTRY === (EMPTIED - CSAT content removed)
+export const CSAT_CONTENT_REGISTRY: Record<number, SessionData | undefined> = {};
 
-/**
- * Get CSAT data for a specific day
- */
 export function getCSATDataForDay(cycleId: number, dayNumber: number): SessionData | undefined {
-    // Currently all cycles share the same content structure
-    // In future, this could be extended to support cycle-specific content
-    return CSAT_CONTENT_REGISTRY[dayNumber];
+    return undefined;
 }
 
-/**
- * Check if CSAT content exists for a day
- */
 export function hasCSATContent(dayNumber: number): boolean {
-    return CSAT_CONTENT_REGISTRY[dayNumber] !== undefined;
+    return false;
 }
 
-/**
- * Get list of all days that have CSAT content
- */
 export function getCSATAvailableDays(): number[] {
-    return Object.keys(CSAT_CONTENT_REGISTRY)
-        .map(k => parseInt(k))
-        .filter(k => CSAT_CONTENT_REGISTRY[k] !== undefined);
+    return [];
 }
 
 

@@ -13,6 +13,14 @@ import { TOPIC_TITLES } from '@/components/batch1-1/polity/data/polity-types-95'
 import { ENVIRONMENT_SYLLABUS } from '@/components/batch1/environment/data/environment-schedule-data';
 import { environmentMCQs } from '@/components/batch1/environment/data/mcqs/environment-mcqs';
 
+// Geography Imports
+import { GEOGRAPHY_SCHEDULE } from '@/components/batch1/geography/data/geography-schedule-data';
+import { geographyMCQs } from '@/components/batch1/geography/data/mcqs/geography-mcqs';
+
+// Economy Imports
+import { ECONOMY_SYLLABUS } from '@/components/batch1/economy/data/economy-schedule-data';
+import { economyMCQs } from '@/components/batch1/economy/data/mcqs/economy-mcqs';
+
 // Science-Tech Imports
 import { SCI_TECH_SYLLABUS } from '@/components/batch1/science-tech/data/scitech-schedule-data';
 import { sciTechMCQs } from '@/components/batch1/science-tech/data/mcqs/scitech-mcqs';

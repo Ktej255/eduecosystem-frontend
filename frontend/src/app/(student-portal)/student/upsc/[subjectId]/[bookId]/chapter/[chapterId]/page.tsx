@@ -8,7 +8,7 @@ import { ArrowLeft, BookOpen, BrainCircuit, PlayCircle, ChevronLeft, ChevronRigh
 import SecurePDFViewer from '@/components/upsc/SecurePDFViewer';
 import LockedVideoPlayer from '@/components/upsc/LockedVideoPlayer';
 import AdvancedMCQTest from '@/components/upsc/AdvancedMCQTest';
-import CSATPracticeView from '@/components/batch1-1/evening/CSATPracticeView';
+
 import { getChapter } from '@/data/upsc-chapter-registry';
 import { POLITY_REVISION_CHAPTERS, ChapterRevisionData } from '@/components/batch1/polity/data/RevisionRegistry';
 import { getVisualization } from '@/data/upsc-visualization-registry';
@@ -168,14 +168,7 @@ export default function ChapterViewPage() {
                     </div>
                 ) : activeTab === 'mcq' ? (
                     <div className="max-w-4xl mx-auto w-full">
-                        {subjectId === 'csat' ? (
-                            <CSATPracticeView
-                                dayNumber={chapterId}
-                                onComplete={(score, total) => {
-                                    console.log(`CSAT Complete: ${score}/${total}`);
-                                }}
-                            />
-                        ) : chapterData?.mcqs && chapterData.mcqs.length > 0 ? (
+                        {chapterData?.mcqs && chapterData.mcqs.length > 0 ? (
                             <AdvancedMCQTest
                                 questions={chapterData.mcqs}
                                 chapterId={chapterId}
