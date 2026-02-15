@@ -1352,3 +1352,75 @@ export const MODERN_CHAPTER_9_MCQS: Question[] = [
         "correctAnswer": 2
     }
 ];
+
+export const MODERN_CHAPTER_9_CONTENT = `
+# Unit 4: Reform Movements
+
+## Chapter 9: A General Survey of Socio-Cultural Reform Movements
+
+> [!NOTE]
+> This chapter explores the diverse landscape of socio-religious reform movements in 19th and early 20th century India, highlighting their leaders, objectives, and impact on the making of modern India.
+
+### 1. Introduction
+The Indian Renaissance was not a singular event but a complex mosaic of movements that arose in response to colonial rule, social stagnation, and the influx of modern Western ideas. These movements sought to purify religion, eradicate social evils like casteuntouchability and gender discrimination, and promote education and rational thinking.
+
+### 2. Hindu Reform Movements
+
+**Raja Rammohan Roy and Brahmo Samaj** (Bengal)
+*   **Founder:** Raja Rammohan Roy (1828).
+*   **Philosophy:** Monotheism, opposition to idolatry, meaningful rituals downside of priesthood.
+*   **Social Agenda:** Abolition of Sati (1829), women's education, opposition to polygamy.
+*   **Later Leaders:** Debendranath Tagore (Tattvabodhini Sabha) and Keshab Chandra Sen (Brahmo Samaj of India).
+
+**Prarthana Samaj** (Maharashtra)
+*   **Founders:** Atmaram Pandurang (1867), guided by Keshab Chandra Sen; solidified by M.G. Ranade and R.G. Bhandarkar.
+*   **Focus:** "Works" over "Faith" – disapproval of caste, widow remarriage, women's education, raising age of marriage.
+
+**Arya Samaj** (North India/Punjab)
+*   **Founder:** Swami Dayanand Saraswati (1875).
+*   **Motto:** "Go Back to the Vedas".
+*   **Philosophy:** Infallibility of Vedas, rejection of Puranas and idolatry.
+*   **Shuddhi Movement:** Reconversion of those who had converted to Islam or Christianity.
+*   **Impact:** Strong focus on education (DAV schools) and nationalism.
+
+**Ramakrishna Mission** (Global/Bengal)
+*   **Founder:** Swami Vivekananda (1897).
+*   **Philosophy:** Based on teachings of Ramakrishna Paramahansa. Doctrine of Service – "Service to Jiva is worship of Shiva".
+*   **Significance:** Combined spirituality with social service; Neo-Hinduism.
+
+### 3. Muslim Reform Movements
+
+**Wahabi / Walliullah Movement**
+*   **Nature:** Revivalist.
+*   **Aim:** Return to pure Islam, Dar-ul-Islam (Abode of Islam).
+*   **Leader:** Syed Ahmed of Rae Bareilly.
+
+**Aligarh Movement**
+*   **Nature:** Reformist/Modernist.
+*   **Founder:** Sir Syed Ahmed Khan.
+*   **Aim:** Modern education for Muslims, interpretation of Quran in light of reason.
+*   **Institution:** Mohammedan Anglo-Oriental College (1875).
+
+**Deoband Movement**
+*   **Nature:** Orthodox Revivalist.
+*   **Founders:** Muhammad Qasim Nanotavi and Rashid Ahmed Gangohi (1866).
+*   **Aim:** Propagate pure teachings of Quran and Hadis; keep alive the spirit of Jihad against foreign rule.
+
+### 4. Parsi Reform Movement
+*   **Organization:** Rahnumai Mazdayasnan Sabha (1851).
+*   **Leaders:** Naoroji Furdonji, Dadabhai Naoroji, S.S. Bengalee.
+*   **Focus:** Restoration of Zoroastrian religion to its pristine purity; improvement of women's status (abolition of purdah).
+
+### 5. Sikh Reform Movements
+*   **Singh Sabha Movement:** (1873) Aimed to restore Sikhism's purity and promote modern education (Khalsa Schools).
+*   **Akali Movement:** (1920s) Offshoot of Singh Sabha. Aimed to liberate Gurdwaras from corrupt Mahants. Resulted in the **Sikh Gurdwaras Act, 1925**.
+
+### 6. Movements for Social Transformation (Lower Caste Movements)
+*   **Satyashodhak Samaj:** Jyotiba Phule (1873, Maharashtra) – Against Brahmin dominance, for education of lower castes and women.
+*   **Self-Respect Movement:** E.V. Ramaswamy Naicker (Periyar) (1925, Tamil Nadu) – Anti-Brahmin, anti-caste, weddings without priests.
+*   **SNDP Yogam:** Sri Narayana Guru (Kerala) – "One Religion, One Caste, One God for Mankind". Temple entry for Ezhavas (Aravippuram).
+
+> [!IMPORTANT]
+> **Key Takeaway**: While these movements differed in their methods (Review vs Reform) and religious bases, they collectively contributed to the rise of a modern, rational, and national consciousness in India.
+
+`;

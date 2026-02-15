@@ -113,7 +113,6 @@ function EventCard({ event, position }: { event: any, position: [number, number,
                     position={[0, 0.5, 0.1]}
                     fontSize={0.4}
                     color="white"
-                    font="/fonts/Inter-Bold.ttf"
                     anchorX="center"
                     anchorY="middle"
                 >
@@ -123,7 +122,6 @@ function EventCard({ event, position }: { event: any, position: [number, number,
                     position={[0, -0.1, 0.1]}
                     fontSize={0.25}
                     color={event.color}
-                    font="/fonts/Inter-Regular.ttf"
                     anchorX="center"
                     anchorY="middle"
                 >
@@ -133,7 +131,6 @@ function EventCard({ event, position }: { event: any, position: [number, number,
                     position={[0, -0.6, 0.1]}
                     fontSize={0.15}
                     color="gray"
-                    font="/fonts/Inter-Regular.ttf"
                     anchorX="center"
                     anchorY="middle"
                     maxWidth={3}
