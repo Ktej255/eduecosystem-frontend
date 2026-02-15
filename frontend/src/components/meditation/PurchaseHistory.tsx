@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { MEDITATION_LEVELS } from '../store/MeditationProgressionStore';
+import { MEDITATION_LEVELS } from './store/MeditationProgressionStore';
 
 interface PurchaseRecord {
     id: number;
