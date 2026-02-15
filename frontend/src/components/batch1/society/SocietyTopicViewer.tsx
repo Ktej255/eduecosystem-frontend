@@ -149,18 +149,19 @@ export default function SocietyTopicViewer({ content }: SocietyTopicViewerProps)
                                     </Button>
                                 ) : (
                                     <div className="text-center">
+                                        <div className="font-bold text-rose-900 dark:text-rose-100">
                                             Social Concept Internalized
                                         </div>
                                         <p className="text-stone-500 text-sm mt-2">How clearly do you see this in society?</p>
                                         <ConfidencePoll chapterId={content.id} />
                                     </div>
-                        </div>
                                 )}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        </div >
+            </div >
+        </div>
     );
 }

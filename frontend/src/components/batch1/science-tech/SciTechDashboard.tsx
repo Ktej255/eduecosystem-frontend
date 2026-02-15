@@ -1,4 +1,3 @@
-```javascript
 "use client";
 
 import React, { useState } from 'react';
@@ -61,19 +60,19 @@ export default function SciTechDashboard() {
                 <div className="flex gap-4">
                     <button
                         onClick={() => setViewMode('planner')}
-                        className={`px - 4 py - 2 text - sm font - bold border - b - 2 transition - colors flex items - center gap - 2 ${ viewMode === 'planner' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700' } `}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'planner' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
                     >
                         <Calendar className="w-4 h-4" /> Study Planner
                     </button>
                     <button
                         onClick={() => setViewMode('sim')}
-                        className={`px - 4 py - 2 text - sm font - bold border - b - 2 transition - colors flex items - center gap - 2 ${ viewMode === 'sim' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700' } `}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'sim' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
                     >
                         <LayoutGrid className="w-4 h-4" /> Simulation Hub
                     </button>
                     <button
                         onClick={() => setViewMode('syllabus')}
-                        className={`px - 4 py - 2 text - sm font - bold border - b - 2 transition - colors flex items - center gap - 2 ${ viewMode === 'syllabus' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700' } `}
+                        className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${viewMode === 'syllabus' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
                     >
                         <Layers className="w-4 h-4" /> Syllabus
                     </button>
@@ -99,26 +98,24 @@ export default function SciTechDashboard() {
                                 Research Sectors
                             </div>
 
-                            {MENU_ITEMS.map((item) => (
+                            {VIZ_LIST.map((item) => (
                                 <button
                                     key={item.id}
-                                    onClick={() => setActiveTab(item.id)}
-                                    className={`w - full flex items - center gap - 3 px - 3 py - 3 rounded - xl transition - all group ${
-    activeTab === item.id
-    ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
-    : "hover:bg-white/5 text-slate-400 hover:text-white"
-} `}
+                                    onClick={() => setActiveViz(item.id)}
+                                    className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all group ${activeViz === item.id
+                                        ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
+                                        : "hover:bg-white/5 text-slate-400 hover:text-white"
+                                        }`}
                                 >
-                                    <div className={`p - 2 rounded - lg ${
-    activeTab === item.id ? "bg-white/20" : "bg-white/5 group-hover:bg-white/10"
-} `}>
+                                    <div className={`p-2 rounded-lg ${activeViz === item.id ? "bg-white/20" : "bg-white/5 group-hover:bg-white/10"
+                                        }`}>
                                         {item.icon}
                                     </div>
                                     <div className="text-left">
                                         <div className="text-sm font-bold">{item.label}</div>
                                         <div className="text-[10px] opacity-60">{item.desc}</div>
                                     </div>
-                                    {activeTab === item.id && (
+                                    {activeViz === item.id && (
                                         <motion.div
                                             layoutId="active-pill"
                                             className="ml-auto w-1.5 h-1.5 rounded-full bg-white animate-pulse"
@@ -141,10 +138,10 @@ export default function SciTechDashboard() {
                             <div className="flex justify-between items-center mb-6">
                                 <div>
                                     <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
-                                        {MENU_ITEMS.find(i => i.id === activeTab)?.label}
+                                        {VIZ_LIST.find(i => i.id === activeViz)?.label}
                                     </h1>
                                     <p className="text-slate-400 text-sm">
-                                        {MENU_ITEMS.find(i => i.id === activeTab)?.desc}
+                                        {VIZ_LIST.find(i => i.id === activeViz)?.desc}
                                     </p>
                                 </div>
                                 <div className="flex gap-4">
@@ -154,7 +151,7 @@ export default function SciTechDashboard() {
                             </div>
 
                             <div className="w-full h-[calc(100%-120px)] border border-white/10 rounded-2xl overflow-hidden bg-slate-900/50 backdrop-blur-sm relative">
-                                {renderVisualization()}
+                                {VIZ_COMPONENTS[activeViz]()}
 
                                 {/* Overlay Gradients */}
                                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]" />
@@ -192,7 +189,7 @@ export default function SciTechDashboard() {
                                         <div className="text-xs text-slate-400 pl-5">+{topic.subtopics.length - 3} more</div>
                                     )}
                                 </div>
-                                <Link href={`/ student / batch1 / science - tech / ${ topic.id } `}>
+                                <Link href={`/student/batch1/science-tech/${topic.id}`}>
                                     <button className="w-full py-2 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
                                         Start Module <ChevronRight className="w-4 h-4" />
                                     </button>
@@ -219,7 +216,7 @@ function StatCard({ label, value, status, color, icon }: { label: string, value:
                     </Badge>
                 </div>
                 <div>
-                    <h3 className={`text - 2xl font - black tracking - tight mb - 1 ${ color } `}>{value}</h3>
+                    <h3 className={`text-2xl font-black tracking-tight mb-1 ${color}`}>{value}</h3>
                     <p className="text-xs font-medium text-slate-500 dark:text-gray-400 uppercase tracking-wide">{label}</p>
                 </div>
             </CardContent>

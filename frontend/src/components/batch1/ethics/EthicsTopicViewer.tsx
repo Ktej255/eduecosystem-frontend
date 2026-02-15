@@ -147,18 +147,19 @@ export default function EthicsTopicViewer({ content }: EthicsTopicViewerProps) {
                                     </Button>
                                 ) : (
                                     <div className="text-center">
+                                        <div className="font-bold text-amber-900 dark:text-amber-100">
                                             Ethical Competence Achieved
                                         </div>
                                         <p className="text-stone-500 text-sm mt-2">Reflect on this concept.</p>
                                         <ConfidencePoll chapterId={content.id} />
                                     </div>
-                        </div>
                                 )}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        </div >
+            </div >
+        </div>
     );
 }
