@@ -4,62 +4,122 @@ import { Flashcard } from "@/types/flashcard";
 export const chapter35Flashcards: Flashcard[] = [
     {
         id: '35-1',
-        front: "When was the Constitution adopted and when did it come into force?",
-        back: "Adopted: Nov 26, 1949. Enforced: Jan 26, 1950.",
+        front: "What was the 'Wavell Plan' (1945)?",
+        back: "Proposal to form an Executive Council with all Indians, Caste Hindus and Muslims to have equal representation.",
         chapterId: 35
     },
     {
         id: '35-2',
-        front: "Who was the Chairman of the Drafting Committee?",
-        back: "Dr. B.R. Ambedkar.",
+        front: "Why did the Simla Conference (1945) fail?",
+        back: "Jinnah demanded that the League should nominate ALL Muslim members.",
         chapterId: 35
     },
     {
         id: '35-3',
-        front: "Who moved the Objectives Resolution (Dec 13, 1946)?",
-        back: "Jawaharlal Nehru.",
+        front: "Who defended the INA prisoners at Red Fort?",
+        back: "Bhulabhai Desai, Tej Bahadur Sapru, Nehru, K.N. Katju.",
         chapterId: 35
     },
     {
         id: '35-4',
-        front: "Who was the Constitutional Adviser?",
-        back: "B.N. Rau.",
+        front: "The 'Royal Indian Navy' (RIN) Mutiny started on which ship?",
+        back: "HMIS Talwar (Feb 1946).",
         chapterId: 35
     },
     {
         id: '35-5',
-        front: "Under which plan was the Constituent Assembly formed?",
-        back: "Cabinet Mission Plan (1946).",
+        front: "What was the 'Cabinet Mission Plan' (1946) stance on Pakistan?",
+        back: "It rejected a sovereign Pakistan but proposed Grouping of provinces (A, B, C).",
         chapterId: 35
     },
     {
         id: '35-6',
-        front: "How many members were there in the Drafting Committee?",
-        back: "Seven (Ambedkar, Ayyangar, Iyer, Munshi, Saadullah, Madhava Rao, Krishnamachari).",
+        front: "When was 'Direct Action Day'?",
+        back: "August 16, 1946 (Great Calcutta Killings).",
         chapterId: 35
     },
     {
         id: '35-7',
-        front: "Who was the President of the Constituent Assembly?",
-        back: "Dr. Rajendra Prasad.",
+        front: "Who headed the Interim Government formed in 1946?",
+        back: "Jawaharlal Nehru (VP).",
         chapterId: 35
     },
     {
         id: '35-8',
-        front: "What was the 'Nehru Report' (1928)?",
-        back: "An early draft constitution demanding dominion status, prepared by Motilal Nehru committee.",
+        front: "Which Muslim League leader became the Finance Member in the Interim Govt?",
+        back: "Liaquat Ali Khan (presented a budget to hinder Congress ministries).",
         chapterId: 35
     },
     {
         id: '35-9',
-        front: "Who was the provisional president of the CA?",
-        back: "Dr. Sachhidanand Sinha.",
+        front: "What was 'Plan Balkan' (Dickie Bird Plan)?",
+        back: "Mountbatten's initial plan to transfer power to individual provinces (rejected by Nehru).",
         chapterId: 35
     },
     {
         id: '35-10',
-        front: "How many members signed the Constitution on Jan 24, 1950?",
-        back: "284 members.",
+        front: "When was the 'Mountbatten Plan' (June 3 Plan) announced?",
+        back: "June 3, 1947.",
+        chapterId: 35
+    },
+    {
+        id: '35-11',
+        front: "Who was the Chairman of the Boundary Commission?",
+        back: "Sir Cyril Radcliffe.",
+        chapterId: 35
+    },
+    {
+        id: '35-12',
+        front: "Who was the only Indian Governor-General of India?",
+        back: "C. Rajagopalachari.",
+        chapterId: 35
+    },
+    {
+        id: '35-13',
+        front: "Who was the President of Congress during independence?",
+        back: "J.B. Kripalani.",
+        chapterId: 35
+    },
+    {
+        id: '35-14',
+        front: "The 'Indian Independence Act' was ratified by the British Parliament on?",
+        back: "July 18, 1947.",
+        chapterId: 35
+    },
+    {
+        id: '35-15',
+        front: "When did the 'Tebhaga Movement' occur?",
+        back: "1946 (Bengal).",
+        chapterId: 35
+    },
+    {
+        id: '35-16',
+        front: "What was the 'Punnapra-Vayalar Revolt' (1946)?",
+        back: "Communist uprising in Travancore against the Dewan (CP Ramaswamy Iyer).",
+        chapterId: 35
+    },
+    {
+        id: '35-17',
+        front: "Who played the key role in the integration of Princely States?",
+        back: "Sardar Vallabhbhai Patel and V.P. Menon.",
+        chapterId: 35
+    },
+    {
+        id: '35-18',
+        front: "Which three states refused to accede by August 15, 1947?",
+        back: "Junagadh, Hyderabad, Kashmir.",
+        chapterId: 35
+    },
+    {
+        id: '35-19',
+        front: "Operation Polo was associated with?",
+        back: "Integration of Hyderabad (1948).",
+        chapterId: 35
+    },
+    {
+        id: '35-20',
+        front: "Who famously said 'The light has gone out of our lives' after Gandhi's death?",
+        back: "Jawaharlal Nehru.",
         chapterId: 35
     }
 ];

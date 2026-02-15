@@ -1093,33 +1093,33 @@ function ChapterReportDetail({ report }: { report: ChapterTestResult }) {
     return (
         <div className="space-y-6">
             {/* Header */}
-            <div className="p-6 bg-gradient-to-br from-violet-100 to-indigo-100 rounded-2xl border border-violet-200">
-                <h2 className="text-2xl font-black text-slate-800 mb-1">
+            <div className="p-6 bg-gradient-to-br from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 rounded-2xl border border-violet-200 dark:border-violet-800">
+                <h2 className="text-2xl font-black text-slate-800 dark:text-slate-100 mb-1">
                     Chapter {report.chapterNumber}: {report.chapterTitle}
                 </h2>
-                <p className="text-slate-600">Level {report.levelId} • {report.levelTitle}</p>
-                <p className="text-sm text-slate-500 mt-1">
+                <p className="text-slate-600 dark:text-slate-300">Level {report.levelId} • {report.levelTitle}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
                     Completed: {new Date(report.endTime).toLocaleString()}
                 </p>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <Card className="p-4 text-center bg-gradient-to-br from-violet-50 to-violet-100 border-violet-200">
-                    <p className="text-xs font-bold text-violet-600 uppercase">Score</p>
-                    <p className="text-3xl font-black text-violet-700">{report.percentage}%</p>
+                <Card className="p-4 text-center bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-900/20 dark:to-violet-900/10 border-violet-200 dark:border-violet-800">
+                    <p className="text-xs font-bold text-violet-600 dark:text-violet-400 uppercase">Score</p>
+                    <p className="text-3xl font-black text-violet-700 dark:text-violet-300">{report.percentage}%</p>
                 </Card>
-                <Card className="p-4 text-center bg-gradient-to-br from-green-50 to-green-100 border-green-200">
-                    <p className="text-xs font-bold text-green-600 uppercase">Correct</p>
-                    <p className="text-3xl font-black text-green-700">{report.score}</p>
+                <Card className="p-4 text-center bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-900/10 border-green-200 dark:border-green-800">
+                    <p className="text-xs font-bold text-green-600 dark:text-green-400 uppercase">Correct</p>
+                    <p className="text-3xl font-black text-green-700 dark:text-green-300">{report.score}</p>
                 </Card>
-                <Card className="p-4 text-center bg-gradient-to-br from-red-50 to-red-100 border-red-200">
-                    <p className="text-xs font-bold text-red-600 uppercase">Incorrect</p>
-                    <p className="text-3xl font-black text-red-700">{report.totalQuestions - report.score}</p>
+                <Card className="p-4 text-center bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-900/10 border-red-200 dark:border-red-800">
+                    <p className="text-xs font-bold text-red-600 dark:text-red-400 uppercase">Incorrect</p>
+                    <p className="text-3xl font-black text-red-700 dark:text-red-300">{report.totalQuestions - report.score}</p>
                 </Card>
-                <Card className="p-4 text-center bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
-                    <p className="text-xs font-bold text-blue-600 uppercase">Time</p>
-                    <p className="text-3xl font-black text-blue-700">{Math.floor(report.totalTimeTaken / 60)}m</p>
+                <Card className="p-4 text-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/10 border-blue-200 dark:border-blue-800">
+                    <p className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase">Time</p>
+                    <p className="text-3xl font-black text-blue-700 dark:text-blue-300">{Math.floor(report.totalTimeTaken / 60)}m</p>
                 </Card>
             </div>
 
@@ -1182,9 +1182,9 @@ function ChapterReportDetail({ report }: { report: ChapterTestResult }) {
                                     const isCorrect = idx === q.correctAnswer;
                                     const isUserChoice = idx === q.userAnswer;
                                     let cls = "p-2 rounded-lg text-sm border ";
-                                    if (isCorrect) cls += "bg-green-100 border-green-300 text-green-800";
-                                    else if (isUserChoice) cls += "bg-red-100 border-red-300 text-red-800";
-                                    else cls += "bg-white border-slate-100 text-slate-500";
+                                    if (isCorrect) cls += "bg-green-100 border-green-300 text-green-800 dark:bg-green-900/30 dark:border-green-700 dark:text-green-300";
+                                    else if (isUserChoice) cls += "bg-red-100 border-red-300 text-red-800 dark:bg-red-900/30 dark:border-red-700 dark:text-red-300";
+                                    else cls += "bg-white border-slate-100 text-slate-500 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400";
 
                                     return (
                                         <div key={idx} className={cls}>

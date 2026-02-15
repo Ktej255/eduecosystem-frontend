@@ -108,10 +108,10 @@ export const getAllQuestions = (): QuestionBankItem[] => {
         ...enhanceQuestions(MODERN_CHAPTER_33_MCQS, 33, 'Congress Crisis at Tripuri to World War II'),
         ...enhanceQuestions(MODERN_CHAPTER_34_MCQS, 34, 'The Cripps Mission to Quit India Movement'),
         ...enhanceQuestions(MODERN_CHAPTER_35_MCQS, 35, 'Post-War National Upsurge'),
-        ...enhanceQuestions(MODERN_CHAPTER_36_MCQS, 36, 'The 1937–1939 Congress Ministries'),
-        ...enhanceQuestions(MODERN_CHAPTER_37_MCQS, 37, 'The Crisis at Tripuri and After'),
-        ...enhanceQuestions(MODERN_CHAPTER_38_MCQS, 38, 'The Azad Hind Fauj'),
-        ...enhanceQuestions(MODERN_CHAPTER_39_MCQS, 39, 'Post-War National Upsurge'),
+        ...enhanceQuestions(MODERN_CHAPTER_36_MCQS, 36, 'Evolution of Nationalist Foreign Policy'),
+        ...enhanceQuestions(MODERN_CHAPTER_37_MCQS, 37, 'The First General Elections'),
+        ...enhanceQuestions(MODERN_CHAPTER_38_MCQS, 38, 'Nehru\'s Vision of a Modern India'),
+        ...enhanceQuestions(MODERN_CHAPTER_39_MCQS, 39, 'The Challenge of Succession & 1965 War'),
         // Add more chapters here
 
     ];

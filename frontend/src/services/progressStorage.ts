@@ -808,6 +808,10 @@ export function saveStudentStats(stats: Partial<StudentStats>): void {
     }
 }
 
+export function getPrelimsSession(): PrelimsSession | null {
+    return getLearningProgress().prelims;
+}
+
 function updatePrelimsStats(report: AnalysisReport): void {
     const stats = getStudentStats();
     const reports = getAnalysisReports();

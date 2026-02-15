@@ -160,9 +160,9 @@ export const SPECTRUM_SCHEDULE: SpectrumDaySchedule[] = [
     {
         day: 15,
         phase: 3,
-        title: "FINAL ASSESSMENT - FULL SYLLABUS",
-        chapters: [], // All
-        chapterNames: ["Full Syllabus & Remaining Chapters (36-39)"],
+        title: "FINAL ASSESSMENT & POST-INDEPENDENCE",
+        chapters: [36, 37, 38, 39],
+        chapterNames: ["Evolution of Foreign Policy", "First General Elections", "Nehru's Vision", "Succession & 1965 War"],
         mcqCount: 150, // Major Test
         isAssessmentDay: true,
         date: "2026-02-20"

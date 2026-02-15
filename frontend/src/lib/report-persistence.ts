@@ -47,7 +47,6 @@ export function saveChapterReport(
     const trimmed = existing.slice(0, 100);
 
     localStorage.setItem(key, JSON.stringify(trimmed));
-    console.log(`Saved report for ${subject} chapter ${chapterId}`);
 }
 
 export function getChapterReports(subject: ChapterReportEntry['subject']): ChapterReportEntry[] {

@@ -13,9 +13,15 @@ import { Layout, Clock, PenTool, BookOpen, Map, Target, Landmark, Scroll, Flag, 
 import HistorySectionPlanner from './HistorySectionPlanner';
 import { HistorySection } from './data/history-schedule-registry';
 
+import { useSearchParams } from 'next/navigation';
+
 export default function HistoryHome({ embedded = false }: { embedded?: boolean }) {
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'overview' | 'syllabus' | 'timeline' | 'mains' | 'visuals' | 'question_bank'>('dashboard');
-    const [selectedSection, setSelectedSection] = useState<HistorySection>('modern');
+    const searchParams = useSearchParams();
+    const initialTab = (searchParams.get('tab') as any) || 'dashboard';
+    const initialSection = (searchParams.get('section') as HistorySection) || 'modern';
+
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'overview' | 'syllabus' | 'timeline' | 'mains' | 'visuals' | 'question_bank'>(initialTab);
+    const [selectedSection, setSelectedSection] = useState<HistorySection>(initialSection);
 
     const handleTopicSelect = (topicId: number) => {
         console.log("Timeline selected topic:", topicId);

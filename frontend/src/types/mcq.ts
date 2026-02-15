@@ -5,6 +5,8 @@ export interface MCQ {
     correctAnswer: number;
     explanation?: string;
     chapterId?: number | string;
+    chapterName?: string;
+    subtopic?: string;
     mediaUrl?: string;
 }
 

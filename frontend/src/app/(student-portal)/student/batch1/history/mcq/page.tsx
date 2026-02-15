@@ -12,6 +12,8 @@ import { saveChapterReport } from '@/lib/report-persistence';
 import { markQuestionSolved } from '@/services/progressStorage';
 import { toast } from 'sonner';
 
+import { CURRENT_AFFAIRS_DATA, CurrentAffairItem } from '@/components/batch1/current-affairs/current-affairs-data';
+
 function MCQContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -37,7 +39,7 @@ function MCQContent() {
                 const rawMcqs = getMCQsForHistoryChapters(chapterIds, section);
 
                 // Filter by Level if param exists
-                const filteredRawMcqs = level
+                let filteredRawMcqs = level
                     ? rawMcqs.filter(m => {
                         // Map difficulty string to level number
                         const diff = m.difficulty?.toLowerCase() || 'easy';
@@ -51,7 +53,7 @@ function MCQContent() {
 
                 // Transform to Standard MCQ format
                 const formattedMCQs: MCQ[] = filteredRawMcqs.map((m, idx) => ({
-                    id: m.id || `h-${idx}`, // Use existing ID string or fallback to index-based string
+                    id: m.id || `h-${idx}`,
                     question: m.question,
                     options: m.options,
                     correctAnswer: m.correctAnswer,
@@ -61,6 +63,33 @@ function MCQContent() {
                     subtopic: "General",
                     tags: [`Chapter ${m.chapterId || chapterIds[0]}`, level ? `Level ${level}` : 'Mixed']
                 }));
+
+                // Phase 4: Inject Current Affairs for Level 3
+                if (level === 3) {
+                    const linkedCA = CURRENT_AFFAIRS_DATA.filter(ca =>
+                        chapterIds.includes(ca.chapter || 0) ||
+                        (ca.tags && ca.tags.some(tag => formattedMCQs[0]?.tags?.includes(tag)))
+                    );
+
+                    linkedCA.forEach(ca => {
+                        formattedMCQs.push({
+                            id: `ca-${ca.id}`,
+                            question: `[UPSC 2024-25 Context: ${ca.title}]\n\n${ca.description}\n\nWith reference to the historical theme mentioned above, which of the following is most accurate?`,
+                            options: [
+                                "It represents a continuation of the subaltern protest tradition.",
+                                "It was a movement led exclusively by the urban intelligentsia.",
+                                "It had no significant impact on the national movement.",
+                                "It was a state-sponsored reform without grassroots participation."
+                            ],
+                            correctAnswer: 0,
+                            explanation: `This Current Affair item (${ca.title}) highlights the enduring relevance of ${ca.tags?.join(', ') || 'this historical theme'}. In UPSC, such links are crucial for Level 3 (Applied) mastery.`,
+                            category: "History",
+                            chapter: formattedMCQs[0]?.chapter || "Current Affairs",
+                            subtopic: "CA Integration",
+                            tags: ["Current Affairs", "Level 3", "UPSC 2025"]
+                        });
+                    });
+                }
 
                 setQuestions(formattedMCQs);
                 setLoading(false);
@@ -116,6 +145,13 @@ function MCQContent() {
             questions: results
         }, reportType);
 
+        // Mark level as complete if accuracy >= 70%
+        if (level && resultData.accuracy >= 70) {
+            import('@/lib/history-progress-store').then(mod => {
+                mod.markHistoryMCQLevelComplete(primaryChapterId, level);
+            });
+        }
+
         // Mark individual questions as solved
         results.forEach(r => {
             if (r.isCorrect) {
@@ -123,8 +159,12 @@ function MCQContent() {
             }
         });
 
+        const successMsg = level && resultData.accuracy >= 70
+            ? `🎉 Level ${level} Mastered! Score: ${correct}/${questions.length} (${resultData.accuracy}%)`
+            : `✅ Test Submitted! Score: ${correct}/${questions.length} (${resultData.accuracy}%)`;
+
         toast.success(
-            `✅ Test Submitted! Score: ${correct}/${questions.length} (${resultData.accuracy}%) - Report saved to Deep Report Center → Chapters tab`,
+            `${successMsg} - Report saved to Deep Report Center`,
             { duration: 5000 }
         );
     };

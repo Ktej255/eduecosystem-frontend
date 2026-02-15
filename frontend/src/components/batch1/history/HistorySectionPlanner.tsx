@@ -29,6 +29,7 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
 
     // Checklist State
     const [checklist, setChecklist] = useState<boolean[]>([]);
+    const [chapterProgress, setChapterProgress] = useState<Record<number, import('@/lib/history-progress-store').ChapterProgress>>({});
     const [profile, setProfile] = useState<CognitiveProfile | null>(null);
 
     // Fetch Profile
@@ -43,12 +44,19 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
             const dayData = config.schedule.find(d => d.day === selectedDay);
             if (dayData) {
                 const initialChecks = new Array(dayData.chapterNames.length).fill(false);
+                const progressMap: Record<number, import('@/lib/history-progress-store').ChapterProgress> = {};
+
                 dayData.chapters.forEach((chId: number, idx: number) => {
-                    if (store.chapters[chId]?.completed) {
-                        initialChecks[idx] = true;
+                    const prog = store.chapters[chId];
+                    if (prog) {
+                        progressMap[chId] = prog;
+                        if (prog.completed) {
+                            initialChecks[idx] = true;
+                        }
                     }
                 });
                 setChecklist(initialChecks);
+                setChapterProgress(progressMap);
             }
         }
     }, [selectedDay, section]); // Re-sync when section changes too
@@ -99,6 +107,21 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
     };
 
     const colors = getBrandColors();
+
+    const isLevelLocked = (chapterId: number, level: number) => {
+        if (level === 1) return false; // Level 1 is always unlocked
+        const progress = chapterProgress[chapterId];
+        if (!progress) return true; // generic lock if no progress at all? Or maybe unlocked if L1? Let's say unlocked L1 always.
+        // Actually, if no progress object, it means they haven't done anything. L1 should be open. L2/L3 closed.
+
+        const completedLevels = progress.mcqLevelsCompleted || [];
+        // Level 2 requires Level 1 done
+        if (level === 2) return !completedLevels.includes(1);
+        // Level 3 requires Level 2 done
+        if (level === 3) return !completedLevels.includes(2);
+
+        return true;
+    };
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] pb-24">
@@ -289,28 +312,38 @@ export default function HistorySectionPlanner({ section = 'modern' }: HistorySec
                                                         <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-green-500">L1</span>
                                                     </button>
 
-                                                    {/* 3. Level 2 MCQs */}
+                                                    {/* 2. Level 2 MCQs */}
                                                     <button
-                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=2&section=${section}`); }}
-                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            if (!isLevelLocked(dayData.chapters[idx], 2)) {
+                                                                router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=2&section=${section}`);
+                                                            }
+                                                        }}
+                                                        className={`flex flex-col items-center gap-0.5 group/btn ${isLevelLocked(dayData.chapters[idx], 2) ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                         title="Level 2: Conceptual"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-purple-50 group-hover/btn:text-purple-500 transition-colors">
-                                                            <Target className="w-3.5 h-3.5" />
+                                                        <div className={`p-1.5 rounded-lg ${isLevelLocked(dayData.chapters[idx], 2) ? 'bg-gray-100 text-gray-300' : 'bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-purple-50 group-hover/btn:text-purple-500'} transition-colors`}>
+                                                            {isLevelLocked(dayData.chapters[idx], 2) ? <Lock className="w-3.5 h-3.5" /> : <Target className="w-3.5 h-3.5" />}
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-purple-500">L2</span>
+                                                        <span className={`text-[8px] font-medium ${isLevelLocked(dayData.chapters[idx], 2) ? 'text-gray-300' : 'text-gray-400 group-hover/btn:text-purple-500'}`}>L2</span>
                                                     </button>
 
-                                                    {/* 4. Level 3 MCQs */}
+                                                    {/* 3. Level 3 MCQs */}
                                                     <button
-                                                        onClick={(e) => { e.stopPropagation(); router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=3&section=${section}`); }}
-                                                        className="flex flex-col items-center gap-0.5 group/btn"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            if (!isLevelLocked(dayData.chapters[idx], 3)) {
+                                                                router.push(`/student/batch1/history/mcq?chapter=${dayData.chapters[idx]}&level=3&section=${section}`);
+                                                            }
+                                                        }}
+                                                        className={`flex flex-col items-center gap-0.5 group/btn ${isLevelLocked(dayData.chapters[idx], 3) ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                         title="Level 3: Applied"
                                                     >
-                                                        <div className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-red-50 group-hover/btn:text-red-500 transition-colors">
-                                                            <Flame className="w-3.5 h-3.5" />
+                                                        <div className={`p-1.5 rounded-lg ${isLevelLocked(dayData.chapters[idx], 3) ? 'bg-gray-100 text-gray-300' : 'bg-gray-50 dark:bg-gray-800 text-gray-400 group-hover/btn:bg-red-50 group-hover/btn:text-red-500'} transition-colors`}>
+                                                            {isLevelLocked(dayData.chapters[idx], 3) ? <Lock className="w-3.5 h-3.5" /> : <Flame className="w-3.5 h-3.5" />}
                                                         </div>
-                                                        <span className="text-[8px] font-medium text-gray-400 group-hover/btn:text-red-500">L3</span>
+                                                        <span className={`text-[8px] font-medium ${isLevelLocked(dayData.chapters[idx], 3) ? 'text-gray-300' : 'text-gray-400 group-hover/btn:text-red-500'}`}>L3</span>
                                                     </button>
 
                                                     {/* 5. Read */}

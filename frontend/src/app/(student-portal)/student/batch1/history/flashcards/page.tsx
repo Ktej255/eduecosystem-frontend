@@ -1,22 +1,107 @@
 "use client";
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { Loader2 } from 'lucide-react';
 import HistoryFeaturePlaceholder from '@/components/batch1/history/HistoryFeaturePlaceholder';
-import { StickyNote } from 'lucide-react';
+import GenericFlashcardSession from '@/components/batch1/framework/GenericFlashcardSession';
+import { loadHistoryFlashcards } from '@/components/batch1/history/data/history-flashcard-loader';
+import { Flashcard as SourceFlashcard } from '@/types/flashcard';
+import { Flashcard as SessionFlashcard } from '@/components/batch1/framework/flashcard/flashcard-utils';
+import { toast } from 'sonner';
 
 function FlashcardsContent() {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const chapterParam = searchParams.get('chapter');
+    const section = searchParams.get('section') || 'modern';
+
+    const [flashcards, setFlashcards] = useState<SessionFlashcard[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        async function loadCards() {
+            if (!chapterParam) {
+                setLoading(false);
+                return;
+            }
+
+            try {
+                // Handle multiple chapters logic if needed, but for now take first
+                // Or if comma separated, load all?
+                const chapterIds = chapterParam.split(',').map(id => parseInt(id.trim())).filter(id => !isNaN(id));
+
+                if (chapterIds.length === 0) {
+                    setLoading(false);
+                    return;
+                }
+
+                const loadedCards: SourceFlashcard[] = [];
+                for (const chId of chapterIds) {
+                    const cards = await loadHistoryFlashcards(chId, section);
+                    // loadHistoryFlashcards returns Promise<any[]> mapped to SourceFlashcard structure effectively
+                    // but typescript might see it as any[]
+                    loadedCards.push(...(cards as unknown as SourceFlashcard[]));
+                }
+
+                // Map to SessionFlashcard
+                const mappedCards: SessionFlashcard[] = loadedCards.map((fc, idx) => ({
+                    id: fc.id || `fc-${idx}-${Date.now()}`,
+                    front: fc.front,
+                    back: fc.back,
+                    // Map or default to 'fact'
+                    category: (fc.category as any) || 'fact',
+                    source: `Chapter ${fc.chapterId || chapterIds[0]}`,
+                    highlight: false
+                }));
+
+                setFlashcards(mappedCards);
+            } catch (err) {
+                console.error("Error loading flashcards:", err);
+                setError("Failed to load flashcards. Please try again.");
+                toast.error("Failed to load flashcards");
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        loadCards();
+    }, [chapterParam, section]);
+
+    if (loading) {
+        return (
+            <div className="flex h-screen items-center justify-center bg-gray-50 dark:bg-black">
+                <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
+                <span className="ml-2 text-slate-500 font-medium">Loading Revision Cards...</span>
+            </div>
+        );
+    }
+
+    if (!chapterParam || flashcards.length === 0) {
+        return (
+            <HistoryFeaturePlaceholder
+                title="No Flashcards Found"
+                description={error || "Select a chapter to start revising."}
+                icon={Loader2} // Using Loader as placeholder icon or any other
+            />
+        );
+    }
+
     return (
-        <HistoryFeaturePlaceholder
-            title="Flashcards Coming Soon"
-            description="We are currently curating high-yield revision flashcards for this chapter. Check back shortly!"
-            icon={StickyNote}
-        />
+        <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] pt-6">
+            <GenericFlashcardSession
+                flashcards={flashcards}
+                title={`Chapter ${chapterParam} Revision`}
+                onClose={() => router.back()}
+            />
+        </div>
     );
 }
 
 export default function HistoryFlashcardsPage() {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin" /></div>}>
             <FlashcardsContent />
         </Suspense>
     );

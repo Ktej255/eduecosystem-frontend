@@ -1,0 +1,9 @@
+
+import { MODERN_CHAPTER_5_CONTENT } from './content';
+import { MODERN_CHAPTER_5_MCQS, MODERN_CHAPTER_5_SUBTOPICS } from './mcqs';
+
+export {
+    MODERN_CHAPTER_5_CONTENT,
+    MODERN_CHAPTER_5_MCQS,
+    MODERN_CHAPTER_5_SUBTOPICS
+};

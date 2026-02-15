@@ -34,10 +34,12 @@ export default function QuestionBankDashboard() {
         setStats(QuestionBankService.getStats());
     }, []);
 
+    const [displayLimit, setDisplayLimit] = useState(200);
+
     // Filter Logic
     const filteredQuestions = questions.filter(q => {
         const matchesSearch = q.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            q.explanation.toLowerCase().includes(searchTerm.toLowerCase());
+            (q.explanation && q.explanation.toLowerCase().includes(searchTerm.toLowerCase()));
         const matchesLevel = selectedLevel === 'all' || q.level.toString() === selectedLevel;
         const matchesSection = selectedSection === 'all' || q.section === selectedSection;
 
@@ -110,11 +112,17 @@ export default function QuestionBankDashboard() {
                         placeholder="Search questions by keyword..."
                         className="pl-10"
                         value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onChange={(e) => {
+                            setSearchTerm(e.target.value);
+                            setDisplayLimit(200); // Reset limit on search
+                        }}
                     />
                 </div>
                 <div className="flex gap-2">
-                    <Select value={selectedSection} onValueChange={setSelectedSection}>
+                    <Select value={selectedSection} onValueChange={(val) => {
+                        setSelectedSection(val);
+                        setDisplayLimit(200);
+                    }}>
                         <SelectTrigger className="w-[180px]">
                             <SelectValue placeholder="All Eras" />
                         </SelectTrigger>
@@ -126,7 +134,10 @@ export default function QuestionBankDashboard() {
                         </SelectContent>
                     </Select>
 
-                    <Select value={selectedLevel} onValueChange={setSelectedLevel}>
+                    <Select value={selectedLevel} onValueChange={(val) => {
+                        setSelectedLevel(val);
+                        setDisplayLimit(200);
+                    }}>
                         <SelectTrigger className="w-[180px]">
                             <SelectValue placeholder="All Levels" />
                         </SelectTrigger>
@@ -143,8 +154,8 @@ export default function QuestionBankDashboard() {
             {/* Questions Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredQuestions.length > 0 ? (
-                    filteredQuestions.slice(0, 50).map((q) => (
-                        <Card key={q.id} className="group hover:border-indigo-200 dark:hover:border-indigo-800 transition-all cursor-pointer hover:shadow-md">
+                    filteredQuestions.slice(0, displayLimit).map((q, idx) => (
+                        <Card key={`${q.chapterId}-${q.id}-${idx}`} className="group hover:border-indigo-200 dark:hover:border-indigo-800 transition-all cursor-pointer hover:shadow-md">
                             <CardHeader className="pb-3">
                                 <div className="flex justify-between items-start gap-2">
                                     <Badge variant="secondary" className={`${q.level === 1 ? 'bg-green-100 text-green-700' :
@@ -189,9 +200,16 @@ export default function QuestionBankDashboard() {
                 )}
             </div>
 
-            {filteredQuestions.length > 50 && (
-                <div className="text-center pt-8 pb-4">
-                    <p className="text-sm text-gray-500 italic">Showing 50 of {filteredQuestions.length} matching questions. Refine search to see more.</p>
+            {filteredQuestions.length > displayLimit && (
+                <div className="text-center pt-8 pb-12">
+                    <p className="text-sm text-gray-500 italic mb-4">Showing {displayLimit} of {filteredQuestions.length} matching questions.</p>
+                    <Button
+                        onClick={() => setDisplayLimit(prev => prev + 200)}
+                        variant="default"
+                        className="bg-indigo-600 hover:bg-indigo-700 text-white px-8"
+                    >
+                        Load More Questions
+                    </Button>
                 </div>
             )}
         </div>

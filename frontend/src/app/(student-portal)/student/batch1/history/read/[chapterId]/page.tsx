@@ -39,6 +39,19 @@ import HandwrittenChapter23 from '@/components/batch1/history/modern/v2/Handwrit
 import HandwrittenChapter24 from '@/components/batch1/history/modern/v2/HandwrittenChapter24';
 import HandwrittenChapter25 from '@/components/batch1/history/modern/v2/HandwrittenChapter25';
 import HandwrittenChapter26 from '@/components/batch1/history/modern/v2/HandwrittenChapter26';
+import HandwrittenChapter27 from '@/components/batch1/history/modern/v2/HandwrittenChapter27';
+import HandwrittenChapter28 from '@/components/batch1/history/modern/v2/HandwrittenChapter28';
+import HandwrittenChapter29 from '@/components/batch1/history/modern/v2/HandwrittenChapter29';
+import HandwrittenChapter30 from '@/components/batch1/history/modern/v2/HandwrittenChapter30';
+import HandwrittenChapter31 from '@/components/batch1/history/modern/v2/HandwrittenChapter31';
+import HandwrittenChapter32 from '@/components/batch1/history/modern/v2/HandwrittenChapter32';
+import HandwrittenChapter33 from '@/components/batch1/history/modern/v2/HandwrittenChapter33';
+import HandwrittenChapter34 from '@/components/batch1/history/modern/v2/HandwrittenChapter34';
+import HandwrittenChapter35 from '@/components/batch1/history/modern/v2/HandwrittenChapter35';
+import HandwrittenChapter36 from '@/components/batch1/history/modern/v2/HandwrittenChapter36';
+import HandwrittenChapter37 from '@/components/batch1/history/modern/v2/HandwrittenChapter37';
+import HandwrittenChapter38 from '@/components/batch1/history/modern/v2/HandwrittenChapter38';
+import HandwrittenChapter39 from '@/components/batch1/history/modern/v2/HandwrittenChapter39';
 
 function HistoryReadContent() {
     const params = useParams();
@@ -58,7 +71,12 @@ function HistoryReadContent() {
         content = chapterData?.content || "Content not found.";
     } else {
         // Default to Modern
-        content = MODERN_HISTORY_CONTENT[chapterId] || MODERN_HISTORY_CONTENT[String(chapterId)];
+        const modernData = MODERN_HISTORY_CONTENT[chapterId] || MODERN_HISTORY_CONTENT[String(chapterId)];
+        if (typeof modernData === 'object' && modernData !== null && 'content' in modernData) {
+            content = (modernData as any).content;
+        } else {
+            content = modernData as string;
+        }
     }
 
     // V2 Trial Logic
@@ -79,7 +97,7 @@ function HistoryReadContent() {
 
     useEffect(() => {
         if (searchParams.get('v') === '2') {
-            const v2Supported = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'];
+            const v2Supported = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39'];
             if (v2Supported.includes(chapterId)) {
                 setVersion('v2');
             }
@@ -101,7 +119,7 @@ function HistoryReadContent() {
         }
     };
 
-    if (!content && chapterId !== '1' && version !== 'v2') {
+    if (!content && chapterId !== '1' && version !== 'v2' && parseInt(chapterId) <= 35) {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center bg-[#fdfbf7] text-gray-800">
                 <h1 className="text-2xl font-bold mb-4">Chapter Content Not Found</h1>
@@ -139,12 +157,25 @@ function HistoryReadContent() {
             case '24': return <HandwrittenChapter24 />;
             case '25': return <HandwrittenChapter25 />;
             case '26': return <HandwrittenChapter26 />;
+            case '27': return <HandwrittenChapter27 />;
+            case '28': return <HandwrittenChapter28 />;
+            case '29': return <HandwrittenChapter29 />;
+            case '30': return <HandwrittenChapter30 />;
+            case '31': return <HandwrittenChapter31 />;
+            case '32': return <HandwrittenChapter32 />;
+            case '33': return <HandwrittenChapter33 />;
+            case '34': return <HandwrittenChapter34 />;
+            case '35': return <HandwrittenChapter35 />;
+            case '36': return <HandwrittenChapter36 />;
+            case '37': return <HandwrittenChapter37 />;
+            case '38': return <HandwrittenChapter38 />;
+            case '39': return <HandwrittenChapter39 />;
             default: return null;
         }
     };
 
     // Render V2 if active (Support for Chapters 1-22)
-    if (version === 'v2' && ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'].includes(chapterId)) {
+    if (version === 'v2' && ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39'].includes(chapterId)) {
         return (
             <div>
                 <div className="fixed top-4 right-4 z-50 flex gap-2">
@@ -231,7 +262,7 @@ function HistoryReadContent() {
                     <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => router.push('/student/batch1/history')}
+                        onClick={() => router.push(`/student/batch1/history?tab=dashboard&section=${section}`)}
                         className="text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                     >
                         <ArrowLeft className="w-5 h-5 mr-1" /> Back to Dashboard

@@ -10,6 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { CURRENT_AFFAIRS_DATA, SUBJECT_FILTERS, MONTH_FILTERS, CurrentAffairItem } from './current-affairs-data';
 import { motion } from 'framer-motion';
 
+import { MODERN_HISTORY_CHAPTERS } from '../history/data/modern/history-chapters';
+
 export default function CurrentAffairsCentral() {
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -17,11 +19,20 @@ export default function CurrentAffairsCentral() {
     // Get initial query params
     const initialSubject = searchParams.get('subject') || 'All';
     const initialSource = searchParams.get('source'); // e.g., 'history_hub', 'polity_chapter_5'
+    const initialChapter = searchParams.get('chapter'); // Optional initial chapter filter
 
     const [selectedSubject, setSelectedSubject] = useState(initialSubject);
     const [selectedMonth, setSelectedMonth] = useState('All');
+    const [selectedChapter, setSelectedChapter] = useState<string>('All');
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredData, setFilteredData] = useState<CurrentAffairItem[]>(CURRENT_AFFAIRS_DATA);
+
+    // Sync state with URL params on mount
+    useEffect(() => {
+        if (initialChapter) {
+            setSelectedChapter(initialChapter);
+        }
+    }, [initialChapter]);
 
     useEffect(() => {
         let data = CURRENT_AFFAIRS_DATA;
@@ -34,6 +45,13 @@ export default function CurrentAffairsCentral() {
             data = data.filter(item => item.month === selectedMonth);
         }
 
+        if (selectedChapter !== 'All') {
+            const chNum = parseInt(selectedChapter);
+            if (!isNaN(chNum)) {
+                data = data.filter(item => item.chapter === chNum);
+            }
+        }
+
         if (searchQuery) {
             const query = searchQuery.toLowerCase();
             data = data.filter(item =>
@@ -44,7 +62,7 @@ export default function CurrentAffairsCentral() {
         }
 
         setFilteredData(data);
-    }, [selectedSubject, selectedMonth, searchQuery]);
+    }, [selectedSubject, selectedMonth, selectedChapter, searchQuery]);
 
     const handleBack = () => {
         // Intelligent Back Navigation
@@ -57,6 +75,16 @@ export default function CurrentAffairsCentral() {
         }
     };
 
+    const handleReadArticle = (item: CurrentAffairItem) => {
+        // Navigate to related chapter MCQs or Detail page
+        if (item.chapter && item.subject === 'History') {
+            router.push(`/student/batch1/history/mcq?chapterId=${item.chapter}&level=3`);
+        } else {
+            // For now, maybe just show a toast or expand (placeholder)
+            // router.push(`/student/batch1/current-affairs/${item.id}`);
+        }
+    };
+
     const getSubjectColor = (subject: string) => {
         switch (subject) {
             case 'History': return 'bg-amber-100 text-amber-800 border-amber-200';
@@ -66,6 +94,15 @@ export default function CurrentAffairsCentral() {
             case 'Science': return 'bg-blue-100 text-blue-800 border-blue-200';
             default: return 'bg-slate-100 text-slate-800 border-slate-200';
         }
+    };
+
+    // Generate Chapter List based on Subject
+    // Currently only History has a mapped list, others can be generic or hidden
+    const getChapterOptions = () => {
+        if (selectedSubject === 'History' || selectedSubject === 'All') {
+            return MODERN_HISTORY_CHAPTERS;
+        }
+        return [];
     };
 
     return (
@@ -97,22 +134,43 @@ export default function CurrentAffairsCentral() {
                         />
                     </div>
 
-                    <Select value={selectedSubject} onValueChange={setSelectedSubject}>
-                        <SelectTrigger className="w-full md:w-[180px]">
+                    <Select value={selectedSubject} onValueChange={(val) => { setSelectedSubject(val); setSelectedChapter('All'); }}>
+                        <SelectTrigger className="w-full md:w-[150px]">
                             <SelectValue placeholder="Subject" />
                         </SelectTrigger>
                         <SelectContent>
+                            <SelectItem value="All">All Subjects</SelectItem>
                             {SUBJECT_FILTERS.map(subject => (
                                 <SelectItem key={subject} value={subject}>{subject}</SelectItem>
                             ))}
                         </SelectContent>
                     </Select>
 
+                    <Select value={selectedChapter} onValueChange={setSelectedChapter}>
+                        <SelectTrigger className="w-full md:min-w-[200px]">
+                            <SelectValue>
+                                {selectedChapter === 'All'
+                                    ? "All Chapters"
+                                    : MODERN_HISTORY_CHAPTERS.find(c => c.id.toString() === selectedChapter)?.title.substring(0, 25) + "..." || `Chapter ${selectedChapter}`}
+                            </SelectValue>
+                        </SelectTrigger>
+                        <SelectContent className="max-h-[300px]">
+                            <SelectItem value="All">All Chapters</SelectItem>
+                            {getChapterOptions().map(ch => (
+                                <SelectItem key={ch.id} value={ch.id.toString()}>
+                                    <span className="font-mono text-xs text-slate-400 mr-2">#{ch.id}</span>
+                                    {ch.title}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+
                     <Select value={selectedMonth} onValueChange={setSelectedMonth}>
-                        <SelectTrigger className="w-full md:w-[180px]">
+                        <SelectTrigger className="w-full md:w-[150px]">
                             <SelectValue placeholder="Month" />
                         </SelectTrigger>
                         <SelectContent>
+                            <SelectItem value="All">All Months</SelectItem>
                             {MONTH_FILTERS.map(month => (
                                 <SelectItem key={month} value={month}>{month}</SelectItem>
                             ))}
@@ -129,7 +187,7 @@ export default function CurrentAffairsCentral() {
                             key={item.id}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col"
+                            className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col group"
                         >
                             <div className="p-6 flex-1">
                                 <div className="flex justify-between items-start mb-4">
@@ -141,7 +199,9 @@ export default function CurrentAffairsCentral() {
                                         {item.date}
                                     </span>
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2 leading-tight">{item.title}</h3>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2 leading-tight group-hover:text-blue-700 transition-colors">
+                                    {item.title}
+                                </h3>
                                 <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
                                     {item.description}
                                 </p>
@@ -151,12 +211,29 @@ export default function CurrentAffairsCentral() {
                                             #{tag}
                                         </span>
                                     ))}
+                                    {item.chapter && (
+                                        <Badge variant="secondary" className="bg-indigo-50 text-indigo-700 border-indigo-100 font-normal">
+                                            {MODERN_HISTORY_CHAPTERS.find(c => c.id === item.chapter)?.title || `Chapter ${item.chapter}`}
+                                        </Badge>
+                                    )}
                                 </div>
                             </div>
                             <div className="p-4 bg-slate-50 border-t border-slate-100 flex justify-end">
-                                <Button variant="ghost" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 text-sm h-8">
-                                    Read Full Article <ArrowLeft className="ml-1 h-3 w-3 rotate-180" />
-                                </Button>
+                                {item.chapter && item.subject === 'History' ? (
+                                    <Button
+                                        variant="default"
+                                        size="sm"
+                                        className="bg-slate-900 hover:bg-slate-800 text-white text-xs"
+                                        onClick={() => handleReadArticle(item)}
+                                    >
+                                        <BookOpen className="w-3 h-3 mr-2" />
+                                        Attempt in L3 Drill
+                                    </Button>
+                                ) : (
+                                    <Button variant="ghost" disabled size="sm" className="text-xs text-slate-400">
+                                        No Drill Link
+                                    </Button>
+                                )}
                             </div>
                         </motion.div>
                     ))
@@ -164,7 +241,7 @@ export default function CurrentAffairsCentral() {
                     <div className="col-span-full py-12 text-center text-slate-500">
                         <BookOpen className="h-12 w-12 mx-auto mb-3 opacity-20" />
                         <p>No current affairs found matching your filters.</p>
-                        <Button variant="link" onClick={() => { setSelectedSubject('All'); setSelectedMonth('All'); setSearchQuery(''); }}>
+                        <Button variant="link" onClick={() => { setSelectedSubject('All'); setSelectedMonth('All'); setSelectedChapter('All'); setSearchQuery(''); }}>
                             Clear Selection
                         </Button>
                     </div>

@@ -9,6 +9,9 @@ import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 import { upscSynapseService } from '@/lib/upsc-synapse-service';
 
+import { saveChapterReport } from '@/lib/report-persistence';
+import { QuestionResult, TestResult } from '@/components/common/reports/StandardTestReport';
+
 function MCQDrillContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -81,9 +84,45 @@ function MCQDrillContent() {
                 questions={questions}
                 title={`${subject} Drill: ${chapterIds.length || 'Full'} Chapters`}
                 onComplete={async (results) => {
-                    console.log("Drill Complete:", results);
+
+                    const correctCount = results.filter(r => r.isCorrect).length;
+                    const accuracy = Math.round((correctCount / results.length) * 100);
+                    const totalTime = results.reduce((acc, r) => acc + (r.timeSpent || 0), 0);
+                    const score = (correctCount * 2) - ((results.length - results.filter(r => r.selectedAnswer === null).length - correctCount) * 0.66);
+
+                    // 1. Prepare Question Results for Deep Report
+                    const questionResults: QuestionResult[] = results.map(res => {
+                        const questionData = questions.find(q => q.id === res.questionId);
+                        return {
+                            id: res.questionId,
+                            question: questionData?.question || 'Unknown Question',
+                            options: questionData?.options || [],
+                            explanation: questionData?.explanation || '',
+                            chapter: questionData?.chapterName || `Chapter ${questionData?.chapterId || 'N/A'}`,
+                            subtopic: questionData?.subtopic || 'General',
+                            userAnswer: res.selectedAnswer,
+                            correctAnswer: res.correctAnswer,
+                            confidence: res.confidence,
+                            timeSpent: res.timeSpent,
+                            isCorrect: res.isCorrect
+                        };
+                    });
+
+                    const testResult: TestResult = {
+                        testTitle: `${subject} Drill - ${new Date().toLocaleDateString()}`,
+                        totalTimeTaken: totalTime,
+                        score: Math.round(score * 100) / 100,
+                        accuracy: accuracy,
+                        timeTaken: totalTime,
+                        totalQuestions: results.length,
+                        correctCount: correctCount,
+                        incorrectCount: results.length - results.filter(r => r.selectedAnswer === null).length - correctCount,
+                        unansweredCount: results.filter(r => r.selectedAnswer === null).length,
+                        questions: questionResults
+                    };
 
                     try {
+                        // 2. Sync with Synapse Engine (Legacy Logic maintained)
                         let profile = null;
                         try {
                             profile = await upscSynapseService.getProfile();
@@ -92,13 +131,10 @@ function MCQDrillContent() {
                         }
 
                         if (profile) {
-                            // Group results by chapter
                             const chapterStats: Record<number, { correct: number; total: number }> = {};
-
                             results.forEach(res => {
                                 const question = questions.find(q => q.id === res.questionId);
                                 const chId = question?.chapterId ? Number(question.chapterId) : null;
-
                                 if (chId) {
                                     if (!chapterStats[chId]) chapterStats[chId] = { correct: 0, total: 0 };
                                     chapterStats[chId].total++;
@@ -106,35 +142,23 @@ function MCQDrillContent() {
                                 }
                             });
 
-                            // Sync each chapter result to backend
                             await Promise.all(Object.entries(chapterStats).map(([chId, stats]) => {
-                                const accuracy = Math.round((stats.correct / stats.total) * 100);
+                                const chAccuracy = Math.round((stats.correct / stats.total) * 100);
                                 return upscSynapseService.logGapAnalysis({
                                     profile_id: profile.id,
                                     chapter_id: Number(chId),
                                     subject: subject,
-                                    status: accuracy >= 70 ? "mastered" : "knowledge_gap",
-                                    recall_accuracy: accuracy
+                                    status: chAccuracy >= 70 ? "mastered" : "knowledge_gap",
+                                    recall_accuracy: chAccuracy
                                 });
                             }));
-                            alert("Drill completed! Performance synced with Synapse Engine.");
-                        } else {
-                            alert("Drill completed! (Offline Mode - Results saved locally)");
                         }
 
-                        // Also store locally for Deep Report
-                        const timestamp = new Date().toISOString();
-                        const totalScore = Math.round((results.filter(r => r.isCorrect).length / results.length) * 100);
+                        // 3. Persist to Deep Report Center (Universal Key)
+                        const primaryChapter = chapterIds.length === 1 ? chapterIds[0] : 0;
+                        saveChapterReport(subject.toLowerCase() as any, primaryChapter, testResult, 1);
 
-                        localStorage.setItem(`${subject.replace(/\s+/g, '_').toLowerCase()}_drill_${Date.now()}`, JSON.stringify({
-                            type: 'HISTORY_DRILL',
-                            subject,
-                            timestamp,
-                            score: totalScore,
-                            totalQuestions: results.length,
-                            correctCount: results.filter(r => r.isCorrect).length,
-                            chapters: chapterIds
-                        }));
+                        alert("Drill completed! Results saved to Deep Report Center.");
 
                     } catch (err) {
                         console.error("Failed to sync drill results:", err);

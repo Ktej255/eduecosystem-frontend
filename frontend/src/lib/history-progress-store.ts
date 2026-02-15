@@ -10,6 +10,7 @@ export interface ChapterProgress {
     subtopicsCompleted: string[];
     mcqScore?: number;
     flashcardsViewed?: number;
+    mcqLevelsCompleted: number[]; // e.g. [1, 2] means L1 and L2 done
 }
 
 export interface DayProgress {
@@ -101,7 +102,8 @@ export function markHistoryChapterComplete(chapterId: number, subtopicsCompleted
             chapterId,
             completed: true,
             completedAt: new Date().toISOString(),
-            subtopicsCompleted
+            subtopicsCompleted,
+            mcqLevelsCompleted: []
         };
         store.totalChaptersCompleted++;
     } else {
@@ -123,7 +125,8 @@ export function markHistorySubtopicsComplete(chapterId: number, subtopicIds: str
         store.chapters[chapterId] = {
             chapterId,
             completed: false,
-            subtopicsCompleted: subtopicIds
+            subtopicsCompleted: subtopicIds,
+            mcqLevelsCompleted: []
         };
     } else {
         store.chapters[chapterId].subtopicsCompleted = [
@@ -205,7 +208,8 @@ export function recordHistoryMCQScore(chapterId: number, score: number) {
             chapterId,
             completed: false,
             subtopicsCompleted: [],
-            mcqScore: score
+            mcqScore: score,
+            mcqLevelsCompleted: []
         };
     } else {
         store.chapters[chapterId].mcqScore = score;
@@ -223,7 +227,8 @@ export function recordHistoryFlashcardsViewed(chapterId: number, count: number) 
             chapterId,
             completed: false,
             subtopicsCompleted: [],
-            flashcardsViewed: count
+            flashcardsViewed: count,
+            mcqLevelsCompleted: []
         };
     } else {
         store.chapters[chapterId].flashcardsViewed =
@@ -232,3 +237,34 @@ export function recordHistoryFlashcardsViewed(chapterId: number, count: number) 
 
     saveHistoryProgressStore(store);
 }
+
+// Mark an MCQ Level as complete
+export function markHistoryMCQLevelComplete(chapterId: number, level: number) {
+    const store = getHistoryProgressStore();
+
+    if (!store.chapters[chapterId]) {
+        store.chapters[chapterId] = {
+            chapterId,
+            completed: false,
+            subtopicsCompleted: [],
+            mcqLevelsCompleted: [level]
+        };
+    } else {
+        const levels = store.chapters[chapterId].mcqLevelsCompleted || [];
+        if (!levels.includes(level)) {
+            store.chapters[chapterId].mcqLevelsCompleted = [...levels, level];
+        } else {
+            // ensure it exists if undefined
+            store.chapters[chapterId].mcqLevelsCompleted = levels;
+        }
+    }
+
+    saveHistoryProgressStore(store);
+}
+
+// Check if an MCQ Level is complete
+export function isHistoryMCQLevelComplete(chapterId: number, level: number): boolean {
+    const store = getHistoryProgressStore();
+    return store.chapters[chapterId]?.mcqLevelsCompleted?.includes(level) || false;
+}
+

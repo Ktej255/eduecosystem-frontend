@@ -83,4 +83,5 @@ export interface LegacyQuestion {
     level?: number;
     chapterId?: number;
     subject?: string;
+    answerRaw?: string;
 }
