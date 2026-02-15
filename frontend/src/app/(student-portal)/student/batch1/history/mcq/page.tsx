@@ -9,6 +9,7 @@ import HistoryFeaturePlaceholder from '@/components/batch1/history/HistoryFeatur
 import StandardMCQInterface, { MCQ, QuestionResult } from '@/components/common/mcq/StandardMCQInterface';
 import StandardTestReport, { TestResult } from '@/components/common/reports/StandardTestReport';
 import { saveChapterReport } from '@/lib/report-persistence';
+import { markQuestionSolved } from '@/services/progressStorage';
 import { toast } from 'sonner';
 
 function MCQContent() {
@@ -114,6 +115,13 @@ function MCQContent() {
             timeTaken: timeTaken,
             questions: results
         }, reportType);
+
+        // Mark individual questions as solved
+        results.forEach(r => {
+            if (r.isCorrect) {
+                markQuestionSolved(r.id);
+            }
+        });
 
         toast.success(
             `✅ Test Submitted! Score: ${correct}/${questions.length} (${resultData.accuracy}%) - Report saved to Deep Report Center → Chapters tab`,

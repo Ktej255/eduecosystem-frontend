@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, BookOpen, Handshake, MapPin, PlayCircle, Sparkles, Target, Zap } from "lucide-react";
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { IR_CONFIG } from './data/ir-config';
 import { IR_SYLLABUS } from './data/ir-schedule-data';
 
@@ -139,9 +140,11 @@ export default function IrModuleViewer({ moduleId }: IrModuleViewerProps) {
                                 </div>
 
                                 <div className="flex items-center gap-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
-                                    <Button size="sm" variant="outline" className="gap-2 h-8">
-                                        <BookOpen className="w-3 h-3" /> Read
-                                    </Button>
+                                    <Link href={`/student/batch1/international-relations/${moduleId}/${topic.id}`}>
+                                        <Button size="sm" variant="outline" className="gap-2 h-8">
+                                            <BookOpen className="w-3 h-3" /> Read
+                                        </Button>
+                                    </Link>
                                     <Button size="sm" variant="outline" className="gap-2 h-8">
                                         <Zap className="w-3 h-3 text-amber-500" /> Flashcards
                                     </Button>

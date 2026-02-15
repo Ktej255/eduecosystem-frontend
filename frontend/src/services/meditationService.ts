@@ -280,6 +280,11 @@ export const meditationService = {
     async getPurchaseHistory(): Promise<any> {
         const response = await api.get('/meditation/purchases');
         return response.data;
+    },
+
+    async getFocusCorrelation(days: number = 30): Promise<any[]> {
+        const response = await api.get(`/analytics/focus-correlation?days=${days}`);
+        return response.data;
     }
 };
 

@@ -8,6 +8,10 @@ import { Button } from '@/components/ui/button';
 import { MODERN_HISTORY_CONTENT } from '@/components/batch1/history/data/modern/content-registry';
 import { MEDIEVAL_CONTENT_MAP } from '@/components/batch1/history/data/medieval/content-registry';
 import { ANCIENT_CONTENT_MAP } from '@/components/batch1/history/data/ancient/content-registry';
+import { isHistoryChapterComplete, markHistoryChapterComplete } from '@/lib/history-progress-store';
+import ConfidencePoll from '@/components/shared/ConfidencePoll';
+import { CheckCircle } from 'lucide-react';
+import { toast } from 'sonner';
 
 import HandwrittenChapter1 from '@/components/batch1/history/modern/v2/HandwrittenChapter1';
 import HandwrittenChapter2 from '@/components/batch1/history/modern/v2/HandwrittenChapter2';
@@ -61,6 +65,17 @@ function HistoryReadContent() {
     // Allow toggle via query param ?v=2 or UI
     const [version, setVersion] = useState<'v1' | 'v2'>('v1');
     const [fontSize, setFontSize] = useState(16);
+    const [isCompleted, setIsCompleted] = useState(false);
+
+    useEffect(() => {
+        setIsCompleted(isHistoryChapterComplete(parseInt(chapterId)));
+    }, [chapterId]);
+
+    const handleMarkComplete = () => {
+        markHistoryChapterComplete(parseInt(chapterId));
+        setIsCompleted(true);
+        toast.success("Chapter marked as complete!");
+    };
 
     useEffect(() => {
         if (searchParams.get('v') === '2') {
@@ -277,6 +292,37 @@ function HistoryReadContent() {
                         </div>
                     </div>
                 </motion.div>
+
+                {/* Completion Section */}
+                <div className="mt-8 max-w-2xl mx-auto">
+                    {isCompleted ? (
+                        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl p-6 text-center animate-in zoom-in duration-300">
+                            <div className="flex flex-col items-center gap-4">
+                                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-green-100 text-green-700 rounded-full font-bold text-sm">
+                                    <CheckCircle className="w-5 h-5" />
+                                    Chapter Completed
+                                </div>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                                    Assess your confidence to finalize this session.
+                                </p>
+                                <div className="w-full max-w-sm">
+                                    <ConfidencePoll chapterId={chapterId} />
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="text-center">
+                            <Button
+                                onClick={handleMarkComplete}
+                                size="lg"
+                                className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold shadow-lg text-lg px-8 py-6 h-auto rounded-xl"
+                            >
+                                <CheckCircle className="w-6 h-6 mr-2" />
+                                Mark Chapter as Complete
+                            </Button>
+                        </div>
+                    )}
+                </div>
 
                 {/* Bottom Navigation for Next/Prev Chapter */}
                 <div className="mt-8 flex justify-between font-sans">

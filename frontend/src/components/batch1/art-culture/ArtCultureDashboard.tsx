@@ -4,7 +4,7 @@ import React from 'react';
 import TempleArchitecture3D from './visuals/TempleArchitecture3D';
 import PerformingArtsMatrix from './visuals/PerformingArtsMatrix';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Palette, Landmark, Music, Star, ScrollText, Calendar } from 'lucide-react';
+import { Palette, Landmark, Music, Star, ScrollText, Calendar, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -75,17 +75,20 @@ export default function ArtCultureDashboard() {
                     <CardContent>
                         <div className="space-y-4">
                             {[
-                                { title: 'Ancient Era', desc: 'Indus Valley, Mauryan, Post-Mauryan and Gupta Art.' },
-                                { title: 'Medieval Era', desc: 'Delhi Sultanate, Mughal and Regional School Paintings.' },
-                                { title: 'Modern Era', desc: 'Company School, Bengal School and Progressive Artists.' }
+                                { id: '1', title: 'Ancient Era', desc: 'Indus Valley, Mauryan, Post-Mauryan and Gupta Art.' },
+                                { id: '2', title: 'Medieval Era (Nagara)', desc: 'Nagara, Dravida and Vesara Temple Styles.' },
+                                { id: '3', title: 'Indo-Islamic Art', desc: 'Delhi Sultanate and Mughal Architectural Excellence.' }
                             ].map((era, i) => (
-                                <div key={i} className="flex items-start gap-4 p-4 rounded-xl border border-gray-50 dark:border-gray-800 hover:bg-slate-50 dark:hover:bg-gray-800/50 transition-colors">
-                                    <div className="w-2 h-10 bg-rose-500 rounded-full" />
-                                    <div>
-                                        <h4 className="font-bold text-gray-900 dark:text-white">{era.title}</h4>
-                                        <p className="text-sm text-gray-500">{era.desc}</p>
+                                <Link key={i} href={`/student/batch1/art-culture/${era.id}`}>
+                                    <div className="flex items-start gap-4 p-4 rounded-xl border border-gray-50 dark:border-gray-800 hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-all group mb-2 cursor-pointer">
+                                        <div className="w-2 h-10 bg-rose-500 rounded-full group-hover:bg-rose-600 transition-colors" />
+                                        <div>
+                                            <h4 className="font-bold text-gray-900 dark:text-white group-hover:text-rose-600 transition-colors">{era.title}</h4>
+                                            <p className="text-sm text-gray-500">{era.desc}</p>
+                                        </div>
+                                        <ChevronRight className="ml-auto w-5 h-5 text-gray-300 group-hover:text-rose-500" />
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </CardContent>

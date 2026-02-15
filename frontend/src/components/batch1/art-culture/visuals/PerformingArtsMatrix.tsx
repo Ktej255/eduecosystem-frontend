@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Music, MapPin, Star, Info, ChevronRight, Play } from 'lucide-react';
+import { Music, MapPin, Star, Info, ChevronRight, Play, BookOpen } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const DANCE_FORMS = [
     {
@@ -167,11 +169,19 @@ export default function PerformingArtsMatrix() {
                                 )}
                             </div>
 
-                            <div className="pt-8 border-t border-gray-100 dark:border-gray-800">
+                            <div className="pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-4">
                                 <button className="flex items-center gap-2 text-rose-600 hover:text-rose-700 transition-colors">
                                     <Play className="w-4 h-4 fill-rose-600" />
                                     <span className="text-xs font-bold uppercase tracking-widest">Watch Performance Snippet</span>
                                 </button>
+                                {activeTab === 'dance' && (
+                                    <Link href="/student/batch1/art-culture/21">
+                                        <Button size="sm" className="bg-rose-600 hover:bg-rose-700 text-white gap-2">
+                                            <BookOpen className="w-4 h-4" />
+                                            Read Full {selectedItem.name} Lesson
+                                        </Button>
+                                    </Link>
+                                )}
                             </div>
                         </motion.div>
                     </AnimatePresence>

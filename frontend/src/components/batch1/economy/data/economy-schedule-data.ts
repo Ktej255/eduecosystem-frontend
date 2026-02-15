@@ -1,3 +1,11 @@
+import { ContentItem, MCQSet, FlashcardSet } from "../../types";
+import { bankingSystem } from "./chapters/banking-system";
+import { bankingSystemMcqs } from "./mcqs/banking-mcqs";
+import { bankingSystemFlashcards } from "./flashcards/banking-flashcards";
+import { budgetAnalysis } from "./chapters/budget-xml";
+import { inflationIndices } from "./chapters/inflation-indices";
+import { externalSector } from "./chapters/external-sector";
+
 export interface EconomyTopic {
     id: string;
     title: string;
@@ -5,6 +13,11 @@ export interface EconomyTopic {
     subtopics: string[];
     days: number; // Estimated days to cover
     category: 'Macro' | 'Sectoral' | 'Fiscal' | 'Banking' | 'External';
+    // Link to new content structure
+    contentId?: string;
+    content?: ContentItem;
+    mcqs?: MCQSet;
+    flashcards?: FlashcardSet;
 }
 
 export const ECONOMY_SYLLABUS: EconomyTopic[] = [
@@ -32,7 +45,11 @@ export const ECONOMY_SYLLABUS: EconomyTopic[] = [
             "Digital Banking & CBDC"
         ],
         days: 5,
-        category: 'Banking'
+        category: 'Banking',
+        contentId: 'banking-system',
+        content: bankingSystem,
+        mcqs: bankingSystemMcqs,
+        flashcards: bankingSystemFlashcards
     },
     {
         id: 'budget-fiscal',
@@ -74,3 +91,22 @@ export const ECONOMY_SYLLABUS: EconomyTopic[] = [
         category: 'Sectoral'
     }
 ];
+
+// Helper map for dynamic loading by ID
+// Helper map for dynamic loading by ID
+export const ECONOMY_CONTENT_MAP: Record<string, { content: ContentItem, mcqs?: MCQSet, flashcards?: FlashcardSet }> = {
+    'banking': {
+        content: bankingSystem,
+        mcqs: bankingSystemMcqs,
+        flashcards: bankingSystemFlashcards
+    },
+    'budget-fiscal': {
+        content: budgetAnalysis
+    },
+    'national-income': {
+        content: inflationIndices
+    },
+    'external-sector': {
+        content: externalSector
+    }
+};

@@ -30,185 +30,160 @@ function RiverScene({
     systemId: 'ganga' | 'brahmaputra';
     onSelectNode: (node: SelectedNode | null) => void
 }) {
-    const [activeNode, setActiveNode] = useState<string | null>(null);
+    const data = systemId === 'ganga' ? gangaData : brahmaputraData;
 
-    // Select data based on systemId
-    const data = useMemo(() => {
-        return systemId === 'ganga' ? gangaData : brahmaputraData;
-    }, [systemId]);
-
-    // Main flow path
-    const mainPath = data.flowPath as [number, number][];
-
-    // Nodes
-    const nodes = data.nodes as RiverNode[];
-
-    // Tributaries definition (visual paths)
-    const tributaries = useMemo(() => {
-        const leftBank = (data.tributaries?.leftBank || []) as any[];
-        const rightBank = (data.tributaries?.rightBank || []) as any[];
-
-        const allTribs = [...leftBank, ...rightBank];
-
-        // Filter those with paths and map to required format
-        return allTribs
-            .filter(t => t.path && t.path.length > 0)
-            .map(t => ({
-                id: t.id,
-                color: t.color || '#4FC3F7',
-                path: t.path as [number, number][]
-            }));
+    // Process nodes to 3D positions
+    const nodes = useMemo(() => {
+        return (data.nodes as RiverNode[]).map(node => ({
+            ...node,
+            pos: latLngToPosition(node.coordinates[0], node.coordinates[1])
+        }));
     }, [data]);
 
+    // Create paths connecting nodes
+    const paths = useMemo(() => {
+        const pathList: { start: [number, number, number], end: [number, number, number] }[] = [];
+
+        nodes.forEach(node => {
+            if (node.tributaryJoining) {
+                const target = nodes.find(n => n.name === node.tributaryJoining);
+                if (target) {
+                    pathList.push({
+                        start: node.pos,
+                        end: target.pos
+                    });
+                }
+            }
+        });
+        return pathList;
+    }, [nodes]);
+
     return (
-        <>
-            <Stars radius={100} depth={50} count={3000} factor={3} saturation={0} fade speed={1} />
-            <ambientLight intensity={0.4} />
-            <directionalLight position={[5, 5, 5]} intensity={1} />
-            <pointLight position={[-5, 5, -5]} intensity={0.5} color="#4FC3F7" />
+        <group rotation={[0, Math.PI, 0]}> {/* Rotate to face camera */}
+            {/* Draw River Paths */}
+            {paths.map((path, i) => (
+                <group key={`path-${i}`}>
+                    {/* Water Line */}
+                    <mesh>
+                        <tubeGeometry args={[
+                            new THREE.CatmullRomCurve3([
+                                new THREE.Vector3(...path.start),
+                                new THREE.Vector3(...path.end)
+                            ]),
+                            20, // segments
+                            0.05, // radius
+                            8, // radial segments
+                            false // closed
+                        ]} />
+                        <meshStandardMaterial color="#3b82f6" emissive="#2563eb" emissiveIntensity={0.5} transparent opacity={0.8} />
+                    </mesh>
+                    {/* Animated Flow Arrows */}
+                    <FlowArrows start={path.start} end={path.end} />
+                </group>
+            ))}
 
-            {/* India Base (Holographic World) */}
-            <mesh>
-                <sphereGeometry args={[1.5, 64, 64]} />
-                <meshPhongMaterial
-                    color="#0a1a0f"
-                    emissive="#1a3a2a"
-                    emissiveIntensity={0.5}
-                    shininess={100}
-                    transparent
-                    opacity={0.9}
-                />
-            </mesh>
-            {/* Glow / Rim Light */}
-            <mesh scale={[1.02, 1.02, 1.02]}>
-                <sphereGeometry args={[1.5, 64, 64]} />
-                <meshStandardMaterial
-                    color="#2e7d32"
-                    transparent
-                    opacity={0.1}
-                    side={THREE.BackSide}
-                />
-            </mesh>
-
-            {/* Main River */}
-            <FlowArrows
-                path={mainPath}
-                color="#4FC3F7"
-                speed={0.4}
-                particleCount={80}
-            />
-
-            {/* Tributaries */}
-            {tributaries.map((trib) => (
-                <FlowArrows
-                    key={trib.id}
-                    path={trib.path}
-                    color={trib.color}
-                    speed={0.3}
-                    particleCount={30}
+            {/* Draw Confluence Points */}
+            {nodes.map((node) => (
+                <ConfluenceMarker
+                    key={node.id}
+                    position={node.pos}
+                    label={node.name}
+                    isMajor={node.type === 'main'}
+                    onClick={() => onSelectNode({ node, position: node.pos })}
                 />
             ))}
 
-            {/* Confluence Markers */}
-            {nodes.map((node) => {
-                const pos = latLngToPosition(node.coordinates[0], node.coordinates[1]);
-                return (
-                    <ConfluenceMarker
-                        key={node.id}
-                        position={pos}
-                        name={node.name}
-                        tributaryName={node.tributaryJoining}
-                        isActive={activeNode === node.id}
-                        onSelect={() => {
-                            setActiveNode(node.id);
-                            onSelectNode({ node, position: pos });
-                        }}
-                    />
-                );
-            })}
-
-            <OrbitControls
-                enablePan={true}
-                enableZoom={true}
-                minDistance={1.8}
-                maxDistance={4}
-                autoRotate={!activeNode}
-                autoRotateSpeed={0.5}
-            />
-        </>
+            {/* Ground Plane for reference */}
+            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -2, 0]}>
+                <planeGeometry args={[20, 20]} />
+                <meshStandardMaterial color="#0f172a" transparent opacity={0.4} />
+            </mesh>
+            <gridHelper args={[20, 20, "#1e293b", "#0f172a"]} position={[0, -1.99, 0]} />
+        </group>
     );
 }
 
 export default function RiverSystemViz({ systemId = 'ganga' }: { systemId?: 'ganga' | 'brahmaputra' }) {
-    const [currentSystem, setCurrentSystem] = useState<'ganga' | 'brahmaputra'>(systemId);
     const [selectedNode, setSelectedNode] = useState<SelectedNode | null>(null);
 
-    const systems = [
-        { id: 'ganga', label: 'Ganga System' },
-        { id: 'brahmaputra', label: 'Brahmaputra System' }
-    ];
-
-    const title = currentSystem === 'ganga' ? 'Ganga River System' : 'Brahmaputra River System';
-
     return (
-        <div className="w-full h-full relative bg-slate-950">
-            {/* 3D Canvas */}
-            <Canvas
-                camera={{ position: currentSystem === 'ganga' ? [0, 2, 3] : [1.5, 2, 2.5], fov: 50 }}
-                style={{ background: 'linear-gradient(to bottom, #0f172a, #020617)' }}
-            >
-                <Suspense fallback={null}>
-                    <RiverScene systemId={currentSystem} onSelectNode={setSelectedNode} />
-                </Suspense>
-            </Canvas>
-
-            {/* System Selector */}
-            <div className="absolute top-4 right-4 flex bg-slate-900/80 backdrop-blur-md rounded-lg p-1 border border-slate-700">
-                {systems.map((sys) => (
-                    <button
-                        key={sys.id}
-                        onClick={() => {
-                            setCurrentSystem(sys.id as any);
-                            setSelectedNode(null);
-                        }}
-                        className={`px-4 py-2 text-xs font-bold rounded-md transition-all ${currentSystem === sys.id
-                                ? 'bg-cyan-600 text-white shadow-lg'
-                                : 'text-slate-400 hover:text-white hover:bg-slate-800'
-                            }`}
-                    >
-                        {sys.label}
-                    </button>
-                ))}
+        <div className="w-full h-[600px] relative bg-slate-950 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+            {/* Header */}
+            <div className="absolute top-0 left-0 right-0 z-10 p-4 bg-gradient-to-b from-slate-900/80 to-transparent backdrop-blur-sm pointer-events-none">
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                    <span className="w-2 h-8 bg-blue-500 rounded-full" />
+                    {systemId === 'ganga' ? 'Ganga River System' : 'Brahmaputra River System'}
+                </h2>
+                <p className="text-sm text-blue-200/60 ml-4">
+                    Interactive 3D Topological Map
+                </p>
             </div>
 
-            {/* Info Panel */}
+            <Canvas camera={{ position: [0, 5, 5], fov: 45 }}>
+                <ambientLight intensity={0.5} />
+                <pointLight position={[10, 10, 10]} intensity={1} />
+                <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+
+                <Suspense fallback={null}>
+                    <RiverScene systemId={systemId} onSelectNode={setSelectedNode} />
+                </Suspense>
+
+                <OrbitControls
+                    enableZoom={true}
+                    maxPolarAngle={Math.PI / 2.2}
+                    minDistance={2}
+                    maxDistance={15}
+                    autoRotate={!selectedNode}
+                    autoRotateSpeed={0.5}
+                />
+            </Canvas>
+
+            {/* Selection Panel */}
             {selectedNode && (
-                <div className="absolute bottom-6 left-6 right-6 max-w-md bg-slate-900/90 backdrop-blur-md rounded-xl border border-cyan-500/30 p-4 animate-in slide-in-from-bottom-4 duration-300">
-                    <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center shrink-0">
-                            <div className="w-4 h-4 rounded-full bg-cyan-400 animate-pulse" />
+                <div className="absolute bottom-4 left-4 z-20 w-80 bg-slate-900/95 backdrop-blur-xl rounded-2xl border border-white/10 p-5 shadow-2xl animate-in slide-in-from-bottom-10 fade-in duration-300">
+                    <div className="flex justify-between items-start mb-3">
+                        <div>
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-blue-400">
+                                {selectedNode.node.type}
+                            </span>
+                            <h3 className="text-2xl font-bold text-white leading-none mt-1">
+                                {selectedNode.node.name}
+                            </h3>
                         </div>
-                        <div className="flex-1">
-                            <h3 className="text-lg font-bold text-white mb-1">{selectedNode.node.name}</h3>
-                            {selectedNode.node.tributaryJoining && (
-                                <p className="text-cyan-400 text-sm mb-1">↳ {selectedNode.node.tributaryJoining} joins here</p>
-                            )}
-                            {selectedNode.node.description && (
-                                <p className="text-slate-400 text-sm">{selectedNode.node.description}</p>
-                            )}
-                            <div className="mt-2 text-xs text-slate-500">
-                                Loc: {selectedNode.node.coordinates[0].toFixed(2)}°N, {selectedNode.node.coordinates[1].toFixed(2)}°E
-                            </div>
-                        </div>
-                        <button onClick={() => setSelectedNode(null)} className="text-slate-500 hover:text-white transition-colors">✕</button>
+                        <button
+                            onClick={() => setSelectedNode(null)}
+                            className="p-1 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
                     </div>
+
+                    <p className="text-sm text-slate-300 leading-relaxed mb-4">
+                        {selectedNode.node.description || "A major water body in the system."}
+                    </p>
+
+                    {selectedNode.node.tributaryJoining && (
+                        <div className="bg-blue-500/10 rounded-lg p-3 border border-blue-500/20">
+                            <p className="text-xs text-blue-300">
+                                <span className="font-bold">Confluence:</span> Joins {selectedNode.node.tributaryJoining}
+                            </p>
+                        </div>
+                    )}
                 </div>
             )}
 
-            {/* Title */}
-            <div className="absolute top-4 left-4 text-white">
-                <h2 className="text-xl font-bold">{title}</h2>
-                <p className="text-slate-400 text-sm">Interactive 3D Visualization</p>
+            {/* Legend */}
+            <div className="absolute bottom-4 right-4 z-10 flex flex-col gap-2 pointer-events-none">
+                <div className="flex items-center gap-2 text-xs text-slate-300 bg-slate-900/50 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/5">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.5)]" />
+                    River Path
+                </div>
+                <div className="flex items-center gap-2 text-xs text-slate-300 bg-slate-900/50 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/5">
+                    <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+                    Confluence Point
+                </div>
             </div>
         </div>
     );

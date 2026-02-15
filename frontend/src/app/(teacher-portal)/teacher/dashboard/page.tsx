@@ -14,6 +14,8 @@ import LakshmikantKanban from "@/components/teacher-portal/dashboard/Lakshmikant
 import SmartUploadWizard from "@/components/teacher-portal/dashboard/SmartUploadWizard";
 import ContentHealthScore from "@/components/teacher-portal/library/ContentHealthScore";
 import LiveSessionDashboard from "@/components/teacher-portal/dashboard/live/LiveSessionDashboard";
+import BatchDNAMonitor from "@/components/teacher-portal/dashboard/BatchDNAMonitor";
+import PYQCommandCenter from "@/components/teacher-portal/dashboard/PYQCommandCenter";
 
 interface StudentData {
     id: number;
@@ -150,6 +152,18 @@ export default function TeacherDashboard() {
 
             {/* Phase 3: Operation Lakshmikant Live Kanban */}
             <LakshmikantKanban />
+
+            {/* Strategic Oversight Section */}
+            <div>
+                <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-blue-600" />
+                    Strategic Oversight
+                </h2>
+                <div className="grid grid-cols-1 gap-6">
+                    <BatchDNAMonitor />
+                    <PYQCommandCenter />
+                </div>
+            </div>
 
             {/* Quick Actions */}
             <div>

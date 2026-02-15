@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { FileText, Play, CheckCircle, Clock } from 'lucide-react';
+import { FileText, Play, CheckCircle, Clock, Trophy } from 'lucide-react';
 import { MODERN_MCQS_DATA, MEDIEVAL_MCQS_DATA, ANCIENT_MCQS_DATA } from './data/history-mcqs-data';
-import { SPECTRUM_SCHEDULE } from './data/spectrum-modern-history';
+import { SPECTRUM_MODERN_HISTORY, HistoryChapter } from './data/spectrum-modern-history';
 import { ANCIENT_SCHEDULE } from './data/ancient-schedule-data';
 import { MEDIEVAL_SCHEDULE } from './data/medieval-schedule-data';
+import { getLearningProgress } from '@/services/progressStorage';
 
 type HistorySection = 'modern' | 'medieval' | 'ancient';
 
 export default function HistoryQuestionBank() {
     const router = useRouter();
     const [activeSection, setActiveSection] = useState<HistorySection>('modern');
+    const [solvedCount, setSolvedCount] = useState(0);
 
-    const getSchedule = (section: HistorySection) => {
+    React.useEffect(() => {
+        // Load progress
+        const progress = getLearningProgress();
+        const solved = progress.solvedQuestions || [];
+        setSolvedCount(solved.length);
+    }, []);
+
+    const getSchedule = (section: HistorySection): HistoryChapter[] => {
         switch (section) {
-            case 'modern': return SPECTRUM_SCHEDULE;
-            case 'medieval': return MEDIEVAL_SCHEDULE;
-            case 'ancient': return ANCIENT_SCHEDULE;
+            case 'modern': return SPECTRUM_MODERN_HISTORY;
+            case 'medieval': return MEDIEVAL_SCHEDULE as any as HistoryChapter[]; // Casting if types differ, but assuming specific types match generic roughly or will fix later
+            case 'ancient': return ANCIENT_SCHEDULE as any as HistoryChapter[];
             default: return [];
         }
     };
@@ -34,15 +43,15 @@ export default function HistoryQuestionBank() {
     const mcqData = getMCQData(activeSection);
 
     // Filter chapters that have MCQs
-    const chaptersWithMCQs = schedule.map(ch => {
+    const chaptersWithMCQs = schedule.map((ch: HistoryChapter) => {
         const count = mcqData[ch.id]?.length || 0;
         return {
             ...ch,
             mcqCount: count
         };
-    }).filter(ch => ch.mcqCount > 0);
+    }).filter((ch: HistoryChapter & { mcqCount: number }) => ch.mcqCount > 0);
 
-    const totalQuestions = chaptersWithMCQs.reduce((acc, curr) => acc + curr.mcqCount, 0);
+    const totalQuestions = chaptersWithMCQs.reduce((acc: number, curr: { mcqCount: number }) => acc + curr.mcqCount, 0);
 
     return (
         <div className="max-w-7xl mx-auto p-6 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -72,11 +81,14 @@ export default function HistoryQuestionBank() {
                 <div className="bg-white dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
                     <div className="flex items-center gap-4">
                         <div className="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg text-indigo-600 dark:text-indigo-400">
-                            <FileText className="w-6 h-6" />
+                            <Trophy className="w-6 h-6" />
                         </div>
                         <div>
-                            <p className="text-sm text-neutral-500 font-medium">Available Questions</p>
-                            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">{totalQuestions}</h3>
+                            <p className="text-sm text-neutral-500 font-medium">Questions Mastery</p>
+                            <div className="flex items-baseline gap-2">
+                                <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">{solvedCount}</h3>
+                                <span className="text-sm text-neutral-400">/ {totalQuestions}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,7 +121,7 @@ export default function HistoryQuestionBank() {
             <div className="space-y-4">
                 <h2 className="text-xl font-semibold text-neutral-900 dark:text-white">Available Chapters</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {chaptersWithMCQs.map((chapter) => (
+                    {chaptersWithMCQs.map((chapter: HistoryChapter & { mcqCount: number }) => (
                         <div
                             key={chapter.id}
                             className="bg-white dark:bg-neutral-900 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 hover:border-amber-400 dark:hover:border-amber-600 transition-all group"

@@ -8,6 +8,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import dynamic from "next/dynamic";
 import { activityService } from "@/services/activityService";
+import ConfidencePoll from "@/components/shared/ConfidencePoll";
 
 // Dynamic import for SimulationView (heavy 3D content)
 const SimulationView = dynamic(
@@ -128,10 +129,17 @@ export default function LessonView({ content, onClose }: LessonViewProps) {
 
                     {/* Completion Footer */}
                     <div className="mt-20 pt-10 border-t border-white/10 flex justify-center">
-                        <div className="text-center">
+                        <div className="text-center space-y-6">
                             <h3 className="text-xl font-semibold mb-2">
                                 {isCompleted ? 'Lesson Completed!' : 'Lesson Completed?'}
                             </h3>
+
+                            {isCompleted && (
+                                <div className="max-w-md mx-auto mb-6">
+                                    <ConfidencePoll chapterId={content.topicId} />
+                                </div>
+                            )}
+
                             <Button
                                 size="lg"
                                 className={`px-8 ${isCompleted
@@ -256,12 +264,12 @@ function QuizBlockRenderer({ block }: { block: ContentBlock }) {
                         onClick={() => { setSelectedOption(idx); setShowResult(true); }}
                         disabled={showResult}
                         className={`w-full text-left p-4 rounded-lg border transition-all ${showResult
-                                ? idx === correctIndex
-                                    ? 'bg-emerald-900/30 border-emerald-500 text-emerald-200'
-                                    : idx === selectedOption
-                                        ? 'bg-red-900/30 border-red-500 text-red-200'
-                                        : 'bg-black/20 border-transparent opacity-50'
-                                : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 text-slate-200'
+                            ? idx === correctIndex
+                                ? 'bg-emerald-900/30 border-emerald-500 text-emerald-200'
+                                : idx === selectedOption
+                                    ? 'bg-red-900/30 border-red-500 text-red-200'
+                                    : 'bg-black/20 border-transparent opacity-50'
+                            : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 text-slate-200'
                             }`}
                     >
                         <div className="flex items-center gap-3">

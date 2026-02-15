@@ -14,6 +14,7 @@ import KnowledgeDecayCurve from "./KnowledgeDecayCurve";
 import RetentionHeatmap from "./RetentionHeatmap";
 import SmartAlerts from "./SmartAlerts";
 import RealityCheck from "./RealityCheck";
+import { getLearningProgress, getStudentStats, getDecayCurvePoints } from "@/services/progressStorage";
 
 // Dummy data for demonstration
 const DUMMY_CURVE_POINTS = Array.from({ length: 11 }, (_, i) => ({
@@ -86,26 +87,37 @@ const DUMMY_ALERTS = [
 ];
 
 export default function RetentionDashboard() {
-    const [selectedTopic, setSelectedTopic] = useState<number | null>(null);
+    const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [stats, setStats] = useState({
-        avgRetention: 0.78,
-        topicsLearned: 24,
-        criticalCount: 3,
-        streak: 7,
-    });
+    const [stats, setStats] = useState<any>(null);
+    const [curveData, setCurveData] = useState<any>(null);
 
     useEffect(() => {
-        // Simulate loading
-        const timer = setTimeout(() => setIsLoading(false), 1000);
-        return () => clearTimeout(timer);
+        const realStats = getStudentStats();
+        const progress = getLearningProgress();
+
+        // Find a topic to display in the curve (first completed topic or random)
+        const firstTopic = progress.completedChapters?.[0] || "economy-banking";
+        const curve = getDecayCurvePoints(firstTopic);
+
+        setStats({
+            avgRetention: 0.85, // Placeholder for calculated avg
+            topicsLearned: progress.completedChapters.length,
+            criticalCount: 0, // Placeholder
+            streak: realStats.overallStreak,
+        });
+        setCurveData({
+            topicName: firstTopic.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+            ...curve
+        });
+        setIsLoading(false);
     }, []);
 
-    const handleTopicClick = (topicId: number) => {
+    const handleTopicClick = (topicId: string) => {
         setSelectedTopic(topicId);
     };
 
-    const handleQuickReview = (topicId: number) => {
+    const handleQuickReview = (topicId: string) => {
         console.log("Starting quick review for topic:", topicId);
         // Navigate to review mode
     };
@@ -190,8 +202,8 @@ export default function RetentionDashboard() {
                             className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl"
                             style={{
                                 background: `linear-gradient(135deg, ${stat.color.includes("green") ? "#22c55e" :
-                                        stat.color.includes("blue") ? "#3b82f6" :
-                                            stat.color.includes("red") ? "#ef4444" : "#a855f7"
+                                    stat.color.includes("blue") ? "#3b82f6" :
+                                        stat.color.includes("red") ? "#ef4444" : "#a855f7"
                                     } 0%, transparent 70%)`,
                             }}
                         />
@@ -204,20 +216,22 @@ export default function RetentionDashboard() {
                 {/* Left Column - Curve & Heatmap */}
                 <div className="col-span-8 space-y-6">
                     {/* Knowledge Decay Curve */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        <KnowledgeDecayCurve
-                            topicName="Breath Awareness Meditation"
-                            stability={5.2}
-                            curvePoints={DUMMY_CURVE_POINTS}
-                            currentRetention={0.72}
-                            nextReviewDays={2}
-                            onRefresh={() => console.log("Refresh curve")}
-                        />
-                    </motion.div>
+                    {curveData && (
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.3 }}
+                        >
+                            <KnowledgeDecayCurve
+                                topicName={curveData.topicName}
+                                stability={curveData.stability}
+                                curvePoints={curveData.points}
+                                currentRetention={curveData.currentRetention}
+                                nextReviewDays={Math.round(curveData.daysUntilReview)}
+                                onRefresh={() => window.location.reload()}
+                            />
+                        </motion.div>
+                    )}
 
                     {/* 10-Day Heatmap */}
                     <motion.div
@@ -226,7 +240,6 @@ export default function RetentionDashboard() {
                         transition={{ delay: 0.4 }}
                     >
                         <RetentionHeatmap
-                            days={DUMMY_DAYS}
                             onTopicClick={handleTopicClick}
                             onQuickReview={handleQuickReview}
                         />
@@ -242,7 +255,7 @@ export default function RetentionDashboard() {
                         transition={{ delay: 0.3 }}
                     >
                         <SmartAlerts
-                            alerts={DUMMY_ALERTS}
+                            alerts={DUMMY_ALERTS.map(a => ({ ...a, topicId: String(a.topicId) }))}
                             onDismiss={(id) => console.log("Dismiss:", id)}
                             onAction={handleQuickReview}
                         />

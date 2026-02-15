@@ -8,6 +8,7 @@ import LevelPurchaseModal from '../LevelPurchaseModal';
 import { Sparkles, Flower, Activity, BarChart3, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { toast } from 'sonner';
 
 // Phase 3 Imports
 import AmbientBackground from '../theme/AmbientBackground';
@@ -19,7 +20,10 @@ import Level1_Breathing from '../experiences/Level1_Breathing';
 import Level2ZenGarden from '../experiences/Level2ZenGarden';
 import Level3_Resonance from '../experiences/Level3_Resonance';
 
+import { useAuth } from '@/contexts/auth-context';
+
 export default function MeditationDashboard() {
+    const { user } = useAuth();
     const {
         unlockedLevels,
         karmaCoins,
@@ -53,6 +57,9 @@ export default function MeditationDashboard() {
     const handlePurchaseSuccess = () => {
         if (purchaseModalState.level) {
             grantLevel(purchaseModalState.level.id);
+            toast.success("Purchase Successful!", {
+                description: `You have unlocked ${purchaseModalState.level.name}. A receipt has been sent to your email.`
+            });
             setPurchaseModalState({ isOpen: false, level: null });
         }
     };
@@ -157,6 +164,8 @@ export default function MeditationDashboard() {
                         currency: "INR"
                     }}
                     onPurchaseSuccess={handlePurchaseSuccess}
+                    userName={user?.full_name || undefined}
+                    userEmail={user?.email}
                 />
             )}
         </div>

@@ -117,7 +117,6 @@ export default function AIAvatarsPage() {
     try {
       setLoading(true);
 
-      // Create FormData for file upload
       const formData = new FormData();
       formData.append("purpose", selectedPurpose || "");
       formData.append("name", avatarConfig.name);
@@ -132,7 +131,7 @@ export default function AIAvatarsPage() {
         formData.append("documents", file);
       });
 
-      await api.post("/ai/avatars", formData, {
+      await api.post("/ai-avatars/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -165,20 +164,20 @@ export default function AIAvatarsPage() {
               <div className="flex items-center">
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${step.id === currentStep
-                      ? "bg-blue-600 text-white"
-                      : step.id < currentStep
-                        ? "bg-green-600 text-white"
-                        : "bg-gray-700 text-gray-400"
+                    ? "bg-blue-600 text-white"
+                    : step.id < currentStep
+                      ? "bg-green-600 text-white"
+                      : "bg-gray-700 text-gray-400"
                     }`}
                 >
                   {step.id < currentStep ? <Check className="w-4 h-4" /> : step.id}
                 </div>
                 <span
                   className={`ml-2 text-sm ${step.id === currentStep
-                      ? "text-blue-400 font-medium"
-                      : step.id < currentStep
-                        ? "text-green-400"
-                        : "text-gray-500"
+                    ? "text-blue-400 font-medium"
+                    : step.id < currentStep
+                      ? "text-green-400"
+                      : "text-gray-500"
                     }`}
                 >
                   {step.label}
@@ -209,8 +208,8 @@ export default function AIAvatarsPage() {
                   <Card
                     key={purpose.id}
                     className={`cursor-pointer transition-all ${selectedPurpose === purpose.id
-                        ? "bg-blue-950/50 border-blue-600 border-2"
-                        : "bg-gray-900/50 border-gray-800 hover:border-gray-700"
+                      ? "bg-blue-950/50 border-blue-600 border-2"
+                      : "bg-gray-900/50 border-gray-800 hover:border-gray-700"
                       }`}
                     onClick={() => setSelectedPurpose(purpose.id)}
                   >
@@ -218,8 +217,8 @@ export default function AIAvatarsPage() {
                       <div className="flex items-start gap-4">
                         <div
                           className={`p-3 rounded-lg ${selectedPurpose === purpose.id
-                              ? "bg-blue-600"
-                              : "bg-gray-800"
+                            ? "bg-blue-600"
+                            : "bg-gray-800"
                             }`}
                         >
                           <Icon className="w-6 h-6" />

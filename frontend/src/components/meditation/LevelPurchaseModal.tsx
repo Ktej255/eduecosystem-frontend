@@ -15,6 +15,8 @@ interface LevelPurchaseModalProps {
         features?: string[];
     };
     onPurchaseSuccess: () => void;
+    userName?: string;
+    userEmail?: string;
 }
 
 declare global {
@@ -28,6 +30,8 @@ export default function LevelPurchaseModal({
     onClose,
     level,
     onPurchaseSuccess,
+    userName,
+    userEmail
 }: LevelPurchaseModalProps) {
     const [isProcessing, setIsProcessing] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -83,8 +87,8 @@ export default function LevelPurchaseModal({
                     }
                 },
                 prefill: {
-                    name: '',
-                    email: '',
+                    name: userName || '',
+                    email: userEmail || '',
                 },
                 theme: {
                     color: '#6366f1',

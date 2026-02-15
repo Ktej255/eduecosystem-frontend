@@ -1,3 +1,8 @@
+import { ContentItem } from "../../types";
+import { communalism } from "./content/communalism";
+import { regionalism } from "./content/regionalism";
+import { secularism } from "./content/secularism";
+
 export interface SocietyTopic {
     id: string;
     title: string;
@@ -5,6 +10,8 @@ export interface SocietyTopic {
     subtopics: string[];
     days: number;
     category: 'Structure' | 'Issues' | 'Dynamics';
+    contentId?: string;
+    content?: ContentItem;
 }
 
 export const SOCIETY_SYLLABUS: SocietyTopic[] = [
@@ -58,7 +65,7 @@ export const SOCIETY_SYLLABUS: SocietyTopic[] = [
     },
     {
         id: 'social-empowerment',
-        title: "Secularism & Communalism",
+        title: "Secularism, Communalism & Regionalism",
         description: "Ideological issues threatening integrity.",
         subtopics: [
             "Communalism vs Secularism",
@@ -66,6 +73,16 @@ export const SOCIETY_SYLLABUS: SocietyTopic[] = [
             "Social Empowerment Measures"
         ],
         days: 3,
-        category: 'Dynamics'
+        category: 'Dynamics',
+        contentId: 'communalism',
+        content: communalism
     }
 ];
+
+// Content Map
+export const SOCIETY_CONTENT_MAP: Record<string, { content: ContentItem }> = {
+    'social-empowerment': { content: communalism },
+    'communalism': { content: communalism },
+    'regionalism': { content: regionalism },
+    'secularism': { content: secularism }
+};

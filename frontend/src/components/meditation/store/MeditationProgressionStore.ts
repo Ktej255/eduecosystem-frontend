@@ -98,15 +98,20 @@ export const useMeditationStore = create<MeditationState>()(
 
             syncPurchases: async () => {
                 try {
-                    const history = await meditationService.getPurchaseHistory();
-                    if (history && history.levels_owned) {
-                        const { unlockedLevels } = get();
-                        // Merge existing unlocks with purchased ones
-                        const newUnlocks = Array.from(new Set([...unlockedLevels, ...history.levels_owned]));
-                        set({ unlockedLevels: newUnlocks as number[] });
+                    const overview = await meditationService.getOverview();
+                    if (overview && overview.levels) {
+                        const unlockedFromBackend = overview.levels
+                            .filter(l => l.is_unlocked)
+                            .map(l => l.level);
+
+                        set({
+                            unlockedLevels: Array.from(new Set(unlockedFromBackend)),
+                            currentLevel: overview.current_level,
+                            streakDays: overview.total_streak
+                        });
                     }
                 } catch (error) {
-                    console.error("Failed to sync purchases:", error);
+                    console.error("Failed to sync meditation progress:", error);
                 }
             },
 

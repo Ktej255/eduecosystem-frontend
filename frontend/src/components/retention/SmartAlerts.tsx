@@ -16,7 +16,7 @@ import {
 
 interface Alert {
     id: number;
-    topicId: number;
+    topicId: string;
     topicName: string;
     type: "critical" | "warning" | "reminder";
     message: string;
@@ -27,7 +27,7 @@ interface Alert {
 interface SmartAlertsProps {
     alerts: Alert[];
     onDismiss?: (id: number) => void;
-    onAction?: (topicId: number) => void;
+    onAction?: (topicId: string) => void;
 }
 
 export default function SmartAlerts({
@@ -166,10 +166,10 @@ export default function SmartAlerts({
                                         <div className="flex items-center gap-3 mt-2">
                                             <span
                                                 className={`text-sm font-medium ${alert.retention < 0.5
-                                                        ? "text-red-400"
-                                                        : alert.retention < 0.7
-                                                            ? "text-yellow-400"
-                                                            : "text-green-400"
+                                                    ? "text-red-400"
+                                                    : alert.retention < 0.7
+                                                        ? "text-yellow-400"
+                                                        : "text-green-400"
                                                     }`}
                                             >
                                                 {(alert.retention * 100).toFixed(0)}% retention

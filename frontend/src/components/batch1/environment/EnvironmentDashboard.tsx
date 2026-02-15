@@ -74,7 +74,7 @@ export default function EnvironmentDashboard() {
 
             {viewMode === 'planner' && (
                 <div className="animate-in slide-in-from-bottom-4 duration-500">
-                    <EnvironmentSectionPlanner />
+                    <EnvironmentSectionPlanner onViewVisuals={() => setViewMode('visual')} />
                 </div>
             )}
 

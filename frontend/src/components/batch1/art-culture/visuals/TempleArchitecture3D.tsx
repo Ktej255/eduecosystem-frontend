@@ -4,6 +4,9 @@ import React, { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { PerspectiveCamera, OrbitControls, Stars, Text, Float, Html } from '@react-three/drei';
 import * as THREE from 'three';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ChevronRight } from 'lucide-react';
 
 const TEMPLE_PARTS = [
     { name: 'Amalaka', pos: [0, 4.2, 0], desc: 'Stone disk with ridges on top of shikhara', color: '#fbbf24' },
@@ -114,9 +117,15 @@ export default function TempleArchitecture3D() {
                     <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
                     <span className="text-[10px] font-bold text-white uppercase tracking-widest">Exam Insight</span>
                 </div>
-                <p className="text-[11px] text-amber-100/80 leading-relaxed italic">
+                <p className="text-[11px] text-amber-100/80 leading-relaxed italic mb-4">
                     "Differentiate between Nagara (North) and Dravida (South). Nagara lacks elaborate gatehouses (Gopurams) and water tanks unlike Dravida style."
                 </p>
+                <Link href="/student/batch1/art-culture/2">
+                    <Button size="sm" className="w-full bg-amber-600 hover:bg-amber-700 text-white text-[10px] h-8">
+                        Deep Dive: Nagara Style
+                        <ChevronRight className="ml-1 w-3 h-3" />
+                    </Button>
+                </Link>
             </div>
         </div>
     );

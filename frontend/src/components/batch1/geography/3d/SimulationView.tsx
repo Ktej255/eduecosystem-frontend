@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SimulationType } from "../content/types";
 
 // Dynamic import to avoid SSR issues with Three.js
 const RiverSystemViz = dynamic(
@@ -66,8 +67,13 @@ const GlacialViz = dynamic(
     }
 );
 
+const EarthLayersInteract = dynamic(
+    () => import("./interactives/EarthLayersInteract"),
+    { ssr: false }
+);
+
 interface SimulationViewProps {
-    simulationType: 'ganga-river' | 'brahmaputra-river' | 'monsoon' | 'plate-tectonics' | 'volcano' | 'glacial-landforms';
+    simulationType: SimulationType;
     onClose: () => void;
 }
 
@@ -86,6 +92,8 @@ export default function SimulationView({ simulationType, onClose }: SimulationVi
                 return <VolcanoViz />;
             case 'glacial-landforms':
                 return <GlacialViz />;
+            case 'earth-layers-interactive':
+                return <EarthLayersInteract onClose={onClose} />;
             default:
                 return null;
         }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     BarChart3,
     Users,
@@ -15,9 +15,11 @@ import {
     BookOpen,
     Video,
     Download,
+    AlertTriangle,
 } from "lucide-react";
 import FeedbackAggregator from "@/components/teacher-portal/analytics/FeedbackAggregator";
 import EngagementHeatmap from "@/components/teacher-portal/analytics/EngagementHeatmap";
+import BehavioralHeatmap from "@/components/teacher-portal/analytics/BehavioralHeatmap";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -71,48 +73,76 @@ const topContent = [
     { id: 5, title: "Environment - Biodiversity", views: 876, completions: 612, rating: 4.4 },
 ];
 
-// Analytics stats
-const analyticsStats = [
-    {
-        label: "Total Views",
-        value: "12,456",
-        change: "+12.5%",
-        trend: "up",
-        icon: Eye,
-        color: "text-blue-600",
-        bgColor: "bg-blue-100"
-    },
-    {
-        label: "Active Students",
-        value: "789",
-        change: "+8.3%",
-        trend: "up",
-        icon: Users,
-        color: "text-green-600",
-        bgColor: "bg-green-100"
-    },
-    {
-        label: "Completion Rate",
-        value: "67%",
-        change: "+3.2%",
-        trend: "up",
-        icon: CheckCircle2,
-        color: "text-purple-600",
-        bgColor: "bg-purple-100"
-    },
-    {
-        label: "Watch Time",
-        value: "2,345h",
-        change: "-2.1%",
-        trend: "down",
-        icon: Clock,
-        color: "text-amber-600",
-        bgColor: "bg-amber-100"
-    },
-];
-
 export default function AnalyticsPage() {
     const [dateRange, setDateRange] = useState("7days");
+
+    // Live stats from admin-overview endpoint
+    const [liveStats, setLiveStats] = useState<{
+        total_users: number;
+        active_students_24h: number;
+        struggle_signals_24h: number;
+        total_completions: number;
+        est_watch_hours: number;
+    } | null>(null);
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+                const token = localStorage.getItem('edueco_auth_token');
+                if (!token) return;
+
+                const res = await fetch(`${baseUrl}/analytics/admin-overview`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (res.ok) {
+                    setLiveStats(await res.json());
+                }
+            } catch (e) {
+                console.warn("Failed to fetch admin overview:", e);
+            }
+        };
+        fetchStats();
+    }, []);
+
+    const analyticsStats = [
+        {
+            label: "Total Users",
+            value: liveStats ? liveStats.total_users.toLocaleString() : "—",
+            change: "Live",
+            trend: "up" as const,
+            icon: Users,
+            color: "text-blue-600",
+            bgColor: "bg-blue-100"
+        },
+        {
+            label: "Active (24h)",
+            value: liveStats ? liveStats.active_students_24h.toLocaleString() : "—",
+            change: "Live",
+            trend: "up" as const,
+            icon: Eye,
+            color: "text-green-600",
+            bgColor: "bg-green-100"
+        },
+        {
+            label: "Completions",
+            value: liveStats ? liveStats.total_completions.toLocaleString() : "—",
+            change: "Live",
+            trend: "up" as const,
+            icon: CheckCircle2,
+            color: "text-purple-600",
+            bgColor: "bg-purple-100"
+        },
+        {
+            label: "Struggle Signals",
+            value: liveStats ? liveStats.struggle_signals_24h.toLocaleString() : "—",
+            change: "24h",
+            trend: liveStats && liveStats.struggle_signals_24h > 5 ? "down" as const : "up" as const,
+            icon: AlertTriangle,
+            color: "text-amber-600",
+            bgColor: "bg-amber-100"
+        },
+    ];
 
     return (
         <div className="p-6 space-y-6">
@@ -346,6 +376,18 @@ export default function AnalyticsPage() {
                     <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Phase 33</span>
                 </div>
                 <EngagementHeatmap />
+            </div>
+
+            {/* Student Behavioral Pulse Monitor */}
+            <div className="mt-8">
+                <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                        <Eye className="h-5 w-5 text-purple-600" />
+                        Student Pulse Monitor
+                    </h2>
+                    <span className="text-xs text-purple-500 bg-purple-100 px-2 py-1 rounded-full">Phase 12 — Live</span>
+                </div>
+                <BehavioralHeatmap />
             </div>
 
             {/* Feedback Aggregator */}

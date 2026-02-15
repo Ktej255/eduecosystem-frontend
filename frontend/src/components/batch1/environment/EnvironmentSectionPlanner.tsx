@@ -21,7 +21,11 @@ const getDayStatus = (day: number) => {
     return 'locked';
 };
 
-export default function EnvironmentSectionPlanner() {
+interface EnvironmentSectionPlannerProps {
+    onViewVisuals?: () => void;
+}
+
+export default function EnvironmentSectionPlanner({ onViewVisuals }: EnvironmentSectionPlannerProps) {
     const router = useRouter();
     const [selectedDay, setSelectedDay] = useState<number>(1);
     const [completedDays, setCompletedDays] = useState<number[]>([1]);
@@ -168,6 +172,18 @@ export default function EnvironmentSectionPlanner() {
                                         <FileText className="w-4 h-4 mr-2" />
                                         Notes
                                     </Button>
+
+                                    {onViewVisuals && (
+                                        <Button
+                                            size="lg"
+                                            variant="ghost"
+                                            className="text-emerald-100 hover:bg-emerald-800/20 hover:text-white"
+                                            onClick={onViewVisuals}
+                                        >
+                                            <Globe className="w-4 h-4 mr-2" />
+                                            Visuals
+                                        </Button>
+                                    )}
                                 </div>
                             </CardContent>
                         </Card>

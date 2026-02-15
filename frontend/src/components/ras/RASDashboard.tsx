@@ -25,6 +25,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { RAS_PRELIMS_SYLLABUS } from "./data/ras-syllabus-data";
 import { markRASTopicComplete } from "@/services/progressStorage";
+import InnerSpaceWidget from "../meditation/features/InnerSpaceWidget";
 
 export default function RASDashboard() {
     const router = useRouter();
@@ -187,6 +188,9 @@ export default function RASDashboard() {
 
             {/* Main Content: Timeline */}
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10 pb-20">
+                <div className="mb-10">
+                    <InnerSpaceWidget />
+                </div>
                 <div className="space-y-6">
                     {/* Vertical Line Container */}
                     <div className="relative pl-4 md:pl-0 space-y-8">

@@ -7,6 +7,12 @@ import { PolityTopic, getModuleById, getModuleColors, POLITY_MODULES as POLITY_P
 import { getTopicById } from './data/polity-registry'; // Using 50-topic registry for now
 import { POLITY_REVISION_CHAPTERS } from './data/RevisionRegistry'; // For 95-topic fallback
 
+import { isChapterComplete, markChapterComplete } from '@/lib/polity-progress-store';
+import ConfidencePoll from '@/components/shared/ConfidencePoll';
+import { CheckCircle } from 'lucide-react';
+import { toast } from 'sonner';
+
+import { Button } from '@/components/ui/button';
 import TopicPYQWidget from '../../batch1-1/polity/revision/TopicPYQWidget';
 
 // Adapter for TOPIC_TITLES using the 95-chapter registry
@@ -66,6 +72,18 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
     };
 
     const isExpanded = (section: string) => expandedSections.includes(section);
+
+    const [isCompleted, setIsCompleted] = useState(false);
+
+    React.useEffect(() => {
+        setIsCompleted(isChapterComplete(topicId));
+    }, [topicId]);
+
+    const handleMarkComplete = () => {
+        markChapterComplete(topicId);
+        setIsCompleted(true);
+        toast.success("Topic marked as complete!");
+    };
 
     return (
         <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#0a0a0a]">
@@ -282,6 +300,37 @@ export default function TopicViewer({ topic, topicId }: TopicViewerProps) {
                             </div>
                         ))}
                     </div>
+                </div>
+
+                {/* Completion Section */}
+                <div className="mt-8">
+                    {isCompleted ? (
+                        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl p-6 text-center animate-in zoom-in duration-300">
+                            <div className="flex flex-col items-center gap-4">
+                                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-green-100 text-green-700 rounded-full font-bold text-sm">
+                                    <CheckCircle className="w-5 h-5" />
+                                    Topic Completed
+                                </div>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                                    Rate your confidence level for this topic.
+                                </p>
+                                <div className="w-full max-w-sm">
+                                    <ConfidencePoll chapterId={String(topicId)} />
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="text-center">
+                            <Button
+                                onClick={handleMarkComplete}
+                                size="lg"
+                                className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold shadow-lg text-lg px-8 py-4 h-auto rounded-xl"
+                            >
+                                <CheckCircle className="w-6 h-6 mr-2" />
+                                Mark Topic as Complete
+                            </Button>
+                        </div>
+                    )}
                 </div>
 
                 {/* PYQ Widget (New) */}

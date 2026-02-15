@@ -1,18 +1,20 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
     Users, MessageSquare, UserPlus, Search, Crown, Star,
     BookOpen, Clock, CheckCircle, Flame, Trophy, Send,
-    Heart, Share2, MoreHorizontal, Bell, MessageCircle
+    Heart, Share2, MoreHorizontal, Bell, MessageCircle, Sword
 } from 'lucide-react';
 import { useGamification } from '@/context/GamificationContext';
 import { useCommunity } from '@/context/CommunityContext';
 import { useAuth } from '@/contexts/auth-context';
+import { toast } from 'sonner';
 import Leaderboard from '@/components/upsc/Leaderboard';
 import StudyGroups from '@/components/social/StudyGroups';
 import MessageThread from '@/components/social/MessageThread';
+import SuccessCard from '@/components/community/SuccessCard';
 
 // Mock friends for messaging
 const MOCK_FRIENDS = [
@@ -31,6 +33,57 @@ export default function CommunityPage() {
     const [searchQuery, setSearchQuery] = useState('');
     const [newPostContent, setNewPostContent] = useState('');
     const [selectedFriend, setSelectedFriend] = useState<{ id: number; full_name: string } | null>(null);
+    const [activePresences, setActivePresences] = useState<any[]>([]);
+
+    useEffect(() => {
+        const fetchPresence = async () => {
+            try {
+                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+                const token = localStorage.getItem('edueco_auth_token');
+                const response = await fetch(`${baseUrl}/community/presence`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setActivePresences(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch presence:', error);
+            }
+        };
+
+        // Update presence on load
+        const updateMyPresence = async () => {
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+            const token = localStorage.getItem('edueco_auth_token');
+            await fetch(`${baseUrl}/community/presence?status=online`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+        };
+
+        updateMyPresence();
+        fetchPresence();
+        const interval = setInterval(fetchPresence, 30000); // Every 30s
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleChallenge = async (opponentId: number) => {
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1/pack-battles';
+        const token = localStorage.getItem('edueco_auth_token');
+        try {
+            const response = await fetch(`${baseUrl}/challenge?defender_id=${opponentId}`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (response.ok) {
+                const data = await response.json();
+                toast.success(`Challenge sent! Battle ID: ${data.battle_id}`);
+            }
+        } catch (error) {
+            toast.error("Failed to send challenge");
+        }
+    };
 
     const handlePost = () => {
         if (!newPostContent.trim()) return;
@@ -38,8 +91,19 @@ export default function CommunityPage() {
         setNewPostContent('');
     };
 
+    const [showSuccessCard, setShowSuccessCard] = useState(false);
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-[#0a0a0a] dark:to-[#111] p-4 md:p-8">
+            {/* Success Card Modal */}
+            {showSuccessCard && (
+                <SuccessCard
+                    stats={{ xp, streak, level: Math.floor(xp / 1000) + 1 }}
+                    userName={user?.full_name || "Aspirant"}
+                    onClose={() => setShowSuccessCard(false)}
+                />
+            )}
+
             {/* Header */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -244,7 +308,7 @@ export default function CommunityPage() {
                         <h3 className="font-bold mb-4 flex items-center gap-2">
                             <Star className="w-5 h-5" /> Your Stats
                         </h3>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
                                 <p className="text-2xl font-bold">{xp.toLocaleString()}</p>
                                 <p className="text-xs opacity-80">Total XP</p>
@@ -254,35 +318,53 @@ export default function CommunityPage() {
                                 <p className="text-xs opacity-80">Day Streak</p>
                             </div>
                         </div>
+                        <button
+                            onClick={() => setShowSuccessCard(true)}
+                            className="w-full py-2 bg-white/20 hover:bg-white/30 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-2"
+                        >
+                            <Share2 className="w-3 h-3" /> Share Progress Card
+                        </button>
                     </motion.div>
 
-                    {/* Suggested Groups */}
+                    {/* Live in Library */}
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.1 }}
                         className="bg-white dark:bg-[#111] p-5 rounded-2xl border border-gray-200 dark:border-gray-800"
                     >
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-4">Suggested Groups</h3>
-                        <div className="space-y-3">
-                            <div className="flex items-center gap-3 text-sm">
-                                <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 font-bold">P</div>
-                                <div className="flex-1">
-                                    <p className="font-medium text-gray-900 dark:text-white">Prelims 2026</p>
-                                    <p className="text-xs text-gray-500">892 members</p>
+                        <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                            Online Aspirants
+                        </h3>
+                        <div className="space-y-4">
+                            {activePresences.length > 0 ? activePresences.map((presence) => (
+                                <div key={presence.user_id} className="flex items-center gap-3 text-sm">
+                                    <div className="relative">
+                                        <img src={presence.avatar} className="w-8 h-8 rounded-full" alt={presence.name} />
+                                        <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white dark:border-[#111]" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="font-medium text-gray-900 dark:text-white">{presence.name}</p>
+                                        <p className="text-[10px] text-gray-500">{presence.status} • {presence.current_subject}</p>
+                                    </div>
+                                    {presence.user_id !== user?.id && (
+                                        <button
+                                            onClick={() => handleChallenge(presence.user_id)}
+                                            className="p-2 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500 rounded-lg transition-colors"
+                                            title="Challenge to Battle"
+                                        >
+                                            <Sword className="w-4 h-4" />
+                                        </button>
+                                    )}
                                 </div>
-                                <button className="text-xs text-indigo-600 font-medium">Join</button>
-                            </div>
-                            <div className="flex items-center gap-3 text-sm">
-                                <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-600 font-bold">H</div>
-                                <div className="flex-1">
-                                    <p className="font-medium text-gray-900 dark:text-white">History Buffs</p>
-                                    <p className="text-xs text-gray-500">234 members</p>
-                                </div>
-                                <button className="text-xs text-indigo-600 font-medium">Join</button>
-                            </div>
+                            )) : (
+                                <p className="text-xs text-gray-500 text-center">No one else in the library yet.</p>
+                            )}
                         </div>
                     </motion.div>
+
+                    {/* Suggested Groups (Moving down or keeping) */}
 
                     {/* Upcoming Events */}
                     <motion.div

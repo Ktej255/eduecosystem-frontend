@@ -1,48 +1,55 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Trophy, Crown, Medal, TrendingUp, User } from 'lucide-react';
+import { Trophy, Crown, Medal, TrendingUp, User as UserIcon } from 'lucide-react';
 import { useGamification } from '@/context/GamificationContext';
+import { useAuth } from '@/contexts/auth-context';
 
 interface LeaderboardEntry {
     rank: number;
+    user_id: number;
     name: string;
     xp: number;
-    level: number;
-    avatar?: string;
+    streak: number;
+    avatar: string;
     isCurrentUser?: boolean;
 }
 
-const MOCK_LEADERS: LeaderboardEntry[] = [
-    { rank: 1, name: "Aarav Patel", xp: 12540, level: 12 },
-    { rank: 2, name: "Ishaan Sharma", xp: 11200, level: 11 },
-    { rank: 3, name: "Priya Singh", xp: 9850, level: 10 },
-    { rank: 4, name: "Neha Gupta", xp: 8540, level: 9 },
-    { rank: 5, name: "Rohan Das", xp: 7200, level: 8 }
-];
-
 export default function Leaderboard() {
-    const { xp, level } = useGamification();
+    const { xp: localXP, level: localLevel } = useGamification();
+    const { user: currentUser } = useAuth();
     const [leaders, setLeaders] = useState<LeaderboardEntry[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simple logic to insert current user into mock leaderboard
-        // In real app, this would fetch from API
-        const currentUser: LeaderboardEntry = {
-            rank: 0, // Calculated below
-            name: "You",
-            xp: xp,
-            level: level,
-            isCurrentUser: true
+        const fetchLeaderboard = async () => {
+            try {
+                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+                const token = localStorage.getItem('edueco_auth_token');
+                const response = await fetch(`${baseUrl}/community/leaderboard`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (response.ok) {
+                    const data: LeaderboardEntry[] = await response.json();
+
+                    // Identify current user
+                    const ranked = data.map(entry => ({
+                        ...entry,
+                        isCurrentUser: entry.user_id === currentUser?.id
+                    }));
+
+                    setLeaders(ranked);
+                }
+            } catch (error) {
+                console.error('Failed to fetch leaderboard:', error);
+            } finally {
+                setLoading(false);
+            }
         };
 
-        const allUsers = [...MOCK_LEADERS, currentUser].sort((a, b) => b.xp - a.xp);
-
-        // Assign ranks
-        const rankedUsers = allUsers.map((u, idx) => ({ ...u, rank: idx + 1 }));
-
-        setLeaders(rankedUsers);
-    }, [xp, level]);
+        fetchLeaderboard();
+    }, [currentUser?.id, localXP]);
 
     const getRankIcon = (rank: number) => {
         switch (rank) {
@@ -87,7 +94,7 @@ export default function Leaderboard() {
                                     <div className={`text-sm font-bold ${user.isCurrentUser ? 'text-blue-700 dark:text-blue-400' : 'text-gray-900 dark:text-white'}`}>
                                         {user.name} {user.isCurrentUser && "(You)"}
                                     </div>
-                                    <div className="text-[10px] text-gray-500">Level {user.level} Aspirant</div>
+                                    <div className="text-[10px] text-gray-500">{user.streak} Day Streak</div>
                                 </div>
                             </div>
                         </div>

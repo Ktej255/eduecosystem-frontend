@@ -4,8 +4,18 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Scale, BookOpen } from "lucide-react";
 import Link from 'next/link';
+import { ETHICS_CONTENT_MAP } from './data/ethics-schedule-data';
+import EthicsTopicViewer from './EthicsTopicViewer';
 
 export default function GenericEthicsPage({ topicId }: { topicId: string }) {
+    // Check if content exists for this topic ID
+    const topicData = ETHICS_CONTENT_MAP[topicId];
+
+    if (topicData && topicData.content) {
+        return <EthicsTopicViewer content={topicData.content} />;
+    }
+
+    // Fallback for missing/in-development topics
     const formatTitle = (id: string) => {
         return id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     };
@@ -20,12 +30,12 @@ export default function GenericEthicsPage({ topicId }: { topicId: string }) {
                     <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-100">{formatTitle(topicId)}</h1>
                     <p className="text-sm text-stone-500 font-mono mt-1">GS Paper IV Module</p>
                 </div>
-                <p className="text-stone-600 dark:text-stone-400">
-                    Detailed definitions, examples, and flowcharts for this Ethics topic are under development.
-                </p>
+                <div className="p-4 bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800 rounded-lg text-amber-800 dark:text-amber-200 text-sm">
+                    <strong>Coming Soon:</strong> Detailed definitions, case studies, and thinkers for this topic are being curated.
+                </div>
                 <div className="flex justify-center gap-4">
                     <Link href="/student/batch1/ethics">
-                        <Button variant="outline" className="gap-2 border-stone-200">
+                        <Button variant="outline" className="gap-2 border-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900">
                             <ArrowLeft className="h-4 w-4" /> Back to Dashboard
                         </Button>
                     </Link>

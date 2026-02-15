@@ -33,6 +33,13 @@ export const ORIGIN_OF_UNIVERSE_CONTENT: LessonContent = {
                     content: `Proposed by **Georges Lemaître** in 1927, the Big Bang theory suggests that the universe expanded from an extremely hot, dense point approximately **13.8 billion years ago**.`
                 },
                 {
+                    id: 'bb-video',
+                    type: 'video',
+                    content: 'https://www.youtube.com/embed/wNDGgL73ihY',
+                    caption: 'Visualization of the Big Bang Expansion',
+                    alt: 'Big Bang Animation'
+                },
+                {
                     id: 'bb-callout',
                     type: 'callout',
                     content: '💡 **Key Concept:** The Big Bang was not an explosion *in* space, but an expansion *of* space itself.'
@@ -97,6 +104,22 @@ export const ORIGIN_OF_UNIVERSE_CONTENT: LessonContent = {
                         ],
                         correctIndex: 2,
                         explanation: "Georges Lemaître, a Belgian priest and physicist, first proposed the theory of the expansion of the universe, later known as the Big Bang Theory."
+                    }
+                },
+                {
+                    id: 'q3',
+                    type: 'quiz',
+                    content: '',
+                    quizData: {
+                        question: "Which observation provided the strongest evidence against the Steady State Theory?",
+                        options: [
+                            "Expansion of the Universe",
+                            "Cosmic Microwave Background (CMB)",
+                            "Rotation of Galaxies",
+                            "Existence of Black Holes"
+                        ],
+                        correctIndex: 1,
+                        explanation: "The discovery of the Cosmic Microwave Background (CMB) radiation was the 'smoking gun' evidence that supported the Big Bang and contradicted the Steady State theory, which could not explain this remnant heat."
                     }
                 }
             ]

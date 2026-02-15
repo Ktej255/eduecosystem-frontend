@@ -11,7 +11,9 @@ import {
 } from "@/services/progressStorage";
 import { getCompletedStepsForDay } from "@/lib/journey/completion-tracker";
 import { getUserAccess } from "@/config/user-access-config";
-import { RefreshCw, Clock } from "lucide-react";
+import { RefreshCw, Clock, ChevronRight, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useGamification } from "@/context/GamificationContext";
 // Import the RAS Dashboard (Anti-Gravity)
@@ -20,9 +22,21 @@ import HabitTracker from "@/components/engagement/HabitTracker";
 import StreakWidget from "@/components/engagement/StreakWidget";
 import DailyChallengeWidget from "@/components/upsc/DailyChallengeWidget";
 import Leaderboard from "@/components/upsc/Leaderboard";
+import StudentDNAWidget from "@/components/dashboard/StudentDNAWidget";
+import LifeMasteryReport from "@/components/dashboard/LifeMasteryReport";
+import { logStudySession } from "@/services/progressStorage";
+import InnerSpaceWidget from "@/components/meditation/features/InnerSpaceWidget";
+import DailyMissionCard from "@/components/dashboard/DailyMissionCard";
+import { pullCloudProgress, processRetryQueue } from "@/services/progressStorage";
+import QuickReviewWidget from "@/components/dashboard/QuickReviewWidget";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
+
+    useEffect(() => {
+        pullCloudProgress();
+        processRetryQueue();
+    }, []);
     const { streak, longestStreak, xp } = useGamification() || { streak: 0, longestStreak: 0, xp: 0 };
 
     // --- CHITRA-SPECIFIC OVERRIDE ---
@@ -67,6 +81,9 @@ export default function StudentDashboard() {
     useEffect(() => {
         loadStats();
         loadCompletedSteps();
+
+        // Log session start (simplified for demo: log 15 mins activity every time dashboard is opened)
+        logStudySession(15);
 
         // Listen for storage changes
         const handleStorage = () => loadCompletedSteps();
@@ -168,13 +185,41 @@ export default function StudentDashboard() {
             </div>
 
             <div className="max-w-4xl mx-auto px-4 pt-6">
-                <HabitTracker />
+                <div className="grid grid-cols-1 gap-6">
+                    <DailyMissionCard />
+                    <LifeMasteryReport />
+                    <InnerSpaceWidget />
+                    <StudentDNAWidget />
+                    <HabitTracker />
+                </div>
             </div>
 
             {/* Engagement Widgets Section */}
             <div className="max-w-4xl mx-auto px-4 pt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <QuickReviewWidget />
                     <DailyChallengeWidget />
+
+                    <Link href="/student/holistic/skills">
+                        <Card className="bg-gradient-to-br from-purple-900 to-indigo-950 border-purple-500/20 hover:border-purple-500/40 transition-all cursor-pointer group overflow-hidden relative">
+                            <div className="absolute top-0 right-0 p-4 opacity-10">
+                                <Sparkles className="w-24 h-24 text-purple-400" />
+                            </div>
+                            <CardContent className="p-6 relative z-10 flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="p-2 bg-purple-500/20 rounded-lg">
+                                        <Sparkles className="w-5 h-5 text-purple-400" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-white">36 Skills Hub</h3>
+                                        <p className="text-xs text-white/40">Financial, Digital, & Mindset Mastery</p>
+                                    </div>
+                                </div>
+                                <ChevronRight className="w-5 h-5 text-white/20 group-hover:text-white transition-all transform group-hover:translate-x-1" />
+                            </CardContent>
+                        </Card>
+                    </Link>
+
                     <Leaderboard />
                 </div>
             </div>

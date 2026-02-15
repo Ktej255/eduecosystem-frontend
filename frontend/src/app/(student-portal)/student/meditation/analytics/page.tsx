@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import MeditationNav from '@/components/meditation/navigation/MeditationNav';
 import AmbientBackground from '@/components/meditation/theme/AmbientBackground';
 import ProgressGraph from '@/components/meditation/features/ProgressGraph';
+import FocusCorrelationChart from '@/components/meditation/features/FocusCorrelationChart';
 import AIInsights from '@/components/meditation/features/AIInsights';
 import { Calendar, Award, TrendingUp } from 'lucide-react';
 import { MEDITATION_THEME } from '@/components/meditation/theme/MeditationTheme';
@@ -75,13 +76,15 @@ export default function AnalyticsPage() {
                     </motion.div>
                 </div>
 
-                {/* Progress Graph */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 }}
                 >
-                    <ProgressGraph />
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <ProgressGraph />
+                        <FocusCorrelationChart />
+                    </div>
                 </motion.div>
 
                 {/* AI Insights Integration */}

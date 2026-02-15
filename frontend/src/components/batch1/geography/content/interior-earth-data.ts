@@ -53,6 +53,20 @@ export const INTERIOR_EARTH_CONTENT: LessonContent = {
                     content: 'https://images.unsplash.com/photo-1510526027178-5ad5cf0dc05a?q=80&w=2000&auto=format&fit=crop', // Placeholder for seismic diagram
                     caption: 'Seismographs record the arrival of P and S waves.',
                     alt: 'Seismograph reading'
+                },
+                {
+                    id: 'p-wave-shadow',
+                    type: 'image',
+                    content: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Earthquake_wave_shadow_zones.svg/1024px-Earthquake_wave_shadow_zones.svg.png',
+                    caption: 'P-Wave Shadow Zone (103° to 142°). P-waves are refracted by the liquid outer core.',
+                    alt: 'P-Wave Shadow Zone Diagram'
+                },
+                {
+                    id: 's-wave-shadow',
+                    type: 'image',
+                    content: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Earthquake_wave_shadow_zones.svg/1024px-Earthquake_wave_shadow_zones.svg.png', // Reusing for now, ideally specific S-wave
+                    caption: 'S-Wave Shadow Zone (beyond 103°). S-waves cannot travel through the liquid outer core.',
+                    alt: 'S-Wave Shadow Zone Diagram'
                 }
             ]
         },
@@ -109,20 +123,10 @@ export const INTERIOR_EARTH_CONTENT: LessonContent = {
             title: 'Discontinuities',
             content: [
                 {
-                    id: 'layers-quiz',
-                    type: 'quiz',
-                    content: '',
-                    quizData: {
-                        question: "Which discontinuity separates the Earth's Crust from the Mantle?",
-                        options: [
-                            "Conrad Discontinuity",
-                            "Mohorovicic Discontinuity",
-                            "Gutenberg Discontinuity",
-                            "Lehmann Discontinuity"
-                        ],
-                        correctIndex: 1,
-                        explanation: "The Mohorovicic Discontinuity (or Moho) marks the boundary between the crust and the mantle, characterized by a sharp increase in seismic wave velocity."
-                    }
+                    id: 'earth-layers-interactive',
+                    type: 'simulation',
+                    content: 'Test your knowledge by dragging and dropping Earth\'s components into the correct layers.',
+                    simulationType: 'earth-layers-interactive'
                 },
                 {
                     id: 'list-disc',
