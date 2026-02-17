@@ -9,7 +9,20 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-const BATTLES = [
+export interface Battle {
+    name: string;
+    year: string;
+    parties: string[];
+    outcome: string;
+    strategicKey: string;
+    impact: string;
+    color: string;
+    bg: string;
+    border: string;
+    location: string;
+}
+
+const DEFAULT_BATTLES: Battle[] = [
     {
         name: "First Battle of Panipat",
         year: "1526",
@@ -72,8 +85,12 @@ const BATTLES = [
     }
 ];
 
-export default function BattleAnalytics() {
-    const [selectedBattle, setSelectedBattle] = useState(BATTLES[0]);
+interface BattleAnalyticsProps {
+    battles?: Battle[];
+}
+
+export default function BattleAnalytics({ battles = DEFAULT_BATTLES }: BattleAnalyticsProps) {
+    const [selectedBattle, setSelectedBattle] = useState(battles[0]);
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -84,13 +101,13 @@ export default function BattleAnalytics() {
                     <h3 className="font-bold text-stone-800">Decisive Battles Array</h3>
                 </div>
                 <div className="space-y-3 h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-                    {BATTLES.map((battle, idx) => (
+                    {battles.map((battle, idx) => (
                         <button
                             key={idx}
                             onClick={() => setSelectedBattle(battle)}
                             className={`w-full text-left p-4 rounded-2xl border-2 transition-all group ${selectedBattle.name === battle.name
-                                    ? `${battle.border} ${battle.bg} shadow-md`
-                                    : "border-transparent bg-white hover:border-slate-200"
+                                ? `${battle.border} ${battle.bg} shadow-md`
+                                : "border-transparent bg-white hover:border-slate-200"
                                 }`}
                         >
                             <div className="flex justify-between items-start mb-1">

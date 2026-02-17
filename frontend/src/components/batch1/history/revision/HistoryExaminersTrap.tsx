@@ -4,12 +4,23 @@ import React, { useState } from 'react';
 import {
     AlertTriangle, Sparkles, Target,
     XCircle, CheckCircle2, Info,
-    ArrowRight, Lightbulb, Zap
+    ArrowRight, Lightbulb, Zap, GraduationCap
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-const TRAPS = [
+export interface Trap {
+    title: string;
+    scenario: string;
+    wrongWay: string;
+    rightWay: string;
+    trick: string;
+    color: string;
+    bg: string;
+    border: string;
+}
+
+const DEFAULT_TRAPS: Trap[] = [
     {
         title: "Similary Named Organizations",
         scenario: "Confusion between Raja Ram Mohan Roy's organizations.",
@@ -52,7 +63,11 @@ const TRAPS = [
     }
 ];
 
-export default function HistoryExaminersTrap() {
+interface HistoryExaminersTrapProps {
+    traps?: Trap[];
+}
+
+export default function HistoryExaminersTrap({ traps = DEFAULT_TRAPS }: HistoryExaminersTrapProps) {
     return (
         <div className="space-y-8">
             <div className="bg-red-50 border-2 border-red-100 p-8 rounded-3xl flex flex-col md:flex-row gap-6 items-center">
@@ -68,7 +83,7 @@ export default function HistoryExaminersTrap() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {TRAPS.map((trap, idx) => (
+                {traps.map((trap, idx) => (
                     <div key={idx} className={`bg-white rounded-3xl border-2 ${trap.border} shadow-sm overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300`}>
                         <div className={`p-5 ${trap.bg} border-b ${trap.border} flex justify-between items-center`}>
                             <h4 className="font-black text-slate-800">{trap.title}</h4>

@@ -10,7 +10,19 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 
-const PERSONALITIES = [
+export interface Personality {
+    name: string;
+    title: string;
+    era: string;
+    keyWorks: string;
+    ideology: string;
+    organization: string;
+    color: string;
+    bg: string;
+    border: string;
+}
+
+const DEFAULT_PERSONALITIES: Personality[] = [
     {
         name: "Chandragupta Maurya",
         title: "Founder of Mauryan Empire",
@@ -79,11 +91,16 @@ const PERSONALITIES = [
     }
 ];
 
-export default function PersonalityHub() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [selectedEra, setSelectedEra] = useState("All");
+interface PersonalityHubProps {
+    personalities?: Personality[];
+    initialEra?: string;
+}
 
-    const filtered = PERSONALITIES.filter(p => {
+export default function PersonalityHub({ personalities = DEFAULT_PERSONALITIES, initialEra = "All" }: PersonalityHubProps) {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [selectedEra, setSelectedEra] = useState(initialEra);
+
+    const filtered = personalities.filter(p => {
         const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             p.ideology.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesEra = selectedEra === "All" || p.era === selectedEra;

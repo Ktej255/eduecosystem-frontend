@@ -225,7 +225,7 @@ def read_root():
     return {
         "message": "Welcome to Eduecosystem Backend API",
         "status": "running",
-        "version": "1.0.6",
+        "version": "1.0.7",
         "docs": "/docs"
     }
 
@@ -319,6 +319,73 @@ def api_status():
         "status": "operational",
         "environment": os.getenv("ENVIRONMENT", "production")
     }
+
+
+# ONE-TIME MIGRATION: Add missing columns to production database
+@app.get("/admin/migrate-db")
+def migrate_database():
+    """
+    One-time database migration to add missing columns.
+    Safe to run multiple times (uses IF NOT EXISTS / DO NOTHING logic).
+    """
+    from sqlalchemy import text
+    from app.db.session import SessionLocal
+
+    db = SessionLocal()
+    results = []
+
+    # All columns that might be missing from the users table
+    migrations = [
+        ("xp", "ALTER TABLE users ADD COLUMN IF NOT EXISTS xp INTEGER DEFAULT 0"),
+        ("streak_days", "ALTER TABLE users ADD COLUMN IF NOT EXISTS streak_days INTEGER DEFAULT 0"),
+        ("coins", "ALTER TABLE users ADD COLUMN IF NOT EXISTS coins INTEGER DEFAULT 0"),
+        ("token_version", "ALTER TABLE users ADD COLUMN IF NOT EXISTS token_version INTEGER DEFAULT 1"),
+        ("is_approved", "ALTER TABLE users ADD COLUMN IF NOT EXISTS is_approved BOOLEAN DEFAULT TRUE"),
+        ("is_banned", "ALTER TABLE users ADD COLUMN IF NOT EXISTS is_banned BOOLEAN DEFAULT FALSE"),
+        ("email_notifications", "ALTER TABLE users ADD COLUMN IF NOT EXISTS email_notifications BOOLEAN DEFAULT TRUE"),
+        ("is_premium", "ALTER TABLE users ADD COLUMN IF NOT EXISTS is_premium BOOLEAN DEFAULT FALSE"),
+        ("stripe_customer_id", "ALTER TABLE users ADD COLUMN IF NOT EXISTS stripe_customer_id VARCHAR NULL"),
+        ("subscription_status", "ALTER TABLE users ADD COLUMN IF NOT EXISTS subscription_status VARCHAR DEFAULT 'free'"),
+        ("graphotherapy_enrollment_date", "ALTER TABLE users ADD COLUMN IF NOT EXISTS graphotherapy_enrollment_date TIMESTAMP NULL"),
+        ("is_graphotherapy_exclusive", "ALTER TABLE users ADD COLUMN IF NOT EXISTS is_graphotherapy_exclusive BOOLEAN DEFAULT FALSE"),
+        ("organization_id", "ALTER TABLE users ADD COLUMN IF NOT EXISTS organization_id INTEGER NULL"),
+        ("is_sso_user", "ALTER TABLE users ADD COLUMN IF NOT EXISTS is_sso_user BOOLEAN DEFAULT FALSE"),
+        ("sso_external_id", "ALTER TABLE users ADD COLUMN IF NOT EXISTS sso_external_id VARCHAR NULL"),
+        ("is_verified", "ALTER TABLE users ADD COLUMN IF NOT EXISTS is_verified BOOLEAN DEFAULT FALSE"),
+        ("is_ras_authorized", "ALTER TABLE users ADD COLUMN IF NOT EXISTS is_ras_authorized BOOLEAN DEFAULT FALSE"),
+        ("is_batch1_authorized", "ALTER TABLE users ADD COLUMN IF NOT EXISTS is_batch1_authorized BOOLEAN DEFAULT FALSE"),
+        ("is_batch2_authorized", "ALTER TABLE users ADD COLUMN IF NOT EXISTS is_batch2_authorized BOOLEAN DEFAULT FALSE"),
+        ("totp_secret", "ALTER TABLE users ADD COLUMN IF NOT EXISTS totp_secret VARCHAR NULL"),
+        ("revision_level", "ALTER TABLE users ADD COLUMN IF NOT EXISTS revision_level VARCHAR NULL"),
+        ("revision_exam_id", "ALTER TABLE users ADD COLUMN IF NOT EXISTS revision_exam_id VARCHAR NULL"),
+        ("push_subscription", "ALTER TABLE users ADD COLUMN IF NOT EXISTS push_subscription JSON NULL"),
+        ("last_login", "ALTER TABLE users ADD COLUMN IF NOT EXISTS last_login TIMESTAMP NULL"),
+        ("role", "ALTER TABLE users ADD COLUMN IF NOT EXISTS role VARCHAR DEFAULT 'student'"),
+        ("group_id", "ALTER TABLE users ADD COLUMN IF NOT EXISTS group_id INTEGER NULL"),
+        ("username", "ALTER TABLE users ADD COLUMN IF NOT EXISTS username VARCHAR NULL"),
+        ("created_at", "ALTER TABLE users ADD COLUMN IF NOT EXISTS created_at TIMESTAMP DEFAULT NOW()"),
+    ]
+
+    try:
+        for col_name, sql in migrations:
+            try:
+                db.execute(text(sql))
+                results.append({"column": col_name, "status": "applied"})
+            except Exception as e:
+                results.append({"column": col_name, "status": f"skipped: {str(e)}"})
+
+        db.commit()
+        db.close()
+
+        return {
+            "status": "migration_complete",
+            "version": "1.0.7",
+            "results": results
+        }
+    except Exception as e:
+        db.rollback()
+        db.close()
+        return {"status": "migration_failed", "error": str(e)}
 
 
 

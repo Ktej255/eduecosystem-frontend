@@ -13,17 +13,82 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useRouter } from 'next/navigation';
 
 // --- Components ---
-import ChronologyMaster from './ChronologyMaster';
-import PersonalityHub from './PersonalityHub';
-import BattleAnalytics from './BattleAnalytics';
+import ChronologyMaster, { EraData } from './ChronologyMaster';
+import PersonalityHub, { Personality } from './PersonalityHub';
+import BattleAnalytics, { Battle } from './BattleAnalytics';
 import ArtCultureVisualizer from './ArtCultureVisualizer';
-import HistoryExaminersTrap from './HistoryExaminersTrap';
+import HistoryExaminersTrap, { Trap } from './HistoryExaminersTrap';
 
+import { MODERN_HISTORY_REVISION } from './modern-revision-data';
+import { HistorySection } from '../data/history-schedule-registry';
 
+interface HistoryRevisionDashboardProps {
+    section?: HistorySection;
+}
 
-export default function HistoryRevisionDashboard() {
+export default function HistoryRevisionDashboard({ section = 'modern' }: HistoryRevisionDashboardProps) {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState('chronology');
+
+    // Data Mapping logic
+    const getRevisionData = () => {
+        if (section === 'modern') {
+            return {
+                eraData: [
+                    {
+                        id: 'modern',
+                        title: 'Modern History',
+                        subtitle: '1707 - 1947',
+                        color: 'bg-red-600',
+                        textColor: 'text-red-600',
+                        borderColor: 'border-red-200',
+                        lightBg: 'bg-red-50',
+                        events: MODERN_HISTORY_REVISION.timeline.map(e => ({
+                            year: e.year,
+                            title: e.event,
+                            detail: e.significance
+                        }))
+                    }
+                ],
+                personalities: MODERN_HISTORY_REVISION.personalities.map(p => ({
+                    name: p.name,
+                    title: p.title,
+                    era: 'Modern',
+                    keyWorks: p.keyWork,
+                    ideology: p.ideology,
+                    organization: p.org,
+                    bg: 'bg-red-50',
+                    border: 'border-red-100',
+                    color: 'text-red-600'
+                })) as Personality[],
+                battles: MODERN_HISTORY_REVISION.battles.map(b => ({
+                    name: b.name,
+                    year: b.name.match(/\d+/)?.[0] || '1757',
+                    parties: b.parties.split(' vs '),
+                    outcome: b.impact,
+                    strategicKey: b.strategicKey,
+                    impact: b.impact,
+                    location: 'India',
+                    color: 'text-red-600',
+                    bg: 'bg-red-50',
+                    border: 'border-red-200'
+                })) as Battle[],
+                traps: MODERN_HISTORY_REVISION.traps.map(t => ({
+                    title: t.topic,
+                    scenario: t.trap,
+                    wrongWay: t.trap,
+                    rightWay: t.fix,
+                    trick: t.fix,
+                    color: 'text-red-600',
+                    bg: 'bg-red-50',
+                    border: 'border-red-200'
+                })) as Trap[]
+            };
+        }
+        return null; // Fallback to defaults in children
+    };
+
+    const data = getRevisionData();
 
     return (
         <div className="min-h-screen bg-[#fffcf5] font-['Kalam', 'serif']">
@@ -80,15 +145,15 @@ export default function HistoryRevisionDashboard() {
                     {/* --- TAB CONTENTS --- */}
 
                     <TabsContent value="chronology" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <ChronologyMaster />
+                        <ChronologyMaster eraData={data?.eraData} initialEra={section} />
                     </TabsContent>
 
                     <TabsContent value="personalities" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <PersonalityHub />
+                        <PersonalityHub personalities={data?.personalities} initialEra={section === 'modern' ? 'Modern' : 'All'} />
                     </TabsContent>
 
                     <TabsContent value="battles" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <BattleAnalytics />
+                        <BattleAnalytics battles={data?.battles} />
                     </TabsContent>
 
                     <TabsContent value="art-culture" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
@@ -96,7 +161,7 @@ export default function HistoryRevisionDashboard() {
                     </TabsContent>
 
                     <TabsContent value="traps" className="animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-                        <HistoryExaminersTrap />
+                        <HistoryExaminersTrap traps={data?.traps} />
                     </TabsContent>
 
                 </Tabs>

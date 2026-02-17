@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-const ERA_DATA = [
+const DEFAULT_ERA_DATA = [
     {
         id: 'ancient',
         title: 'Ancient India',
@@ -60,22 +60,44 @@ const ERA_DATA = [
     }
 ];
 
-export default function ChronologyMaster() {
-    const [selectedEra, setSelectedEra] = useState('modern');
+export interface ChronologyEvent {
+    year: string;
+    title: string;
+    detail: string;
+}
 
-    const activeEra = ERA_DATA.find(e => e.id === selectedEra) || ERA_DATA[0];
+export interface EraData {
+    id: string;
+    title: string;
+    subtitle: string;
+    color: string;
+    textColor: string;
+    borderColor: string;
+    lightBg: string;
+    events: ChronologyEvent[];
+}
+
+interface ChronologyMasterProps {
+    eraData?: EraData[];
+    initialEra?: string;
+}
+
+export default function ChronologyMaster({ eraData = DEFAULT_ERA_DATA, initialEra = 'modern' }: ChronologyMasterProps) {
+    const [selectedEra, setSelectedEra] = useState(initialEra);
+
+    const activeEra = eraData.find(e => e.id === selectedEra) || eraData[0];
 
     return (
         <div className="space-y-6">
             {/* Era Selector */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {ERA_DATA.map((era) => (
+                {eraData.map((era) => (
                     <button
                         key={era.id}
                         onClick={() => setSelectedEra(era.id)}
                         className={`p-4 rounded-xl border-2 transition-all flex flex-col items-start ${selectedEra === era.id
-                                ? `${era.borderColor} ${era.lightBg} shadow-md`
-                                : 'border-slate-100 bg-white hover:border-slate-200'
+                            ? `${era.borderColor} ${era.lightBg} shadow-md`
+                            : 'border-slate-100 bg-white hover:border-slate-200'
                             }`}
                     >
                         <div className="flex justify-between w-full mb-1">

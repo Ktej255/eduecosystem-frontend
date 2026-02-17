@@ -57,7 +57,7 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                                         ? 'bg-indigo-600 text-white shadow-lg'
                                         : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                                         }`}
-                                >0
+                                >
                                     Study Dashboard
                                 </button>
                                 <button
@@ -208,7 +208,7 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                 )}
 
                 {activeTab === 'revision' && (
-                    <HistoryRevisionDashboard />
+                    <HistoryRevisionDashboard section={selectedSection} />
                 )}
             </div>
         </div >
