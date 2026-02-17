@@ -36,6 +36,14 @@ interface MCQ {
 }
 
 export default function CustomRevisionSession() {
+    return (
+        <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading Session...</div>}>
+            <CustomRevisionSessionContent />
+        </React.Suspense>
+    );
+}
+
+function CustomRevisionSessionContent() {
     const searchParams = useSearchParams();
     const chaptersParam = searchParams.get('chapters');
 

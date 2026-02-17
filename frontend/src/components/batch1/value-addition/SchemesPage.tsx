@@ -127,6 +127,14 @@ function SchemesList() {
 
 export default function SchemesPage() {
     return (
+        <React.Suspense fallback={<div className="p-8 text-center">Loading Schemes...</div>}>
+            <SchemesPageContent />
+        </React.Suspense>
+    );
+}
+
+function SchemesPageContent() {
+    return (
         <div className="p-4 max-w-5xl mx-auto space-y-6 animate-in fade-in duration-500">
             {/* Header */}
             <div className="flex items-center gap-4 mb-6">
@@ -146,9 +154,7 @@ export default function SchemesPage() {
                 </div>
             </div>
 
-            <Suspense fallback={<div>Loading schemes...</div>}>
-                <SchemesList />
-            </Suspense>
+            <SchemesList />
         </div>
     );
 }
