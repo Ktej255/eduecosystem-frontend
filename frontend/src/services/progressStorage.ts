@@ -794,6 +794,22 @@ export function getStudentStats(): StudentStats {
     return calculateStatsFromProgress();
 }
 
+
+export function savePrelimsSession(session: PrelimsSession): void {
+    const progress = getLearningProgress();
+
+    // Update prelims state
+    const updates: Partial<LearningProgress> = {
+        prelims: session,
+        lastActivity: new Date().toISOString()
+    };
+
+    saveLearningProgress(updates);
+
+    // Also log study time if segment completed? 
+    // For now just saving the session state is enough.
+}
+
 export function saveStudentStats(stats: Partial<StudentStats>): void {
     const current = getStudentStats();
     const updated = { ...current, ...stats };
@@ -922,4 +938,21 @@ export function getResumePoint(): ResumePoint {
         href: '/student/batch1',
         details: 'Continue your UPSC preparation',
     };
+}
+
+export function markSegmentComplete(cycleId: number, dayId: number, partId: number, segmentId: number): void {
+    const progress = getLearningProgress();
+    const key = `${cycleId}-${dayId}-${partId}-${segmentId}`;
+
+    if (!progress.completedSegments.includes(key)) {
+        saveLearningProgress({
+            completedSegments: [...progress.completedSegments, key]
+        });
+    }
+}
+
+export function isSegmentComplete(cycleId: number, dayId: number, partId: number, segmentId: number): boolean {
+    const progress = getLearningProgress();
+    const key = `${cycleId}-${dayId}-${partId}-${segmentId}`;
+    return progress.completedSegments.includes(key);
 }

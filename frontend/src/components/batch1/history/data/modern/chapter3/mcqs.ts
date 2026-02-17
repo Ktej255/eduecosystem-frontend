@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Vasco da Gama"
         ],
         correctAnswer: 1,
-        explanation: "Francisco de Almeida (1505–09) initiated the Blue Water Policy (cartaze system) to make the Portuguese masters of the Indian Ocean."
+        explanation: "Francisco de Almeida (1505–09) initiated the Blue Water Policy (cartaze system) to make the Portuguese masters of the Indian Ocean.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Diu"
         ],
         correctAnswer: 2,
-        explanation: "Albuquerque acquired Goa from the Sultan of Bijapur in 1510, making it the first European territory in India since Alexander."
+        explanation: "Albuquerque acquired Goa from the Sultan of Bijapur in 1510, making it the first European territory in India since Alexander.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "They were known for their tolerance towards all religions from the beginning."
         ],
         correctAnswer: 0,
-        explanation: "The Portuguese arrived in 1498 and left (Goa) in 1961. They failed to convert Akbar and were intolerant, establishing the Inquisition in Goa."
+        explanation: "The Portuguese arrived in 1498 and left (Goa) in 1961. They failed to convert Akbar and were intolerant, establishing the Inquisition in Goa.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "A method of ship-building using iron nails."
         ],
         correctAnswer: 1,
-        explanation: "The Cartaze system was a naval trade license or pass issued by the Portuguese in the Indian Ocean."
+        explanation: "The Cartaze system was a naval trade license or pass issued by the Portuguese in the Indian Ocean.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Establishing the first factory at Cannanore."
         ],
         correctAnswer: 1,
-        explanation: "Nino da Cunha shifted the Portuguese capital from Cochin to Goa in 1530."
+        explanation: "Nino da Cunha shifted the Portuguese capital from Cochin to Goa in 1530.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Only the spice islands."
         ],
         correctAnswer: 1,
-        explanation: "Portugal could claim everything to the east, while Spain claimed everything to the west of the line."
+        explanation: "Portugal could claim everything to the east, while Spain claimed everything to the west of the line.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Nicolo Conti"
         ],
         correctAnswer: 1,
-        explanation: "Vasco da Gama was led by a Gujarati pilot named Abdul Majid."
+        explanation: "Vasco da Gama was led by a Gujarati pilot named Abdul Majid.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Aurangzeb"
         ],
         correctAnswer: 2,
-        explanation: "Shah Jahan ordered Qasim Khan (Governor of Bengal) to take action against the Portuguese at Hooghly in 1632 due to their slave trade and piracy."
+        explanation: "Shah Jahan ordered Qasim Khan (Governor of Bengal) to take action against the Portuguese at Hooghly in 1632 due to their slave trade and piracy.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Indigo and Opium"
         ],
         correctAnswer: 1,
-        explanation: "The Portuguese introduced tobacco, cashew nut, and better plantation varieties of coconut."
+        explanation: "The Portuguese introduced tobacco, cashew nut, and better plantation varieties of coconut.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-11",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Cochin"
         ],
         correctAnswer: 2,
-        explanation: "The Dutch founded their first factory in Masulipatnam in 1605."
+        explanation: "The Dutch founded their first factory in Masulipatnam in 1605.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-12",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Dutch and Portuguese"
         ],
         correctAnswer: 1,
-        explanation: "The English defeated the Dutch at the Battle of Bidara (Hooghly) in 1759, crushing Dutch ambitions in India."
+        explanation: "The English defeated the Dutch at the Battle of Bidara (Hooghly) in 1759, crushing Dutch ambitions in India.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-13",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "The Capture of Ormuz"
         ],
         correctAnswer: 1,
-        explanation: "The massacre of ten Englishmen by the Dutch at Amboyna (Indonesia) in 1623 marked the climax of their enmity."
+        explanation: "The massacre of ten Englishmen by the Dutch at Amboyna (Indonesia) in 1623 marked the climax of their enmity.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-14",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Chinsura"
         ],
         correctAnswer: 1,
-        explanation: "Nagapatam replaced Pulicat as the main stronghold of the Dutch in South India (captured from Portuguese)."
+        explanation: "Nagapatam replaced Pulicat as the main stronghold of the Dutch in South India (captured from Portuguese).",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-16",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Captain Best"
         ],
         correctAnswer: 0,
-        explanation: "Francis Day received permission to build a fortified factory at Madras (Fort St. George) in 1639."
+        explanation: "Francis Day received permission to build a fortified factory at Madras (Fort St. George) in 1639.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-17",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Masulipatnam - Balasore - Surat - Calcutta"
         ],
         correctAnswer: 1,
-        explanation: "Masulipatnam (1611 trading started/1616 factory), Surat (1613 permanent factory), Balasore (1633), Calcutta (1690s)."
+        explanation: "Masulipatnam (1611 trading started/1616 factory), Surat (1613 permanent factory), Balasore (1633), Calcutta (1690s).",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-18",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Ralph Fitch"
         ],
         correctAnswer: 1,
-        explanation: "Sir Thomas Roe came as an ambassador of James I in 1615 and secured privileges/farmans from Jahangir."
+        explanation: "Sir Thomas Roe came as an ambassador of James I in 1615 and secured privileges/farmans from Jahangir.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-20",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "1700"
         ],
         correctAnswer: 1,
-        explanation: "Charles II got it as dowry in 1662 but leased it to the Company in 1668 for 10 pounds a year."
+        explanation: "Charles II got it as dowry in 1662 but leased it to the Company in 1668 for 10 pounds a year.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-21",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Warren Hastings"
         ],
         correctAnswer: 1,
-        explanation: "In 1700, Fort William became the seat of the presidency with Sir Charles Eyre as its first president."
+        explanation: "In 1700, Fort William became the seat of the presidency with Sir Charles Eyre as its first president.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-22",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Midnapore, Chittagong, Burdwan"
         ],
         correctAnswer: 0,
-        explanation: "Sutanuti, Gobindapur, and Kalikata were purchased in 1698."
+        explanation: "Sutanuti, Gobindapur, and Kalikata were purchased in 1698.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-23",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "The English ships were destroyed by a storm."
         ],
         correctAnswer: 1,
-        explanation: "Father Pinheiro and Portuguese authorities prevented him, although Jahangir was personally favorable."
+        explanation: "Father Pinheiro and Portuguese authorities prevented him, although Jahangir was personally favorable.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-24",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Francois Martin"
         ],
         correctAnswer: 1,
-        explanation: "Colbert, the minister of Louis XIV, laid the foundation."
+        explanation: "Colbert, the minister of Louis XIV, laid the foundation.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-25",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Dumas"
         ],
         correctAnswer: 1,
-        explanation: "Francois Martin obtained the site and developed Pondicherry as the French stronghold."
+        explanation: "Francois Martin obtained the site and developed Pondicherry as the French stronghold.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-26",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Thirty Years' War"
         ],
         correctAnswer: 1,
-        explanation: "It was an extension of the Austrian War of Succession."
+        explanation: "It was an extension of the Austrian War of Succession.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-27",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "The French had no military capability."
         ],
         correctAnswer: 1,
-        explanation: "Captain Paradise's small French force defeated the Nawab's large army, exposing the weakness of traditional Indian armies."
+        explanation: "Captain Paradise's small French force defeated the Nawab's large army, exposing the weakness of traditional Indian armies.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-28",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Bombay"
         ],
         correctAnswer: 0,
-        explanation: "Madras was handed back to the English in exchange for French territories in North America."
+        explanation: "Madras was handed back to the English in exchange for French territories in North America.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-29",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Nizam-ul-Mulk and Dost Ali"
         ],
         correctAnswer: 1,
-        explanation: "French supported the challengers: Muzaffar Jang and Chanda Sahib. English supported Nasir Jang and Anwaruddin."
+        explanation: "French supported the challengers: Muzaffar Jang and Chanda Sahib. English supported Nasir Jang and Anwaruddin.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-30",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Warren Hastings"
         ],
         correctAnswer: 1,
-        explanation: "Dupleix was the first to lend European troops to Indian princes at their expense, the precursor to the Subsidiary Alliance."
+        explanation: "Dupleix was the first to lend European troops to Indian princes at their expense, the precursor to the Subsidiary Alliance.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-31",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Stringer Lawrence"
         ],
         correctAnswer: 2,
-        explanation: "General Eyre Coote defeated the French army under Count de Lally."
+        explanation: "General Eyre Coote defeated the French army under Count de Lally.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-32",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Given control of Bengal."
         ],
         correctAnswer: 2,
-        explanation: "They were confined to small enclaves for commerce only and banned from fortifying them."
+        explanation: "They were confined to small enclaves for commerce only and banned from fortifying them.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-33",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Vellore"
         ],
         correctAnswer: 1,
-        explanation: "Clive captured Arcot (capital of Carnatic) to relieve the siege of Trichinopoly, turning the tide of the Second Carnatic War."
+        explanation: "Clive captured Arcot (capital of Carnatic) to relieve the siege of Trichinopoly, turning the tide of the Second Carnatic War.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-34",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "The Danes"
         ],
         correctAnswer: 2,
-        explanation: "The French appeared late (1664) compared to Portuguese (1498), Dutch (1602), English (1600), and Danes (1616)."
+        explanation: "The French appeared late (1664) compared to Portuguese (1498), Dutch (1602), English (1600), and Danes (1616).",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-35",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Surat"
         ],
         correctAnswer: 1,
-        explanation: "Their principal settlement was Serampore (Bengal), though they started at Tranquebar."
+        explanation: "Their principal settlement was Serampore (Bengal), though they started at Tranquebar.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-36",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "The French had better support from their home government than the English."
         ],
         correctAnswer: 3,
-        explanation: "The French actually had LESS autonomy and support (controlled by government policies/delays) compared to the private English company."
+        explanation: "The French actually had LESS autonomy and support (controlled by government policies/delays) compared to the private English company.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-37",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "They borrowed from the French treasury."
         ],
         correctAnswer: 1,
-        explanation: "Britain used the world's first central bank (Bank of England) to sell government debt, allowing them to outspend rivals like France."
+        explanation: "Britain used the world's first central bank (Bank of England) to sell government debt, allowing them to outspend rivals like France.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-39",
@@ -419,7 +487,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Norris"
         ],
         correctAnswer: 0,
-        explanation: "John Surman led the mission that secured the farmans."
+        explanation: "John Surman led the mission that secured the farmans.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-40",
@@ -431,7 +501,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Muzaffar Jang"
         ],
         correctAnswer: 0,
-        explanation: "Anwaruddin (Nawab of Carnatic) was defeated and killed by the combined forces of Muzaffar Jang, Chanda Sahib, and the French."
+        explanation: "Anwaruddin (Nawab of Carnatic) was defeated and killed by the combined forces of Muzaffar Jang, Chanda Sahib, and the French.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-41",
@@ -443,7 +515,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Victory"
         ],
         correctAnswer: 1,
-        explanation: "Captain Best used the ship 'Dragon' and a smaller one 'Osiander' to defeat the Portuguese off Surat."
+        explanation: "Captain Best used the ship 'Dragon' and a smaller one 'Osiander' to defeat the Portuguese off Surat.",
+        chapterId: 3,
+        difficulty: 'Easy'
     },
 {
         id: "H3-M-43",
@@ -455,7 +529,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Nino da Cunha"
         ],
         correctAnswer: 0,
-        explanation: "Almeida (1505) was the first appointed governor."
+        explanation: "Almeida (1505) was the first appointed governor.",
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 {
         id: "H3-M-44",
@@ -467,7 +543,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "The London Group"
         ],
         correctAnswer: 0,
-        explanation: "It was popularly known as 'John Company'."
+        explanation: "It was popularly known as 'John Company'.",
+        chapterId: 3,
+        difficulty: 'Hard'
     },
 {
         id: "H3-M-45",
@@ -479,7 +557,9 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
             "Napoleonic Wars"
         ],
         correctAnswer: 0,
-        explanation: "The Austrian War of Succession (1740-48) triggered the conflict in India."
+        explanation: "The Austrian War of Succession (1740-48) triggered the conflict in India.",
+        chapterId: 3,
+        difficulty: 'Easy'
     }
 ,
 {
@@ -768,7 +848,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Advent of the Europeans in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Easy-1-1771158191927',
@@ -777,7 +858,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Advent of the Europeans in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Easy-2-1771158191927',
@@ -786,7 +868,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Advent of the Europeans in India.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Easy-3-1771158191927',
@@ -795,7 +878,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Advent of the Europeans in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Easy-4-1771158191927',
@@ -804,7 +888,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Advent of the Europeans in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Easy-5-1771158191927',
@@ -813,7 +898,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Advent of the Europeans in India.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Easy-6-1771158191927',
@@ -822,7 +908,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Advent of the Europeans in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Easy-7-1771158191927',
@@ -831,7 +918,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Advent of the Europeans in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Easy-8-1771158191927',
@@ -840,7 +928,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Advent of the Europeans in India.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Easy-9-1771158191927',
@@ -849,7 +938,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Advent of the Europeans in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Easy-10-1771158191927',
@@ -858,7 +948,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Advent of the Europeans in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Easy-11-1771158191927',
@@ -867,7 +958,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Advent of the Europeans in India.",
         difficulty: 'Easy',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Moderate-0-1771158191927',
@@ -876,7 +968,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Moderate-1-1771158191927',
@@ -885,7 +978,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Moderate-2-1771158191927',
@@ -894,7 +988,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Moderate-3-1771158191927',
@@ -903,7 +998,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Moderate-4-1771158191927',
@@ -912,7 +1008,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Moderate-5-1771158191927',
@@ -921,7 +1018,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Moderate-6-1771158191927',
@@ -930,7 +1028,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Moderate-7-1771158191927',
@@ -939,7 +1038,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Moderate-8-1771158191927',
@@ -948,7 +1048,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Moderate-9-1771158191927',
@@ -957,7 +1058,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Moderate-10-1771158191927',
@@ -966,7 +1068,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Moderate-11-1771158191927',
@@ -975,7 +1078,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Moderate-12-1771158191927',
@@ -984,7 +1088,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Moderate-13-1771158191927',
@@ -993,7 +1098,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Moderate-14-1771158191927',
@@ -1002,7 +1108,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Moderate-15-1771158191927',
@@ -1011,7 +1118,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Moderate-16-1771158191927',
@@ -1020,7 +1128,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Advent of the Europeans in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-0-1771158191927',
@@ -1029,7 +1138,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-1-1771158191927',
@@ -1038,7 +1148,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-2-1771158191927',
@@ -1047,7 +1158,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-3-1771158191927',
@@ -1056,7 +1168,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-4-1771158191927',
@@ -1065,7 +1178,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-5-1771158191927',
@@ -1074,7 +1188,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-6-1771158191927',
@@ -1083,7 +1198,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-7-1771158191927',
@@ -1092,7 +1208,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-8-1771158191927',
@@ -1101,7 +1218,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-9-1771158191927',
@@ -1110,7 +1228,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-10-1771158191927',
@@ -1119,7 +1238,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-11-1771158191927',
@@ -1128,7 +1248,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-12-1771158191927',
@@ -1137,7 +1258,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-13-1771158191927',
@@ -1146,7 +1268,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-14-1771158191927',
@@ -1155,7 +1278,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-15-1771158191927',
@@ -1164,7 +1288,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-16-1771158191927',
@@ -1173,7 +1298,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-17-1771158191927',
@@ -1182,7 +1308,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-18-1771158191927',
@@ -1191,7 +1318,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-19-1771158191927',
@@ -1200,7 +1328,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-20-1771158191927',
@@ -1209,7 +1338,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-21-1771158191927',
@@ -1218,7 +1348,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-22-1771158191927',
@@ -1227,7 +1358,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-23-1771158191927',
@@ -1236,7 +1368,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-24-1771158191927',
@@ -1245,7 +1378,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-25-1771158191927',
@@ -1254,7 +1388,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-26-1771158191927',
@@ -1263,7 +1398,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch3-Hard-27-1771158191927',
@@ -1272,7 +1408,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch3-Hard-28-1771158191927',
@@ -1281,7 +1418,8 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch3-Hard-29-1771158191927',
@@ -1290,6 +1428,7 @@ export const MODERN_CHAPTER_3_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Advent of the Europeans in India.",
         difficulty: 'Hard',
-        chapterId: 3
+        chapterId: 3,
+        difficulty: 'Moderate'
     },
 ];

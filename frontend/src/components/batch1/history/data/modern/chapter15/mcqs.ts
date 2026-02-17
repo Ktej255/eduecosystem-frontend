@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Central Legislature"
         ],
         correctAnswer: 0,
-        explanation: "Dyarchy was introduced in the provinces, dividing subjects into Reserved and Transferred."
+        explanation: "Dyarchy was introduced in the provinces, dividing subjects into Reserved and Transferred.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Secretary of State"
         ],
         correctAnswer: 0,
-        explanation: "Ministers nominated from elected members of the legislative council."
+        explanation: "Ministers nominated from elected members of the legislative council.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
 {
         id: "H15-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Local Government"
         ],
         correctAnswer: 0,
-        explanation: "Finance, Law and Order, Land Revenue were reserved."
+        explanation: "Finance, Law and Order, Land Revenue were reserved.",
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 {
         id: "H15-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Neither"
         ],
         correctAnswer: 0,
-        explanation: "Central Legislative Assembly and Council of State."
+        explanation: "Central Legislative Assembly and Council of State.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Nehru"
         ],
         correctAnswer: 0,
-        explanation: "Tilak's reaction to the Montford reforms."
+        explanation: "Tilak's reaction to the Montford reforms.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
 {
         id: "H15-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "1893"
         ],
         correctAnswer: 0,
-        explanation: "To unite different sections of Indians in South Africa."
+        explanation: "To unite different sections of Indians in South Africa.",
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 {
         id: "H15-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "1913"
         ],
         correctAnswer: 0,
-        explanation: "With the help of Herman Kallenbach."
+        explanation: "With the help of Herman Kallenbach.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Ahmedabad (1918)"
         ],
         correctAnswer: 0,
-        explanation: "Against the Registration Certificates in South Africa."
+        explanation: "Against the Registration Certificates in South Africa.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
 {
         id: "H15-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Bhagavad Gita"
         ],
         correctAnswer: 0,
-        explanation: "He translated it as 'Sarvodaya'."
+        explanation: "He translated it as 'Sarvodaya'.",
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 {
         id: "H15-M-10",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "August 15, 1915"
         ],
         correctAnswer: 0,
-        explanation: "Celebrated as Pravasi Bharatiya Divas."
+        explanation: "Celebrated as Pravasi Bharatiya Divas.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-11",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "1/10"
         ],
         correctAnswer: 0,
-        explanation: "The Tinkathia system."
+        explanation: "The Tinkathia system.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
 {
         id: "H15-M-12",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Subhash Bose"
         ],
         correctAnswer: 0,
-        explanation: "Also Mahadev Desai, Narhari Parekh, Mazhar-ul-Haq."
+        explanation: "Also Mahadev Desai, Narhari Parekh, Mazhar-ul-Haq.",
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 {
         id: "H15-M-13",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Salt Tax"
         ],
         correctAnswer: 0,
-        explanation: "Discontinuation of Plague Bonus vs Wage Hike."
+        explanation: "Discontinuation of Plague Bonus vs Wage Hike.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-14",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Rowlatt Satyagraha"
         ],
         correctAnswer: 0,
-        explanation: "To pressure the mill owners."
+        explanation: "To pressure the mill owners.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
 {
         id: "H15-M-15",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Gokhale"
         ],
         correctAnswer: 0,
-        explanation: "Gandhi gave spiritual guidance; Patel was the organizer."
+        explanation: "Gandhi gave spiritual guidance; Patel was the organizer.",
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 {
         id: "H15-M-17",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Butler Committee"
         ],
         correctAnswer: 0,
-        explanation: "Headed by Justice Sidney Rowlatt."
+        explanation: "Headed by Justice Sidney Rowlatt.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-18",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "It introduced Dyarchy"
         ],
         correctAnswer: 0,
-        explanation: "No Dalil, No Vakil, No Appeal."
+        explanation: "No Dalil, No Vakil, No Appeal.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
 {
         id: "H15-M-19",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Simon Commission"
         ],
         correctAnswer: 0,
-        explanation: "Gandhi organized the Satyagraha Sabha."
+        explanation: "Gandhi organized the Satyagraha Sabha.",
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 {
         id: "H15-M-20",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "May 13, 1919"
         ],
         correctAnswer: 0,
-        explanation: "On Baisakhi day."
+        explanation: "On Baisakhi day.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-21",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Tilak and Besant"
         ],
         correctAnswer: 0,
-        explanation: "Arrested on April 9."
+        explanation: "Arrested on April 9.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
 {
         id: "H15-M-22",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Montagu"
         ],
         correctAnswer: 0,
-        explanation: "Reginald Dyer was the Brigadier-General; O'Dwyer was the Lt. Governor."
+        explanation: "Reginald Dyer was the Brigadier-General; O'Dwyer was the Lt. Governor.",
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 {
         id: "H15-M-23",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "1942"
         ],
         correctAnswer: 0,
-        explanation: "In London, to avenge the massacre."
+        explanation: "In London, to avenge the massacre.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-24",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Muddiman Committee"
         ],
         correctAnswer: 0,
-        explanation: "Disorders Inquiry Committee."
+        explanation: "Disorders Inquiry Committee.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
 {
         id: "H15-M-25",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Sultan Ahmad Khan"
         ],
         correctAnswer: 0,
-        explanation: "Motilal Nehru was on the Congress Inquiry Committee, not the official Hunter Committee."
+        explanation: "Motilal Nehru was on the Congress Inquiry Committee, not the official Hunter Committee.",
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 {
         id: "H15-M-26",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Tej Bahadur Sapru"
         ],
         correctAnswer: 0,
-        explanation: "Gandhi returned his Kaiser-i-Hind medal."
+        explanation: "Gandhi returned his Kaiser-i-Hind medal.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-27",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "March 1919"
         ],
         correctAnswer: 0,
-        explanation: "Overwhelmed by the violence."
+        explanation: "Overwhelmed by the violence.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
 {
         id: "H15-M-28",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "To grant independence"
         ],
         correctAnswer: 0,
-        explanation: "Called the 'White Washing Bill'."
+        explanation: "Called the 'White Washing Bill'.",
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 {
         id: "H15-M-29",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Ramsay MacDonald"
         ],
         correctAnswer: 0,
-        explanation: "Even Churchill condemned it."
+        explanation: "Even Churchill condemned it.",
+        chapterId: 15,
+        difficulty: 'Easy'
     },
 {
         id: "H15-M-30",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
             "Tilak"
         ],
         correctAnswer: 0,
-        explanation: "She was Ambalal Sarabhai's sister and a lieutenant of Gandhi."
+        explanation: "She was Ambalal Sarabhai's sister and a lieutenant of Gandhi.",
+        chapterId: 15,
+        difficulty: 'Moderate'
     }
 ,
 {
@@ -893,7 +951,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-1-1771158270899',
@@ -902,7 +961,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-2-1771158270899',
@@ -911,7 +971,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Easy-3-1771158270899',
@@ -920,7 +981,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-4-1771158270899',
@@ -929,7 +991,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-5-1771158270899',
@@ -938,7 +1001,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Easy-6-1771158270899',
@@ -947,7 +1011,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-7-1771158270899',
@@ -956,7 +1021,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-8-1771158270899',
@@ -965,7 +1031,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Easy-9-1771158270899',
@@ -974,7 +1041,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-10-1771158270899',
@@ -983,7 +1051,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-11-1771158270899',
@@ -992,7 +1061,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Easy-12-1771158270899',
@@ -1001,7 +1071,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-13-1771158270899',
@@ -1010,7 +1081,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-14-1771158270899',
@@ -1019,7 +1091,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Easy-15-1771158270899',
@@ -1028,7 +1101,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-16-1771158270899',
@@ -1037,7 +1111,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-17-1771158270899',
@@ -1046,7 +1121,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Easy-18-1771158270899',
@@ -1055,7 +1131,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-19-1771158270899',
@@ -1064,7 +1141,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-20-1771158270899',
@@ -1073,7 +1151,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Easy-21-1771158270899',
@@ -1082,7 +1161,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-22-1771158270899',
@@ -1091,7 +1171,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-23-1771158270899',
@@ -1100,7 +1181,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Easy-24-1771158270899',
@@ -1109,7 +1191,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-25-1771158270899',
@@ -1118,7 +1201,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-26-1771158270899',
@@ -1127,7 +1211,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Easy-27-1771158270899',
@@ -1136,7 +1221,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Emergence of Gandhi involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Easy-28-1771158270899',
@@ -1145,7 +1231,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Emergence of Gandhi was establishing control.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Easy-29-1771158270899',
@@ -1154,7 +1241,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Emergence of Gandhi.",
         difficulty: 'Easy',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-0-1771158270899',
@@ -1163,7 +1251,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-1-1771158270899',
@@ -1172,7 +1261,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-2-1771158270899',
@@ -1181,7 +1271,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-3-1771158270899',
@@ -1190,7 +1281,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-4-1771158270899',
@@ -1199,7 +1291,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-5-1771158270899',
@@ -1208,7 +1301,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-6-1771158270899',
@@ -1217,7 +1311,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-7-1771158270899',
@@ -1226,7 +1321,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-8-1771158270899',
@@ -1235,7 +1331,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-9-1771158270899',
@@ -1244,7 +1341,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-10-1771158270899',
@@ -1253,7 +1351,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-11-1771158270899',
@@ -1262,7 +1361,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-12-1771158270899',
@@ -1271,7 +1371,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-13-1771158270899',
@@ -1280,7 +1381,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-14-1771158270900',
@@ -1289,7 +1391,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-15-1771158270900',
@@ -1298,7 +1401,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-16-1771158270900',
@@ -1307,7 +1411,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-17-1771158270900',
@@ -1316,7 +1421,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-18-1771158270900',
@@ -1325,7 +1431,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-19-1771158270900',
@@ -1334,7 +1441,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-20-1771158270900',
@@ -1343,7 +1451,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-21-1771158270900',
@@ -1352,7 +1461,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-22-1771158270900',
@@ -1361,7 +1471,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-23-1771158270900',
@@ -1370,7 +1481,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-24-1771158270900',
@@ -1379,7 +1491,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-25-1771158270900',
@@ -1388,7 +1501,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-26-1771158270900',
@@ -1397,7 +1511,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Moderate-27-1771158270900',
@@ -1406,7 +1521,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Moderate-28-1771158270900',
@@ -1415,7 +1531,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Moderate-29-1771158270900',
@@ -1424,7 +1541,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Emergence of Gandhi shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-0-1771158270900',
@@ -1433,7 +1551,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-1-1771158270900',
@@ -1442,7 +1561,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-2-1771158270900',
@@ -1451,7 +1571,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-3-1771158270900',
@@ -1460,7 +1581,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-4-1771158270900',
@@ -1469,7 +1591,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-5-1771158270900',
@@ -1478,7 +1601,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-6-1771158270900',
@@ -1487,7 +1611,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-7-1771158270900',
@@ -1496,7 +1621,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-8-1771158270900',
@@ -1505,7 +1631,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-9-1771158270900',
@@ -1514,7 +1641,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-10-1771158270900',
@@ -1523,7 +1651,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-11-1771158270900',
@@ -1532,7 +1661,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-12-1771158270900',
@@ -1541,7 +1671,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-13-1771158270900',
@@ -1550,7 +1681,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-14-1771158270900',
@@ -1559,7 +1691,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-15-1771158270900',
@@ -1568,7 +1701,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-16-1771158270900',
@@ -1577,7 +1711,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-17-1771158270900',
@@ -1586,7 +1721,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-18-1771158270900',
@@ -1595,7 +1731,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-19-1771158270900',
@@ -1604,7 +1741,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-20-1771158270900',
@@ -1613,7 +1751,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-21-1771158270900',
@@ -1622,7 +1761,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-22-1771158270900',
@@ -1631,7 +1771,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-23-1771158270900',
@@ -1640,7 +1781,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-24-1771158270900',
@@ -1649,7 +1791,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-25-1771158270900',
@@ -1658,7 +1801,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-26-1771158270900',
@@ -1667,7 +1811,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch15-Hard-27-1771158270900',
@@ -1676,7 +1821,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch15-Hard-28-1771158270900',
@@ -1685,7 +1831,8 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch15-Hard-29-1771158270900',
@@ -1694,6 +1841,7 @@ export const MODERN_CHAPTER_15_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Emergence of Gandhi.",
         difficulty: 'Hard',
-        chapterId: 15
+        chapterId: 15,
+        difficulty: 'Hard'
     },
 ];

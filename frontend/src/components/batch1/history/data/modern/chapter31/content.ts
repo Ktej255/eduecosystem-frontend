@@ -1,46 +1,79 @@
-
 import { Chapter } from '../../../../types';
 
 export const MODERN_CHAPTER_31_CONTENT: Chapter = {
-    id: 'modern-31',
-    title: 'The Working Class Movement',
+    id: 'chapter31',
+    title: "Peasant Movements 1857-1947",
     content: `
-# The Working Class Movement
+# Peasant Movements 1857-1947
 
-The Indian working class movement grew in parallel with the national movement, evolving from unorganized protests to a structured trade union movement with significant political influence.
+Indian peasants fought against the triple burden of British colonialism, Zamindari oppression, and moneylender exploitation.
 
-## Early Labor Movement (Pre-1918)
-- **Early Conditions**: The first factories were established in the 1850s (Cotton in Bombay, Jute in Bengal). Workers faced long hours, low wages, and poor conditions.
-- **Early Leaders**: **N.M. Lokhande** is considered the father of the Indian labor movement. He organized the *Bombay Millhands Association* (1890) and published *Deenbandhu*.
-- **Factory Acts**:
-  - **1881 Act**: Focused on child labor (prohibited employment under 7 years).
-  - **1891 Act**: Regulated working hours for women and children.
+## Early Movements (1857-1900)
 
-## Rise of Trade Unions (1918-1929)
-The post-WWI era saw a surge in labor consciousness due to rising prices and the success of the Russian Revolution (1917).
-- **Madras Labour Union (1918)**: Founded by **B.P. Wadia**, considered the first modern trade union.
-- **Ahmedabad Textile Labour Association (1918)**: Founded by Gandhi based on the principle of *Trusteeship*.
-- **AITUC (1920)**: The **All India Trade Union Congress** was founded in 1920 to represent Indian labor at the ILO. **Lala Lajpat Rai** was its first President, and **Dewan Chaman Lal** was the General Secretary.
-  - *Lajpat Rai's View*: He linked capitalism with imperialism, stating "Imperialism and Militarism are the twin children of Capitalism."
+### Indigo Revolt (1859-60)
+- **Region**: Bengal.
+- **Cause**: European planters forced peasants to grow indigo instead of food crops at unremunerative prices.
+- **Outcome**: The Indigo Commission (1860) ruled that planters could not force ryots to grow indigo.
+- **Significance**: Massive support from Bengali intelligentsia (e.g., *Nil Darpan* play by Dinabandhu Mitra).
 
-## Legislation and Conspiracy Cases
-- **Trade Unions Act, 1926**: Gave legal status to trade unions and immunity from civil/criminal liability for trade disputes.
-- **Communist Influence**: The 1920s saw the rise of communist leaders like S.A. Dange and Muzaffar Ahmed.
-- **Conspiracy Cases**: The British tried to suppress the movement through the **Kanpur Bolshevik Conspiracy Case (1924)** and the **Meerut Conspiracy Case (1929)**.
-- **Trade Disputes Act, 1929**: Restricted the right to strike and introduced conciliation machinery.
+### Pabna Agrarian Leagues (1870s-80s)
+- **Region**: Bengal (Yusufshahi Pargana).
+- **Cause**: Zamindars' attempts to increase rent beyond legal limits and prevent tenants from acquiring occupancy rights.
+- **Outcome**: Bengal Tenancy Act (1885).
 
-## Splits and Unification
-- **Meerut Trial (1929)**: Immense publicity for the communist cause.
-- **Nagpur Split (1929)**: The AITUC split under the presidency of Jawaharlal Nehru. Moderates led by N.M. Joshi formed the *All India Trade Union Federation* (AITUF).
-- **Red Trade Union Congress (1931)**: Another split led by communists.
+### Deccan Riots (1875)
+- **Region**: Maharashtra (Pune, Ahmednagar).
+- **Cause**: Exploitation by Marwari and Gujarati moneylenders; ryots attacked debt bonds.
+- **Outcome**: Deccan Agriculturists Relief Act (1879).
 
-## 1937-1939 and WWII
-- **Congress Ministries**: The formation of Congress ministries in 1937 encouraged trade union activities, though some ministries used Section 144 against strikers.
-- **WWII**: The movement was divided over supporting the British war effort. The communists supported the war as a "People's War" after 1941 (German attack on USSR).
+## 20th Century Movements (Gandhian Phase)
 
-## Post-War Upsurge
-- The period 1945-47 saw an unprecedented wave of strikes.
-- **1946**: Massive strikes in support of the **RIN Mutiny**.
-- **INTUC (1947)**: The Congress formed the *Indian National Trade Union Congress* to provide a nationalist alternative to the communist-dominated AITUC.
+### Champaran Satyagraha (1917)
+- **Region**: Bihar.
+- **Cause**: *Tinkathia* system (forced indigo cultivation on 3/20th of land).
+- **Leader**: **Mahatma Gandhi** (invited by Rajkumar Shukla).
+- **Outcome**: Tinkathia abolished; illegal dues refunded.
+
+### Kheda Satyagraha (1918)
+- **Region**: Gujarat.
+- **Cause**: Crops failed, but government refused to remit land revenue.
+- **Leaders**: Gandhi, **Vallabhbhai Patel**.
+- **Outcome**: Revenue collection suspended for the poor.
+
+### Moplah Rebellion (1921)
+- **Region**: Malabar (Kerala).
+- **Cause**: Oppression by Jenmi landlords (Hindus) and British government; merged with Khilafat movement.
+- **Nature**: Initially anti-British/anti-landlord, later took communal overtones.
+
+### Bardoli Satyagraha (1928)
+- **Region**: Gujarat.
+- **Cause**: Unjust hike in land revenue (22%).
+- **Leader**: **Vallabhbhai Patel** (earned the title "Sardar" here).
+- **Outcome**: Revenue hike reduced to 6.03%.
+
+## Late Colonial Movements (1930s-40s)
+
+### All India Kisan Sabha (AIKS)
+- Founded in **1936** at Lucknow.
+- **President**: **Swami Sahajanand Saraswati**.
+- **Secretary**: N.G. Ranga.
+- **Goal**: Abolition of Zamindari and reduction of land revenue.
+
+### Tebhaga Movement (1946)
+- **Region**: Bengal.
+- **Cause**: Sharecroppers (*Bargadars*) demanded reduction of rent from 1/2 to 1/3 of produce.
+- **Slogan**: "Tebhaga Chai" (We want two-thirds).
+- **Led by**: Communist Party of India / Kisan Sabha.
+
+### Telangana Movement (1946-51)
+- **Region**: Hyderabad State.
+- **Cause**: Oppression by Deshmukhs/Jagirdars and forced labor (*Vethi*).
+- **Significance**: Largest armed peasant guerrilla struggle; forced land reforms.
+
+### Eka Movement (1921)
+- **Region**: United Provinces (Awadh).
+- **Cause**: High rents and oppression by Thikadars.
+- **Leader**: **Madari Pasi**.
+- **Oath**: Not to pay more than recorded rent.
 `
 };

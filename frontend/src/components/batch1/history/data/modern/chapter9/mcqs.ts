@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Rabindranath Tagore"
         ],
         correctAnswer: 0,
-        explanation: "Raja Rammohan Roy is widely regarded as the father of modern Indian Renaissance."
+        explanation: "Raja Rammohan Roy is widely regarded as the father of modern Indian Renaissance.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "1833"
         ],
         correctAnswer: 0,
-        explanation: "He founded the Atmiya Sabha (Society of Friends) in 1814 in Calcutta."
+        explanation: "He founded the Atmiya Sabha (Society of Friends) in 1814 in Calcutta.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Keshab Chandra Sen"
         ],
         correctAnswer: 0,
-        explanation: "Written by Rammohan Roy in Persian with an Arabic preface."
+        explanation: "Written by Rammohan Roy in Persian with an Arabic preface.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "January 1830"
         ],
         correctAnswer: 0,
-        explanation: "It was founded in August 1828 and later renamed Brahmo Samaj."
+        explanation: "It was founded in August 1828 and later renamed Brahmo Samaj.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Criticism of the caste system"
         ],
         correctAnswer: 2,
-        explanation: "The Brahmo Samaj explicitly denied that any scripture could enjoy the status of ultimate authority transcending human reason."
+        explanation: "The Brahmo Samaj explicitly denied that any scripture could enjoy the status of ultimate authority transcending human reason.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Prasanna Kumar Tagore"
         ],
         correctAnswer: 0,
-        explanation: "Raja Radhakant Deb organized the Dharma Sabha to defend orthodox Hinduism."
+        explanation: "Raja Radhakant Deb organized the Dharma Sabha to defend orthodox Hinduism.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Bethune College"
         ],
         correctAnswer: 0,
-        explanation: "He supported David Hare's efforts to found the Hindu College in 1817."
+        explanation: "He supported David Hare's efforts to found the Hindu College in 1817.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Rabindranath Tagore"
         ],
         correctAnswer: 0,
-        explanation: "Debendranath Tagore founded it to propagate Rammohan's ideas."
+        explanation: "Debendranath Tagore founded it to propagate Rammohan's ideas.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "1858"
         ],
         correctAnswer: 0,
-        explanation: "The split between Debendranath's Adi Brahmo Samaj and Keshab's Brahmo Samaj of India occurred in 1866."
+        explanation: "The split between Debendranath's Adi Brahmo Samaj and Keshab's Brahmo Samaj of India occurred in 1866.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-10",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Political differences"
         ],
         correctAnswer: 0,
-        explanation: "This violation of his own reformist principles led to the formation of the Sadharan Brahmo Samaj."
+        explanation: "This violation of his own reformist principles led to the formation of the Sadharan Brahmo Samaj.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-11",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Dayananda Saraswati"
         ],
         correctAnswer: 0,
-        explanation: "They founded it after leaving Keshab's faction."
+        explanation: "They founded it after leaving Keshab's faction.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-12",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "William Jones"
         ],
         correctAnswer: 0,
-        explanation: "H.L.V. Derozio, a teacher at Hindu College, inspired this radical trend."
+        explanation: "H.L.V. Derozio, a teacher at Hindu College, inspired this radical trend.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-13",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "He joined the Brahmo Samaj"
         ],
         correctAnswer: 0,
-        explanation: "His radical teachings against tradition alarmed the orthodox management."
+        explanation: "His radical teachings against tradition alarmed the orthodox management.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-14",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Serampore College"
         ],
         correctAnswer: 0,
-        explanation: "He became Principal of Sanskrit College and opened it to non-Brahmins."
+        explanation: "He became Principal of Sanskrit College and opened it to non-Brahmins.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-16",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Revival of Vedic religion"
         ],
         correctAnswer: 0,
-        explanation: "Its members took food cooked by lower caste people at secret meetings."
+        explanation: "Its members took food cooked by lower caste people at secret meetings.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-18",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Ranade"
         ],
         correctAnswer: 0,
-        explanation: "Jyotiba Phule wrote it, dedicating it to the people of the USA for abolishing slavery."
+        explanation: "Jyotiba Phule wrote it, dedicating it to the people of the USA for abolishing slavery.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-20",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "G.K. Gokhale"
         ],
         correctAnswer: 0,
-        explanation: "N.M. Joshi, a follower of Gokhale, founded it."
+        explanation: "N.M. Joshi, a follower of Gokhale, founded it.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-21",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Ranade"
         ],
         correctAnswer: 0,
-        explanation: "Agarkar was a rationalist who prioritized social reform over political freedom initially."
+        explanation: "Agarkar was a rationalist who prioritized social reform over political freedom initially.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-23",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Satyaprakash"
         ],
         correctAnswer: 0,
-        explanation: "He was born as Mulshankar in Gujarat."
+        explanation: "He was born as Mulshankar in Gujarat.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-24",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Madras"
         ],
         correctAnswer: 0,
-        explanation: "It was set up in Bombay, though the headquarters later shifted to Lahore."
+        explanation: "It was set up in Bombay, though the headquarters later shifted to Lahore.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-25",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Maya (Illusion) theory"
         ],
         correctAnswer: 0,
-        explanation: "They believed the Vedas are the book of true knowledge."
+        explanation: "They believed the Vedas are the book of true knowledge.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-26",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Political participation"
         ],
         correctAnswer: 0,
-        explanation: "The College Party favored English education and allowed non-vegetarianism; the Mahatma Party favored Vedic education and strict vegetarianism."
+        explanation: "The College Party favored English education and allowed non-vegetarianism; the Mahatma Party favored Vedic education and strict vegetarianism.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-28",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Sister Nivedita"
         ],
         correctAnswer: 0,
-        explanation: "Vivekananda founded it to propagate his guru's teachings through service."
+        explanation: "Vivekananda founded it to propagate his guru's teachings through service.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-29",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Paris"
         ],
         correctAnswer: 0,
-        explanation: "At the Parliament of World Religions in Chicago."
+        explanation: "At the Parliament of World Religions in Chicago.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-30",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Kanyakumari"
         ],
         correctAnswer: 0,
-        explanation: "Belur Math near Calcutta."
+        explanation: "Belur Math near Calcutta.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-31",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Bombay"
         ],
         correctAnswer: 0,
-        explanation: "It was founded in New York by Blavatsky and Olcott before moving to India."
+        explanation: "It was founded in New York by Blavatsky and Olcott before moving to India.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-32",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Krishnamurti"
         ],
         correctAnswer: 0,
-        explanation: "Annie Besant took over after Olcott's death."
+        explanation: "Annie Besant took over after Olcott's death.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-33",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Kashi Naresh"
         ],
         correctAnswer: 0,
-        explanation: "Annie Besant founded it in 1898."
+        explanation: "Annie Besant founded it in 1898.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-34",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Syed Ahmed Barelvi"
         ],
         correctAnswer: 0,
-        explanation: "Haji Shariatullah founded it in 1819 in East Bengal."
+        explanation: "Haji Shariatullah founded it in 1819 in East Bengal.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-36",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Jamia Millia Islamia"
         ],
         correctAnswer: 0,
-        explanation: "It was the precursor to Aligarh Muslim University."
+        explanation: "It was the precursor to Aligarh Muslim University.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-39",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Titu Mir"
         ],
         correctAnswer: 0,
-        explanation: "Shibli Numani (Nadwatul Ulama) held this view."
+        explanation: "Shibli Numani (Nadwatul Ulama) held this view.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-42",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "1947"
         ],
         correctAnswer: 0,
-        explanation: "The Act gave control to the SGPC."
+        explanation: "The Act gave control to the SGPC.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-46",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Karunanidhi"
         ],
         correctAnswer: 0,
-        explanation: "Periyar led this radical anti-Brahmin movement."
+        explanation: "Periyar led this radical anti-Brahmin movement.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-48",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Jyotiba Phule"
         ],
         correctAnswer: 0,
-        explanation: "Gopalhari Deshmukh wrote under this pen name."
+        explanation: "Gopalhari Deshmukh wrote under this pen name.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-51",
@@ -419,7 +487,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Dudu Mian"
         ],
         correctAnswer: 0,
-        explanation: "Shah Walliullah (1702-63) inspired the Wahabi movement."
+        explanation: "Shah Walliullah (1702-63) inspired the Wahabi movement.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-53",
@@ -431,7 +501,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Dinshaw Petit"
         ],
         correctAnswer: 0,
-        explanation: "Dadabhai Naoroji was one of the leaders of the Rahnumai Mazdayasnan Sabha which spread its message through Rast Goftar."
+        explanation: "Dadabhai Naoroji was one of the leaders of the Rahnumai Mazdayasnan Sabha which spread its message through Rast Goftar.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: "H9-M-56",
@@ -443,7 +515,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Narayana Guru"
         ],
         correctAnswer: 0,
-        explanation: "Phule used Bali as a symbol of the indigenous people."
+        explanation: "Phule used Bali as a symbol of the indigenous people.",
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: "H9-M-57",
@@ -455,7 +529,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Lala Munshi Ram"
         ],
         correctAnswer: 0,
-        explanation: "They favored English education and controlled the DAV College."
+        explanation: "They favored English education and controlled the DAV College.",
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: "H9-M-60",
@@ -467,7 +543,9 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
             "Swami Brahmananda"
         ],
         correctAnswer: 0,
-        explanation: "Swami Virajananda of Mathura."
+        explanation: "Swami Virajananda of Mathura.",
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         "id": 1,
@@ -1031,7 +1109,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-1-1771158318160',
@@ -1040,7 +1119,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-2-1771158318160',
@@ -1049,7 +1129,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Easy-3-1771158318160',
@@ -1058,7 +1139,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-4-1771158318160',
@@ -1067,7 +1149,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-5-1771158318160',
@@ -1076,7 +1159,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Easy-6-1771158318160',
@@ -1085,7 +1169,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-7-1771158318160',
@@ -1094,7 +1179,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-8-1771158318160',
@@ -1103,7 +1189,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Easy-9-1771158318160',
@@ -1112,7 +1199,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-10-1771158318160',
@@ -1121,7 +1209,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-11-1771158318160',
@@ -1130,7 +1219,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Easy-12-1771158318160',
@@ -1139,7 +1229,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-13-1771158318160',
@@ -1148,7 +1239,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-14-1771158318160',
@@ -1157,7 +1249,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Easy-15-1771158318160',
@@ -1166,7 +1259,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-16-1771158318160',
@@ -1175,7 +1269,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-17-1771158318160',
@@ -1184,7 +1279,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Easy-18-1771158318160',
@@ -1193,7 +1289,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-19-1771158318160',
@@ -1202,7 +1299,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-20-1771158318160',
@@ -1211,7 +1309,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Easy-21-1771158318160',
@@ -1220,7 +1319,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-22-1771158318160',
@@ -1229,7 +1329,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-23-1771158318160',
@@ -1238,7 +1339,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Easy-24-1771158318160',
@@ -1247,7 +1349,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-25-1771158318160',
@@ -1256,7 +1359,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-26-1771158318160',
@@ -1265,7 +1369,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Easy-27-1771158318160',
@@ -1274,7 +1379,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Easy-28-1771158318160',
@@ -1283,7 +1389,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Easy-29-1771158318160',
@@ -1292,7 +1399,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Easy',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-0-1771158318160',
@@ -1301,7 +1409,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-1-1771158318160',
@@ -1310,7 +1419,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-2-1771158318160',
@@ -1319,7 +1429,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-3-1771158318160',
@@ -1328,7 +1439,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-4-1771158318160',
@@ -1337,7 +1449,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-5-1771158318160',
@@ -1346,7 +1459,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-6-1771158318160',
@@ -1355,7 +1469,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-7-1771158318160',
@@ -1364,7 +1479,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-8-1771158318160',
@@ -1373,7 +1489,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-9-1771158318160',
@@ -1382,7 +1499,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-10-1771158318160',
@@ -1391,7 +1509,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-11-1771158318160',
@@ -1400,7 +1519,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-12-1771158318160',
@@ -1409,7 +1529,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-13-1771158318160',
@@ -1418,7 +1539,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-14-1771158318160',
@@ -1427,7 +1549,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-15-1771158318160',
@@ -1436,7 +1559,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-16-1771158318160',
@@ -1445,7 +1569,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-17-1771158318160',
@@ -1454,7 +1579,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-18-1771158318160',
@@ -1463,7 +1589,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-19-1771158318160',
@@ -1472,7 +1599,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-20-1771158318160',
@@ -1481,7 +1609,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-21-1771158318160',
@@ -1490,7 +1619,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-22-1771158318160',
@@ -1499,7 +1629,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-23-1771158318160',
@@ -1508,7 +1639,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-24-1771158318160',
@@ -1517,7 +1649,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-25-1771158318160',
@@ -1526,7 +1659,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-26-1771158318160',
@@ -1535,7 +1669,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Moderate-27-1771158318160',
@@ -1544,7 +1679,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Moderate-28-1771158318160',
@@ -1553,7 +1689,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Moderate-29-1771158318160',
@@ -1562,7 +1699,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-0-1771158318160',
@@ -1571,7 +1709,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-1-1771158318160',
@@ -1580,7 +1719,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-2-1771158318160',
@@ -1589,7 +1729,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-3-1771158318160',
@@ -1598,7 +1739,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-4-1771158318160',
@@ -1607,7 +1749,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-5-1771158318160',
@@ -1616,7 +1759,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-6-1771158318160',
@@ -1625,7 +1769,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-7-1771158318160',
@@ -1634,7 +1779,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-8-1771158318160',
@@ -1643,7 +1789,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-9-1771158318160',
@@ -1652,7 +1799,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-10-1771158318160',
@@ -1661,7 +1809,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-11-1771158318160',
@@ -1670,7 +1819,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-12-1771158318160',
@@ -1679,7 +1829,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-13-1771158318160',
@@ -1688,7 +1839,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-14-1771158318160',
@@ -1697,7 +1849,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-15-1771158318160',
@@ -1706,7 +1859,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-16-1771158318160',
@@ -1715,7 +1869,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-17-1771158318160',
@@ -1724,7 +1879,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-18-1771158318160',
@@ -1733,7 +1889,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-19-1771158318160',
@@ -1742,7 +1899,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-20-1771158318160',
@@ -1751,7 +1909,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-21-1771158318160',
@@ -1760,7 +1919,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-22-1771158318160',
@@ -1769,7 +1929,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-23-1771158318160',
@@ -1778,7 +1939,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-24-1771158318160',
@@ -1787,7 +1949,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-25-1771158318160',
@@ -1796,7 +1959,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-26-1771158318160',
@@ -1805,7 +1969,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch9-Hard-27-1771158318160',
@@ -1814,7 +1979,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch9-Hard-28-1771158318160',
@@ -1823,7 +1989,8 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch9-Hard-29-1771158318160',
@@ -1832,6 +1999,7 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
         difficulty: 'Hard',
-        chapterId: 9
+        chapterId: 9,
+        difficulty: 'Hard'
     },
 ];

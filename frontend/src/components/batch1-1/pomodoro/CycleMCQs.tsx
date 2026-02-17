@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useStudentActivityStore } from '@/store/studentActivityStore';
-import { CheckCircle2, XCircle, Target, ChevronRight, Timer, AlertCircle } from 'lucide-react';
+import { CheckCircle2, XCircle, Target, ChevronRight, Timer, AlertCircle, HelpCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SubTopic } from '@/components/batch1/polity/data/polity-subtopics';
@@ -42,7 +42,7 @@ function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
     return mcqs.slice(0, 7); // Max 7 MCQs per cycle
 }
 
-export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind';
+export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind' | 'other';
 
 interface MCQResult {
     questionId: string;
@@ -265,6 +265,12 @@ export default function CycleMCQs({
         const accuracy = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
         const totalTime = finalResults.reduce((sum, r) => sum + r.timeSpent, 0);
 
+        // Calculate detailed stats for TestResult
+        const correctCount = finalResults.filter(r => r.isCorrect).length;
+        const answeredCount = finalResults.filter(r => r.selectedAnswer !== null).length;
+        const incorrectCount = answeredCount - correctCount;
+        const unansweredCount = totalQuestions - answeredCount;
+
         // Save to Universal Report Persistence
         // Use cycle number as chapter identifier for Pomodoro/Evening sessions
         const chapterId = cycleNumber;
@@ -272,16 +278,22 @@ export default function CycleMCQs({
             score,
             totalQuestions,
             accuracy,
-            timeTaken: totalTime,
+            totalTimeTaken: totalTime,
+            correctCount,
+            incorrectCount,
+            unansweredCount,
             questions: finalResults.map(r => ({
                 id: parseInt(r.questionId) || 0,
                 question: mcqs.find(m => String(m.id) === r.questionId)?.question || '',
                 options: mcqs.find(m => String(m.id) === r.questionId)?.options || [],
                 correctAnswer: r.correctAnswer,
-                selectedAnswer: r.selectedAnswer ?? -1,
+                userAnswer: r.selectedAnswer,
                 isCorrect: r.isCorrect,
-                confidence: r.confidence, // Save confidence level
-                explanation: mcqs.find(m => String(m.id) === r.questionId)?.explanation || ''
+                confidence: r.confidence,
+                explanation: mcqs.find(m => String(m.id) === r.questionId)?.explanation || '',
+                chapter: String(cycleNumber),
+                subtopic: mcqs.find(m => String(m.id) === r.questionId)?.subtopicId || '',
+                timeSpent: r.timeSpent,
             }))
         }, cycleNumber);
 
@@ -420,7 +432,7 @@ export default function CycleMCQs({
                             <KeyboardShortcutsHelp context="mcq" compact={true} />
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                             {/* Sure Shot */}
                             <button
                                 onClick={() => handleConfidenceSelect('sure')}
@@ -480,6 +492,21 @@ export default function CycleMCQs({
                                 </div>
                                 <span className="text-[10px] opacity-70">No Idea</span>
                             </button>
+
+                            {/* Other */}
+                            <button
+                                onClick={() => handleConfidenceSelect('other')}
+                                className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'other'
+                                    ? 'bg-purple-50 dark:bg-purple-900/20 border-purple-500 text-purple-700 dark:text-purple-300 font-bold shadow-sm'
+                                    : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-purple-300 hover:bg-purple-50/50'
+                                    }`}
+                            >
+                                <div className="flex items-center gap-2">
+                                    <HelpCircle className={`h-4 w-4 ${confidence === 'other' ? 'text-purple-600' : 'text-slate-400'}`} />
+                                    <span>Other</span>
+                                </div>
+                                <span className="text-[10px] opacity-70">Unspecified</span>
+                            </button>
                         </div>
                     </div>
 
@@ -520,8 +547,8 @@ export default function CycleMCQs({
                         </div>
                     </div>
                 </div>
-            </Card>
-        </div>
+            </Card >
+        </div >
     );
 }
 

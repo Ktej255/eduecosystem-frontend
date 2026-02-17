@@ -1,21 +1,20 @@
-import { ChapterContent } from '../../../../types';
 
-export const MODERN_CHAPTER_24_CONTENT: ChapterContent = {
+
+export const MODERN_CHAPTER_24_CONTENT = {
     id: 'chapter24',
-    title: 'Development of Education',
+    title: 'Post-War National Response',
     content: `
-# Development of Education
+# Post-War National Response
 
 ## 1. Introduction
-Education in British India evolved from traditional learning to a modern Western system, influenced by administrative needs and missionary activities.
+The post-war period in India was marked by a surge in nationalist sentiment and a series of events that ultimately led to independence.
 
-## 2. Key Milestones
-*   **Charter Act of 1813:** Allocated funds for education.
-*   **Macaulay's Minute (1835):** Advocated for English education.
-*   **Wood's Despatch (1854):** The Magna Carta of English education in India.
-*   **Hunter Commission (1882):** Reforms in primary and secondary education.
-*   **Indian Universities Act (1904):** Increased government control over universities.
-*   **Sadler Commission (1917):** Reforms for Calcutta University.
-*   **Wardha Scheme (1937):** Gandhi's concept of Basic Education.
+## 2. Key Events
+*   **INA Trials:** The public trial of INA prisoners at the Red Fort in Delhi.
+*   **RIN Mutiny:** The revolt by the ratings of the Royal Indian Navy in February 1946.
+*   **Cabinet Mission:** The arrival of the Cabinet Mission in 1946 to negotiate the transfer of power.
+
+## 3. Conclusion
+These events demonstrated the weakening of British control and the readiness of the Indian people for independence.
 `
 };

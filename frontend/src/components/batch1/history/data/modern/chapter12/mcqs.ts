@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "International influences like Japan's victory over Russia"
         ],
         correctAnswer: 2,
-        explanation: "Curzon's reactionary policies (like Partition of Bengal) fueled militant nationalism, not his benevolence."
+        explanation: "Curzon's reactionary policies (like Partition of Bengal) fueled militant nationalism, not his benevolence.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Bipin Chandra Pal"
         ],
         correctAnswer: 0,
-        explanation: "This quote by Vivekananda inspired the youth to be strong."
+        explanation: "This quote by Vivekananda inspired the youth to be strong.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "France by Vietnam"
         ],
         correctAnswer: 0,
-        explanation: "Japan's victory over Russia was a major psychological boost for Indian nationalists."
+        explanation: "Japan's victory over Russia was a major psychological boost for Indian nationalists.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Lord Lytton"
         ],
         correctAnswer: 0,
-        explanation: "Curzon insulted Indian nationalists with such remarks."
+        explanation: "Curzon insulted Indian nationalists with such remarks.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Seditious Meetings Act"
         ],
         correctAnswer: 0,
-        explanation: "The Official Secrets Act of 1904 curbed press freedom."
+        explanation: "The Official Secrets Act of 1904 curbed press freedom.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "December 1903"
         ],
         correctAnswer: 0,
-        explanation: "At a massive meeting in the Calcutta Townhall, the Boycott Resolution was passed."
+        explanation: "At a massive meeting in the Calcutta Townhall, the Boycott Resolution was passed.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "December 12, 1911"
         ],
         correctAnswer: 0,
-        explanation: "October 16, 1905 was observed as a day of mourning."
+        explanation: "October 16, 1905 was observed as a day of mourning.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Mukunda Das"
         ],
         correctAnswer: 0,
-        explanation: "It later became the national anthem of Bangladesh."
+        explanation: "It later became the national anthem of Bangladesh.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Annie Besant"
         ],
         correctAnswer: 0,
-        explanation: "He led the movement in Tirunelveli and Tuticorin."
+        explanation: "He led the movement in Tirunelveli and Tuticorin.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-10",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Sarala Devi"
         ],
         correctAnswer: 0,
-        explanation: "In Barisal, it was a very popular means of mass mobilization."
+        explanation: "In Barisal, it was a very popular means of mass mobilization.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-11",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Rabindranath Tagore"
         ],
         correctAnswer: 0,
-        explanation: "Set up under the National Council of Education in 1906."
+        explanation: "Set up under the National Council of Education in 1906.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-12",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Walchand Hirachand"
         ],
         correctAnswer: 0,
-        explanation: "At Tuticorin, to challenge the British monopoly."
+        explanation: "At Tuticorin, to challenge the British monopoly.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-13",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Diwali"
         ],
         correctAnswer: 0,
-        explanation: "He used these traditional festivals for political mobilization."
+        explanation: "He used these traditional festivals for political mobilization.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-15",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Bal Gangadhar Tilak"
         ],
         correctAnswer: 0,
-        explanation: "At this session, the goal of 'Swaraj' was declared."
+        explanation: "At this session, the goal of 'Swaraj' was declared.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-16",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "1909"
         ],
         correctAnswer: 0,
-        explanation: "The Congress split into Moderates and Extremists at the Surat session."
+        explanation: "The Congress split into Moderates and Extremists at the Surat session.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-17",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Tilak"
         ],
         correctAnswer: 0,
-        explanation: "The Moderates wanted Rashbehari Ghosh, while Extremists wanted Tilak or Lajpat Rai."
+        explanation: "The Moderates wanted Rashbehari Ghosh, while Extremists wanted Tilak or Lajpat Rai.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-18",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Communal issues"
         ],
         correctAnswer: 0,
-        explanation: "Extremists wanted to extend the movement outside Bengal and to all forms of association; Moderates wanted to restrict it."
+        explanation: "Extremists wanted to extend the movement outside Bengal and to all forms of association; Moderates wanted to restrict it.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-19",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Defense of India Act"
         ],
         correctAnswer: 0,
-        explanation: "The Seditious Meetings Act, 1907."
+        explanation: "The Seditious Meetings Act, 1907.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-20",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Alipore"
         ],
         correctAnswer: 0,
-        explanation: "He was tried for sedition for his articles in Kesari."
+        explanation: "He was tried for sedition for his articles in Kesari.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-22",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Queen's Proclamation 1858"
         ],
         correctAnswer: 0,
-        explanation: "Lord Minto was Viceroy and John Morley was Secretary of State."
+        explanation: "Lord Minto was Viceroy and John Morley was Secretary of State.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-23",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Appointment of an Indian to the Executive Council"
         ],
         correctAnswer: 0,
-        explanation: "It introduced the communal principle in Indian politics."
+        explanation: "It introduced the communal principle in Indian politics.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-24",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Tej Bahadur Sapru"
         ],
         correctAnswer: 0,
-        explanation: "Appointed as the Law Member in 1909."
+        explanation: "Appointed as the Law Member in 1909.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-25",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Syed Ahmed Khan"
         ],
         correctAnswer: 0,
-        explanation: "Led by Agha Khan, they met Lord Minto."
+        explanation: "Led by Agha Khan, they met Lord Minto.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-26",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Gandhi"
         ],
         correctAnswer: 0,
-        explanation: "The people demanded self-government but got benevolent despotism."
+        explanation: "The people demanded self-government but got benevolent despotism.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-28",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Sarat Chandra"
         ],
         correctAnswer: 0,
-        explanation: "It warned against the colonial state's 'hypnotic conquest of the mind'."
+        explanation: "It warned against the colonial state's 'hypnotic conquest of the mind'.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-30",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Birkenhead"
         ],
         correctAnswer: 0,
-        explanation: "John Morley."
+        explanation: "John Morley.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-31",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "1911"
         ],
         correctAnswer: 0,
-        explanation: "Founded in December 1906 at Dacca."
+        explanation: "Founded in December 1906 at Dacca.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-33",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Bhulabhai Desai"
         ],
         correctAnswer: 0,
-        explanation: "However, he was famously defended by Jinnah in his 1916 sedition case. In 1908, he largely argued his own case, though approached by others."
+        explanation: "However, he was famously defended by Jinnah in his 1916 sedition case. In 1908, he largely argued his own case, though approached by others.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-34",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "1912"
         ],
         correctAnswer: 0,
-        explanation: "Announced at the Delhi Durbar in 1911."
+        explanation: "Announced at the Delhi Durbar in 1911.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-35",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "1910"
         ],
         correctAnswer: 0,
-        explanation: "By Lord Hardinge II in 1911."
+        explanation: "By Lord Hardinge II in 1911.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-36",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Amrita Bazar Patrika"
         ],
         correctAnswer: 0,
-        explanation: "He started 'New India' (English weekly) to propagate his brand of nationalism."
+        explanation: "He started 'New India' (English weekly) to propagate his brand of nationalism.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-39",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Agha Khan"
         ],
         correctAnswer: 0,
-        explanation: "He was propped up by the British to counter the Congress."
+        explanation: "He was propped up by the British to counter the Congress.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-41",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "W.C. Bonnerjee"
         ],
         correctAnswer: 0,
-        explanation: "He demanded self-government similar to colonies."
+        explanation: "He demanded self-government similar to colonies.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-43",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "National Education"
         ],
         correctAnswer: 0,
-        explanation: "While revolutionary terrorism grew alongside, the official Swadeshi movement focused on passive resistance."
+        explanation: "While revolutionary terrorism grew alongside, the official Swadeshi movement focused on passive resistance.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         id: "H12-M-45",
@@ -419,7 +487,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Ashutosh Mukherjee"
         ],
         correctAnswer: 0,
-        explanation: "In 1895."
+        explanation: "In 1895.",
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
 {
         id: "H12-M-48",
@@ -431,7 +501,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Ambedkar"
         ],
         correctAnswer: 0,
-        explanation: "Under the 1909 Act."
+        explanation: "Under the 1909 Act.",
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 {
         id: "H12-M-49",
@@ -443,7 +515,9 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
             "Non-existent"
         ],
         correctAnswer: 0,
-        explanation: "This was one of the discriminatory features favouring Muslims to win their loyalty."
+        explanation: "This was one of the discriminatory features favouring Muslims to win their loyalty.",
+        chapterId: 12,
+        difficulty: 'Easy'
     },
 {
         "id": 1,
@@ -1017,7 +1091,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-1-1771158318476',
@@ -1026,7 +1101,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-2-1771158318476',
@@ -1035,7 +1111,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Easy-3-1771158318476',
@@ -1044,7 +1121,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-4-1771158318476',
@@ -1053,7 +1131,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-5-1771158318476',
@@ -1062,7 +1141,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Easy-6-1771158318476',
@@ -1071,7 +1151,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-7-1771158318476',
@@ -1080,7 +1161,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-8-1771158318476',
@@ -1089,7 +1171,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Easy-9-1771158318476',
@@ -1098,7 +1181,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-10-1771158318476',
@@ -1107,7 +1191,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-11-1771158318476',
@@ -1116,7 +1201,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Easy-12-1771158318476',
@@ -1125,7 +1211,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-13-1771158318476',
@@ -1134,7 +1221,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-14-1771158318476',
@@ -1143,7 +1231,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Easy-15-1771158318476',
@@ -1152,7 +1241,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-16-1771158318476',
@@ -1161,7 +1251,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-17-1771158318476',
@@ -1170,7 +1261,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Easy-18-1771158318476',
@@ -1179,7 +1271,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-19-1771158318476',
@@ -1188,7 +1281,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-20-1771158318476',
@@ -1197,7 +1291,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Easy-21-1771158318476',
@@ -1206,7 +1301,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-22-1771158318476',
@@ -1215,7 +1311,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-23-1771158318476',
@@ -1224,7 +1321,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Easy-24-1771158318476',
@@ -1233,7 +1331,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-25-1771158318476',
@@ -1242,7 +1341,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-26-1771158318476',
@@ -1251,7 +1351,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Easy-27-1771158318476',
@@ -1260,7 +1361,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Era of Militant Nationalism (1905–1909) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Easy-28-1771158318476',
@@ -1269,7 +1371,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Era of Militant Nationalism (1905–1909) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Easy-29-1771158318476',
@@ -1278,7 +1381,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Easy',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-0-1771158318476',
@@ -1287,7 +1391,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-1-1771158318476',
@@ -1296,7 +1401,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-2-1771158318476',
@@ -1305,7 +1411,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-3-1771158318476',
@@ -1314,7 +1421,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-4-1771158318476',
@@ -1323,7 +1431,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-5-1771158318476',
@@ -1332,7 +1441,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-6-1771158318476',
@@ -1341,7 +1451,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-7-1771158318476',
@@ -1350,7 +1461,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-8-1771158318476',
@@ -1359,7 +1471,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-9-1771158318476',
@@ -1368,7 +1481,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-10-1771158318476',
@@ -1377,7 +1491,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-11-1771158318476',
@@ -1386,7 +1501,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-12-1771158318476',
@@ -1395,7 +1511,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-13-1771158318476',
@@ -1404,7 +1521,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-14-1771158318476',
@@ -1413,7 +1531,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-15-1771158318476',
@@ -1422,7 +1541,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-16-1771158318476',
@@ -1431,7 +1551,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-17-1771158318476',
@@ -1440,7 +1561,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-18-1771158318476',
@@ -1449,7 +1571,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-19-1771158318476',
@@ -1458,7 +1581,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-20-1771158318476',
@@ -1467,7 +1591,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-21-1771158318476',
@@ -1476,7 +1601,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-22-1771158318476',
@@ -1485,7 +1611,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-23-1771158318476',
@@ -1494,7 +1621,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-24-1771158318476',
@@ -1503,7 +1631,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-25-1771158318476',
@@ -1512,7 +1641,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-26-1771158318476',
@@ -1521,7 +1651,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Moderate-27-1771158318476',
@@ -1530,7 +1661,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Moderate-28-1771158318476',
@@ -1539,7 +1671,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Moderate-29-1771158318476',
@@ -1548,7 +1681,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Era of Militant Nationalism (1905–1909) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-0-1771158318476',
@@ -1557,7 +1691,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-1-1771158318476',
@@ -1566,7 +1701,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-2-1771158318476',
@@ -1575,7 +1711,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-3-1771158318476',
@@ -1584,7 +1721,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-4-1771158318476',
@@ -1593,7 +1731,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-5-1771158318476',
@@ -1602,7 +1741,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-6-1771158318476',
@@ -1611,7 +1751,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-7-1771158318476',
@@ -1620,7 +1761,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-8-1771158318476',
@@ -1629,7 +1771,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-9-1771158318476',
@@ -1638,7 +1781,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-10-1771158318476',
@@ -1647,7 +1791,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-11-1771158318476',
@@ -1656,7 +1801,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-12-1771158318476',
@@ -1665,7 +1811,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-13-1771158318476',
@@ -1674,7 +1821,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-14-1771158318476',
@@ -1683,7 +1831,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-15-1771158318476',
@@ -1692,7 +1841,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-16-1771158318476',
@@ -1701,7 +1851,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-17-1771158318476',
@@ -1710,7 +1861,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-18-1771158318476',
@@ -1719,7 +1871,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-19-1771158318476',
@@ -1728,7 +1881,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-20-1771158318476',
@@ -1737,7 +1891,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-21-1771158318476',
@@ -1746,7 +1901,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-22-1771158318476',
@@ -1755,7 +1911,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-23-1771158318476',
@@ -1764,7 +1921,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-24-1771158318476',
@@ -1773,7 +1931,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-25-1771158318476',
@@ -1782,7 +1941,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-26-1771158318476',
@@ -1791,7 +1951,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch12-Hard-27-1771158318476',
@@ -1800,7 +1961,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch12-Hard-28-1771158318476',
@@ -1809,7 +1971,8 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch12-Hard-29-1771158318476',
@@ -1818,6 +1981,7 @@ export const MODERN_CHAPTER_12_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Era of Militant Nationalism (1905–1909).",
         difficulty: 'Hard',
-        chapterId: 12
+        chapterId: 12,
+        difficulty: 'Hard'
     },
 ];

@@ -1,78 +1,74 @@
 
-import { ChapterContent } from '../../../../types';
 
-export const MODERN_CHAPTER_13_CONTENT: ChapterContent = {
+
+export const MODERN_CHAPTER_13_CONTENT = {
     id: 'chapter13',
-    title: "Emergence of Gandhi (1915-1919)",
+    title: "Revolutionary Activities (Phase I: 1907-1917)",
     content: `
-# Emergence of Gandhi (1915-1919)
-> **Theme:** "My Experiment with Truth." The arrival of Mohandas Karamchand Gandhi from South Africa marked a paradigm shift in the Indian National Movement, introducing the unique weapons of Satyagraha and Non-Violence.
+# Revolutionary Activities (Phase I: 1907-1917)
+> **Theme:** "The Underground Struggle." As the mass movement declined after 1907, a section of the youth turned to militant methods to shake the British Raj.
 
 ---
 
-## 1. The Arrival (January 9, 1915)
-*   **The Return:** Gandhi returned to India after 21 years in South Africa. This day is celebrated as **Pravasi Bharatiya Divas**.
-*   **The Guru:** Following the advice of his political guru, **Gopal Krishna Gokhale**, Gandhi spent the first year traveling across India with "open ears and a closed mouth" to understand the ground reality.
-*   **Initial Base:** Established the Kochrab Ashram (1915), which was later shifted to the **Sabarmati Ashram** (1917).
-*   **Public Debut:** His first major public appearance was at the foundation stone laying ceremony of **Banaras Hindu University (BHU)** in February 1916.
+## 1. Modus Operandi
+The first phase of revolutionary activities was characterized by:
+*   **Individual Heroic Actions:** Assassinations of unpopular British officials to strike terror and remove the "fear of the white man."
+*   **Secret Societies:** Organized in small cells to avoid detection.
+*   **Inspiration:** Inspired by Irish nationalists (Fenians) and Russian nihilists.
+*   **Literary Backbone:** *Bandi Jivan* by Sachin Sanyal and *Pather Dabi* by Saratchandra Chatterjee.
 
 ---
 
-## 2. The Weapon: Satyagraha
-Gandhi's ideology was built on three pillars:
-*   **Satya (Truth):** The ultimate goal of life and the movement.
-*   **Ahimsa (Non-Violence):** Not just the absence of physical violence, but a weapon of the strong that renounces all forms of hatred.
-*   **Satyagraha:** "Holding onto Truth." A method of non-violent collective action involving civil disobedience and a ready acceptance of suffering.
+## 2. Domestic Revolutionary Centers
+
+### Maharashtra (The Spark)
+*   **1897:** Chapekar Brothers (Damodar & Balkrishna) assassinated Rand, the plague commissioner of Poona.
+*   **1899:** Mitra Mela (secret society) founded by Savarkar brothers, which became **Abhinav Bharat** in 1904.
+*   **1909:** Nasik Conspiracy Case - Jackson killed by Anant Kanhere.
+
+### Bengal (The Hotbed)
+*   **Anushilan Samiti (1902):** Promotha Mitter founded the first secret society in Calcutta.
+*   **Jugantar:** A radical weekly started by Barindra Ghosh and Bhupendranath Datta.
+*   **Alipore Bomb Case (1908):** Attempt on Magistrate Kingsford's life by **Khudiram Bose** and **Prafulla Chaki**. 
+    *   Khudiram became a martyr (hanged). 
+    *   **C.R. Das** successfully defended Aurobindo Ghosh in court.
+*   **Bagha Jatin (Jatindranath Mukherjee):** Led the Jugantar group and died in a heroic trench fight at **Balasore (1915)**.
+
+### Delhi & Punjab
+*   **Delhi Conspiracy Case (1912):** A bomb was thrown at Viceroy **Lord Hardinge** during his entry into Delhi. 
+    *   Plotted by **Rashbehari Bose** and **Sachin Sanyal**. 
+    *   Rashbehari escaped to Japan.
+*   **Punjab:** Agrarian unrest led by Ajit Singh (uncle of Bhagat Singh) and Sufi Amba Prasad.
 
 ---
 
-## 3. The Early Experiments (C-A-K-E)
-Before launching a nationwide movement, Gandhi applied his methods to three localized struggles.
+## 3. The Global Web (Ghadar Movement)
 
-### I. Champaran Satyagraha (1917) - *First Civil Disobedience*
-*   **Issue:** The **Tinkathia System**, where European planters forced peasants to grow indigo on 3/20th of their land.
-*   **Invitation:** **Rajkumar Shukla** invited Gandhi to Bihar.
-*   **Outcome:** The government appointed an inquiry committee (with Gandhi as a member). The Tinkathia system was abolished, and planters agreed to a **25% refund** of illegal dues.
-*   **Significance:** Gandhi's first victory in India. Rabindranath Tagore gave him the title **"Mahatma"**.
+### The Ghadar Party (1913)
+*   **Headquarters:** San Francisco (Yugantar Ashram).
+*   **Main Objective:** To trigger an armed mutiny in India during WWI.
+*   **Key Leaders:** Lala Har Dayal, Sohan Singh Bhakna (President), and young Kartar Singh Sarabha.
+*   **Journal:** *Ghadar* (Angrezi Raj Ka Dushman).
+*   **Failure:** The planned 1915 uprising was betrayed by Kirpal Singh.
 
-### II. Ahmedabad Mill Strike (1918) - *First Hunger Strike*
-*   **Issue:** A dispute between mill owners and workers over the withdrawal of the **Plague Bonus**. Workers demanded a 50% hike; owners offered 20%.
-*   **The Strike:** Gandhi led the workers and used a **hunger strike** for the first time in India.
-*   **Ally:** **Anusuya Sarabhai** (sister of the leading mill owner) supported the workers.
-*   **Outcome:** A tribunal awarded a **35% hike** to the workers.
-
-### III. Kheda Satyagraha (1918) - *First Non-Cooperation*
-*   **Issue:** Total crop failure in Kheda (Gujarat). According to the revenue code, if the yield was less than one-fourth, the revenue should be suspended, but the government refused.
-*   **The Struggle:** Gandhi and **Sardar Vallabhbhai Patel** organized the peasants to refuse revenue payment despite property confiscation.
-*   **Outcome:** The government issued secret instructions to collect revenue only from those who could afford to pay.
+### Komagata Maru (1914)
+*   A Japanese ship hired by Gurdit Singh to take Indian immigrants to Canada.
+*   Denied entry at Vancouver, it returned to Calcutta.
+*   The "Budge Budge" incident (firing) inflamed revolutionary sentiment in Punjab.
 
 ---
 
-## 4. The Rowlatt Satyagraha and Jallianwala Bagh (1919)
-The end of WWI brought repression instead of rewards.
-
-### The Rowlatt Act ("The Black Act")
-*   Officially the **Anarchical and Revolutionary Crimes Act**.
-*   Allowed the government to detain political suspects for two years without trial.
-*   **Slogan:** *"No Dalil, No Vakil, No Appeal."*
-
-### The Response: Rowlatt Satyagraha
-*   Gandhi organized the **Satyagraha Sabha** and called for a nationwide **Hartal (strike)** on **April 6, 1919**.
-*   This was Gandhi's **first all-India mass movement**.
-
-### Jallianwala Bagh Massacre (April 13, 1919)
-*   **Context:** People gathered in Amritsar to celebrate Baisakhi and protest the arrest of local leaders **Dr. Satyapal and Dr. Saifuddin Kitchlew**.
-*   **The Tragedy:** **General Dyer** entered the Bagh, blocked the only exit, and ordered firing without warning. Over 1,000 people were killed.
-*   **Renunciations:** 
-    *   **Rabindranath Tagore** renounced his **Knighthood**.
-    *   **Mahatma Gandhi** returned his **Kaiser-i-Hind** gold medal.
-*   **The Inquiries:**
-    *   **Hunter Commission (Official):** Essentially a "whitewash," though it condemned Dyer's lack of "humanity."
-    *   **Congress Inquiry Committee:** Demanded a full apology and punishment.
+## 4. International Plots during WWI
+*   **The Zimmerman Plan (Berlin):** German-backed plan to smuggle arms into India for an insurrection. Led by Virendranath Chattopadhyaya.
+*   **Provisional Govt of India (Kabul, 1915):** The first government-in-exile.
+    *   **President:** Raja Mahendra Pratap.
+    *   **Prime Minister:** Barkatullah.
+*   **Madame Bhikaji Cama:** Known as the "Mother of the Indian Revolution." Hoisted the first national flag at Stuttgart, Germany (1907).
 
 ---
 
-## 5. Transition to Mass Politics
-The Rowlatt Satyagraha, despite its violent end (which Gandhi called a "Himalayan Miscalculation"), proved that the masses were ready for a prolonged struggle. The stage was set for the Non-Cooperation movement.
+## 5. Suppression & Aftermath
+*   **Defence of India Act (1915):** Passed to crush the Ghadarites and revolutionaries.
+*   **Rowlatt Committee:** Appointed to investigate "sedition," eventually leading to the Rowlatt Act.
     `
 };

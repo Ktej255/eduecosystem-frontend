@@ -32,7 +32,7 @@ export interface QuestionResult {
     subtopic: string;
     userAnswer: number | null;
     correctAnswer: number;
-    confidence: 'sure' | '50-50' | 'one-option' | 'blind' | null;
+    confidence: 'sure' | '50-50' | 'one-option' | 'blind' | 'other' | null;
     timeSpent: number;
     isCorrect: boolean;
     visitCount?: number;
@@ -93,9 +93,10 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
     const chapterData = useMemo(() => {
         const chapters: Record<string, { correct: number; total: number }> = {};
         questions.forEach(q => {
-            if (!chapters[q.chapter]) chapters[q.chapter] = { correct: 0, total: 0 };
-            chapters[q.chapter].total++;
-            if (q.isCorrect) chapters[q.chapter].correct++;
+            const chapName = q.chapter || "General";
+            if (!chapters[chapName]) chapters[chapName] = { correct: 0, total: 0 };
+            chapters[chapName].total++;
+            if (q.isCorrect) chapters[chapName].correct++;
         });
 
         return Object.entries(chapters).map(([name, data]) => ({
@@ -112,6 +113,7 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
             '50-50': { correct: 0, total: 0, time: 0 },
             'one-option': { correct: 0, total: 0, time: 0 },
             'blind': { correct: 0, total: 0, time: 0 },
+            'other': { correct: 0, total: 0, time: 0 },
         };
 
         questions.forEach(q => {
@@ -131,8 +133,8 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
     }, [questions]);
 
     // COLORS
-    const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'];
-    const colorsMap: Record<string, string> = { 'emerald': 'text-emerald-400', 'blue': 'text-blue-400', 'purple': 'text-purple-400', 'amber': 'text-amber-400' };
+    const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#a855f7'];
+    const colorsMap: Record<string, string> = { 'emerald': 'text-emerald-400', 'blue': 'text-blue-400', 'purple': 'text-purple-400', 'amber': 'text-amber-400', 'slate': 'text-slate-400' };
 
     return (
         <div className="min-h-screen bg-[#020617] text-slate-100 p-6 font-sans pb-20">

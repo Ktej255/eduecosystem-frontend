@@ -12,7 +12,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         ],
         correctAnswer: 2,
         explanation: "The British rule was exploitative, not benevolent. The recognition of this exploitation was a key factor in the rise of nationalism.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: '10-2',
@@ -25,7 +26,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         ],
         correctAnswer: 1,
         explanation: "Dadabhai Naoroji founded the East India Association in London to organize Indian opinion and influence British public opinion.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: '10-3',
@@ -38,7 +40,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         ],
         correctAnswer: 1,
         explanation: "It was the most important of the pre-Congress associations, aiming to create a strong public opinion on political questions.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: '10-4',
@@ -51,7 +54,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         ],
         correctAnswer: 1,
         explanation: "Lord Lytton's policies like the Vernacular Press Act, Arms Act, and reducing the ICS age limit angered Indians and fueled nationalism.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: '10-7',
@@ -64,7 +68,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         ],
         correctAnswer: 1,
         explanation: "The first session was held in Bombay in December 1885, presided over by W.C. Bonnerjee.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: '10-8',
@@ -77,7 +82,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         ],
         correctAnswer: 2,
         explanation: "Womesh Chandra Bonnerjee was the first president of the INC.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: '10-10',
@@ -90,7 +96,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         ],
         correctAnswer: 2,
         explanation: "The early Congress (Moderates) did not demand immediate independence; they wanted constitutional reforms and self-government within the empire.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: '10-11',
@@ -103,7 +110,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         ],
         correctAnswer: 1,
         explanation: "Lord Dufferin ridiculed the Congress as representing only a 'microscopic minority' of the people.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: '10-14',
@@ -116,7 +124,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         ],
         correctAnswer: 1,
         explanation: "Lord Lytton reduced the age to prevent Indians from competing.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: '10-16',
@@ -124,7 +133,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         options: ["Dadabhai Naoroji", "Gopal Krishna Gokhale", "Bal Gangadhar Tilak", "Mahatma Gandhi"],
         correctAnswer: 0,
         explanation: "Dadabhai Naoroji was affectionately known as the Grand Old Man of India.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: '10-18',
@@ -132,7 +142,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         options: ["The Hindu", "Amrita Bazar Patrika", "Voice of India", "Bengalee"],
         correctAnswer: 1,
         explanation: "Amrita Bazar Patrika was founded by Sisir Kumar Ghosh in 1868.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: '10-19',
@@ -140,7 +151,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         options: ["R.C. Dutt", "Dadabhai Naoroji", "M.G. Ranade", "G.V. Joshi"],
         correctAnswer: 0,
         explanation: "Romesh Chandra Dutt wrote this seminal work critiquing British economic impact.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: '10-21',
@@ -148,7 +160,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         options: ["Lord Curzon", "Lord Dufferin", "Lord Minto", "Lord Lytton"],
         correctAnswer: 0,
         explanation: "Lord Curzon made this statement, reflecting his hostility towards the Congress.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: '10-23',
@@ -156,7 +169,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         options: ["G. Subramania Iyer", "Sisir Kumar Ghosh", "Surendranath Banerjea", "Tilak"],
         correctAnswer: 0,
         explanation: "G. Subramania Iyer was one of the founders and editor of The Hindu.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: '10-24',
@@ -164,7 +178,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         options: ["Lord Dufferin", "Lord Ripon", "Lord Curzon", "Lord Lansdowne"],
         correctAnswer: 0,
         explanation: "The theory suggests A.O. Hume formed Congress with Dufferin's blessing to act as a safety valve for discontent.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: '10-25',
@@ -172,7 +187,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         options: ["Badruddin Tyabji", "Rahimatullah Sayani", "Maulana Azad", "Hakim Ajmal Khan"],
         correctAnswer: 0,
         explanation: "Badruddin Tyabji presided over the Madras session of 1887.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: '10-26',
@@ -180,7 +196,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         options: ["Allahabad (1888)", "Bombay (1889)", "Madras (1887)", "Calcutta (1890)"],
         correctAnswer: 0,
         explanation: "George Yule presided over the Allahabad session in 1888.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: '10-30',
@@ -188,7 +205,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         options: ["Bal Gangadhar Tilak", "Bipin Chandra Pal", "Lala Lajpat Rai", "Aurobindo Ghosh"],
         correctAnswer: 0,
         explanation: "This famous slogan was given by Tilak, marking the rise of extremist nationalism.",
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     }
     ,
     {
@@ -1083,7 +1101,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-1-1771158318455',
@@ -1092,7 +1111,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-2-1771158318455',
@@ -1101,7 +1121,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Easy-3-1771158318455',
@@ -1110,7 +1131,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-4-1771158318455',
@@ -1119,7 +1141,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-5-1771158318455',
@@ -1128,7 +1151,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Easy-6-1771158318455',
@@ -1137,7 +1161,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-7-1771158318455',
@@ -1146,7 +1171,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-8-1771158318455',
@@ -1155,7 +1181,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Easy-9-1771158318455',
@@ -1164,7 +1191,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-10-1771158318455',
@@ -1173,7 +1201,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-11-1771158318455',
@@ -1182,7 +1211,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Easy-12-1771158318455',
@@ -1191,7 +1221,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-13-1771158318455',
@@ -1200,7 +1231,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-14-1771158318455',
@@ -1209,7 +1241,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Easy-15-1771158318455',
@@ -1218,7 +1251,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-16-1771158318455',
@@ -1227,7 +1261,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-17-1771158318455',
@@ -1236,7 +1271,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Easy-18-1771158318455',
@@ -1245,7 +1281,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-19-1771158318455',
@@ -1254,7 +1291,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-20-1771158318455',
@@ -1263,7 +1301,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Easy-21-1771158318455',
@@ -1272,7 +1311,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-22-1771158318455',
@@ -1281,7 +1321,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-23-1771158318455',
@@ -1290,7 +1331,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Easy-24-1771158318455',
@@ -1299,7 +1341,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-25-1771158318455',
@@ -1308,7 +1351,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-26-1771158318455',
@@ -1317,7 +1361,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Easy-27-1771158318455',
@@ -1326,7 +1371,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Beginning of Modern Nationalism in India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Easy-28-1771158318455',
@@ -1335,7 +1381,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Beginning of Modern Nationalism in India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Easy-29-1771158318455',
@@ -1344,7 +1391,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Beginning of Modern Nationalism in India.",
         difficulty: 'Easy',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-0-1771158318455',
@@ -1353,7 +1401,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-1-1771158318455',
@@ -1362,7 +1411,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-2-1771158318455',
@@ -1371,7 +1421,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-3-1771158318455',
@@ -1380,7 +1431,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-4-1771158318455',
@@ -1389,7 +1441,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-5-1771158318455',
@@ -1398,7 +1451,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-6-1771158318455',
@@ -1407,7 +1461,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-7-1771158318455',
@@ -1416,7 +1471,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-8-1771158318455',
@@ -1425,7 +1481,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-9-1771158318455',
@@ -1434,7 +1491,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-10-1771158318455',
@@ -1443,7 +1501,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-11-1771158318455',
@@ -1452,7 +1511,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-12-1771158318455',
@@ -1461,7 +1521,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-13-1771158318455',
@@ -1470,7 +1531,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-14-1771158318455',
@@ -1479,7 +1541,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-15-1771158318455',
@@ -1488,7 +1551,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-16-1771158318455',
@@ -1497,7 +1561,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-17-1771158318455',
@@ -1506,7 +1571,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-18-1771158318455',
@@ -1515,7 +1581,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-19-1771158318455',
@@ -1524,7 +1591,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-20-1771158318455',
@@ -1533,7 +1601,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-21-1771158318455',
@@ -1542,7 +1611,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-22-1771158318455',
@@ -1551,7 +1621,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-23-1771158318455',
@@ -1560,7 +1631,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-24-1771158318455',
@@ -1569,7 +1641,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-25-1771158318455',
@@ -1578,7 +1651,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-26-1771158318455',
@@ -1587,7 +1661,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Moderate-27-1771158318455',
@@ -1596,7 +1671,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Moderate-28-1771158318455',
@@ -1605,7 +1681,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Moderate-29-1771158318455',
@@ -1614,7 +1691,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Beginning of Modern Nationalism in India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-0-1771158318455',
@@ -1623,7 +1701,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-1-1771158318455',
@@ -1632,7 +1711,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-2-1771158318455',
@@ -1641,7 +1721,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-3-1771158318455',
@@ -1650,7 +1731,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-4-1771158318455',
@@ -1659,7 +1741,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-5-1771158318455',
@@ -1668,7 +1751,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-6-1771158318455',
@@ -1677,7 +1761,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-7-1771158318455',
@@ -1686,7 +1771,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-8-1771158318455',
@@ -1695,7 +1781,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-9-1771158318455',
@@ -1704,7 +1791,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-10-1771158318455',
@@ -1713,7 +1801,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-11-1771158318455',
@@ -1722,7 +1811,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-12-1771158318455',
@@ -1731,7 +1821,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-13-1771158318455',
@@ -1740,7 +1831,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-14-1771158318455',
@@ -1749,7 +1841,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-15-1771158318455',
@@ -1758,7 +1851,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-16-1771158318455',
@@ -1767,7 +1861,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-17-1771158318455',
@@ -1776,7 +1871,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-18-1771158318455',
@@ -1785,7 +1881,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-19-1771158318455',
@@ -1794,7 +1891,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-20-1771158318455',
@@ -1803,7 +1901,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-21-1771158318455',
@@ -1812,7 +1911,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-22-1771158318455',
@@ -1821,7 +1921,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-23-1771158318455',
@@ -1830,7 +1931,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-24-1771158318455',
@@ -1839,7 +1941,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-25-1771158318455',
@@ -1848,7 +1951,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-26-1771158318455',
@@ -1857,7 +1961,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch10-Hard-27-1771158318455',
@@ -1866,7 +1971,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch10-Hard-28-1771158318455',
@@ -1875,7 +1981,8 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch10-Hard-29-1771158318455',
@@ -1884,6 +1991,7 @@ export const MODERN_CHAPTER_10_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Beginning of Modern Nationalism in India.",
         difficulty: 'Hard',
-        chapterId: 10
+        chapterId: 10,
+        difficulty: 'Hard'
     },
 ];

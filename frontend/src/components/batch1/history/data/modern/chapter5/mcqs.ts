@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Battle of Wandiwash (1760)"
         ],
         correctAnswer: 1,
-        explanation: "The Battle of Plassey (1757) laid the political and territorial foundation of British rule."
+        explanation: "The Battle of Plassey (1757) laid the political and territorial foundation of British rule.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Rai Durlabh"
         ],
         correctAnswer: 2,
-        explanation: "Mir Madan and Mohan Lal were loyal officers who fought for Siraj. Mir Jafar, Rai Durlabh, Jagat Seth, and Omichand were conspirators."
+        explanation: "Mir Madan and Mohan Lal were loyal officers who fought for Siraj. Mir Jafar, Rai Durlabh, Jagat Seth, and Omichand were conspirators.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Lord Wellesley"
         ],
         correctAnswer: 1,
-        explanation: "Robert Clive introduced it in 1765 after the Treaty of Allahabad."
+        explanation: "Robert Clive introduced it in 1765 after the Treaty of Allahabad.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Tipu Sultan, Marathas, and Nizam"
         ],
         correctAnswer: 0,
-        explanation: "It was a combined force of Mir Kasim (Bengal), Shuja-ud-Daula (Awadh), and Shah Alam II (Mughal Emperor)."
+        explanation: "It was a combined force of Mir Kasim (Bengal), Shuja-ud-Daula (Awadh), and Shah Alam II (Mughal Emperor).",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Awadh and Delhi"
         ],
         correctAnswer: 1,
-        explanation: "They secured Diwani for Bengal, Bihar, and Orissa."
+        explanation: "They secured Diwani for Bengal, Bihar, and Orissa.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "John Shore"
         ],
         correctAnswer: 1,
-        explanation: "Warren Hastings ended the dual system and took direct control."
+        explanation: "Warren Hastings ended the dual system and took direct control.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "First Anglo-Maratha War"
         ],
         correctAnswer: 1,
-        explanation: "It ended the Second Anglo-Mysore War. It was signed between Tipu Sultan and the British."
+        explanation: "It ended the Second Anglo-Mysore War. It was signed between Tipu Sultan and the British.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Krishnaraja Wodeyar"
         ],
         correctAnswer: 1,
-        explanation: "Tipu Sultan showed keen interest in the French Revolution ideas."
+        explanation: "Tipu Sultan showed keen interest in the French Revolution ideas.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Fourth Anglo-Mysore War"
         ],
         correctAnswer: 1,
-        explanation: "Haidar Ali died of cancer in 1782 during the Second Anglo-Mysore War."
+        explanation: "Haidar Ali died of cancer in 1782 during the Second Anglo-Mysore War.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-11",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Lord Dalhousie"
         ],
         correctAnswer: 1,
-        explanation: "Lord Wellesley (Richard Wellesley) led the final war against Tipu."
+        explanation: "Lord Wellesley (Richard Wellesley) led the final war against Tipu.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-12",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "The Germans"
         ],
         correctAnswer: 1,
-        explanation: "He took French help to modernize his army."
+        explanation: "He took French help to modernize his army.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-13",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "It was signed between the British and Shivaji."
         ],
         correctAnswer: 1,
-        explanation: "It ended the First Anglo-Maratha War and established a 20-year peace, allowing the British to focus on Mysore."
+        explanation: "It ended the First Anglo-Maratha War and established a 20-year peace, allowing the British to focus on Mysore.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-14",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Treaty of Allahabad"
         ],
         correctAnswer: 1,
-        explanation: "The Treaty of Bassein with Peshwa Bajirao II allowed British troops to be stationed at Poona, the heart of the Maratha empire."
+        explanation: "The Treaty of Bassein with Peshwa Bajirao II allowed British troops to be stationed at Poona, the heart of the Maratha empire.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-16",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "The signing of the Treaty of Salbai."
         ],
         correctAnswer: 1,
-        explanation: "The Peshwaship was abolished, and Bajirao II was pensioned off to Bithur."
+        explanation: "The Peshwaship was abolished, and Bajirao II was pensioned off to Bithur.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-17",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Bajirao I"
         ],
         correctAnswer: 1,
-        explanation: "Mahadji Scindia (Shinde) lured the English into the ghats and forced the humiliating Convention of Wadgaon."
+        explanation: "Mahadji Scindia (Shinde) lured the English into the ghats and forced the humiliating Convention of Wadgaon.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-18",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "The Holkar"
         ],
         correctAnswer: 3,
-        explanation: "The Holkars of Indore were the last to submit."
+        explanation: "The Holkars of Indore were the last to submit.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-19",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "James Outram"
         ],
         correctAnswer: 1,
-        explanation: "Charles Napier, who conquered Sindh in 1843."
+        explanation: "Charles Napier, who conquered Sindh in 1843.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-20",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Lord Dalhousie"
         ],
         correctAnswer: 0,
-        explanation: "It was signed with Charles Metcalfe, the envoy of Lord Minto."
+        explanation: "It was signed with Charles Metcalfe, the envoy of Lord Minto.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-22",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Battle of Mudki"
         ],
         correctAnswer: 2,
-        explanation: "The Battle of Gujarat (1849) was decisively won by the British using superior artillery, hence 'Battle of Guns'."
+        explanation: "The Battle of Gujarat (1849) was decisively won by the British using superior artillery, hence 'Battle of Guns'.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-23",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "James Outram"
         ],
         correctAnswer: 0,
-        explanation: "Henry Lawrence was appointed the Resident at Lahore."
+        explanation: "Henry Lawrence was appointed the Resident at Lahore.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-24",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Lord Auckland"
         ],
         correctAnswer: 1,
-        explanation: "Lord Dalhousie annexed Punjab in 1849."
+        explanation: "Lord Dalhousie annexed Punjab in 1849.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-25",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Lord Dalhousie"
         ],
         correctAnswer: 0,
-        explanation: "Warren Hastings followed the Ring Fence policy (creating buffer states)."
+        explanation: "Warren Hastings followed the Ring Fence policy (creating buffer states).",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-26",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Travancore"
         ],
         correctAnswer: 0,
-        explanation: "Awadh was the first to accept a subsidiary force (1765), but the system was perfected by Wellesley with the Nizam of Hyderabad (1798) being the first to sign the formal 'Subsidiary Alliance'."
+        explanation: "Awadh was the first to accept a subsidiary force (1765), but the system was perfected by Wellesley with the Nizam of Hyderabad (1798) being the first to sign the formal 'Subsidiary Alliance'.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-27",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Sambhalpur (1849)"
         ],
         correctAnswer: 0,
-        explanation: "Satara was the first state annexed in 1848."
+        explanation: "Satara was the first state annexed in 1848.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-28",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Treason"
         ],
         correctAnswer: 1,
-        explanation: "Awadh had many heirs, so Lapse didn't apply. It was annexed due to 'misgovernance' based on Outram's report."
+        explanation: "Awadh had many heirs, so Lapse didn't apply. It was annexed due to 'misgovernance' based on Outram's report.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-29",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "The British would interfere in the day-to-day internal administration."
         ],
         correctAnswer: 3,
-        explanation: "Theoretical non-interference in internal affairs was a clause (though often violated in practice)."
+        explanation: "Theoretical non-interference in internal affairs was a clause (though often violated in practice).",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-30",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Lord Dalhousie"
         ],
         correctAnswer: 1,
-        explanation: "Lord Ellenborough (1842-1844) annexed Sindh."
+        explanation: "Lord Ellenborough (1842-1844) annexed Sindh.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-31",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Tibet"
         ],
         correctAnswer: 0,
-        explanation: "It ended the Anglo-Nepal War."
+        explanation: "It ended the Anglo-Nepal War.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-33",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Ring Fence"
         ],
         correctAnswer: 2,
-        explanation: "Lawrence followed 'Masterly Inactivity' (non-intervention)."
+        explanation: "Lawrence followed 'Masterly Inactivity' (non-intervention).",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-34",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "First Anglo-Afghan War"
         ],
         correctAnswer: 0,
-        explanation: "It ended the First Anglo-Burmese War."
+        explanation: "It ended the First Anglo-Burmese War.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-35",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Lord Curzon"
         ],
         correctAnswer: 0,
-        explanation: "Lytton (1876-80) adopted the aggressive 'Proud Reserve' policy."
+        explanation: "Lytton (1876-80) adopted the aggressive 'Proud Reserve' policy.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-36",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Lord Hardinge"
         ],
         correctAnswer: 0,
-        explanation: "Lord Curzon sent the mission to check Russian influence in Tibet."
+        explanation: "Lord Curzon sent the mission to check Russian influence in Tibet.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-37",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Murshid Quli Khan"
         ],
         correctAnswer: 1,
-        explanation: "Mir Kasim shifted the capital to Munger to be away from British influence in Calcutta."
+        explanation: "Mir Kasim shifted the capital to Munger to be away from British influence in Calcutta.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-38",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Treaty of Bassein (1802)"
         ],
         correctAnswer: 2,
-        explanation: "While Poona/Gwalior weakened it, the final surrender and treaties in 1818 dissolved the structure."
+        explanation: "While Poona/Gwalior weakened it, the final surrender and treaties in 1818 dissolved the structure.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-40",
@@ -419,7 +487,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "James Mill"
         ],
         correctAnswer: 0,
-        explanation: "John Seeley made this famous remark."
+        explanation: "John Seeley made this famous remark.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-42",
@@ -431,7 +501,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Madhav Rao I"
         ],
         correctAnswer: 1,
-        explanation: "Nana Phadnavis led the council of 12 (Barabhai) to rule in the name of the infant Madhavrao II."
+        explanation: "Nana Phadnavis led the council of 12 (Barabhai) to rule in the name of the infant Madhavrao II.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-43",
@@ -443,7 +515,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Chenab"
         ],
         correctAnswer: 2,
-        explanation: "Crossing the Sutlej (Dec 1845) was seen as the act of war."
+        explanation: "Crossing the Sutlej (Dec 1845) was seen as the act of war.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-44",
@@ -455,7 +529,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Sher Singh"
         ],
         correctAnswer: 1,
-        explanation: "The British (under Treaty of Amritsar, 1846, separate from Lahore treaty) sold it to Gulab Singh."
+        explanation: "The British (under Treaty of Amritsar, 1846, separate from Lahore treaty) sold it to Gulab Singh.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-45",
@@ -467,7 +543,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Lord Curzon"
         ],
         correctAnswer: 0,
-        explanation: "Lord Dufferin annexed Upper Burma after the Third Anglo-Burmese War."
+        explanation: "Lord Dufferin annexed Upper Burma after the Third Anglo-Burmese War.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-47",
@@ -479,7 +557,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Count de Aerilly"
         ],
         correctAnswer: 0,
-        explanation: "Dupleix was the key architect of French policy before his recall."
+        explanation: "Dupleix was the key architect of French policy before his recall.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-49",
@@ -491,7 +571,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "None of the above"
         ],
         correctAnswer: 2,
-        explanation: "Both his political annexations and his modernizing reforms (seen as interference) contributed."
+        explanation: "Both his political annexations and his modernizing reforms (seen as interference) contributed.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-51",
@@ -503,7 +585,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "The Rohillas"
         ],
         correctAnswer: 0,
-        explanation: "The Talpuras brothers (Char Yar) were the Amirs."
+        explanation: "The Talpuras brothers (Char Yar) were the Amirs.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-52",
@@ -515,7 +599,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Nepal became a subsidiary state."
         ],
         correctAnswer: 0,
-        explanation: "The British acquired the hill stations."
+        explanation: "The British acquired the hill stations.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-54",
@@ -527,7 +613,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Cornwallis"
         ],
         correctAnswer: 0,
-        explanation: "Warren Hastings (Regulating Act 1773)."
+        explanation: "Warren Hastings (Regulating Act 1773).",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-55",
@@ -539,7 +627,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "French Alliance"
         ],
         correctAnswer: 0,
-        explanation: "The primary cause was the misuse of duty-free trade permits by Company servants for private trade."
+        explanation: "The primary cause was the misuse of duty-free trade permits by Company servants for private trade.",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-56",
@@ -551,7 +641,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Guru Nanak"
         ],
         correctAnswer: 0,
-        explanation: "Guru Tegh Bahadur."
+        explanation: "Guru Tegh Bahadur.",
+        chapterId: 5,
+        difficulty: 'Easy'
     },
 {
         id: "H5-M-57",
@@ -563,7 +655,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Ramgarhiya"
         ],
         correctAnswer: 0,
-        explanation: "Sukarchakiya Misl."
+        explanation: "Sukarchakiya Misl.",
+        chapterId: 5,
+        difficulty: 'Moderate'
     },
 {
         id: "H5-M-59",
@@ -575,7 +669,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Banda Bahadur"
         ],
         correctAnswer: 0,
-        explanation: "Ranjit Singh is often referred to as Sher-e-Punjab (though later Lala Lajpat Rai was also called that, in this context it is Ranjit Singh)."
+        explanation: "Ranjit Singh is often referred to as Sher-e-Punjab (though later Lala Lajpat Rai was also called that, in this context it is Ranjit Singh).",
+        chapterId: 5,
+        difficulty: 'Hard'
     },
 {
         id: "H5-M-60",
@@ -587,7 +683,9 @@ export const MODERN_CHAPTER_5_MCQS: any[] = [
             "Conquest"
         ],
         correctAnswer: 0,
-        explanation: "They were annexed by Dalhousie under Lapse."
+        explanation: "They were annexed by Dalhousie under Lapse.",
+        chapterId: 5,
+        difficulty: 'Easy'
     }
 ,
 {

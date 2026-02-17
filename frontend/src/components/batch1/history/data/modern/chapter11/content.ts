@@ -1,74 +1,84 @@
 
-import { ChapterContent } from '../../../../types';
 
-export const MODERN_CHAPTER_11_CONTENT: ChapterContent = {
+
+export const MODERN_CHAPTER_11_CONTENT = {
     id: 'chapter11',
-    title: "Revolutionary Activities (Phase I: 1907-1917)",
+    title: "The Nationalist Movement (1858-1905): Birth of the Congress",
     content: `
-# Revolutionary Activities (Phase I: 1907-1917)
-> **Theme:** "The Underground Struggle." As the mass movement declined after 1907, a section of the youth turned to militant methods to shake the British Raj.
+# The Nationalist Movement (1858-1905)
+> **Theme:** "From Petitions to Swaraj." The late 19th century witnessed the organized awakening of Indian political consciousness, culminating in the birth of the Indian National Congress.
 
 ---
 
-## 1. Modus Operandi
-The first phase of revolutionary activities was characterized by:
-*   **Individual Heroic Actions:** Assassinations of unpopular British officials to strike terror and remove the "fear of the white man."
-*   **Secret Societies:** Organized in small cells to avoid detection.
-*   **Inspiration:** Inspired by Irish nationalists (Fenians) and Russian nihilists.
-*   **Literary Backbone:** *Bandi Jivan* by Sachin Sanyal and *Pather Dabi* by Saratchandra Chatterjee.
+## 1. Factors for the Rise of Nationalism
+The rise of nationalism was a result of several internal and external factors:
+
+1.  **Administrative & Economic Unification:** The British brought the entire subcontinent under one rule. Railways, telegraphs, and a uniform legal system created a sense of oneness.
+2.  **Western Education:** English became the lingua franca for the educated elite, allowing them to communicate across regional boundaries and study Western liberal ideas (liberty, equality, democracy).
+3.  **The Economic Critique:** Leaders like Dadabhai Naoroji exposed the "Drain of Wealth," proving that Britain was bleeding India white.
+4.  **Reactionary Policies (Lord Lytton, 1876-80):** 
+    *   **Vernacular Press Act (1878):** To silence Indian-language newspapers.
+    *   **Arms Act (1878):** Disarmed Indians while exempting Europeans.
+    *   **Delhi Durbar (1877):** Held during a severe famine.
+5.  **Ilbert Bill Controversy (1883):** Lord Ripon's proposal to allow Indian judges to try Europeans in criminal cases led to a "White Mutiny," which exposed British racial arrogance and taught Indians the power of organization.
 
 ---
 
-## 2. Domestic Revolutionary Centers
+## 2. Pre-Congress Political Associations
 
-### Maharashtra (The Spark)
-*   **1897:** Chapekar Brothers (Damodar & Balkrishna) assassinated Rand, the plague commissioner of Poona.
-*   **1899:** Mitra Mela (secret society) founded by Savarkar brothers, which became **Abhinav Bharat** in 1904.
-*   **1909:** Nasik Conspiracy Case - Jackson killed by Anant Kanhere.
-
-### Bengal (The Hotbed)
-*   **Anushilan Samiti (1902):** Promotha Mitter founded the first secret society in Calcutta.
-*   **Jugantar:** A radical weekly started by Barindra Ghosh and Bhupendranath Datta.
-*   **Alipore Bomb Case (1908):** Attempt on Magistrate Kingsford's life by **Khudiram Bose** and **Prafulla Chaki**. 
-    *   Khudiram became a martyr (hanged). 
-    *   **C.R. Das** successfully defended Aurobindo Ghosh in court.
-*   **Bagha Jatin (Jatindranath Mukherjee):** Led the Jugantar group and died in a heroic trench fight at **Balasore (1915)**.
-
-### Delhi & Punjab
-*   **Delhi Conspiracy Case (1912):** A bomb was thrown at Viceroy **Lord Hardinge** during his entry into Delhi. 
-    *   Plotted by **Rashbehari Bose** and **Sachin Sanyal**. 
-    *   Rashbehari escaped to Japan.
-*   **Punjab:** Agrarian unrest led by Ajit Singh (uncle of Bhagat Singh) and Sufi Amba Prasad.
+| Year | Organization | Key Leader(s) | Significance |
+| :--- | :--- | :--- | :--- |
+| **1838** | Landholders' Society | Dwarkanath Tagore | First political organization |
+| **1866** | East India Association | Dadabhai Naoroji (London) | To influence British public opinion |
+| **1870** | Poona Sarvajanik Sabha | M.G. Ranade | Acted as a bridge to the people |
+| **1876** | Indian Association | S.N. Banerjea & A.M. Bose | Most important pre-Congress body |
+| **1884** | Madras Mahajan Sabha | M. Veeraraghavachariar | Regional nationalist coordination |
+| **1885** | Bombay Presidency Assoc. | Pherozeshah Mehta, Tyabji | Regional nationalist coordination |
 
 ---
 
-## 3. The Global Web (Ghadar Movement)
+## 3. Birth of the Indian National Congress (1885)
+*   **Foundation:** Dec 1885 at Gokuldas Tejpal Sanskrit College, Bombay.
+*   **Founder:** **A.O. Hume** (Retired ICS officer).
+*   **First President:** **W.C. Bonnerjee**.
+*   **Attendance:** 72 delegates from all over India.
 
-### The Ghadar Party (1913)
-*   **Headquarters:** San Francisco (Yugantar Ashram).
-*   **Main Objective:** To trigger an armed mutiny in India during WWI.
-*   **Key Leaders:** Lala Har Dayal, Sohan Singh Bhakna (President), and young Kartar Singh Sarabha.
-*   **Journal:** *Ghadar* (Angrezi Raj Ka Dushman).
-*   **Failure:** The planned 1915 uprising was betrayed by Kirpal Singh.
-
-### Komagata Maru (1914)
-*   A Japanese ship hired by Gurdit Singh to take Indian immigrants to Canada.
-*   Denied entry at Vancouver, it returned to Calcutta.
-*   The "Budge Budge" incident (firing) inflamed revolutionary sentiment in Punjab.
+### Theories of Origin
+1.  **Safety Valve Theory:** Put forward by **Lala Lajpat Rai**. Suggested that Hume formed the Congress to release Indian anger harmlessly and prevent another 1857-style explosion.
+2.  **Lightning Conductor Theory:** Suggested by **G.K. Gokhale**. Argued that early nationalists used Hume as a shield to avoid government suppression in the initial years.
 
 ---
 
-## 4. International Plots during WWI
-*   **The Zimmerman Plan (Berlin):** German-backed plan to smuggle arms into India for an insurrection. Led by Virendranath Chattopadhyaya.
-*   **Provisional Govt of India (Kabul, 1915):** The first government-in-exile.
-    *   **President:** Raja Mahendra Pratap.
-    *   **Prime Minister:** Barkatullah.
-*   **Madame Bhikaji Cama:** Known as the "Mother of the Indian Revolution." Hoisted the first national flag at Stuttgart, Germany (1907).
+## 4. The Moderate Phase (1885-1905)
+The early Congress was dominated by "Moderates" who believed in the British sense of justice.
+
+*   **Methodology:** **3Ps** - Prayer, Petition, and Protest within the constitutional framework.
+*   **Key Leaders:** Dadabhai Naoroji, Pherozeshah Mehta, G.K. Gokhale, S.N. Banerjea.
+*   **Aims:** 
+    *   Expansion of legislative councils (Councils Act 1892).
+    *   Indianization of services (to reduce Drain of Wealth).
+    *   Civil rights (freedom of press/speech).
+
+### The Economic Critique (The Drain Theory)
+*   **Dadabhai Naoroji (Grand Old Man of India):** In his book *Poverty and Un-British Rule in India*, he explained how wealth was transferred from India to Britain through "Home Charges" (pensions, interest on debt, administrative costs).
+*   **M.G. Ranade & R.C. Dutt:** Supported this critique, detailing the de-industrialization of India.
 
 ---
 
-## 5. Suppression & Aftermath
-*   **Defence of India Act (1915):** Passed to crush the Ghadarites and revolutionaries.
-*   **Rowlatt Committee:** Appointed to investigate "sedition," eventually leading to the Rowlatt Act.
+## 5. Early Milestone Sessions
+
+| Year | Place | President | Note |
+| :--- | :--- | :--- | :--- |
+| **1885** | Bombay | W.C. Bonnerjee | Formation |
+| **1886** | Calcutta | Dadabhai Naoroji | Merger with National Conference |
+| **1887** | Madras | Badruddin Tyabji | First Muslim President |
+| **1888** | Allahabad | George Yule | First English President |
+| **1890** | Calcutta | Pherozeshah Mehta | Kadambini Ganguly (first woman grad) addressed it |
+
+---
+
+## 6. The Opposition
+*   **Loyalists:** **Sir Syed Ahmed Khan** and **Raja Shiv Prasad** of Benaras founded the **United India Patriotic Association** (1888) to oppose the Congress and promote loyalty to the Raj.
+*   **Radical Critique:** **Aurobindo Ghosh** (in *New Lamps for Old*) and **Tilak** criticized the Moderates' methods as "Political Mendicancy" (begging).
     `
 };

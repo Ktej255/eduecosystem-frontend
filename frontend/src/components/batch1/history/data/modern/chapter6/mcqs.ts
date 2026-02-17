@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Faraizi Revolt"
         ],
         correctAnswer: 0,
-        explanation: "The Sanyasi Revolt (1763–1800) is one of the earliest civil uprisings, led by sanyasis and fakirs against British economic oppression and famine."
+        explanation: "The Sanyasi Revolt (1763–1800) is one of the earliest civil uprisings, led by sanyasis and fakirs against British economic oppression and famine.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Indigo Revolt"
         ],
         correctAnswer: 1,
-        explanation: "Anandamath is based on the Sanyasi Revolt. It includes the song 'Vande Mataram'."
+        explanation: "Anandamath is based on the Sanyasi Revolt. It includes the song 'Vande Mataram'.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Chittur Singh"
         ],
         correctAnswer: 0,
-        explanation: "Bakshi Jagabandhu Bidyadhar was the military chief of the Raja of Khurda and led the Paika Rebellion."
+        explanation: "Bakshi Jagabandhu Bidyadhar was the military chief of the Raja of Khurda and led the Paika Rebellion.",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Malabar"
         ],
         correctAnswer: 2,
-        explanation: "It was centered in the Tinnevelly, Ramanathapuram, and Madurai regions of Tamil Nadu."
+        explanation: "It was centered in the Tinnevelly, Ramanathapuram, and Madurai regions of Tamil Nadu.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Kattabomman"
         ],
         correctAnswer: 1,
-        explanation: "Velu Thampi, the Dalawa (Prime Minister) of Travancore, issued the Kundara Proclamation inciting people against the British."
+        explanation: "Velu Thampi, the Dalawa (Prime Minister) of Travancore, issued the Kundara Proclamation inciting people against the British.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "The imposition of the Subsidiary Alliance"
         ],
         correctAnswer: 2,
-        explanation: "Pazhassi Raja revolted because the British-appointed Raja (Vira Varma) levied exorbitant taxes to meet Company demands."
+        explanation: "Pazhassi Raja revolted because the British-appointed Raja (Vira Varma) levied exorbitant taxes to meet Company demands.",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Rani Lakshmibai"
         ],
         correctAnswer: 0,
-        explanation: "Rani Chennamma (though 1824, often contextualized here) led the Kittur revolt. (Note: Text mentions Dhundia Wagh in Bednur, but Chennamma is a key figure later)."
+        explanation: "Rani Chennamma (though 1824, often contextualized here) led the Kittur revolt. (Note: Text mentions Dhundia Wagh in Bednur, but Chennamma is a key figure later).",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Import of foreign salt"
         ],
         correctAnswer: 1,
-        explanation: "The agitation was against the government's measure to raise the salt duty from 50 paise to one rupee."
+        explanation: "The agitation was against the government's measure to raise the salt duty from 50 paise to one rupee.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Cuttack"
         ],
         correctAnswer: 0,
-        explanation: "The Waghera chiefs of Okha Mandal (Gujarat/Baroda region) rose against the British and Gaekwad exactions."
+        explanation: "The Waghera chiefs of Okha Mandal (Gujarat/Baroda region) rose against the British and Gaekwad exactions.",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-10",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Religious leaders"
         ],
         correctAnswer: 0,
-        explanation: "The Gadkaris were a hereditary military class who revolted facing unemployment after their garrisons were disbanded."
+        explanation: "The Gadkaris were a hereditary military class who revolted facing unemployment after their garrisons were disbanded.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-11",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Dundia Wagh"
         ],
         correctAnswer: 0,
-        explanation: "Dayaram, a talukdar with a strong fort in Hathras, revolted against high revenue demands."
+        explanation: "Dayaram, a talukdar with a strong fort in Hathras, revolted against high revenue demands.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-12",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Lord Bentinck"
         ],
         correctAnswer: 1,
-        explanation: "The conquest of Odisha (1803) and subsequent policies culminated in the rebellion during Lord Hastings' tenure (1817)."
+        explanation: "The conquest of Odisha (1803) and subsequent policies culminated in the rebellion during Lord Hastings' tenure (1817).",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-13",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Dudu Miyan"
         ],
         correctAnswer: 0,
-        explanation: "Karam Shah founded the Pagal Panthi sect. His son Tipu led the peasant rebellion."
+        explanation: "Karam Shah founded the Pagal Panthi sect. His son Tipu led the peasant rebellion.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-14",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Bishnu Biswas"
         ],
         correctAnswer: 0,
-        explanation: "Titu Mir led the uprising, often considered the first armed peasant uprising against the British."
+        explanation: "Titu Mir led the uprising, often considered the first armed peasant uprising against the British.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-15",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Deccan"
         ],
         correctAnswer: 0,
-        explanation: "The Faraizis were followers of Haji Shariatullah of Faridpur in Eastern Bengal."
+        explanation: "The Faraizis were followers of Haji Shariatullah of Faridpur in Eastern Bengal.",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-16",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Northern Circars"
         ],
         correctAnswer: 0,
-        explanation: "The Moplahs of Malabar rose against Hindu landlords and British officials."
+        explanation: "The Moplahs of Malabar rose against Hindu landlords and British officials.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-17",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Restoration of Mughal rule"
         ],
         correctAnswer: 0,
-        explanation: "They organized to expel the English and protect tenants from Zamindari oppression."
+        explanation: "They organized to expel the English and protect tenants from Zamindari oppression.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-19",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Buddho Bhagat"
         ],
         correctAnswer: 1,
-        explanation: "Tilka Manjhi (Jabra Paharia) organized a revolt and is credited with shooting Cleveland in 1784."
+        explanation: "Tilka Manjhi (Jabra Paharia) organized a revolt and is credited with shooting Cleveland in 1784.",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-21",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Tirath Singh"
         ],
         correctAnswer: 0,
-        explanation: "Buddho Bhagat led the Kol rebels in Chotanagpur against the transfer of their lands to outsiders."
+        explanation: "Buddho Bhagat led the Kol rebels in Chotanagpur against the transfer of their lands to outsiders.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-22",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Bhil Revolt"
         ],
         correctAnswer: 0,
-        explanation: "They led the Santhal Rebellion (Hul) of 1855-56."
+        explanation: "They led the Santhal Rebellion (Hul) of 1855-56.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-23",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "A religious ceremony of the Mundas"
         ],
         correctAnswer: 0,
-        explanation: "The British declared the foothills of Rajmahal as Damin-i-koh for Santhals to practice settled agriculture."
+        explanation: "The British declared the foothills of Rajmahal as Damin-i-koh for Santhals to practice settled agriculture.",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-24",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Sidhu"
         ],
         correctAnswer: 0,
-        explanation: "Birsa Munda led the Ulgulan to establish a Munda Raj."
+        explanation: "Birsa Munda led the Ulgulan to establish a Munda Raj.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-27",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Bhil Revolt"
         ],
         correctAnswer: 0,
-        explanation: "The Tana Bhagat movement (Oraons) started as a religious movement but became political and anti-British."
+        explanation: "The Tana Bhagat movement (Oraons) started as a religious movement but became political and anti-British.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-28",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Tomma Sora"
         ],
         correctAnswer: 0,
-        explanation: "Alluri Sitarama Raju led the Rampa Rebellion of the Koyas against British forest laws."
+        explanation: "Alluri Sitarama Raju led the Rampa Rebellion of the Koyas against British forest laws.",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-31",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Nilgiri Hills"
         ],
         correctAnswer: 0,
-        explanation: "Ramosis were hill tribes of the Western Ghats who served in the Maratha administration."
+        explanation: "Ramosis were hill tribes of the Western Ghats who served in the Maratha administration.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-32",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Forest Act, 1878"
         ],
         correctAnswer: 0,
-        explanation: "The Chotanagpur Tenancy Act of 1908 recognized the joint ownership (Khuntkatti) rights."
+        explanation: "The Chotanagpur Tenancy Act of 1908 recognized the joint ownership (Khuntkatti) rights.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-33",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Dar al-Kufr"
         ],
         correctAnswer: 0,
-        explanation: "They aimed to convert the 'Land of War' (Dar al-Harb) into the 'Land of Islam' (Dar al-Islam)."
+        explanation: "They aimed to convert the 'Land of War' (Dar al-Harb) into the 'Land of Islam' (Dar al-Islam).",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-34",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Dudu Miyan"
         ],
         correctAnswer: 0,
-        explanation: "It was founded by Bhagat Jawahar Mal (Sian Saheb) in Western Punjab."
+        explanation: "It was founded by Bhagat Jawahar Mal (Sian Saheb) in Western Punjab.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-35",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Singapore"
         ],
         correctAnswer: 0,
-        explanation: "He was deported to Rangoon in 1872."
+        explanation: "He was deported to Rangoon in 1872.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-36",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Lord Hastings"
         ],
         correctAnswer: 0,
-        explanation: "It occurred in 1806 when Sir George Barlow was the Governor-General (though William Bentinck was Governor of Madras)."
+        explanation: "It occurred in 1806 when Sir George Barlow was the Governor-General (though William Bentinck was Governor of Madras).",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-37",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "They were asked to serve in Afghanistan"
         ],
         correctAnswer: 0,
-        explanation: "Crossing the sea (Kalapani) meant loss of caste for high-caste Hindus."
+        explanation: "Crossing the sea (Kalapani) meant loss of caste for high-caste Hindus.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-38",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Bakht Khan"
         ],
         correctAnswer: 0,
-        explanation: "The 47th NI mutiny was a precursor. Mangal Pandey was 1857. (Note: Specific leader name for 1824 isn't always highlighted, but the *cause* is key)."
+        explanation: "The 47th NI mutiny was a precursor. Mangal Pandey was 1857. (Note: Specific leader name for 1824 isn't always highlighted, but the *cause* is key).",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-39",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Grant of equal status with European troops"
         ],
         correctAnswer: 3,
-        explanation: "They were definitely NOT granted equal status; rather, the lack of it was a cause of discontent."
+        explanation: "They were definitely NOT granted equal status; rather, the lack of it was a cause of discontent.",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-41",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Tikendrajit"
         ],
         correctAnswer: 0,
-        explanation: "Gomdhar Konwar, an Ahom prince, led the revolt."
+        explanation: "Gomdhar Konwar, an Ahom prince, led the revolt.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-44",
@@ -419,7 +487,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Lushai Revolt"
         ],
         correctAnswer: 0,
-        explanation: "She led the Heraka Cult/Naga movement in the 1930s after Jadonang's death."
+        explanation: "She led the Heraka Cult/Naga movement in the 1930s after Jadonang's death.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-46",
@@ -431,7 +501,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "All of the above"
         ],
         correctAnswer: 3,
-        explanation: "They were localized, led by traditional chiefs, and aimed to restore the old order."
+        explanation: "They were localized, led by traditional chiefs, and aimed to restore the old order.",
+        chapterId: 6,
+        difficulty: 'Hard'
     },
 {
         id: "H6-M-47",
@@ -443,7 +515,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Punjab"
         ],
         correctAnswer: 0,
-        explanation: "They used Ikarnamahs to bind down the rebellious chiefs of Bundelkhand."
+        explanation: "They used Ikarnamahs to bind down the rebellious chiefs of Bundelkhand.",
+        chapterId: 6,
+        difficulty: 'Easy'
     },
 {
         id: "H6-M-48",
@@ -455,7 +529,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Nana Saheb"
         ],
         correctAnswer: 0,
-        explanation: "Mangal Pandey is widely considered the first martyr for his actions in Barrackpore before the main outbreak."
+        explanation: "Mangal Pandey is widely considered the first martyr for his actions in Barrackpore before the main outbreak.",
+        chapterId: 6,
+        difficulty: 'Moderate'
     },
 {
         id: "H6-M-50",
@@ -467,7 +543,9 @@ export const MODERN_CHAPTER_6_MCQS: any[] = [
             "Satara"
         ],
         correctAnswer: 0,
-        explanation: "Dhundia Wagh, a Maratha leader, organized a force in Bednur after the fall of Seringapatam."
+        explanation: "Dhundia Wagh, a Maratha leader, organized a force in Bednur after the fall of Seringapatam.",
+        chapterId: 6,
+        difficulty: 'Hard'
     }
 ,
 {

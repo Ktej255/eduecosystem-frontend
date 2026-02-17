@@ -7,7 +7,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["James Rennell", "Colin Mackenzie", "Francis Buchanan", "William Lambton"],
         correctAnswer: 0,
         explanation: "James Rennell was appointed as the first Surveyor General of Bengal in 1767. He aimed to produce a comprehensive map of India.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Easy'
     },
 {
         id: '1-2',
@@ -15,7 +16,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Archival records", "Oral traditions", "Biographies", "Future predictions"],
         correctAnswer: 3,
         explanation: "Future predictions are not historical sources. Sources include archival records, oral traditions, biographies, travelogues, etc.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Moderate'
     },
 {
         id: '1-3',
@@ -23,7 +25,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Alfonso de Albuquerque", "Francisco de Almeida", "Nino da Cunha", "Vasco da Gama"],
         correctAnswer: 1,
         explanation: "Francisco de Almeida (1505-1509) introduced the 'Blue Water Policy', aiming to make the Portuguese masters of the Indian Ocean.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Hard'
     },
 {
         id: '1-4',
@@ -31,7 +34,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Kolkata", "Mumbai", "New Delhi", "Chennai"],
         correctAnswer: 2,
         explanation: "The National Archives of India is located in New Delhi. It was originally established in Calcutta as the Imperial Record Department in 1891.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Easy'
     },
 {
         id: '1-5',
@@ -39,7 +43,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Charter Act of 1793", "Charter Act of 1813", "Charter Act of 1833", "Charter Act of 1853"],
         correctAnswer: 1,
         explanation: "The Charter Act of 1813 allowed Christian missionaries to come to India but required them to obtain a license.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Moderate'
     },
 {
         id: '1-7',
@@ -47,7 +52,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["James Mill", "Vincent Smith", "Max Muller", "William Jones"],
         correctAnswer: 0,
         explanation: "James Mill, in his 'History of British India' (1817), periodized Indian history into Hindu, Muslim, and British periods, a view now considered communal and colonial.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Hard'
     },
 {
         id: '1-8',
@@ -55,7 +61,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Ralph Fitch", "William Hawkins", "Niccolo Conti", "Duarte Barbosa"],
         correctAnswer: 1,
         explanation: "Captain William Hawkins visited Jahangir's court in 1609 to seek permission for trade.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Easy'
     },
 {
         id: '1-10',
@@ -63,7 +70,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["James Prinsep", "Alexander Cunningham", "John Marshall", "Mortimer Wheeler"],
         correctAnswer: 0,
         explanation: "James Prinsep, an official of the Calcutta Mint and Secretary of the Asiatic Society, deciphered the Brahmi script and Ashokan edicts in 1837.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Moderate'
     },
 {
         id: '1-12',
@@ -71,7 +79,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["A history textbook", "A diary of a freedom fighter", "A documentary film", "An encyclopedia entry"],
         correctAnswer: 1,
         explanation: "A diary written by a participant in events (freedom fighter) is a primary source. Textbooks and encyclopedias are secondary sources.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Hard'
     },
 {
         id: '1-13',
@@ -79,7 +88,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Alfonso de Albuquerque", "Francisco de Almeida", "Vasco da Gama", "Nino da Cunha"],
         correctAnswer: 1,
         explanation: "Francisco de Almeida was appointed as the first Viceroy of Portuguese India in 1505.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Easy'
     },
 {
         id: '1-15',
@@ -87,7 +97,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Ahilyabai Holkar", "Rani Lakshmibai", "Begum Hazrat Mahal", "Sarojini Naidu"],
         correctAnswer: 0,
         explanation: "Ahilyabai Holkar, the Queen of Indore, built the famous ghat in Varanasi.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Moderate'
     },
 {
         id: '1-17',
@@ -95,7 +106,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Lord Hastings", "Lord Cornwallis", "Lord Wellesley", "Lord Bentinck"],
         correctAnswer: 1,
         explanation: "Lord Cornwallis introduced the Permanent Settlement (Zamindari System) in Bengal, Bihar, and Orissa in 1793.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Hard'
     },
 {
         id: '1-21',
@@ -103,7 +115,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Francois Bernier", "Jean-Baptiste Tavernier", "William Hawkins", "Thomas Roe"],
         correctAnswer: 0,
         explanation: "Francois Bernier, a French physician who visited India, described the Mughal rule as a tyranny in his accounts.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Easy'
     },
 {
         id: '1-23',
@@ -111,7 +124,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Satyendranath Tagore", "Surendranath Banerjea", "Subhash Chandra Bose", "R.C. Dutt"],
         correctAnswer: 0,
         explanation: "Satyendranath Tagore became the first Indian to join the ICS in 1863.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Moderate'
     },
 {
         id: '1-25',
@@ -119,7 +133,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["The Hindu", "Amrita Bazar Patrika", "Kesari", "Voice of India"],
         correctAnswer: 2,
         explanation: "Tilak started 'Kesari' (in Marathi) and 'Mahratta' (in English).",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Hard'
     },
 {
         id: '1-27',
@@ -127,7 +142,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Ramakrishna Paramhansa", "Swami Vivekananda", "Sarada Devi", "Keshab Chandra Sen"],
         correctAnswer: 1,
         explanation: "Swami Vivekananda established the Ramakrishna Mission in 1897 to propagate the teachings of his guru.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Easy'
     },
 {
         id: '1-29',
@@ -135,7 +151,8 @@ export const MODERN_CHAPTER_1_MCQS: any[] = [
         options: ["Lord Lytton", "Charles Metcalfe", "Lord Ripon", "Lord Hastings"],
         correctAnswer: 1,
         explanation: "Charles Metcalfe (acting Governor-General, 1835-36) is known as the Liberator of the Indian Press for repealing the licensing regulations of 1823.",
-        chapterId: 1
+        chapterId: 1,
+        difficulty: 'Moderate'
     },
 {
         "id": 1,

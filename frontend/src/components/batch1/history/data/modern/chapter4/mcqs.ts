@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Bahadur Shah I"
         ],
         correctAnswer: 2,
-        explanation: "Muhammad Shah (1719–48) was given the title 'Rangeela'."
+        explanation: "Muhammad Shah (1719–48) was given the title 'Rangeela'.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Shah Alam II"
         ],
         correctAnswer: 1,
-        explanation: "Bahadur Shah I (Prince Mu'azzam) was called Shahi-i-Bekhabar due to his negligent style of administration."
+        explanation: "Bahadur Shah I (Prince Mu'azzam) was called Shahi-i-Bekhabar due to his negligent style of administration.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Safdar Jang (under Ahmad Shah)"
         ],
         correctAnswer: 0,
-        explanation: "Zulfikar Khan, the wazir of Jahandar Shah, introduced the Izara system, which eventually ruined the peasantry."
+        explanation: "Zulfikar Khan, the wazir of Jahandar Shah, introduced the Izara system, which eventually ruined the peasantry.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Founders of Bengal"
         ],
         correctAnswer: 1,
-        explanation: "They were called 'King Makers' because they placed Farrukhsiyar, Rafi-ud-Darajat, Rafi-ud-Daula, and Muhammad Shah on the throne."
+        explanation: "They were called 'King Makers' because they placed Farrukhsiyar, Rafi-ud-Darajat, Rafi-ud-Daula, and Muhammad Shah on the throne.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Alamgir II"
         ],
         correctAnswer: 1,
-        explanation: "Farrukhsiyar granted the famous farmans in 1717."
+        explanation: "Farrukhsiyar granted the famous farmans in 1717.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Alamgir II"
         ],
         correctAnswer: 1,
-        explanation: "Nadir Shah invaded during the reign of Muhammad Shah 'Rangeela' and defeated the Mughals at Karnal."
+        explanation: "Nadir Shah invaded during the reign of Muhammad Shah 'Rangeela' and defeated the Mughals at Karnal.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "The Sikhs and the Afghans"
         ],
         correctAnswer: 1,
-        explanation: "It was fought between the Marathas (Sadashivrao Bhau) and the Afghan invader Ahmad Shah Abdali."
+        explanation: "It was fought between the Marathas (Sadashivrao Bhau) and the Afghan invader Ahmad Shah Abdali.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Alamgir II"
         ],
         correctAnswer: 0,
-        explanation: "After the Battle of Buxar and the Treaty of Allahabad (1765), Shah Alam II eventually came under British protection (and later pensioner after 1803)."
+        explanation: "After the Battle of Buxar and the Treaty of Allahabad (1765), Shah Alam II eventually came under British protection (and later pensioner after 1803).",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Muhammad Shah"
         ],
         correctAnswer: 1,
-        explanation: "Akbar Shah II (1806–37) gave Rammohan Roy the title of Raja and sent him to England."
+        explanation: "Akbar Shah II (1806–37) gave Rammohan Roy the title of Raja and sent him to England.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-10",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Alamgir II"
         ],
         correctAnswer: 1,
-        explanation: "Farrukhsiyar was blinded and killed by the Sayyid Brothers in 1719."
+        explanation: "Farrukhsiyar was blinded and killed by the Sayyid Brothers in 1719.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-11",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Nasir Jang"
         ],
         correctAnswer: 1,
-        explanation: "Nizam-ul-Mulk founded Hyderabad after defeating Mubariz Khan at Shakr-Kheda."
+        explanation: "Nizam-ul-Mulk founded Hyderabad after defeating Mubariz Khan at Shakr-Kheda.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-12",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Asaf-ud-Daula"
         ],
         correctAnswer: 1,
-        explanation: "Saadat Khan Burhan-ul-Mulk was the founder."
+        explanation: "Saadat Khan Burhan-ul-Mulk was the founder.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-13",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Midnapore"
         ],
         correctAnswer: 1,
-        explanation: "He shifted the capital to Murshidabad."
+        explanation: "He shifted the capital to Murshidabad.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-14",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Siraj-ud-daula"
         ],
         correctAnswer: 1,
-        explanation: "He was succeeded by his son-in-law Shuja-ud-din."
+        explanation: "He was succeeded by his son-in-law Shuja-ud-din.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-15",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "He was betrayed by Safdar Jang."
         ],
         correctAnswer: 1,
-        explanation: "He committed suicide due to pressure from Nadir Shah who was demanding a huge booty he had promised."
+        explanation: "He committed suicide due to pressure from Nadir Shah who was demanding a huge booty he had promised.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-16",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Hoysalas"
         ],
         correctAnswer: 0,
-        explanation: "It was ruled by the Wodeyar dynasty."
+        explanation: "It was ruled by the Wodeyar dynasty.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-17",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Kerala Varma"
         ],
         correctAnswer: 1,
-        explanation: "Martanda Varma established the modern state of Travancore/Kerala."
+        explanation: "Martanda Varma established the modern state of Travancore/Kerala.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-18",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Gokula"
         ],
         correctAnswer: 2,
-        explanation: "Suraj Mal (died 1763) is considered the greatest Jat ruler."
+        explanation: "Suraj Mal (died 1763) is considered the greatest Jat ruler.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-20",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Holkar"
         ],
         correctAnswer: 1,
-        explanation: "He signed the Treaty of Amritsar with the British, defining the Sutlej as the boundary."
+        explanation: "He signed the Treaty of Amritsar with the British, defining the Sutlej as the boundary.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-21",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "The Red Fort of Agra"
         ],
         correctAnswer: 1,
-        explanation: "He built five observatories at Delhi, Jaipur, Benares, Mathura, and Ujjain."
+        explanation: "He built five observatories at Delhi, Jaipur, Benares, Mathura, and Ujjain.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-22",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Rajarama"
         ],
         correctAnswer: 0,
-        explanation: "Churaman and Badan Singh founded the Jat state of Bharatpur, though Gokula led the first rebellion."
+        explanation: "Churaman and Badan Singh founded the Jat state of Bharatpur, though Gokula led the first rebellion.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-23",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Horses"
         ],
         correctAnswer: 3,
-        explanation: "Horses were a major IMPORT (from Persian Gulf/Central Asia). India exported textiles, spices, opium, etc."
+        explanation: "Horses were a major IMPORT (from Persian Gulf/Central Asia). India exported textiles, spices, opium, etc.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-24",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "It imported heavy machinery."
         ],
         correctAnswer: 1,
-        explanation: "Foreign trade was favorable to India, resulting in a net inflow of gold and silver."
+        explanation: "Foreign trade was favorable to India, resulting in a net inflow of gold and silver.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-26",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Viharas"
         ],
         correctAnswer: 1,
-        explanation: "Maktabs provided elementary education (reading, writing, Quran) while Madrasahs were for higher learning."
+        explanation: "Maktabs provided elementary education (reading, writing, Quran) while Madrasahs were for higher learning.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-27",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Tipu Sultan"
         ],
         correctAnswer: 1,
-        explanation: "Raja Sawai Jai Singh of Amber and Maratha General Prashuram Bhau made efforts but failed."
+        explanation: "Raja Sawai Jai Singh of Amber and Maratha General Prashuram Bhau made efforts but failed.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-28",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Only men were kept as slaves."
         ],
         correctAnswer: 2,
-        explanation: "Slaves were generally treated as hereditary servants/members of the family, unlike the chattel slavery in the West."
+        explanation: "Slaves were generally treated as hereditary servants/members of the family, unlike the chattel slavery in the West.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-29",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Wajid Ali Shah"
         ],
         correctAnswer: 2,
-        explanation: "Asaf-ud-Daula built the Bara Imambara."
+        explanation: "Asaf-ud-Daula built the Bara Imambara.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-30",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Marathi Abhang"
         ],
         correctAnswer: 1,
-        explanation: "He was a great exponent of Tamil Sittar (Siddha) poetry, protesting against caste and temple abuses."
+        explanation: "He was a great exponent of Tamil Sittar (Siddha) poetry, protesting against caste and temple abuses.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-31",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Kashmiri"
         ],
         correctAnswer: 1,
-        explanation: "It is a Punjabi epic composed by Warris Shah."
+        explanation: "It is a Punjabi epic composed by Warris Shah.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-32",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Pashto"
         ],
         correctAnswer: 1,
-        explanation: "Risalo is a famous collection in Sindhi literature."
+        explanation: "Risalo is a famous collection in Sindhi literature.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-33",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Kannada"
         ],
         correctAnswer: 0,
-        explanation: "He was a famous Malayalam poet."
+        explanation: "He was a famous Malayalam poet.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-34",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Bengal School"
         ],
         correctAnswer: 1,
-        explanation: "With the decline of Delhi, painters moved to regional courts, leading to the rise of Kangra/Rajputana schools."
+        explanation: "With the decline of Delhi, painters moved to regional courts, leading to the rise of Kangra/Rajputana schools.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-36",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Ghazi-ud-din"
         ],
         correctAnswer: 0,
-        explanation: "Najib-ud-Daula was appointed Mir Bakhshi and Abdali's agent."
+        explanation: "Najib-ud-Daula was appointed Mir Bakhshi and Abdali's agent.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-37",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Kabul"
         ],
         correctAnswer: 0,
-        explanation: "Raghunath Rao captured Punjab/Lahore in 1758, expelling Abdali's son/agent, which provoked Abdali's return."
+        explanation: "Raghunath Rao captured Punjab/Lahore in 1758, expelling Abdali's son/agent, which provoked Abdali's return.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-38",
@@ -419,7 +487,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "The converts from Rajputs"
         ],
         correctAnswer: 2,
-        explanation: "Sharif were the nobles/upper class; Ajlaf were the lower-class Muslims."
+        explanation: "Sharif were the nobles/upper class; Ajlaf were the lower-class Muslims.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-39",
@@ -431,7 +501,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Urdu"
         ],
         correctAnswer: 1,
-        explanation: "It was a centre for Persian education."
+        explanation: "It was a centre for Persian education.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-41",
@@ -443,7 +515,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Zinat Mahal"
         ],
         correctAnswer: 0,
-        explanation: "Udham Bai, mother of Ahmad Shah Bahadur."
+        explanation: "Udham Bai, mother of Ahmad Shah Bahadur.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-42",
@@ -455,7 +529,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Aurangzeb's religious policy"
         ],
         correctAnswer: 2,
-        explanation: "The lack thereof (stagnation in science/tech) was a cause, not progress."
+        explanation: "The lack thereof (stagnation in science/tech) was a cause, not progress.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-43",
@@ -467,7 +543,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Wasteland"
         ],
         correctAnswer: 1,
-        explanation: "Khalisa was crown land."
+        explanation: "Khalisa was crown land.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-44",
@@ -479,7 +557,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Kapur Singh"
         ],
         correctAnswer: 1,
-        explanation: "Mahan Singh was the leader; his son Ranjit Singh later united the misls."
+        explanation: "Mahan Singh was the leader; his son Ranjit Singh later united the misls.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-45",
@@ -491,7 +571,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "The Gupta Empire"
         ],
         correctAnswer: 1,
-        explanation: "Babur defeated Ibrahim Lodi, ending the Delhi Sultanate."
+        explanation: "Babur defeated Ibrahim Lodi, ending the Delhi Sultanate.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-46",
@@ -503,7 +585,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "It was the capital of the Mughals."
         ],
         correctAnswer: 1,
-        explanation: "Strategic location near Delhi, flat terrain, and supplies availability."
+        explanation: "Strategic location near Delhi, flat terrain, and supplies availability.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         id: "H4-M-47",
@@ -515,7 +599,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Mahadji Scindia"
         ],
         correctAnswer: 1,
-        explanation: "Raghunath Rao led the Maratha forces that captured Punjab and expelled Najib."
+        explanation: "Raghunath Rao led the Maratha forces that captured Punjab and expelled Najib.",
+        chapterId: 4,
+        difficulty: 'Easy'
     },
 {
         id: "H4-M-48",
@@ -527,7 +613,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Mysore"
         ],
         correctAnswer: 1,
-        explanation: "Jagat Seths were the powerful bankers of Bengal who played a role in the Plassey conspiracy."
+        explanation: "Jagat Seths were the powerful bankers of Bengal who played a role in the Plassey conspiracy.",
+        chapterId: 4,
+        difficulty: 'Moderate'
     },
 {
         id: "H4-M-49",
@@ -539,7 +627,9 @@ export const MODERN_CHAPTER_4_MCQS: any[] = [
             "Hyder Ali"
         ],
         correctAnswer: 1,
-        explanation: "Martanda Varma of Travancore modernised his army."
+        explanation: "Martanda Varma of Travancore modernised his army.",
+        chapterId: 4,
+        difficulty: 'Hard'
     },
 {
         "id": 1,

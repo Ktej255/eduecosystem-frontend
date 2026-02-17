@@ -188,7 +188,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Post-War National Scenario involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Easy-1-1771158191982',
@@ -197,7 +198,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Post-War National Scenario was establishing control.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Easy-2-1771158191982',
@@ -206,7 +208,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Post-War National Scenario.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Easy-3-1771158191982',
@@ -215,7 +218,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Post-War National Scenario involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Easy-4-1771158191982',
@@ -224,7 +228,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Post-War National Scenario was establishing control.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Easy-5-1771158191982',
@@ -233,7 +238,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Post-War National Scenario.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Easy-6-1771158191982',
@@ -242,7 +248,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Post-War National Scenario involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Easy-7-1771158191982',
@@ -251,7 +258,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Post-War National Scenario was establishing control.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Easy-8-1771158191982',
@@ -260,7 +268,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Post-War National Scenario.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Easy-9-1771158191982',
@@ -269,7 +278,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Post-War National Scenario involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Easy-10-1771158191982',
@@ -278,7 +288,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Post-War National Scenario was establishing control.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Easy-11-1771158191982',
@@ -287,7 +298,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Post-War National Scenario.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Easy-12-1771158191982',
@@ -296,7 +308,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Post-War National Scenario involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Easy-13-1771158191982',
@@ -305,7 +318,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Post-War National Scenario was establishing control.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Easy-14-1771158191982',
@@ -314,7 +328,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Post-War National Scenario.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Easy-15-1771158191982',
@@ -323,7 +338,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Post-War National Scenario involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Easy-16-1771158191982',
@@ -332,7 +348,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Post-War National Scenario was establishing control.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Easy-17-1771158191982',
@@ -341,7 +358,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Post-War National Scenario.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Easy-18-1771158191982',
@@ -350,7 +368,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Post-War National Scenario involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Easy-19-1771158191982',
@@ -359,7 +378,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Post-War National Scenario was establishing control.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Easy-20-1771158191982',
@@ -368,7 +388,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Post-War National Scenario.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Easy-21-1771158191982',
@@ -377,7 +398,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Post-War National Scenario involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Easy-22-1771158191982',
@@ -386,7 +408,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Post-War National Scenario was establishing control.",
         difficulty: 'Easy',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Moderate-0-1771158191982',
@@ -395,7 +418,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Moderate-1-1771158191982',
@@ -404,7 +428,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Moderate-2-1771158191982',
@@ -413,7 +438,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Moderate-3-1771158191982',
@@ -422,7 +448,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Moderate-4-1771158191982',
@@ -431,7 +458,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Moderate-5-1771158191982',
@@ -440,7 +468,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Moderate-6-1771158191982',
@@ -449,7 +478,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Moderate-7-1771158191982',
@@ -458,7 +488,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Moderate-8-1771158191982',
@@ -467,7 +498,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Moderate-9-1771158191982',
@@ -476,7 +508,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Moderate-10-1771158191982',
@@ -485,7 +518,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Moderate-11-1771158191982',
@@ -494,7 +528,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Moderate-12-1771158191982',
@@ -503,7 +538,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Moderate-13-1771158191982',
@@ -512,7 +548,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Moderate-14-1771158191982',
@@ -521,7 +558,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Moderate-15-1771158191982',
@@ -530,7 +568,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Moderate-16-1771158191982',
@@ -539,7 +578,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Moderate-17-1771158191982',
@@ -548,7 +588,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Moderate-18-1771158191982',
@@ -557,7 +598,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Moderate-19-1771158191982',
@@ -566,7 +608,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Moderate-20-1771158191982',
@@ -575,7 +618,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Moderate-21-1771158191982',
@@ -584,7 +628,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Post-War National Scenario shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Hard-0-1771158191982',
@@ -593,7 +638,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Hard-1-1771158191982',
@@ -602,7 +648,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Hard-2-1771158191982',
@@ -611,7 +658,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Hard-3-1771158191982',
@@ -620,7 +668,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Hard-4-1771158191982',
@@ -629,7 +678,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Hard-5-1771158191982',
@@ -638,7 +688,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Hard-6-1771158191982',
@@ -647,7 +698,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Hard-7-1771158191982',
@@ -656,7 +708,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Hard-8-1771158191982',
@@ -665,7 +718,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Hard-9-1771158191982',
@@ -674,7 +728,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Hard-10-1771158191982',
@@ -683,7 +738,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Hard-11-1771158191982',
@@ -692,7 +748,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Hard-12-1771158191982',
@@ -701,7 +758,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Hard-13-1771158191982',
@@ -710,7 +768,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Hard-14-1771158191982',
@@ -719,7 +778,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Hard-15-1771158191982',
@@ -728,7 +788,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Hard-16-1771158191982',
@@ -737,7 +798,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Hard-17-1771158191982',
@@ -746,7 +808,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Hard-18-1771158191982',
@@ -755,7 +818,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Hard-19-1771158191982',
@@ -764,7 +828,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Hard-20-1771158191982',
@@ -773,7 +838,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Hard-21-1771158191982',
@@ -782,7 +848,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch24-Hard-22-1771158191982',
@@ -791,7 +858,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch24-Hard-23-1771158191982',
@@ -800,7 +868,8 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch24-Hard-24-1771158191982',
@@ -809,6 +878,7 @@ export const MODERN_CHAPTER_24_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Post-War National Scenario.",
         difficulty: 'Hard',
-        chapterId: 24
+        chapterId: 24,
+        difficulty: 'Easy'
     },
 ];

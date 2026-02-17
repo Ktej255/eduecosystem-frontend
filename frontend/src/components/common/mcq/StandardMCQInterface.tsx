@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { CheckCircle2, Target, ChevronRight, Timer, AlertCircle, BookOpen, ArrowLeft } from 'lucide-react';
+import { CheckCircle2, Target, ChevronRight, Timer, AlertCircle, BookOpen, ArrowLeft, HelpCircle } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useMCQShortcuts } from '@/hooks/useKeyboardShortcuts';
@@ -9,7 +9,7 @@ import { QuestionResult } from '../reports/StandardTestReport';
 import { formatQuestionText } from '@/lib/mcq-formatter';
 
 // Shared Types
-export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind';
+export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind' | 'other';
 
 export type MCQ = StandardMCQ;
 
@@ -268,9 +268,19 @@ export default function StandardMCQInterface({
                         {/* Question Area */}
                         <div className="flex-1 space-y-6">
                             <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 relative">
-                                <span className="inline-block px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-bold mb-4">
-                                    QUESTION {currentIndex + 1}
-                                </span>
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="inline-block px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+                                        QUESTION {currentIndex + 1}
+                                    </span>
+                                    {currentMCQ.difficulty && (
+                                        <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${currentMCQ.difficulty === 'Easy' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300' :
+                                            currentMCQ.difficulty === 'Moderate' ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300' :
+                                                'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
+                                            }`}>
+                                            {currentMCQ.difficulty}
+                                        </span>
+                                    )}
+                                </div>
                                 <div className="text-lg md:text-xl font-medium text-slate-900 dark:text-slate-100 leading-relaxed space-y-3">
                                     {formatQuestionText(currentMCQ.question).map((line, lIdx) => {
                                         const isStatement = /^\s*(\d+\.|[a-zA-I]\.|Statement\s+[IVX]+:)/i.test(line);
@@ -317,7 +327,7 @@ export default function StandardMCQInterface({
                                 </h4>
                             </div>
 
-                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                            <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
                                 {/* Sure Shot */}
                                 <button onClick={() => handleConfidenceSelect('sure')} className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'sure' ? 'bg-green-50 dark:bg-green-900/20 border-green-500 text-green-700 dark:text-green-300 font-bold shadow-sm' : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-green-300 hover:bg-green-50/50'}`}>
                                     <div className="flex items-center gap-2"><CheckCircle2 className={`h-4 w-4 ${confidence === 'sure' ? 'text-green-600' : 'text-slate-400'}`} /><span>Sure Shot</span></div>
@@ -337,6 +347,11 @@ export default function StandardMCQInterface({
                                 <button onClick={() => handleConfidenceSelect('blind')} className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'blind' ? 'bg-slate-100 dark:bg-slate-800 border-slate-500 text-slate-900 dark:text-slate-100 font-bold shadow-sm' : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-slate-400 hover:bg-slate-50'}`}>
                                     <div className="flex items-center gap-2"><BookOpen className={`h-4 w-4 ${confidence === 'blind' ? 'text-slate-600' : 'text-slate-400'}`} /><span>Blind Guess</span></div>
                                     <span className="text-[10px] opacity-70">No Idea</span>
+                                </button>
+                                {/* Other */}
+                                <button onClick={() => handleConfidenceSelect('other')} className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${confidence === 'other' ? 'bg-purple-50 dark:bg-purple-900/20 border-purple-500 text-purple-700 dark:text-purple-300 font-bold shadow-sm' : 'bg-white dark:bg-gray-900 border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-400 hover:border-purple-300 hover:bg-purple-50/50'}`}>
+                                    <div className="flex items-center gap-2"><HelpCircle className={`h-4 w-4 ${confidence === 'other' ? 'text-purple-600' : 'text-slate-400'}`} /><span>Other</span></div>
+                                    <span className="text-[10px] opacity-70">Unspecified</span>
                                 </button>
                             </div>
                         </div>

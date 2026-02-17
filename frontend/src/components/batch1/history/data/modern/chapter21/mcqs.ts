@@ -7,7 +7,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["28 months", "12 months", "36 months", "5 years"],
         correctAnswer: 0,
         explanation: "They ruled for about 28 months before resigning in Oct-Nov 1939.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
 {
         id: '21-2',
@@ -15,7 +16,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["India was declared a belligerent in WWII without consent", "Internal differences", "British dismissal", "Failure of administration"],
         correctAnswer: 0,
         explanation: "Viceroy Linlithgow declared India at war with Germany without consulting Indian opinion.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
 {
         id: '21-3',
@@ -23,7 +25,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Release of political prisoners and lifting press curb", "Complete abolition of zamindari", "Independence", "Industrialization"],
         correctAnswer: 0,
         explanation: "They restored civil liberties but could not abolish zamindari completely due to constitutional constraints.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
 {
         id: '21-4',
@@ -31,7 +34,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Muslim League", "Congress", "British Government", "Hindu Mahasabha"],
         correctAnswer: 0,
         explanation: "Appointed by Muslim League to investigate alleged 'atrocities' by Congress ministries on Muslims.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
 {
         id: '21-5',
@@ -39,7 +43,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["B.R. Ambedkar and Jinnah", "Nehru", "Bose", "Savarkar"],
         correctAnswer: 0,
         explanation: "Jinnah called upon Muslims to celebrate Dec 22, 1939 as 'Day of Deliverance' from 'Congress tyranny'. Ambedkar supported it.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
 {
         id: '21-6',
@@ -47,7 +52,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["UP and Bihar", "Punjab", "Bengal", "Sindh"],
         correctAnswer: 0,
         explanation: "Significant tenancy legislation was passed in UP and Bihar.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
 {
         id: '21-7',
@@ -55,7 +61,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Govind Ballabh Pant", "K.N. Katju", "Rafi Ahmed Kidwai", "None"],
         correctAnswer: 0,
         explanation: "Congress ministries in UP (Pant) and Bihar resigned briefly but later the issue was resolved.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
 {
         id: '21-9',
@@ -63,7 +70,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["C. Rajagopalachari", "Satyamurti", "Kamaraj", "Prakasam"],
         correctAnswer: 0,
         explanation: "Rajaji was the Premier.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
 {
         id: '21-10',
@@ -71,7 +79,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Assam and NWFP", "Bengal", "Punjab", "Sindh"],
         correctAnswer: 0,
         explanation: "It claimed majorities in Assam and NWFP later.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
 {
         id: '21-12',
@@ -79,7 +88,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Curbed and used against communal riots", "Used to suppress national movement", "Abolished", "Handed to British"],
         correctAnswer: 0,
         explanation: "Congress used police to maintain law and order, sometimes even firing on strikers (e.g., Ahmebabad), which drew Left criticism.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
 {
         id: '21-14',
@@ -87,7 +97,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Prove that provincial autonomy could be used for people's welfare", "Wreck the constitution", "Support the British war", "Resign immediately"],
         correctAnswer: 0,
         explanation: "He wanted them to show that they could govern and help the people.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
 {
         id: '21-16',
@@ -95,7 +106,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Subhash Chandra Bose", "M.N. Roy", "J.P. Narayan", "Acharya Narendra Dev"],
         correctAnswer: 0,
         explanation: "Bose formed it within Congress after resigning as President.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
 {
         id: '21-17',
@@ -103,7 +115,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Rajendra Prasad", "Abul Kalam Azad", "Nehru", "Patel"],
         correctAnswer: 0,
         explanation: "Rajendra Prasad took over.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
 {
         id: '21-18',
@@ -111,7 +124,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Selected areas", "Whole of India", "Nowhere", "Only in villages"],
         correctAnswer: 0,
         explanation: "They introduced prohibition in certain areas like Madras and Bombay.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
 {
         id: '21-19',
@@ -119,7 +133,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Mediation and legislation", "Complete suppression", "Giving in to all demands", "British army"],
         correctAnswer: 0,
         explanation: "They passed laws like Bombay Trades Disputes Act (1938) and tried mediation.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
 {
         id: '21-20',
@@ -127,7 +142,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Congress Parliamentary Sub-Committee", "Steering Committee", "Planning Committee", "Disciplinary Committee"],
         correctAnswer: 0,
         explanation: "Bose, Patel, and Rajendra Prasad were members of this sub-committee.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
 {
         id: '21-22',
@@ -135,7 +151,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["No, due to lack of financial and constituent power", "Yes, zamindari was abolished", "They did nothing", "They supported landlords"],
         correctAnswer: 0,
         explanation: "They had limited powers under the 1935 Act and faced constraints from the Legislative Councils.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
 {
         id: '21-23',
@@ -143,7 +160,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["T. Prakasam", "Rajaji", "K. Kamaraj", "C.N. Annadurai"],
         correctAnswer: 1,
         explanation: "Rajaji held Finance as well.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
 {
         id: '21-25',
@@ -151,7 +169,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Shifted from non-intervention to active support for Praja Mandals", "Non-intervention primarily", "Demanded annexation", "Supported the Princes"],
         correctAnswer: 0,
         explanation: "After 1937, Congress increasingly supported people's movements in states (Ludhiana session 1939).",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
 {
         id: '21-26',
@@ -159,7 +178,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Haripura (1938) and Tripuri (1939)", "Lucknow (1936)", "Lahore (1929)", "Karachi (1931)"],
         correctAnswer: 0,
         explanation: "Haripura session allowed individual participation; Tripuri moved to active involvement.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
 {
         id: '21-27',
@@ -167,7 +187,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Thakore Sahib", "Nizam", "Maharaja of Kashmir", "Gaekwad"],
         correctAnswer: 0,
         explanation: "Gandhi fasted due to breach of agreement by Thakore Sahib.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
 {
         id: '21-28',
@@ -175,7 +196,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Poor", "Excellent", "Majority in Punjab", "Majority in Bengal"],
         correctAnswer: 0,
         explanation: "It performed poorly, winning only 4.8% of the Muslim vote.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
 {
         id: '21-29',
@@ -183,7 +205,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["Defence of India Rules", "Rowlatt Act", "MISA", "POTA"],
         correctAnswer: 0,
         explanation: "DIR was used extensively.",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
 {
         id: '21-30',
@@ -191,7 +214,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         options: ["6", "5", "7", "8"],
         correctAnswer: 0,
         explanation: "Initially 6 (Madras, Bombay, CP, UP, Bihar, Orissa), later 2 more (NWFP, Assam).",
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     }
 ,
 {
@@ -901,7 +925,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-1-1771158227607',
@@ -910,7 +935,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-2-1771158227607',
@@ -919,7 +945,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Easy-3-1771158227607',
@@ -928,7 +955,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-4-1771158227607',
@@ -937,7 +965,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-5-1771158227607',
@@ -946,7 +975,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Easy-6-1771158227607',
@@ -955,7 +985,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-7-1771158227607',
@@ -964,7 +995,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-8-1771158227607',
@@ -973,7 +1005,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Easy-9-1771158227607',
@@ -982,7 +1015,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-10-1771158227607',
@@ -991,7 +1025,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-11-1771158227607',
@@ -1000,7 +1035,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Easy-12-1771158227607',
@@ -1009,7 +1045,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-13-1771158227607',
@@ -1018,7 +1055,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-14-1771158227607',
@@ -1027,7 +1065,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Easy-15-1771158227607',
@@ -1036,7 +1075,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-16-1771158227607',
@@ -1045,7 +1085,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-17-1771158227607',
@@ -1054,7 +1095,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Easy-18-1771158227607',
@@ -1063,7 +1105,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-19-1771158227607',
@@ -1072,7 +1115,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-20-1771158227607',
@@ -1081,7 +1125,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Easy-21-1771158227607',
@@ -1090,7 +1135,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-22-1771158227607',
@@ -1099,7 +1145,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-23-1771158227607',
@@ -1108,7 +1155,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Easy-24-1771158227607',
@@ -1117,7 +1165,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-25-1771158227607',
@@ -1126,7 +1175,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-26-1771158227607',
@@ -1135,7 +1185,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Easy-27-1771158227607',
@@ -1144,7 +1195,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Congress Rule in Provinces involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Easy-28-1771158227607',
@@ -1153,7 +1205,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Congress Rule in Provinces was establishing control.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Easy-29-1771158227607',
@@ -1162,7 +1215,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Congress Rule in Provinces.",
         difficulty: 'Easy',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-0-1771158227607',
@@ -1171,7 +1225,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-1-1771158227607',
@@ -1180,7 +1235,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-2-1771158227607',
@@ -1189,7 +1245,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-3-1771158227607',
@@ -1198,7 +1255,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-4-1771158227607',
@@ -1207,7 +1265,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-5-1771158227607',
@@ -1216,7 +1275,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-6-1771158227607',
@@ -1225,7 +1285,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-7-1771158227607',
@@ -1234,7 +1295,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-8-1771158227607',
@@ -1243,7 +1305,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-9-1771158227607',
@@ -1252,7 +1315,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-10-1771158227607',
@@ -1261,7 +1325,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-11-1771158227607',
@@ -1270,7 +1335,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-12-1771158227607',
@@ -1279,7 +1345,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-13-1771158227607',
@@ -1288,7 +1355,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-14-1771158227607',
@@ -1297,7 +1365,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-15-1771158227607',
@@ -1306,7 +1375,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-16-1771158227607',
@@ -1315,7 +1385,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-17-1771158227607',
@@ -1324,7 +1395,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-18-1771158227607',
@@ -1333,7 +1405,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-19-1771158227607',
@@ -1342,7 +1415,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-20-1771158227607',
@@ -1351,7 +1425,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-21-1771158227607',
@@ -1360,7 +1435,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-22-1771158227607',
@@ -1369,7 +1445,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-23-1771158227607',
@@ -1378,7 +1455,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-24-1771158227607',
@@ -1387,7 +1465,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-25-1771158227607',
@@ -1396,7 +1475,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-26-1771158227607',
@@ -1405,7 +1485,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Moderate-27-1771158227607',
@@ -1414,7 +1495,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Moderate-28-1771158227607',
@@ -1423,7 +1505,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Moderate-29-1771158227607',
@@ -1432,7 +1515,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Congress Rule in Provinces shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-0-1771158227607',
@@ -1441,7 +1525,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-1-1771158227607',
@@ -1450,7 +1535,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-2-1771158227607',
@@ -1459,7 +1545,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-3-1771158227607',
@@ -1468,7 +1555,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-4-1771158227607',
@@ -1477,7 +1565,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-5-1771158227607',
@@ -1486,7 +1575,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-6-1771158227607',
@@ -1495,7 +1585,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-7-1771158227607',
@@ -1504,7 +1595,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-8-1771158227607',
@@ -1513,7 +1605,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-9-1771158227607',
@@ -1522,7 +1615,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-10-1771158227607',
@@ -1531,7 +1625,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-11-1771158227607',
@@ -1540,7 +1635,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-12-1771158227607',
@@ -1549,7 +1645,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-13-1771158227607',
@@ -1558,7 +1655,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-14-1771158227607',
@@ -1567,7 +1665,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-15-1771158227607',
@@ -1576,7 +1675,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-16-1771158227607',
@@ -1585,7 +1685,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-17-1771158227607',
@@ -1594,7 +1695,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-18-1771158227607',
@@ -1603,7 +1705,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-19-1771158227607',
@@ -1612,7 +1715,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-20-1771158227607',
@@ -1621,7 +1725,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-21-1771158227607',
@@ -1630,7 +1735,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-22-1771158227607',
@@ -1639,7 +1745,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-23-1771158227607',
@@ -1648,7 +1755,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-24-1771158227607',
@@ -1657,7 +1765,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-25-1771158227607',
@@ -1666,7 +1775,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-26-1771158227607',
@@ -1675,7 +1785,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch21-Hard-27-1771158227607',
@@ -1684,7 +1795,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch21-Hard-28-1771158227607',
@@ -1693,7 +1805,8 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch21-Hard-29-1771158227607',
@@ -1702,6 +1815,7 @@ export const MODERN_CHAPTER_21_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Congress Rule in Provinces.",
         difficulty: 'Hard',
-        chapterId: 21
+        chapterId: 21,
+        difficulty: 'Hard'
     },
 ];

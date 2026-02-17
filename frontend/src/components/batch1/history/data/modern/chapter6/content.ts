@@ -1,7 +1,7 @@
 
-import { ChapterContent } from '../../../../types';
 
-export const MODERN_CHAPTER_6_CONTENT: ChapterContent = {
+
+export const MODERN_CHAPTER_6_CONTENT = {
     id: 'chapter6',
     title: "People's Resistance: Civil and Tribal Uprisings (Pre-1857)",
     content: `

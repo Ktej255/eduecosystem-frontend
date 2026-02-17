@@ -1,7 +1,7 @@
 
-import { ChapterContent } from '../../../../types';
 
-export const MODERN_CHAPTER_8_CONTENT: ChapterContent = {
+
+export const MODERN_CHAPTER_8_CONTENT = {
     id: 'chapter8',
     title: "The Indian Renaissance: Socio-Religious Reform Movements",
     content: `

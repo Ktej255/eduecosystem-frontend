@@ -8,9 +8,10 @@ export interface MCQ {
     chapterName?: string;
     subtopic?: string;
     mediaUrl?: string;
+    difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export type ConfidenceLevel = 'sure-shot' | '50-50' | 'one-option-known' | 'blind-guess';
+export type ConfidenceLevel = 'sure-shot' | '50-50' | 'one-option-known' | 'blind-guess' | 'other';
 
 export interface AnswerState {
     questionIndex: number;

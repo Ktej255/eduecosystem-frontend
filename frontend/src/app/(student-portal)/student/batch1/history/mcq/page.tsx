@@ -118,6 +118,7 @@ function MCQContent() {
             score: Math.max(0, Math.round(score * 100) / 100), // Standardize to 2 decimals
             accuracy: Math.round((correct / questions.length) * 100) || 0,
             timeTaken: timeTaken,
+            totalTimeTaken: timeTaken, // Add totalTimeTaken for compatibility
             topicBreakdown: {
                 "History": { total: questions.length, correct: correct }
             },
@@ -142,6 +143,10 @@ function MCQContent() {
             totalQuestions: questions.length,
             accuracy: resultData.accuracy,
             timeTaken: timeTaken,
+            totalTimeTaken: timeTaken, // Add totalTimeTaken for compatibility
+            correctCount: correct,
+            incorrectCount: incorrect,
+            unansweredCount: unanswered,
             questions: results
         }, reportType);
 

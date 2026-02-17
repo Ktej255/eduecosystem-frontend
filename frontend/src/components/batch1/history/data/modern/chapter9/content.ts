@@ -1,84 +1,57 @@
 
-import { ChapterContent } from '../../../../types';
+export const MODERN_CHAPTER_9_CONTENT = {
+  id: 'chapter9',
+  title: "A General Survey of Socio–Cultural Reform Movements",
+  content: `
+# Social and Religious Reform Movements: Specific Focus
 
-export const MODERN_CHAPTER_9_CONTENT: ChapterContent = {
-    id: 'chapter9',
-    title: "The Nationalist Movement (1858-1905): Birth of the Congress",
-    content: `
-# The Nationalist Movement (1858-1905)
-> **Theme:** "From Petitions to Swaraj." The late 19th century witnessed the organized awakening of Indian political consciousness, culminating in the birth of the Indian National Congress.
+This chapter examines specific regional and community-based reform movements that played a critical role in modernizing Indian society.
 
----
+## Caste Movements
 
-## 1. Factors for the Rise of Nationalism
-The rise of nationalism was a result of several internal and external factors:
+### Satnami Movement (Chhattisgarh)
+- Founded by **Ghasidas**.
+- Worked among the leather workers (Chamars) to improve their social status.
 
-1.  **Administrative & Economic Unification:** The British brought the entire subcontinent under one rule. Railways, telegraphs, and a uniform legal system created a sense of oneness.
-2.  **Western Education:** English became the lingua franca for the educated elite, allowing them to communicate across regional boundaries and study Western liberal ideas (liberty, equality, democracy).
-3.  **The Economic Critique:** Leaders like Dadabhai Naoroji exposed the "Drain of Wealth," proving that Britain was bleeding India white.
-4.  **Reactionary Policies (Lord Lytton, 1876-80):** 
-    *   **Vernacular Press Act (1878):** To silence Indian-language newspapers.
-    *   **Arms Act (1878):** Disarmed Indians while exempting Europeans.
-    *   **Delhi Durbar (1877):** Held during a severe famine.
-5.  **Ilbert Bill Controversy (1883):** Lord Ripon's proposal to allow Indian judges to try Europeans in criminal cases led to a "White Mutiny," which exposed British racial arrogance and taught Indians the power of organization.
+### Shri Narayana Dharma Paripalana Yogam (SNDP)
+- Founded by **Sri Narayana Guru** (Kerala, 1903) for the Ezhavas (toddy tappers).
+- **Slogan**: "One Caste, One Religion, One God for Mankind".
+- Opened temples for lower castes (Aravippuram Movement).
 
----
+### Justice Party (Madras)
+- Founded by **C.N. Mudaliar**, **T.M. Nair**, and **P. Tyagaraya Chetty** (1916).
+- Represented non-Brahmins (intermediate castes) seeking government jobs and representation.
 
-## 2. Pre-Congress Political Associations
+### Self-Respect Movement (Tamil Nadu)
+- Founded by **E.V. Ramaswamy Naicker (Periyar)** (1925).
+- Radical movement against Brahmin domination and the caste system.
+- Advocated atheism, women's rights, and self-respect marriages (without Brahmin priests).
 
-| Year | Organization | Key Leader(s) | Significance |
-| :--- | :--- | :--- | :--- |
-| **1838** | Landholders' Society | Dwarkanath Tagore | First political organization |
-| **1866** | East India Association | Dadabhai Naoroji (London) | To influence British public opinion |
-| **1870** | Poona Sarvajanik Sabha | M.G. Ranade | Acted as a bridge to the people |
-| **1876** | Indian Association | S.N. Banerjea & A.M. Bose | Most important pre-Congress body |
-| **1884** | Madras Mahajan Sabha | M. Veeraraghavachariar | Regional nationalist coordination |
-| **1885** | Bombay Presidency Assoc. | Pherozeshah Mehta, Tyabji | Regional nationalist coordination |
+### Mahad Satyagraha (Maharashtra)
+- Led by **Dr. B.R. Ambedkar** (1927).
+- Asserted the right of Dalits to use water from the public tank at Mahad.
+- Ambedkar also burned the *Manusmriti* as a symbol of caste oppression.
 
----
+## Women's Reform Movements
 
-## 3. Birth of the Indian National Congress (1885)
-*   **Foundation:** Dec 1885 at Gokuldas Tejpal Sanskrit College, Bombay.
-*   **Founder:** **A.O. Hume** (Retired ICS officer).
-*   **First President:** **W.C. Bonnerjee**.
-*   **Attendance:** 72 delegates from all over India.
+### Key Leaders
+- **Pandita Ramabai**: Founded the *Arya Mahila Samaj* and *Sharada Sadan* (for widows).
+- **Savitribai Phule**: Started the first school for girls in Pune (1848).
+- **D.K. Karve**: Founded the first Women's University in Bombay (SNDT) and the Widow Remarriage Association.
 
-### Theories of Origin
-1.  **Safety Valve Theory:** Put forward by **Lala Lajpat Rai**. Suggested that Hume formed the Congress to release Indian anger harmlessly and prevent another 1857-style explosion.
-2.  **Lightning Conductor Theory:** Suggested by **G.K. Gokhale**. Argued that early nationalists used Hume as a shield to avoid government suppression in the initial years.
+### Organizations
+- **All India Women's Conference (AIWC)**: Founded in 1927 by Margaret Cousins. Promoted women's education and social welfare.
 
----
+## Western India Reforms
 
-## 4. The Moderate Phase (1885-1905)
-The early Congress was dominated by "Moderates" who believed in the British sense of justice.
+### Young Bombay Movement
+- Intellectual trend inspired by the Young Bengal Movement.
 
-*   **Methodology:** **3Ps** - Prayer, Petition, and Protest within the constitutional framework.
-*   **Key Leaders:** Dadabhai Naoroji, Pherozeshah Mehta, G.K. Gokhale, S.N. Banerjea.
-*   **Aims:** 
-    *   Expansion of legislative councils (Councils Act 1892).
-    *   Indianization of services (to reduce Drain of Wealth).
-    *   Civil rights (freedom of press/speech).
+### Paramahansa Mandali
+- Founded by **Dadoba Pandurang** and others (1849).
+- A secret society that worked for the abolition of caste and idolatry.
 
-### The Economic Critique (The Drain Theory)
-*   **Dadabhai Naoroji (Grand Old Man of India):** In his book *Poverty and Un-British Rule in India*, he explained how wealth was transferred from India to Britain through "Home Charges" (pensions, interest on debt, administrative costs).
-*   **M.G. Ranade & R.C. Dutt:** Supported this critique, detailing the de-industrialization of India.
-
----
-
-## 5. Early Milestone Sessions
-
-| Year | Place | President | Note |
-| :--- | :--- | :--- | :--- |
-| **1885** | Bombay | W.C. Bonnerjee | Formation |
-| **1886** | Calcutta | Dadabhai Naoroji | Merger with National Conference |
-| **1887** | Madras | Badruddin Tyabji | First Muslim President |
-| **1888** | Allahabad | George Yule | First English President |
-| **1890** | Calcutta | Pherozeshah Mehta | Kadambini Ganguly (first woman grad) addressed it |
-
----
-
-## 6. The Opposition
-*   **Loyalists:** **Sir Syed Ahmed Khan** and **Raja Shiv Prasad** of Benaras founded the **United India Patriotic Association** (1888) to oppose the Congress and promote loyalty to the Raj.
-*   **Radical Critique:** **Aurobindo Ghosh** (in *New Lamps for Old*) and **Tilak** criticized the Moderates' methods as "Political Mendicancy" (begging).
+### Gopal Hari Deshmukh ('Lokhitawadi')
+- Advocated for rationalism and criticized blind adherence to tradition in his *Shatapatre*.
     `
 };

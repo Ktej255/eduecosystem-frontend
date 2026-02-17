@@ -7,7 +7,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["C.R. Das and Motilal Nehru", "Jawaharlal Nehru and Subhash Bose", "Gandhi and Patel", "Lajpat Rai and Tilak"],
         correctAnswer: 0,
         explanation: "C.R. Das and Motilal Nehru founded the Swaraj Party in 1923 to contest elections and enter legislatures.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Easy'
     },
 {
         id: '17-2',
@@ -15,7 +16,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Enter councils and obstruct the government from within", "Start a violent revolution", "Support British policies", "Leave the Congress"],
         correctAnswer: 0,
         explanation: "They wanted to end the boycott of legislative councils and use them as a platform to expose legitimate demands and obstruct the government.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Moderate'
     },
 {
         id: '17-3',
@@ -23,7 +25,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Vallabhbhai Patel, Rajendra Prasad, C. Rajagopalachari", "C.R. Das, Motilal Nehru", "Jawaharlal Nehru, Subhash Bose", "None of the above"],
         correctAnswer: 0,
         explanation: "The No-Changers advocated for constructive work and continuation of the boycott.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Hard'
     },
 {
         id: '17-4',
@@ -31,7 +34,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Vithalbhai Patel", "Motilal Nehru", "C.R. Das", "Madan Mohan Malaviya"],
         correctAnswer: 0,
         explanation: "Vithalbhai Patel was elected as the Speaker in 1925, a major achievement for Swarajists.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Easy'
     },
 {
         id: '17-5',
@@ -39,7 +43,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Gaya Session (1922)", "Belgaum Session (1924)", "Kanpur Session (1925)", "Nagpur Session (1920)"],
         correctAnswer: 0,
         explanation: "After the Gaya session presided by C.R. Das rejected the council entry proposal, the Swaraj Party was formed.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Moderate'
     },
 {
         id: '17-6',
@@ -47,7 +52,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["1925", "1923", "1927", "1930"],
         correctAnswer: 0,
         explanation: "C.R. Das passed away in June 1925.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Hard'
     },
 {
         id: '17-8',
@@ -55,7 +61,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["1924", "1928", "1930", "1922"],
         correctAnswer: 0,
         explanation: "HRA was founded in 1924 in Kanpur by Ramprasad Bismil, Jogesh Chandra Chatterjee, and Sachin Sanyal.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Easy'
     },
 {
         id: '17-9',
@@ -63,7 +70,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["1925", "1924", "1926", "1929"],
         correctAnswer: 0,
         explanation: "The Kakori conspiracy case occurred on August 9, 1925.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Moderate'
     },
 {
         id: '17-10',
@@ -71,7 +79,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Chandrashekhar Azad", "Ramprasad Bismil", "Ashfaqullah Khan", "Roshan Singh"],
         correctAnswer: 0,
         explanation: "Chandrashekhar Azad evaded arrest and continued the struggle.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Hard'
     },
 {
         id: '17-11',
@@ -79,7 +88,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Feroz Shah Kotla, Delhi", "Kanpur", "Lahore", "Allahabad"],
         correctAnswer: 0,
         explanation: "HSRA was founded in 1928 at Feroz Shah Kotla under the leadership of Chandrashekhar Azad.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Easy'
     },
 {
         id: '17-12',
@@ -87,7 +97,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Bhagat Singh, Rajguru, Sukhdev", "Bismil and Ashfaqullah", "Surya Sen", "Udham Singh"],
         correctAnswer: 0,
         explanation: "Bhagat Singh, Azad, and Rajguru assassinated Saunders in Lahore in 1928.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Moderate'
     },
 {
         id: '17-13',
@@ -95,7 +106,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["1929", "1928", "1930", "1931"],
         correctAnswer: 0,
         explanation: "On April 8, 1929, to protest against the Public Safety Bill and Trade Disputes Bill.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Hard'
     },
 {
         id: '17-14',
@@ -103,7 +115,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Jatin Das", "Bhagat Singh", "Sukhdev", "Surya Sen"],
         correctAnswer: 0,
         explanation: "Jatin Das died in Lahore jail in 1929 demanding better conditions for political prisoners.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Easy'
     },
 {
         id: '17-15',
@@ -111,7 +124,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Surya Sen", "Bhagat Singh", "Rashbehari Bose", "Jatin Mukherjee"],
         correctAnswer: 0,
         explanation: "Surya Sen (Masterda) led the raid in April 1930.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Moderate'
     },
 {
         id: '17-16',
@@ -119,7 +133,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["March 23, 1931", "March 23, 1930", "February 27, 1931", "April 8, 1929"],
         correctAnswer: 0,
         explanation: "They were executed in the Lahore Conspiracy Case.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Hard'
     },
 {
         id: '17-17',
@@ -127,7 +142,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Bhagwati Charan Vohra", "Bhagat Singh", "Bismil", "Sachin Sanyal"],
         correctAnswer: 0,
         explanation: "Bhagwati Charan Vohra wrote it as a reply to Gandhi's critique 'The Cult of Bomb'.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Easy'
     },
 {
         id: '17-18',
@@ -135,7 +151,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Bhagat Singh", "Subhash Bose", "Tilak", "Nehru"],
         correctAnswer: 0,
         explanation: "Bhagat Singh made this statement during his trial.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Moderate'
     },
 {
         id: '17-19',
@@ -143,7 +160,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Surya Sen", "Pulin Das", "Barindra Ghosh", "Jatin Das"],
         correctAnswer: 0,
         explanation: "Surya Sen was a teacher by profession, hence called Masterda.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Hard'
     },
 {
         id: '17-20',
@@ -151,7 +169,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["District Magistrate of Comilla", "Governor of Bengal", "Police Commissioner of Calcutta", "Viceroy"],
         correctAnswer: 0,
         explanation: "They assassinated the DM of Comilla/Tipperah in 1931.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Easy'
     },
 {
         id: '17-21',
@@ -159,7 +178,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Bina Das", "Kalpana Dutt", "Pritilata Waddedar", "Matangini Hazra"],
         correctAnswer: 0,
         explanation: "Bina Das fired at the Governor during the convocation ceremony.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Moderate'
     },
 {
         id: '17-23',
@@ -167,7 +187,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Alfred Park, Allahabad", "Kakori", "Lahore", "Delhi"],
         correctAnswer: 0,
         explanation: "He shot himself when surrounded by police at Alfred Park on February 27, 1931.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Hard'
     },
 {
         id: '17-24',
@@ -175,7 +196,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Surya Sen", "Bhagat Singh", "Jatin Das", "Chandrashekhar Azad"],
         correctAnswer: 0,
         explanation: "Kalpana Dutt and Pritilata Waddedar were associates of Surya Sen.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Easy'
     },
 {
         id: '17-25',
@@ -183,7 +205,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Lord Birkenhead", "Lord Irwin", "Simon Commission", "Ramsey MacDonald"],
         correctAnswer: 0,
         explanation: "Lord Birkenhead, the Secretary of State, challenged Indians to draft a constitution agreed upon by all.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Moderate'
     },
 {
         id: '17-28',
@@ -191,7 +214,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["J.M. Sengupta", "C.R. Das", "Subhash Bose", "Jawaharlal Nehru"],
         correctAnswer: 0,
         explanation: "J.M. Sengupta defended them.",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Hard'
     },
 {
         id: '17-30',
@@ -199,7 +223,8 @@ export const MODERN_CHAPTER_17_MCQS: any[] = [
         options: ["Lord Irwin", "Lord Reading", "Lord Willingdon", "Lord Linlithgow"],
         correctAnswer: 0,
         explanation: "Lord Irwin was the Viceroy during this period (1926-1931).",
-        chapterId: 17
+        chapterId: 17,
+        difficulty: 'Easy'
     }
 ,
 {

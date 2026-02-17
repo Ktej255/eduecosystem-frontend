@@ -13,7 +13,8 @@ import {
     CheckCircle2,
     Bookmark,
     Timer,
-    Keyboard
+    Keyboard,
+    HelpCircle
 } from "lucide-react";
 import { useMCQShortcuts } from "@/hooks/useKeyboardShortcuts";
 
@@ -43,7 +44,7 @@ export interface TestResult {
         subtopic: string;
         userAnswer: number | null;
         correctAnswer: number;
-        confidence: 'sure' | '50-50' | 'one-option' | 'blind' | null;
+        confidence: 'sure' | '50-50' | 'one-option' | 'blind' | 'other' | null;
         timeSpent: number;
         isCorrect: boolean;
         visitCount: number;
@@ -63,7 +64,7 @@ interface ImmersiveTestSessionProps {
     onCancel: () => void;
 }
 
-export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind' | null;
+export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind' | 'other' | null;
 
 interface QuestionState {
     selectedAnswer: number | null;
@@ -360,6 +361,7 @@ const ImmersiveTestSession: React.FC<ImmersiveTestSessionProps> = ({
                                 { id: '50-50', label: '50-50', color: 'bg-blue-500', icon: AlertCircle },
                                 { id: 'one-option', label: 'One Option', color: 'bg-amber-500', icon: AlertCircle },
                                 { id: 'blind', label: 'Blind Guess', color: 'bg-red-500', icon: AlertCircle },
+                                { id: 'other', label: 'Other', color: 'bg-purple-500', icon: HelpCircle },
                             ].map((level) => (
                                 <button
                                     key={level.id}

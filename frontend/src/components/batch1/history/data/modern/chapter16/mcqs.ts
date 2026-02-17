@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Salt Tax"
         ],
         correctAnswer: 0,
-        explanation: "Muslims regarded the Sultan of Turkey as their Caliph."
+        explanation: "Muslims regarded the Sultan of Turkey as their Caliph.",
+        chapterId: 16,
+        difficulty: 'Easy'
     },
 {
         id: "H16-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Maulana Azad"
         ],
         correctAnswer: 0,
-        explanation: "Jinnah opposed the mixing of religion and politics and left the Congress."
+        explanation: "Jinnah opposed the mixing of religion and politics and left the Congress.",
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
 {
         id: "H16-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Lucknow"
         ],
         correctAnswer: 0,
-        explanation: "It called for boycott of British goods."
+        explanation: "It called for boycott of British goods.",
+        chapterId: 16,
+        difficulty: 'Hard'
     },
 {
         id: "H16-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Azad"
         ],
         correctAnswer: 0,
-        explanation: "Gandhi saw this as a golden opportunity for Hindu-Muslim unity."
+        explanation: "Gandhi saw this as a golden opportunity for Hindu-Muslim unity.",
+        chapterId: 16,
+        difficulty: 'Easy'
     },
 {
         id: "H16-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "December 1920"
         ],
         correctAnswer: 0,
-        explanation: "The day Tilak died."
+        explanation: "The day Tilak died.",
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
 {
         id: "H16-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Madras"
         ],
         correctAnswer: 0,
-        explanation: "Presided by Lajpat Rai (implied context, usually)."
+        explanation: "Presided by Lajpat Rai (implied context, usually).",
+        chapterId: 16,
+        difficulty: 'Hard'
     },
 {
         id: "H16-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Gaya Session (1922)"
         ],
         correctAnswer: 0,
-        explanation: "The goal changed to 'Swaraj by peaceful and legitimate means'."
+        explanation: "The goal changed to 'Swaraj by peaceful and legitimate means'.",
+        chapterId: 16,
+        difficulty: 'Easy'
     },
 {
         id: "H16-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Azad, Ansari"
         ],
         correctAnswer: 0,
-        explanation: "They opposed the extra-constitutional mass struggle."
+        explanation: "They opposed the extra-constitutional mass struggle.",
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
 {
         id: "H16-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "5 Lakhs"
         ],
         correctAnswer: 0,
-        explanation: "Oversubscribed."
+        explanation: "Oversubscribed.",
+        chapterId: 16,
+        difficulty: 'Hard'
     },
 {
         id: "H16-M-12",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Aurobindo"
         ],
         correctAnswer: 0,
-        explanation: "Resigning from the ICS."
+        explanation: "Resigning from the ICS.",
+        chapterId: 16,
+        difficulty: 'Easy'
     },
 {
         id: "H16-M-13",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "1919"
         ],
         correctAnswer: 0,
-        explanation: "His visit was greeted with strikes and demonstrations."
+        explanation: "His visit was greeted with strikes and demonstrations.",
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
 {
         id: "H16-M-14",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "B.C. Pal"
         ],
         correctAnswer: 0,
-        explanation: "Strikes in tea plantations and steamer services."
+        explanation: "Strikes in tea plantations and steamer services.",
+        chapterId: 16,
+        difficulty: 'Hard'
     },
 {
         id: "H16-M-16",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "April 13, 1922"
         ],
         correctAnswer: 0,
-        explanation: "In Gorakhpur district."
+        explanation: "In Gorakhpur district.",
+        chapterId: 16,
+        difficulty: 'Easy'
     },
 {
         id: "H16-M-17",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "5"
         ],
         correctAnswer: 0,
-        explanation: "The mob burnt the police station."
+        explanation: "The mob burnt the police station.",
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
 {
         id: "H16-M-18",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Calcutta"
         ],
         correctAnswer: 0,
-        explanation: "Bardoli Resolution (Feb 1922)."
+        explanation: "Bardoli Resolution (Feb 1922).",
+        chapterId: 16,
+        difficulty: 'Hard'
     },
 {
         id: "H16-M-19",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "C.R. Das"
         ],
         correctAnswer: 0,
-        explanation: "He was in prison and resented the decision."
+        explanation: "He was in prison and resented the decision.",
+        chapterId: 16,
+        difficulty: 'Easy'
     },
 {
         id: "H16-M-20",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Life imprisonment"
         ],
         correctAnswer: 0,
-        explanation: "He made a memorable court speech."
+        explanation: "He made a memorable court speech.",
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
 {
         id: "H16-M-21",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Congress withdrew support"
         ],
         correctAnswer: 0,
-        explanation: "The Caliphate was abolished in 1924."
+        explanation: "The Caliphate was abolished in 1924.",
+        chapterId: 16,
+        difficulty: 'Hard'
     },
 {
         id: "H16-M-22",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Annie Besant"
         ],
         correctAnswer: 0,
-        explanation: "During his trial in 1922."
+        explanation: "During his trial in 1922.",
+        chapterId: 16,
+        difficulty: 'Easy'
     },
 {
         id: "H16-M-23",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Azad"
         ],
         correctAnswer: 0,
-        explanation: "A later historical view cited."
+        explanation: "A later historical view cited.",
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
 {
         id: "H16-M-24",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "None"
         ],
         correctAnswer: 0,
-        explanation: "To lead the struggle on a day-to-day basis."
+        explanation: "To lead the struggle on a day-to-day basis.",
+        chapterId: 16,
+        difficulty: 'Hard'
     },
 {
         id: "H16-M-25",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Gujarat Vidyapeeth"
         ],
         correctAnswer: 0,
-        explanation: "BHU was founded earlier (1916) by Malaviya."
+        explanation: "BHU was founded earlier (1916) by Malaviya.",
+        chapterId: 16,
+        difficulty: 'Easy'
     },
 {
         id: "H16-M-26",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Azad"
         ],
         correctAnswer: 0,
-        explanation: "Acting President."
+        explanation: "Acting President.",
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
 {
         id: "H16-M-27",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Free"
         ],
         correctAnswer: 0,
-        explanation: "To enable mass participation."
+        explanation: "To enable mass participation.",
+        chapterId: 16,
+        difficulty: 'Hard'
     },
 {
         id: "H16-M-28",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Jayakar"
         ],
         correctAnswer: 0,
-        explanation: "After leaving Congress due to NCM disagreements."
+        explanation: "After leaving Congress due to NCM disagreements.",
+        chapterId: 16,
+        difficulty: 'Easy'
     },
 {
         id: "H16-M-29",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
             "Dadabhai Naoroji"
         ],
         correctAnswer: 0,
-        explanation: "August 1, 1920."
+        explanation: "August 1, 1920.",
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
 {
         "id": 1,
@@ -885,7 +937,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-1-1771158270902',
@@ -894,7 +947,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-2-1771158270902',
@@ -903,7 +957,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Easy-3-1771158270902',
@@ -912,7 +967,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-4-1771158270902',
@@ -921,7 +977,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-5-1771158270902',
@@ -930,7 +987,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Easy-6-1771158270902',
@@ -939,7 +997,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-7-1771158270902',
@@ -948,7 +1007,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-8-1771158270902',
@@ -957,7 +1017,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Easy-9-1771158270902',
@@ -966,7 +1027,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-10-1771158270902',
@@ -975,7 +1037,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-11-1771158270902',
@@ -984,7 +1047,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Easy-12-1771158270902',
@@ -993,7 +1057,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-13-1771158270902',
@@ -1002,7 +1067,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-14-1771158270902',
@@ -1011,7 +1077,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Easy-15-1771158270902',
@@ -1020,7 +1087,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-16-1771158270902',
@@ -1029,7 +1097,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-17-1771158270902',
@@ -1038,7 +1107,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Easy-18-1771158270902',
@@ -1047,7 +1117,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-19-1771158270902',
@@ -1056,7 +1127,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-20-1771158270902',
@@ -1065,7 +1137,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Easy-21-1771158270902',
@@ -1074,7 +1147,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-22-1771158270902',
@@ -1083,7 +1157,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-23-1771158270902',
@@ -1092,7 +1167,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Easy-24-1771158270902',
@@ -1101,7 +1177,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-25-1771158270902',
@@ -1110,7 +1187,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-26-1771158270902',
@@ -1119,7 +1197,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Easy-27-1771158270902',
@@ -1128,7 +1207,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Non-Cooperation Movement and Khilafat Aandolan involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Easy-28-1771158270902',
@@ -1137,7 +1217,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Non-Cooperation Movement and Khilafat Aandolan was establishing control.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Easy-29-1771158270902',
@@ -1146,7 +1227,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Easy',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-0-1771158270902',
@@ -1155,7 +1237,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-1-1771158270902',
@@ -1164,7 +1247,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-2-1771158270902',
@@ -1173,7 +1257,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-3-1771158270902',
@@ -1182,7 +1267,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-4-1771158270902',
@@ -1191,7 +1277,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-5-1771158270902',
@@ -1200,7 +1287,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-6-1771158270902',
@@ -1209,7 +1297,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-7-1771158270902',
@@ -1218,7 +1307,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-8-1771158270902',
@@ -1227,7 +1317,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-9-1771158270902',
@@ -1236,7 +1327,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-10-1771158270902',
@@ -1245,7 +1337,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-11-1771158270902',
@@ -1254,7 +1347,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-12-1771158270902',
@@ -1263,7 +1357,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-13-1771158270902',
@@ -1272,7 +1367,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-14-1771158270902',
@@ -1281,7 +1377,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-15-1771158270902',
@@ -1290,7 +1387,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-16-1771158270902',
@@ -1299,7 +1397,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-17-1771158270902',
@@ -1308,7 +1407,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-18-1771158270902',
@@ -1317,7 +1417,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-19-1771158270902',
@@ -1326,7 +1427,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-20-1771158270902',
@@ -1335,7 +1437,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-21-1771158270902',
@@ -1344,7 +1447,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-22-1771158270902',
@@ -1353,7 +1457,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-23-1771158270902',
@@ -1362,7 +1467,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-24-1771158270902',
@@ -1371,7 +1477,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-25-1771158270902',
@@ -1380,7 +1487,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-26-1771158270902',
@@ -1389,7 +1497,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Moderate-27-1771158270902',
@@ -1398,7 +1507,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Moderate-28-1771158270902',
@@ -1407,7 +1517,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Moderate-29-1771158270902',
@@ -1416,7 +1527,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Non-Cooperation Movement and Khilafat Aandolan shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-0-1771158270902',
@@ -1425,7 +1537,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-1-1771158270902',
@@ -1434,7 +1547,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-2-1771158270902',
@@ -1443,7 +1557,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-3-1771158270902',
@@ -1452,7 +1567,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-4-1771158270902',
@@ -1461,7 +1577,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-5-1771158270902',
@@ -1470,7 +1587,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-6-1771158270902',
@@ -1479,7 +1597,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-7-1771158270902',
@@ -1488,7 +1607,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-8-1771158270902',
@@ -1497,7 +1617,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-9-1771158270902',
@@ -1506,7 +1627,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-10-1771158270902',
@@ -1515,7 +1637,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-11-1771158270902',
@@ -1524,7 +1647,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-12-1771158270902',
@@ -1533,7 +1657,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-13-1771158270902',
@@ -1542,7 +1667,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-14-1771158270902',
@@ -1551,7 +1677,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-15-1771158270902',
@@ -1560,7 +1687,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-16-1771158270902',
@@ -1569,7 +1697,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-17-1771158270902',
@@ -1578,7 +1707,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-18-1771158270902',
@@ -1587,7 +1717,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-19-1771158270902',
@@ -1596,7 +1727,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-20-1771158270902',
@@ -1605,7 +1737,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-21-1771158270902',
@@ -1614,7 +1747,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-22-1771158270902',
@@ -1623,7 +1757,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-23-1771158270902',
@@ -1632,7 +1767,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-24-1771158270902',
@@ -1641,7 +1777,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-25-1771158270902',
@@ -1650,7 +1787,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-26-1771158270902',
@@ -1659,7 +1797,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch16-Hard-27-1771158270902',
@@ -1668,7 +1807,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch16-Hard-28-1771158270902',
@@ -1677,7 +1817,8 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch16-Hard-29-1771158270902',
@@ -1686,6 +1827,7 @@ export const MODERN_CHAPTER_16_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Non-Cooperation Movement and Khilafat Aandolan.",
         difficulty: 'Hard',
-        chapterId: 16
+        chapterId: 16,
+        difficulty: 'Hard'
     },
 ];

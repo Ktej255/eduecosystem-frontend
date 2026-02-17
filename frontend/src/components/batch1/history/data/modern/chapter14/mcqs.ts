@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Lala Lajpat Rai"
         ],
         correctAnswer: 0,
-        explanation: "At Belgaum."
+        explanation: "At Belgaum.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "January 1917"
         ],
         correctAnswer: 0,
-        explanation: "In Madras."
+        explanation: "In Madras.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Central Provinces"
         ],
         correctAnswer: 0,
-        explanation: "Bombay City was under Annie Besant's League."
+        explanation: "Bombay City was under Annie Besant's League.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "S. Subramania Aiyar"
         ],
         correctAnswer: 0,
-        explanation: "George Arundale."
+        explanation: "George Arundale.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Canada"
         ],
         correctAnswer: 0,
-        explanation: "It was modeled on the Irish Home Rule League."
+        explanation: "It was modeled on the Irish Home Rule League.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Muhammad Ali Jinnah"
         ],
         correctAnswer: 0,
-        explanation: "Anglo-Indians, most Muslims, and non-Brahmins from South did not join."
+        explanation: "Anglo-Indians, most Muslims, and non-Brahmins from South did not join.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Tej Bahadur Sapru"
         ],
         correctAnswer: 0,
-        explanation: "He made a dramatic gesture of protest."
+        explanation: "He made a dramatic gesture of protest.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Bombay and Poona"
         ],
         correctAnswer: 0,
-        explanation: "The government feared his influence in these volatile regions."
+        explanation: "The government feared his influence in these volatile regions.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Curzon"
         ],
         correctAnswer: 0,
-        explanation: "Chirol called him the 'Father of Indian Unrest'."
+        explanation: "Chirol called him the 'Father of Indian Unrest'.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-10",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "First World War entry"
         ],
         correctAnswer: 0,
-        explanation: "The Bolshevik Revolution inspired freedom struggles."
+        explanation: "The Bolshevik Revolution inspired freedom struggles.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-11",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Tilak"
         ],
         correctAnswer: 0,
-        explanation: "A Moderate leader."
+        explanation: "A Moderate leader.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-12",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Hindus and Parsis"
         ],
         correctAnswer: 0,
-        explanation: "To present common constitutional demands."
+        explanation: "To present common constitutional demands.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-13",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Communal Award"
         ],
         correctAnswer: 0,
-        explanation: "It was a major landmark in the evolution of communal politics."
+        explanation: "It was a major landmark in the evolution of communal politics.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-14",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Lajpat Rai and Ajit Singh"
         ],
         correctAnswer: 0,
-        explanation: "They worked vigorously for unity."
+        explanation: "They worked vigorously for unity.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-15",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "W.C. Bonnerjee"
         ],
         correctAnswer: 0,
-        explanation: "Mehta had been a staunch opponent of Extremists."
+        explanation: "Mehta had been a staunch opponent of Extremists.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-16",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "December 1916"
         ],
         correctAnswer: 0,
-        explanation: "In the House of Commons."
+        explanation: "In the House of Commons.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-17",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "August Offer (1940)"
         ],
         correctAnswer: 0,
-        explanation: "It implied executives answerable to elected representatives."
+        explanation: "It implied executives answerable to elected representatives.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-18",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Partition of India"
         ],
         correctAnswer: 0,
-        explanation: "And that the British alone would decide the timing."
+        explanation: "And that the British alone would decide the timing.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-19",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Started a violent revolution"
         ],
         correctAnswer: 0,
-        explanation: "They were loyalists."
+        explanation: "They were loyalists.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-20",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "They were forced to"
         ],
         correctAnswer: 0,
-        explanation: "They hoped for gratitude."
+        explanation: "They hoped for gratitude.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-21",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Gandhi"
         ],
         correctAnswer: 0,
-        explanation: "To campaign for Home Rule."
+        explanation: "To campaign for Home Rule.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-22",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Annie Besant"
         ],
         correctAnswer: 0,
-        explanation: "Some of its members joined the Home Rule agitation."
+        explanation: "Some of its members joined the Home Rule agitation.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-23",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Indian League"
         ],
         correctAnswer: 0,
-        explanation: "Before it merged with the Congress."
+        explanation: "Before it merged with the Congress.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-24",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Irwin"
         ],
         correctAnswer: 0,
-        explanation: "Regarding the internment of Annie Besant which only strengthened the movement."
+        explanation: "Regarding the internment of Annie Besant which only strengthened the movement.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-25",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "salaries of Secretary of State to be paid by British treasury"
         ],
         correctAnswer: 0,
-        explanation: "They demanded self-government, not complete independence yet."
+        explanation: "They demanded self-government, not complete independence yet.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-28",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Amery"
         ],
         correctAnswer: 0,
-        explanation: "Responsible for the August Declaration."
+        explanation: "Responsible for the August Declaration.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-29",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Hong Kong"
         ],
         correctAnswer: 0,
-        explanation: "Led by Indian soldiers."
+        explanation: "Led by Indian soldiers.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-30",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Nehru"
         ],
         correctAnswer: 0,
-        explanation: "Tilak advocated a programme of passive resistance after government repression."
+        explanation: "Tilak advocated a programme of passive resistance after government repression.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-31",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Afghanistan"
         ],
         correctAnswer: 0,
-        explanation: "Turkey (ruled by Khalifa) in Balkan wars and against Italy."
+        explanation: "Turkey (ruled by Khalifa) in Balkan wars and against Italy.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-32",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Malaviya"
         ],
         correctAnswer: 0,
-        explanation: "She became the first woman president of INC after her release."
+        explanation: "She became the first woman president of INC after her release.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-33",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Lack of funds"
         ],
         correctAnswer: 0,
-        explanation: "And the leaderlessness after Tilak went abroad and Besant vacillated."
+        explanation: "And the leaderlessness after Tilak went abroad and Besant vacillated.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-34",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Being too old"
         ],
         correctAnswer: 0,
-        explanation: "It was a romantic adventure without sufficient organizational backing."
+        explanation: "It was a romantic adventure without sufficient organizational backing.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-35",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Civil Disobedience"
         ],
         correctAnswer: 0,
-        explanation: "It created organizational links between town and country."
+        explanation: "It created organizational links between town and country.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-36",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "It removed the British"
         ],
         correctAnswer: 0,
-        explanation: "Despite its flaws (separate electorates), it showed unity."
+        explanation: "Despite its flaws (separate electorates), it showed unity.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-37",
@@ -419,7 +487,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Patel"
         ],
         correctAnswer: 0,
-        explanation: "Leading to the libel case."
+        explanation: "Leading to the libel case.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-38",
@@ -431,7 +501,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Pan-Islamism only"
         ],
         correctAnswer: 0,
-        explanation: "Turning closer to Congress objectives."
+        explanation: "Turning closer to Congress objectives.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-40",
@@ -443,7 +515,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Lord Irwin"
         ],
         correctAnswer: 0,
-        explanation: "Co-author of Montford reforms."
+        explanation: "Co-author of Montford reforms.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-41",
@@ -455,7 +529,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Merchants"
         ],
         correctAnswer: 0,
-        explanation: "They feared Brahminical dominance."
+        explanation: "They feared Brahminical dominance.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-44",
@@ -467,7 +543,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Jinnah"
         ],
         correctAnswer: 0,
-        explanation: "President of Lucknow session."
+        explanation: "President of Lucknow session.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-45",
@@ -479,7 +557,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "None had branches"
         ],
         correctAnswer: 0,
-        explanation: "But Tilak's was tighter and more organized."
+        explanation: "But Tilak's was tighter and more organized.",
+        chapterId: 14,
+        difficulty: 'Easy'
     },
 {
         id: "H14-M-46",
@@ -491,7 +571,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "None of the above"
         ],
         correctAnswer: 0,
-        explanation: "Leaders of the Khilafat/Pan-Islamic movement."
+        explanation: "Leaders of the Khilafat/Pan-Islamic movement.",
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
 {
         id: "H14-M-48",
@@ -503,7 +585,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "Unionists"
         ],
         correctAnswer: 0,
-        explanation: "To promote political education."
+        explanation: "To promote political education.",
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 {
         id: "H14-M-50",
@@ -515,7 +599,9 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
             "1911"
         ],
         correctAnswer: 0,
-        explanation: "June 1914."
+        explanation: "June 1914.",
+        chapterId: 14,
+        difficulty: 'Easy'
     }
 ,
 {
@@ -1165,7 +1251,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-1-1771158318489',
@@ -1174,7 +1261,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-2-1771158318489',
@@ -1183,7 +1271,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Easy-3-1771158318489',
@@ -1192,7 +1281,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-4-1771158318489',
@@ -1201,7 +1291,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-5-1771158318489',
@@ -1210,7 +1301,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Easy-6-1771158318489',
@@ -1219,7 +1311,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-7-1771158318489',
@@ -1228,7 +1321,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-8-1771158318489',
@@ -1237,7 +1331,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Easy-9-1771158318489',
@@ -1246,7 +1341,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-10-1771158318489',
@@ -1255,7 +1351,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-11-1771158318489',
@@ -1264,7 +1361,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Easy-12-1771158318489',
@@ -1273,7 +1371,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-13-1771158318489',
@@ -1282,7 +1381,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-14-1771158318489',
@@ -1291,7 +1391,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Easy-15-1771158318489',
@@ -1300,7 +1401,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-16-1771158318489',
@@ -1309,7 +1411,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-17-1771158318489',
@@ -1318,7 +1421,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Easy-18-1771158318489',
@@ -1327,7 +1431,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-19-1771158318489',
@@ -1336,7 +1441,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-20-1771158318489',
@@ -1345,7 +1451,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Easy-21-1771158318489',
@@ -1354,7 +1461,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-22-1771158318489',
@@ -1363,7 +1471,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-23-1771158318489',
@@ -1372,7 +1481,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Easy-24-1771158318489',
@@ -1381,7 +1491,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-25-1771158318489',
@@ -1390,7 +1501,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-26-1771158318489',
@@ -1399,7 +1511,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Easy-27-1771158318489',
@@ -1408,7 +1521,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First World War and Nationalist Response involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Easy-28-1771158318489',
@@ -1417,7 +1531,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First World War and Nationalist Response was establishing control.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Easy-29-1771158318489',
@@ -1426,7 +1541,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First World War and Nationalist Response.",
         difficulty: 'Easy',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-0-1771158318489',
@@ -1435,7 +1551,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-1-1771158318489',
@@ -1444,7 +1561,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-2-1771158318489',
@@ -1453,7 +1571,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-3-1771158318489',
@@ -1462,7 +1581,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-4-1771158318489',
@@ -1471,7 +1591,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-5-1771158318489',
@@ -1480,7 +1601,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-6-1771158318489',
@@ -1489,7 +1611,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-7-1771158318489',
@@ -1498,7 +1621,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-8-1771158318489',
@@ -1507,7 +1631,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-9-1771158318489',
@@ -1516,7 +1641,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-10-1771158318489',
@@ -1525,7 +1651,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-11-1771158318489',
@@ -1534,7 +1661,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-12-1771158318489',
@@ -1543,7 +1671,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-13-1771158318489',
@@ -1552,7 +1681,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-14-1771158318489',
@@ -1561,7 +1691,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-15-1771158318489',
@@ -1570,7 +1701,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-16-1771158318489',
@@ -1579,7 +1711,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-17-1771158318489',
@@ -1588,7 +1721,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-18-1771158318489',
@@ -1597,7 +1731,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-19-1771158318489',
@@ -1606,7 +1741,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-20-1771158318489',
@@ -1615,7 +1751,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-21-1771158318489',
@@ -1624,7 +1761,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-22-1771158318489',
@@ -1633,7 +1771,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-23-1771158318489',
@@ -1642,7 +1781,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-24-1771158318489',
@@ -1651,7 +1791,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-25-1771158318489',
@@ -1660,7 +1801,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-26-1771158318489',
@@ -1669,7 +1811,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Moderate-27-1771158318489',
@@ -1678,7 +1821,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Moderate-28-1771158318489',
@@ -1687,7 +1831,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Moderate-29-1771158318489',
@@ -1696,7 +1841,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First World War and Nationalist Response shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-0-1771158318489',
@@ -1705,7 +1851,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-1-1771158318489',
@@ -1714,7 +1861,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-2-1771158318489',
@@ -1723,7 +1871,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-3-1771158318489',
@@ -1732,7 +1881,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-4-1771158318489',
@@ -1741,7 +1891,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-5-1771158318489',
@@ -1750,7 +1901,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-6-1771158318489',
@@ -1759,7 +1911,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-7-1771158318489',
@@ -1768,7 +1921,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-8-1771158318489',
@@ -1777,7 +1931,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-9-1771158318489',
@@ -1786,7 +1941,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-10-1771158318489',
@@ -1795,7 +1951,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-11-1771158318489',
@@ -1804,7 +1961,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-12-1771158318489',
@@ -1813,7 +1971,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-13-1771158318489',
@@ -1822,7 +1981,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-14-1771158318489',
@@ -1831,7 +1991,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-15-1771158318489',
@@ -1840,7 +2001,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-16-1771158318489',
@@ -1849,7 +2011,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-17-1771158318489',
@@ -1858,7 +2021,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-18-1771158318489',
@@ -1867,7 +2031,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-19-1771158318489',
@@ -1876,7 +2041,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-20-1771158318489',
@@ -1885,7 +2051,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-21-1771158318489',
@@ -1894,7 +2061,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-22-1771158318489',
@@ -1903,7 +2071,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-23-1771158318489',
@@ -1912,7 +2081,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-24-1771158318489',
@@ -1921,7 +2091,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-25-1771158318489',
@@ -1930,7 +2101,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-26-1771158318489',
@@ -1939,7 +2111,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch14-Hard-27-1771158318489',
@@ -1948,7 +2121,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch14-Hard-28-1771158318489',
@@ -1957,7 +2131,8 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch14-Hard-29-1771158318489',
@@ -1966,6 +2141,7 @@ export const MODERN_CHAPTER_14_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First World War and Nationalist Response.",
         difficulty: 'Hard',
-        chapterId: 14
+        chapterId: 14,
+        difficulty: 'Hard'
     },
 ];

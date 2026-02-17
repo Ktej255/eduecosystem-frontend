@@ -7,7 +7,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Review the working of the Government of India Act 1919 and suggest further reforms", "Investigate the Jallianwala Bagh massacre", "Draft a new constitution for India", "Partition India"],
         correctAnswer: 0,
         explanation: "It was a statutory commission set up under the GOI Act 1919 to report on India's constitutional progress.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
 {
         id: '18-2',
@@ -15,7 +16,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["It had no Indian members", "It proposed the partition of India", "It rejected the demand for Swaraj", "It was appointed before time"],
         correctAnswer: 0,
         explanation: "All 7 members were white Englishmen, which was seen as a racial insult.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
 {
         id: '18-3',
@@ -23,7 +25,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Lala Lajpat Rai", "Bal Gangadhar Tilak", "Bipin Chandra Pal", "G.K. Gokhale"],
         correctAnswer: 0,
         explanation: "Lala Lajpat Rai was assaulted by the police led by Saunders in Lahore and succumbed to injuries.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
 {
         id: '18-4',
@@ -31,7 +34,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Motilal Nehru", "Jawaharlal Nehru", "Tej Bahadur Sapru", "Subhash Chandra Bose"],
         correctAnswer: 0,
         explanation: "Motilal Nehru chaired the All Parties Conference committee.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
 {
         id: '18-5',
@@ -39,7 +43,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Dominion Status", "Complete Independence", "Separate Electorates", "Dyarchy at the Centre"],
         correctAnswer: 0,
         explanation: "It demanded Dominion Status on the lines of self-governing colonies like Canada.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
 {
         id: '18-6',
@@ -47,7 +52,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Jawaharlal Nehru and Subhash Chandra Bose", "Motilal Nehru and Sapru", "Gandhi and Patel", "Jinnah and Muslim League"],
         correctAnswer: 0,
         explanation: "The younger section led by Nehru and Bose wanted 'Purna Swaraj' (Complete Independence).",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
 {
         id: '18-7',
@@ -55,7 +61,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Abolition of Dyarchy in provinces", "Extension of responsible government to provinces", "Establishment of a federation of British India and Princely States", "Grant of Dominion Status"],
         correctAnswer: 3,
         explanation: "The Simon Commission deliberately omitted any mention of Dominion Status.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
 {
         id: '18-8',
@@ -63,7 +70,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Nehru Report", "Simon Commission Recommendation", "Communal Award", "Lucknow Pact"],
         correctAnswer: 0,
         explanation: "Jinnah rejected the Nehru Report and proposed his 14 points to safeguard Muslim interests.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
 {
         id: '18-10',
@@ -71,7 +79,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Lala Lajpat Rai", "Bhagat Singh", "Gandhiji", "Tilak"],
         correctAnswer: 0,
         explanation: "Lajpat Rai said this after being lathi-charged during the anti-Simon protest.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
 {
         id: '18-11',
@@ -79,7 +88,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Lahore (1929)", "Calcutta (1928)", "Madras (1927)", "Karachi (1931)"],
         correctAnswer: 0,
         explanation: "The historic Lahore session presided by Nehru declared Purna Swaraj as the goal.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
 {
         id: '18-12',
@@ -87,7 +97,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["January 26, 1930", "August 15, 1947", "January 26, 1950", "December 31, 1929"],
         correctAnswer: 0,
         explanation: "January 26, 1930 was celebrated as the first Independence Day following the Purna Swaraj resolution.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
 {
         id: '18-14',
@@ -95,7 +106,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Lord Birkenhead", "Lord Morley", "Lord Montagu", "Lord Pethick-Lawrence"],
         correctAnswer: 0,
         explanation: "Birkenhead challenged Indian leaders to draft a constitution that would be acceptable to all.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
 {
         id: '18-16',
@@ -103,7 +115,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Justice Party", "Congress", "Muslim League (Jinnah faction)", "Hindu Mahasabha"],
         correctAnswer: 0,
         explanation: "The Justice Party in Madras, Unionists in Punjab, and the Muslim League (Shafi faction) cooperated with the Commission.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
 {
         id: '18-17',
@@ -111,7 +124,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Joint Electorates with reservation of seats for minorities", "Separate Electorates", "Universal Adult Franchise", "Both A and C"],
         correctAnswer: 3,
         explanation: "It proposed joint electorates (rejecting separate electorates) and universal adult suffrage.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
 {
         id: '18-18',
@@ -119,7 +133,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Lord Irwin", "Lord Reading", "Lord Willingdon", "Lord Linlithgow"],
         correctAnswer: 0,
         explanation: "Lord Irwin (1926-1931).",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
 {
         id: '18-19',
@@ -127,7 +142,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Civil Disobedience Movement", "Non-Cooperation Movement", "Individual Satyagraha", "Quit India Movement"],
         correctAnswer: 0,
         explanation: "It authorized the launch of CDM including non-payment of taxes.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
 {
         id: '18-20',
@@ -135,7 +151,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Ravi", "Sutlej", "Ganga", "Yamuna"],
         correctAnswer: 0,
         explanation: "Nehru hoisted the flag on the banks of the Ravi in Lahore.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
 {
         id: '18-22',
@@ -143,7 +160,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["S.P. Sinha", "Sankaran Nair", "Tej Bahadur Sapru", "None"],
         correctAnswer: 3,
         explanation: "Sankaran Nair resigned earlier (Jallowsianwala Bagh). No major resignation cited for Simon Comission specifically from Executive Council, but widespread boycott.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
 {
         id: '18-23',
@@ -151,7 +169,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["M.A. Jinnah", "Muhammad Shafi", "Agha Khan", "Salimullah"],
         correctAnswer: 0,
         explanation: "Jinnah led the faction that boycotted the Commission.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
 {
         id: '18-24',
@@ -159,7 +178,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Residuary powers to the Centre", "Residuary powers to the Provinces", "Weak Centre", "No division of powers"],
         correctAnswer: 0,
         explanation: "It proposed a strong centre with residuary powers vesting in it.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
 {
         id: '18-25',
@@ -167,7 +187,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["No such famous quote", "M.R. Jayakar", "M.S. Aney", "Khaliguqqaaman"],
         correctAnswer: 0,
         explanation: "Generally, the report is considered a masterly document, but this specific quote is not standard.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
 {
         id: '18-26',
@@ -175,7 +196,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["On the issue of residuary powers and reservation in Bengal/Punjab", "On the issue of Independence", "On the issue of separate flag", "On the issue of language"],
         correctAnswer: 0,
         explanation: "The Hindu Mahasabha (Jayakar) opposed Jinnah's demands for reservation in Muslim majority provinces and residuary powers to provinces.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
 {
         id: '18-27',
@@ -183,7 +205,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["1930", "1929", "1928", "1931"],
         correctAnswer: 0,
         explanation: "May 1930.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
 {
         id: '18-28',
@@ -191,7 +214,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Stanley Baldwin", "Ramsay MacDonald", "Winston Churchill", "Clement Attlee"],
         correctAnswer: 0,
         explanation: "Stanley Baldwin was the PM of the Conservative government.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
 {
         id: '18-30',
@@ -199,7 +223,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         options: ["Government of India Act, 1935", "Government of India Act, 1919", "Indian Independence Act, 1947", "August Offer"],
         correctAnswer: 0,
         explanation: "Many recommendations like provincial autonomy and federalism were included in the 1935 Act.",
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     }
 ,
 {
@@ -895,7 +920,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-1-1771158270905',
@@ -904,7 +930,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-2-1771158270905',
@@ -913,7 +940,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Easy-3-1771158270905',
@@ -922,7 +950,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-4-1771158270905',
@@ -931,7 +960,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-5-1771158270905',
@@ -940,7 +970,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Easy-6-1771158270905',
@@ -949,7 +980,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-7-1771158270905',
@@ -958,7 +990,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-8-1771158270905',
@@ -967,7 +1000,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Easy-9-1771158270905',
@@ -976,7 +1010,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-10-1771158270905',
@@ -985,7 +1020,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-11-1771158270905',
@@ -994,7 +1030,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Easy-12-1771158270905',
@@ -1003,7 +1040,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-13-1771158270905',
@@ -1012,7 +1050,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-14-1771158270905',
@@ -1021,7 +1060,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Easy-15-1771158270905',
@@ -1030,7 +1070,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-16-1771158270905',
@@ -1039,7 +1080,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-17-1771158270905',
@@ -1048,7 +1090,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Easy-18-1771158270905',
@@ -1057,7 +1100,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-19-1771158270905',
@@ -1066,7 +1110,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-20-1771158270905',
@@ -1075,7 +1120,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Easy-21-1771158270905',
@@ -1084,7 +1130,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-22-1771158270905',
@@ -1093,7 +1140,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-23-1771158270905',
@@ -1102,7 +1150,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Easy-24-1771158270905',
@@ -1111,7 +1160,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-25-1771158270905',
@@ -1120,7 +1170,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-26-1771158270905',
@@ -1129,7 +1180,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Easy-27-1771158270905',
@@ -1138,7 +1190,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Simon Commission and the Nehru Report involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Easy-28-1771158270905',
@@ -1147,7 +1200,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Simon Commission and the Nehru Report was establishing control.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Easy-29-1771158270905',
@@ -1156,7 +1210,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Simon Commission and the Nehru Report.",
         difficulty: 'Easy',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-0-1771158270905',
@@ -1165,7 +1220,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-1-1771158270905',
@@ -1174,7 +1230,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-2-1771158270905',
@@ -1183,7 +1240,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-3-1771158270905',
@@ -1192,7 +1250,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-4-1771158270905',
@@ -1201,7 +1260,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-5-1771158270905',
@@ -1210,7 +1270,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-6-1771158270905',
@@ -1219,7 +1280,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-7-1771158270905',
@@ -1228,7 +1290,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-8-1771158270905',
@@ -1237,7 +1300,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-9-1771158270905',
@@ -1246,7 +1310,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-10-1771158270905',
@@ -1255,7 +1320,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-11-1771158270905',
@@ -1264,7 +1330,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-12-1771158270905',
@@ -1273,7 +1340,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-13-1771158270905',
@@ -1282,7 +1350,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-14-1771158270905',
@@ -1291,7 +1360,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-15-1771158270905',
@@ -1300,7 +1370,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-16-1771158270905',
@@ -1309,7 +1380,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-17-1771158270905',
@@ -1318,7 +1390,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-18-1771158270905',
@@ -1327,7 +1400,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-19-1771158270905',
@@ -1336,7 +1410,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-20-1771158270905',
@@ -1345,7 +1420,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-21-1771158270905',
@@ -1354,7 +1430,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-22-1771158270905',
@@ -1363,7 +1440,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-23-1771158270905',
@@ -1372,7 +1450,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-24-1771158270905',
@@ -1381,7 +1460,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-25-1771158270905',
@@ -1390,7 +1470,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-26-1771158270905',
@@ -1399,7 +1480,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Moderate-27-1771158270905',
@@ -1408,7 +1490,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Moderate-28-1771158270905',
@@ -1417,7 +1500,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Moderate-29-1771158270905',
@@ -1426,7 +1510,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Simon Commission and the Nehru Report shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-0-1771158270905',
@@ -1435,7 +1520,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-1-1771158270905',
@@ -1444,7 +1530,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-2-1771158270905',
@@ -1453,7 +1540,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-3-1771158270905',
@@ -1462,7 +1550,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-4-1771158270905',
@@ -1471,7 +1560,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-5-1771158270905',
@@ -1480,7 +1570,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-6-1771158270905',
@@ -1489,7 +1580,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-7-1771158270905',
@@ -1498,7 +1590,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-8-1771158270905',
@@ -1507,7 +1600,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-9-1771158270905',
@@ -1516,7 +1610,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-10-1771158270905',
@@ -1525,7 +1620,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-11-1771158270905',
@@ -1534,7 +1630,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-12-1771158270905',
@@ -1543,7 +1640,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-13-1771158270905',
@@ -1552,7 +1650,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-14-1771158270905',
@@ -1561,7 +1660,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-15-1771158270905',
@@ -1570,7 +1670,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-16-1771158270905',
@@ -1579,7 +1680,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-17-1771158270905',
@@ -1588,7 +1690,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-18-1771158270905',
@@ -1597,7 +1700,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-19-1771158270905',
@@ -1606,7 +1710,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-20-1771158270905',
@@ -1615,7 +1720,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-21-1771158270905',
@@ -1624,7 +1730,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-22-1771158270905',
@@ -1633,7 +1740,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-23-1771158270905',
@@ -1642,7 +1750,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-24-1771158270905',
@@ -1651,7 +1760,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-25-1771158270905',
@@ -1660,7 +1770,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-26-1771158270905',
@@ -1669,7 +1780,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch18-Hard-27-1771158270905',
@@ -1678,7 +1790,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch18-Hard-28-1771158270905',
@@ -1687,7 +1800,8 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch18-Hard-29-1771158270905',
@@ -1696,6 +1810,7 @@ export const MODERN_CHAPTER_18_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Simon Commission and the Nehru Report.",
         difficulty: 'Hard',
-        chapterId: 18
+        chapterId: 18,
+        difficulty: 'Easy'
     },
 ];

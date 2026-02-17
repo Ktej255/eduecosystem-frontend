@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Lahore and Amritsar"
         ],
         correctAnswer: 0,
-        explanation: "By Jnanendranath Basu (Midnapore) and Promotha Mitter (Calcutta)."
+        explanation: "By Jnanendranath Basu (Midnapore) and Promotha Mitter (Calcutta).",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Rashbehari Bose"
         ],
         correctAnswer: 3,
-        explanation: "The inner circle included Barindra and Bhupendranath; Rashbehari operated in Punjab/Delhi later."
+        explanation: "The inner circle included Barindra and Bhupendranath; Rashbehari operated in Punjab/Delhi later.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Delhi Conspiracy"
         ],
         correctAnswer: 0,
-        explanation: "Following the bomb throwing by Khudiram Bose and Prafulla Chaki."
+        explanation: "Following the bomb throwing by Khudiram Bose and Prafulla Chaki.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Tej Bahadur Sapru"
         ],
         correctAnswer: 0,
-        explanation: "C.R. Das successfully defended him."
+        explanation: "C.R. Das successfully defended him.",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Alfred Park (Allahabad)"
         ],
         correctAnswer: 0,
-        explanation: "While waiting for German arms in 1915."
+        explanation: "While waiting for German arms in 1915.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Ramprasad Bismil and Ashfaqullah"
         ],
         correctAnswer: 0,
-        explanation: "They targeted the sadistic judge Kingsford but killed two ladies instead."
+        explanation: "They targeted the sadistic judge Kingsford but killed two ladies instead.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-09",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Udham Singh"
         ],
         correctAnswer: 0,
-        explanation: "Jackson was a well-known indologist but was killed by Kanhere."
+        explanation: "Jackson was a well-known indologist but was killed by Kanhere.",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-10",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "The Ghadr"
         ],
         correctAnswer: 0,
-        explanation: "He used these to propagate his views."
+        explanation: "He used these to propagate his views.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-11",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Lala Hardayal"
         ],
         correctAnswer: 0,
-        explanation: "Ajit Singh organized 'Anjuman-i-Mohisban-i-Watan' with this journal."
+        explanation: "Ajit Singh organized 'Anjuman-i-Mohisban-i-Watan' with this journal.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-12",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Chandrashekhar Azad"
         ],
         correctAnswer: 0,
-        explanation: "While making his official entry into Delhi."
+        explanation: "While making his official entry into Delhi.",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-13",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Alipore Conspiracy Case"
         ],
         correctAnswer: 0,
-        explanation: "Related to the attempt on Hardinge's life."
+        explanation: "Related to the attempt on Hardinge's life.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-14",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Lala Hardayal"
         ],
         correctAnswer: 0,
-        explanation: "In 1905."
+        explanation: "In 1905.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-15",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "1915"
         ],
         correctAnswer: 0,
-        explanation: "In London."
+        explanation: "In London.",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-16",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Tokyo and Singapore"
         ],
         correctAnswer: 0,
-        explanation: "She brought out 'Bande Mataram'."
+        explanation: "She brought out 'Bande Mataram'.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-17",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Berlin"
         ],
         correctAnswer: 0,
-        explanation: "At the Yugantar Ashram."
+        explanation: "At the Yugantar Ashram.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-18",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Bhai Parmanand"
         ],
         correctAnswer: 0,
-        explanation: "Krishnavarma was in London; the others were Ghadrites."
+        explanation: "Krishnavarma was in London; the others were Ghadrites.",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-21",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Shah Nawaz Khan"
         ],
         correctAnswer: 0,
-        explanation: "By the 5th Light Infantry."
+        explanation: "By the 5th Light Infantry.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-22",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Singapore"
         ],
         correctAnswer: 0,
-        explanation: "During WWI, with Barkatullah."
+        explanation: "During WWI, with Barkatullah.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-23",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Implement reforms"
         ],
         correctAnswer: 0,
-        explanation: "It gave wide powers to detain without trial."
+        explanation: "It gave wide powers to detain without trial.",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-24",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Ramprasad Bismil"
         ],
         correctAnswer: 0,
-        explanation: "Jatindranath Mukherjee's famous quote."
+        explanation: "Jatindranath Mukherjee's famous quote.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-25",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Constitutional agitation"
         ],
         correctAnswer: 0,
-        explanation: "Inspired by Russian nihilists and Irish nationalists."
+        explanation: "Inspired by Russian nihilists and Irish nationalists.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-28",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Lala Hardayal"
         ],
         correctAnswer: 0,
-        explanation: "After the failed 1915 plot."
+        explanation: "After the failed 1915 plot.",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-30",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Sandhya"
         ],
         correctAnswer: 0,
-        explanation: "After police brutalities at Barisal Conference."
+        explanation: "After police brutalities at Barisal Conference.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-31",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Lack of support from Germany"
         ],
         correctAnswer: 0,
-        explanation: "Lala Hardayal was unsuited as an organizer, and treachery foiled plans."
+        explanation: "Lala Hardayal was unsuited as an organizer, and treachery foiled plans.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-32",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Madanlal Dhingra"
         ],
         correctAnswer: 0,
-        explanation: "During the Alipore Conspiracy trial."
+        explanation: "During the Alipore Conspiracy trial.",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-34",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Kalpana Datta"
         ],
         correctAnswer: 0,
-        explanation: "Also unfurled the first Indian flag in Stuttgart."
+        explanation: "Also unfurled the first Indian flag in Stuttgart.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-36",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Bhai Parmanand"
         ],
         correctAnswer: 0,
-        explanation: "Often referred to as Anjuman-i-Mohisban-i-Watan."
+        explanation: "Often referred to as Anjuman-i-Mohisban-i-Watan.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-38",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Lord Chelmsford"
         ],
         correctAnswer: 0,
-        explanation: "Hardinge was the target of the bomb attack during the entry procession."
+        explanation: "Hardinge was the target of the bomb attack during the entry procession.",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-39",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Bhagwan Singh"
         ],
         correctAnswer: 0,
-        explanation: "Surya Sen was a later revolutionary (Chittagong Armoury Raid)."
+        explanation: "Surya Sen was a later revolutionary (Chittagong Armoury Raid).",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-43",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Lloyd George"
         ],
         correctAnswer: 0,
-        explanation: "Liberals were in power."
+        explanation: "Liberals were in power.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-44",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Jai Gopal"
         ],
         correctAnswer: 0,
-        explanation: "While Narendra Gosain was Alipore; Deena Nath was Delhi (or others depending on specific trial details not fully in text, but generally Deena Nath is associated)."
+        explanation: "While Narendra Gosain was Alipore; Deena Nath was Delhi (or others depending on specific trial details not fully in text, but generally Deena Nath is associated).",
+        chapterId: 13,
+        difficulty: 'Easy'
     },
 {
         id: "H13-M-45",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Champakaraman Pillai"
         ],
         correctAnswer: 0,
-        explanation: "Established in 1915."
+        explanation: "Established in 1915.",
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
 {
         id: "H13-M-48",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "Rand"
         ],
         correctAnswer: 0,
-        explanation: "Sir Fuller."
+        explanation: "Sir Fuller.",
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 {
         id: "H13-M-50",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
             "1916"
         ],
         correctAnswer: 0,
-        explanation: "Creating a window of opportunity for revolutionaries."
+        explanation: "Creating a window of opportunity for revolutionaries.",
+        chapterId: 13,
+        difficulty: 'Easy'
     }
 ,
 {
@@ -1132,7 +1200,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-1-1771158318478',
@@ -1141,7 +1210,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-2-1771158318478',
@@ -1150,7 +1220,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Easy-3-1771158318478',
@@ -1159,7 +1230,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-4-1771158318478',
@@ -1168,7 +1240,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-5-1771158318478',
@@ -1177,7 +1250,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Easy-6-1771158318478',
@@ -1186,7 +1260,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-7-1771158318478',
@@ -1195,7 +1270,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-8-1771158318478',
@@ -1204,7 +1280,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Easy-9-1771158318478',
@@ -1213,7 +1290,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-10-1771158318478',
@@ -1222,7 +1300,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-11-1771158318478',
@@ -1231,7 +1310,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Easy-12-1771158318478',
@@ -1240,7 +1320,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-13-1771158318478',
@@ -1249,7 +1330,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-14-1771158318478',
@@ -1258,7 +1340,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Easy-15-1771158318478',
@@ -1267,7 +1350,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-16-1771158318478',
@@ -1276,7 +1360,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-17-1771158318478',
@@ -1285,7 +1370,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Easy-18-1771158318478',
@@ -1294,7 +1380,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-19-1771158318478',
@@ -1303,7 +1390,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-20-1771158318478',
@@ -1312,7 +1400,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Easy-21-1771158318478',
@@ -1321,7 +1410,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-22-1771158318478',
@@ -1330,7 +1420,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-23-1771158318478',
@@ -1339,7 +1430,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Easy-24-1771158318478',
@@ -1348,7 +1440,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-25-1771158318478',
@@ -1357,7 +1450,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-26-1771158318478',
@@ -1366,7 +1460,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Easy-27-1771158318478',
@@ -1375,7 +1470,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "First Phase of Revolutionary Activities (1907–1917) involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Easy-28-1771158318478',
@@ -1384,7 +1480,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during First Phase of Revolutionary Activities (1907–1917) was establishing control.",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Easy-29-1771158318478',
@@ -1393,7 +1490,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Easy',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-0-1771158318478',
@@ -1402,7 +1500,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-1-1771158318478',
@@ -1411,7 +1510,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-2-1771158318478',
@@ -1420,7 +1520,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-3-1771158318478',
@@ -1429,7 +1530,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-4-1771158318478',
@@ -1438,7 +1540,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-5-1771158318478',
@@ -1447,7 +1550,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-6-1771158318478',
@@ -1456,7 +1560,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-7-1771158318478',
@@ -1465,7 +1570,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-8-1771158318478',
@@ -1474,7 +1580,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-9-1771158318478',
@@ -1483,7 +1590,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-10-1771158318478',
@@ -1492,7 +1600,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-11-1771158318478',
@@ -1501,7 +1610,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-12-1771158318478',
@@ -1510,7 +1620,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-13-1771158318478',
@@ -1519,7 +1630,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-14-1771158318478',
@@ -1528,7 +1640,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-15-1771158318478',
@@ -1537,7 +1650,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-16-1771158318478',
@@ -1546,7 +1660,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-17-1771158318478',
@@ -1555,7 +1670,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-18-1771158318478',
@@ -1564,7 +1680,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-19-1771158318478',
@@ -1573,7 +1690,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-20-1771158318478',
@@ -1582,7 +1700,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-21-1771158318478',
@@ -1591,7 +1710,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-22-1771158318478',
@@ -1600,7 +1720,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-23-1771158318478',
@@ -1609,7 +1730,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-24-1771158318478',
@@ -1618,7 +1740,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-25-1771158318478',
@@ -1627,7 +1750,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-26-1771158318478',
@@ -1636,7 +1760,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Moderate-27-1771158318478',
@@ -1645,7 +1770,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Moderate-28-1771158318478',
@@ -1654,7 +1780,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Moderate-29-1771158318478',
@@ -1663,7 +1790,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as First Phase of Revolutionary Activities (1907–1917) shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-0-1771158318478',
@@ -1672,7 +1800,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-1-1771158318478',
@@ -1681,7 +1810,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-2-1771158318478',
@@ -1690,7 +1820,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-3-1771158318478',
@@ -1699,7 +1830,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-4-1771158318478',
@@ -1708,7 +1840,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-5-1771158318478',
@@ -1717,7 +1850,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-6-1771158318478',
@@ -1726,7 +1860,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-7-1771158318478',
@@ -1735,7 +1870,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-8-1771158318478',
@@ -1744,7 +1880,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-9-1771158318478',
@@ -1753,7 +1890,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-10-1771158318478',
@@ -1762,7 +1900,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-11-1771158318478',
@@ -1771,7 +1910,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-12-1771158318478',
@@ -1780,7 +1920,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-13-1771158318479',
@@ -1789,7 +1930,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-14-1771158318479',
@@ -1798,7 +1940,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-15-1771158318479',
@@ -1807,7 +1950,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-16-1771158318479',
@@ -1816,7 +1960,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-17-1771158318479',
@@ -1825,7 +1970,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-18-1771158318479',
@@ -1834,7 +1980,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-19-1771158318479',
@@ -1843,7 +1990,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-20-1771158318479',
@@ -1852,7 +2000,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-21-1771158318479',
@@ -1861,7 +2010,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-22-1771158318479',
@@ -1870,7 +2020,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-23-1771158318479',
@@ -1879,7 +2030,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-24-1771158318479',
@@ -1888,7 +2040,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-25-1771158318479',
@@ -1897,7 +2050,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-26-1771158318479',
@@ -1906,7 +2060,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch13-Hard-27-1771158318479',
@@ -1915,7 +2070,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch13-Hard-28-1771158318479',
@@ -1924,7 +2080,8 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch13-Hard-29-1771158318479',
@@ -1933,6 +2090,7 @@ export const MODERN_CHAPTER_13_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of First Phase of Revolutionary Activities (1907–1917).",
         difficulty: 'Hard',
-        chapterId: 13
+        chapterId: 13,
+        difficulty: 'Hard'
     },
 ];

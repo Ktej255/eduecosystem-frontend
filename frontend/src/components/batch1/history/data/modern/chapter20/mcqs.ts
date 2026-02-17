@@ -7,7 +7,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Council Entry vs Constructive Work", "Violence vs Non-Violence", "Socialism vs Capitalism", "Partition vs Unity"],
         correctAnswer: 0,
         explanation: "The debate was whether to contest 1934 elections (Council Entry) or focus on rural constructive work.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
 {
         id: '20-2',
@@ -15,7 +16,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Dr. M.A. Ansari, Asaf Ali, B.C. Roy", "Nehru and Bose", "Gandhi", "Patel and Rajendra Prasad"],
         correctAnswer: 0,
         explanation: "They argued that in a period of political apathy, council work could keep morale up.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
 {
         id: '20-3',
@@ -23,7 +25,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["1934", "1925", "1930", "1939"],
         correctAnswer: 0,
         explanation: "Founded in 1934 by JP, Acharya Narendra Dev, and Minoo Masani.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
 {
         id: '20-4',
@@ -31,7 +34,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Acharya Narendra Dev", "Jayaprakash Narayan", "Rammanohar Lohia", "Ashok Mehta"],
         correctAnswer: 0,
         explanation: "Narendra Dev was the President and JP was the General Secretary.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
 {
         id: '20-5',
@@ -39,7 +43,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Differences with socialist and other trends", "Health issues", "To retire from politics", "To join Muslim League"],
         correctAnswer: 0,
         explanation: "He felt his presence was stifling the growth of other ideas and wanted to focus on village industries.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
 {
         id: '20-6',
@@ -47,7 +52,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["All India Federation and Provincial Autonomy", "Dominion Status", "Unitary Government", "Communal Electorates abolition"],
         correctAnswer: 0,
         explanation: "Its main features were an All India Federation (which never came up) and Provincial Autonomy.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
 {
         id: '20-7',
@@ -55,7 +61,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["The Centre", "The Provinces", "Both", "None"],
         correctAnswer: 0,
         explanation: "Dyarchy was abolished in provinces but introduced at the Centre (though never implemented).",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
 {
         id: '20-8',
@@ -63,7 +70,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Jawaharlal Nehru", "Jinnah", "Gandhi", "Subhash Bose"],
         correctAnswer: 0,
         explanation: "Nehru criticized the Act for its safeguards and lack of real power.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
 {
         id: '20-9',
@@ -71,7 +79,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Lucknow and Faizpur", "Lahore", "Karachi", "Madras"],
         correctAnswer: 0,
         explanation: "The decision was finalized after discussions in Lucknow (1936) and Faizpur (1937).",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
 {
         id: '20-10',
@@ -79,7 +88,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Lucknow", "Patna", "Madras", "Bombay"],
         correctAnswer: 0,
         explanation: "Founded in Lucknow with Swami Sahajanand Saraswati as President.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
 {
         id: '20-11',
@@ -87,7 +97,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["N.G. Ranga", "Sahajanand Saraswati", "Indulal Yagnik", "Bankim Mukherjee"],
         correctAnswer: 0,
         explanation: "N.G. Ranga.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
 {
         id: '20-13',
@@ -95,7 +106,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["GOI Act 1935", "Independence", "Socialism", "Land Reforms"],
         correctAnswer: 0,
         explanation: "Congress rejected the Act but participated to wreck it from within.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
 {
         id: '20-14',
@@ -103,7 +115,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Multiple states (Bombay, Madras, UP, etc.)", "Punjab", "Bengal", "Sindh"],
         correctAnswer: 0,
         explanation: "Congress formed ministries in 6 (later 8) provinces.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
 {
         id: '20-15',
@@ -111,7 +124,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Socialism and anti-imperialism", "Capitalism", "Compromise with British", "Religious education"],
         correctAnswer: 0,
         explanation: "He urged the Congress to accept socialism as its goal.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
 {
         id: '20-16',
@@ -119,7 +133,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Jawaharlal Nehru", "Gandhi", "Jinnah", "Patel"],
         correctAnswer: 0,
         explanation: "Nehru used this term.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
 {
         id: '20-18',
@@ -127,7 +142,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Bengal, Punjab, Sindh", "UP, Bihar", "Madras", "Orissa"],
         correctAnswer: 0,
         explanation: "It swept the general seats but failed in Muslim majority provinces like Bengal and Punjab.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
 {
         id: '20-21',
@@ -135,7 +151,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Hindu Mahasabha and RSS", "CSP", "CPI", "Royists"],
         correctAnswer: 0,
         explanation: "Communal and right-wing groups grew in this period.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
 {
         id: '20-25',
@@ -143,7 +160,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Lord Willingdon", "Lord Linlithgow", "Lord Irwin", "Lord Wavell"],
         correctAnswer: 0,
         explanation: "Lord Willingdon (1931-1936).",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
 {
         id: '20-27',
@@ -151,7 +169,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Bhagat Singh", "Nehru", "Savarkar", "M.N. Roy"],
         correctAnswer: 0,
         explanation: "Bhagat Singh wrote this classic essay in jail.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
 {
         id: '20-28',
@@ -159,7 +178,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["The States' People's Struggle", "British War Efforts", "Princes", "Zamindars"],
         correctAnswer: 0,
         explanation: "They pushed for supporting the Praja Mandals in princely states.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
 {
         id: '20-29',
@@ -167,7 +187,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["Harijan welfare and village industries", "Law practice", "Family", "Writing books"],
         correctAnswer: 0,
         explanation: "He focused on constructive programs.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
 {
         id: '20-30',
@@ -175,7 +196,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         options: ["No, because princes did not join", "Yes, in 1937", "Yes, in 1947", "No, Congress opposed it"],
         correctAnswer: 0,
         explanation: "The federation part never came into force as princes did not give consent.",
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     }
 ,
 {
@@ -836,7 +858,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-1-1771158271202',
@@ -845,7 +868,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-2-1771158271202',
@@ -854,7 +878,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Easy-3-1771158271202',
@@ -863,7 +888,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-4-1771158271202',
@@ -872,7 +898,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-5-1771158271202',
@@ -881,7 +908,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Easy-6-1771158271202',
@@ -890,7 +918,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-7-1771158271202',
@@ -899,7 +928,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-8-1771158271202',
@@ -908,7 +938,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Easy-9-1771158271202',
@@ -917,7 +948,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-10-1771158271202',
@@ -926,7 +958,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-11-1771158271202',
@@ -935,7 +968,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Easy-12-1771158271202',
@@ -944,7 +978,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-13-1771158271202',
@@ -953,7 +988,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-14-1771158271202',
@@ -962,7 +998,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Easy-15-1771158271202',
@@ -971,7 +1008,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-16-1771158271202',
@@ -980,7 +1018,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-17-1771158271202',
@@ -989,7 +1028,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Easy-18-1771158271202',
@@ -998,7 +1038,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-19-1771158271202',
@@ -1007,7 +1048,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-20-1771158271202',
@@ -1016,7 +1058,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Easy-21-1771158271202',
@@ -1025,7 +1068,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-22-1771158271202',
@@ -1034,7 +1078,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-23-1771158271202',
@@ -1043,7 +1088,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Easy-24-1771158271202',
@@ -1052,7 +1098,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-25-1771158271202',
@@ -1061,7 +1108,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-26-1771158271202',
@@ -1070,7 +1118,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Easy-27-1771158271202',
@@ -1079,7 +1128,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Debates on the Future Strategy after Civil Disobedience Movement involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Easy-28-1771158271202',
@@ -1088,7 +1138,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Debates on the Future Strategy after Civil Disobedience Movement was establishing control.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Easy-29-1771158271202',
@@ -1097,7 +1148,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Easy',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-0-1771158271202',
@@ -1106,7 +1158,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-1-1771158271202',
@@ -1115,7 +1168,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-2-1771158271202',
@@ -1124,7 +1178,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-3-1771158271202',
@@ -1133,7 +1188,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-4-1771158271202',
@@ -1142,7 +1198,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-5-1771158271202',
@@ -1151,7 +1208,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-6-1771158271202',
@@ -1160,7 +1218,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-7-1771158271202',
@@ -1169,7 +1228,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-8-1771158271202',
@@ -1178,7 +1238,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-9-1771158271202',
@@ -1187,7 +1248,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-10-1771158271202',
@@ -1196,7 +1258,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-11-1771158271202',
@@ -1205,7 +1268,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-12-1771158271202',
@@ -1214,7 +1278,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-13-1771158271202',
@@ -1223,7 +1288,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-14-1771158271202',
@@ -1232,7 +1298,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-15-1771158271202',
@@ -1241,7 +1308,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-16-1771158271202',
@@ -1250,7 +1318,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-17-1771158271202',
@@ -1259,7 +1328,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-18-1771158271202',
@@ -1268,7 +1338,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-19-1771158271202',
@@ -1277,7 +1348,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-20-1771158271202',
@@ -1286,7 +1358,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-21-1771158271202',
@@ -1295,7 +1368,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-22-1771158271202',
@@ -1304,7 +1378,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-23-1771158271202',
@@ -1313,7 +1388,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-24-1771158271202',
@@ -1322,7 +1398,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-25-1771158271202',
@@ -1331,7 +1408,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-26-1771158271202',
@@ -1340,7 +1418,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Moderate-27-1771158271202',
@@ -1349,7 +1428,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Moderate-28-1771158271202',
@@ -1358,7 +1438,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Moderate-29-1771158271202',
@@ -1367,7 +1448,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Debates on the Future Strategy after Civil Disobedience Movement shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-0-1771158271202',
@@ -1376,7 +1458,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-1-1771158271202',
@@ -1385,7 +1468,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-2-1771158271202',
@@ -1394,7 +1478,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-3-1771158271202',
@@ -1403,7 +1488,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-4-1771158271202',
@@ -1412,7 +1498,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-5-1771158271202',
@@ -1421,7 +1508,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-6-1771158271202',
@@ -1430,7 +1518,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-7-1771158271202',
@@ -1439,7 +1528,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-8-1771158271202',
@@ -1448,7 +1538,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-9-1771158271202',
@@ -1457,7 +1548,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-10-1771158271202',
@@ -1466,7 +1558,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-11-1771158271202',
@@ -1475,7 +1568,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-12-1771158271202',
@@ -1484,7 +1578,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-13-1771158271202',
@@ -1493,7 +1588,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-14-1771158271202',
@@ -1502,7 +1598,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-15-1771158271202',
@@ -1511,7 +1608,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-16-1771158271202',
@@ -1520,7 +1618,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-17-1771158271202',
@@ -1529,7 +1628,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-18-1771158271202',
@@ -1538,7 +1638,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-19-1771158271202',
@@ -1547,7 +1648,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-20-1771158271202',
@@ -1556,7 +1658,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-21-1771158271202',
@@ -1565,7 +1668,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-22-1771158271202',
@@ -1574,7 +1678,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-23-1771158271202',
@@ -1583,7 +1688,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-24-1771158271202',
@@ -1592,7 +1698,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-25-1771158271202',
@@ -1601,7 +1708,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-26-1771158271202',
@@ -1610,7 +1718,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch20-Hard-27-1771158271202',
@@ -1619,7 +1728,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch20-Hard-28-1771158271202',
@@ -1628,7 +1738,8 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch20-Hard-29-1771158271202',
@@ -1637,6 +1748,7 @@ export const MODERN_CHAPTER_20_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Debates on the Future Strategy after Civil Disobedience Movement.",
         difficulty: 'Hard',
-        chapterId: 20
+        chapterId: 20,
+        difficulty: 'Easy'
     },
 ];

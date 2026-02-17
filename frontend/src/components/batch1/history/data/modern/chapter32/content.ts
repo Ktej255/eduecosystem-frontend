@@ -2,51 +2,45 @@
 import { Chapter } from '../../../../types';
 
 export const MODERN_CHAPTER_32_CONTENT: Chapter = {
-    id: 'modern-32',
-    title: 'Congress Rule in Provinces',
+    id: 'modern-31',
+    title: 'The Working Class Movement',
     content: `
-# Congress Rule in Provinces (1937-1939)
+# The Working Class Movement
 
-The 28-month rule of the Congress ministries was a significant phase in the freedom struggle, proving the ability of Indians to govern and handling complex administrative issues under colonial constraints.
+The Indian working class movement grew in parallel with the national movement, evolving from unorganized protests to a structured trade union movement with significant political influence.
 
-## Formation of Ministries
-- **Elections of 1937**: Held under the **Government of India Act, 1935**.
-- **Results**: The Congress swept the polls, winning absolute majorities in 5 provinces (Madras, United Provinces, Central Provinces, Bihar, and Orissa) and emerging as the largest party in 4 others (Bombay, Bengal, Assam, NWFP).
-- **Ministry Formation**: After an initial standoff over the "Governor's Discretionary Powers" (resolved by a Viceroy's assurance), Congress formed ministries in **8 provinces** (later including Assam and NWFP).
-  - **Madras**: **C. Rajagopalachari** (Premier).
-  - **Bombay**: **B.G. Kher**.
-  - **United Provinces**: **G.B. Pant**.
-  - **Bihar**: **Srikrishna Sinha**.
+## Early Labor Movement (Pre-1918)
+- **Early Conditions**: The first factories were established in the 1850s (Cotton in Bombay, Jute in Bengal). Workers faced long hours, low wages, and poor conditions.
+- **Early Leaders**: **N.M. Lokhande** is considered the father of the Indian labor movement. He organized the *Bombay Millhands Association* (1890) and published *Deenbandhu*.
+- **Factory Acts**:
+  - **1881 Act**: Focused on child labor (prohibited employment under 7 years).
+  - **1891 Act**: Regulated working hours for women and children.
 
-## Key Achievements
-### 1. Civil Liberties
-- **Repeal of Emergency Laws**: The ministries repealed the Public Safety Acts and the Press Emergency Acts.
-- **Release of Prisoners**: Thousands of political prisoners were released, including the revolutionaries of the Kakori and other cases. The ban on many organizations (except the CPI in some provinces) was lifted.
+## Rise of Trade Unions (1918-1929)
+The post-WWI era saw a surge in labor consciousness due to rising prices and the success of the Russian Revolution (1917).
+- **Madras Labour Union (1918)**: Founded by **B.P. Wadia**, considered the first modern trade union.
+- **Ahmedabad Textile Labour Association (1918)**: Founded by Gandhi based on the principle of *Trusteeship*.
+- **AITUC (1920)**: The **All India Trade Union Congress** was founded in 1920 to represent Indian labor at the ILO. **Lala Lajpat Rai** was its first President, and **Dewan Chaman Lal** was the General Secretary.
+  - *Lajpat Rai's View*: He linked capitalism with imperialism, stating "Imperialism and Militarism are the twin children of Capitalism."
 
-### 2. Agrarian Reforms
-- **Tenancy Acts**: Legislation was passed to protect tenants from eviction and to regulate rents (e.g., in Bihar and UP).
-- **Debt Relief**: Measures were taken to reduce the burden of debt on the peasantry.
-- **Constraints**: Radical land reforms were not possible due to the lack of financial autonomy and the need to maintain unity against the British (avoiding total alienation of the landlord class).
+## Legislation and Conspiracy Cases
+- **Trade Unions Act, 1926**: Gave legal status to trade unions and immunity from civil/criminal liability for trade disputes.
+- **Communist Influence**: The 1920s saw the rise of communist leaders like S.A. Dange and Muzaffar Ahmed.
+- **Conspiracy Cases**: The British tried to suppress the movement through the **Kanpur Bolshevik Conspiracy Case (1924)** and the **Meerut Conspiracy Case (1929)**.
+- **Trade Disputes Act, 1929**: Restricted the right to strike and introduced conciliation machinery.
 
-### 3. Social Welfare
-- **Prohibition**: Madras under Rajaji was the first to introduce prohibition (ban on liquor).
-- **Temple Entry**: Steps were taken to open temples to Dalits (Harijans).
-- **Education**: The **Wardha Scheme of Basic Education** (Nai Talim), proposed by Gandhi, was introduced.
-- **Planning**: The **National Planning Committee** (1938) was set up under Congress President Subhash Chandra Bose, with **Jawaharlal Nehru** as its Chairman.
+## Splits and Unification
+- **Meerut Trial (1929)**: Immense publicity for the communist cause.
+- **Nagpur Split (1929)**: The AITUC split under the presidency of Jawaharlal Nehru. Moderates led by N.M. Joshi formed the *All India Trade Union Federation* (AITUF).
+- **Red Trade Union Congress (1931)**: Another split led by communists.
 
-## Challenges and Criticisms
-- **Labor**: The ministries faced strikes and labor unrest. The **Bombay Trades Disputes Act (1938)** suppressed strikes and was opposed by labor leaders.
-- **Muslim Mass Contact Programme**: Nehru's attempt to reach out to Muslim masses failed to counter the growing influence of the Muslim League.
-- **Pirpur Committee Report** (1938): Identify alleged atrocities against Muslims under Congress rule (mostly exaggerated or fabricated), utilized by Jinnah to mobilize support.
+## 1937-1939 and WWII
+- **Congress Ministries**: The formation of Congress ministries in 1937 encouraged trade union activities, though some ministries used Section 144 against strikers.
+- **WWII**: The movement was divided over supporting the British war effort. The communists supported the war as a "People's War" after 1941 (German attack on USSR).
 
-## Tripuri Crisis (1939)
-- **Subhash Chandra Bose** defeated Gandhi's candidate, **Pattabhi Sitaramayya**, for the Congress Presidency.
-- **Govind Ballabh Pant Resolution**: Required Bose to form his working committee in accordance with Gandhi's wishes.
-- **Outcome**: Bose resigned and formed the **Forward Bloc** within the Congress. **Rajendra Prasad** became the new President.
-
-## Resignation (1939)
-- **Cause**: The Viceroy, Lord Linlithgow, declared India a party to World War II without consulting the Indian people.
-- **Protest**: The Congress ministries resigned in **October-November 1939**.
-- **Day of Deliverance**: Jinnah and the Muslim League celebrated **December 22, 1939**, as the "Day of Deliverance" from "Congress Tyranny."
+## Post-War Upsurge
+- The period 1945-47 saw an unprecedented wave of strikes.
+- **1946**: Massive strikes in support of the **RIN Mutiny**.
+- **INTUC (1947)**: The Congress formed the *Indian National Trade Union Congress* to provide a nationalist alternative to the communist-dominated AITUC.
 `
 };

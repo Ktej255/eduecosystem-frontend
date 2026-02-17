@@ -1,58 +1,78 @@
 
-import { ChapterContent } from '../../../../types';
 
-export const MODERN_CHAPTER_15_CONTENT: ChapterContent = {
+
+export const MODERN_CHAPTER_15_CONTENT = {
     id: 'chapter15',
-    title: "Swarajists, Socialists & Revolutionary Activities (Phase 2) (1922-1928)",
+    title: "Emergence of Gandhi (1915-1919)",
     content: `
-# Swarajists, Socialists & Revolutionary Activities (Phase 2)
-> **Theme:** "The Vacuum Era." After the sudden withdrawal of the Non-Cooperation Movement, the struggle shifted from the streets to the parliament and into secret revolutionary cells.
+# Emergence of Gandhi (1915-1919)
+> **Theme:** "My Experiment with Truth." The arrival of Mohandas Karamchand Gandhi from South Africa marked a paradigm shift in the Indian National Movement, introducing the unique weapons of Satyagraha and Non-Violence.
 
 ---
 
-## 1. The Great Schism: Pro-Changers vs No-Changers
-Following the 1922 Gaya Session, the Congress split over the strategy of council entry.
-*   **Pro-Changers (Swaraj Party):** Led by **C.R. Das** (President) and **Motilal Nehru** (Secretary). They wanted to enter the Legislative Councils to "wreck the reforms from within" and "end or mend" the system.
-*   **No-Changers:** Led by **Sardar Patel**, **Rajendra Prasad**, and **C. Rajagopalachari**. They opposed council entry and wanted to focus solely on Gandhi's constructive program.
-*   **Outcome:** The **Swaraj Party** was formed as a group within the Congress in January 1923.
+## 1. The Arrival (January 9, 1915)
+*   **The Return:** Gandhi returned to India after 21 years in South Africa. This day is celebrated as **Pravasi Bharatiya Divas**.
+*   **The Guru:** Following the advice of his political guru, **Gopal Krishna Gokhale**, Gandhi spent the first year traveling across India with "open ears and a closed mouth" to understand the ground reality.
+*   **Initial Base:** Established the Kochrab Ashram (1915), which was later shifted to the **Sabarmati Ashram** (1917).
+*   **Public Debut:** His first major public appearance was at the foundation stone laying ceremony of **Banaras Hindu University (BHU)** in February 1916.
 
 ---
 
-## 2. Swarajist Achievements in the Councils
-*   **1923 Elections:** The Swarajists won a clear majority in the Central Provinces and became the largest party in Bengal.
-*   **Vithalbhai Patel (1925):** He was elected as the first Indian **Speaker (President)** of the Central Legislative Assembly, marking a significant symbolic victory.
-*   **Public Safety Bill (1928):** The Swarajists, in coalition with Jinnah’s Independents, successfully defeated this bill, which aimed to deport foreign socialists.
-*   **Muddiman Committee (1924):** They forced the government to appoint this committee to review the working of Dyarchy.
+## 2. The Weapon: Satyagraha
+Gandhi's ideology was built on three pillars:
+*   **Satya (Truth):** The ultimate goal of life and the movement.
+*   **Ahimsa (Non-Violence):** Not just the absence of physical violence, but a weapon of the strong that renounces all forms of hatred.
+*   **Satyagraha:** "Holding onto Truth." A method of non-violent collective action involving civil disobedience and a ready acceptance of suffering.
 
 ---
 
-## 3. Revolutionary Activities (Phase II)
-Disillusionment with the withdrawal of NCM led to the revival of revolutionary groups, now influenced by Socialist and Marxist ideas.
+## 3. The Early Experiments (C-A-K-E)
+Before launching a nationwide movement, Gandhi applied his methods to three localized struggles.
 
-### Hindustan Republican Association (HRA)
-*   **Founded:** 1924, Kanpur.
-*   **Leaders:** Ram Prasad Bismil, Jogesh Chandra Chatterjee, and Sachin Sanyal.
-*   **Kakori Train Action (1925):** A landmark event where revolutionaries looted a government treasury train. **Bismil, Ashfaqullah Khan, Roshan Singh, and Rajendra Lahiri** were later hanged.
+### I. Champaran Satyagraha (1917) - *First Civil Disobedience*
+*   **Issue:** The **Tinkathia System**, where European planters forced peasants to grow indigo on 3/20th of their land.
+*   **Invitation:** **Rajkumar Shukla** invited Gandhi to Bihar.
+*   **Outcome:** The government appointed an inquiry committee (with Gandhi as a member). The Tinkathia system was abolished, and planters agreed to a **25% refund** of illegal dues.
+*   **Significance:** Gandhi's first victory in India. Rabindranath Tagore gave him the title **"Mahatma"**.
 
-### Hindustan Socialist Republican Association (HSRA)
-*   **Founded:** 1928, Feroz Shah Kotla (Delhi).
-*   **Leadership:** **Chandrashekhar Azad** and **Bhagat Singh**.
-*   **Ideology:** Shifted from "individual heroic action" to mass-based revolution and **Socialism**.
-*   **Saunders Murder (1928):** To avenge the death of Lala Lajpat Rai (who died due to a lathi charge during anti-Simon protests).
-*   **Assembly Bomb (1929):** Bhagat Singh and Batukeshwar Dutt threw smokeless bombs in the Central Legislative Assembly to "make the deaf hear."
+### II. Ahmedabad Mill Strike (1918) - *First Hunger Strike*
+*   **Issue:** A dispute between mill owners and workers over the withdrawal of the **Plague Bonus**. Workers demanded a 50% hike; owners offered 20%.
+*   **The Strike:** Gandhi led the workers and used a **hunger strike** for the first time in India.
+*   **Ally:** **Anusuya Sarabhai** (sister of the leading mill owner) supported the workers.
+*   **Outcome:** A tribunal awarded a **35% hike** to the workers.
+
+### III. Kheda Satyagraha (1918) - *First Non-Cooperation*
+*   **Issue:** Total crop failure in Kheda (Gujarat). According to the revenue code, if the yield was less than one-fourth, the revenue should be suspended, but the government refused.
+*   **The Struggle:** Gandhi and **Sardar Vallabhbhai Patel** organized the peasants to refuse revenue payment despite property confiscation.
+*   **Outcome:** The government issued secret instructions to collect revenue only from those who could afford to pay.
 
 ---
 
-## 4. The Bengal Fire: Surya Sen and the Chittagong Raid
-*   **Surya Sen ("Master Da"):** A school teacher who organized a well-planned paramilitary raid on the **Chittagong Armoury** in 1930. 
-*   **Women Revolutionaries:** This phase saw significant participation of women, including **Pritilata Waddedar** (who died during a raid), **Kalpana Datta** (sentenced to life), and **Bina Das** (who shot at the Governor during a convocation).
+## 4. The Rowlatt Satyagraha and Jallianwala Bagh (1919)
+The end of WWI brought repression instead of rewards.
+
+### The Rowlatt Act ("The Black Act")
+*   Officially the **Anarchical and Revolutionary Crimes Act**.
+*   Allowed the government to detain political suspects for two years without trial.
+*   **Slogan:** *"No Dalil, No Vakil, No Appeal."*
+
+### The Response: Rowlatt Satyagraha
+*   Gandhi organized the **Satyagraha Sabha** and called for a nationwide **Hartal (strike)** on **April 6, 1919**.
+*   This was Gandhi's **first all-India mass movement**.
+
+### Jallianwala Bagh Massacre (April 13, 1919)
+*   **Context:** People gathered in Amritsar to celebrate Baisakhi and protest the arrest of local leaders **Dr. Satyapal and Dr. Saifuddin Kitchlew**.
+*   **The Tragedy:** **General Dyer** entered the Bagh, blocked the only exit, and ordered firing without warning. Over 1,000 people were killed.
+*   **Renunciations:** 
+    *   **Rabindranath Tagore** renounced his **Knighthood**.
+    *   **Mahatma Gandhi** returned his **Kaiser-i-Hind** gold medal.
+*   **The Inquiries:**
+    *   **Hunter Commission (Official):** Essentially a "whitewash," though it condemned Dyer's lack of "humanity."
+    *   **Congress Inquiry Committee:** Demanded a full apology and punishment.
 
 ---
 
-## 5. The Rise of the Left and Labor Movements
-*   **Communist Party of India (CPI):** Formed in Tashkent (1920) and later in Kanpur (1925).
-*   **Workers and Peasants Parties (WPPs):** Formed to provide a legal platform for socialist activities.
-*   **Meerut Conspiracy Case (1929):** The British government arrested 31 labor leaders to decapitate the growing communist influence.
-*   **Jatin Das:** A revolutionary who died in 1929 after a **63-day hunger strike** in jail, demanding better conditions for political prisoners.
+## 5. Transition to Mass Politics
+The Rowlatt Satyagraha, despite its violent end (which Gandhi called a "Himalayan Miscalculation"), proved that the masses were ready for a prolonged struggle. The stage was set for the Non-Cooperation movement.
     `
 };

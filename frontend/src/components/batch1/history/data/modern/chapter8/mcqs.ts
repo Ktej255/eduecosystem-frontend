@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Rejection of all Indian traditions"
         ],
         correctAnswer: 3,
-        explanation: "The reformers did not reject all traditions; they used a rational approach to study tradition and often cited ancient texts to support reforms."
+        explanation: "The reformers did not reject all traditions; they used a rational approach to study tradition and often cited ancient texts to support reforms.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Syed Ahmed Khan"
         ],
         correctAnswer: 1,
-        explanation: "Akshay Kumar Dutt held that all natural and social phenomena could be analyzed by purely mechanical processes and reason."
+        explanation: "Akshay Kumar Dutt held that all natural and social phenomena could be analyzed by purely mechanical processes and reason.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "The working class"
         ],
         correctAnswer: 1,
-        explanation: "It was driven by the educated middle class who were influenced by Western ideas of democracy and reason."
+        explanation: "It was driven by the educated middle class who were influenced by Western ideas of democracy and reason.",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "1818"
         ],
         correctAnswer: 0,
-        explanation: "Regulation XVII, A.D. 1829 declared Sati illegal under William Bentinck."
+        explanation: "Regulation XVII, A.D. 1829 declared Sati illegal under William Bentinck.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Keshab Chandra Sen"
         ],
         correctAnswer: 2,
-        explanation: "Vidyasagar ran a powerful campaign citing Vedic texts to legalise widow remarriage."
+        explanation: "Vidyasagar ran a powerful campaign citing Vedic texts to legalise widow remarriage.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "16"
         ],
         correctAnswer: 1,
-        explanation: "It raised the age of consent for girls from 10 to 12 years."
+        explanation: "It raised the age of consent for girls from 10 to 12 years.",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Dinshaw Wacha"
         ],
         correctAnswer: 0,
-        explanation: "Behramji M. Malabari was the crusader behind this act."
+        explanation: "Behramji M. Malabari was the crusader behind this act.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-09",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Alipore Conspiracy Case"
         ],
         correctAnswer: 1,
-        explanation: "The Dadaji Bhikaji vs Rukhmabai case (1884) highlighted the plight of women forced into child marriages."
+        explanation: "The Dadaji Bhikaji vs Rukhmabai case (1884) highlighted the plight of women forced into child marriages.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-11",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Gopal Krishna Gokhale"
         ],
         correctAnswer: 1,
-        explanation: "The Phules opened the first girls' school in Pune in 1848."
+        explanation: "The Phules opened the first girls' school in Pune in 1848.",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-12",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Sadler Commission"
         ],
         correctAnswer: 1,
-        explanation: "Charles Wood's Despatch (1854) emphasized female education."
+        explanation: "Charles Wood's Despatch (1854) emphasized female education.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-13",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Annie Besant"
         ],
         correctAnswer: 0,
-        explanation: "Professor D.K. Karve founded it. He also married a widow himself."
+        explanation: "Professor D.K. Karve founded it. He also married a widow himself.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-14",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Sarojini Naidu"
         ],
         correctAnswer: 0,
-        explanation: "Sarla Devi Chaudhurani founded it to promote women's education and abolition of Purdah."
+        explanation: "Sarla Devi Chaudhurani founded it to promote women's education and abolition of Purdah.",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-16",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Madam Cama"
         ],
         correctAnswer: 0,
-        explanation: "Pandita Ramabai founded it to serve the cause of women."
+        explanation: "Pandita Ramabai founded it to serve the cause of women.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-18",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Prabuddha Bharat"
         ],
         correctAnswer: 0,
-        explanation: "Mooknayak (Leader of the Voiceless) was started in 1920. Bahishkrit Bharat was later (1927)."
+        explanation: "Mooknayak (Leader of the Voiceless) was started in 1920. Bahishkrit Bharat was later (1927).",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-20",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Jyotiba Phule"
         ],
         correctAnswer: 0,
-        explanation: "Sri Narayana Guru gave this slogan. His disciple Sahadaran Ayyapan changed it to 'No religion, no caste, no God'."
+        explanation: "Sri Narayana Guru gave this slogan. His disciple Sahadaran Ayyapan changed it to 'No religion, no caste, no God'.",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-23",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "B.R. Ambedkar"
         ],
         correctAnswer: 0,
-        explanation: "Gopal Baba Walangkar is considered a pioneer and launched this paper (Destroyer of Pollution)."
+        explanation: "Gopal Baba Walangkar is considered a pioneer and launched this paper (Destroyer of Pollution).",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-24",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Native Marriage Act, 1872"
         ],
         correctAnswer: 0,
-        explanation: "Passed in 1856, mainly due to Vidyasagar's efforts."
+        explanation: "Passed in 1856, mainly due to Vidyasagar's efforts.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-25",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Madras"
         ],
         correctAnswer: 0,
-        explanation: "It was prevalent among Kulin Brahmins in Bengal."
+        explanation: "It was prevalent among Kulin Brahmins in Bengal.",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-27",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Arya Mahila Samaj"
         ],
         correctAnswer: 0,
-        explanation: "Formed by Behramji Malabari and Ramabai Ranade."
+        explanation: "Formed by Behramji Malabari and Ramabai Ranade.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-28",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Jawaharlal Nehru"
         ],
         correctAnswer: 0,
-        explanation: "This is a famous quote by Mahatma Gandhi regarding cultural openness vs. rootedness."
+        explanation: "This is a famous quote by Mahatma Gandhi regarding cultural openness vs. rootedness.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-30",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Anandibai Joshi"
         ],
         correctAnswer: 0,
-        explanation: "Cornelia Sorabji (Parsi) in 1887."
+        explanation: "Cornelia Sorabji (Parsi) in 1887.",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-32",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Vidyasagar"
         ],
         correctAnswer: 0,
-        explanation: "Vishnu Shastri Pandit founded it."
+        explanation: "Vishnu Shastri Pandit founded it.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-34",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "K.T. Telang"
         ],
         correctAnswer: 0,
-        explanation: "Bhau Daji Lad (Ram Krishna Lad) was the first Indian president."
+        explanation: "Bhau Daji Lad (Ram Krishna Lad) was the first Indian president.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-35",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Michael Madhusudan Dutt"
         ],
         correctAnswer: 0,
-        explanation: "Dinabandhu Mitra wrote it about Indigo planters. (Context: Reform period literature)."
+        explanation: "Dinabandhu Mitra wrote it about Indigo planters. (Context: Reform period literature).",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-38",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Veerasalingam Pantulu"
         ],
         correctAnswer: 0,
-        explanation: "Radhakanta Deb (Dharma Sabha) was a conservative who opposed reforms like Sati abolition and widow remarriage."
+        explanation: "Radhakanta Deb (Dharma Sabha) was a conservative who opposed reforms like Sati abolition and widow remarriage.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-39",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Behramji Malabari"
         ],
         correctAnswer: 0,
-        explanation: "Karsandas Mulji started it to advocate widow remarriage."
+        explanation: "Karsandas Mulji started it to advocate widow remarriage.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-40",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Keshab Chandra Sen"
         ],
         correctAnswer: 0,
-        explanation: "Dayanand Saraswati (Arya Samaj) gave this call, though he interpreted Vedas rationally."
+        explanation: "Dayanand Saraswati (Arya Samaj) gave this call, though he interpreted Vedas rationally.",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-41",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "G.H. Dehmukh"
         ],
         correctAnswer: 0,
-        explanation: "Sakharam Arjun supported her education and her stand."
+        explanation: "Sakharam Arjun supported her education and her stand.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-43",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Savitribai Phule"
         ],
         correctAnswer: 0,
-        explanation: "D.K. Karve opened it to give high-caste widows an interest in life."
+        explanation: "D.K. Karve opened it to give high-caste widows an interest in life.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
 {
         id: "H8-M-45",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Narayana Guru"
         ],
         correctAnswer: 0,
-        explanation: "Jyotiba Phule wrote Gulamgiri (Slavery) dedicated to the people of America (abolition of slavery)."
+        explanation: "Jyotiba Phule wrote Gulamgiri (Slavery) dedicated to the people of America (abolition of slavery).",
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 {
         id: "H8-M-46",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "All of the above"
         ],
         correctAnswer: 3,
-        explanation: "It was a cumulative effort. The Temple Entry Proclamation (1936) was a result of long struggles."
+        explanation: "It was a cumulative effort. The Temple Entry Proclamation (1936) was a result of long struggles.",
+        chapterId: 8,
+        difficulty: 'Easy'
     },
 {
         id: "H8-M-50",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
             "Swayamvara"
         ],
         correctAnswer: 0,
-        explanation: "Child marriage was the issue. The others are ancient forms, but Child Marriage was the 'bane' reformers fought."
+        explanation: "Child marriage was the issue. The others are ancient forms, but Child Marriage was the 'bane' reformers fought.",
+        chapterId: 8,
+        difficulty: 'Moderate'
     }
 ,
 {
@@ -1028,7 +1092,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-1-1771158318158',
@@ -1037,7 +1102,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-2-1771158318158',
@@ -1046,7 +1112,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Easy-3-1771158318158',
@@ -1055,7 +1122,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-4-1771158318158',
@@ -1064,7 +1132,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-5-1771158318158',
@@ -1073,7 +1142,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Easy-6-1771158318158',
@@ -1082,7 +1152,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-7-1771158318158',
@@ -1091,7 +1162,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-8-1771158318158',
@@ -1100,7 +1172,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Easy-9-1771158318158',
@@ -1109,7 +1182,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-10-1771158318158',
@@ -1118,7 +1192,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-11-1771158318158',
@@ -1127,7 +1202,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Easy-12-1771158318158',
@@ -1136,7 +1212,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-13-1771158318158',
@@ -1145,7 +1222,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-14-1771158318158',
@@ -1154,7 +1232,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Easy-15-1771158318158',
@@ -1163,7 +1242,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-16-1771158318158',
@@ -1172,7 +1252,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-17-1771158318158',
@@ -1181,7 +1262,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Easy-18-1771158318158',
@@ -1190,7 +1272,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-19-1771158318158',
@@ -1199,7 +1282,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-20-1771158318158',
@@ -1208,7 +1292,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Easy-21-1771158318158',
@@ -1217,7 +1302,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-22-1771158318158',
@@ -1226,7 +1312,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-23-1771158318158',
@@ -1235,7 +1322,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Easy-24-1771158318158',
@@ -1244,7 +1332,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-25-1771158318158',
@@ -1253,7 +1342,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-26-1771158318158',
@@ -1262,7 +1352,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Easy-27-1771158318158',
@@ -1271,7 +1362,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Socio-Religious Reform Movements: General Features involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Easy-28-1771158318158',
@@ -1280,7 +1372,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Socio-Religious Reform Movements: General Features was establishing control.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Easy-29-1771158318158',
@@ -1289,7 +1382,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Easy',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-0-1771158318158',
@@ -1298,7 +1392,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-1-1771158318158',
@@ -1307,7 +1402,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-2-1771158318158',
@@ -1316,7 +1412,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-3-1771158318158',
@@ -1325,7 +1422,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-4-1771158318158',
@@ -1334,7 +1432,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-5-1771158318158',
@@ -1343,7 +1442,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-6-1771158318158',
@@ -1352,7 +1452,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-7-1771158318158',
@@ -1361,7 +1462,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-8-1771158318158',
@@ -1370,7 +1472,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-9-1771158318158',
@@ -1379,7 +1482,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-10-1771158318158',
@@ -1388,7 +1492,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-11-1771158318158',
@@ -1397,7 +1502,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-12-1771158318158',
@@ -1406,7 +1512,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-13-1771158318158',
@@ -1415,7 +1522,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-14-1771158318158',
@@ -1424,7 +1532,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-15-1771158318158',
@@ -1433,7 +1542,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-16-1771158318158',
@@ -1442,7 +1552,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-17-1771158318158',
@@ -1451,7 +1562,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-18-1771158318158',
@@ -1460,7 +1572,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-19-1771158318158',
@@ -1469,7 +1582,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-20-1771158318158',
@@ -1478,7 +1592,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-21-1771158318158',
@@ -1487,7 +1602,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-22-1771158318158',
@@ -1496,7 +1612,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-23-1771158318158',
@@ -1505,7 +1622,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-24-1771158318158',
@@ -1514,7 +1632,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-25-1771158318158',
@@ -1523,7 +1642,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-26-1771158318158',
@@ -1532,7 +1652,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Moderate-27-1771158318158',
@@ -1541,7 +1662,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Moderate-28-1771158318158',
@@ -1550,7 +1672,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Moderate-29-1771158318158',
@@ -1559,7 +1682,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Socio-Religious Reform Movements: General Features shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-0-1771158318158',
@@ -1568,7 +1692,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-1-1771158318158',
@@ -1577,7 +1702,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-2-1771158318158',
@@ -1586,7 +1712,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-3-1771158318158',
@@ -1595,7 +1722,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-4-1771158318158',
@@ -1604,7 +1732,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-5-1771158318158',
@@ -1613,7 +1742,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-6-1771158318158',
@@ -1622,7 +1752,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-7-1771158318158',
@@ -1631,7 +1762,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-8-1771158318158',
@@ -1640,7 +1772,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-9-1771158318158',
@@ -1649,7 +1782,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-10-1771158318158',
@@ -1658,7 +1792,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-11-1771158318158',
@@ -1667,7 +1802,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-12-1771158318158',
@@ -1676,7 +1812,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-13-1771158318158',
@@ -1685,7 +1822,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-14-1771158318158',
@@ -1694,7 +1832,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-15-1771158318158',
@@ -1703,7 +1842,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-16-1771158318158',
@@ -1712,7 +1852,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-17-1771158318158',
@@ -1721,7 +1862,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-18-1771158318158',
@@ -1730,7 +1872,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-19-1771158318158',
@@ -1739,7 +1882,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-20-1771158318158',
@@ -1748,7 +1892,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-21-1771158318158',
@@ -1757,7 +1902,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-22-1771158318158',
@@ -1766,7 +1912,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-23-1771158318158',
@@ -1775,7 +1922,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-24-1771158318158',
@@ -1784,7 +1932,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-25-1771158318158',
@@ -1793,7 +1942,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-26-1771158318158',
@@ -1802,7 +1952,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch8-Hard-27-1771158318158',
@@ -1811,7 +1962,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch8-Hard-28-1771158318158',
@@ -1820,7 +1972,8 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch8-Hard-29-1771158318158',
@@ -1829,6 +1982,7 @@ export const MODERN_CHAPTER_8_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Socio-Religious Reform Movements: General Features.",
         difficulty: 'Hard',
-        chapterId: 8
+        chapterId: 8,
+        difficulty: 'Hard'
     },
 ];

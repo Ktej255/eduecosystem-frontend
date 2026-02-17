@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Widow Remarriage Act"
         ],
         correctAnswer: 1,
-        explanation: "The General Service Enlistment Act (1856) required recruits to serve anywhere, implying crossing the sea (Kalapani), which meant loss of caste for Hindus."
+        explanation: "The General Service Enlistment Act (1856) required recruits to serve anywhere, implying crossing the sea (Kalapani), which meant loss of caste for Hindus.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Banning child marriage"
         ],
         correctAnswer: 2,
-        explanation: "It protected the inheritance rights of converts to Christianity, which was seen as a promotion of proselytization."
+        explanation: "It protected the inheritance rights of converts to Christianity, which was seen as a promotion of proselytization.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "R.C. Dutt"
         ],
         correctAnswer: 0,
-        explanation: "William Bentinck made this famous observation regarding the devastation of the Indian handloom industry."
+        explanation: "William Bentinck made this famous observation regarding the devastation of the Indian handloom industry.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Nagpur"
         ],
         correctAnswer: 2,
-        explanation: "Awadh was annexed by Dalhousie in 1856. Many sepoys in the Bengal Army were from Awadh."
+        explanation: "Awadh was annexed by Dalhousie in 1856. Many sepoys in the Bengal Army were from Awadh.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-06",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "June 4, 1857"
         ],
         correctAnswer: 2,
-        explanation: "The sepoys at Meerut revolted on May 10, 1857, and marched to Delhi."
+        explanation: "The sepoys at Meerut revolted on May 10, 1857, and marched to Delhi.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-07",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Mata Din"
         ],
         correctAnswer: 0,
-        explanation: "Mangal Pandey of the 34th Native Infantry was executed on April 8, 1857."
+        explanation: "Mangal Pandey of the 34th Native Infantry was executed on April 8, 1857.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-08",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Henry Lawrence"
         ],
         correctAnswer: 0,
-        explanation: "Simon Fraser, the Political Agent, was killed by the rebels in Delhi."
+        explanation: "Simon Fraser, the Political Agent, was killed by the rebels in Delhi.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-09",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Khan Bahadur"
         ],
         correctAnswer: 0,
-        explanation: "General Bakht Khan led the Bareilly troops to Delhi and headed the court of administration."
+        explanation: "General Bakht Khan led the Bareilly troops to Delhi and headed the court of administration.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-10",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Kunwar Singh"
         ],
         correctAnswer: 0,
-        explanation: "Nana Saheb (Dhondhu Pant) proclaimed himself Peshwa at Kanpur."
+        explanation: "Nana Saheb (Dhondhu Pant) proclaimed himself Peshwa at Kanpur.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-11",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Faizabad"
         ],
         correctAnswer: 0,
-        explanation: "She led the revolt in Lucknow on behalf of her minor son, Birjis Qadir."
+        explanation: "She led the revolt in Lucknow on behalf of her minor son, Birjis Qadir.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-12",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Vilayat Ali"
         ],
         correctAnswer: 0,
-        explanation: "Maulvi Ahmadullah was a prominent leader in Faizabad/Awadh."
+        explanation: "Maulvi Ahmadullah was a prominent leader in Faizabad/Awadh.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-13",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Assam"
         ],
         correctAnswer: 0,
-        explanation: "He led the revolt in Arrah/Bihar despite his old age."
+        explanation: "He led the revolt in Arrah/Bihar despite his old age.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-14",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Diwan of Jhansi"
         ],
         correctAnswer: 0,
-        explanation: "He was the advisor and political propagandist for Nana Saheb."
+        explanation: "He was the advisor and political propagandist for Nana Saheb.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-15",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Rohtak"
         ],
         correctAnswer: 0,
-        explanation: "He organized the peasants of 84 villages ('chaurasi desh') in Baghpat."
+        explanation: "He organized the peasants of 84 villages ('chaurasi desh') in Baghpat.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-16",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Gwalior"
         ],
         correctAnswer: 0,
-        explanation: "He was the grandson of the last Rohilla ruler and led the revolt in Bareilly."
+        explanation: "He was the grandson of the last Rohilla ruler and led the revolt in Bareilly.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-17",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Havelock"
         ],
         correctAnswer: 0,
-        explanation: "The siege was led by John Nicholson, who was fatally wounded. Archdale Wilson was the commander."
+        explanation: "The siege was led by John Nicholson, who was fatally wounded. Archdale Wilson was the commander.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-18",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Colin Campbell"
         ],
         correctAnswer: 0,
-        explanation: "Sir Hugh Rose, who defeated her, paid this tribute to her bravery."
+        explanation: "Sir Hugh Rose, who defeated her, paid this tribute to her bravery.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-19",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Arrah"
         ],
         correctAnswer: 0,
-        explanation: "He relieved the residency in Lucknow and recaptured Kanpur."
+        explanation: "He relieved the residency in Lucknow and recaptured Kanpur.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-20",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Gwalior"
         ],
         correctAnswer: 0,
-        explanation: "He is infamous for his brutal reprisals in Benaras and Allahabad."
+        explanation: "He is infamous for his brutal reprisals in Benaras and Allahabad.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-21",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Major Rennell"
         ],
         correctAnswer: 0,
-        explanation: "Lieutenant Hudson shot the princes at point-blank range near Delhi Gate."
+        explanation: "Lieutenant Hudson shot the princes at point-blank range near Delhi Gate.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-22",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "S.B. Chaudhuri"
         ],
         correctAnswer: 0,
-        explanation: "V.D. Savarkar called it the First War of Independence."
+        explanation: "V.D. Savarkar called it the First War of Independence.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-23",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Jawaharlal Nehru"
         ],
         correctAnswer: 0,
-        explanation: "This is a famous quote by R.C. Majumdar in his analysis of the revolt."
+        explanation: "This is a famous quote by R.C. Majumdar in his analysis of the revolt.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-24",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Communal Riot"
         ],
         correctAnswer: 0,
-        explanation: "Sen argues it started with religion (cartridges) but evolved into a struggle for independence."
+        explanation: "Sen argues it started with religion (cartridges) but evolved into a struggle for independence.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-25",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Lack of unity between Hindus and Muslims"
         ],
         correctAnswer: 3,
-        explanation: "There was remarkable unity between Hindus and Muslims during the revolt. The other options were actual causes of failure."
+        explanation: "There was remarkable unity between Hindus and Muslims during the revolt. The other options were actual causes of failure.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-27",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Regulating Act, 1773"
         ],
         correctAnswer: 0,
-        explanation: "The Act for the Better Government of India, 1858."
+        explanation: "The Act for the Better Government of India, 1858.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-29",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Strachey Commission"
         ],
         correctAnswer: 0,
-        explanation: "The Peel Commission recommended the reorganization of the army on the division and counterpoise principle."
+        explanation: "The Peel Commission recommended the reorganization of the army on the division and counterpoise principle.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-30",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Conscription"
         ],
         correctAnswer: 0,
-        explanation: "They adopted 'Divide and Rule' in the army (Division and Counterpoise)."
+        explanation: "They adopted 'Divide and Rule' in the army (Division and Counterpoise).",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-31",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Lord Lawrence"
         ],
         correctAnswer: 0,
-        explanation: "Lord Canning (1856-1862) was the Governor-General."
+        explanation: "Lord Canning (1856-1862) was the Governor-General.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-33",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Jhansi"
         ],
         correctAnswer: 0,
-        explanation: "The Court of Soldiers (Administering Council) was set up in Delhi."
+        explanation: "The Court of Soldiers (Administering Council) was set up in Delhi.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-34",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Subaltern Historians"
         ],
         correctAnswer: 0,
-        explanation: "This is a Marxist interpretation of the revolt."
+        explanation: "This is a Marxist interpretation of the revolt.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-35",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "He was exiled to Rangoon"
         ],
         correctAnswer: 0,
-        explanation: "He escaped to Nepal and was never heard of again."
+        explanation: "He escaped to Nepal and was never heard of again.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-36",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Sepoys"
         ],
         correctAnswer: 0,
-        explanation: "The educated middle class and merchants often supported the British, seeing them as agents of modernization."
+        explanation: "The educated middle class and merchants often supported the British, seeing them as agents of modernization.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-40",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Havelock"
         ],
         correctAnswer: 0,
-        explanation: "General Wheeler surrendered and was killed (Satichaura Ghat incident follows this)."
+        explanation: "General Wheeler surrendered and was killed (Satichaura Ghat incident follows this).",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-41",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Winston Churchill"
         ],
         correctAnswer: 0,
-        explanation: "Lord Palmerston was the PM."
+        explanation: "Lord Palmerston was the PM.",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-43",
@@ -419,7 +487,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "John Seeley"
         ],
         correctAnswer: 0,
-        explanation: "T.R. Holmes held this biased colonial view."
+        explanation: "T.R. Holmes held this biased colonial view.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-44",
@@ -431,7 +501,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "2nd Native Infantry"
         ],
         correctAnswer: 0,
-        explanation: "The 19th NI at Berhampore was the first to refuse the rifle in Feb 1857 (before Meerut)."
+        explanation: "The 19th NI at Berhampore was the first to refuse the rifle in Feb 1857 (before Meerut).",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-45",
@@ -443,7 +515,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "They fought against the Sikhs"
         ],
         correctAnswer: 0,
-        explanation: "The Gorkha regiments remained loyal and played a key role in suppressing the revolt (e.g., in Lucknow)."
+        explanation: "The Gorkha regiments remained loyal and played a key role in suppressing the revolt (e.g., in Lucknow).",
+        chapterId: 7,
+        difficulty: 'Easy'
     },
 {
         id: "H7-M-46",
@@ -455,7 +529,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Kitchener"
         ],
         correctAnswer: 0,
-        explanation: "General George Anson was the C-in-C when the revolt broke out."
+        explanation: "General George Anson was the C-in-C when the revolt broke out.",
+        chapterId: 7,
+        difficulty: 'Moderate'
     },
 {
         id: "H7-M-48",
@@ -467,7 +543,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Madras"
         ],
         correctAnswer: 0,
-        explanation: "Awadh provided a large number of recruits to the Bengal Army."
+        explanation: "Awadh provided a large number of recruits to the Bengal Army.",
+        chapterId: 7,
+        difficulty: 'Hard'
     },
 {
         id: "H7-M-50",
@@ -479,7 +557,9 @@ export const MODERN_CHAPTER_7_MCQS: any[] = [
             "Wajid Ali Shah"
         ],
         correctAnswer: 0,
-        explanation: "With the capture and execution of Tantia Tope, the major organized resistance came to an end."
+        explanation: "With the capture and execution of Tantia Tope, the major organized resistance came to an end.",
+        chapterId: 7,
+        difficulty: 'Easy'
     }
 ,
 {

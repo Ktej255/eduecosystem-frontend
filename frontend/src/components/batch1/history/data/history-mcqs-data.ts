@@ -1,4 +1,6 @@
 import { QuestionBankService } from '../question-bank/QuestionBankService';
+import { ANCIENT_CONTENT_MAP } from './ancient/content-registry';
+import { MEDIEVAL_CONTENT_MAP } from './medieval/content-registry';
 
 // Dynamically reconstruct MODERN_MCQS_DATA from the unified service
 // This ensures that any restoration in the modern/ folders propagates to the legacy portal

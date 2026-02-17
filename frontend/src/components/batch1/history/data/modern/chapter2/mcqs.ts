@@ -11,7 +11,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "A focus on the unity of Indian religions."
         ],
         correctAnswer: 2,
-        explanation: "Colonial/Orientalist historiography often portrayed India as stagnant, spiritual (in a negative sense of lacking progress), and needing the 'White Man's Burden' to civilize it."
+        explanation: "Colonial/Orientalist historiography often portrayed India as stagnant, spiritual (in a negative sense of lacking progress), and needing the 'White Man's Burden' to civilize it.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-02",
@@ -23,7 +25,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "It highlights the role of the subaltern masses."
         ],
         correctAnswer: 1,
-        explanation: "The Colonial approach justified rule by claiming to bring law, order, and unity (Pax Britannica) to a divided society."
+        explanation: "The Colonial approach justified rule by claiming to bring law, order, and unity (Pax Britannica) to a divided society.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-03",
@@ -35,7 +39,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "The promotion of social welfare in colonies."
         ],
         correctAnswer: 1,
-        explanation: "It applied Darwin's survival of the fittest to human societies, arguing the British were racially superior."
+        explanation: "It applied Darwin's survival of the fittest to human societies, arguing the British were racially superior.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-04",
@@ -47,7 +53,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Ranajit Guha"
         ],
         correctAnswer: 1,
-        explanation: "Vincent Smith and James Mill are classic examples of the Colonial school."
+        explanation: "Vincent Smith and James Mill are classic examples of the Colonial school.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-05",
@@ -59,7 +67,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "The British naval supremacy."
         ],
         correctAnswer: 1,
-        explanation: "It was a justification that British rule ended chaos and established peace."
+        explanation: "It was a justification that British rule ended chaos and established peace.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-06",
@@ -71,7 +81,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "It was written by an Indian."
         ],
         correctAnswer: 2,
-        explanation: "James Mill's work was highly critical of Indian society and culture, reinforcing the colonial ideology."
+        explanation: "James Mill's work was highly critical of Indian society and culture, reinforcing the colonial ideology.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-07",
@@ -83,7 +95,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Branch of the Cambridge school."
         ],
         correctAnswer: 1,
-        explanation: "It developed to counter the colonial narrative of Indian backwardness and disunity."
+        explanation: "It developed to counter the colonial narrative of Indian backwardness and disunity.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-08",
@@ -95,7 +109,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "G.V. Joshi"
         ],
         correctAnswer: 2,
-        explanation: "Vincent Smith was an imperialist. The others were early nationalists who critiqued the economic drain."
+        explanation: "Vincent Smith was an imperialist. The others were early nationalists who critiqued the economic drain.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-09",
@@ -107,7 +123,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Aurobindo Ghosh"
         ],
         correctAnswer: 0,
-        explanation: "Sakharam Ganesh Deuskar wrote 'Desher Katha' in Bengali."
+        explanation: "Sakharam Ganesh Deuskar wrote 'Desher Katha' in Bengali.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-10",
@@ -119,7 +137,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "The British Constitution"
         ],
         correctAnswer: 1,
-        explanation: "Before 1947, they focused on restoring pride in Ancient and Medieval glory. Modern history focus came later."
+        explanation: "Before 1947, they focused on restoring pride in Ancient and Medieval glory. Modern history focus came later.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-11",
@@ -131,7 +151,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "It ignores the economic exploitation."
         ],
         correctAnswer: 1,
-        explanation: "Its goal was to build national consciousness and unity."
+        explanation: "Its goal was to build national consciousness and unity.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-12",
@@ -143,7 +165,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Colonial"
         ],
         correctAnswer: 2,
-        explanation: "They are noted Nationalist historians of the post-independence era."
+        explanation: "They are noted Nationalist historians of the post-independence era.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-13",
@@ -155,7 +179,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Desher Katha and Anandamath"
         ],
         correctAnswer: 0,
-        explanation: "Rajni Palme Dutt's 'India Today' and A.R. Desai's 'Social Background of Indian Nationalism'."
+        explanation: "Rajni Palme Dutt's 'India Today' and A.R. Desai's 'Social Background of Indian Nationalism'.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-14",
@@ -167,7 +193,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "The role of the British monarch."
         ],
         correctAnswer: 2,
-        explanation: "Marxists analyze both the primary (anti-colonial) and secondary (class) contradictions."
+        explanation: "Marxists analyze both the primary (anti-colonial) and secondary (class) contradictions.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-15",
@@ -179,7 +207,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Focusing too much on culture."
         ],
         correctAnswer: 1,
-        explanation: "Sarkar considers Dutt's approach too rigid/simplistic in forcing class categories on the movement."
+        explanation: "Sarkar considers Dutt's approach too rigid/simplistic in forcing class categories on the movement.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-16",
@@ -191,7 +221,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Seven"
         ],
         correctAnswer: 1,
-        explanation: "A.R. Desai identifies five distinct phases based on the social classes supporting the movement."
+        explanation: "A.R. Desai identifies five distinct phases based on the social classes supporting the movement.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-17",
@@ -203,7 +235,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Aristocracy"
         ],
         correctAnswer: 1,
-        explanation: "They often characterize the INC-led movement as a structured bourgeois movement."
+        explanation: "They often characterize the INC-led movement as a structured bourgeois movement.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-18",
@@ -215,7 +249,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Ramachandra Guha"
         ],
         correctAnswer: 1,
-        explanation: "Ranajit Guha launched the Subaltern Studies series in the early 1980s."
+        explanation: "Ranajit Guha launched the Subaltern Studies series in the early 1980s.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-19",
@@ -227,7 +263,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "It relied too much on oral evidence."
         ],
         correctAnswer: 1,
-        explanation: "They argued that both Colonial and Nationalist histories were 'elitist' and ignored the masses."
+        explanation: "They argued that both Colonial and Nationalist histories were 'elitist' and ignored the masses.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-20",
@@ -239,7 +277,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "The British Parliament and the East India Company."
         ],
         correctAnswer: 2,
-        explanation: "They shifted the focus from 'Nation vs Colony' to 'Elite vs Subaltern'."
+        explanation: "They shifted the focus from 'Nation vs Colony' to 'Elite vs Subaltern'.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-21",
@@ -251,7 +291,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "As a British stooge."
         ],
         correctAnswer: 1,
-        explanation: "They view the mainstream movement as a struggle for power within the elite, distinct from the people's struggle."
+        explanation: "They view the mainstream movement as a struggle for power within the elite, distinct from the people's struggle.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-22",
@@ -263,7 +305,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "History should be scientific."
         ],
         correctAnswer: 1,
-        explanation: "They argue class is not sufficient because capitalism was nascent; caste, gender, and creed were also exploitative."
+        explanation: "They argue class is not sufficient because capitalism was nascent; caste, gender, and creed were also exploitative.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-23",
@@ -275,7 +319,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Irrelevant to modern politics."
         ],
         correctAnswer: 2,
-        explanation: "They project modern communal enmity back into the medieval period."
+        explanation: "They project modern communal enmity back into the medieval period.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-26",
@@ -287,7 +333,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Subaltern studies"
         ],
         correctAnswer: 1,
-        explanation: "It is an early work highlighting women's issues."
+        explanation: "It is an early work highlighting women's issues.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-27",
@@ -299,7 +347,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "A novel about the freedom struggle."
         ],
         correctAnswer: 1,
-        explanation: "It was a controversial colonial critique of Indian society, particularly regarding women and health."
+        explanation: "It was a controversial colonial critique of Indian society, particularly regarding women and health.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-28",
@@ -311,7 +361,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Leading the Renaissance."
         ],
         correctAnswer: 1,
-        explanation: "They argued Muslims felt proud of being the former rulers, while Hindus felt humiliated."
+        explanation: "They argued Muslims felt proud of being the former rulers, while Hindus felt humiliated.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-29",
@@ -323,7 +375,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Subaltern"
         ],
         correctAnswer: 2,
-        explanation: "The Cambridge school denies the anti-imperialist character and focuses on internal factionalism."
+        explanation: "The Cambridge school denies the anti-imperialist character and focuses on internal factionalism.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-30",
@@ -335,7 +389,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Fashion trends in colonial India."
         ],
         correctAnswer: 1,
-        explanation: "It analyzes structural impacts, such as property rights and legal vulnerability."
+        explanation: "It analyzes structural impacts, such as property rights and legal vulnerability.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-31",
@@ -347,7 +403,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "R.C. Majumdar - Cambridge"
         ],
         correctAnswer: 1,
-        explanation: "R.P. Dutt is Marxist. Ranajit Guha is Subaltern. Vincent Smith is Colonial. R.C. Majumdar is Nationalist."
+        explanation: "R.P. Dutt is Marxist. Ranajit Guha is Subaltern. Vincent Smith is Colonial. R.C. Majumdar is Nationalist.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-32",
@@ -359,7 +417,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Post-Modernist"
         ],
         correctAnswer: 2,
-        explanation: "Critics say the Cambridge school ignores ideology and idealism, reducing everything to material greed."
+        explanation: "Critics say the Cambridge school ignores ideology and idealism, reducing everything to material greed.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-33",
@@ -371,7 +431,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Communalist politics"
         ],
         correctAnswer: 1,
-        explanation: "It emerged specifically to counter the Colonial narrative."
+        explanation: "It emerged specifically to counter the Colonial narrative.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-35",
@@ -383,7 +445,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Sumit Sarkar"
         ],
         correctAnswer: 0,
-        explanation: "Patrick O'Brian (along with Hopkins and Cain) is associated with the Neo-Liberal economic view."
+        explanation: "Patrick O'Brian (along with Hopkins and Cain) is associated with the Neo-Liberal economic view.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 {
         id: "H2-M-36",
@@ -395,7 +459,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Communalist"
         ],
         correctAnswer: 1,
-        explanation: "Subaltern studies claims to represent the voice of the people."
+        explanation: "Subaltern studies claims to represent the voice of the people.",
+        chapterId: 2,
+        difficulty: 'Hard'
     },
 {
         id: "H2-M-38",
@@ -407,7 +473,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Urbanization."
         ],
         correctAnswer: 0,
-        explanation: "The text highlights the denial of ownership of productive resources."
+        explanation: "The text highlights the denial of ownership of productive resources.",
+        chapterId: 2,
+        difficulty: 'Easy'
     },
 {
         id: "H2-M-40",
@@ -419,7 +487,9 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
             "Irfan Habib"
         ],
         correctAnswer: 1,
-        explanation: "Sumit Sarkar critiqued Dutt's paradigm as simplistic."
+        explanation: "Sumit Sarkar critiqued Dutt's paradigm as simplistic.",
+        chapterId: 2,
+        difficulty: 'Moderate'
     }
 ,
 {
@@ -627,7 +697,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Easy-1-1771158191836',
@@ -636,7 +707,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Easy-2-1771158191836',
@@ -645,7 +717,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Easy-3-1771158191836',
@@ -654,7 +727,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Easy-4-1771158191836',
@@ -663,7 +737,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Easy-5-1771158191836',
@@ -672,7 +747,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Easy-6-1771158191836',
@@ -681,7 +757,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Easy-7-1771158191836',
@@ -690,7 +767,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Easy-8-1771158191836',
@@ -699,7 +777,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Easy-9-1771158191836',
@@ -708,7 +787,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Easy-10-1771158191836',
@@ -717,7 +797,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Easy-11-1771158191836',
@@ -726,7 +807,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Easy-12-1771158191836',
@@ -735,7 +817,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Easy-13-1771158191836',
@@ -744,7 +827,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Easy-14-1771158191836',
@@ -753,7 +837,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Easy-15-1771158191836',
@@ -762,7 +847,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Easy-16-1771158191836',
@@ -771,7 +857,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Easy-17-1771158191836',
@@ -780,7 +867,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Easy-18-1771158191836',
@@ -789,7 +877,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Easy-19-1771158191836',
@@ -798,7 +887,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Easy-20-1771158191836',
@@ -807,7 +897,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Moderate-0-1771158191836',
@@ -816,7 +907,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Moderate-1-1771158191836',
@@ -825,7 +917,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Moderate-2-1771158191836',
@@ -834,7 +927,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Moderate-3-1771158191836',
@@ -843,7 +937,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Moderate-4-1771158191836',
@@ -852,7 +947,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Moderate-5-1771158191836',
@@ -861,7 +957,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Moderate-6-1771158191836',
@@ -870,7 +967,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Moderate-7-1771158191836',
@@ -879,7 +977,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Moderate-8-1771158191836',
@@ -888,7 +987,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Moderate-9-1771158191836',
@@ -897,7 +997,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Moderate-10-1771158191836',
@@ -906,7 +1007,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Moderate-11-1771158191836',
@@ -915,7 +1017,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Moderate-12-1771158191836',
@@ -924,7 +1027,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Moderate-13-1771158191836',
@@ -933,7 +1037,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Moderate-14-1771158191836',
@@ -942,7 +1047,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Moderate-15-1771158191836',
@@ -951,7 +1057,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Moderate-16-1771158191836',
@@ -960,7 +1067,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Moderate-17-1771158191836',
@@ -969,7 +1077,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Moderate-18-1771158191836',
@@ -978,7 +1087,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Moderate-19-1771158191836',
@@ -987,7 +1097,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Hard-0-1771158191836',
@@ -996,7 +1107,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Hard-1-1771158191836',
@@ -1005,7 +1117,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Hard-2-1771158191836',
@@ -1014,7 +1127,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Hard-3-1771158191836',
@@ -1023,7 +1137,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Hard-4-1771158191836',
@@ -1032,7 +1147,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Hard-5-1771158191836',
@@ -1041,7 +1157,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Hard-6-1771158191836',
@@ -1050,7 +1167,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Hard-7-1771158191836',
@@ -1059,7 +1177,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Hard-8-1771158191836',
@@ -1068,7 +1187,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Hard-9-1771158191836',
@@ -1077,7 +1197,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Hard-10-1771158191836',
@@ -1086,7 +1207,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Hard-11-1771158191836',
@@ -1095,7 +1217,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Hard-12-1771158191836',
@@ -1104,7 +1227,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Hard-13-1771158191836',
@@ -1113,7 +1237,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Hard-14-1771158191836',
@@ -1122,7 +1247,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Hard-15-1771158191836',
@@ -1131,7 +1257,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Hard-16-1771158191836',
@@ -1140,7 +1267,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Hard-17-1771158191836',
@@ -1149,7 +1277,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Hard-18-1771158191836',
@@ -1158,7 +1287,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Hard-19-1771158191836',
@@ -1167,7 +1297,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Hard-20-1771158191836',
@@ -1176,7 +1307,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Hard-21-1771158191836',
@@ -1185,7 +1317,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Hard-22-1771158191836',
@@ -1194,7 +1327,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Hard-23-1771158191836',
@@ -1203,7 +1337,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch2-Hard-24-1771158191836',
@@ -1212,7 +1347,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch2-Hard-25-1771158191836',
@@ -1221,7 +1357,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch2-Hard-26-1771158191836',
@@ -1230,6 +1367,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2
+        chapterId: 2,
+        difficulty: 'Moderate'
     },
 ];

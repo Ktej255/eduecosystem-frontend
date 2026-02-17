@@ -234,7 +234,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Easy-1-1771158191972',
@@ -243,7 +244,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Easy-2-1771158191972',
@@ -252,7 +254,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Easy-3-1771158191972',
@@ -261,7 +264,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Easy-4-1771158191972',
@@ -270,7 +274,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Easy-5-1771158191972',
@@ -279,7 +284,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Easy-6-1771158191972',
@@ -288,7 +294,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Easy-7-1771158191972',
@@ -297,7 +304,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Easy-8-1771158191972',
@@ -306,7 +314,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Easy-9-1771158191972',
@@ -315,7 +324,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Easy-10-1771158191972',
@@ -324,7 +334,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Easy-11-1771158191972',
@@ -333,7 +344,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Easy-12-1771158191972',
@@ -342,7 +354,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Easy-13-1771158191972',
@@ -351,7 +364,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Easy-14-1771158191972',
@@ -360,7 +374,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Easy-15-1771158191972',
@@ -369,7 +384,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Easy-16-1771158191972',
@@ -378,7 +394,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Easy-17-1771158191972',
@@ -387,7 +404,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Easy-18-1771158191972',
@@ -396,7 +414,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Easy-19-1771158191972',
@@ -405,7 +424,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Easy-20-1771158191972',
@@ -414,7 +434,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Easy-21-1771158191972',
@@ -423,7 +444,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Moderate-0-1771158191972',
@@ -432,7 +454,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Moderate-1-1771158191972',
@@ -441,7 +464,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Moderate-2-1771158191972',
@@ -450,7 +474,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Moderate-3-1771158191972',
@@ -459,7 +484,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Moderate-4-1771158191972',
@@ -468,7 +494,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Moderate-5-1771158191972',
@@ -477,7 +504,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Moderate-6-1771158191972',
@@ -486,7 +514,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Moderate-7-1771158191972',
@@ -495,7 +524,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Moderate-8-1771158191972',
@@ -504,7 +534,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Moderate-9-1771158191972',
@@ -513,7 +544,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Moderate-10-1771158191972',
@@ -522,7 +554,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Moderate-11-1771158191972',
@@ -531,7 +564,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Moderate-12-1771158191972',
@@ -540,7 +574,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Moderate-13-1771158191972',
@@ -549,7 +584,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Moderate-14-1771158191972',
@@ -558,7 +594,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Moderate-15-1771158191972',
@@ -567,7 +604,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Moderate-16-1771158191972',
@@ -576,7 +614,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Moderate-17-1771158191972',
@@ -585,7 +624,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Moderate-18-1771158191972',
@@ -594,7 +634,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Moderate-19-1771158191972',
@@ -603,7 +644,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Hard-0-1771158191972',
@@ -612,7 +654,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Hard-1-1771158191972',
@@ -621,7 +664,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Hard-2-1771158191972',
@@ -630,7 +674,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Hard-3-1771158191972',
@@ -639,7 +684,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Hard-4-1771158191972',
@@ -648,7 +694,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Hard-5-1771158191972',
@@ -657,7 +704,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Hard-6-1771158191972',
@@ -666,7 +714,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Hard-7-1771158191972',
@@ -675,7 +724,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Hard-8-1771158191972',
@@ -684,7 +734,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Hard-9-1771158191972',
@@ -693,7 +744,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Hard-10-1771158191972',
@@ -702,7 +754,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Hard-11-1771158191972',
@@ -711,7 +764,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Hard-12-1771158191972',
@@ -720,7 +774,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Hard-13-1771158191972',
@@ -729,7 +784,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Hard-14-1771158191972',
@@ -738,7 +794,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Hard-15-1771158191972',
@@ -747,7 +804,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Hard-16-1771158191972',
@@ -756,7 +814,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Hard-17-1771158191972',
@@ -765,7 +824,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Hard-18-1771158191972',
@@ -774,7 +834,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Hard-19-1771158191972',
@@ -783,7 +844,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch23-Hard-20-1771158191972',
@@ -792,7 +854,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch23-Hard-21-1771158191972',
@@ -801,7 +864,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch23-Hard-22-1771158191972',
@@ -810,7 +874,8 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
-        chapterId: 23
+        chapterId: 23,
+        difficulty: 'Moderate'
     },
 ];
 ```

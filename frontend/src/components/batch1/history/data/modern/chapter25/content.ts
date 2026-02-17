@@ -1,25 +1,26 @@
-import { ChapterContent } from '../../../../types';
 
-export const MODERN_CHAPTER_25_CONTENT: ChapterContent = {
+export const MODERN_CHAPTER_25_CONTENT = {
     id: 'chapter25',
-    title: 'Development of Indian Press',
+    title: "Independence with Partition",
     content: `
-# Development of Indian Press
+# Independence with Partition
 
-## 1. Introduction
-The press in India played a major role in the awakening of the people and the growth of nationalism.
+## 1. Mountbatten Plan (June 3, 1947)
+- **Objective**: To transfer power to two dominions - India and Pakistan.
+- **Key Provisions**:
+  - Partition of Bengal and Punjab.
+  - Referendum in NWFP and Sylhet.
+  - Princely states given the choice to join either dominion or remain independent (though practically discouraged).
+  - Date of transfer of power: August 15, 1947.
 
-## 2. Early Phase
-*   **James Augustus Hickey:** Started the first newspaper in India (Bengal Gazette, 1780).
-*   **Early Restrictions:** Censorship Act of 1799, Licensing Regulations of 1823.
+## 2. Indian Independence Act, 1947
+- Passed by the British Parliament to implement the Mountbatten Plan.
+- Ended British rule in India.
+- Abolished the office of Viceroy and provided for a Governor-General for each dominion.
 
-## 3. The Struggle for Freedom of Press
-*   **Metcalfe Act (1835):** Repealed the 1823 regulations.
-*   **Vernacular Press Act (1878):** A discriminatory act by Lord Lytton.
-*   **Bal Gangadhar Tilak:** Used Kesari and Mahratta to spread nationalist ideas.
-
-## 4. Press Laws in 20th Century
-*   **Indian Press Act (1910):** Revived the worst features of the Vernacular Press Act.
-*   **Press Enquiry Committee (1947):** Reviewed press laws for independent India.
-`
+## 3. Partition and its Aftermath
+- **Radcliffe Line**: Demarcated the boundary between India and Pakistan.
+- **Communal Violence**: Widespread riots and mass migration occurred across the borders.
+- **Integration**: Challenges of integrating princely states and rehabilitation of refugees.
+    `
 };

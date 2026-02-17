@@ -1,79 +1,54 @@
-import { ChapterContent } from '../../../../types';
 
-export const MODERN_CHAPTER_20_CONTENT: ChapterContent = {
-  id: 'chapter20',
-  title: 'World War II & Nationalist Response (1939-1942)',
-  content: `
-# World War II & Nationalist Response (1939-1942)
 
-The period between the outbreak of World War II and the launch of the Quit India Movement was characterized by a deep constitutional deadlock, the hardening of communal boundaries, and the transition of the national struggle from representative ministries to individual and eventually mass resistance.
 
----
-
-## 1. The Outbreak of War (1939)
-On September 3, 1939, Germany invaded Poland, triggering World War II. Without consulting the Indian legislature or the provincial ministries, Viceroy **Lord Linlithgow** declared India a belligerent in the war.
-
-### Nationalist Response:
-*   **The Congress:** Condemned Nazi aggression but argued that a slave nation cannot help others win their freedom. They demanded an immediate responsible government at the center and a promise of independence after the war.
-*   **The Resignation:** When the British refused to clarify their war aims for India, all Congress provincial ministries resigned in **October 1939**.
-*   **Day of Deliverance:** Jinnah and the Muslim League celebrated the resignation as a "Day of Deliverance" on **December 22, 1939**.
+export const MODERN_CHAPTER_20_CONTENT = {
+    id: 'chapter20',
+    title: 'Government of India Act 1935',
+    content: `
+# Government of India Act 1935
+> **Theme:** "The Longest Blueprint." This Act was the most detailed constitutional document passed by the British, proposing a federation and introducing provincial autonomy, yet retaining ultimate control through 'safeguards'.
 
 ---
 
-## 2. The Lahore Resolution & Two-Nation Theory (1940)
-The Muslim League's goal shifted from safeguards to a separate sovereign territory.
-
-### The Lahore Resolution (March 23, 1940):
-*   **Location:** Minto Park, Lahore.
-*   **The Demand:** "Independent States" in Muslim-majority areas in the North-West and East.
-*   **Key Figures:** Moved by **Fazlul Haq** (Bengal) and drafted by **Sikandar Hayat Khan** (Punjab).
-*   **Jinnah's Theory:** Argued that Hindus and Muslims belong to two different civilizations and philosophies, and thus cannot coexist in one nation.
-
-### Origin of "Pakistan":
-*   The term was coined in 1933 by **Choudhry Rahmat Ali** (a Cambridge student) in his pamphlet *"Now or Never"*.
-*   The name was an acronym: **P**unjab, **A**fghania (NWFP), **K**ashmir, **S**indh, Baluchis**tan**.
+## 1. Background: The Road to the Act
+The Act was the culmination of a long process starting from the **Simon Commission (1927)**, the **Nehru Report (1928)**, and the three **Round Table Conferences (1930-32)**. It was formally based on the **White Paper of 1933**.
 
 ---
 
-## 3. The August Offer (1940)
-With the fall of France, the British were desperate for Indian cooperation.
+## 2. Key Provisions
+The Act was massive, containing 321 sections and 10 schedules.
 
-*   **Dominion Status:** Offered as the ultimate goal after the war.
-*   **Constituent Assembly:** Proposed for the first time, to be mainly composed of Indians.
-*   **The Minority Veto:** Stated that no future constitution would be adopted without the consent of minorities (effectively giving Jinnah control over the process).
-*   **Rejection:** Nehru remarked that the concept of Dominion Status was "dead as a doornail."
+### A. All-India Federation (Failed)
+- Proposed a union of **British Indian Provinces** and **Princely States**.
+- The federation never came into being because the Princely States refused to sign the 'Instrument of Accession'.
 
----
+### B. Provincial Autonomy (Success)
+- **Dyarchy abolished** in the provinces.
+- Provinces were granted a separate legal identity and autonomy from the Center.
+- Ministers responsible to the legislature were to advise the Governor.
 
-## 4. Individual Satyagraha (1940-1941)
-Gandhi decided to launch a limited protest to assert the right to free speech without hindering the war effort.
+### C. Dyarchy at the Center
+- Abolished in provinces but introduced at the Center.
+- Subjects divided into **Reserved** (Defense, Foreign Affairs, etc.) and **Transferred**.
 
-*   **Slogan:** "It is wrong to help the British war effort with men or money."
-*   **The Pioneers:**
-    1.  **Vinoba Bhave:** First Satyagrahi (Paunar Ashram).
-    2.  **Jawaharlal Nehru:** Second Satyagrahi.
-    3.  **Brahma Datt:** Third Satyagrahi.
-*   **Delhi Chalo:** Satyagrahis were asked to march toward Delhi if they were not arrested.
-*   **Suspension:** The movement was suspended in December 1941 following the Japanese attack on **Pearl Harbor**, as the threat moved closer to India's borders.
-
----
-
-## 5. The Great Escape: Subhash Chandra Bose (1941)
-While the Congress followed non-violence, Bose sought to win freedom with external military help.
-
-*   **House Arrest:** Bose was under arrest in Calcutta for the Holwell Monument Agitation.
-*   **The Escape (Jan 1941):** Disguised as a Pathan named **"Ziauddin"**, he escaped with the help of his nephew **Sisir Bose**.
-*   **The Route:** Traveling with an Italian passport (name: **Orlando Mazzotta**), he went from Calcutta &rarr; Peshawar &rarr; Kabul &rarr; Moscow &rarr; Berlin.
-*   **Azad Hind Radio:** In Germany, he began broadcasting to India, calling for a final struggle.
+### D. Safeguards and Special Responsibilities
+- The Governor-General and Governors were given **"Special Responsibilities"** (oversight of minorities, civil services, internal security).
+- These powers allowed them to act in their "discretion," effectively creating a veto over Indian ministers.
 
 ---
 
-## 6. The Atlantic Charter Betrayal (1941)
-Churchill and Roosevelt signed the **Atlantic Charter**, promising self-determination for all people. However, Churchill later clarified in Parliament that the charter applied only to Nazi-occupied Europe and not to British colonies like India, deepening the trust deficit.
+## 3. New Federal Institutions
+- **Federal Court (1937):** Established in Delhi. First CJ was **Sir Maurice Gwyer**.
+- **Reserve Bank of India (RBI):** To control currency and credit.
+- **Federal Public Service Commission:** Along with Provincial and Joint Commissions.
+- **Federal Railway Authority:** Kept under G-G's discretion to prevent "political influence."
 
 ---
 
-## 7. The Revenge of Udham Singh
-In a symbolic act of justice, **Udham Singh** shot dead **Michael O'Dwyer** (who was the Governor of Punjab during the 1919 Jallianwala Bagh massacre) in London on **March 13, 1940**, avenging the massacre after 21 years.
-`
+## 4. Nationalism's Verdict
+The Act was rejected by almost all Indian leaders:
+- **Jawaharlal Nehru:** *"A machine with all brakes and no engine."*
+- **Mohammad Ali Jinnah:** *"Thoroughly rotten, fundamentally bad and totally unacceptable."*
+- **The Congress Resolution:** Declared it a "constriction" designed to perpetuate British rule.
+  `
 };

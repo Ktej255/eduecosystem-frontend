@@ -1,59 +1,73 @@
 
-import { ChapterContent } from '../../../../types';
 
-export const MODERN_CHAPTER_16_CONTENT: ChapterContent = {
+
+export const MODERN_CHAPTER_16_CONTENT = {
     id: 'chapter16',
-    title: "Simon Commission & Nehru Report (1927-1929)",
+    title: "Non-Cooperation & Khilafat Movement (1919-1922)",
     content: `
-# Simon Commission & Nehru Report (1927-1929)
-> **Theme:** "The Constitutional Challenge." In response to a British insult, Indian leaders attempted to draft their own constitution, ultimately leading to the demand for Purna Swaraj.
+# Non-Cooperation & Khilafat Movement (1919-1922)
+> **Theme:** "The Great Boycott." For the first time, the Indian National Movement became a truly mass-based struggle, uniting Hindus and Muslims under the banner of Satyagraha.
 
 ---
 
-## 1. The Simon Commission (1927): The All-White Insult
-The British Government appointed the **Indian Statutory Commission** (Simon Commission) to review the working of the 1919 reforms.
-*   **The Provocation:** All 7 members of the commission were white (British). No Indian was included, which was seen as a violation of the principle of self-determination.
-*   **Response: Boycott:**
-    *   **Madras Session (1927):** Under **M.A. Ansari**, the Congress decided to boycott the commission "at every stage and in every form."
-    *   **Arrival (Feb 3, 1928):** Met with black flags and the legendary slogan **"Simon Go Back!"**
-    *   **Supporters:** Only a few groups like the Justice Party (South) and the Punjab Unionists chose not to boycott.
-*   **Martyrdom of Lala Lajpat Rai:** During a protest in Lahore (Oct 1928), Lala Lajpat Rai was brutally lathi-charged by police. He died on Nov 17, declaring: *"Every blow aimed at me is a nail in the coffin of British Imperialism."*
+## 1. The Twin Wrongs: Why the Movement?
+Two major grievances catalyzed the movement:
+*   **The Punjab Wrong:** The Jallianwala Bagh Massacre and the subsequent "whitewash" by the Hunter Committee.
+*   **The Khilafat Wrong:** The mistreatment of the Ottoman Sultan (Khalifa) by the British after WWI.
+    *   **Khilafat Day:** October 17, 1919.
+    *   **Leaders:** Muhammad Ali and Shaukat Ali (The Ali Brothers), Maulana Azad, and Hakim Ajmal Khan.
+    *   **Gandhi's View:** He saw it as a "golden opportunity for Hindu-Muslim unity."
 
 ---
 
-## 2. The Nehru Report (1928): India's First Draft
-Lord Birkenhead (Secretary of State) challenged Indians to produce a constitution that all parties could agree on.
-*   **Drafting Committee:** Chaired by **Motilal Nehru**. Members included Tej Bahadur Sapru, Subhash Bose, and M.S. Aney.
-*   **Key Recommendations:**
-    1.  **Dominion Status** (Self-government within the Empire).
-    2.  **Joint Electorates** with reservation of seats for Muslims only where they were in a minority (Rejecting Separate Electorates).
-    3.  Linguistic Provinces and **19 Fundamental Rights** (including universal adult suffrage).
-    4.  A **Federal Structure** with residuary powers resting at the **Centre**.
+## 2. Formal Launch and Sessions (1920)
+*   **Calcutta Special Session (Sept 1920):** 
+    *   **President:** Lala Lajpat Rai.
+    *   **Outcome:** The Congress approved the Non-Cooperation program until the Punjab and Khilafat wrongs were redressed and Swaraj established.
+*   **Nagpur Annual Session (Dec 1920):**
+    *   **President:** C. Vijayaraghavachariar.
+    *   **Landmark Change:** The Congress goal shifted from "Self-government within the British Empire" to **"Swaraj through peaceful and legitimate means."**
+    *   **Organizational Reforms:** Formation of the **Congress Working Committee (CWC)** (15 members), linguistic Provincial Congress Committees, and a membership fee of 4 annas.
+    *   **Exits:** Leaders who disagreed with the new radical path, like Jinnah, Annie Besant, and B.C. Pal, left the Congress.
 
 ---
 
-## 3. The "Parting of Ways": Muslim League's Response
-*   **Delhi Proposals (1927):** Muslim leaders initially agreed to joint electorates if certain conditions (like Sindh's separation) were met.
-*   **Jinnah's Amendments:** Jinnah proposed three amendments to the Nehru Report (including 1/3rd seats at the Centre and residuary powers to provinces).
-*   **Rejection:** The Hindu Mahasabha took a rigid stance, and Jinnah’s amendments were rejected at the All Parties Conference (1928).
-*   **Jinnah's 14 Points (1929):** Following the "Parting of Ways," Jinnah formulated his 14 points, which became the core of the Muslim League's future demands.
+## 3. The Program: Boycott and Build
+The movement had a dual character:
+
+### Boycott (Negative Program)
+*   Surrender of titles and honorary offices.
+*   Boycott of government schools and colleges.
+*   Boycott of law courts (Lawyers like Motilal Nehru, C.R. Das, and Sardar Patel gave up their practice).
+*   Boycott of Legislative Councils.
+*   Boycott of foreign cloth and its public burning (bonfires).
+
+### Constructive (Positive Program)
+*   Establishment of **National Schools/Colleges** (Jamia Millia Islamia, Kashi/Bihar/Gujarat Vidyapiths).
+*   Promotion of Hindu-Muslim Unity.
+*   Removal of Untouchability.
+*   Establishment of the **Tilak Swaraj Fund** (collected over 1 Crore within months).
+*   Popularizing Charkha and Khadi.
 
 ---
 
-## 4. The Internal Conflict: Dominion Status vs Purna Swaraj
-A generational gap emerged within the Congress:
-*   **Old Guard (Gandhi, Motilal):** Favored **Dominion Status** as recommended by the Nehru Report.
-*   **Young Turks (Jawaharlal Nehru, Subhash Bose):** Founded the **Independence for India League (1928)** and demanded **Complete Independence (Purna Swaraj)**.
-*   **Calcutta Session (1928) Compromise:** Gandhi proposed a one-year ultimatum to the Government to accept the Nehru Report. If not accepted, the Congress would launch a struggle for Purna Swaraj.
+## 4. The Mass Surge and Regional Responses
+*   **AITUC (1920):** The All India Trade Union Congress was founded in Oct 1920. First President: **Lala Lajpat Rai**.
+*   **Students:** Subhash Chandra Bose became the principal of National College, Calcutta.
+*   **Women:** Participated in large numbers. **Basanti Devi** (C.R. Das's wife) was arrested, sparking outrage.
+*   **Prince of Wales Visit (Nov 1921):** Met with total strikes and "ghost cities" across India.
+*   **Regional Fires:**
+    *   **Moplah Rebellion (Kerala):** Peasant revolt against landlords that later took a communal turn.
+    *   **Akali Movement (Punjab):** To liberate Gurdwaras from corrupt Mahants.
+    *   **Eka Movement (UP):** Led by Madari Pasi, focused on peasant unity.
+    *   **Bijolia (Rajasthan):** Anti-feudal peasant movement led by Vijay Singh Pathik.
 
 ---
 
-## 5. The Road to Lahore and Purna Swaraj (1929)
-*   **Failed Negotiations:** Viceroy Irwin made a vague "Dominion Status" offer but refused any commitment to its implementation in meetings with Gandhi and Nehru (Dec 1929).
-*   **Lahore session (Dec 1929):**
-    *   **President:** Jawaharlal Nehru.
-    *   **The Resolution:** The goal of the Congress was changed to **Purna Swaraj**.
-    *   **Midnight, Dec 31, 1929:** The newly adopted tricolor flag was hoisted on the banks of the **River Ravi**.
-    *   **Jan 26, 1930:** Was celebrated as the first **Independence Day** across India.
+## 5. The Sudden End: Chauri Chaura (1922)
+*   **The Incident (Feb 5, 1922):** In Chauri Chaura (Gorakhpur), a violent mob set fire to a police station, killing 22 policemen.
+*   **The Withdrawal:** Gandhi, strictly adhering to non-violence, immediately called off the movement via the **Bardoli Resolution (Feb 12, 1922)**.
+*   **Reactions:** Young leaders like Nehru and Bose were shocked. Bose called it a "national calamity."
+*   **The Aftermath:** Gandhi was arrested in March 1922 and sentenced to 6 years (The Great Trial). The Congress later split at the **Gaya Session (Dec 1922)** into Pro-Changers and No-Changers.
     `
 };

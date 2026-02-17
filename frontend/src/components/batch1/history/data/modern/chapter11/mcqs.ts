@@ -7,7 +7,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["A.O. Hume", "Lord Dufferin", "W.C. Bonnerjee", "Dadabhai Naoroji"],
         correctAnswer: 0,
         explanation: "Allan Octavian Hume, a retired English civil servant, played a key role in organizing the first session of the INC.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 {
         id: '11-2',
@@ -15,7 +16,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Release growing discontent of Indians safely", "Promote British trade", "Recruit Indians for the army", "Spread Christianity"],
         correctAnswer: 0,
         explanation: "The theory posits that Hume and the British wanted a forum for Indians to vent their grievances to prevent a violent uprising like 1857.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
 {
         id: '11-3',
@@ -23,7 +25,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Dadabhai Naoroji", "Badruddin Tyabji", "George Yule", "W.C. Bonnerjee"],
         correctAnswer: 0,
         explanation: "Dadabhai Naoroji presided over the second session.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
 {
         id: '11-4',
@@ -31,7 +34,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["72", "100", "300", "56"],
         correctAnswer: 0,
         explanation: "72 delegates attended the first session in Bombay in 1885.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 {
         id: '11-5',
@@ -39,7 +43,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Annie Besant", "Sarojini Naidu", "Nellie Sengupta", "Indira Gandhi"],
         correctAnswer: 0,
         explanation: "Annie Besant became the first woman president in 1917. Sarojini Naidu was the first Indian woman president (1925).",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
 {
         id: '11-7',
@@ -47,7 +52,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Lord Dufferin", "Lord Ripon", "Lord Lytton", "Lord Curzon"],
         correctAnswer: 0,
         explanation: "Lord Dufferin (1884-1888) was the Viceroy when the INC was formed in 1885.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
 {
         id: '11-8',
@@ -55,7 +61,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["George Yule", "William Wedderburn", "Alfred Webb", "Henry Cotton"],
         correctAnswer: 0,
         explanation: "George Yule presided over the 1888 session at Allahabad.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 {
         id: '11-9',
@@ -63,7 +70,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Lord Curzon", "Lord Minto", "Lord Hardinge", "Lord Chelmsford"],
         correctAnswer: 0,
         explanation: "Lord Curzon announced the partition of Bengal to curb the rising nationalism.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
 {
         id: '11-10',
@@ -71,7 +79,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Aurobindo Ghosh", "B.G. Tilak", "Bipin Chandra Pal", "Lala Lajpat Rai"],
         correctAnswer: 0,
         explanation: "Aurobindo Ghosh and other extremists criticized the Moderate's method of petitioning as 'political mendicancy' or begging.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
 {
         id: '11-11',
@@ -79,7 +88,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["G.K. Gokhale", "Dadabhai Naoroji", "Pherozeshah Mehta", "R.C. Dutt"],
         correctAnswer: 0,
         explanation: "Gopal Krishna Gokhale presided over the 1905 session where the Swadeshi movement was supported.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 {
         id: '11-12',
@@ -87,7 +97,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Surat (1907)", "Calcutta (1906)", "Benaras (1905)", "Madras (1908)"],
         correctAnswer: 0,
         explanation: "The Surat Split occurred in 1907 ending in the expulsion of Extremists.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
 {
         id: '11-13',
@@ -95,7 +106,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Dadabhai Naoroji", "Rashbehari Ghosh", "Tilak", "Gokhale"],
         correctAnswer: 0,
         explanation: "Dadabhai Naoroji presided and declared 'Swaraj' or self-government as the goal.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
 {
         id: '11-15',
@@ -103,7 +115,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["A.C. Majumdar", "Annie Besant", "Tilak", "M.A. Jinnah"],
         correctAnswer: 0,
         explanation: "Ambica Charan Majumdar presided over the historic Lucknow session.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 {
         id: '11-16',
@@ -111,7 +124,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Jawaharlal Nehru", "Subhash Chandra Bose", "Abul Kalam Azad", "Rajendra Prasad"],
         correctAnswer: 0,
         explanation: "Jawaharlal Nehru presided over the Lucknow (1936) and Faizpur (1937) sessions.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
 {
         id: '11-17',
@@ -119,7 +133,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Belgaum (1924)", "Calcutta (1928)", "Lahore (1929)", "Karachi (1931)"],
         correctAnswer: 0,
         explanation: "Gandhi presided over the Belgaum session in 1924.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
 {
         id: '11-18',
@@ -127,7 +142,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["J.B. Kripalani", "Jawaharlal Nehru", "Maulana Azad", "Rajendra Prasad"],
         correctAnswer: 0,
         explanation: "J.B. Kripalani was the President of the INC at the time of independence in 1947.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 {
         id: '11-19',
@@ -135,7 +151,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Lahore (1929)", "Calcutta (1928)", "Karachi (1931)", "Madras (1927)"],
         correctAnswer: 0,
         explanation: "The Lahore Session (1929) under Nehru passed the Purna Swaraj resolution.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
 {
         id: '11-20',
@@ -143,7 +160,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Pattabhi Sitaramayya", "Jawaharlal Nehru", "Rajendra Prasad", "Maulana Azad"],
         correctAnswer: 0,
         explanation: "Bose defeated Pattabhi Sitaramayya, who was Gandhi's candidate.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
 {
         id: '11-21',
@@ -151,7 +169,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Maulana Abul Kalam Azad", "Jawaharlal Nehru", "Dadabhai Naoroji", "Rajendra Prasad"],
         correctAnswer: 0,
         explanation: "Maulana Azad served from 1940 to 1946.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 {
         id: '11-22',
@@ -159,7 +178,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Poona", "Calcutta", "Madras", "Surat"],
         correctAnswer: 0,
         explanation: "It was planned for Poona but shifted to Bombay.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
 {
         id: '11-23',
@@ -167,7 +187,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Dadabhai Naoroji", "W.C. Bonnerjee", "Gokhale", "Surendranath Banerjea"],
         correctAnswer: 0,
         explanation: "Dadabhai Naoroji asserted this demand for justice and rights.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
 {
         id: '11-24',
@@ -175,7 +196,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Sarojini Naidu", "Annie Besant", "Nellie Sengupta", "Indira Gandhi"],
         correctAnswer: 0,
         explanation: "Sarojini Naidu presided over the Kanpur session in 1925.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 {
         id: '11-26',
@@ -183,7 +205,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Lord Hardinge II", "Lord Minto", "Lord Curzon", "Lord Chelmsford"],
         correctAnswer: 0,
         explanation: "Lord Hardinge II annulled the partition at the Delhi Durbar in 1911.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
 {
         id: '11-28',
@@ -191,7 +214,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["A.O. Hume", "Dadabhai Naoroji", "W.C. Bonnerjee", "Gandhi"],
         correctAnswer: 0,
         explanation: "A.O. Hume is generally regarded as the father/founder of the INC.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
 {
         id: '11-29',
@@ -199,7 +223,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         options: ["Indian Councils Act, 1909", "Government of India Act, 1919", "Indian Councils Act, 1892", "Government of India Act, 1935"],
         correctAnswer: 0,
         explanation: "The Morley-Minto Reforms (1909) introduced separate electorates.",
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 {
         "id": 1,
@@ -1002,7 +1027,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-1-1771158318458',
@@ -1011,7 +1037,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-2-1771158318458',
@@ -1020,7 +1047,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Easy-3-1771158318458',
@@ -1029,7 +1057,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-4-1771158318458',
@@ -1038,7 +1067,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-5-1771158318458',
@@ -1047,7 +1077,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Easy-6-1771158318458',
@@ -1056,7 +1087,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-7-1771158318458',
@@ -1065,7 +1097,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-8-1771158318458',
@@ -1074,7 +1107,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Easy-9-1771158318458',
@@ -1083,7 +1117,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-10-1771158318458',
@@ -1092,7 +1127,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-11-1771158318458',
@@ -1101,7 +1137,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Easy-12-1771158318458',
@@ -1110,7 +1147,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-13-1771158318458',
@@ -1119,7 +1157,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-14-1771158318458',
@@ -1128,7 +1167,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Easy-15-1771158318458',
@@ -1137,7 +1177,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-16-1771158318458',
@@ -1146,7 +1187,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-17-1771158318458',
@@ -1155,7 +1197,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Easy-18-1771158318458',
@@ -1164,7 +1207,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-19-1771158318458',
@@ -1173,7 +1217,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-20-1771158318458',
@@ -1182,7 +1227,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Easy-21-1771158318458',
@@ -1191,7 +1237,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-22-1771158318458',
@@ -1200,7 +1247,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-23-1771158318458',
@@ -1209,7 +1257,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Easy-24-1771158318458',
@@ -1218,7 +1267,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-25-1771158318458',
@@ -1227,7 +1277,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-26-1771158318458',
@@ -1236,7 +1287,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Easy-27-1771158318458',
@@ -1245,7 +1297,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Easy-28-1771158318458',
@@ -1254,7 +1307,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Easy-29-1771158318458',
@@ -1263,7 +1317,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Easy',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-0-1771158318458',
@@ -1272,7 +1327,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-1-1771158318458',
@@ -1281,7 +1337,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-2-1771158318458',
@@ -1290,7 +1347,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-3-1771158318458',
@@ -1299,7 +1357,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-4-1771158318458',
@@ -1308,7 +1367,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-5-1771158318458',
@@ -1317,7 +1377,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-6-1771158318458',
@@ -1326,7 +1387,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-7-1771158318458',
@@ -1335,7 +1397,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-8-1771158318458',
@@ -1344,7 +1407,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-9-1771158318458',
@@ -1353,7 +1417,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-10-1771158318458',
@@ -1362,7 +1427,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-11-1771158318458',
@@ -1371,7 +1437,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-12-1771158318458',
@@ -1380,7 +1447,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-13-1771158318458',
@@ -1389,7 +1457,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-14-1771158318458',
@@ -1398,7 +1467,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-15-1771158318458',
@@ -1407,7 +1477,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-16-1771158318458',
@@ -1416,7 +1487,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-17-1771158318458',
@@ -1425,7 +1497,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-18-1771158318458',
@@ -1434,7 +1507,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-19-1771158318458',
@@ -1443,7 +1517,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-20-1771158318458',
@@ -1452,7 +1527,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-21-1771158318458',
@@ -1461,7 +1537,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-22-1771158318458',
@@ -1470,7 +1547,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-23-1771158318458',
@@ -1479,7 +1557,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-24-1771158318458',
@@ -1488,7 +1567,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-25-1771158318458',
@@ -1497,7 +1577,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-26-1771158318458',
@@ -1506,7 +1587,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Moderate-27-1771158318458',
@@ -1515,7 +1597,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Moderate-28-1771158318458',
@@ -1524,7 +1607,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Moderate-29-1771158318458',
@@ -1533,7 +1617,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-0-1771158318458',
@@ -1542,7 +1627,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-1-1771158318458',
@@ -1551,7 +1637,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-2-1771158318458',
@@ -1560,7 +1647,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-3-1771158318458',
@@ -1569,7 +1657,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-4-1771158318458',
@@ -1578,7 +1667,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-5-1771158318458',
@@ -1587,7 +1677,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-6-1771158318458',
@@ -1596,7 +1687,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-7-1771158318458',
@@ -1605,7 +1697,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-8-1771158318458',
@@ -1614,7 +1707,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-9-1771158318458',
@@ -1623,7 +1717,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-10-1771158318458',
@@ -1632,7 +1727,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-11-1771158318458',
@@ -1641,7 +1737,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-12-1771158318458',
@@ -1650,7 +1747,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-13-1771158318458',
@@ -1659,7 +1757,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-14-1771158318458',
@@ -1668,7 +1767,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-15-1771158318458',
@@ -1677,7 +1777,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-16-1771158318458',
@@ -1686,7 +1787,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-17-1771158318458',
@@ -1695,7 +1797,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-18-1771158318458',
@@ -1704,7 +1807,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-19-1771158318458',
@@ -1713,7 +1817,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-20-1771158318458',
@@ -1722,7 +1827,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-21-1771158318458',
@@ -1731,7 +1837,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-22-1771158318458',
@@ -1740,7 +1847,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-23-1771158318458',
@@ -1749,7 +1857,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-24-1771158318458',
@@ -1758,7 +1867,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-25-1771158318458',
@@ -1767,7 +1877,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-26-1771158318458',
@@ -1776,7 +1887,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
     {
         id: 'gen-ch11-Hard-27-1771158318458',
@@ -1785,7 +1897,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Moderate'
     },
     {
         id: 'gen-ch11-Hard-28-1771158318458',
@@ -1794,7 +1907,8 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Hard'
     },
     {
         id: 'gen-ch11-Hard-29-1771158318458',
@@ -1803,6 +1917,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
         difficulty: 'Hard',
-        chapterId: 11
+        chapterId: 11,
+        difficulty: 'Easy'
     },
 ];

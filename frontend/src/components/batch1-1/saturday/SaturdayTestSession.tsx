@@ -13,7 +13,8 @@ import {
     CheckCircle2,
     Bookmark,
     Timer,
-    Keyboard
+    Keyboard,
+    HelpCircle
 } from "lucide-react";
 import { ModuleMCQ } from "../data/saturday-test-data";
 import { recordBatchMCQResults } from "@/lib/analytics";
@@ -26,7 +27,7 @@ interface SaturdayTestSessionProps {
     onCancel: () => void;
 }
 
-export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind' | null;
+export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind' | 'other' | null;
 
 interface QuestionState {
     selectedAnswer: number | null;
@@ -304,6 +305,7 @@ const SaturdayTestSession: React.FC<SaturdayTestSessionProps> = ({
                                 { id: '50-50', label: '50-50', color: 'bg-blue-500', icon: AlertCircle },
                                 { id: 'one-option', label: 'One Option', color: 'bg-amber-500', icon: AlertCircle },
                                 { id: 'blind', label: 'Blind Guess', color: 'bg-red-500', icon: AlertCircle },
+                                { id: 'other', label: 'Other', color: 'bg-purple-500', icon: HelpCircle },
                             ].map((level) => (
                                 <button
                                     key={level.id}
