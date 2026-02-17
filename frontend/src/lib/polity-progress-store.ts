@@ -64,7 +64,11 @@ export function getProgressStore(): PolityProgressStore {
 
     const saved = localStorage.getItem(PROGRESS_STORE_KEY);
     if (saved) {
-        return JSON.parse(saved);
+        try {
+            return JSON.parse(saved);
+        } catch (e) {
+            console.error('Failed to parse polity progress:', e);
+        }
     }
 
     // Migrate from old storage format

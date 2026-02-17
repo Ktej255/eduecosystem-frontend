@@ -299,11 +299,24 @@ export const getYearWiseDistribution = () => {
     return Object.entries(map).map(([y, c]) => [Number(y), c] as [number, number]).sort((a, b) => b[0] - a[0]);
 };
 
-    .map(c => ({
-    id: c.chapterId,
-    title: c.chapterTitle,
-    expectedPYQs: Math.max(1, Math.round(c.totalPYQs / 4)) // Estimated
-}));
+// --- HIGH YIELD CHAPTERS (For Dashboard) ---
+export const HIGH_YIELD_CHAPTERS = [
+    { id: 8, title: 'Fundamental Rights', expectedPYQs: 15 },
+    { id: 23, title: 'Parliament', expectedPYQs: 12 },
+    { id: 17, title: 'President', expectedPYQs: 8 },
+    { id: 19, title: 'Emergency Provisions', expectedPYQs: 6 },
+    { id: 9, title: 'DPSP', expectedPYQs: 5 },
+    { id: 5, title: 'Preamble', expectedPYQs: 4 },
+    { id: 26, title: 'Supreme Court', expectedPYQs: 7 },
+    { id: 10, title: 'Fundamental Duties', expectedPYQs: 3 },
+    { id: 36, title: 'Panchayati Raj', expectedPYQs: 5 },
+    { id: 41, title: 'Scheduled Areas', expectedPYQs: 3 },
+    { id: 12, title: 'Basic Structure', expectedPYQs: 4 },
+    { id: 11, title: 'Amendment of Constitution', expectedPYQs: 4 }
+];
+
+// Removed dangling code block that caused syntax error
+// .map(c => ({ ... }))
 
 // --- SPECIFIC CHAPTER EXPORTS (Required by Modules) ---
 
