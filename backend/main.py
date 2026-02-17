@@ -140,9 +140,9 @@ print(f"CORS Credentials: {use_credentials}")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=all_cors_origins,
-    allow_origin_regex=r"https://.*\.vercel\.app", # Even more permissive for Vercel
-    allow_credentials=use_credentials,
+    allow_origins=["*"], # Extreme emergency measure to resolve persistent "Failed to fetch" for user
+    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["*"],
@@ -219,7 +219,7 @@ def read_root():
     return {
         "message": "Welcome to Eduecosystem Backend API",
         "status": "running",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "docs": "/docs"
     }
 
