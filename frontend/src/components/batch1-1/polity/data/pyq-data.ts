@@ -299,11 +299,29 @@ export const getYearWiseDistribution = () => {
     return Object.entries(map).map(([y, c]) => [Number(y), c] as [number, number]).sort((a, b) => b[0] - a[0]);
 };
 
-export const HIGH_YIELD_CHAPTERS = Object.values(PYQ_DATA_MAP)
-    .filter(c => c.totalPYQs > 0)
-    .sort((a, b) => b.totalPYQs - a.totalPYQs)
     .map(c => ({
-        id: c.chapterId,
-        title: c.chapterTitle,
-        expectedPYQs: Math.max(1, Math.round(c.totalPYQs / 4)) // Estimated
-    }));
+    id: c.chapterId,
+    title: c.chapterTitle,
+    expectedPYQs: Math.max(1, Math.round(c.totalPYQs / 4)) // Estimated
+}));
+
+// --- SPECIFIC CHAPTER EXPORTS (Required by Modules) ---
+
+export const PRESIDENT_PYQS = PYQ_DATA.filter(q =>
+    q.question.toLowerCase().includes('president') ||
+    q.topicIds.includes(20) ||
+    q.topicIds.includes(52) // Assuming 52 might be President in some mapping, or just text match
+);
+
+export const FUNDAMENTAL_RIGHTS_PYQS = PYQ_DATA.filter(q =>
+    q.topicIds.includes(8) ||
+    q.topicIds.includes(9) ||
+    q.topicIds.includes(10) ||
+    q.tags.includes('Fundamental Rights')
+);
+
+export const EMERGENCY_PYQS = PYQ_DATA.filter(q =>
+    q.topicIds.includes(19) ||
+    q.tags.includes('Emergency') ||
+    q.question.toLowerCase().includes('emergency')
+);
