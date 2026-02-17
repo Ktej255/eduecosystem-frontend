@@ -29,6 +29,8 @@ const SocietyDashboard = dynamic(() => import('@/components/batch1/society/Socie
 const ValueAdditionDashboard = dynamic(() => import('@/components/batch1/value-addition/ValueAdditionDashboard'), { loading: () => <div>Loading Value Addition...</div> });
 const IrHome = dynamic(() => import('@/components/batch1/international-relations/IrHome'), { loading: () => <div>Loading IR...</div> });
 
+import { GlobalErrorBoundary } from '@/components/GlobalErrorBoundary';
+
 import { useRouter } from 'next/navigation';
 
 type Batch1Tab = 'focus' | 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science' | 'art' | 'ethics' | 'ir' | 'security' | 'society' | 'value';
@@ -101,29 +103,31 @@ export default function Batch1Hub() {
 
             {/* Content Area */}
             <div>
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={activeTab}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        {activeTab === 'focus' && <FocusPortal />}
-                        {activeTab === 'polity' && <PolityHome />}
-                        {activeTab === 'history' && <HistoryHome />}
-                        {activeTab === 'geography' && <GeographyHome />}
-                        {activeTab === 'economy' && <EconomyHome />}
-                        {activeTab === 'environment' && <EnvironmentHome />}
-                        {activeTab === 'science' && <ScienceTechHome />}
-                        {activeTab === 'art' && <ArtCultureHome />}
-                        {activeTab === 'ethics' && <EthicsDashboard />}
-                        {activeTab === 'ir' && <IrHome />}
-                        {activeTab === 'security' && <SecurityDashboard />}
-                        {activeTab === 'society' && <SocietyDashboard />}
-                        {activeTab === 'value' && <ValueAdditionDashboard />}
-                    </motion.div>
-                </AnimatePresence>
+                <GlobalErrorBoundary fallbackTitle="Section Content Failed to Load">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            {activeTab === 'focus' && <FocusPortal />}
+                            {activeTab === 'polity' && <PolityHome />}
+                            {activeTab === 'history' && <HistoryHome />}
+                            {activeTab === 'geography' && <GeographyHome />}
+                            {activeTab === 'economy' && <EconomyHome />}
+                            {activeTab === 'environment' && <EnvironmentHome />}
+                            {activeTab === 'science' && <ScienceTechHome />}
+                            {activeTab === 'art' && <ArtCultureHome />}
+                            {activeTab === 'ethics' && <EthicsDashboard />}
+                            {activeTab === 'ir' && <IrHome />}
+                            {activeTab === 'security' && <SecurityDashboard />}
+                            {activeTab === 'society' && <SocietyDashboard />}
+                            {activeTab === 'value' && <ValueAdditionDashboard />}
+                        </motion.div>
+                    </AnimatePresence>
+                </GlobalErrorBoundary>
             </div>
         </div>
     );
