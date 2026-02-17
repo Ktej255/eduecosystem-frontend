@@ -34,6 +34,7 @@ from app.api.api_v1.endpoints import (
     progress,
     quizzes,
     assignments,
+    holistic,
 )
 
 
@@ -156,6 +157,9 @@ api_router.include_router(polity.router, prefix="/polity", tags=["polity"])
 # Attendance Tracking
 from app.api.api_v1.endpoints import attendance
 api_router.include_router(attendance.router, prefix="/attendance", tags=["attendance"])
+
+# Holistic & 36 Skills
+api_router.include_router(holistic.router, prefix="/holistic", tags=["holistic"])
 
 # Public Branding (Multi-Tenancy Phase 6)
 from app.api.api_v1.endpoints import branding

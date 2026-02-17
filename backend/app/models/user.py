@@ -17,6 +17,7 @@ class User(Base):
     is_superuser = Column(Boolean, default=False)
     full_name = Column(String, index=True)
     coins = Column(Integer, default=0)
+    xp = Column(Integer, default=0)
     streak_days = Column(Integer, default=0)
     token_version = Column(Integer, default=1)
     group_id = Column(Integer, ForeignKey("groups.id"), nullable=True, index=True)
@@ -206,6 +207,9 @@ class User(Base):
 
     # Retention System (FSRS-based knowledge decay tracking)
     topic_logs = relationship("UserTopicLog", back_populates="user", cascade="all, delete-orphan")
+
+    # Holistic & 36 Skills
+    skill_progress = relationship("StudentSkillProgress", back_populates="user", cascade="all, delete-orphan")
 
     # Attendance
     attendance_records = relationship(

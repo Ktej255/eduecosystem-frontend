@@ -12,6 +12,7 @@ import UniversalQuestionBank from '@/components/common/mcq/UniversalQuestionBank
 import { Layout, Clock, PenTool, BookOpen, Map, Target, Landmark, Scroll, Flag, Sparkles, Flame, FileQuestion } from 'lucide-react';
 import HistorySectionPlanner from './HistorySectionPlanner';
 import { HistorySection } from './data/history-schedule-registry';
+import HistoryRevisionDashboard from './revision/HistoryRevisionDashboard';
 
 import { useSearchParams } from 'next/navigation';
 
@@ -20,7 +21,7 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
     const initialTab = (searchParams.get('tab') as any) || 'dashboard';
     const initialSection = (searchParams.get('section') as HistorySection) || 'modern';
 
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'overview' | 'syllabus' | 'timeline' | 'mains' | 'visuals' | 'question_bank'>(initialTab);
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'overview' | 'syllabus' | 'timeline' | 'mains' | 'visuals' | 'question_bank' | 'revision'>(initialTab);
     const [selectedSection, setSelectedSection] = useState<HistorySection>(initialSection);
 
     const handleTopicSelect = (topicId: number) => {
@@ -58,6 +59,16 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
                                         }`}
                                 >0
                                     Study Dashboard
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab('revision')}
+                                    className={`px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center gap-2 border-2 ${activeTab === 'revision'
+                                        ? 'bg-amber-600 text-white border-amber-700 shadow-lg'
+                                        : 'text-amber-700 border-amber-200 hover:bg-amber-50 dark:hover:bg-amber-900/20'
+                                        }`}
+                                >
+                                    <Sparkles className="w-4 h-4" />
+                                    Revision Hub
                                 </button>
                                 <button
                                     onClick={() => setActiveTab('overview')}
@@ -194,6 +205,10 @@ export default function HistoryHome({ embedded = false }: { embedded?: boolean }
 
                 {activeTab === 'question_bank' && (
                     <UniversalQuestionBank initialSubject="history" />
+                )}
+
+                {activeTab === 'revision' && (
+                    <HistoryRevisionDashboard />
                 )}
             </div>
         </div >

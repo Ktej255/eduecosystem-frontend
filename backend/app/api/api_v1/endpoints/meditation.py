@@ -118,7 +118,7 @@ def get_meditation_overview(
         completed_days = len(completion_map.get(level_num, set()))
         total_days = level_config["days"]
         
-        is_unlocked = level_num == 1 or (
+        is_unlocked = level_num <= progress.unlocked_levels or (
             level_num - 1 in completion_map and 
             len(completion_map[level_num - 1]) >= MEDITATION_LEVELS[level_num - 1]["days"]
         )
@@ -798,7 +798,7 @@ def verify_level_purchase(
     # Unlock level for user (update progress)
     progress = get_or_create_progress(db, current_user.id)
     if progress.unlocked_levels < level_id:
-        progress.unlocked_levels = level_id
+        progress.unlocked_levels = max(progress.unlocked_levels, level_id)
     
     db.commit()
     db.refresh(purchase)

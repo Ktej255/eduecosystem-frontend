@@ -53,6 +53,7 @@ class MeditationProgressResponse(BaseModel):
     current_day: int
     total_streak: int
     preferred_session: str
+    unlocked_levels: int
     last_practice_date: Optional[datetime] = None
 
     class Config:

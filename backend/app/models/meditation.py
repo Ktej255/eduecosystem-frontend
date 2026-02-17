@@ -92,6 +92,7 @@ class MeditationProgress(Base):
     current_day = Column(Integer, default=1)
     total_streak = Column(Integer, default=0)
     preferred_session = Column(String(20), default="morning")  # morning/night
+    unlocked_levels = Column(Integer, default=1)  # Max level unlocked by purchase or completion
     last_practice_date = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())

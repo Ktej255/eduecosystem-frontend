@@ -249,3 +249,9 @@ from app.models.daily_action import (
     HabitLog,
     DailyReflection,
 )
+
+# Universal Sync
+from app.models.universal_progress import UniversalProgress
+
+# Holistic & 36 Skills
+from app.models.holistic import Skill, StudentSkillProgress
