@@ -38,6 +38,14 @@ import GoalSetting from "./GoalSetting";
 import WeakTopicsAlert from "./WeakTopicsAlert";
 
 export default function Batch1DeepReport({ embedded = false }: { embedded?: boolean }) {
+    return (
+        <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading Report...</div>}>
+            <Batch1DeepReportContent embedded={embedded} />
+        </React.Suspense>
+    );
+}
+
+function Batch1DeepReportContent({ embedded = false }: { embedded?: boolean }) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const defaultTab = searchParams.get('tab') || 'pomodoro';

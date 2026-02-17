@@ -13,6 +13,14 @@ import { motion } from 'framer-motion';
 import { MODERN_HISTORY_CHAPTERS } from '../history/data/modern/history-chapters';
 
 export default function CurrentAffairsCentral() {
+    return (
+        <React.Suspense fallback={<div className="p-8 text-center">Loading Current Affairs...</div>}>
+            <CurrentAffairsCentralContent />
+        </React.Suspense>
+    );
+}
+
+function CurrentAffairsCentralContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
 

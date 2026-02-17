@@ -17,6 +17,14 @@ import HistoryRevisionDashboard from './revision/HistoryRevisionDashboard';
 import { useSearchParams } from 'next/navigation';
 
 export default function HistoryHome({ embedded = false }: { embedded?: boolean }) {
+    return (
+        <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading History Module...</div>}>
+            <HistoryHomeContent embedded={embedded} />
+        </React.Suspense>
+    );
+}
+
+function HistoryHomeContent({ embedded = false }: { embedded?: boolean }) {
     const searchParams = useSearchParams();
     const initialTab = (searchParams.get('tab') as any) || 'dashboard';
     const initialSection = (searchParams.get('section') as HistorySection) || 'modern';

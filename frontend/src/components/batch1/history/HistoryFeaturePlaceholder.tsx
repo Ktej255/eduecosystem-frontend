@@ -11,7 +11,15 @@ interface HistoryFeaturePlaceholderProps {
     icon?: React.ElementType;
 }
 
-export default function HistoryFeaturePlaceholder({
+export default function HistoryFeaturePlaceholder(props: HistoryFeaturePlaceholderProps) {
+    return (
+        <React.Suspense fallback={<div className="min-h-screen bg-gray-50 flex items-center justify-center p-6 text-center">Loading Feature...</div>}>
+            <HistoryFeaturePlaceholderContent {...props} />
+        </React.Suspense>
+    );
+}
+
+function HistoryFeaturePlaceholderContent({
     title,
     description,
     icon: Icon = Construction
