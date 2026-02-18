@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
     Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2,
-    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow
+    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow, AlertTriangle
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -54,7 +54,15 @@ export default function PolityUnifiedDashboard() {
         setExpandedParts({ 'I': true });
 
         // Load SRS Stats
-        const stats = getSRSStats();
+        console.log("DEBUG: getSRSStats type:", typeof getSRSStats);
+        console.log("DEBUG: getPartColors type:", typeof getPartColors);
+        console.log("DEBUG: getTopicsByPart type:", typeof getTopicsByPart);
+
+        if (typeof getSRSStats !== 'function') {
+            console.error("CRITICAL IMPORT ERROR: getSRSStats is not a function", getSRSStats);
+        }
+
+        const stats = typeof getSRSStats === 'function' ? getSRSStats() : { due: 0, new: 0, learning: 0, review: 0 };
         setSrsDueCount(stats.due);
     }, []);
 
@@ -124,6 +132,31 @@ export default function PolityUnifiedDashboard() {
         const isCompleted = progress[topicId]?.completed;
         updateTopicProgress(topicId, { completed: !isCompleted });
     };
+
+    // Safety Check for Critical Imports
+    if (typeof getTopicsByPart !== 'function' || typeof getPartColors !== 'function') {
+        console.error("CRITICAL: Polity imports failed resolution", {
+            getTopicsByPart: typeof getTopicsByPart,
+            getPartColors: typeof getPartColors,
+            getSRSStats: typeof getSRSStats
+        });
+        return (
+            <div className="p-8 flex flex-col items-center justify-center text-center space-y-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center text-red-600">
+                    <AlertTriangle className="w-8 h-8" />
+                </div>
+                <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200">System Module Error</h2>
+                <p className="text-gray-600 dark:text-gray-400 max-w-md">
+                    Some Polity modules failed to load correctly. This might be due to a deployment issue.
+                    Please refresh the page.
+                </p>
+                <code className="bg-gray-100 p-2 rounded text-xs text-red-500">
+                    ErrorCodes: {typeof getTopicsByPart === 'function' ? 'OK' : 'ERR_TOPICS'} |
+                    {typeof getPartColors === 'function' ? 'OK' : 'ERR_COLORS'}
+                </code>
+            </div>
+        );
+    }
 
     return (
         <div className="space-y-6 max-w-7xl mx-auto p-4 md:p-6 pb-24">
