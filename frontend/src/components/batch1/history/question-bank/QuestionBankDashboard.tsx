@@ -164,7 +164,6 @@ export default function QuestionBankDashboard() {
                                         }`}>
                                         Level {q.level}
                                     </Badge>
-                                    <span className="text-xs text-gray-400 font-mono">ID: {q.id}</span>
                                 </div>
                                 <CardTitle className="text-sm font-medium leading-relaxed mt-2 line-clamp-3">
                                     {q.question}

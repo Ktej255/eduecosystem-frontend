@@ -267,7 +267,18 @@ const StandardTestReport: React.FC<TestReportProps> = ({ results, onBack, onReta
                             </div>
                         </div>
 
-                        <Button className="w-full mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 border-none">
+                        <style jsx global>{`
+                            @media print {
+                                body { background: white !important; color: black !important; }
+                                .no-print, button, [role="button"] { display: none !important; }
+                                .print-content { display: block !important; }
+                                * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+                            }
+                        `}</style>
+                        <Button
+                            className="w-full mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 border-none no-print"
+                            onClick={() => window.print()}
+                        >
                             Download Detailed PDF
                         </Button>
                     </Card>

@@ -48,7 +48,11 @@ export default function PolityUnifiedDashboard() {
     useEffect(() => {
         const saved = localStorage.getItem('polity_95_progress');
         if (saved) {
-            setProgress(JSON.parse(saved));
+            try {
+                setProgress(JSON.parse(saved));
+            } catch (e) {
+                console.error("Failed to parse polity progress", e);
+            }
         }
         // Expand first part by default
         setExpandedParts({ 'I': true });
