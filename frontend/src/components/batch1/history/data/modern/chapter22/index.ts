@@ -1,3 +1,3 @@
+export { MODERN_CHAPTER_22_MCQS } from './mcqs';
 export * from './content';
-export * from './mcqs';
 export * from './subtopics';

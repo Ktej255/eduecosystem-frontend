@@ -1,5 +1,4 @@
-```typescript
-import { Question } from '../../../../types';
+﻿import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
@@ -194,7 +193,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-0-1771158191970',
         question: "'Nationalist Response in the Wake of World War II' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Nationalist Response in the Wake of World War II involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -204,7 +203,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-1-1771158191970',
         question: "During the phase of 'Nationalist Response in the Wake of World War II', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Nationalist Response in the Wake of World War II was establishing control.",
         difficulty: 'Easy',
@@ -214,7 +213,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-2-1771158191970',
         question: "Which key figure is central to the events described in 'Nationalist Response in the Wake of World War II'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Nationalist Response in the Wake of World War II.",
         difficulty: 'Easy',
@@ -224,7 +223,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-3-1771158191970',
         question: "'Nationalist Response in the Wake of World War II' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Nationalist Response in the Wake of World War II involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -234,7 +233,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-4-1771158191970',
         question: "During the phase of 'Nationalist Response in the Wake of World War II', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Nationalist Response in the Wake of World War II was establishing control.",
         difficulty: 'Easy',
@@ -244,7 +243,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-5-1771158191970',
         question: "Which key figure is central to the events described in 'Nationalist Response in the Wake of World War II'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Nationalist Response in the Wake of World War II.",
         difficulty: 'Easy',
@@ -254,7 +253,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-6-1771158191970',
         question: "'Nationalist Response in the Wake of World War II' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Nationalist Response in the Wake of World War II involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -264,7 +263,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-7-1771158191970',
         question: "During the phase of 'Nationalist Response in the Wake of World War II', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Nationalist Response in the Wake of World War II was establishing control.",
         difficulty: 'Easy',
@@ -274,7 +273,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-8-1771158191970',
         question: "Which key figure is central to the events described in 'Nationalist Response in the Wake of World War II'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Nationalist Response in the Wake of World War II.",
         difficulty: 'Easy',
@@ -284,7 +283,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-9-1771158191970',
         question: "'Nationalist Response in the Wake of World War II' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Nationalist Response in the Wake of World War II involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -294,7 +293,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-10-1771158191970',
         question: "During the phase of 'Nationalist Response in the Wake of World War II', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Nationalist Response in the Wake of World War II was establishing control.",
         difficulty: 'Easy',
@@ -304,7 +303,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-11-1771158191970',
         question: "Which key figure is central to the events described in 'Nationalist Response in the Wake of World War II'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Nationalist Response in the Wake of World War II.",
         difficulty: 'Easy',
@@ -314,7 +313,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-12-1771158191970',
         question: "'Nationalist Response in the Wake of World War II' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Nationalist Response in the Wake of World War II involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -324,7 +323,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-13-1771158191970',
         question: "During the phase of 'Nationalist Response in the Wake of World War II', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Nationalist Response in the Wake of World War II was establishing control.",
         difficulty: 'Easy',
@@ -334,7 +333,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-14-1771158191970',
         question: "Which key figure is central to the events described in 'Nationalist Response in the Wake of World War II'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Nationalist Response in the Wake of World War II.",
         difficulty: 'Easy',
@@ -344,7 +343,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-15-1771158191970',
         question: "'Nationalist Response in the Wake of World War II' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Nationalist Response in the Wake of World War II involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -354,7 +353,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-16-1771158191970',
         question: "During the phase of 'Nationalist Response in the Wake of World War II', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Nationalist Response in the Wake of World War II was establishing control.",
         difficulty: 'Easy',
@@ -364,7 +363,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-17-1771158191970',
         question: "Which key figure is central to the events described in 'Nationalist Response in the Wake of World War II'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Nationalist Response in the Wake of World War II.",
         difficulty: 'Easy',
@@ -374,7 +373,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-18-1771158191970',
         question: "'Nationalist Response in the Wake of World War II' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Nationalist Response in the Wake of World War II involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -384,7 +383,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Easy-19-1771158191970',
         question: "During the phase of 'Nationalist Response in the Wake of World War II', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Nationalist Response in the Wake of World War II was establishing control.",
         difficulty: 'Easy',
@@ -394,7 +393,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-0-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -404,7 +403,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-1-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -414,7 +413,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-2-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -424,7 +423,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-3-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -434,7 +433,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-4-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -444,7 +443,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-5-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -454,7 +453,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-6-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -464,7 +463,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-7-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -474,7 +473,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-8-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -484,7 +483,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-9-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -494,7 +493,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-10-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -504,7 +503,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-11-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -514,7 +513,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-12-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -524,7 +523,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-13-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -534,7 +533,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-14-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -544,7 +543,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-15-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -554,7 +553,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-16-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -564,7 +563,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-17-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -574,7 +573,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-18-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -584,7 +583,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-19-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -594,7 +593,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-20-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -604,7 +603,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-21-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -614,7 +613,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Moderate-22-1771158191970',
         question: "Consider the following statements regarding 'Nationalist Response in the Wake of World War II':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Nationalist Response in the Wake of World War II shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -624,7 +623,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-0-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -634,7 +633,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-1-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -644,7 +643,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-2-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -654,7 +653,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-3-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -664,7 +663,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-4-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -674,7 +673,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-5-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -684,7 +683,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-6-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -694,7 +693,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-7-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -704,7 +703,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-8-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -714,7 +713,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-9-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -724,7 +723,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-10-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -734,7 +733,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-11-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -744,7 +743,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-12-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -754,7 +753,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-13-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -764,7 +763,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-14-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -774,7 +773,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-15-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -784,7 +783,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-16-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -794,7 +793,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-17-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -804,7 +803,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-18-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -814,7 +813,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-19-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -824,7 +823,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-20-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -834,7 +833,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-21-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -844,7 +843,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-22-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -854,7 +853,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-23-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -864,7 +863,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-24-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -874,7 +873,7 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
     {
         id: 'gen-ch22-Hard-25-1771158191970',
         question: "Assertion (A): The developments during 'Nationalist Response in the Wake of World War II' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Nationalist Response in the Wake of World War II.",
         difficulty: 'Hard',
@@ -882,4 +881,3 @@ export const MODERN_CHAPTER_22_MCQS: any[] = [
         difficulty: 'Hard'
     },
 ];
-```

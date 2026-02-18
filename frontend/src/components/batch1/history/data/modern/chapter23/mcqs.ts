@@ -1,5 +1,4 @@
-```typescript
-import { Question } from '../../../../types';
+﻿import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
@@ -230,7 +229,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-0-1771158191972',
         question: "'Quit India Movement, Demand for Pakistan, and INA' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -240,7 +239,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-1-1771158191972',
         question: "During the phase of 'Quit India Movement, Demand for Pakistan, and INA', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
@@ -250,7 +249,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-2-1771158191972',
         question: "Which key figure is central to the events described in 'Quit India Movement, Demand for Pakistan, and INA'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
@@ -260,7 +259,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-3-1771158191972',
         question: "'Quit India Movement, Demand for Pakistan, and INA' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -270,7 +269,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-4-1771158191972',
         question: "During the phase of 'Quit India Movement, Demand for Pakistan, and INA', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
@@ -280,7 +279,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-5-1771158191972',
         question: "Which key figure is central to the events described in 'Quit India Movement, Demand for Pakistan, and INA'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
@@ -290,7 +289,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-6-1771158191972',
         question: "'Quit India Movement, Demand for Pakistan, and INA' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -300,7 +299,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-7-1771158191972',
         question: "During the phase of 'Quit India Movement, Demand for Pakistan, and INA', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
@@ -310,7 +309,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-8-1771158191972',
         question: "Which key figure is central to the events described in 'Quit India Movement, Demand for Pakistan, and INA'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
@@ -320,7 +319,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-9-1771158191972',
         question: "'Quit India Movement, Demand for Pakistan, and INA' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -330,7 +329,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-10-1771158191972',
         question: "During the phase of 'Quit India Movement, Demand for Pakistan, and INA', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
@@ -340,7 +339,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-11-1771158191972',
         question: "Which key figure is central to the events described in 'Quit India Movement, Demand for Pakistan, and INA'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
@@ -350,7 +349,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-12-1771158191972',
         question: "'Quit India Movement, Demand for Pakistan, and INA' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -360,7 +359,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-13-1771158191972',
         question: "During the phase of 'Quit India Movement, Demand for Pakistan, and INA', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
@@ -370,7 +369,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-14-1771158191972',
         question: "Which key figure is central to the events described in 'Quit India Movement, Demand for Pakistan, and INA'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
@@ -380,7 +379,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-15-1771158191972',
         question: "'Quit India Movement, Demand for Pakistan, and INA' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -390,7 +389,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-16-1771158191972',
         question: "During the phase of 'Quit India Movement, Demand for Pakistan, and INA', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
@@ -400,7 +399,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-17-1771158191972',
         question: "Which key figure is central to the events described in 'Quit India Movement, Demand for Pakistan, and INA'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
@@ -410,7 +409,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-18-1771158191972',
         question: "'Quit India Movement, Demand for Pakistan, and INA' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -420,7 +419,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-19-1771158191972',
         question: "During the phase of 'Quit India Movement, Demand for Pakistan, and INA', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Quit India Movement, Demand for Pakistan, and INA was establishing control.",
         difficulty: 'Easy',
@@ -430,7 +429,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-20-1771158191972',
         question: "Which key figure is central to the events described in 'Quit India Movement, Demand for Pakistan, and INA'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Easy',
@@ -440,7 +439,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Easy-21-1771158191972',
         question: "'Quit India Movement, Demand for Pakistan, and INA' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Quit India Movement, Demand for Pakistan, and INA involved major shifts in the political landscape.",
         difficulty: 'Easy',
@@ -450,7 +449,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-0-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -460,7 +459,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-1-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -470,7 +469,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-2-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -480,7 +479,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-3-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -490,7 +489,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-4-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -500,7 +499,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-5-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -510,7 +509,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-6-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -520,7 +519,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-7-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -530,7 +529,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-8-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -540,7 +539,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-9-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -550,7 +549,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-10-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -560,7 +559,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-11-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -570,7 +569,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-12-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -580,7 +579,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-13-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -590,7 +589,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-14-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -600,7 +599,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-15-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -610,7 +609,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-16-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -620,7 +619,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-17-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -630,7 +629,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-18-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -640,7 +639,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Moderate-19-1771158191972',
         question: "Consider the following statements regarding 'Quit India Movement, Demand for Pakistan, and INA':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Quit India Movement, Demand for Pakistan, and INA shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
@@ -650,7 +649,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-0-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -660,7 +659,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-1-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -670,7 +669,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-2-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -680,7 +679,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-3-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -690,7 +689,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-4-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -700,7 +699,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-5-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -710,7 +709,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-6-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -720,7 +719,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-7-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -730,7 +729,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-8-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -740,7 +739,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-9-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -750,7 +749,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-10-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -760,7 +759,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-11-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -770,7 +769,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-12-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -780,7 +779,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-13-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -790,7 +789,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-14-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -800,7 +799,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-15-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -810,7 +809,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-16-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -820,7 +819,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-17-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -830,7 +829,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-18-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -840,7 +839,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-19-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -850,7 +849,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-20-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -860,7 +859,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-21-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -870,7 +869,7 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
     {
         id: 'gen-ch23-Hard-22-1771158191972',
         question: "Assertion (A): The developments during 'Quit India Movement, Demand for Pakistan, and INA' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Quit India Movement, Demand for Pakistan, and INA.",
         difficulty: 'Hard',
@@ -878,4 +877,3 @@ export const MODERN_CHAPTER_23_MCQS: any[] = [
         difficulty: 'Moderate'
     },
 ];
-```

@@ -1,7 +1,7 @@
 import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_2_MCQS: any[] = [
-{
+    {
         id: "H2-M-01",
         question: "In the context of Colonial Historiography, the term 'Orientalist' representation of India implies:",
         options: [
@@ -15,7 +15,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-02",
         question: "Which of the following describes the 'Colonial Approach' to Indian history?",
         options: [
@@ -29,7 +29,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-03",
         question: "The concept of 'Social Darwinism' in colonial historiography refers to:",
         options: [
@@ -43,7 +43,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-04",
         question: "Who among the following is a prominent example of a Colonial/Imperialist historian?",
         options: [
@@ -57,7 +57,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-05",
         question: "The term 'Pax Britannica' refers to:",
         options: [
@@ -71,7 +71,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-06",
         question: "James Mill's 'History of British India' was significant because:",
         options: [
@@ -85,7 +85,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-07",
         question: "The Nationalist approach to Indian history evolved primarily as a:",
         options: [
@@ -99,7 +99,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-08",
         question: "Who among the following was NOT a proponent of the economic critique of colonialism?",
         options: [
@@ -113,7 +113,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-09",
         question: "Who wrote the book 'Desher Katha' (1904) popularising nationalist economic ideas?",
         options: [
@@ -127,7 +127,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-10",
         question: "The Nationalist historians prior to 1947 mainly dealt with:",
         options: [
@@ -141,7 +141,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-11",
         question: "Which of the following is a characteristic of Nationalist Historiography?",
         options: [
@@ -155,7 +155,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-12",
         question: "R.C. Majumdar and Tara Chand are associated with which school of historiography?",
         options: [
@@ -169,7 +169,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-13",
         question: "Which two books heralded the beginning of the Marxist approach in India?",
         options: [
@@ -183,7 +183,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-14",
         question: "Unlike Nationalists, Marxist historians take full note of:",
         options: [
@@ -197,7 +197,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-15",
         question: "Rajni Palme Dutt's paradigm has been criticized by later Marxist historians like Sumit Sarkar for:",
         options: [
@@ -211,7 +211,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-16",
         question: "A.R. Desai traces the growth of the national movement in how many phases?",
         options: [
@@ -225,7 +225,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-17",
         question: "The Marxist view often sees the national movement as a movement of the:",
         options: [
@@ -239,7 +239,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-18",
         question: "The Subaltern School of historiography began under the editorship of:",
         options: [
@@ -253,7 +253,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-19",
         question: "What is the main critique of existing historiography by the Subaltern school?",
         options: [
@@ -267,7 +267,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-20",
         question: "According to Subaltern historians, the basic contradiction was between:",
         options: [
@@ -281,7 +281,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-21",
         question: "How do Subaltern historians view the Indian National Congress?",
         options: [
@@ -295,7 +295,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-22",
         question: "The Subaltern school disagrees with the Marxist view that:",
         options: [
@@ -309,7 +309,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-23",
         question: "The 'Communalist Approach' views medieval Indian history as:",
         options: [
@@ -323,7 +323,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-26",
         question: "Pandita Ramabai's 'The High Caste Hindu Woman' (1887) is an example of:",
         options: [
@@ -337,7 +337,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-27",
         question: "Katherine Mayo's 'Mother India' (1927) was:",
         options: [
@@ -351,7 +351,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-28",
         question: "The Communalist approach argues that 19th-20th century Muslims had the 'happy memory' of:",
         options: [
@@ -365,7 +365,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-29",
         question: "Which approach suggests that Indian nationalism was not an anti-imperialist struggle but a conflict among Indians?",
         options: [
@@ -379,7 +379,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-30",
         question: "Feminist historiography primarily focuses on:",
         options: [
@@ -393,7 +393,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-31",
         question: "Match the Historian/Author with their specific Approach:",
         options: [
@@ -407,7 +407,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-32",
         question: "Which approach is criticized for taking the 'mind or ideals' out of human behavior?",
         options: [
@@ -421,7 +421,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-33",
         question: "Before 1947, Nationalist historiography was primarily a response to:",
         options: [
@@ -435,7 +435,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-35",
         question: "Who among the following was a Liberal/Neo-Liberal historian?",
         options: [
@@ -449,7 +449,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     },
-{
+    {
         id: "H2-M-36",
         question: "Which approach claims to replace 'blinkered' elite historiography with a 'people's approach'?",
         options: [
@@ -463,7 +463,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Hard'
     },
-{
+    {
         id: "H2-M-38",
         question: "According to the Feminist approach, women's vulnerability was exacerbated by:",
         options: [
@@ -477,7 +477,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Easy'
     },
-{
+    {
         id: "H2-M-40",
         question: "Which historian is known for making a critique of R.P. Dutt's Marxist paradigm?",
         options: [
@@ -491,8 +491,8 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         chapterId: 2,
         difficulty: 'Moderate'
     }
-,
-{
+    ,
+    {
         id: 1,
         question: "Which of the following statements best describes the 'Colonial Approach' to the history of India?\n1. It criticized the British intervention in Indian society as unnecessary interference.\n2. It portrayed India as a stagnant society that required British guidance to progress.\n3. It actively promoted the idea of India as a single unified nation before British arrival.",
         options: ["1 only", "2 only", "2 and 3 only", "1, 2 and 3"],
@@ -501,7 +501,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'colonial',
         difficulty: 'Easy'
     },
-{
+    {
         id: 2,
         question: "Who among the following is the author of \"The History of British India\", a text that heavily influenced the colonial categorization of Indian history into Hindu, Muslim, and British periods?",
         options: ["William Jones", "James Mill", "Vincent Smith", "Thomas Macaulay"],
@@ -510,7 +510,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'colonial',
         difficulty: 'Easy'
     },
-{
+    {
         id: 4,
         question: "Which of the following is a major criticism often leveled against early 'Nationalist Historiography'?",
         options: ["It focused too much on the economic exploitation by the British.", "It ignored the internal contradictions of Indian society, such as caste and class oppression.", "It portrayed the British rule as entirely beneficial for India's modernization.", "It completely neglected the role of the educated middle class."],
@@ -519,7 +519,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'nationalist',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 5,
         question: "The work \"The Economic History of India\", which provided a devastating critique of British colonial economic policies, was written by:",
         options: ["Dadabhai Naoroji", "R.C. Dutt", "M.G. Ranade", "G.K. Gokhale"],
@@ -528,7 +528,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'nationalist',
         difficulty: 'Easy'
     },
-{
+    {
         id: 6,
         question: "According to the 'Marxist Approach' to Indian history, the \"Primary Contradiction\" in colonial India was between:",
         options: ["The Hindu and Muslim communities.", "The interests of the Indian people and the British colonial interests.", "The Indian peasantry and the Indian landlords.", "The Upper Caste elite and the Dalits."],
@@ -537,7 +537,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'marxist',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 7,
         question: "Consider the following pairs of Authors and their famous works (Marxist School):\n1. R.P. Dutt: India Today\n2. A.R. Desai: Social Background of Indian Nationalism\n3. Bipan Chandra: The Rise and Growth of Economic Nationalism in India\n\nWhich of the pairs given above are correctly matched?",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
@@ -546,7 +546,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'marxist',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 9,
         question: "Which of the following statements accurately reflects the core argument of the 'Subaltern Approach'?",
         options: ["History is shaped primarily by the decisions of the Governor-Generals.", "The Indian National Congress fully represented the aspirations of the masses.", "There is a basic contradiction between the elite (both colonial and indigenous) and the masses (subalterns).", "Religious identity is the sole driving force of Indian history."],
@@ -555,7 +555,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'subaltern',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 10,
         question: "Unlike the Marxist approach, the Subaltern approach:",
         options: ["Ignores the economic factor completely.", "Rejects the notion that the 'people' had their own independent agency.", "Criticizes the Marxist view for merging the distinct voice of the masses with the elite nationalist movement.", "Supports the Colonial claim of a 'Civilizing Mission'."],
@@ -564,7 +564,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'subaltern',
         difficulty: 'Hard'
     },
-{
+    {
         id: 12,
         question: "According to Communal historiography, the 'Medieval Period' of Indian history is often portrayed as:",
         options: ["A golden age of synthesis.", "A period of foreign rule and decline of Indian civilization.", "A period of rapid industrialization.", "The age of the rise of Maratha power only."],
@@ -573,7 +573,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'communalist',
         difficulty: 'Easy'
     },
-{
+    {
         id: 14,
         question: "Who among the following scholars are associated with the 'Cambridge School' (also known as the Namierite approach)?\n1. Anil Seal\n2. John Gallagher\n3. Judith Brown\n\nSelect the correct answer using the code given below:",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2 and 3"],
@@ -582,7 +582,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'cambridge',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 15,
         question: "The concept of \"Patron-Client Relationships\" is a key explanatory tool in which historical approach?",
         options: ["Marxist", "Nationalist", "Cambridge", "Feminist"],
@@ -591,7 +591,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'cambridge',
         difficulty: 'Easy'
     },
-{
+    {
         id: 17,
         question: "The book \"The High Caste Hindu Woman\", a pioneering text in Feminist history, was written by:",
         options: ["Sarojini Naidu", "Pandita Ramabai", "Tarabai Shinde", "Madam Bhikaji Cama"],
@@ -600,7 +600,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'feminist',
         difficulty: 'Easy'
     },
-{
+    {
         id: 19,
         question: "Feminist historiography in India broadened its scope in the 1970s to focus on:",
         options: ["Biographies of queens like Rani Laxmibai only.", "The participation of women in the non-cooperation movement only.", "The structural analysis of gender discrimination and women's role in the household and society.", "The role of British women in the colonial administration."],
@@ -609,7 +609,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'feminist',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 20,
         question: "Which of the following is a criticism of the 'Neo-Liberal' view by economic nationalists?",
         options: ["Neo-liberals exaggerate the poverty of India.", "Neo-liberals ignore the destruction of indigenous handicrafts and the 'Drain of Wealth'.", "Neo-liberals focus too much on the role of religion.", "Neo-liberals deny the existence of the railway network."],
@@ -618,7 +618,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'liberal',
         difficulty: 'Hard'
     },
-{
+    {
         id: 21,
         question: "\"The British rule in India was a tool of history to push India into the modern capitalist world, despite its brutality.\" This view is most compatible with which early intellectual trend?",
         options: ["Gandhi's Hind Swaraj", "Karl Marx's articles on India", "The Cambridge School", "The Communal View"],
@@ -627,7 +627,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'marxist',
         difficulty: 'Hard'
     },
-{
+    {
         id: 22,
         question: "Consider the following statements regarding the 'Orientalist' sub-school of the Colonial approach:\n1. They had a deep respect for India's ancient classical tradition.\n2. They believed that India's \"Golden Age\" was in the past and the present was a state of decline.\n3. Max Muller is a prominent figure associated with this view.\n\nWhich of the statements given above are correct?",
         options: ["1 and 2 only", "2 and 3 only", "1 and 3 only", "1, 2, and 3"],
@@ -636,7 +636,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'colonial',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 23,
         question: "Which approach would most likely describe the Indian National Congress as a \"Microscopic Minority\"?",
         options: ["Nationalist", "Colonial", "Marxist", "Subaltern"],
@@ -645,7 +645,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'colonial',
         difficulty: 'Easy'
     },
-{
+    {
         id: 24,
         question: "A historian writes: \"The Congress leaders were not selfless patriots but power-brokers competing for seats in the legislative councils.\" This historian likely belongs to:",
         options: ["The Marxist School", "The Cambridge School", "The Nationalist School", "The Feminist School"],
@@ -654,7 +654,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'cambridge',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 25,
         question: "The term \"Drain of Wealth\" is the central thesis of which historiographical school?",
         options: ["Colonial", "Nationalist", "Subaltern", "Cambridge"],
@@ -663,7 +663,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'nationalist',
         difficulty: 'Easy'
     },
-{
+    {
         id: 26,
         question: "Who among the following historians provided a 'Liberal' interpretation, arguing that India benefited from the 'Pax Britannica' (British Peace)?",
         options: ["R.C. Dutt", "Lord Curzon", "Patrick O'Brien", "Ranajit Guha"],
@@ -672,7 +672,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'liberal',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 27,
         question: "Match the Scholar with their School of Thought:\nA. Vincent Smith -> 1. Marxist\nB. R.P. Dutt -> 2. Colonial\nC. Anil Seal -> 3. Subaltern\nD. Ranajit Guha -> 4. Cambridge\n\nSelect the correct answer:",
         options: ["A-2, B-1, C-4, D-3", "A-2, B-4, C-1, D-3", "A-1, B-2, C-3, D-4", "A-4, B-3, C-2, D-1"],
@@ -681,7 +681,7 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
         subtopic: 'colonial',
         difficulty: 'Moderate'
     },
-{
+    {
         id: 29,
         question: "Which of the following statements is INCORRECT regarding the Feminist approach?",
         options: ["It acknowledges that women were active agents in history, not just passive victims.", "It seeks to uncover the history of women's organizations like the All India Women's Conference.", "It argues that the National Movement fully resolved the issue of gender inequality.", "It critiques the patriarchal bias in traditional history writing."],
@@ -693,681 +693,613 @@ export const MODERN_CHAPTER_2_MCQS: any[] = [
     {
         id: 'gen-ch2-Easy-0-1771158191835',
         question: "'Major Approaches to the History of Modern India' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-1-1771158191836',
         question: "During the phase of 'Major Approaches to the History of Modern India', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-2-1771158191836',
         question: "Which key figure is central to the events described in 'Major Approaches to the History of Modern India'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-3-1771158191836',
         question: "'Major Approaches to the History of Modern India' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-4-1771158191836',
         question: "During the phase of 'Major Approaches to the History of Modern India', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-5-1771158191836',
         question: "Which key figure is central to the events described in 'Major Approaches to the History of Modern India'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-6-1771158191836',
         question: "'Major Approaches to the History of Modern India' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-7-1771158191836',
         question: "During the phase of 'Major Approaches to the History of Modern India', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-8-1771158191836',
         question: "Which key figure is central to the events described in 'Major Approaches to the History of Modern India'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-9-1771158191836',
         question: "'Major Approaches to the History of Modern India' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-10-1771158191836',
         question: "During the phase of 'Major Approaches to the History of Modern India', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-11-1771158191836',
         question: "Which key figure is central to the events described in 'Major Approaches to the History of Modern India'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-12-1771158191836',
         question: "'Major Approaches to the History of Modern India' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-13-1771158191836',
         question: "During the phase of 'Major Approaches to the History of Modern India', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-14-1771158191836',
         question: "Which key figure is central to the events described in 'Major Approaches to the History of Modern India'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-15-1771158191836',
         question: "'Major Approaches to the History of Modern India' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-16-1771158191836',
         question: "During the phase of 'Major Approaches to the History of Modern India', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-17-1771158191836',
         question: "Which key figure is central to the events described in 'Major Approaches to the History of Modern India'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-18-1771158191836',
         question: "'Major Approaches to the History of Modern India' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
+        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
         correctAnswer: 0,
         explanation: "Major Approaches to the History of Modern India involved major shifts in the political landscape.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-19-1771158191836',
         question: "During the phase of 'Major Approaches to the History of Modern India', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
+        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
         correctAnswer: 0,
         explanation: "The primary aim during Major Approaches to the History of Modern India was establishing control.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Easy-20-1771158191836',
         question: "Which key figure is central to the events described in 'Major Approaches to the History of Modern India'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
+        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
         correctAnswer: 0,
         explanation: "Key figures shaped the course of Major Approaches to the History of Modern India.",
         difficulty: 'Easy',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-0-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-1-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-2-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-3-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-4-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-5-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-6-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-7-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-8-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-9-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-10-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-11-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-12-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-13-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-14-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-15-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-16-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-17-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-18-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Moderate-19-1771158191836',
         question: "Consider the following statements regarding 'Major Approaches to the History of Modern India':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
         correctAnswer: 0,
         explanation: "Statement 1 is correct as Major Approaches to the History of Modern India shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
         difficulty: 'Moderate',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-0-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-1-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-2-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-3-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-4-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-5-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-6-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-7-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-8-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-9-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-10-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-11-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-12-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-13-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-14-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-15-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-16-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-17-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-18-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-19-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-20-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-21-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-22-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-23-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-24-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Hard'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-25-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Easy'
+        chapterId: 2
     },
     {
         id: 'gen-ch2-Hard-26-1771158191836',
         question: "Assertion (A): The developments during 'Major Approaches to the History of Modern India' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
+        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
         correctAnswer: 0,
         explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Major Approaches to the History of Modern India.",
         difficulty: 'Hard',
-        chapterId: 2,
-        difficulty: 'Moderate'
+        chapterId: 2
     },
 ];
