@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import QuestionBankDashboard from './question-bank/QuestionBankDashboard';
+import { useLanguageStore } from '@/lib/language-store';
 
 const HISTORY_ERAS = [
     {
@@ -60,6 +61,7 @@ const HISTORY_ERAS = [
 ];
 
 export default function HistoryDashboard() {
+    const { language, setLanguage } = useLanguageStore();
     return (
         <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-500">
             {/* Header / Actions */}
@@ -72,6 +74,20 @@ export default function HistoryDashboard() {
                     <p className="text-gray-500 dark:text-gray-400">Track your journey across Ancient, Medieval, and Modern India.</p>
                 </div>
                 <div className="flex gap-3">
+                    <div className="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-1 border border-slate-200 dark:border-slate-700">
+                        <button
+                            onClick={() => setLanguage('en')}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${language === 'en' ? 'bg-white dark:bg-slate-700 shadow-sm text-blue-600 dark:text-blue-400' : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-300'}`}
+                        >
+                            EN
+                        </button>
+                        <button
+                            onClick={() => setLanguage('hi')}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${language === 'hi' ? 'bg-white dark:bg-slate-700 shadow-sm text-orange-600 dark:text-orange-400' : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-300'}`}
+                        >
+                            हिंदी
+                        </button>
+                    </div>
                     <Link href="/student/pyq">
                         <Button variant="outline" className="border-amber-500 text-amber-700 hover:bg-amber-50 dark:text-amber-300 dark:hover:bg-amber-900/20">
                             <BookOpen className="mr-2 h-4 w-4" />

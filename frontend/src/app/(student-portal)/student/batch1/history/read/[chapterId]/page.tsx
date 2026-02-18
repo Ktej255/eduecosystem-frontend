@@ -12,6 +12,7 @@ import { isHistoryChapterComplete, markHistoryChapterComplete } from '@/lib/hist
 import ConfidencePoll from '@/components/shared/ConfidencePoll';
 import { CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import { useLanguageStore } from '@/lib/language-store';
 
 import HandwrittenChapter1 from '@/components/batch1/history/modern/v2/HandwrittenChapter1';
 import HandwrittenChapter2 from '@/components/batch1/history/modern/v2/HandwrittenChapter2';
@@ -174,35 +175,7 @@ function HistoryReadContent() {
         }
     };
 
-    // Render V2 if active (Support for Chapters 1-22)
-    if (version === 'v2' && ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39'].includes(chapterId)) {
-        return (
-            <div>
-                <div className="fixed top-4 right-4 z-50 flex gap-2">
-                    <Button
-                        size="sm"
-                        variant="secondary"
-                        className="shadow-md bg-white text-slate-800 border-2 border-slate-200 hover:bg-slate-100 font-sans"
-                        onClick={() => setVersion('v1')}
-                    >
-                        <FileText className="w-4 h-4 mr-2" />
-                        Switch to Classic (V1)
-                    </Button>
-                    <Button
-                        size="sm"
-                        variant="outline"
-                        className="shadow-md bg-white text-slate-800 hover:bg-slate-100 font-sans"
-                        onClick={() => router.back()}
-                    >
-                        <ArrowLeft className="w-4 h-4 mr-2" /> Exit
-                    </Button>
-                </div>
-                {renderV2Content()}
-            </div>
-        );
-    }
-
-    // Simple Markdown Parser for the specific format we used
+    // Simple Markdown Parser ... (reused below)
     const renderContent = (text: string) => {
         const lines = text.split('\n');
         return lines.map((line, index) => {
@@ -268,19 +241,46 @@ function HistoryReadContent() {
                         <ArrowLeft className="w-5 h-5 mr-1" /> Back to Dashboard
                     </Button>
 
-                    <div className="flex items-center gap-2">
-                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'].includes(chapterId) && version === 'v1' && section === 'modern' && (
-                            <Button
-                                size="sm"
-                                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white border-2 border-white shadow-lg animate-pulse"
-                                onClick={() => setVersion('v2')}
+
+                    <div className="flex items-center gap-4">
+                        {/* Language Toggle */}
+                        <div className="flex items-center bg-gray-100 rounded-full p-1 border border-gray-300">
+                            <button
+                                onClick={() => setLanguage('en')}
+                                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'en' ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500 hover:text-gray-900'}`}
                             >
-                                <Pencil className="w-4 h-4 mr-2" /> Try Handwritten Mode (V2)
-                            </Button>
+                                EN
+                            </button>
+                            <button
+                                onClick={() => setLanguage('hi')}
+                                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'hi' ? 'bg-white shadow-sm text-orange-600' : 'text-gray-500 hover:text-gray-900'}`}
+                            >
+                                हिंदी
+                            </button>
+                        </div>
+
+                        {/* Toggle Switch */}
+                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'].includes(chapterId) && section === 'modern' && (
+                            <div className="flex items-center bg-gray-100 rounded-full p-1 border border-gray-300">
+                                <button
+                                    onClick={() => setVersion('v1')}
+                                    className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${version === 'v1' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-900'}`}
+                                >
+                                    Classic
+                                </button>
+                                <button
+                                    onClick={() => setVersion('v2')}
+                                    className={`px-3 py-1 rounded-full text-xs font-bold transition-all flex items-center gap-1 ${version === 'v2' ? 'bg-white shadow-sm text-purple-600' : 'text-gray-500 hover:text-gray-900'}`}
+                                >
+                                    <Pencil className="w-3 h-3" /> Note Mode
+                                </button>
+                            </div>
                         )}
-                        <span className="text-sm font-bold text-gray-500 uppercase tracking-widest hidden sm:inline-block">Master Notes</span>
-                        <div className="h-4 w-px bg-gray-300 hidden sm:block"></div>
-                        <h1 className="text-lg font-bold text-gray-900 truncate max-w-[200px] sm:max-w-md">Chapter {chapterId}</h1>
+
+                        <div className="hidden sm:block">
+                            <h1 className="text-lg font-bold text-gray-900 truncate max-w-[200px]">Chapter {chapterId}</h1>
+                        </div>
+
                         <div className="flex gap-1">
                             <Button variant="ghost" size="icon" onClick={() => setFontSize(Math.max(14, fontSize - 2))}>
                                 <ZoomOut className="w-4 h-4" />
@@ -300,28 +300,47 @@ function HistoryReadContent() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    {/* Paper Texture Effect */}
-                    <div
-                        className="bg-white p-8 md:p-12 shadow-[rgba(17,_17,_26,_0.1)_0px_4px_16px,_rgba(17,_17,_26,_0.05)_0px_8px_32px] min-h-[800px] relative overflow-hidden"
-                        style={{ fontSize: `${fontSize}px` }}
-                    >
-                        {/* Paper Texture Lines - CSS Pattern */}
-                        <div className="absolute inset-0 pointer-events-none opacity-50"
-                            style={{
-                                backgroundImage: 'linear-gradient(#e5e7eb 1px, transparent 1px)',
-                                backgroundSize: '100% 2.5rem',
-                                marginTop: '2.5rem'
-                            }}
-                        ></div>
-
-                        {/* Left Margin Line */}
-                        <div className="absolute left-12 top-0 bottom-0 w-px bg-red-300 hidden md:block"></div>
-
-                        {/* Content */}
-                        <div className="md:pl-8 relative z-10">
-                            {content && renderContent(content)}
+                    {version === 'v2' ? (
+                        <div className="min-h-[800px]">
+                            {renderV2Content()}
                         </div>
-                    </div>
+                    ) : (
+                        /* Paper Texture Effect */
+                        <div
+                            className="bg-white p-8 md:p-12 shadow-[rgba(17,_17,_26,_0.1)_0px_4px_16px,_rgba(17,_17,_26,_0.05)_0px_8px_32px] min-h-[800px] relative overflow-hidden"
+                            style={{ fontSize: `${fontSize}px` }}
+                        >
+                            {/* Paper Texture Lines - CSS Pattern */}
+                            <div className="absolute inset-0 pointer-events-none opacity-50"
+                                style={{
+                                    backgroundImage: 'linear-gradient(#e5e7eb 1px, transparent 1px)',
+                                    backgroundSize: '100% 2.5rem',
+                                    marginTop: '2.5rem'
+                                }}
+                            ></div>
+
+                            {/* Left Margin Line */}
+                            <div className="absolute left-12 top-0 bottom-0 w-px bg-red-300 hidden md:block"></div>
+
+                            {/* Content */}
+                            <div className="md:pl-8 relative z-10">
+                                {language === 'hi' ? (
+                                    <div className="flex flex-col items-center justify-center h-64 text-center">
+                                        <p className="text-xl font-bold text-orange-600 mb-2">{t('coming_soon_hindi')}</p>
+                                        <p className="text-gray-500">We are working on translating this chapter.</p>
+                                        <button
+                                            onClick={() => setLanguage('en')}
+                                            className="mt-4 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 font-medium"
+                                        >
+                                            Switch to English
+                                        </button>
+                                    </div>
+                                ) : (
+                                    content && renderContent(content)
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </motion.div>
 
                 {/* Completion Section */}
@@ -331,7 +350,7 @@ function HistoryReadContent() {
                             <div className="flex flex-col items-center gap-4">
                                 <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-green-100 text-green-700 rounded-full font-bold text-sm">
                                     <CheckCircle className="w-5 h-5" />
-                                    Chapter Completed
+                                    {t('chapter_completed')}
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">
                                     Assess your confidence to finalize this session.
@@ -349,7 +368,7 @@ function HistoryReadContent() {
                                 className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold shadow-lg text-lg px-8 py-6 h-auto rounded-xl"
                             >
                                 <CheckCircle className="w-6 h-6 mr-2" />
-                                Mark Chapter as Complete
+                                {t('mark_complete')}
                             </Button>
                         </div>
                     )}
@@ -363,7 +382,7 @@ function HistoryReadContent() {
                         className="bg-stone-100 hover:bg-stone-200 text-stone-800 shadow hover:shadow-md transition-all border border-stone-300 disabled:opacity-50"
                         size="lg"
                     >
-                        <ArrowLeft className="w-5 h-5 mr-2" /> Previous Chapter
+                        <ArrowLeft className="w-5 h-5 mr-2" /> {t('previous_chapter')}
                     </Button>
 
                     <Button
@@ -372,7 +391,7 @@ function HistoryReadContent() {
                         className="bg-stone-800 hover:bg-stone-700 text-amber-50 shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
                         size="lg"
                     >
-                        Next Chapter <ArrowLeft className="w-5 h-5 ml-2 rotate-180" />
+                        {t('next_chapter')} <ArrowLeft className="w-5 h-5 ml-2 rotate-180" />
                     </Button>
                 </div>
             </div>
