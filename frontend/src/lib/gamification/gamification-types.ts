@@ -31,6 +31,8 @@ export type XPEventType =
     | 'csat_complete'
     | 'mcq_session_complete';
 
+// Shared type to prevent circular dependencies
+export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind' | 'other';
 
 export interface Achievement {
     id: string;
@@ -101,4 +103,3 @@ export const XP_REWARDS: Record<XPEventType, number> = {
     csat_complete: 50,      // Completing a daily CSAT practice session
     mcq_session_complete: 40 // Completing a full MCQ session
 };
-

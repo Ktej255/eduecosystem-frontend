@@ -1,4 +1,4 @@
-import { ConfidenceLevel } from "@/components/batch1-1/pomodoro/CycleMCQs";
+import { ConfidenceLevel } from "@/lib/gamification/gamification-types";
 
 export type ActivityType = 'MCQ_EVENING' | 'MCQ_PYQ' | 'MCQ_SATURDAY' | 'FLASHCARD_REVIEW' | 'MCQ_CSAT' | 'MCQ_POMODORO' | 'MCQ_CHAPTER';
 

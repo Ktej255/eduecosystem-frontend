@@ -8,7 +8,7 @@ import { getMCQsForSubtopics, MCQ } from '@/components/batch1/polity/data/polity
 import { loadCompiledMCQs } from '@/components/batch1/history/data/spectrum-mcq-loader';
 import { useMCQShortcuts } from '@/hooks/useKeyboardShortcuts';
 import KeyboardShortcutsHelp from '@/components/common/KeyboardShortcutsHelp';
-import { recordMCQAttempt } from '@/lib/analytics';
+import { ConfidenceLevel } from '@/lib/gamification/gamification-types';
 import { ActivityLogger } from '@/lib/analytics/ActivityLogger';
 import { saveChapterReport } from '@/lib/report-persistence';
 import { toast } from 'sonner';
@@ -42,7 +42,7 @@ function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
     return mcqs.slice(0, 7); // Max 7 MCQs per cycle
 }
 
-export type ConfidenceLevel = 'sure' | '50-50' | 'one-option' | 'blind' | 'other';
+// ConfidenceLevel imported from gamification-types
 
 interface MCQResult {
     questionId: string;

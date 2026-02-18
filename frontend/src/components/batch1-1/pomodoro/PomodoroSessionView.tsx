@@ -11,7 +11,8 @@ import { useAuth } from "@/contexts/auth-context";
 import PomodoroTimer from "./PomodoroTimer";
 import SubtopicSelector from "./SubtopicSelector";
 import CycleFlashcards from "./CycleFlashcards";
-import CycleMCQs, { ConfidenceLevel } from "./CycleMCQs";
+import CycleMCQs from "./CycleMCQs";
+import { ConfidenceLevel } from "@/lib/gamification/gamification-types";
 import ReadingMaterial from "./ReadingMaterial";
 import BreakTimer from "./BreakTimer";
 // Removed old module import to enforce strict schedule sync
