@@ -1,353 +1,158 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-    Timer,
-    BookOpen,
-    BarChart3,
-    Brain,
-    Calendar,
-    ChevronRight,
-    Flame,
-    Moon,
-    Trophy,
-    ArrowLeft,
-    Target
-} from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { AlertTriangle, Loader2 } from 'lucide-react';
 
-// Component Imports
-import dynamic from 'next/dynamic';
+// Dynamic imports with explicit loading states
+const PomodoroSessionView = dynamic(() => import('@/components/batch1-1/pomodoro/PomodoroSessionView'), {
+    loading: () => <div className="p-4 bg-orange-50 text-orange-600">Loading Pomodoro Session...</div>,
+    ssr: false
+});
 
-// Component Imports
-const PomodoroSessionView = dynamic(() => import('@/components/batch1-1/pomodoro/PomodoroSessionView'), { loading: () => <div>Loading Session...</div> });
-const PolityHome = dynamic(() => import('@/components/batch1/polity/PolityHome'), { loading: () => <div>Loading Polity...</div> });
-const HistoryHome = dynamic(() => import('@/components/batch1/history/HistoryHome'), { loading: () => <div>Loading History...</div> });
-const RetentionDashboard = dynamic(() => import('@/components/retention/RetentionDashboard'), { loading: () => <div>Loading Retention...</div> });
-const FocusAnalyticsDashboard = dynamic(() => import('@/components/batch1/FocusAnalyticsDashboard'), { loading: () => <div>Loading Analytics...</div> });
+const SubjectPomodoro = dynamic(() => import('@/components/batch1-1/pomodoro/SubjectPomodoro'), {
+    loading: () => <div className="p-4 bg-indigo-50 text-indigo-600">Loading Subject Pomodoro...</div>,
+    ssr: false
+});
 
-const Batch1DeepReport = dynamic(() => import('@/components/batch1-1/reports/Batch1DeepReport'), { loading: () => <div>Loading Report...</div> });
+const PolityHome = dynamic(() => import('@/components/batch1/polity/PolityHome'), {
+    loading: () => <div className="p-4 bg-blue-50 text-blue-600">Loading Polity...</div>,
+    ssr: false
+});
 
-const SubjectPomodoro = dynamic(() => import('@/components/batch1-1/pomodoro/SubjectPomodoro'), { loading: () => <div>Loading Subject Pomodoro...</div> });
+const Batch1DeepReport = dynamic(() => import('@/components/batch1-1/reports/Batch1DeepReport'), {
+    loading: () => <div className="p-4 bg-purple-50 text-purple-600">Loading Reports...</div>,
+    ssr: false
+});
 
-type FocusTab = 'pomodoro' | 'subject_pomodoro' | 'study' | 'analytics' | 'retention';
-type Subject = 'polity' | 'history' | 'geography' | 'science';
-
-const WEEKS = Array.from({ length: 20 }, (_, i) => ({
-    id: i + 1,
-    label: `Week ${i + 1}`
-}));
-
-const DAYS = [
-    { id: 1, label: 'Monday', short: 'Day 1' },
-    { id: 2, label: 'Tuesday', short: 'Day 2' },
-    { id: 3, label: 'Wednesday', short: 'Day 3' },
-    { id: 4, label: 'Thursday', short: 'Day 4' },
-    { id: 5, label: 'Friday', short: 'Day 5' },
-    { id: 6, label: 'Saturday', short: 'Day 6' },
-];
+// History Home (New potential culprit)
+const HistoryHome = dynamic(() => import('@/components/batch1/history/HistoryHome'), {
+    loading: () => <div className="p-4 bg-amber-50 text-amber-600">Loading History...</div>,
+    ssr: false
+});
 
 export default function FocusPortal() {
-    const router = useRouter();
-    const [activeTab, setActiveTab] = useState<FocusTab>('pomodoro');
-    const [selectedSubject, setSelectedSubject] = useState<Subject>('polity');
+    const [view, setView] = useState<'safe' | 'pomodoro' | 'subject' | 'polity' | 'reports' | 'history'>('safe');
+    const [error, setError] = useState<string | null>(null);
 
-    // Pomodoro Portal State
-    const [pomodoroView, setPomodoroView] = useState<'grid' | 'session'>('grid');
-    const [selectedWeek, setSelectedWeek] = useState(1);
-    const [selectedDay, setSelectedDay] = useState<number | null>(null);
-
-    // Calculate current week/day for defaults
-    const currentContext = useMemo(() => {
-        if (typeof window === 'undefined') return { week: 1, day: 1 };
-        const BATCH_START_DATE = new Date('2026-01-12T00:00:00');
-        const now = new Date();
-        const diffTime = Math.abs(now.getTime() - BATCH_START_DATE.getTime());
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        const week = Math.ceil(diffDays / 7);
-        const day = (diffDays - 1) % 7 + 1;
-        return { week: Math.max(1, week), day: Math.min(6, Math.max(1, day)) };
-    }, []);
-
-    // Load saved state or default
-    React.useEffect(() => {
-        // Load Week
-        const savedWeek = localStorage.getItem('batch11_portal_week');
-        if (savedWeek) setSelectedWeek(Number(savedWeek));
-        else setSelectedWeek(currentContext.week);
-
-        // Load Active Tab
-        const savedTab = localStorage.getItem('batch11_active_tab');
-        if (savedTab && ['pomodoro', 'subject_pomodoro', 'study', 'analytics', 'retention'].includes(savedTab)) {
-            setActiveTab(savedTab as FocusTab);
+    // Error boundary for immediate children
+    const safeRender = (component: React.ReactNode) => {
+        try {
+            return component;
+        } catch (e: any) {
+            console.error("Component failed to render:", e);
+            setError(e.message || "Unknown error");
+            return <div className="text-red-500 font-bold p-4">Component Crashed: {e.message}</div>;
         }
-
-        // Load Selected Subject
-        const savedSubject = localStorage.getItem('batch11_selected_subject');
-        if (savedSubject && ['polity', 'history', 'geography', 'science'].includes(savedSubject)) {
-            setSelectedSubject(savedSubject as Subject);
-        }
-    }, [currentContext]);
-
-    // Save state on change
-    const handleTabChange = (tab: FocusTab) => {
-        setActiveTab(tab);
-        localStorage.setItem('batch11_active_tab', tab);
     };
-
-    const handleSubjectChange = (subject: Subject) => {
-        setSelectedSubject(subject);
-        localStorage.setItem('batch11_selected_subject', subject);
-    };
-
-    const handleDayClick = (dayId: number) => {
-        setSelectedDay(dayId);
-        setPomodoroView('session');
-    };
-
-    const tabs = [
-        { id: 'pomodoro', label: 'Pomodoro Portal', icon: Timer, color: 'text-orange-500' },
-        { id: 'subject_pomodoro', label: 'Subject Pomodoro', icon: Target, color: 'text-rose-500' },
-
-        { id: 'study', label: 'Subject Study', icon: BookOpen, color: 'text-blue-500' },
-        { id: 'analytics', label: 'Deep Reports', icon: BarChart3, color: 'text-purple-500' },
-        { id: 'retention', label: 'Retention Tracker', icon: Brain, color: 'text-green-500' }
-    ];
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a]">
-            {/* Top Navigation Bar */}
-            <div className="bg-white dark:bg-[#111] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-30">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                                <Brain className="w-5 h-5 text-white" />
-                            </div>
-                            <span className="font-bold text-lg text-gray-900 dark:text-white hidden md:block">
-                                Focus Command Center
-                            </span>
-                        </div>
+        <div className="min-h-screen bg-gray-50 p-6 font-sans">
+            <div className="max-w-4xl mx-auto">
+                <div className="bg-white border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-8">
+                    <h1 className="text-2xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-2">
+                        <AlertTriangle className="text-orange-500" />
+                        Focus Portal - DEBUG MODE
+                    </h1>
+                    <p className="text-gray-500 mb-6">
+                        The standard Focus Portal layout is disabled.
+                        Please load components individually to identify the crasher.
+                    </p>
 
-                        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
-                            {tabs.map((tab) => {
-                                const Icon = tab.icon;
-                                const isActive = activeTab === tab.id;
-                                return (
-                                    <button
-                                        key={tab.id}
-                                        onClick={() => handleTabChange(tab.id as FocusTab)}
-                                        className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap
-                                            ${isActive
-                                                ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-gray-200 dark:ring-gray-700'
-                                                : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900'
-                                            }`}
-                                    >
-                                        <Icon className={`w-4 h-4 ${isActive ? tab.color : ''}`} />
-                                        <span>{tab.label}</span>
-                                    </button>
-                                );
-                            })}
-                        </div>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        <Button
+                            variant={view === 'pomodoro' ? 'default' : 'outline'}
+                            onClick={() => setView('pomodoro')}
+                            className="border-orange-200 hover:bg-orange-50 text-orange-700"
+                        >
+                            Load Pomodoro Session
+                        </Button>
+
+                        <Button
+                            variant={view === 'subject' ? 'default' : 'outline'}
+                            onClick={() => setView('subject')}
+                            className="border-indigo-200 hover:bg-indigo-50 text-indigo-700"
+                        >
+                            Load Subject Pomodoro
+                        </Button>
+
+                        <Button
+                            variant={view === 'polity' ? 'default' : 'outline'}
+                            onClick={() => setView('polity')}
+                            className="border-blue-200 hover:bg-blue-50 text-blue-700"
+                        >
+                            Load Polity
+                        </Button>
+
+                        <Button
+                            variant={view === 'history' ? 'default' : 'outline'}
+                            onClick={() => setView('history')}
+                            className="border-amber-200 hover:bg-amber-50 text-amber-700"
+                        >
+                            Load History
+                        </Button>
+
+                        <Button
+                            variant={view === 'reports' ? 'default' : 'outline'}
+                            onClick={() => setView('reports')}
+                            className="border-purple-200 hover:bg-purple-50 text-purple-700"
+                        >
+                            Load Reports
+                        </Button>
                     </div>
                 </div>
-            </div>
 
-            {/* Main Content Area */}
-            <div className="max-w-7xl mx-auto px-4 py-6">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={activeTab}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        {activeTab === 'pomodoro' && (
-                            <div className="space-y-6">
-                                {pomodoroView === 'grid' ? (
-                                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                        {/* Header & Week Selector */}
-                                        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-                                            <div>
-                                                <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                                    <Timer className="w-8 h-8 text-orange-500" />
-                                                    Pomodoro Portal
-                                                </h1>
-                                                <p className="text-gray-500 dark:text-gray-400 mt-1">
-                                                    Daily Focus & Evening Revision Hub
-                                                </p>
-                                            </div>
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 min-h-[400px] p-6 relative">
+                    {view === 'safe' && (
+                        <div className="flex items-center justify-center h-full text-gray-400">
+                            Select a component above to test.
+                        </div>
+                    )}
 
-                                            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-2 rounded-xl border shadow-sm">
-                                                <span className="text-sm font-medium text-gray-500 ml-2">Select Week:</span>
-                                                <Select
-                                                    value={selectedWeek.toString()}
-                                                    onValueChange={(v) => {
-                                                        setSelectedWeek(Number(v));
-                                                        localStorage.setItem('batch11_portal_week', v);
-                                                    }}
-                                                >
-                                                    <SelectTrigger className="w-[140px] border-none bg-transparent focus:ring-0 font-bold text-indigo-600">
-                                                        <SelectValue />
-                                                    </SelectTrigger>
-                                                    <SelectContent>
-                                                        {WEEKS.map(week => (
-                                                            <SelectItem key={week.id} value={week.id.toString()}>
-                                                                {week.label}
-                                                            </SelectItem>
-                                                        ))}
-                                                    </SelectContent>
-                                                </Select>
-                                            </div>
-                                        </div>
+                    {view === 'pomodoro' && (
+                        <div className="animate-in fade-in">
+                            <h3 className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-wider">Testing Pomodoro Session View</h3>
+                            <PomodoroSessionView weekId={1} dayId={1} />
+                        </div>
+                    )}
 
-                                        {/* Day Grid */}
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                            {DAYS.map((day) => {
-                                                const isToday = selectedWeek === currentContext.week && day.id === currentContext.day;
-                                                const absoluteDay = (selectedWeek - 1) * 7 + day.id;
+                    {view === 'subject' && (
+                        <div className="animate-in fade-in">
+                            <h3 className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-wider">Testing Subject Pomodoro</h3>
+                            <SubjectPomodoro />
+                        </div>
+                    )}
 
-                                                return (
-                                                    <Card
-                                                        key={day.id}
-                                                        className={`border-2 cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden
-                                                            ${isToday
-                                                                ? 'border-orange-500 bg-orange-50/50 dark:bg-orange-900/10'
-                                                                : 'border-transparent hover:border-orange-300 bg-white dark:bg-gray-800'
-                                                            }
-                                                        `}
-                                                        onClick={() => handleDayClick(day.id)}
-                                                    >
-                                                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                                                            <Timer className="w-24 h-24 text-orange-500" />
-                                                        </div>
+                    {view === 'polity' && (
+                        <div className="animate-in fade-in">
+                            <h3 className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-wider">Testing Polity Home</h3>
+                            <PolityHome />
+                        </div>
+                    )}
 
-                                                        <CardContent className="p-6 relative z-10">
-                                                            <div className="flex justify-between items-start mb-4">
-                                                                <div>
-                                                                    <div className="flex items-center gap-2 mb-1">
-                                                                        <span className={`px-2 py-1 rounded text-xs font-bold uppercase tracking-wide
-                                                                            ${isToday ? 'bg-orange-100 text-orange-700' : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300'}
-                                                                        `}>
-                                                                            {day.short}
-                                                                        </span>
-                                                                        {isToday && <span className="flex items-center text-xs font-bold text-green-600 animate-pulse"><Flame className="w-3 h-3 mr-1" /> TODAY</span>}
-                                                                    </div>
-                                                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                                                                        {day.label}
-                                                                    </h3>
-                                                                </div>
-                                                                <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-colors text-orange-600">
-                                                                    <Timer className="w-5 h-5" />
-                                                                </div>
-                                                            </div>
+                    {view === 'history' && (
+                        <div className="animate-in fade-in">
+                            <h3 className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-wider">Testing History Home</h3>
+                            <HistoryHome />
+                        </div>
+                    )}
 
-                                                            <div className="space-y-3 mb-6">
-                                                                <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
-                                                                    <BookOpen className="w-4 h-4 mr-2 text-blue-500" />
-                                                                    <span>Course Work & Study</span>
-                                                                </div>
-                                                                <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
-                                                                    <Moon className="w-4 h-4 mr-2 text-indigo-500" />
-                                                                    <span>Evening Revision (PYQ)</span>
-                                                                </div>
-                                                            </div>
+                    {view === 'reports' && (
+                        <div className="animate-in fade-in">
+                            <h3 className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-wider">Testing Deep Reports</h3>
+                            <Batch1DeepReport />
+                        </div>
+                    )}
+                </div>
 
-                                                            <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
-                                                                <span className="text-xs font-semibold text-gray-400">Day {absoluteDay}</span>
-                                                                <span className="text-sm font-bold text-orange-600 flex items-center group-hover:translate-x-1 transition-transform">
-                                                                    Open Portal <ChevronRight className="w-4 h-4 ml-1" />
-                                                                </span>
-                                                            </div>
-                                                        </CardContent>
-                                                    </Card>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                ) : (
-                                    // SESSION VIEW (Timer)
-                                    <div>
-                                        <div className="mb-4">
-                                            <Button
-                                                variant="ghost"
-                                                onClick={() => setPomodoroView('grid')}
-                                                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                            >
-                                                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Pomodoro Portal
-                                            </Button>
-                                        </div>
-                                        {selectedDay && (
-                                            <PomodoroSessionView
-                                                weekId={selectedWeek}
-                                                dayId={selectedDay}
-                                                showBackButton={false} // We handle back button above
-                                            />
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-                        )}
-
-                        {activeTab === 'subject_pomodoro' && (
-                            <div className="space-y-6">
-                                <SubjectPomodoro />
-                            </div>
-                        )}
-
-
-
-                        {activeTab === 'study' && (
-                            <div className="space-y-6">
-                                {/* Study Tab Content (Preserved) */}
-                                <div className="flex items-center justify-between">
-                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Subject Study</h2>
-                                    <Select value={selectedSubject} onValueChange={(v) => handleSubjectChange(v as Subject)}>
-                                        <SelectTrigger className="w-[180px]">
-                                            <SelectValue />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="polity">Indian Polity</SelectItem>
-                                            <SelectItem value="history">Indian History</SelectItem>
-                                            <SelectItem value="geography">Geography</SelectItem>
-                                            <SelectItem value="science">Science & Tech</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-
-                                {selectedSubject === 'polity' && <PolityHome embedded={true} />}
-                                {selectedSubject === 'history' && <HistoryHome embedded={true} />}
-                                {(selectedSubject === 'geography' || selectedSubject === 'science') && (
-                                    <div className="p-12 text-center bg-white dark:bg-[#111] rounded-2xl border border-dashed border-gray-300 dark:border-gray-800">
-                                        <BookOpen className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                                        <h3 className="text-lg font-medium text-gray-900 dark:text-white">
-                                            {selectedSubject.charAt(0).toUpperCase() + selectedSubject.slice(1)} Module
-                                        </h3>
-                                        <p className="text-gray-500">Content loading...</p>
-                                    </div>
-                                )}
-                            </div>
-                        )}
-
-                        {activeTab === 'analytics' && (
-                            <div className="space-y-6">
-                                <Batch1DeepReport embedded={true} />
-                            </div>
-                        )}
-
-                        {activeTab === 'retention' && (
-                            <div className="space-y-6">
-                                <RetentionDashboard />
-                            </div>
-                        )}
-                    </motion.div>
-                </AnimatePresence>
+                {error && (
+                    <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-lg border border-red-200">
+                        <p className="font-bold">Error Detected:</p>
+                        <pre className="text-xs mt-2 overflow-auto">{error}</pre>
+                    </div>
+                )}
             </div>
         </div>
     );
