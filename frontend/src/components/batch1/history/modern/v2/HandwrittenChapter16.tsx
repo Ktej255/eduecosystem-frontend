@@ -14,7 +14,8 @@ import {
     Flame,
     XCircle,
     Scale,
-    Feather
+    Feather,
+    Skull
 } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";

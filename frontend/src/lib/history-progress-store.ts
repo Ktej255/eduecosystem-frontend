@@ -61,7 +61,8 @@ export function getHistoryProgressStore(): HistoryProgressStore {
     const saved = localStorage.getItem(PROGRESS_STORE_KEY);
     if (saved) {
         try {
-            return JSON.parse(saved);
+            const parsed = JSON.parse(saved);
+            if (parsed) return parsed;
         } catch (e) {
             console.error('Failed to parse history progress:', e);
         }
