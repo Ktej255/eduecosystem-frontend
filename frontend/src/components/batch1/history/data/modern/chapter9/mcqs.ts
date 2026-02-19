@@ -2,550 +2,550 @@ import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_9_MCQS: any[] = [
     {
-        id: "H9-M-01",
-        question: "Who is known as the 'Father of Indian Renaissance'?",
-        options: [
+        "id": "H9-M-01",
+        "question": "Who is known as the 'Father of Indian Renaissance'?",
+        "options": [
             "Raja Rammohan Roy",
             "Ishwar Chandra Vidyasagar",
             "Swami Vivekananda",
             "Rabindranath Tagore"
         ],
-        correctAnswer: 0,
-        explanation: "Raja Rammohan Roy is widely regarded as the father of modern Indian Renaissance.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "Raja Rammohan Roy is widely regarded as the father of modern Indian Renaissance.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-02",
-        question: "Raja Rammohan Roy founded the 'Atmiya Sabha' in which year?",
-        options: [
+        "id": "H9-M-02",
+        "question": "Raja Rammohan Roy founded the 'Atmiya Sabha' in which year?",
+        "options": [
             "1814",
             "1828",
             "1817",
             "1833"
         ],
-        correctAnswer: 0,
-        explanation: "He founded the Atmiya Sabha (Society of Friends) in 1814 in Calcutta.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "He founded the Atmiya Sabha (Society of Friends) in 1814 in Calcutta.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-03",
-        question: "The book 'Gift to Monotheists' (1809) was written by:",
-        options: [
+        "id": "H9-M-03",
+        "question": "The book 'Gift to Monotheists' (1809) was written by:",
+        "options": [
             "Raja Rammohan Roy",
             "Syed Ahmed Khan",
             "Debendranath Tagore",
             "Keshab Chandra Sen"
         ],
-        correctAnswer: 0,
-        explanation: "Written by Rammohan Roy in Persian with an Arabic preface.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "Written by Rammohan Roy in Persian with an Arabic preface.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-04",
-        question: "Rammohan Roy established the 'Brahmo Sabha' in:",
-        options: [
+        "id": "H9-M-04",
+        "question": "Rammohan Roy established the 'Brahmo Sabha' in:",
+        "options": [
             "August 1828",
             "August 1818",
             "December 1829",
             "January 1830"
         ],
-        correctAnswer: 0,
-        explanation: "It was founded in August 1828 and later renamed Brahmo Samaj.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "It was founded in August 1828 and later renamed Brahmo Samaj.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-05",
-        question: "Which of the following was NOT a feature of the Brahmo Samaj?",
-        options: [
+        "id": "H9-M-05",
+        "question": "Which of the following was NOT a feature of the Brahmo Samaj?",
+        "options": [
             "Denunciation of polytheism and idol worship",
             "Discarding faith in divine incarnations (avataras)",
             "Propagation of the belief in the infallibility of the Vedas",
             "Criticism of the caste system"
         ],
-        correctAnswer: 2,
-        explanation: "The Brahmo Samaj explicitly denied that any scripture could enjoy the status of ultimate authority transcending human reason.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 2,
+        "explanation": "The Brahmo Samaj explicitly denied that any scripture could enjoy the status of ultimate authority transcending human reason.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-06",
-        question: "Who organized the 'Dharma Sabha' to counter the propaganda of the Brahmo Samaj?",
-        options: [
+        "id": "H9-M-06",
+        "question": "Who organized the 'Dharma Sabha' to counter the propaganda of the Brahmo Samaj?",
+        "options": [
             "Raja Radhakant Deb",
             "Debendranath Tagore",
             "Dwarkanath Tagore",
             "Prasanna Kumar Tagore"
         ],
-        correctAnswer: 0,
-        explanation: "Raja Radhakant Deb organized the Dharma Sabha to defend orthodox Hinduism.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "Raja Radhakant Deb organized the Dharma Sabha to defend orthodox Hinduism.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-07",
-        question: "Rammohan Roy helped David Hare find which institution in 1817?",
-        options: [
+        "id": "H9-M-07",
+        "question": "Rammohan Roy helped David Hare find which institution in 1817?",
+        "options": [
             "Hindu College",
             "Sanskrit College",
             "Presidency College",
             "Bethune College"
         ],
-        correctAnswer: 0,
-        explanation: "He supported David Hare's efforts to found the Hindu College in 1817.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "He supported David Hare's efforts to found the Hindu College in 1817.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-08",
-        question: "Who founded the 'Tattvabodhini Sabha' in 1839?",
-        options: [
+        "id": "H9-M-08",
+        "question": "Who founded the 'Tattvabodhini Sabha' in 1839?",
+        "options": [
             "Debendranath Tagore",
             "Rammohan Roy",
             "Ishwar Chandra Vidyasagar",
             "Rabindranath Tagore"
         ],
-        correctAnswer: 0,
-        explanation: "Debendranath Tagore founded it to propagate Rammohan's ideas.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "Debendranath Tagore founded it to propagate Rammohan's ideas.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-09",
-        question: "The first split in the Brahmo Samaj occurred in:",
-        options: [
+        "id": "H9-M-09",
+        "question": "The first split in the Brahmo Samaj occurred in:",
+        "options": [
             "1865-1866",
             "1878",
             "1893",
             "1858"
         ],
-        correctAnswer: 0,
-        explanation: "The split between Debendranath's Adi Brahmo Samaj and Keshab's Brahmo Samaj of India occurred in 1866.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "The split between Debendranath's Adi Brahmo Samaj and Keshab's Brahmo Samaj of India occurred in 1866.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-10",
-        question: "Why did the second split in the Brahmo Samaj occur in 1878?",
-        options: [
+        "id": "H9-M-10",
+        "question": "Why did the second split in the Brahmo Samaj occur in 1878?",
+        "options": [
             "Keshab Chandra Sen married his minor daughter to the Maharaja of Cooch-Behar",
             "Disagreement over idol worship",
             "Conflict over the Vedas",
             "Political differences"
         ],
-        correctAnswer: 0,
-        explanation: "This violation of his own reformist principles led to the formation of the Sadharan Brahmo Samaj.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "This violation of his own reformist principles led to the formation of the Sadharan Brahmo Samaj.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-11",
-        question: "Who were the founders of the 'Sadharan Brahmo Samaj'?",
-        options: [
+        "id": "H9-M-11",
+        "question": "Who were the founders of the 'Sadharan Brahmo Samaj'?",
+        "options": [
             "Ananda Mohan Bose, Sib Chandra Deb, Umeshchandra Dutta",
             "Keshab Chandra Sen, Debendranath Tagore",
             "Vivekananda, Ramakrishna",
             "Dayananda Saraswati"
         ],
-        correctAnswer: 0,
-        explanation: "They founded it after leaving Keshab's faction.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "They founded it after leaving Keshab's faction.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-12",
-        question: "Who was the leader of the 'Young Bengal Movement'?",
-        options: [
+        "id": "H9-M-12",
+        "question": "Who was the leader of the 'Young Bengal Movement'?",
+        "options": [
             "Henry Vivian Derozio",
             "David Hare",
             "Drinkwater Bethune",
             "William Jones"
         ],
-        correctAnswer: 0,
-        explanation: "H.L.V. Derozio, a teacher at Hindu College, inspired this radical trend.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "H.L.V. Derozio, a teacher at Hindu College, inspired this radical trend.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-13",
-        question: "Why was Derozio removed from the Hindu College in 1831?",
-        options: [
+        "id": "H9-M-13",
+        "question": "Why was Derozio removed from the Hindu College in 1831?",
+        "options": [
             "Because of his radicalism and alleged corruption of students' minds",
             "He was incompetent",
             "He resigned voluntarily",
             "He joined the Brahmo Samaj"
         ],
-        correctAnswer: 0,
-        explanation: "His radical teachings against tradition alarmed the orthodox management.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "His radical teachings against tradition alarmed the orthodox management.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-14",
-        question: "Ishwar Chandra Vidyasagar became the principal of which college in 1850?",
-        options: [
+        "id": "H9-M-14",
+        "question": "Ishwar Chandra Vidyasagar became the principal of which college in 1850?",
+        "options": [
             "Sanskrit College",
             "Hindu College",
             "Fort William College",
             "Serampore College"
         ],
-        correctAnswer: 0,
-        explanation: "He became Principal of Sanskrit College and opened it to non-Brahmins.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "He became Principal of Sanskrit College and opened it to non-Brahmins.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-16",
-        question: "The 'Paramahansa Mandali' founded in 1849 was primarily interested in:",
-        options: [
+        "id": "H9-M-16",
+        "question": "The 'Paramahansa Mandali' founded in 1849 was primarily interested in:",
+        "options": [
             "Breaking caste rules",
             "Political independence",
             "Economic swadeshi",
             "Revival of Vedic religion"
         ],
-        correctAnswer: 0,
-        explanation: "Its members took food cooked by lower caste people at secret meetings.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "Its members took food cooked by lower caste people at secret meetings.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-18",
-        question: "Who wrote 'Gulamgiri'?",
-        options: [
+        "id": "H9-M-18",
+        "question": "Who wrote 'Gulamgiri'?",
+        "options": [
             "Jyotiba Phule",
             "Savitribai Phule",
             "Ambedkar",
             "Ranade"
         ],
-        correctAnswer: 0,
-        explanation: "Jyotiba Phule wrote it, dedicating it to the people of the USA for abolishing slavery.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "Jyotiba Phule wrote it, dedicating it to the people of the USA for abolishing slavery.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-20",
-        question: "Who started the 'Social Service League' in Bombay?",
-        options: [
+        "id": "H9-M-20",
+        "question": "Who started the 'Social Service League' in Bombay?",
+        "options": [
             "Narayan Malhar Joshi",
             "H.N. Kunzru",
             "Shriram Bajpai",
             "G.K. Gokhale"
         ],
-        correctAnswer: 0,
-        explanation: "N.M. Joshi, a follower of Gokhale, founded it.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "N.M. Joshi, a follower of Gokhale, founded it.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-21",
-        question: "Who was the first editor of 'Kesari' who later started 'Sudharak'?",
-        options: [
+        "id": "H9-M-21",
+        "question": "Who was the first editor of 'Kesari' who later started 'Sudharak'?",
+        "options": [
             "Gopal Ganesh Agarkar",
             "Bal Gangadhar Tilak",
             "Chiplunkar",
             "Ranade"
         ],
-        correctAnswer: 0,
-        explanation: "Agarkar was a rationalist who prioritized social reform over political freedom initially.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "Agarkar was a rationalist who prioritized social reform over political freedom initially.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-23",
-        question: "Swami Dayananda Saraswati's original name was:",
-        options: [
+        "id": "H9-M-23",
+        "question": "Swami Dayananda Saraswati's original name was:",
+        "options": [
             "Mulshankar",
             "Narendranath",
             "Gadadhar",
             "Satyaprakash"
         ],
-        correctAnswer: 0,
-        explanation: "He was born as Mulshankar in Gujarat.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "He was born as Mulshankar in Gujarat.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-24",
-        question: "The first Arya Samaj unit was set up in 1875 at:",
-        options: [
+        "id": "H9-M-24",
+        "question": "The first Arya Samaj unit was set up in 1875 at:",
+        "options": [
             "Bombay",
             "Lahore",
             "Calcutta",
             "Madras"
         ],
-        correctAnswer: 0,
-        explanation: "It was set up in Bombay, though the headquarters later shifted to Lahore.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "It was set up in Bombay, though the headquarters later shifted to Lahore.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-25",
-        question: "Which of the following aligns with the Arya Samaj's philosophy?",
-        options: [
+        "id": "H9-M-25",
+        "question": "Which of the following aligns with the Arya Samaj's philosophy?",
+        "options": [
             "Infallibility of the Vedas",
             "Idol Worship",
             "Polytheism",
             "Maya (Illusion) theory"
         ],
-        correctAnswer: 0,
-        explanation: "They believed the Vedas are the book of true knowledge.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "They believed the Vedas are the book of true knowledge.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-26",
-        question: "The split in the Arya Samaj in 1893 was over which issues?",
-        options: [
+        "id": "H9-M-26",
+        "question": "The split in the Arya Samaj in 1893 was over which issues?",
+        "options": [
             "Meat-eating and Curriculum of education",
             "Widow remarriage",
             "Caste system",
             "Political participation"
         ],
-        correctAnswer: 0,
-        explanation: "The College Party favored English education and allowed non-vegetarianism; the Mahatma Party favored Vedic education and strict vegetarianism.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "The College Party favored English education and allowed non-vegetarianism; the Mahatma Party favored Vedic education and strict vegetarianism.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-28",
-        question: "Who founded the Ramakrishna Mission in 1897?",
-        options: [
+        "id": "H9-M-28",
+        "question": "Who founded the Ramakrishna Mission in 1897?",
+        "options": [
             "Swami Vivekananda",
             "Ramakrishna Paramahansa",
             "Sarada Devi",
             "Sister Nivedita"
         ],
-        correctAnswer: 0,
-        explanation: "Vivekananda founded it to propagate his guru's teachings through service.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "Vivekananda founded it to propagate his guru's teachings through service.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-29",
-        question: "Where did Swami Vivekananda deliver his famous speech in 1893?",
-        options: [
+        "id": "H9-M-29",
+        "question": "Where did Swami Vivekananda deliver his famous speech in 1893?",
+        "options": [
             "Chicago",
             "New York",
             "London",
             "Paris"
         ],
-        correctAnswer: 0,
-        explanation: "At the Parliament of World Religions in Chicago.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "At the Parliament of World Religions in Chicago.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-30",
-        question: "The headquarters of the Ramakrishna Mission is at:",
-        options: [
+        "id": "H9-M-30",
+        "question": "The headquarters of the Ramakrishna Mission is at:",
+        "options": [
             "Belur",
             "Dakshineshwar",
             "Almora",
             "Kanyakumari"
         ],
-        correctAnswer: 0,
-        explanation: "Belur Math near Calcutta.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "Belur Math near Calcutta.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-31",
-        question: "The Theosophical Society was founded in 1875 in:",
-        options: [
+        "id": "H9-M-31",
+        "question": "The Theosophical Society was founded in 1875 in:",
+        "options": [
             "New York",
             "London",
             "Adyar",
             "Bombay"
         ],
-        correctAnswer: 0,
-        explanation: "It was founded in New York by Blavatsky and Olcott before moving to India.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "It was founded in New York by Blavatsky and Olcott before moving to India.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-32",
-        question: "Who became the president of the Theosophical Society in 1907?",
-        options: [
+        "id": "H9-M-32",
+        "question": "Who became the president of the Theosophical Society in 1907?",
+        "options": [
             "Annie Besant",
             "H.P. Blavatsky",
             "M.S. Olcott",
             "Krishnamurti"
         ],
-        correctAnswer: 0,
-        explanation: "Annie Besant took over after Olcott's death.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "Annie Besant took over after Olcott's death.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-33",
-        question: "The Central Hindu College in Benaras (nucleus of BHU) was founded by:",
-        options: [
+        "id": "H9-M-33",
+        "question": "The Central Hindu College in Benaras (nucleus of BHU) was founded by:",
+        "options": [
             "Annie Besant",
             "Madan Mohan Malaviya",
             "Dayananda Saraswati",
             "Kashi Naresh"
         ],
-        correctAnswer: 0,
-        explanation: "Annie Besant founded it in 1898.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "Annie Besant founded it in 1898.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-34",
-        question: "Who was the founder of the 'Faraizi Movement'?",
-        options: [
+        "id": "H9-M-34",
+        "question": "Who was the founder of the 'Faraizi Movement'?",
+        "options": [
             "Haji Shariatullah",
             "Dudu Mian",
             "Titu Mir",
             "Syed Ahmed Barelvi"
         ],
-        correctAnswer: 0,
-        explanation: "Haji Shariatullah founded it in 1819 in East Bengal.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "Haji Shariatullah founded it in 1819 in East Bengal.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-36",
-        question: "Sir Syed Ahmed Khan founded which institution in 1875?",
-        options: [
+        "id": "H9-M-36",
+        "question": "Sir Syed Ahmed Khan founded which institution in 1875?",
+        "options": [
             "Mohammedan Anglo-Oriental College",
             "Deoband School",
             "Nadwatul Ulama",
             "Jamia Millia Islamia"
         ],
-        correctAnswer: 0,
-        explanation: "It was the precursor to Aligarh Muslim University.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "It was the precursor to Aligarh Muslim University.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-39",
-        question: "Which Muslim reformer favored the inclusion of English language but opposed the Aligarh Movement's political loyalty to British?",
-        options: [
+        "id": "H9-M-39",
+        "question": "Which Muslim reformer favored the inclusion of English language but opposed the Aligarh Movement's political loyalty to British?",
+        "options": [
             "Shibli Numani",
             "Syed Ahmed Khan",
             "Dudu Mian",
             "Titu Mir"
         ],
-        correctAnswer: 0,
-        explanation: "Shibli Numani (Nadwatul Ulama) held this view.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "Shibli Numani (Nadwatul Ulama) held this view.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-42",
-        question: "The Sikh Gurudwaras Act was passed in:",
-        options: [
+        "id": "H9-M-42",
+        "question": "The Sikh Gurudwaras Act was passed in:",
+        "options": [
             "1922 (amended 1925)",
             "1919",
             "1935",
             "1947"
         ],
-        correctAnswer: 0,
-        explanation: "The Act gave control to the SGPC.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "The Act gave control to the SGPC.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-46",
-        question: "Who led the 'Self-Respect Movement' and performed weddings without Brahmin priests?",
-        options: [
+        "id": "H9-M-46",
+        "question": "Who led the 'Self-Respect Movement' and performed weddings without Brahmin priests?",
+        "options": [
             "E.V. Ramaswamy Naicker (Periyar)",
             "K. Kamaraj",
             "Annadurai",
             "Karunanidhi"
         ],
-        correctAnswer: 0,
-        explanation: "Periyar led this radical anti-Brahmin movement.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "Periyar led this radical anti-Brahmin movement.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-48",
-        question: "Who was known as 'Lokahitawadi'?",
-        options: [
+        "id": "H9-M-48",
+        "question": "Who was known as 'Lokahitawadi'?",
+        "options": [
             "Gopalhari Deshmukh",
             "Gopal Ganesh Agarkar",
             "Balshastri Jambhekar",
             "Jyotiba Phule"
         ],
-        correctAnswer: 0,
-        explanation: "Gopalhari Deshmukh wrote under this pen name.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "Gopalhari Deshmukh wrote under this pen name.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-51",
-        question: "Who was the first Indian to organize Muslims around the ideals of creating harmony among the four schools of jurisprudence?",
-        options: [
+        "id": "H9-M-51",
+        "question": "Who was the first Indian to organize Muslims around the ideals of creating harmony among the four schools of jurisprudence?",
+        "options": [
             "Shah Walliullah",
             "Sir Syed Ahmed Khan",
             "Titu Mir",
             "Dudu Mian"
         ],
-        correctAnswer: 0,
-        explanation: "Shah Walliullah (1702-63) inspired the Wahabi movement.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "Shah Walliullah (1702-63) inspired the Wahabi movement.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-53",
-        question: "Who was the Parsi reformer associated with the 'Rast Goftar' newspaper?",
-        options: [
+        "id": "H9-M-53",
+        "question": "Who was the Parsi reformer associated with the 'Rast Goftar' newspaper?",
+        "options": [
             "Dadabhai Naoroji",
             "Behramji Malabari",
             "Pherozeshah Mehta",
             "Dinshaw Petit"
         ],
-        correctAnswer: 0,
-        explanation: "Dadabhai Naoroji was one of the leaders of the Rahnumai Mazdayasnan Sabha which spread its message through Rast Goftar.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "Dadabhai Naoroji was one of the leaders of the Rahnumai Mazdayasnan Sabha which spread its message through Rast Goftar.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
-        id: "H9-M-56",
-        question: "Which reformer used the 'Rajah Bali' symbol opposed to the Brahmin symbol of Rama?",
-        options: [
+        "id": "H9-M-56",
+        "question": "Which reformer used the 'Rajah Bali' symbol opposed to the Brahmin symbol of Rama?",
+        "options": [
             "Jyotiba Phule",
             "Ambedkar",
             "Periyar",
             "Narayana Guru"
         ],
-        correctAnswer: 0,
-        explanation: "Phule used Bali as a symbol of the indigenous people.",
-        chapterId: 9,
-        difficulty: 'Easy'
+        "correctAnswer": 0,
+        "explanation": "Phule used Bali as a symbol of the indigenous people.",
+        "chapterId": 9,
+        "difficulty": "Easy"
     },
     {
-        id: "H9-M-57",
-        question: "Who were the leaders of the 'College Party' in the Arya Samaj split?",
-        options: [
+        "id": "H9-M-57",
+        "question": "Who were the leaders of the 'College Party' in the Arya Samaj split?",
+        "options": [
             "Lala Hansraj, Lala Lajpat Rai",
             "Swami Shraddhanand, Guru Datta",
             "Dayananda Saraswati",
             "Lala Munshi Ram"
         ],
-        correctAnswer: 0,
-        explanation: "They favored English education and controlled the DAV College.",
-        chapterId: 9,
-        difficulty: 'Moderate'
+        "correctAnswer": 0,
+        "explanation": "They favored English education and controlled the DAV College.",
+        "chapterId": 9,
+        "difficulty": "Moderate"
     },
     {
-        id: "H9-M-60",
-        question: "Who among the following was a blind teacher of Dayananda Saraswati?",
-        options: [
+        "id": "H9-M-60",
+        "question": "Who among the following was a blind teacher of Dayananda Saraswati?",
+        "options": [
             "Swami Virajananda",
             "Ramakrishna",
             "Totapuri",
             "Swami Brahmananda"
         ],
-        correctAnswer: 0,
-        explanation: "Swami Virajananda of Mathura.",
-        chapterId: 9,
-        difficulty: 'Hard'
+        "correctAnswer": 0,
+        "explanation": "Swami Virajananda of Mathura.",
+        "chapterId": 9,
+        "difficulty": "Hard"
     },
     {
         "id": 1,
@@ -1103,903 +1103,73 @@ export const MODERN_CHAPTER_9_MCQS: any[] = [
         "correctAnswer": 2
     },
     {
-        id: 'gen-ch9-Easy-0-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-1-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-2-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Easy-3-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-4-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-5-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Easy-6-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-7-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-8-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Easy-9-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-10-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-11-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Easy-12-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-13-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-14-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Easy-15-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-16-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-17-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Easy-18-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-19-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-20-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Easy-21-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-22-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-23-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Easy-24-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-25-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-26-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Easy-27-1771158318160',
-        question: "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation", "Economic Stagnation", "Religious Reform", "Administrative Change"],
-        correctAnswer: 0,
-        explanation: "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Easy-28-1771158318160',
-        question: "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
-        options: ["Expansion", "Consolidation", "Retreat", "Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Easy-29-1771158318160',
-        question: "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
-        options: ["The Governor-General", "The Local Ruler", "The Social Reformer", "The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Easy',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-0-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-1-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-2-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-3-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-4-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-5-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-6-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-7-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-8-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-9-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-10-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-11-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-12-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-13-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-14-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-15-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-16-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-17-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-18-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-19-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-20-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-21-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-22-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-23-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-24-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-25-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-26-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Moderate-27-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Moderate-28-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Moderate-29-1771158318160',
-        question: "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-0-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-1-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-2-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-3-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-4-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-5-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-6-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-7-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-8-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-9-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-10-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-11-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-12-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-13-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-14-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-15-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-16-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-17-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-18-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-19-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-20-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-21-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-22-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-23-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-24-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-25-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-26-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch9-Hard-27-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch9-Hard-28-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch9-Hard-29-1771158318160',
-        question: "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is NOT the correct explanation of A", "A is true but R is false", "A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
-        difficulty: 'Hard',
-        chapterId: 9,
-        difficulty: 'Hard'
-    },
+        "id": "gen-ch9-Easy-0-1771158318160",
+        "question": "'A General Survey of Socio–Cultural Reform Movements' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
+        "options": [
+            "Political Consolidation",
+            "Economic Stagnation",
+            "Religious Reform",
+            "Administrative Change"
+        ],
+        "correctAnswer": 0,
+        "explanation": "A General Survey of Socio–Cultural Reform Movements involved major shifts in the political landscape.",
+        "difficulty": "Easy",
+        "chapterId": 9
+    },
+    {
+        "id": "gen-ch9-Easy-1-1771158318160",
+        "question": "During the phase of 'A General Survey of Socio–Cultural Reform Movements', the British policy generally focused on:",
+        "options": [
+            "Expansion",
+            "Consolidation",
+            "Retreat",
+            "Isolation"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The primary aim during A General Survey of Socio–Cultural Reform Movements was establishing control.",
+        "difficulty": "Moderate",
+        "chapterId": 9
+    },
+    {
+        "id": "gen-ch9-Easy-2-1771158318160",
+        "question": "Which key figure is central to the events described in 'A General Survey of Socio–Cultural Reform Movements'?",
+        "options": [
+            "The Governor-General",
+            "The Local Ruler",
+            "The Social Reformer",
+            "The Revolutionary Leader"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Key figures shaped the course of A General Survey of Socio–Cultural Reform Movements.",
+        "difficulty": "Hard",
+        "chapterId": 9
+    },
+    {
+        "id": "gen-ch9-Moderate-0-1771158318160",
+        "question": "Consider the following statements regarding 'A General Survey of Socio–Cultural Reform Movements':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct as A General Survey of Socio–Cultural Reform Movements shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
+        "difficulty": "Easy",
+        "chapterId": 9
+    },
+    {
+        "id": "gen-ch9-Hard-0-1771158318160",
+        "question": "Assertion (A): The developments during 'A General Survey of Socio–Cultural Reform Movements' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
+        "options": [
+            "Both A and R are true and R is the correct explanation of A",
+            "Both A and R are true but R is NOT the correct explanation of A",
+            "A is true but R is false",
+            "A is false but R is true"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of A General Survey of Socio–Cultural Reform Movements.",
+        "difficulty": "Easy",
+        "chapterId": 9
+    }
 ];

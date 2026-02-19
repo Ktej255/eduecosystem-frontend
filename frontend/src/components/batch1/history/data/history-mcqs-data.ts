@@ -36,6 +36,8 @@ Object.keys(ANCIENT_CONTENT_MAP).forEach(key => {
     }
 });
 
+import { shuffleMCQOptions, deduplicateMCQs } from '@/components/common/mcq/mcq-utils';
+
 export function getMCQsForHistoryChapters(chapters: number[], section: string = 'modern'): any[] {
     let allMCQs: any[] = [];
     let dataSource = MODERN_MCQS_DATA;
@@ -49,6 +51,11 @@ export function getMCQsForHistoryChapters(chapters: number[], section: string = 
             allMCQs = [...allMCQs, ...dataSource[ch]];
         }
     });
-    return allMCQs;
+
+    // Deduplicate first
+    const uniqueMCQs = deduplicateMCQs(allMCQs);
+
+    // Shuffle options for each question
+    return uniqueMCQs.map(q => shuffleMCQOptions(q));
 }
 

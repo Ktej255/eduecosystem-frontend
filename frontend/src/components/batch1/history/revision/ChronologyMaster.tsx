@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import {
     Calendar, History, Landmark, Shield,
     ArrowRight, Clock, Info, CheckCircle2,
-    Lock, Star, ChevronRight, ChevronLeft
+    Lock, Star, ChevronRight, ChevronLeft, Lightbulb
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

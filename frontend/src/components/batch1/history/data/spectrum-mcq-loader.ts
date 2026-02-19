@@ -33,6 +33,10 @@ export async function loadHistoryMCQs(chapterId: number, section: string = 'mode
 /**
  * Loads and compiles MCQs for multiple chapters.
  */
+import { shuffleMCQOptions, deduplicateMCQs } from '@/components/common/mcq/mcq-utils';
+
+// ...
+
 export async function loadCompiledMCQs(chapterIds: number[], limit: number = 60, section: string = 'modern'): Promise<MCQ[]> {
     const allQuestions: MCQ[] = [];
 
@@ -43,8 +47,12 @@ export async function loadCompiledMCQs(chapterIds: number[], limit: number = 60,
 
     if (allQuestions.length === 0) return [];
 
-    // Shuffle and limit
-    return allQuestions
+    // Deduplicate
+    const uniqueQuestions = deduplicateMCQs(allQuestions);
+
+    // Shuffle questions order AND options
+    return uniqueQuestions
         .sort(() => Math.random() - 0.5)
-        .slice(0, limit);
+        .slice(0, limit)
+        .map(q => shuffleMCQOptions(q));
 }

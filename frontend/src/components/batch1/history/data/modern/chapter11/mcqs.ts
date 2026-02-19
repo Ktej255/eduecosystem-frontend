@@ -1,232 +1,357 @@
 import { Question } from '../../../../types';
 
 export const MODERN_CHAPTER_11_MCQS: any[] = [
-{
-        id: '11-1',
-        question: "Who is credited with the formation of the Indian National Congress (INC)?",
-        options: ["A.O. Hume", "Lord Dufferin", "W.C. Bonnerjee", "Dadabhai Naoroji"],
-        correctAnswer: 0,
-        explanation: "Allan Octavian Hume, a retired English civil servant, played a key role in organizing the first session of the INC.",
-        chapterId: 11,
-        difficulty: 'Easy'
+    {
+        "id": "11-1",
+        "question": "Who is credited with the formation of the Indian National Congress (INC)?",
+        "options": [
+            "A.O. Hume",
+            "Lord Dufferin",
+            "W.C. Bonnerjee",
+            "Dadabhai Naoroji"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Allan Octavian Hume, a retired English civil servant, played a key role in organizing the first session of the INC.",
+        "chapterId": 11,
+        "difficulty": "Easy"
     },
-{
-        id: '11-2',
-        question: "The 'Safety Valve' theory suggests the INC was formed to:",
-        options: ["Release growing discontent of Indians safely", "Promote British trade", "Recruit Indians for the army", "Spread Christianity"],
-        correctAnswer: 0,
-        explanation: "The theory posits that Hume and the British wanted a forum for Indians to vent their grievances to prevent a violent uprising like 1857.",
-        chapterId: 11,
-        difficulty: 'Moderate'
+    {
+        "id": "11-2",
+        "question": "The 'Safety Valve' theory suggests the INC was formed to:",
+        "options": [
+            "Release growing discontent of Indians safely",
+            "Promote British trade",
+            "Recruit Indians for the army",
+            "Spread Christianity"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The theory posits that Hume and the British wanted a forum for Indians to vent their grievances to prevent a violent uprising like 1857.",
+        "chapterId": 11,
+        "difficulty": "Moderate"
     },
-{
-        id: '11-3',
-        question: "Who presided over the second session of the INC (1886) in Calcutta?",
-        options: ["Dadabhai Naoroji", "Badruddin Tyabji", "George Yule", "W.C. Bonnerjee"],
-        correctAnswer: 0,
-        explanation: "Dadabhai Naoroji presided over the second session.",
-        chapterId: 11,
-        difficulty: 'Hard'
+    {
+        "id": "11-3",
+        "question": "Who presided over the second session of the INC (1886) in Calcutta?",
+        "options": [
+            "Dadabhai Naoroji",
+            "Badruddin Tyabji",
+            "George Yule",
+            "W.C. Bonnerjee"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Dadabhai Naoroji presided over the second session.",
+        "chapterId": 11,
+        "difficulty": "Hard"
     },
-{
-        id: '11-4',
-        question: "The first session of the INC was attended by how many delegates?",
-        options: ["72", "100", "300", "56"],
-        correctAnswer: 0,
-        explanation: "72 delegates attended the first session in Bombay in 1885.",
-        chapterId: 11,
-        difficulty: 'Easy'
+    {
+        "id": "11-4",
+        "question": "The first session of the INC was attended by how many delegates?",
+        "options": [
+            "72",
+            "100",
+            "300",
+            "56"
+        ],
+        "correctAnswer": 0,
+        "explanation": "72 delegates attended the first session in Bombay in 1885.",
+        "chapterId": 11,
+        "difficulty": "Easy"
     },
-{
-        id: '11-5',
-        question: "Who was the first woman President of the INC?",
-        options: ["Annie Besant", "Sarojini Naidu", "Nellie Sengupta", "Indira Gandhi"],
-        correctAnswer: 0,
-        explanation: "Annie Besant became the first woman president in 1917. Sarojini Naidu was the first Indian woman president (1925).",
-        chapterId: 11,
-        difficulty: 'Moderate'
+    {
+        "id": "11-5",
+        "question": "Who was the first woman President of the INC?",
+        "options": [
+            "Annie Besant",
+            "Sarojini Naidu",
+            "Nellie Sengupta",
+            "Indira Gandhi"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Annie Besant became the first woman president in 1917. Sarojini Naidu was the first Indian woman president (1925).",
+        "chapterId": 11,
+        "difficulty": "Moderate"
     },
-{
-        id: '11-7',
-        question: "Which Viceroy was in office during the formation of the INC?",
-        options: ["Lord Dufferin", "Lord Ripon", "Lord Lytton", "Lord Curzon"],
-        correctAnswer: 0,
-        explanation: "Lord Dufferin (1884-1888) was the Viceroy when the INC was formed in 1885.",
-        chapterId: 11,
-        difficulty: 'Hard'
+    {
+        "id": "11-7",
+        "question": "Which Viceroy was in office during the formation of the INC?",
+        "options": [
+            "Lord Dufferin",
+            "Lord Ripon",
+            "Lord Lytton",
+            "Lord Curzon"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Lord Dufferin (1884-1888) was the Viceroy when the INC was formed in 1885.",
+        "chapterId": 11,
+        "difficulty": "Hard"
     },
-{
-        id: '11-8',
-        question: "Who was the first Englishman to preside over an INC session?",
-        options: ["George Yule", "William Wedderburn", "Alfred Webb", "Henry Cotton"],
-        correctAnswer: 0,
-        explanation: "George Yule presided over the 1888 session at Allahabad.",
-        chapterId: 11,
-        difficulty: 'Easy'
+    {
+        "id": "11-8",
+        "question": "Who was the first Englishman to preside over an INC session?",
+        "options": [
+            "George Yule",
+            "William Wedderburn",
+            "Alfred Webb",
+            "Henry Cotton"
+        ],
+        "correctAnswer": 0,
+        "explanation": "George Yule presided over the 1888 session at Allahabad.",
+        "chapterId": 11,
+        "difficulty": "Easy"
     },
-{
-        id: '11-9',
-        question: "The partition of Bengal in 1905 was announced by:",
-        options: ["Lord Curzon", "Lord Minto", "Lord Hardinge", "Lord Chelmsford"],
-        correctAnswer: 0,
-        explanation: "Lord Curzon announced the partition of Bengal to curb the rising nationalism.",
-        chapterId: 11,
-        difficulty: 'Moderate'
+    {
+        "id": "11-9",
+        "question": "The partition of Bengal in 1905 was announced by:",
+        "options": [
+            "Lord Curzon",
+            "Lord Minto",
+            "Lord Hardinge",
+            "Lord Chelmsford"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Lord Curzon announced the partition of Bengal to curb the rising nationalism.",
+        "chapterId": 11,
+        "difficulty": "Moderate"
     },
-{
-        id: '11-10',
-        question: "Who said 'Congress is a begging institute'?",
-        options: ["Aurobindo Ghosh", "B.G. Tilak", "Bipin Chandra Pal", "Lala Lajpat Rai"],
-        correctAnswer: 0,
-        explanation: "Aurobindo Ghosh and other extremists criticized the Moderate's method of petitioning as 'political mendicancy' or begging.",
-        chapterId: 11,
-        difficulty: 'Hard'
+    {
+        "id": "11-10",
+        "question": "Who said 'Congress is a begging institute'?",
+        "options": [
+            "Aurobindo Ghosh",
+            "B.G. Tilak",
+            "Bipin Chandra Pal",
+            "Lala Lajpat Rai"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Aurobindo Ghosh and other extremists criticized the Moderate's method of petitioning as 'political mendicancy' or begging.",
+        "chapterId": 11,
+        "difficulty": "Hard"
     },
-{
-        id: '11-11',
-        question: "The Benaras Session of 1905 was presided over by:",
-        options: ["G.K. Gokhale", "Dadabhai Naoroji", "Pherozeshah Mehta", "R.C. Dutt"],
-        correctAnswer: 0,
-        explanation: "Gopal Krishna Gokhale presided over the 1905 session where the Swadeshi movement was supported.",
-        chapterId: 11,
-        difficulty: 'Easy'
+    {
+        "id": "11-11",
+        "question": "The Benaras Session of 1905 was presided over by:",
+        "options": [
+            "G.K. Gokhale",
+            "Dadabhai Naoroji",
+            "Pherozeshah Mehta",
+            "R.C. Dutt"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Gopal Krishna Gokhale presided over the 1905 session where the Swadeshi movement was supported.",
+        "chapterId": 11,
+        "difficulty": "Easy"
     },
-{
-        id: '11-12',
-        question: "In which session did the Congress split into Moderates and Extremists?",
-        options: ["Surat (1907)", "Calcutta (1906)", "Benaras (1905)", "Madras (1908)"],
-        correctAnswer: 0,
-        explanation: "The Surat Split occurred in 1907 ending in the expulsion of Extremists.",
-        chapterId: 11,
-        difficulty: 'Moderate'
+    {
+        "id": "11-12",
+        "question": "In which session did the Congress split into Moderates and Extremists?",
+        "options": [
+            "Surat (1907)",
+            "Calcutta (1906)",
+            "Benaras (1905)",
+            "Madras (1908)"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Surat Split occurred in 1907 ending in the expulsion of Extremists.",
+        "chapterId": 11,
+        "difficulty": "Moderate"
     },
-{
-        id: '11-13',
-        question: "Who was the President of the 1906 Calcutta Session where 'Swaraj' was declared as the goal?",
-        options: ["Dadabhai Naoroji", "Rashbehari Ghosh", "Tilak", "Gokhale"],
-        correctAnswer: 0,
-        explanation: "Dadabhai Naoroji presided and declared 'Swaraj' or self-government as the goal.",
-        chapterId: 11,
-        difficulty: 'Hard'
+    {
+        "id": "11-13",
+        "question": "Who was the President of the 1906 Calcutta Session where 'Swaraj' was declared as the goal?",
+        "options": [
+            "Dadabhai Naoroji",
+            "Rashbehari Ghosh",
+            "Tilak",
+            "Gokhale"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Dadabhai Naoroji presided and declared 'Swaraj' or self-government as the goal.",
+        "chapterId": 11,
+        "difficulty": "Hard"
     },
-{
-        id: '11-15',
-        question: "Who presided over the Lucknow Session of 1916?",
-        options: ["A.C. Majumdar", "Annie Besant", "Tilak", "M.A. Jinnah"],
-        correctAnswer: 0,
-        explanation: "Ambica Charan Majumdar presided over the historic Lucknow session.",
-        chapterId: 11,
-        difficulty: 'Easy'
+    {
+        "id": "11-15",
+        "question": "Who presided over the Lucknow Session of 1916?",
+        "options": [
+            "A.C. Majumdar",
+            "Annie Besant",
+            "Tilak",
+            "M.A. Jinnah"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Ambica Charan Majumdar presided over the historic Lucknow session.",
+        "chapterId": 11,
+        "difficulty": "Easy"
     },
-{
-        id: '11-16',
-        question: "Which socialist leader was the Congress President in 1936 and 1937?",
-        options: ["Jawaharlal Nehru", "Subhash Chandra Bose", "Abul Kalam Azad", "Rajendra Prasad"],
-        correctAnswer: 0,
-        explanation: "Jawaharlal Nehru presided over the Lucknow (1936) and Faizpur (1937) sessions.",
-        chapterId: 11,
-        difficulty: 'Moderate'
+    {
+        "id": "11-16",
+        "question": "Which socialist leader was the Congress President in 1936 and 1937?",
+        "options": [
+            "Jawaharlal Nehru",
+            "Subhash Chandra Bose",
+            "Abul Kalam Azad",
+            "Rajendra Prasad"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Jawaharlal Nehru presided over the Lucknow (1936) and Faizpur (1937) sessions.",
+        "chapterId": 11,
+        "difficulty": "Moderate"
     },
-{
-        id: '11-17',
-        question: "The only Congress session presided over by Mahatma Gandhi was held at:",
-        options: ["Belgaum (1924)", "Calcutta (1928)", "Lahore (1929)", "Karachi (1931)"],
-        correctAnswer: 0,
-        explanation: "Gandhi presided over the Belgaum session in 1924.",
-        chapterId: 11,
-        difficulty: 'Hard'
+    {
+        "id": "11-17",
+        "question": "The only Congress session presided over by Mahatma Gandhi was held at:",
+        "options": [
+            "Belgaum (1924)",
+            "Calcutta (1928)",
+            "Lahore (1929)",
+            "Karachi (1931)"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Gandhi presided over the Belgaum session in 1924.",
+        "chapterId": 11,
+        "difficulty": "Hard"
     },
-{
-        id: '11-18',
-        question: "Who was the Congress President when India attained independence?",
-        options: ["J.B. Kripalani", "Jawaharlal Nehru", "Maulana Azad", "Rajendra Prasad"],
-        correctAnswer: 0,
-        explanation: "J.B. Kripalani was the President of the INC at the time of independence in 1947.",
-        chapterId: 11,
-        difficulty: 'Easy'
+    {
+        "id": "11-18",
+        "question": "Who was the Congress President when India attained independence?",
+        "options": [
+            "J.B. Kripalani",
+            "Jawaharlal Nehru",
+            "Maulana Azad",
+            "Rajendra Prasad"
+        ],
+        "correctAnswer": 0,
+        "explanation": "J.B. Kripalani was the President of the INC at the time of independence in 1947.",
+        "chapterId": 11,
+        "difficulty": "Easy"
     },
-{
-        id: '11-19',
-        question: "The resolution of 'Poona Swaraj' (Complete Independence) was passed in which session?",
-        options: ["Lahore (1929)", "Calcutta (1928)", "Karachi (1931)", "Madras (1927)"],
-        correctAnswer: 0,
-        explanation: "The Lahore Session (1929) under Nehru passed the Purna Swaraj resolution.",
-        chapterId: 11,
-        difficulty: 'Moderate'
+    {
+        "id": "11-19",
+        "question": "The resolution of 'Poona Swaraj' (Complete Independence) was passed in which session?",
+        "options": [
+            "Lahore (1929)",
+            "Calcutta (1928)",
+            "Karachi (1931)",
+            "Madras (1927)"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Lahore Session (1929) under Nehru passed the Purna Swaraj resolution.",
+        "chapterId": 11,
+        "difficulty": "Moderate"
     },
-{
-        id: '11-20',
-        question: "Subhash Chandra Bose defeated whom to become President in 1939 (Tripuri Session)?",
-        options: ["Pattabhi Sitaramayya", "Jawaharlal Nehru", "Rajendra Prasad", "Maulana Azad"],
-        correctAnswer: 0,
-        explanation: "Bose defeated Pattabhi Sitaramayya, who was Gandhi's candidate.",
-        chapterId: 11,
-        difficulty: 'Hard'
+    {
+        "id": "11-20",
+        "question": "Subhash Chandra Bose defeated whom to become President in 1939 (Tripuri Session)?",
+        "options": [
+            "Pattabhi Sitaramayya",
+            "Jawaharlal Nehru",
+            "Rajendra Prasad",
+            "Maulana Azad"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Bose defeated Pattabhi Sitaramayya, who was Gandhi's candidate.",
+        "chapterId": 11,
+        "difficulty": "Hard"
     },
-{
-        id: '11-21',
-        question: "Who was the longest serving President of INC before independence?",
-        options: ["Maulana Abul Kalam Azad", "Jawaharlal Nehru", "Dadabhai Naoroji", "Rajendra Prasad"],
-        correctAnswer: 0,
-        explanation: "Maulana Azad served from 1940 to 1946.",
-        chapterId: 11,
-        difficulty: 'Easy'
+    {
+        "id": "11-21",
+        "question": "Who was the longest serving President of INC before independence?",
+        "options": [
+            "Maulana Abul Kalam Azad",
+            "Jawaharlal Nehru",
+            "Dadabhai Naoroji",
+            "Rajendra Prasad"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Maulana Azad served from 1940 to 1946.",
+        "chapterId": 11,
+        "difficulty": "Easy"
     },
-{
-        id: '11-22',
-        question: "The first session of INC was originally scheduled to be held at ____ but shifted to Bombay due to cholera?",
-        options: ["Poona", "Calcutta", "Madras", "Surat"],
-        correctAnswer: 0,
-        explanation: "It was planned for Poona but shifted to Bombay.",
-        chapterId: 11,
-        difficulty: 'Moderate'
+    {
+        "id": "11-22",
+        "question": "The first session of INC was originally scheduled to be held at ____ but shifted to Bombay due to cholera?",
+        "options": [
+            "Poona",
+            "Calcutta",
+            "Madras",
+            "Surat"
+        ],
+        "correctAnswer": 0,
+        "explanation": "It was planned for Poona but shifted to Bombay.",
+        "chapterId": 11,
+        "difficulty": "Moderate"
     },
-{
-        id: '11-23',
-        question: "Who said regarding Congress 'We do not ask for favors, we want justice'?",
-        options: ["Dadabhai Naoroji", "W.C. Bonnerjee", "Gokhale", "Surendranath Banerjea"],
-        correctAnswer: 0,
-        explanation: "Dadabhai Naoroji asserted this demand for justice and rights.",
-        chapterId: 11,
-        difficulty: 'Hard'
+    {
+        "id": "11-23",
+        "question": "Who said regarding Congress 'We do not ask for favors, we want justice'?",
+        "options": [
+            "Dadabhai Naoroji",
+            "W.C. Bonnerjee",
+            "Gokhale",
+            "Surendranath Banerjea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Dadabhai Naoroji asserted this demand for justice and rights.",
+        "chapterId": 11,
+        "difficulty": "Hard"
     },
-{
-        id: '11-24',
-        question: "Who was the first Indian woman President of INC?",
-        options: ["Sarojini Naidu", "Annie Besant", "Nellie Sengupta", "Indira Gandhi"],
-        correctAnswer: 0,
-        explanation: "Sarojini Naidu presided over the Kanpur session in 1925.",
-        chapterId: 11,
-        difficulty: 'Easy'
+    {
+        "id": "11-24",
+        "question": "Who was the first Indian woman President of INC?",
+        "options": [
+            "Sarojini Naidu",
+            "Annie Besant",
+            "Nellie Sengupta",
+            "Indira Gandhi"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Sarojini Naidu presided over the Kanpur session in 1925.",
+        "chapterId": 11,
+        "difficulty": "Easy"
     },
-{
-        id: '11-26',
-        question: "Who was the Viceroy when the partition of Bengal was annulled in 1911?",
-        options: ["Lord Hardinge II", "Lord Minto", "Lord Curzon", "Lord Chelmsford"],
-        correctAnswer: 0,
-        explanation: "Lord Hardinge II annulled the partition at the Delhi Durbar in 1911.",
-        chapterId: 11,
-        difficulty: 'Moderate'
+    {
+        "id": "11-26",
+        "question": "Who was the Viceroy when the partition of Bengal was annulled in 1911?",
+        "options": [
+            "Lord Hardinge II",
+            "Lord Minto",
+            "Lord Curzon",
+            "Lord Chelmsford"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Lord Hardinge II annulled the partition at the Delhi Durbar in 1911.",
+        "chapterId": 11,
+        "difficulty": "Moderate"
     },
-{
-        id: '11-28',
-        question: "Who was called the 'Father of the Indian National Congress'?",
-        options: ["A.O. Hume", "Dadabhai Naoroji", "W.C. Bonnerjee", "Gandhi"],
-        correctAnswer: 0,
-        explanation: "A.O. Hume is generally regarded as the father/founder of the INC.",
-        chapterId: 11,
-        difficulty: 'Hard'
+    {
+        "id": "11-28",
+        "question": "Who was called the 'Father of the Indian National Congress'?",
+        "options": [
+            "A.O. Hume",
+            "Dadabhai Naoroji",
+            "W.C. Bonnerjee",
+            "Gandhi"
+        ],
+        "correctAnswer": 0,
+        "explanation": "A.O. Hume is generally regarded as the father/founder of the INC.",
+        "chapterId": 11,
+        "difficulty": "Hard"
     },
-{
-        id: '11-29',
-        question: "Which act allowed for the first time separate electorates for Muslims?",
-        options: ["Indian Councils Act, 1909", "Government of India Act, 1919", "Indian Councils Act, 1892", "Government of India Act, 1935"],
-        correctAnswer: 0,
-        explanation: "The Morley-Minto Reforms (1909) introduced separate electorates.",
-        chapterId: 11,
-        difficulty: 'Easy'
+    {
+        "id": "11-29",
+        "question": "Which act allowed for the first time separate electorates for Muslims?",
+        "options": [
+            "Indian Councils Act, 1909",
+            "Government of India Act, 1919",
+            "Indian Councils Act, 1892",
+            "Government of India Act, 1935"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Morley-Minto Reforms (1909) introduced separate electorates.",
+        "chapterId": 11,
+        "difficulty": "Easy"
     },
-{
+    {
         "id": 1,
         "question": "The formal proclamation of the Swadeshi Movement was made on August 7, 1905, at:",
         "options": [
@@ -241,7 +366,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 2,
         "question": "Who was the Viceroy of India when the Partition of Bengal was announced in 1905?",
         "options": [
@@ -256,7 +381,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 3,
         "question": "According to the government, what was the official reason for the partition of Bengal?",
         "options": [
@@ -271,7 +396,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 4,
         "question": "The day the partition of Bengal took effect was declared as a day of mourning throughout Bengal. What was that date?",
         "options": [
@@ -286,7 +411,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 5,
         "question": "During the Swadeshi Movement, who suggested that the day of partition be observed as Raksha Bandhan to symbolize unity?",
         "options": [
@@ -301,7 +426,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 6,
         "question": "Which famous song composed by Rabindranath Tagore during this period later became the national anthem of Bangladesh?",
         "options": [
@@ -316,7 +441,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 7,
         "question": "Who was the President of the Banaras session of the Indian National Congress in 1905?",
         "options": [
@@ -331,7 +456,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 8,
         "question": "In the 1906 Calcutta session, the goal of the Indian National Congress was defined as 'Swaraj'. Who was the President of this session?",
         "options": [
@@ -346,7 +471,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 9,
         "question": "The famous slogan \"Swaraj is my birthright and I shall have it\" was given by:",
         "options": [
@@ -361,7 +486,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 10,
         "question": "Who was the founder of the 'Swadesh Bandhab Samiti' in Barisal, which became a powerful medium for mass mobilization?",
         "options": [
@@ -376,7 +501,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 0
     },
-{
+    {
         "id": 11,
         "question": "The National Council of Education was set up in August 1906 to organize a system of education on national lines. Who was its first principal?",
         "options": [
@@ -391,7 +516,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 12,
         "question": "In the field of Indian art, who founded the Indian Society of Oriental Art in 1907 to break the hegemony of Victorian naturalism?",
         "options": [
@@ -406,7 +531,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 13,
         "question": "Who was the leader of the Swadeshi Movement in Delhi?",
         "options": [
@@ -421,7 +546,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 16,
         "question": "The Surat Split of the Indian National Congress took place in which year?",
         "options": [
@@ -436,7 +561,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 17,
         "question": "Who was the President of the 1907 Surat session where the Congress split into Moderates and Extremists?",
         "options": [
@@ -451,7 +576,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 19,
         "question": "The Morley-Minto Reforms were enacted in which year?",
         "options": [
@@ -466,7 +591,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 20,
         "question": "Which feature of the Morley-Minto Reforms was most criticized by nationalists for sowing the seeds of communalism?",
         "options": [
@@ -481,7 +606,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 21,
         "question": "Who was the first Indian to be appointed to the Viceroy’s Executive Council?",
         "options": [
@@ -496,7 +621,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 0
     },
-{
+    {
         "id": 23,
         "question": "In 1908, Bal Gangadhar Tilak was sentenced to six years of imprisonment and sent to:",
         "options": [
@@ -511,7 +636,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 24,
         "question": "Who wrote the famous series of articles titled 'New Lamps for Old' criticizing the Moderate politics of the Congress?",
         "options": [
@@ -526,7 +651,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 25,
         "question": "The Ganapati and Shivaji festivals were used for national propaganda in Maharashtra by:",
         "options": [
@@ -541,7 +666,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 26,
         "question": "Which revolutionary group was founded by Barindra Kumar Ghosh and Bhupendranath Datta in Bengal?",
         "options": [
@@ -556,7 +681,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 27,
         "question": "The partition of Bengal was eventually annulled in which year?",
         "options": [
@@ -571,7 +696,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 28,
         "question": "In 1911, the capital of British India was shifted from Calcutta to:",
         "options": [
@@ -586,7 +711,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 29,
         "question": "Which Moderate leader was referred to as the 'Lion of Bombay'?",
         "options": [
@@ -601,7 +726,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 30,
         "question": "Who criticized the Swadeshi Movement for its \"excessive focus on symbols\" and called for a more constructive work in villages (Atmashakti)?",
         "options": [
@@ -616,7 +741,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 31,
         "question": "The Partition of Bengal was not merely an administrative measure as claimed by the British. Which of the following best describes the real political motive of Lord Curzon?",
         "options": [
@@ -631,7 +756,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 32,
         "question": "Consider the following statements regarding the 'Moderate' vs 'Extremist' stance on the Swadeshi Movement: The Moderates wanted to restrict the boycott movement to Bengal only. The Extremists, led by Tilak, wanted to take the movement to other parts of India and transform it into a full-fledged political mass struggle for Swaraj. Both groups agreed to include the boycott of government schools and courts from the very beginning. Which of the statements given above are correct?",
         "options": [
@@ -646,7 +771,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 0
     },
-{
+    {
         "id": 33,
         "question": "The concept of 'Atmashakti' (Self-reliance) was a significant ideological component of the Swadeshi Movement. Who among the following was the most prominent advocate of this constructive program?",
         "options": [
@@ -661,7 +786,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 34,
         "question": "During the Swadeshi Movement, several national educational institutions were established. Match the following institutions with their associated personalities: National Council of Education — A. Satish Chandra Mukherjee Dawn Society — B. Aurobindo Ghosh (First Principal) Bengal National College — C. Rashbehari Ghosh (President) Select the correct matching code:",
         "options": [
@@ -676,7 +801,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 0
     },
-{
+    {
         "id": 36,
         "question": "With reference to the 'Morley-Minto Reforms' of 1909, consider the following: Statement-I: The reforms introduced the system of Separate Electorates for Muslims, where only Muslims could vote for Muslim candidates. Statement-II: The primary objective of these reforms was to grant Indians a substantial share in the decision-making process of the government. Which one of the following is correct in respect of the above statements?",
         "options": [
@@ -691,7 +816,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 37,
         "question": "The Swadeshi Movement saw the first major participation of women and students in the national struggle. How did the government react to student participation?",
         "options": [
@@ -706,7 +831,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 38,
         "question": "Consider the following regarding the 'All India Muslim League' founded in 1906: It was founded in Dacca under the leadership of Nawab Salimullah and Aga Khan. It strongly supported the Swadeshi and Boycott movement. Its primary objective was to promote loyalty to the British government and protect Muslim political rights. How many of the above statements are correct?",
         "options": [
@@ -721,7 +846,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 39,
         "question": "Which revolutionary journal famously declared, \"The whole nation must be taught to kill... Every man should have a weapon\"?",
         "options": [
@@ -736,7 +861,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 40,
         "question": "The Swadeshi Movement significantly impacted the Indian economy. Which of the following was a notable achievement in the industrial sector during this period?",
         "options": [
@@ -751,7 +876,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 0
     },
-{
+    {
         "id": 42,
         "question": "Consider the following statements about Bal Gangadhar Tilak during the Era of Militant Nationalism: Statement-I: He was the first leader to recognize that the Indian National Movement must be based on a broad social base of the masses. Statement-II: He successfully organized the Ganapati and Shivaji festivals to bridge the gap between the educated elite and the common people. Which one of the following is correct in respect of the above statements?",
         "options": [
@@ -766,7 +891,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 0
     },
-{
+    {
         "id": 43,
         "question": "In the field of literature, the Swadeshi Movement was characterized by a surge in patriotic writings. Which of the following is correctly matched? Amar Sonar Bangla — Rabindranath Tagore Vande Mataram — Bankim Chandra Chatterjee (Used as the anthem of the movement) Swadeshi Geethangal — Subramania Bharati How many of the above pairs are correctly matched?",
         "options": [
@@ -781,7 +906,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 45,
         "question": "Why did the Swadeshi Movement begin to decline by 1908?",
         "options": [
@@ -796,7 +921,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 46,
         "question": "Consider the following statements regarding the ideological shifts during the Swadeshi Movement: The Extremists emphasized 'Atmashakti' (Self-reliance), which involved the social and economic regeneration of villages through indigenous efforts. Aurobindo Ghosh advocated for 'Passive Resistance', which included the boycott of government schools, courts, and the refusal to pay taxes. The Moderates viewed the boycott of foreign goods as a permanent political weapon to be used across India to achieve 'Purna Swaraj'. How many of the above statements are correct?",
         "options": [
@@ -811,7 +936,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 48,
         "question": "Arrange the following events related to the rise of militant nationalism in the correct chronological order: Foundation of the Anushilan Samiti in Calcutta. The Alipore Conspiracy Case. The attempt on the life of Magistrate Kingsford by Khudiram Bose and Prafulla Chaki. The publication of 'New Lamps for Old' by Aurobindo Ghosh. Select the correct answer using the code given below:",
         "options": [
@@ -826,7 +951,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 0
     },
-{
+    {
         "id": 49,
         "question": "Consider the following pairs of Swadeshi-era Samitis and their leaders: Swadesh Bandhab Samiti — Ashwini Kumar Datta Anushilan Samiti (Dacca) — Pulin Das Anti-Circular Society — Sachindra Prasad Bose Dawn Society — Satish Chandra Mukherjee How many of the above pairs are correctly matched?",
         "options": [
@@ -841,7 +966,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 3
     },
-{
+    {
         "id": 50,
         "question": "Regarding the 'Morley-Minto Reforms' (1909), consider the following statements: The Act effectively increased the number of elected members in both the Imperial and Provincial Legislative Councils. It introduced 'Separate Electorates' for Muslims, which was described by Lord Minto as sowing \"dragon's teeth.\" The reforms granted the councils the power to pass resolutions on the budget and ask supplementary questions. How many of the above statements are correct?",
         "options": [
@@ -856,7 +981,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 51,
         "question": "\"He was the first to interpret the Swadeshi Movement as a 'total' movement involving the boycott of all things British. He used the Ganapati and Shivaji festivals as a medium of political propaganda and was the first to suffer imprisonment for the sake of the country.\" The above description refers to:",
         "options": [
@@ -871,7 +996,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 53,
         "question": "Consider the following regarding the participation of different social groups in the Swadeshi Movement: The students participated in large numbers, defying government circulars and facing rustication. The movement saw the first major participation of women from urban middle-class families in picketing and processions. The Muslim peasantry of East Bengal overwhelmingly supported the boycott movement against British cloth. How many of the above statements are correct?",
         "options": [
@@ -886,7 +1011,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 56,
         "question": "The 1906 Calcutta session of the INC is considered a tactical victory for the Extremists because:",
         "options": [
@@ -901,7 +1026,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 57,
         "question": "Match the following regions with the leaders of the Swadeshi Movement there: Punjab — A. Syed Haider Raza Delhi — B. Lala Lajpat Rai & Ajit Singh Madras — C. V.O. Chidambaram Pillai Andhra — D. Mutnuri Krishna Rao Select the correct code:",
         "options": [
@@ -916,7 +1041,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 0
     },
-{
+    {
         "id": 58,
         "question": "With reference to 'Aurobindo Ghosh', consider the following statements: He edited the journal 'Bande Mataram' which became the voice of militant nationalism. He advocated for 'Atmashakti' which emphasized the use of indigenous products and national education. Following the Alipore Conspiracy Case, he retired from politics and moved to Pondicherry to pursue spiritualism. How many of the above statements are correct?",
         "options": [
@@ -931,7 +1056,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 2
     },
-{
+    {
         "id": 65,
         "question": "Which historian used the term 'Lightning Conductor' to describe A.O. Hume's role in the formation of the Congress?",
         "options": [
@@ -946,7 +1071,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 67,
         "question": "Consider the following statements regarding 'Lala Lajpat Rai' during the Swadeshi movement: Statement-I: He led the movement in Punjab and was deported to Mandalay along with Ajit Singh in 1907. Statement-II: He was a staunch Moderate who opposed the boycott of foreign cloth. Which one of the following is correct in respect of the above statements?",
         "options": [
@@ -959,7 +1084,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 69,
         "question": "What was the 'Federation Hall' in Calcutta (1905) intended to symbolize?",
         "options": [
@@ -974,7 +1099,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 71,
         "question": "Consider the impact of the Swadeshi Movement on Indian culture: Use of traditional folk theatre like 'Jatras' for political propaganda. Growth of patriotic poetry in vernacular languages (e.g., Rabindranath Tagore, Mukunda Das). The absolute decline of all classical Indian dance forms. How many of the above statements are correct?",
         "options": [
@@ -989,7 +1114,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 73,
         "question": "In the 1905 Banaras session of the INC, the Extremists led by Tilak wanted the Congress to:",
         "options": [
@@ -1004,7 +1129,7 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-{
+    {
         "id": 75,
         "question": "Ultimately, the 'Era of Militant Nationalism' (1905-1909) failed to achieve its immediate goal of 'Swaraj' because:",
         "options": [
@@ -1019,905 +1144,74 @@ export const MODERN_CHAPTER_11_MCQS: any[] = [
         "subtopic": "",
         "correctAnswer": 1
     },
-
     {
-        id: 'gen-ch11-Easy-0-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-1-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-2-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Easy-3-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-4-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-5-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Easy-6-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-7-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-8-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Easy-9-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-10-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-11-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Easy-12-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-13-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-14-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Easy-15-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-16-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-17-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Easy-18-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-19-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-20-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Easy-21-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-22-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-23-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Easy-24-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-25-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-26-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Easy-27-1771158318458',
-        question: "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
-        options: ["Political Consolidation","Economic Stagnation","Religious Reform","Administrative Change"],
-        correctAnswer: 0,
-        explanation: "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Easy-28-1771158318458',
-        question: "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
-        options: ["Expansion","Consolidation","Retreat","Isolation"],
-        correctAnswer: 0,
-        explanation: "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Easy-29-1771158318458',
-        question: "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
-        options: ["The Governor-General","The Local Ruler","The Social Reformer","The Revolutionary Leader"],
-        correctAnswer: 0,
-        explanation: "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Easy',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-0-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-1-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-2-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-3-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-4-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-5-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-6-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-7-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-8-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-9-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-10-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-11-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-12-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-13-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-14-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-15-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-16-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-17-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-18-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-19-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-20-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-21-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-22-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-23-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-24-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-25-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-26-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Moderate-27-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Moderate-28-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Moderate-29-1771158318458',
-        question: "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
-        options: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
-        correctAnswer: 0,
-        explanation: "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
-        difficulty: 'Moderate',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-0-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-1-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-2-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-3-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-4-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-5-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-6-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-7-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-8-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-9-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-10-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-11-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-12-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-13-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-14-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-15-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-16-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-17-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-18-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-19-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-20-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-21-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-22-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-23-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-24-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-25-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-26-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
-    {
-        id: 'gen-ch11-Hard-27-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Moderate'
-    },
-    {
-        id: 'gen-ch11-Hard-28-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Hard'
-    },
-    {
-        id: 'gen-ch11-Hard-29-1771158318458',
-        question: "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
-        options: ["Both A and R are true and R is the correct explanation of A","Both A and R are true but R is NOT the correct explanation of A","A is true but R is false","A is false but R is true"],
-        correctAnswer: 0,
-        explanation: "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
-        difficulty: 'Hard',
-        chapterId: 11,
-        difficulty: 'Easy'
-    },
+        "id": "gen-ch11-Easy-0-1771158318458",
+        "question": "'Indian National Congress: Foundation and Moderate Phase' is a significant topic in Modern Indian History. Which of the following is most associated with this period?",
+        "options": [
+            "Political Consolidation",
+            "Economic Stagnation",
+            "Religious Reform",
+            "Administrative Change"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Indian National Congress: Foundation and Moderate Phase involved major shifts in the political landscape.",
+        "difficulty": "Moderate",
+        "chapterId": 11
+    },
+    {
+        "id": "gen-ch11-Easy-1-1771158318458",
+        "question": "During the phase of 'Indian National Congress: Foundation and Moderate Phase', the British policy generally focused on:",
+        "options": [
+            "Expansion",
+            "Consolidation",
+            "Retreat",
+            "Isolation"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The primary aim during Indian National Congress: Foundation and Moderate Phase was establishing control.",
+        "difficulty": "Hard",
+        "chapterId": 11
+    },
+    {
+        "id": "gen-ch11-Easy-2-1771158318458",
+        "question": "Which key figure is central to the events described in 'Indian National Congress: Foundation and Moderate Phase'?",
+        "options": [
+            "The Governor-General",
+            "The Local Ruler",
+            "The Social Reformer",
+            "The Revolutionary Leader"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Key figures shaped the course of Indian National Congress: Foundation and Moderate Phase.",
+        "difficulty": "Easy",
+        "chapterId": 11
+    },
+    {
+        "id": "gen-ch11-Moderate-0-1771158318458",
+        "question": "Consider the following statements regarding 'Indian National Congress: Foundation and Moderate Phase':\n1. It had a long-lasting impact on Indian society.\n2. It was completely isolated from global events.\n\nWhich of the statements given above is/are correct?",
+        "options": [
+            "1 only",
+            "2 only",
+            "Both 1 and 2",
+            "Neither 1 nor 2"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Statement 1 is correct as Indian National Congress: Foundation and Moderate Phase shaped modern India. Statement 2 is incorrect as global events often influenced Indian history.",
+        "difficulty": "Moderate",
+        "chapterId": 11
+    },
+    {
+        "id": "gen-ch11-Hard-0-1771158318458",
+        "question": "Assertion (A): The developments during 'Indian National Congress: Foundation and Moderate Phase' were inevitable due to colonial policies.\nReason (R): The socio-economic structure of India was resistant to change.\n\nSelect the correct code:",
+        "options": [
+            "Both A and R are true and R is the correct explanation of A",
+            "Both A and R are true but R is NOT the correct explanation of A",
+            "A is true but R is false",
+            "A is false but R is true"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Analytical reasoning: Colonial policies (A) often forced change, while structural resistance (R) created friction, characteristic of Indian National Congress: Foundation and Moderate Phase.",
+        "difficulty": "Moderate",
+        "chapterId": 11
+    }
 ];
