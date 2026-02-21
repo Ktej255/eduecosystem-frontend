@@ -82,7 +82,8 @@ function HistoryReadContent() {
 
     // V2 Trial Logic
     // Allow toggle via query param ?v=2 or UI
-    const [version, setVersion] = useState<'v1' | 'v2'>('v1');
+    // Default to v2 for modern section (handwritten notes) since all 39 chapters have V2 components
+    const [version, setVersion] = useState<'v1' | 'v2'>(section === 'modern' ? 'v2' : 'v1');
     const [fontSize, setFontSize] = useState(16);
     const [isCompleted, setIsCompleted] = useState(false);
 
@@ -115,7 +116,7 @@ function HistoryReadContent() {
     const handleNext = () => {
         const currentId = parseInt(chapterId);
         // Assuming max 24 for now based on registry. Ideally check keys.
-        if (currentId < 26) {
+        if (currentId < 39) {
             router.push(`/student/batch1/history/read/${currentId + 1}`);
         }
     };
@@ -260,7 +261,7 @@ function HistoryReadContent() {
                         </div>
 
                         {/* Toggle Switch */}
-                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'].includes(chapterId) && section === 'modern' && (
+                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39'].includes(chapterId) && section === 'modern' && (
                             <div className="flex items-center bg-gray-100 rounded-full p-1 border border-gray-300">
                                 <button
                                     onClick={() => setVersion('v1')}
@@ -387,7 +388,7 @@ function HistoryReadContent() {
 
                     <Button
                         onClick={handleNext}
-                        disabled={parseInt(chapterId) >= 26}
+                        disabled={parseInt(chapterId) >= 39}
                         className="bg-stone-800 hover:bg-stone-700 text-amber-50 shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
                         size="lg"
                     >
