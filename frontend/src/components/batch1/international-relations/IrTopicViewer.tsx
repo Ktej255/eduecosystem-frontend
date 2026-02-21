@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import { isChapterComplete, markChapterComplete } from "@/services/progressStorage";
 import { toast } from "sonner";
 import ConfidencePoll from "@/components/shared/ConfidencePoll";
+import DOMPurify from "dompurify";
 
 
 interface IrTopicViewerProps {
@@ -125,7 +126,7 @@ export default function IrTopicViewer({ content, moduleId }: IrTopicViewerProps)
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="p-6 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed">
-                                        <div dangerouslySetInnerHTML={{ __html: sec.content }} />
+                                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sec.content) }} />
                                     </CardContent>
                                 </Card>
                             </section>

@@ -2,7 +2,7 @@
 Full FastAPI application for Eduecosystem Backend.
 Restored with database connectivity, auth, and all API routes.
 """
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware.gzip import GZipMiddleware
 from contextlib import asynccontextmanager
@@ -10,13 +10,8 @@ import logging
 import os
 import sys
 
-import sys
-print("DEBUG: Loading main.py...", file=sys.stderr)
-
 from fastapi import Request
 from fastapi.responses import JSONResponse
-
-print("DEBUG: Imports complete. Initializing app...", file=sys.stderr)
 
 logger = logging.getLogger(__name__)
 
@@ -115,19 +110,8 @@ else:
         lifespan=lifespan,
     )
 
-# Set all CORS enabled origins - CRITICAL: Hardcode to ensure AI features work
-# Must include Vercel frontend for CORS to work properly
-HARDCODED_CORS_ORIGINS = [
-    "https://eduecosystem-frontend.vercel.app",
-    "https://eduecosystem-frontend-ktej255.vercel.app",
-    "http://localhost:3000",
-    "http://localhost:3001",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:3001",
-]
-
-# Merge with any additional origins from settings
-all_cors_origins = list(set(HARDCODED_CORS_ORIGINS + (BACKEND_CORS_ORIGINS if BACKEND_CORS_ORIGINS else [])))
+# CORS Origins — single source of truth from settings + any extras
+all_cors_origins = list(set(BACKEND_CORS_ORIGINS if BACKEND_CORS_ORIGINS else []))
 
 # Remove wildcard if specific origins are also present (wildcard with credentials fails)
 if "*" in all_cors_origins and len(all_cors_origins) > 1:
@@ -135,18 +119,11 @@ if "*" in all_cors_origins and len(all_cors_origins) > 1:
 
 use_credentials = "*" not in all_cors_origins
 
-print(f"CORS Origins configured: {all_cors_origins}")
-print(f"CORS Credentials: {use_credentials}")
+logger.info(f"CORS Origins configured: {all_cors_origins}")
 
 app.add_middleware(
     CORSMiddleware,
-    # MUST NOT be ["*"] if allow_credentials is True
-    allow_origins=all_cors_origins + [
-        "https://eduecosystem-frontend.vercel.app",
-        "https://eduecosystem.vercel.app",
-        "https://ktej255.vercel.app",
-        "https://eduecosystem-frontend-ktej255.vercel.app"
-    ],
+    allow_origins=all_cors_origins,
     allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
@@ -207,16 +184,16 @@ app.add_middleware(SecurityHeadersMiddleware)
 try:
     from app.api.api_v1.api import api_router
     app.include_router(api_router, prefix=API_V1_STR)
-    logger.info("API router included successfully")
-    print(f"DEBUG: API Router included successfully with prefix {API_V1_STR}")
+    logger.info(f"API router included successfully with prefix {API_V1_STR}")
 except Exception as e:
     import traceback
-    error_msg = f"CRITICAL: Failed to include API router: {str(e)}"
-    logger.error(error_msg)
-    print(error_msg)
+    logger.critical(f"Failed to include API router: {str(e)}")
     traceback.print_exc()
 
 
+
+# Application version — single source of truth
+APP_VERSION = settings.APP_VERSION
 
 # Root endpoint
 @app.get("/")
@@ -225,7 +202,7 @@ def read_root():
     return {
         "message": "Welcome to Eduecosystem Backend API",
         "status": "running",
-        "version": "1.0.7",
+        "version": APP_VERSION,
         "docs": "/docs"
     }
 
@@ -234,21 +211,9 @@ def read_root():
 @app.get("/health")
 def health_check():
     """Simple health check for App Runner."""
-    return {"status": "ok", "message": "Backend is healthy", "version": "1.0.4"}
+    return {"status": "ok", "message": "Backend is healthy", "version": APP_VERSION}
 
-@app.get("/debug-cors")
-def debug_cors(request: Request):
-    """Debug endpoint to inspect CORS related headers and configuration."""
-    origin = request.headers.get("origin")
-    logger.info(f"CORS Debug: Incoming origin: {origin}")
-    return {
-        "origin_header": origin,
-        "configured_origins": all_cors_origins,
-        "allow_origin_regex": r"https://.*\.vercel\.app",
-        "allow_credentials": use_credentials,
-        "env": os.getenv("ENVIRONMENT"),
-        "headers": dict(request.headers)
-    }
+# /debug-cors endpoint REMOVED for security — exposed internal configuration
 
 
 # Detailed health check with database connectivity
@@ -322,12 +287,24 @@ def api_status():
 
 
 # ONE-TIME MIGRATION: Add missing columns to production database
-@app.get("/admin/migrate-db")
-def migrate_database():
+# SECURITY: Requires superuser authentication
+try:
+    from app.api.deps import get_current_superuser
+except ImportError:
+    # Fallback if deps module isn't available
+    get_current_superuser = None
+
+
+@app.post("/admin/migrate-db")
+def migrate_database(current_user=Depends(get_current_superuser) if get_current_superuser else None):
     """
     One-time database migration to add missing columns.
     Safe to run multiple times (uses IF NOT EXISTS / DO NOTHING logic).
+    REQUIRES: Superuser bearer token.
     """
+    if current_user is None and get_current_superuser is not None:
+        return JSONResponse(status_code=401, content={"detail": "Authentication required"})
+
     from sqlalchemy import text
     from app.db.session import SessionLocal
 
@@ -379,7 +356,7 @@ def migrate_database():
 
         return {
             "status": "migration_complete",
-            "version": "1.0.7",
+            "version": APP_VERSION,
             "results": results
         }
     except Exception as e:

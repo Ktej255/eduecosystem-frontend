@@ -11,6 +11,7 @@ import { isChapterComplete, markChapterComplete } from "@/services/progressStora
 import { toast } from "sonner";
 import ConfidencePoll from "@/components/shared/ConfidencePoll";
 import { motion } from "framer-motion";
+import DOMPurify from "dompurify";
 
 interface ArtCultureTopicViewerProps {
     content: ContentItem;
@@ -98,7 +99,7 @@ export default function ArtCultureTopicViewer({ content }: ArtCultureTopicViewer
                 {/* Main Content */}
                 <Card className="border-rose-100 dark:border-rose-900/30 overflow-hidden shadow-xl">
                     <CardContent className="p-8 md:p-12 prose prose-rose dark:prose-invert max-w-none prose-h1:text-4xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-neutral-700 dark:prose-p:text-neutral-300 leading-relaxed">
-                        <div dangerouslySetInnerHTML={{ __html: content.content || "" }} />
+                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content.content || "") }} />
                     </CardContent>
                 </Card>
 

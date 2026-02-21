@@ -25,12 +25,10 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER: str = os.getenv("FIRST_SUPERUSER", "ktej255@gmail.com")
     FIRST_SUPERUSER_PASSWORD: str = os.getenv("FIRST_SUPERUSER_PASSWORD", "CHANGE_ME_IN_PRODUCTION")
 
-    # Database URL - use PostgreSQL in production, SQLite for development
+    # Database URL - use PostgreSQL in production (set via env var), SQLite for development
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL",
-        "sqlite:///./eduecosystem_v2.db"
-        if os.getenv("ENVIRONMENT", "development") != "production"
-        else "postgresql://postgres:Edueco123!@eduecosystem-prod.cw5ei40o4bwd.us-east-1.rds.amazonaws.com:5432/eduecosystem_prod",
+        "sqlite:///./eduecosystem_v2.db",
     )
     MONGO_URL: str = os.getenv("MONGO_URL", "mongodb://127.0.0.1:27017")
 
@@ -48,11 +46,13 @@ class Settings(BaseSettings):
     @field_validator("SECRET_KEY")
     @classmethod
     def validate_secret_key(cls, v, info):
-        """Ensure SECRET_KEY is set in production"""
+        """Ensure SECRET_KEY is set in production — fail loudly if missing."""
         environment = info.data.get("ENVIRONMENT", "development")
         if environment == "production" and not v:
-            print("WARNING: SECRET_KEY not set in production. Using temporary key.")
-            return secrets.token_urlsafe(32)
+            raise ValueError(
+                "CRITICAL: SECRET_KEY environment variable must be set in production. "
+                "Generate one with: python -c \"import secrets; print(secrets.token_urlsafe(32))\""
+            )
         return v
 
     # CORS Configuration - Parse from environment for production flexibility

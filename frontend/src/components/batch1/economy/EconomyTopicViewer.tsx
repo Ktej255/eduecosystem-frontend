@@ -13,6 +13,7 @@ import { toast } from "sonner"; // Assuming sonner is used, or a simple alert
 import ConfidencePoll from "@/components/shared/ConfidencePoll";
 import AIAvatarTeachingAssistant from '@/components/shared/AIAvatarTeachingAssistant';
 import InteractiveFAQ from '@/components/shared/InteractiveFAQ';
+import DOMPurify from "dompurify";
 
 interface EconomyTopicViewerProps {
     content: ContentItem;
@@ -165,7 +166,7 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="p-6 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
-                                        <div dangerouslySetInnerHTML={{ __html: sec.content }} />
+                                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sec.content) }} />
                                     </CardContent>
                                 </Card>
                             </section>

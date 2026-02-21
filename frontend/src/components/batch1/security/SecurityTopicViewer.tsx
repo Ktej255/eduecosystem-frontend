@@ -11,6 +11,7 @@ import { isChapterComplete, markChapterComplete } from "@/services/progressStora
 import { toast } from "sonner";
 import ConfidencePoll from "@/components/shared/ConfidencePoll";
 import { motion } from "framer-motion";
+import DOMPurify from "dompurify";
 
 interface SecurityTopicViewerProps {
     content: ContentItem;
@@ -96,7 +97,7 @@ export default function SecurityTopicViewer({ content }: SecurityTopicViewerProp
                         prose-h1:text-3xl prose-h1:font-black prose-h1:text-red-500 prose-h1:uppercase prose-h1:tracking-tighter
                         prose-h2:text-xl prose-h2:border-b prose-h2:border-slate-800 prose-h2:pb-2
                         prose-p:text-slate-300 leading-relaxed font-mono text-sm">
-                        <div dangerouslySetInnerHTML={{ __html: content.content || "" }} />
+                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content.content || "") }} />
                     </CardContent>
                 </Card>
 

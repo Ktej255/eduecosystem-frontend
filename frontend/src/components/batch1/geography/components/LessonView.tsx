@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import dynamic from "next/dynamic";
 import { activityService } from "@/services/activityService";
 import ConfidencePoll from "@/components/shared/ConfidencePoll";
+import DOMPurify from "dompurify";
 
 // Dynamic import for SimulationView (heavy 3D content)
 const SimulationView = dynamic(
@@ -171,9 +172,9 @@ function ContentBlockRenderer({ block, onLaunchSimulation }: ContentBlockRendere
                     {/* Simple markdown-ish parser for bold text */}
                     {block.content.split('\n').map((line, i) => (
                         <p key={i} dangerouslySetInnerHTML={{
-                            __html: line
+                            __html: DOMPurify.sanitize(line
                                 .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
-                                .replace(/\*(.*?)\*/g, '<em class="text-indigo-200">$1</em>')
+                                .replace(/\*(.*?)\*/g, '<em class="text-indigo-200">$1</em>'))
                         }} />
                     ))}
                 </div>
@@ -201,7 +202,7 @@ function ContentBlockRenderer({ block, onLaunchSimulation }: ContentBlockRendere
                     <Lightbulb className="w-6 h-6 text-yellow-400 shrink-0 mt-1" />
                     <div className="prose prose-invert text-indigo-100">
                         <p dangerouslySetInnerHTML={{
-                            __html: block.content.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
+                            __html: DOMPurify.sanitize(block.content.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>'))
                         }} />
                     </div>
                 </div>

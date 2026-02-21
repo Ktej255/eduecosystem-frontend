@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import { isChapterComplete, markChapterComplete } from "@/services/progressStorage";
 import { toast } from "sonner";
 import ConfidencePoll from "@/components/shared/ConfidencePoll";
+import DOMPurify from "dompurify";
 
 interface SocietyTopicViewerProps {
     content: ContentItem;
@@ -120,7 +121,7 @@ export default function SocietyTopicViewer({ content }: SocietyTopicViewerProps)
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="p-8 prose prose-rose dark:prose-invert max-w-none text-stone-700 dark:text-stone-300 leading-relaxed font-serif">
-                                        <div dangerouslySetInnerHTML={{ __html: sec.content }} />
+                                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sec.content) }} />
                                     </CardContent>
                                 </Card>
                             </section>
