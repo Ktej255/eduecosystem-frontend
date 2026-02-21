@@ -60,6 +60,7 @@ function HistoryReadContent() {
     const searchParams = useSearchParams();
     const chapterId = params.chapterId as string;
     const section = searchParams.get('section') || 'modern';
+    const { language, setLanguage, t } = useLanguageStore();
 
     let content = '';
 
