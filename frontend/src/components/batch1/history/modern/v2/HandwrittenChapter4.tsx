@@ -23,8 +23,13 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useLanguageStore } from '@/lib/language-store';
+import { ch4Translations } from './translations/ch4';
 
 export default function HandwrittenChapter4() {
+    const { language } = useLanguageStore();
+    const t = language === 'hi' ? ch4Translations.hi : ch4Translations.en;
+
     return (
         <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-['Kalam',_cursive] text-slate-800 selection:bg-orange-100 overflow-x-hidden">
             <style jsx global>{`
@@ -81,6 +86,20 @@ export default function HandwrittenChapter4() {
                 .cracked-card:nth-child(even) {
                     transform: rotate(0.8deg);
                 }
+
+                .paper-border {
+                    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+                    border: 2px solid #333;
+                }
+
+                .body-handwritten {
+                    font-family: 'Kalam', cursive;
+                    line-height: 1.8;
+                }
+
+                .marker-label {
+                    font-family: 'Permanent Marker', cursive;
+                }
             `}</style>
 
             {/* HERO SECTION */}
@@ -94,22 +113,27 @@ export default function HandwrittenChapter4() {
                         <Skull className="w-32 h-32 text-slate-400" />
                     </div>
                     <h1 className="text-4xl md:text-7xl font-['Permanent_Marker'] danger-red mb-2 tracking-tighter uppercase">
-                        THE GREAT FRAGMENTATION
+                        {t.heroTitle}
                     </h1>
                     <p className="text-xl md:text-2xl mughal-purple font-bold opacity-80 uppercase tracking-widest italic">
-                        --- India on the Eve of British Conquest ---
+                        {t.heroSubtitle}
                     </p>
                     <div className="w-48 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent mx-auto mt-4"></div>
                 </motion.div>
 
                 <div className="mt-12 max-w-3xl mx-auto space-y-4">
                     <p className="text-2xl body-handwritten leading-relaxed text-slate-700">
-                        The 18th Century: Was it a <span className="underline decoration-red-400">Dark Age</span> of ruin, or a <span className="underline decoration-green-400">Transition</span> to modernity?
+                        {t.heroQuestion}<span className="underline decoration-red-400">{t.heroDarkAge}</span>{t.heroOr}<span className="underline decoration-green-400">{t.heroTransition}</span>{t.heroModernity}
                     </p>
                     <div className="flex justify-center gap-6 text-sm font-bold uppercase tracking-tighter text-slate-400">
-                        <span className="flex items-center gap-1"><Divide className="w-4 h-4" /> Internal Weakness</span>
-                        <span className="flex items-center gap-1"><Sword className="w-4 h-4" /> External Invasions</span>
-                        <span className="flex items-center gap-1"><Ghost className="w-4 h-4" /> Power Vacuum</span>
+                        {t.heroTags.map((tag, i) => (
+                            <span key={i} className="flex items-center gap-1">
+                                {tag.icon === 'divide' && <Divide className="w-4 h-4" />}
+                                {tag.icon === 'sword' && <Sword className="w-4 h-4" />}
+                                {tag.icon === 'ghost' && <Ghost className="w-4 h-4" />}
+                                {tag.text}
+                            </span>
+                        ))}
                     </div>
                 </div>
             </header>
@@ -117,7 +141,7 @@ export default function HandwrittenChapter4() {
             {/* COLLAPSE OF THE MIGHTY: THE FOREIGN HAMMER BLOWS */}
             <div className="max-w-6xl mx-auto mb-20">
                 <h2 className="text-3xl font-['Permanent_Marker'] danger-red mb-8 flex items-center gap-3">
-                    <ShieldAlert className="w-10 h-10" /> THE FOREIGN HAMMER BLOWS
+                    <ShieldAlert className="w-10 h-10" /> {t.hammerTitle}
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -126,16 +150,16 @@ export default function HandwrittenChapter4() {
                         <div className="absolute top-0 right-0 p-4 opacity-5 bg-red-100 rounded-bl-full">
                             <Gem className="w-32 h-32" />
                         </div>
-                        <h3 className="text-2xl font-bold danger-red mb-4 border-b-2 border-red-100 pb-2">Nadir Shah (The Persian - 1739)</h3>
+                        <h3 className="text-2xl font-bold danger-red mb-4 border-b-2 border-red-100 pb-2">{t.nadirTitle}</h3>
                         <p className="text-xl leading-relaxed body-handwritten mb-6">
-                            Exposed the "Hollow Empire". Defeated Emperor <span className="font-bold">Muhammad Shah</span> at <span className="marker-yellow">Battle of Karnal</span>.
+                            {t.nadirText}<span className="marker-yellow">{t.nadirBattle}</span>。
                         </p>
                         <div className="bg-red-50 p-4 rounded-xl border border-red-200">
-                            <p className="font-bold text-red-900 mb-2 uppercase text-xs tracking-widest">The Loot:</p>
+                            <p className="font-bold text-red-900 mb-2 uppercase text-xs tracking-widest">{t.nadirLoot}</p>
                             <div className="flex flex-wrap gap-3">
-                                <Badge className="bg-red-700">70 Crores Cash</Badge>
-                                <Badge className="bg-red-700">Peacock Throne</Badge>
-                                <Badge className="bg-red-700">Kohinoor Diamond</Badge>
+                                {t.nadirItems.map((item, i) => (
+                                    <Badge key={i} className="bg-red-700">{item}</Badge>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -145,13 +169,13 @@ export default function HandwrittenChapter4() {
                         <div className="absolute top-0 right-0 p-4 opacity-5 bg-orange-100 rounded-bl-full">
                             <Sword className="w-32 h-32" />
                         </div>
-                        <h3 className="text-2xl font-bold danger-red mb-4 border-b-2 border-red-100 pb-2">Ahmad Shah Abdali (The Afghan)</h3>
+                        <h3 className="text-2xl font-bold danger-red mb-4 border-b-2 border-red-100 pb-2">{t.abdaliTitle}</h3>
                         <p className="text-xl leading-relaxed body-handwritten mb-6">
-                            Invaded 8 times. The "Final Blow" to Indian unified resistance.
+                            {t.abdaliText}
                         </p>
                         <div className="bg-amber-50 p-4 rounded-xl border border-amber-200">
-                            <p className="font-bold text-amber-900 mb-1 text-lg">Third Battle of Panipat (1761)</p>
-                            <p className="text-sm italic">Crushed the Maratha dream of ruling India. Opened the door for the British.</p>
+                            <p className="font-bold text-amber-900 mb-1 text-lg">{t.panipatTitle}</p>
+                            <p className="text-sm italic">{t.panipatText}</p>
                         </div>
                     </div>
                 </div>
@@ -159,43 +183,41 @@ export default function HandwrittenChapter4() {
 
             {/* REGIONAL FRAGMENTATION: SUCCESSOR STATES */}
             <section className="max-w-7xl mx-auto mb-20 bg-slate-50 p-12 paper-border border-2 border-dashed border-slate-300">
-                <h2 className="text-center text-4xl font-['Permanent_Marker'] mughal-purple mb-12 uppercase">THE RISE OF REGIONAL POWERS</h2>
+                <h2 className="text-center text-4xl font-['Permanent_Marker'] mughal-purple mb-12 uppercase">{t.regionalTitle}</h2>
 
                 <Tabs defaultValue="successor" className="w-full">
                     <TabsList className="w-full grid grid-cols-3 h-16 bg-slate-200 rounded-2xl mb-12 p-2">
-                        <TabsTrigger value="successor" className="rounded-xl font-bold data-[state=active]:bg-green-700 data-[state=active]:text-white transition-all">Successor States</TabsTrigger>
-                        <TabsTrigger value="independent" className="rounded-xl font-bold data-[state=active]:bg-orange-600 data-[state=active]:text-white transition-all">Independent Kingdoms</TabsTrigger>
-                        <TabsTrigger value="new" className="rounded-xl font-bold data-[state=active]:bg-red-700 data-[state=active]:text-white transition-all">New States (Rebels)</TabsTrigger>
+                        <TabsTrigger value="successor" className="rounded-xl font-bold data-[state=active]:bg-green-700 data-[state=active]:text-white transition-all">{t.tabSuccessor}</TabsTrigger>
+                        <TabsTrigger value="independent" className="rounded-xl font-bold data-[state=active]:bg-orange-600 data-[state=active]:text-white transition-all">{t.tabIndependent}</TabsTrigger>
+                        <TabsTrigger value="new" className="rounded-xl font-bold data-[state=active]:bg-red-700 data-[state=active]:text-white transition-all">{t.tabNew}</TabsTrigger>
                     </TabsList>
 
                     {/* 1. SUCCESSOR STATES */}
                     <TabsContent value="successor" className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <Card className="cracked-card border-l-8 border-green-800">
                             <CardContent className="p-6">
-                                <h4 className="text-2xl font-['Permanent_Marker'] successor-green mb-2">Hyderabad (1724)</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">Founder: Nizam-ul-Mulk Asaf Jah</p>
+                                <h4 className="text-2xl font-['Permanent_Marker'] successor-green mb-2">{t.hyderabadTitle}</h4>
+                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.hyderabadFounder}</p>
+                                <p className="body-handwritten text-lg leading-snug">{t.hyderabadText}</p>
+                            </CardContent>
+                        </Card>
+                        <Card className="cracked-card border-l-8 border-green-800">
+                            <CardContent className="p-6">
+                                <h4 className="text-2xl font-['Permanent_Marker'] successor-green mb-2">{t.bengalTitle}</h4>
+                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.bengalFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">
-                                    Disgusted by the frivolous Delhi court. Established a strong, efficient administration in the Deccan.
+                                    {t.bengalText}
+                                    <span className="block mt-2 italic text-sm">{t.bengalKey}</span>
                                 </p>
                             </CardContent>
                         </Card>
                         <Card className="cracked-card border-l-8 border-green-800">
                             <CardContent className="p-6">
-                                <h4 className="text-2xl font-['Permanent_Marker'] successor-green mb-2">Bengal (1717)</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">Founder: Murshid Quli Khan</p>
+                                <h4 className="text-2xl font-['Permanent_Marker'] successor-green mb-2">{t.awadhTitle}</h4>
+                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.awadhFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">
-                                    The "Paradises of India". Prosperous through trade. Ruled by Alivardi Khan later.
-                                    <span className="block mt-2 italic text-sm">Key: Jagat Seths (Banking) rose here.</span>
-                                </p>
-                            </CardContent>
-                        </Card>
-                        <Card className="cracked-card border-l-8 border-green-800">
-                            <CardContent className="p-6">
-                                <h4 className="text-2xl font-['Permanent_Marker'] successor-green mb-2">Awadh (1722)</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">Founder: Saadat Khan</p>
-                                <p className="body-handwritten text-lg leading-snug">
-                                    Burhan-ul-Mulk. Committed suicide after Nadir Shah's invasion.
-                                    <span className="block mt-2 text-red-700">Architecture: Bara Imambara (1784) by Asaf-ud-Daula.</span>
+                                    {t.awadhText}
+                                    <span className="block mt-2 text-red-700">{t.awadhArch}</span>
                                 </p>
                             </CardContent>
                         </Card>
@@ -205,30 +227,24 @@ export default function HandwrittenChapter4() {
                     <TabsContent value="independent" className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <Card className="cracked-card border-l-8 border-orange-600">
                             <CardContent className="p-6">
-                                <h4 className="text-2xl font-['Permanent_Marker'] text-orange-700 mb-2">Mysore (1761)</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">Haidar Ali & Tipu Sultan</p>
-                                <p className="body-handwritten text-lg leading-snug">
-                                    Modernized army. Controlled Malabar trade. Tipu used Rockets & French support.
-                                </p>
+                                <h4 className="text-2xl font-['Permanent_Marker'] text-orange-700 mb-2">{t.mysoreTitle}</h4>
+                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.mysoreFounder}</p>
+                                <p className="body-handwritten text-lg leading-snug">{t.mysoreText}</p>
                             </CardContent>
                         </Card>
                         <Card className="cracked-card border-l-8 border-orange-600">
                             <CardContent className="p-6 relative">
-                                <div className="absolute top-2 right-2 p-1 bg-yellow-100 text-[10px] font-bold uppercase rounded">Science King</div>
-                                <h4 className="text-2xl font-['Permanent_Marker'] text-orange-700 mb-2">Rajputs (Jaipur)</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">Sawai Jai Singh</p>
-                                <p className="body-handwritten text-lg leading-snug">
-                                    Built <strong>Jantar Mantar</strong> (5 observatories). Wrote <em>Jij Muhammad Shahi</em> (Astronomy). Scientist-King!
-                                </p>
+                                <div className="absolute top-2 right-2 p-1 bg-yellow-100 text-[10px] font-bold uppercase rounded">{t.rajputLabel}</div>
+                                <h4 className="text-2xl font-['Permanent_Marker'] text-orange-700 mb-2">{t.rajputTitle}</h4>
+                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.rajputFounder}</p>
+                                <p className="body-handwritten text-lg leading-snug">{t.rajputText}</p>
                             </CardContent>
                         </Card>
                         <Card className="cracked-card border-l-8 border-orange-600">
                             <CardContent className="p-6">
-                                <h4 className="text-2xl font-['Permanent_Marker'] text-orange-700 mb-2">Kerala</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">Martanda Varma & Rama Varma</p>
-                                <p className="body-handwritten text-lg leading-snug">
-                                    Unified Travancore. <strong>Rama Varma (Dharma Raja)</strong> made Trivandrum a scholarship hub.
-                                </p>
+                                <h4 className="text-2xl font-['Permanent_Marker'] text-orange-700 mb-2">{t.keralaTitle}</h4>
+                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.keralaFounder}</p>
+                                <p className="body-handwritten text-lg leading-snug">{t.keralaText}</p>
                             </CardContent>
                         </Card>
                     </TabsContent>
@@ -238,31 +254,29 @@ export default function HandwrittenChapter4() {
                         <Card className="cracked-card border-l-8 border-red-700 bg-red-50/10">
                             <CardContent className="p-6 relative overflow-hidden">
                                 <div className="absolute top-2 right-2 opacity-5"><Coins className="w-12 h-12" /></div>
-                                <h4 className="text-2xl font-['Permanent_Marker'] text-red-800 mb-2">The Marathas</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">The Peshwas</p>
+                                <h4 className="text-2xl font-['Permanent_Marker'] text-red-800 mb-2">{t.marathaTitle}</h4>
+                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.marathaFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">
-                                    Strongest power, but fragmented.
-                                    <span className="block mt-2 font-bold text-red-900 border-t pt-2">Taxes: Chauth (1/4th) & Sardeshmukhi (+10%).</span>
+                                    {t.marathaText}
+                                    <span className="block mt-2 font-bold text-red-900 border-t pt-2">{t.marathaTax}</span>
                                 </p>
                             </CardContent>
                         </Card>
                         <Card className="cracked-card border-l-8 border-red-700 bg-red-50/10">
                             <CardContent className="p-6">
-                                <h4 className="text-2xl font-['Permanent_Marker'] text-red-800 mb-2">The Sikhs</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">12 Misls &rarr; Ranjit Singh</p>
+                                <h4 className="text-2xl font-['Permanent_Marker'] text-red-800 mb-2">{t.sikhTitle}</h4>
+                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.sikhFounder}</p>
                                 <p className="body-handwritten text-lg leading-snug">
-                                    Unified by Maharaja Ranjit Singh.
-                                    <span className="block mt-2 italic text-sm">Revenue: <strong>Rakhi System</strong> (20% protection tax).</span>
+                                    {t.sikhText}
+                                    <span className="block mt-2 italic text-sm">{t.sikhRevenue}</span>
                                 </p>
                             </CardContent>
                         </Card>
                         <Card className="cracked-card border-l-8 border-red-700 bg-red-50/10">
                             <CardContent className="p-6">
-                                <h4 className="text-2xl font-['Permanent_Marker'] text-red-800 mb-2">The Jats</h4>
-                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">Churaman, Badan Singh, Suraj Mal</p>
-                                <p className="body-handwritten text-lg leading-snug">
-                                    The agriculturists. Suraj Mal = "The Plato of the Jats". Independent Bharatpur state.
-                                </p>
+                                <h4 className="text-2xl font-['Permanent_Marker'] text-red-800 mb-2">{t.jatTitle}</h4>
+                                <p className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest">{t.jatFounder}</p>
+                                <p className="body-handwritten text-lg leading-snug">{t.jatText}</p>
                             </CardContent>
                         </Card>
                     </TabsContent>
@@ -276,15 +290,15 @@ export default function HandwrittenChapter4() {
                         <AlertTriangle className="w-16 h-16" />
                     </div>
                     <div>
-                        <h3 className="text-2xl font-['Permanent_Marker'] mb-4 uppercase tracking-widest text-amber-500">The "Forgotten" Buffer States</h3>
+                        <h3 className="text-2xl font-['Permanent_Marker'] mb-4 uppercase tracking-widest text-amber-500">{t.bufferTitle}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 body-handwritten text-lg italic">
                             <div className="border-l border-stone-500 pl-4">
-                                <p className="font-bold text-amber-400">Rohillas:</p>
-                                <p>Ali Muhammad Khan. Region: Rohilkhand. Capital: Aonla/Rampur. Buffered Delhi from Awadh.</p>
+                                <p className="font-bold text-amber-400">{t.rohillasLabel}</p>
+                                <p>{t.rohillasText}</p>
                             </div>
                             <div className="border-l border-stone-500 pl-4">
-                                <p className="font-bold text-amber-400">Bangash Pathans:</p>
-                                <p>Muhammad Khan Bangash. Established around Farrukhabad. Ferocious warriors.</p>
+                                <p className="font-bold text-amber-400">{t.bangashLabel}</p>
+                                <p>{t.bangashText}</p>
                             </div>
                         </div>
                     </div>
@@ -293,39 +307,36 @@ export default function HandwrittenChapter4() {
 
             {/* SOCIO-ECONOMIC LIFE: THE SINK OF GOLD */}
             <section className="max-w-6xl mx-auto mb-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-
                 {/* Economy Card */}
                 <div className="bg-white p-8 paper-border border-4 border-slate-800 relative shadow-lg">
                     <div className="absolute top-0 right-0 p-4 opacity-10"><Coins className="w-16 h-16" /></div>
-                    <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 underline decoration-yellow-400 decoration-4">Economy: The Sink of Gold</h3>
+                    <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 underline decoration-yellow-400 decoration-4">{t.economyTitle}</h3>
                     <ul className="body-handwritten text-lg space-y-3">
-                        <li>• India was a net importer of bullion.</li>
-                        <li>• <span className="font-bold">Trade Centers:</span> Dacca (Muslin), Murshidabad (Silk), Surat (Diamonds).</li>
-                        <li>• <strong>Shipbuilding:</strong> Thriving in Maharashtra/Andhra. (Even Turkey bought Indian ships!)</li>
-                        <li>• <strong>Banking:</strong> The Jagat Seths dominated.</li>
+                        {t.economyItems.map((item, i) => (
+                            <li key={i}>• {typeof item === 'string' ? item : <><strong>{item.bold}</strong>{item.text}</>}</li>
+                        ))}
                     </ul>
                 </div>
 
                 {/* Society Card */}
                 <div className="bg-white p-8 paper-border border-4 border-slate-800 relative shadow-lg">
                     <div className="absolute top-0 right-0 p-4 opacity-10"><Ghost className="w-16 h-16" /></div>
-                    <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 underline decoration-red-400 decoration-4">Society: Rigid & Divisive</h3>
+                    <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 underline decoration-red-400 decoration-4">{t.societyTitle}</h3>
                     <ul className="body-handwritten text-lg space-y-3">
-                        <li>• <strong>Caste:</strong> Central point of social life.</li>
-                        <li>• <strong>Women:</strong> Patriarchal. Sati (common in Rajputs/Bengals), Purdah, Child Marriage.</li>
-                        <li>• <strong>Slavery:</strong> Domestic & Agricultural existed.</li>
-                        <li>• <strong>Education:</strong> Pathshalas/Tols (Hindu) & Maktabs/Madrasas (Muslim).</li>
+                        {t.societyItems.map((item, i) => (
+                            <li key={i}>• <strong>{item.bold}</strong>{item.text}</li>
+                        ))}
                     </ul>
                 </div>
 
                 {/* Culture Card */}
                 <div className="bg-white p-8 paper-border border-4 border-slate-800 relative shadow-lg">
                     <div className="absolute top-0 right-0 p-4 opacity-10"><Feather className="w-16 h-16" /></div>
-                    <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 underline decoration-purple-400 decoration-4">Culture: The Camp Language</h3>
+                    <h3 className="marker-label text-2xl mb-6 flex items-center gap-2 underline decoration-purple-400 decoration-4">{t.cultureTitle}</h3>
                     <ul className="body-handwritten text-lg space-y-3">
-                        <li>• <strong>Urdu:</strong> "The Camp Language" rose as elite tongue.</li>
-                        <li>• <span className="font-bold">Literary Wave:</span>Warish Shah (Heer Ranjha), Shah Abdul Latif (Risalo), Tayumanavar (Tamil).</li>
-                        <li>• <strong>Art:</strong> Decline of Imperial Mughal &rarr; Rise of Kangra & Rajput schools.</li>
+                        {t.cultureItems.map((item, i) => (
+                            <li key={i}>• <strong>{item.bold}</strong>{item.text}</li>
+                        ))}
                     </ul>
                 </div>
             </section>
@@ -334,8 +345,8 @@ export default function HandwrittenChapter4() {
             <div className="max-w-4xl mx-auto mb-20 text-center">
                 <div className="bg-white p-12 paper-border border-2 border-slate-300 relative overflow-hidden flex flex-col items-center">
                     <MapIcon className="w-16 h-16 text-slate-300 mb-4" />
-                    <p className="text-3xl font-['Permanent_Marker'] text-slate-400 mb-2 uppercase opacity-40">[ MAP: 18th Century India ]</p>
-                    <p className="body-handwritten text-lg italic text-slate-500">"A fractured crown leads to a foreign throne."</p>
+                    <p className="text-3xl font-['Permanent_Marker'] text-slate-400 mb-2 uppercase opacity-40">{t.mapPlaceholder}</p>
+                    <p className="body-handwritten text-lg italic text-slate-500">{t.mapQuote}</p>
                     <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-red-500/5 rounded-full blur-3xl"></div>
                     <div className="absolute -top-6 -right-6 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl"></div>
                 </div>
@@ -343,7 +354,7 @@ export default function HandwrittenChapter4() {
 
             <footer className="text-center pb-12">
                 <Quote className="w-8 h-8 text-slate-300 mx-auto mb-4" />
-                <p className="marker-label text-slate-400 uppercase text-xs tracking-widest font-bold">--- The Fragmented Past ends here ---</p>
+                <p className="marker-label text-slate-400 uppercase text-xs tracking-widest font-bold">{t.footerText}</p>
                 <div className="flex justify-center gap-2 mt-4 opacity-20">
                     <div className="w-2 h-2 rounded-full bg-slate-400"></div>
                     <div className="w-2 h-2 rounded-full bg-slate-400"></div>
