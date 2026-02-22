@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, HelpCircle, AlertTriangle, ThumbsUp } from "lucide-react";
-import { getChapterConfidence, setChapterConfidence } from "@/services/progressStorage";
+import { getChapterConfidence, setChapterConfidence, markChapterComplete } from "@/services/progressStorage";
 import { toast } from "sonner";
 
 interface ConfidencePollProps {
@@ -24,6 +24,7 @@ export default function ConfidencePoll({ chapterId, onPollSubmit }: ConfidencePo
 
     const handleSelect = (level: 'high' | 'medium' | 'low') => {
         setChapterConfidence(chapterId, level);
+        markChapterComplete(chapterId); // Log to completedChapters + chapterLogs for retention tracking
         setConfidence(level);
         setIsSubmitted(true);
         toast.success("Confidence level saved!");

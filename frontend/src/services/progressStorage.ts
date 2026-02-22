@@ -554,6 +554,127 @@ export function getDecayCurvePoints(chapterId: string) {
     };
 }
 
+// ============================================
+// RETENTION SUMMARY (One-Stop Dashboard API)
+// ============================================
+
+export interface RetentionTopicInfo {
+    chapterId: string;
+    topicName: string;
+    retrievability: number;
+    stability: number;
+    daysSince: number;
+    daysUntilReview: number;
+    status: 'mastered' | 'stable' | 'review_soon' | 'critical' | 'forgotten' | 'new';
+    confidence: 'high' | 'medium' | 'low' | null;
+    lastReviewedDate: string;
+}
+
+export interface RetentionSummary {
+    avgRetention: number;
+    topicsLearned: number;
+    criticalCount: number;
+    streak: number;
+    criticalTopics: RetentionTopicInfo[];
+    todaysDueTopics: RetentionTopicInfo[];
+    allTopics: RetentionTopicInfo[];
+    mostCriticalTopic: RetentionTopicInfo | null;
+}
+
+/**
+ * Scans ALL tracked topics and calculates live retention stats.
+ * This is the single source of truth for the Retention Dashboard.
+ */
+export function getRetentionSummary(): RetentionSummary {
+    const progress = getLearningProgress();
+    const stats = getStudentStats();
+    const logs = progress.chapterLogs || {};
+    const confidenceMap = progress.chapterConfidence || {};
+
+    const allTopics: RetentionTopicInfo[] = [];
+
+    // Iterate over all logged chapters
+    Object.entries(logs).forEach(([chapterId, timestamp]) => {
+        const srData = getTopicRetention(chapterId);
+        const topicName = chapterId
+            .split('-')
+            .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(' ');
+
+        allTopics.push({
+            chapterId,
+            topicName,
+            retrievability: srData.retrievability,
+            stability: srData.stability,
+            daysSince: srData.daysSince || 0,
+            daysUntilReview: srData.daysUntilReview || 0,
+            status: srData.status,
+            confidence: confidenceMap[chapterId] || null,
+            lastReviewedDate: new Date(timestamp).toLocaleDateString('en-IN', {
+                day: 'numeric', month: 'short', year: 'numeric'
+            })
+        });
+    });
+
+    // Sort by retrievability (most critical first)
+    allTopics.sort((a, b) => a.retrievability - b.retrievability);
+
+    const criticalTopics = allTopics.filter(t => t.retrievability < 0.6);
+    const todaysDueTopics = allTopics.filter(t => t.daysUntilReview <= 0 && t.status !== 'new');
+
+    const avgRetention = allTopics.length > 0
+        ? allTopics.reduce((sum, t) => sum + t.retrievability, 0) / allTopics.length
+        : 0;
+
+    return {
+        avgRetention,
+        topicsLearned: allTopics.length,
+        criticalCount: criticalTopics.length,
+        streak: stats?.overallStreak || 0,
+        criticalTopics,
+        todaysDueTopics,
+        allTopics,
+        mostCriticalTopic: criticalTopics.length > 0 ? criticalTopics[0] : (allTopics[0] || null),
+    };
+}
+
+/**
+ * Records the result of a retention quiz/survey.
+ * Adjusts stability based on actual performance, resets decay clock.
+ * 
+ * @param chapterId - The chapter tested
+ * @param score - Score out of total (0.0 to 1.0)
+ */
+export function recordRevisionResult(chapterId: string, score: number): void {
+    const progress = getLearningProgress();
+    const currentStability = progress.chapterStability?.[chapterId] || 2;
+
+    let newStability: number;
+    if (score >= 0.9) {
+        // Excellent recall — double stability
+        newStability = currentStability * 2.2;
+    } else if (score >= 0.6) {
+        // Decent recall — slight increase
+        newStability = currentStability * 1.5;
+    } else {
+        // Poor recall — reset to initial
+        newStability = 1;
+    }
+
+    // Update stability and reset the decay clock (new timestamp)
+    saveLearningProgress({
+        chapterStability: {
+            ...(progress.chapterStability || {}),
+            [chapterId]: Number(newStability.toFixed(2))
+        },
+        chapterLogs: {
+            ...(progress.chapterLogs || {}),
+            [chapterId]: Date.now()
+        }
+    });
+}
+
+
 
 // ============================================
 // MEDITATION PROGRESS
